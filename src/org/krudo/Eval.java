@@ -1,9 +1,15 @@
+/**
+ * Krudo 0.16a 
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
 package org.krudo;
 
 // required static class
 import static org.krudo.Const.*;
-import static org.krudo.Zobrist.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.utils.Zobrist.*;
+import static org.krudo.utils.Tools.*;
 
 //
 public final class Eval {
@@ -600,7 +606,7 @@ public final class Eval {
 		/* tempo bonus 
 			player hava turn have 5point bonus
 		*/ 
-		int tot = n.T==w ? wtt-btt : btt-wtt; 
+		int tot = n.t==w ? wtt-btt : btt-wtt; 
 		
 		if (debug) {
 			echo("");
@@ -617,7 +623,7 @@ public final class Eval {
 			echo(lpad("Position:",14),		rpad(wmw,9),rpad(bmw,9));
 			echo(lpad("Partial:",14),		rpad(wtt,9),	rpad(btt,9));
 			echo("---------------------------------------");
-			echo(lpad("Total:",14),	rpad(tot,9), n.T==w?"for white":"for black");
+			echo(lpad("Total:",14),	rpad(tot,9), n.t==w?"for white":"for black");
 		}
 		
 		//

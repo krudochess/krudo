@@ -1,8 +1,8 @@
 package org.krudo.test.base;
 
 //
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.utils.Debug.*;
+import static org.krudo.utils.Tools.*;
 
 // 
 import org.krudo.Node;

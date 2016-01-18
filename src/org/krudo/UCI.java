@@ -1,3 +1,9 @@
+/**
+ * Krudo 0.16a 
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
 package org.krudo;
 
 // required static class
@@ -52,18 +58,18 @@ public final class UCI {
 		public void run() {
 			
 			//
-			switch (Krudo.t.s.logAction) {
+			switch (Krudo.engine.search.logAction) {
 			
 				//
 				case SEARCH_LOG_UP:
 					
 					//
-					Krudo.c.put(INFO, 
-						DEPTH,		Krudo.t.s.logDeep, 
-						SCORE_CP,	Krudo.t.s.logWeight,
-						TIME,		Krudo.t.s.logTime,
-						NODES,		Krudo.t.s.logNodes,
-						PV,			Krudo.t.s.logLine
+					Krudo.console.print(INFO, 
+						DEPTH,		Krudo.engine.search.logDeep, 
+						SCORE_CP,	Krudo.engine.search.logWeight,
+						TIME,		Krudo.engine.search.logTime,
+						NODES,		Krudo.engine.search.logNodes,
+						PV,			Krudo.engine.search.logLine
 					);
 					
 					//
@@ -73,10 +79,10 @@ public final class UCI {
 				case SEARCH_LOG_BM:
 					
 					//
-					Krudo.t.bm = Krudo.t.s.logMove;
+					Krudo.engine.bm = Krudo.engine.search.logMove;
 					
 					//
-					Krudo.t.bmc.run();
+					Krudo.engine.bmc.run();
 					
 					//
 					break;		
@@ -92,7 +98,7 @@ public final class UCI {
 		public void run() {
 			
 			//
-			Krudo.c.put(BESTMOVE, Krudo.t.bm);									
+			Krudo.console.print(BESTMOVE, Krudo.engine.bm);									
 		}	
 	};			
 		
@@ -167,34 +173,7 @@ public final class UCI {
 		else if (s.startsWith("stop")) {
             i.cmd = STOP;        
 		} 
-		
-		//
-		else if (s.startsWith("dogame")) {
-            i.cmd = CMD.DOGAME;		
-		} 
-		
-		//
-		else if (s.startsWith("domove")) {
-            i.cmd = CMD.DOMOVE;
-			i.arg = s.substring(7).split("\\s+");        
-		}
-		
-		//
-		else if (s.startsWith("unmove")) {
-            i.cmd = CMD.UNMOVE;        
-		} 
-
-		//
-		else if (s.startsWith("perft")) {
-            i.cmd = CMD.PERFT;      
-			i.arg = s.substring(6).split("\\s+");
-		} 
-
-		//
-		else if (s.startsWith("dump")) {
-            i.cmd = CMD.DUMP;
-		} 
-		
+			
 		//
 		else if (s.startsWith("quit")) {
             i.cmd = CMD.QUIT;        

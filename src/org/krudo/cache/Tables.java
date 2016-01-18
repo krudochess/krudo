@@ -4,7 +4,7 @@ package org.krudo.cache;
 import java.util.LinkedHashMap;
 
 //
-public final class Table extends LinkedHashMap<Long,TableRecord> {
+public final class Tables extends LinkedHashMap<Long,TableRecord> {
 	
 	public static final int ALPHA = 1;
 	public static final int BETA = 2;

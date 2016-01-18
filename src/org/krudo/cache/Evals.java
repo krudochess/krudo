@@ -7,9 +7,9 @@ import static org.krudo.Const.*;
 import java.util.LinkedHashMap;
 
 //
-public class Eval extends LinkedHashMap<Long,Integer> {
+public class Evals extends LinkedHashMap<Long,Integer> {
 	// 
-	public Eval() {		
+	public Evals() {		
 
 		//
 		super(EVAL_CACHE_SIZE, 0.95f, true);	

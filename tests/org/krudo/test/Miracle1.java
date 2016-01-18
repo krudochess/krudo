@@ -1,11 +1,11 @@
 package org.krudo.test;
 
-import static org.krudo.util.Debug.*;
+import static org.krudo.utils.Debug.*;
 import static org.krudo.Const.*;
 
 import org.krudo.Node;
-import org.krudo.Thinker;
-import static org.krudo.util.Tools.*;
+import org.krudo.Engine;
+import static org.krudo.utils.Tools.*;
 
 //
 public class Miracle1 {

@@ -1,9 +1,9 @@
 package org.krudo.test.base;
 
 //
-import static org.krudo.util.Tools.*;
+import static org.krudo.utils.Tools.*;
 import static org.krudo.Const.*;
-import static org.krudo.Zobrist.hash;
+import static org.krudo.utils.Zobrist.hash;
 
 //
 import org.krudo.Node;

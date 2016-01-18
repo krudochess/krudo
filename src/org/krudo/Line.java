@@ -1,33 +1,37 @@
+/**
+ * Krudo 0.16a 
+ * by Francesco Bianco <bianco@javanile.org>
+ */
 package org.krudo;
 
-// class for contain move-hystory or sequence in game
+// class for contain move-hystory or move sequence in game
 public final class Line {	
 
 	// internal constants
 	private final static int 
-	LINE_SIZE	= 300;	// maximum number of half move into line
+	MAX = 300; // maximum number of half move into line
 	
 	// stack move fields 
 	public final int[] 
-	p,	// piece
-	s,	// start square
-	v,	// versus square
-	x,	// captured piece
-	k,	// kind-of-move
-	e,	// en-passant square
-	c;	// castling status
+	p, // piece
+	s, // start square
+	v, // versus square
+	x, // captured piece
+	k, // kind-of-move
+	e, // en-passant square
+	c; // castling status
 	
 	// constuctor
-	public Line() {
-		
+	public Line() 
+	{		
 		// initialization of memory 
-		p = new int[LINE_SIZE];
-		s = new int[LINE_SIZE];
-		v = new int[LINE_SIZE];
-		x = new int[LINE_SIZE];
-		k = new int[LINE_SIZE];
-		e = new int[LINE_SIZE];	
-		c = new int[LINE_SIZE];		
+		p = new int[MAX];
+		s = new int[MAX];
+		v = new int[MAX];
+		x = new int[MAX];
+		k = new int[MAX];
+		e = new int[MAX];	
+		c = new int[MAX];		
 	}
 	
 	// add move into stack 
@@ -41,7 +45,6 @@ public final class Line {
 		final int e0, 
 		final int c0
 	) {
-		
 		// put and next record
 		p[i0] = p0;		
 		s[i0] = s0;

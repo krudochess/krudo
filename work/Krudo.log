@@ -1,0 +1,36 @@
+
+$ Fri Jul 31 15:27:11 CEST 2015
+! Krudo 0.15a by Francesco Bianco <bianco@javanile.org>
+? ciao
+? ciao
+? quit
+! exit
+
+$ Fri Jul 31 15:44:58 CEST 2015
+& java.lang.OutOfMemoryError: Java heap space
+	at org.krudo.Move.<init>(Move.java:57)
+	at org.krudo.Move.<clinit>(Move.java:48)
+	at org.krudo.Search.<init>(Search.java:66)
+	at org.krudo.Thinker.<init>(Thinker.java:41)
+	at org.krudo.Krudo.main(Krudo.java:49)
+! exit
+
+$ Fri Jul 31 15:52:15 CEST 2015
+! Krudo 0.15a by Francesco Bianco <bianco@javanile.org>
+& java.lang.OutOfMemoryError: Java heap space
+	at org.krudo.Move.<init>(Move.java:56)
+	at org.krudo.Move.<clinit>(Move.java:48)
+	at org.krudo.Search.<init>(Search.java:66)
+	at org.krudo.Thinker.<init>(Thinker.java:41)
+	at org.krudo.Krudo.main(Krudo.java:30)
+! exit
+
+$ Fri Jul 31 15:59:17 CEST 2015
+! Krudo 0.15a by Francesco Bianco <bianco@javanile.org>
+& java.lang.OutOfMemoryError: Java heap space
+	at org.krudo.Move.<init>(Move.java:55)
+	at org.krudo.Move.<clinit>(Move.java:48)
+	at org.krudo.Search.<init>(Search.java:66)
+	at org.krudo.Thinker.<init>(Thinker.java:41)
+	at org.krudo.Krudo.main(Krudo.java:30)
+! exit

@@ -1,13 +1,20 @@
-package org.krudo;
+/**
+ * Krudo 0.16a 
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
+package org.krudo.utils;
 
 // required static constants
+import org.krudo.Node;
 import static org.krudo.Const.*;
 
 // zobrist tool class
 public final class Zobrist {
 		
 	// hash random constants
-	private static final long[] hash = {
+	private static final long[] HASH = {
 		0x9D39247E33776D41L, 0x2AF7398005AAA5C7L, 0x44DB015024623547L, 0x9C15F73E62A76AE2L,
 		0x75834465489C0C89L, 0x3290AC3A203001BFL, 0x0FBBAD1F61042279L, 0xE83A908FF2FB60CAL,
 		0x0D7E765D58755C10L, 0x1A083822CEAFE02DL, 0x9605D5F0E25EC3B0L, 0xD021FF5CD13A2ED5L,
@@ -223,21 +230,17 @@ public final class Zobrist {
 	hash_bqc = 0x1EF6E6DBB1961EC9L, // hash[bqc],
 	hash_t   = 0xF8D626AAAF278509L; // hash[t];
 	
-	// temporary hash value
-	private static long h;
-
-	// square cursor for hashing loop
-	private static int s;
-
 	// hashing function 
 	public static final long hash(Node n) {
 				
 		//
-		h = 0;
+		long h = 0;
 		
 		// hash piece in board
-		for (s=0; s<64; s++) if (n.B[s] != 0) { 
-			h ^= hash[n.B[s] & hi | s];
+		for (int s = 0; s < 64; s++) {
+			if (n.B[s] != 0) { 
+				h ^= HASH[n.B[s] & hi | s];
+			}
 		}
 				
 		// hash white king-side castling
@@ -262,25 +265,25 @@ public final class Zobrist {
 						
 		// hash potential en-passnt 
 		if (n.e != 0) {
-			if (n.T == w) {
+			if (n.t == w) {
 				if (span[n.e][se] != xx && n.B[span[n.e][se]] == wp) {
-					h ^= hash[e + n.e % 8];									
+					h ^= HASH[e + n.e % 8];									
 				} else if (span[n.e][sw] != xx && n.B[span[n.e][sw]] == wp) {
-					h ^= hash[e + n.e % 8];				
+					h ^= HASH[e + n.e % 8];				
 				}
 			} else {
 				if (span[n.e][ne] != xx && n.B[span[n.e][ne]] == bp) {
-					h ^= hash[e + n.e % 8];				
+					h ^= HASH[e + n.e % 8];				
 				} else if (span[n.e][nw] != xx) {
 					if (n.B[span[n.e][nw]] == bp) {
-						h ^= hash[e + n.e % 8];
+						h ^= HASH[e + n.e % 8];
 					}
 				}
 			}					
 		} 		
 		
 		// apply hash for side-color to play (turn)
-		if (n.T == w) { 
+		if (n.t == w) { 
 			h ^= hash_t;
 		}
 			

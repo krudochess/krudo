@@ -1,12 +1,12 @@
 package org.krudo.test;
 
-import static org.krudo.util.Debug.*;
+import static org.krudo.utils.Debug.*;
 import static org.krudo.Const.*;
 
 import org.krudo.Node;
-import org.krudo.Thinker;
+import org.krudo.Engine;
 import org.krudo.Search;
-import static org.krudo.util.Tools.*;
+import static org.krudo.utils.Tools.*;
 
 //
 public class Checkmate1 {
@@ -44,7 +44,7 @@ public class Checkmate1 {
 				
 		String fen = "8/4r2k/pp1p2r1/8/1PP2pqp/3Q4/P1N2Kb1/6RR b";
 		
-		final Thinker t = new Thinker();
+		final Engine t = new Engine();
 				
 		t.startpos(fen);
 	

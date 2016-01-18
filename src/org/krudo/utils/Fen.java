@@ -1,22 +1,30 @@
-package org.krudo;
+/**
+ * Krudo 0.16a 
+ * by Francesco Bianco <bianco@javanile.org>
+ */
 
-// required non-static class
+// utility to parse fen string
+package org.krudo.utils;
+
+// required non-static classes
+import org.krudo.Node;
+
+// required static classes and methods
 import static org.krudo.Const.*;
-import static org.krudo.util.Trans.*;
+import static org.krudo.utils.Trans.*;
 
 // fen class utility
 public final class Fen {
 		
 	// parse fen and apply status into node passed
 	public static final void parse(
-		final Node n,	// node status position rappresentation apply to
-		final String f	// fen string with position to parse
+		final Node n,  // node status position rappresentation apply to
+		final String f // fen string with position to parse
 	) {
 		
 		// base status fields
-		n.B	= new int[64]; // board rappresentation
-		n.T	= w; // color-side to play
-		n.c	= 0b1111; // casting statuc
+		n.t	= w; // color-side to play
+		n.c	= 0b1111; // castling status
 		n.e	= 0;
 		n.cw = 0;
 		n.cb = 0;
@@ -69,8 +77,8 @@ public final class Fen {
 				// turn
 				case 1:	
 					switch(p[i].charAt(0)) {
-						case 'b': n.T = b; break;	
-						case 'w': n.T = w; break;
+						case 'b': n.t = b; break;	
+						case 'w': n.t = w; break;
 					}
 					break;
 				

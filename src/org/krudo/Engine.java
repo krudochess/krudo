@@ -1,17 +1,20 @@
 package org.krudo;
 
 //
-import static org.krudo.Const.*;
-import static org.krudo.util.Tools.*;
+import org.krudo.utils.Book;
 
 //
-public final class Thinker {	
+import static org.krudo.Const.*;
+import static org.krudo.utils.Tools.*;
+
+//
+public final class Engine {	
 	
 	//
-	public final Node n;
+	public final Node node = new Node();
 	
 	//
-	public final Search s;
+	public final Search search = new Search(node);
 		
 	//
 	private long wtime = 60000;
@@ -31,38 +34,33 @@ public final class Thinker {
 	};
 	
 	//
-	public Thinker() {
-			
-		//
-		n = new Node();
-		
-		//
-		s = new Search(n);
+	public final void init() {
+	
 	}
 	
 	//
 	public final void startpos() {
-		n.startpos();
+		node.startpos();
 	}
 	
 	//
 	public final void startpos(String fen) {
-		n.startpos(fen);
+		node.startpos(fen);
 	}
 	
 	//
 	public final void domove(String move) {
-		n.domove(move);
+		node.domove(move);
 	}
 	
 	//
 	public final void domove(String[] moves) {
-		n.domove(moves);
+		node.domove(moves);
 	}
 	
 	//
 	public final void unmove() {
-		n.unmove();
+		node.unmove();
 	}
 	
 	//
@@ -89,7 +87,7 @@ public final class Thinker {
 	public final void go() {
 		
 		//
-		String m = Book.rand(n);
+		String m = Book.rand(node);
 		
 		//
 		if (m != null) {
@@ -108,17 +106,17 @@ public final class Thinker {
 		Cache.legals.clr();
 		
 		//
-		long time = n.T == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
+		long time = node.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
 		
 		// call iterative deeping (wait here)
-		s.start(4);
+		search.start(4);
 	}
 	
 	//
 	public final int eval() {
 
 		//
-		return s.eval(2);
+		return search.eval(2);
 	}
 	
 	//
@@ -128,14 +126,14 @@ public final class Thinker {
 
 	//
 	public final void setSearchLogCallback(Runnable callback) {
-		s.log = callback;
+		search.log = callback;
 	}	
 	
 	//
 	public final boolean isReady() {
 	
 		//
-		n.legals();
+		node.legals();
 		
 		//
 		return true;

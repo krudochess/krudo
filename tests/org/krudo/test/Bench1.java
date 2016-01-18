@@ -1,10 +1,10 @@
 package org.krudo.test;
 
 //
-import static org.krudo.util.Debug.*;
+import static org.krudo.utils.Debug.*;
 import static org.krudo.Const.*;
-import static org.krudo.util.Tools.*;
-import static org.krudo.util.Trans.*;
+import static org.krudo.utils.Tools.*;
+import static org.krudo.utils.Trans.*;
 
 //
 import org.krudo.*;
@@ -25,11 +25,11 @@ public class Bench1 {
 		
 		t = System.currentTimeMillis();
 		for(int i=0; i<10000000; i++) {
-			x = random(0,1000);
-			y = random(0,1000);
-			n = random(0,99);
+			x = rand(0,1000);
+			y = rand(0,1000);
+			n = rand(0,99);
 			a[n] = x << 16 | y;
-			n = random(0,99);
+			n = rand(0,99);
 			x = a[n]>>16;
 			y = a[n]&4;		
 			o = x + y;
@@ -38,12 +38,12 @@ public class Bench1 {
 		
 		t = System.currentTimeMillis();
 		for(int i=0; i<10000000; i++) {
-			x = random(0,1000);
-			y = random(0,1000);
-			n = random(0,99);
+			x = rand(0,1000);
+			y = rand(0,1000);
+			n = rand(0,99);
 			b[n] = x;
 			c[n] = y;			
-			n = random(0,99);
+			n = rand(0,99);
 			x = b[n];
 			y = c[n];			 
 			o = x + y;

@@ -1,14 +1,18 @@
-package org.krudo;
+package org.krudo.utils;
 
-//
-import static org.krudo.Zobrist.*;
-import static org.krudo.util.Tools.*;
-import static org.krudo.util.Trans.*;
 
 //
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import org.krudo.Krudo;
+import org.krudo.Move;
+import org.krudo.Node;
+
+//
+import static org.krudo.utils.Zobrist.*;
+import static org.krudo.utils.Tools.*;
+import static org.krudo.utils.Trans.*;
 
 // book access tool
 public final class Book {
@@ -42,7 +46,7 @@ public final class Book {
 		
 		//
 		catch (FileNotFoundException ex) {
-			Krudo.c.err(ex);			
+			Krudo.console.error(ex);			
 		} 		
 	}
 	
@@ -56,7 +60,7 @@ public final class Book {
 		
 		//
 		catch (IOException ex) {
-			Krudo.c.err(ex);			
+			Krudo.console.error(ex);			
 		}
 	}
 	
@@ -71,7 +75,7 @@ public final class Book {
 		
 		//
 		catch (IOException ex) {
-			Krudo.c.err(ex);
+			Krudo.console.error(ex);
 			stop();
 		}
 		
@@ -143,13 +147,15 @@ public final class Book {
 	) {
 		
 		// get moves stored in book
-		Move a = Book.list(n);
+		//Move a = Book.list(n);
 		
 		// re-give move to buffer
-		Move.psh(a);
+		//Move.psh(a);
 		
 		// return a random move on the availables
-		return a.l > 0 ? i2m(a, random(0, a.l-1)) : null;
+		//return a.l > 0 ? i2m(a, rand(0, a.l-1)) : null;
+		return null;
+				
 	}
 	
 	// convert current move-record into move

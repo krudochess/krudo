@@ -6,44 +6,37 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStreamReader;
 
 // console main class
 public final class Console {
-		
-	// log content 
-	private String l;
-		
+				
 	// log-file handler
 	private FileWriter w;
 	
 	// read input buffer
 	private BufferedReader b;
 
-	//
-	public Console() { 
+	// constructor
+	public final void open(String log) {
 		
 		//
-		this("Console.log"); 	
-	}
-	
-	// constructor
-	public Console(String log) {
 		try {		
-			l = "";
 			w = new FileWriter(log,true);
 			w.flush();
 			b = new BufferedReader(new InputStreamReader(System.in)); 
 			log("\n");
 			log("$ "+new java.util.Date().toString()+"\n");
-		} catch (IOException ex) {
-			out(trk(ex));
+		} 
+		
+		//
+		catch (IOException ex) {
+			send(trace(ex));
 		}
 	}
 	
 	// read input and log it into log-file
-    public final String get() {				
+    public final String input() {				
 		
 		// prepare empty to-return string
 		String s = "";
@@ -60,7 +53,7 @@ public final class Console {
 		
 		//
 		catch (IOException ex) {
-			out(trk(ex));
+			send(trace(ex));
 		}
 				
 		// return string
@@ -68,13 +61,13 @@ public final class Console {
 	}
 
 	// send output to console and log it into log-file 
-    public final void put(Object... args) {        		
+    public final void print(Object... args) {        		
 		
 		// try to send output
 		try {
 			
 			// send out to stdout
-			String s = out(args);
+			String s = send(args);
 			
 			// log this action in log file
 			log("! "+s+"\n");
@@ -82,12 +75,12 @@ public final class Console {
 		
 		// if fail send to out then output an error
 		catch (Exception ex) {			
-			out(trk(ex));
+			send(trace(ex));
 		}		
     }
 
 	// send output to console and return compund string 
-	public final String out(Object... args) {        				
+	private String send(Object... args) {        				
 		
 		// output string
 		String o = "";
@@ -106,14 +99,14 @@ public final class Console {
     }
 
 	// clear console like cls or clear command in bash
-    public final void clr() {
+    public final void clear() {
     
 		//
 		System.out.print(((char) 27)+"[2J");
     }
 
 	// close stdin and stdout and flush pending data
-    public final void end() {
+    public final void close() {
 		
 		//
 		try {			
@@ -130,21 +123,21 @@ public final class Console {
 		
 		//
 		catch (IOException ex) {
-			out(trk(ex));
+			send(trace(ex));
 		}		
 	}
 	
 	//
-	public final void err(Throwable e) {
+	public final void error(Throwable e) {
 		
 		//
-		String o = trk(e);
+		String o = trace(e);
 		
 		//
 		log("& "+o);
 		
 		//
-		out(o);
+		send(o);
 	}
 	
 	//
@@ -152,34 +145,21 @@ public final class Console {
 		
 		//
 		try {
-			
-			//
-			l += arg;
-			
+		
 			//
 			w.write(arg);
 		} 
 		
 		//
 		catch (IOException ex) {
-			out(trk(ex));
+			send(trace(ex));
 		}		
 	}
-	
-	//
-	public final String log() {	
-		return l;
-	}
-	
+
 	// 
-	public final static String trk(Throwable e) {
+	public final static String trace(Throwable e) {
 		StringWriter s = new StringWriter();
 		e.printStackTrace(new PrintWriter(s));
 		return s.toString(); 	
-	}
-	
-	//
-	public final static String pth(String f) {
-		return (System.getenv().containsKey("ENGINEDIR") ? System.getenv().get("ENGINEDIR") : System.getProperty("user.dir"))+File.separator+f;	
 	}
 }

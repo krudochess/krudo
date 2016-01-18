@@ -1,18 +1,18 @@
 package org.krudo;
 
 // required non-static class
-import org.krudo.cache.Eval;
-import org.krudo.cache.Table;
+import org.krudo.cache.Evals;
+import org.krudo.cache.Tables;
 import org.krudo.cache.Legals;
 
 // global cache
 public final class Cache {
 
 	// cache evaluation value hash
-	public static final Eval eval = new Eval();	
+	public static final Evals evals = new Evals();	
 	
 	// cache evaluation value hash
-	public static final Table table = new Table();	
+	public static final Tables tables = new Tables();	
 
 	// cache legal moves of a node based on hash
 	public static final Legals legals = new Legals();		

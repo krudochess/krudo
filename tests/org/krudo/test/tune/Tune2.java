@@ -1,8 +1,8 @@
 package org.krudo.test.tune;
 
 //
-import static org.krudo.util.Tools.*;
-import static org.krudo.util.Debug.*;
+import static org.krudo.utils.Tools.*;
+import static org.krudo.utils.Debug.*;
 
 //
 import org.krudo.Node;

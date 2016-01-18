@@ -1,0 +1,2503 @@
+1438340390.317 POLYGLOT *** LOGFILE OPENED ***
+1438340390.317 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340390.317 POLYGLOT *** SWITCHING LOGFILE ***
+1438340390.317 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340390.322 POLYGLOT *** LOGFILE OPENED ***
+1438340390.323 POLYGLOT *** LOGFILE OPENED ***
+1438340390.323 PolyGlot 2.0.1 by Fabien Letouzey.
+1438340390.323 POLYGLOT *** START ***
+1438340390.323 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438340390.331 Adapter->Engine: uci
+1438340392.397 Engine->Adapter: java.lang.OutOfMemoryError: Java heap space
+1438340392.614 Engine->Adapter: 	at org.krudo.Move.<init>(Move.java:57)
+1438340392.614 Engine->Adapter: 	at org.krudo.Move.<clinit>(Move.java:48)
+1438340392.615 Engine->Adapter: 	at org.krudo.Search.<init>(Search.java:66)
+1438340392.615 Engine->Adapter: 	at org.krudo.Thinker.<init>(Thinker.java:44)
+1438340392.615 Engine->Adapter: 	at org.krudo.Thinker.getInstance(Thinker.java:54)
+1438340392.615 Engine->Adapter: 	at org.krudo.Krudo.<clinit>(Krudo.java:37)
+1438340392.620 Engine->Adapter: EOF
+1438340392.621 POLYGLOG OPTIONS 
+1438340392.621 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438340392.621 POLYGLOT [Polyglot] EngineDir="."
+1438340392.621 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo"
+1438340392.621 POLYGLOT [Polyglot] Log="true"
+1438340392.621 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340392.621 POLYGLOT [Polyglot] Book="false"
+1438340392.621 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438340392.621 POLYGLOT [Polyglot] BookRandom="false"
+1438340392.621 POLYGLOT [Polyglot] BookDepth="256"
+1438340392.621 POLYGLOT [Polyglot] BookLearn="false"
+1438340392.621 POLYGLOT [Polyglot] BookTreshold="5"
+1438340392.621 POLYGLOT [Polyglot] UCI="false"
+1438340392.621 POLYGLOT [Polyglot] UseNice="false"
+1438340392.621 POLYGLOT [Polyglot] NiceValue="5"
+1438340392.621 POLYGLOT [Polyglot] Resign="false"
+1438340392.621 POLYGLOT [Polyglot] ResignMoves="3"
+1438340392.621 POLYGLOT [Polyglot] ResignScore="600"
+1438340392.621 POLYGLOT [Polyglot] MateScore="10000"
+1438340392.621 POLYGLOT [Polyglot] KibitzMove="false"
+1438340392.621 POLYGLOT [Polyglot] KibitzPV="false"
+1438340392.621 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438340392.621 POLYGLOT [Polyglot] KibitzDelay="5"
+1438340392.621 POLYGLOT [Polyglot] KibitzInterval="0"
+1438340392.621 POLYGLOT [Polyglot] ShowPonder="false"
+1438340392.622 POLYGLOT [Polyglot] ScoreWhite="false"
+1438340392.622 POLYGLOT [Polyglot] UCIVersion="2"
+1438340392.622 POLYGLOT [Polyglot] RepeatPV="true"
+1438340392.622 POLYGLOT [Polyglot] SyncStop="false"
+1438340392.622 POLYGLOT [Polyglot] CanPonder="false"
+1438340392.622 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438340392.622 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438340392.622 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438340392.622 POLYGLOT [Engine] Hash="68"
+1438340392.622 POLYGLOT [Engine] Ponder="false"
+1438340392.622 POLYGLOT [Engine] OwnBook="false"
+1438340392.622 POLYGLOT [Engine] Book="false"
+1438340392.622 POLYGLOT [Engine] BookFile="book_small.bin"
+1438340392.622 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438340392.622 POLYGLOT [Engine] NullMove Reduction="3"
+1438340392.622 POLYGLOT [Engine] Verification Search="Endgame"
+1438340392.622 POLYGLOT [Engine] Verification Reduction="5"
+1438340392.622 POLYGLOT [Engine] History Pruning="true"
+1438340392.622 POLYGLOT [Engine] History Threshold="60"
+1438340392.622 POLYGLOT [Engine] Futility Pruning="false"
+1438340392.622 POLYGLOT [Engine] Futility Margin="100"
+1438340392.622 POLYGLOT [Engine] Delta Pruning="false"
+1438340392.622 POLYGLOT [Engine] Delta Margin="50"
+1438340392.622 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438340392.622 POLYGLOT [Engine] Material="100"
+1438340392.623 POLYGLOT [Engine] Piece Activity="100"
+1438340392.623 POLYGLOT [Engine] King Safety="100"
+1438340392.623 POLYGLOT [Engine] Pawn Structure="100"
+1438340392.623 POLYGLOT [Engine] Passed Pawns="100"
+1438340392.623 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438340392.623 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438340392.623 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo"
+1438340392.623 POLYGLOT Setting PolyGlot option "Log=true"
+1438340392.623 POLYGLOT *** SWITCHING LOGFILE ***
+1438340392.623 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340392.884 POLYGLOT *** LOGFILE OPENED ***
+1438340392.884 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340392.884 POLYGLOT *** SWITCHING LOGFILE ***
+1438340392.884 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340392.894 POLYGLOT *** LOGFILE OPENED ***
+1438340392.894 POLYGLOT Setting PolyGlot option "Book=false"
+1438340392.894 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438340392.894 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438340392.894 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438340392.894 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438340392.894 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438340392.894 POLYGLOT Setting PolyGlot option "UCI=false"
+1438340392.894 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438340392.894 POLYGLOT Adjust Engine Piority
+1438340392.894 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438340392.894 POLYGLOT Setting PolyGlot option "Resign=false"
+1438340392.894 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438340392.894 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438340392.894 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438340392.894 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438340392.895 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438340392.895 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438340392.895 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438340392.895 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438340392.895 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438340392.895 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438340392.895 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438340392.895 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438340392.895 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438340392.895 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438340392.895 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438340392.895 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438340392.895 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438340392.896 POLYGLOT *** Mainloop started ***
+1438340392.896 POLYGLOT *** Mainloop has ended ***
+1438340392.896 POLYGLOT Closing engine.
+1438340392.896 Adapter->Engine: EOF
+1438340392.896 POLYGLOT Waiting for child process to exit.
+1438340392.896 POLYGLOT pipex_exit(): java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo: child exited unexpectedly.
+1438340392.897 POLYGLOT *** QUIT ***
+1438340393.098 POLYGLOT Calling exit
+1438340495.869 POLYGLOT *** LOGFILE OPENED ***
+1438340495.869 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340495.869 POLYGLOT *** SWITCHING LOGFILE ***
+1438340495.869 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340495.874 POLYGLOT *** LOGFILE OPENED ***
+1438340495.875 POLYGLOT *** LOGFILE OPENED ***
+1438340495.875 PolyGlot 2.0.1 by Fabien Letouzey.
+1438340495.875 POLYGLOT *** START ***
+1438340495.875 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438340495.884 Adapter->Engine: uci
+1438340495.922 Engine->Adapter: Error occurred during initialization of VM
+1438340495.922 Engine->Adapter: Could not reserve enough space for object heap
+1438340495.922 Engine->Adapter: Error: Could not create the Java Virtual Machine.
+1438340495.922 Engine->Adapter: Error: A fatal exception has occurred. Program will exit.
+1438340495.925 Engine->Adapter: EOF
+1438340495.925 POLYGLOG OPTIONS 
+1438340495.925 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438340495.925 POLYGLOT [Polyglot] EngineDir="."
+1438340495.925 POLYGLOT [Polyglot] EngineCommand="java.exe -Xmx2048m -Xms1024m -client -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo"
+1438340495.925 POLYGLOT [Polyglot] Log="true"
+1438340495.925 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340495.925 POLYGLOT [Polyglot] Book="false"
+1438340495.925 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438340495.925 POLYGLOT [Polyglot] BookRandom="false"
+1438340495.925 POLYGLOT [Polyglot] BookDepth="256"
+1438340495.925 POLYGLOT [Polyglot] BookLearn="false"
+1438340495.925 POLYGLOT [Polyglot] BookTreshold="5"
+1438340495.925 POLYGLOT [Polyglot] UCI="false"
+1438340495.925 POLYGLOT [Polyglot] UseNice="false"
+1438340495.925 POLYGLOT [Polyglot] NiceValue="5"
+1438340495.925 POLYGLOT [Polyglot] Resign="false"
+1438340495.925 POLYGLOT [Polyglot] ResignMoves="3"
+1438340495.925 POLYGLOT [Polyglot] ResignScore="600"
+1438340495.925 POLYGLOT [Polyglot] MateScore="10000"
+1438340495.926 POLYGLOT [Polyglot] KibitzMove="false"
+1438340495.926 POLYGLOT [Polyglot] KibitzPV="false"
+1438340495.926 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438340495.926 POLYGLOT [Polyglot] KibitzDelay="5"
+1438340495.926 POLYGLOT [Polyglot] KibitzInterval="0"
+1438340495.926 POLYGLOT [Polyglot] ShowPonder="false"
+1438340495.926 POLYGLOT [Polyglot] ScoreWhite="false"
+1438340495.926 POLYGLOT [Polyglot] UCIVersion="2"
+1438340495.926 POLYGLOT [Polyglot] RepeatPV="true"
+1438340495.926 POLYGLOT [Polyglot] SyncStop="false"
+1438340495.926 POLYGLOT [Polyglot] CanPonder="false"
+1438340495.926 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438340495.926 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438340495.926 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438340495.926 POLYGLOT [Engine] Hash="68"
+1438340495.926 POLYGLOT [Engine] Ponder="false"
+1438340495.926 POLYGLOT [Engine] OwnBook="false"
+1438340495.926 POLYGLOT [Engine] Book="false"
+1438340495.926 POLYGLOT [Engine] BookFile="book_small.bin"
+1438340495.926 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438340495.926 POLYGLOT [Engine] NullMove Reduction="3"
+1438340495.926 POLYGLOT [Engine] Verification Search="Endgame"
+1438340495.926 POLYGLOT [Engine] Verification Reduction="5"
+1438340495.926 POLYGLOT [Engine] History Pruning="true"
+1438340495.926 POLYGLOT [Engine] History Threshold="60"
+1438340495.926 POLYGLOT [Engine] Futility Pruning="false"
+1438340495.926 POLYGLOT [Engine] Futility Margin="100"
+1438340495.926 POLYGLOT [Engine] Delta Pruning="false"
+1438340495.927 POLYGLOT [Engine] Delta Margin="50"
+1438340495.927 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438340495.927 POLYGLOT [Engine] Material="100"
+1438340495.927 POLYGLOT [Engine] Piece Activity="100"
+1438340495.927 POLYGLOT [Engine] King Safety="100"
+1438340495.927 POLYGLOT [Engine] Pawn Structure="100"
+1438340495.927 POLYGLOT [Engine] Passed Pawns="100"
+1438340495.927 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438340495.927 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438340495.927 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -Xmx2048m -Xms1024m -client -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo"
+1438340495.927 POLYGLOT Setting PolyGlot option "Log=true"
+1438340495.927 POLYGLOT *** SWITCHING LOGFILE ***
+1438340495.927 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340495.934 POLYGLOT *** LOGFILE OPENED ***
+1438340495.934 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340495.934 POLYGLOT *** SWITCHING LOGFILE ***
+1438340495.934 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340495.939 POLYGLOT *** LOGFILE OPENED ***
+1438340495.939 POLYGLOT Setting PolyGlot option "Book=false"
+1438340495.939 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438340495.939 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438340495.939 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438340495.939 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438340495.939 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438340495.939 POLYGLOT Setting PolyGlot option "UCI=false"
+1438340495.939 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438340495.939 POLYGLOT Adjust Engine Piority
+1438340495.940 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438340495.940 POLYGLOT Setting PolyGlot option "Resign=false"
+1438340495.940 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438340495.940 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438340495.940 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438340495.940 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438340495.940 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438340495.940 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438340495.940 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438340495.940 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438340495.940 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438340495.940 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438340495.940 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438340495.940 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438340495.940 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438340495.940 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438340495.940 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438340495.940 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438340495.940 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438340495.940 POLYGLOT *** Mainloop started ***
+1438340495.940 POLYGLOT *** Mainloop has ended ***
+1438340495.940 POLYGLOT Closing engine.
+1438340495.940 Adapter->Engine: EOF
+1438340495.940 POLYGLOT Waiting for child process to exit.
+1438340495.941 POLYGLOT pipex_exit(): java.exe -Xmx2048m -Xms1024m -client -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo: child exited unexpectedly.
+1438340495.941 POLYGLOT *** QUIT ***
+1438340496.141 POLYGLOT Calling exit
+1438340576.076 POLYGLOT *** LOGFILE OPENED ***
+1438340576.076 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340576.076 POLYGLOT *** SWITCHING LOGFILE ***
+1438340576.076 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340576.082 POLYGLOT *** LOGFILE OPENED ***
+1438340576.082 POLYGLOT *** LOGFILE OPENED ***
+1438340576.082 PolyGlot 2.0.1 by Fabien Letouzey.
+1438340576.082 POLYGLOT *** START ***
+1438340576.082 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438340576.092 Adapter->Engine: uci
+1438340576.170 Engine->Adapter: Error occurred during initialization of VM
+1438340576.171 Engine->Adapter: Could not reserve enough space for object heap
+1438340576.171 Engine->Adapter: Error: Could not create the Java Virtual Machine.
+1438340576.171 Engine->Adapter: Error: A fatal exception has occurred. Program will exit.
+1438340576.174 Engine->Adapter: EOF
+1438340576.174 POLYGLOG OPTIONS 
+1438340576.174 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438340576.174 POLYGLOT [Polyglot] EngineDir="."
+1438340576.174 POLYGLOT [Polyglot] EngineCommand="java.exe -Xmx2048m -Xms1024m -client -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo"
+1438340576.175 POLYGLOT [Polyglot] Log="true"
+1438340576.175 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340576.175 POLYGLOT [Polyglot] Book="false"
+1438340576.175 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438340576.175 POLYGLOT [Polyglot] BookRandom="false"
+1438340576.175 POLYGLOT [Polyglot] BookDepth="256"
+1438340576.175 POLYGLOT [Polyglot] BookLearn="false"
+1438340576.175 POLYGLOT [Polyglot] BookTreshold="5"
+1438340576.175 POLYGLOT [Polyglot] UCI="false"
+1438340576.175 POLYGLOT [Polyglot] UseNice="false"
+1438340576.175 POLYGLOT [Polyglot] NiceValue="5"
+1438340576.175 POLYGLOT [Polyglot] Resign="false"
+1438340576.175 POLYGLOT [Polyglot] ResignMoves="3"
+1438340576.175 POLYGLOT [Polyglot] ResignScore="600"
+1438340576.175 POLYGLOT [Polyglot] MateScore="10000"
+1438340576.175 POLYGLOT [Polyglot] KibitzMove="false"
+1438340576.175 POLYGLOT [Polyglot] KibitzPV="false"
+1438340576.175 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438340576.175 POLYGLOT [Polyglot] KibitzDelay="5"
+1438340576.175 POLYGLOT [Polyglot] KibitzInterval="0"
+1438340576.175 POLYGLOT [Polyglot] ShowPonder="false"
+1438340576.175 POLYGLOT [Polyglot] ScoreWhite="false"
+1438340576.175 POLYGLOT [Polyglot] UCIVersion="2"
+1438340576.175 POLYGLOT [Polyglot] RepeatPV="true"
+1438340576.175 POLYGLOT [Polyglot] SyncStop="false"
+1438340576.175 POLYGLOT [Polyglot] CanPonder="false"
+1438340576.175 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438340576.176 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438340576.176 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438340576.176 POLYGLOT [Engine] Hash="68"
+1438340576.176 POLYGLOT [Engine] Ponder="false"
+1438340576.176 POLYGLOT [Engine] OwnBook="false"
+1438340576.176 POLYGLOT [Engine] Book="false"
+1438340576.176 POLYGLOT [Engine] BookFile="book_small.bin"
+1438340576.176 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438340576.176 POLYGLOT [Engine] NullMove Reduction="3"
+1438340576.176 POLYGLOT [Engine] Verification Search="Endgame"
+1438340576.176 POLYGLOT [Engine] Verification Reduction="5"
+1438340576.176 POLYGLOT [Engine] History Pruning="true"
+1438340576.176 POLYGLOT [Engine] History Threshold="60"
+1438340576.176 POLYGLOT [Engine] Futility Pruning="false"
+1438340576.176 POLYGLOT [Engine] Futility Margin="100"
+1438340576.176 POLYGLOT [Engine] Delta Pruning="false"
+1438340576.176 POLYGLOT [Engine] Delta Margin="50"
+1438340576.176 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438340576.176 POLYGLOT [Engine] Material="100"
+1438340576.176 POLYGLOT [Engine] Piece Activity="100"
+1438340576.176 POLYGLOT [Engine] King Safety="100"
+1438340576.176 POLYGLOT [Engine] Pawn Structure="100"
+1438340576.176 POLYGLOT [Engine] Passed Pawns="100"
+1438340576.176 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438340576.176 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438340576.176 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -Xmx2048m -Xms1024m -client -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo"
+1438340576.176 POLYGLOT Setting PolyGlot option "Log=true"
+1438340576.177 POLYGLOT *** SWITCHING LOGFILE ***
+1438340576.177 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340576.183 POLYGLOT *** LOGFILE OPENED ***
+1438340576.183 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340576.183 POLYGLOT *** SWITCHING LOGFILE ***
+1438340576.183 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340576.188 POLYGLOT *** LOGFILE OPENED ***
+1438340576.188 POLYGLOT Setting PolyGlot option "Book=false"
+1438340576.188 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438340576.188 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438340576.188 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438340576.189 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438340576.189 POLYGLOT Setting PolyGlot option "UCI=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438340576.189 POLYGLOT Adjust Engine Piority
+1438340576.189 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438340576.189 POLYGLOT Setting PolyGlot option "Resign=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438340576.189 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438340576.189 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438340576.189 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438340576.189 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438340576.189 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438340576.189 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438340576.189 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438340576.189 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438340576.189 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438340576.189 POLYGLOT *** Mainloop started ***
+1438340576.190 POLYGLOT *** Mainloop has ended ***
+1438340576.190 POLYGLOT Closing engine.
+1438340576.190 Adapter->Engine: EOF
+1438340576.190 POLYGLOT Waiting for child process to exit.
+1438340576.190 POLYGLOT pipex_exit(): java.exe -Xmx2048m -Xms1024m -client -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo: child exited unexpectedly.
+1438340576.190 POLYGLOT *** QUIT ***
+1438340576.392 POLYGLOT Calling exit
+1438340747.300 POLYGLOT *** LOGFILE OPENED ***
+1438340747.300 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340747.301 POLYGLOT *** SWITCHING LOGFILE ***
+1438340747.301 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340747.307 POLYGLOT *** LOGFILE OPENED ***
+1438340747.307 POLYGLOT *** LOGFILE OPENED ***
+1438340747.307 PolyGlot 2.0.1 by Fabien Letouzey.
+1438340747.308 POLYGLOT *** START ***
+1438340747.308 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438340747.319 Adapter->Engine: uci
+1438340749.264 Engine->Adapter: java.lang.OutOfMemoryError: Java heap space
+1438340749.481 Engine->Adapter: 	at org.krudo.Move.<init>(Move.java:57)
+1438340749.481 Engine->Adapter: 	at org.krudo.Move.<clinit>(Move.java:48)
+1438340749.481 Engine->Adapter: 	at org.krudo.Search.<init>(Search.java:66)
+1438340749.481 Engine->Adapter: 	at org.krudo.Thinker.<init>(Thinker.java:44)
+1438340749.481 Engine->Adapter: 	at org.krudo.Thinker.getInstance(Thinker.java:54)
+1438340749.481 Engine->Adapter: 	at org.krudo.Krudo.<clinit>(Krudo.java:37)
+1438340749.550 Engine->Adapter: EOF
+1438340749.550 POLYGLOG OPTIONS 
+1438340749.550 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438340749.550 POLYGLOT [Polyglot] EngineDir="."
+1438340749.550 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438340749.550 POLYGLOT [Polyglot] Log="true"
+1438340749.551 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340749.551 POLYGLOT [Polyglot] Book="false"
+1438340749.551 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438340749.551 POLYGLOT [Polyglot] BookRandom="false"
+1438340749.551 POLYGLOT [Polyglot] BookDepth="256"
+1438340749.551 POLYGLOT [Polyglot] BookLearn="false"
+1438340749.551 POLYGLOT [Polyglot] BookTreshold="5"
+1438340749.551 POLYGLOT [Polyglot] UCI="false"
+1438340749.551 POLYGLOT [Polyglot] UseNice="false"
+1438340749.551 POLYGLOT [Polyglot] NiceValue="5"
+1438340749.551 POLYGLOT [Polyglot] Resign="false"
+1438340749.551 POLYGLOT [Polyglot] ResignMoves="3"
+1438340749.551 POLYGLOT [Polyglot] ResignScore="600"
+1438340749.551 POLYGLOT [Polyglot] MateScore="10000"
+1438340749.551 POLYGLOT [Polyglot] KibitzMove="false"
+1438340749.552 POLYGLOT [Polyglot] KibitzPV="false"
+1438340749.552 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438340749.552 POLYGLOT [Polyglot] KibitzDelay="5"
+1438340749.552 POLYGLOT [Polyglot] KibitzInterval="0"
+1438340749.552 POLYGLOT [Polyglot] ShowPonder="false"
+1438340749.552 POLYGLOT [Polyglot] ScoreWhite="false"
+1438340749.552 POLYGLOT [Polyglot] UCIVersion="2"
+1438340749.552 POLYGLOT [Polyglot] RepeatPV="true"
+1438340749.552 POLYGLOT [Polyglot] SyncStop="false"
+1438340749.552 POLYGLOT [Polyglot] CanPonder="false"
+1438340749.552 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438340749.552 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438340749.552 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438340749.552 POLYGLOT [Engine] Hash="68"
+1438340749.552 POLYGLOT [Engine] Ponder="false"
+1438340749.552 POLYGLOT [Engine] OwnBook="false"
+1438340749.553 POLYGLOT [Engine] Book="false"
+1438340749.553 POLYGLOT [Engine] BookFile="book_small.bin"
+1438340749.553 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438340749.553 POLYGLOT [Engine] NullMove Reduction="3"
+1438340749.553 POLYGLOT [Engine] Verification Search="Endgame"
+1438340749.553 POLYGLOT [Engine] Verification Reduction="5"
+1438340749.553 POLYGLOT [Engine] History Pruning="true"
+1438340749.553 POLYGLOT [Engine] History Threshold="60"
+1438340749.553 POLYGLOT [Engine] Futility Pruning="false"
+1438340749.553 POLYGLOT [Engine] Futility Margin="100"
+1438340749.553 POLYGLOT [Engine] Delta Pruning="false"
+1438340749.553 POLYGLOT [Engine] Delta Margin="50"
+1438340749.553 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438340749.553 POLYGLOT [Engine] Material="100"
+1438340749.553 POLYGLOT [Engine] Piece Activity="100"
+1438340749.554 POLYGLOT [Engine] King Safety="100"
+1438340749.554 POLYGLOT [Engine] Pawn Structure="100"
+1438340749.554 POLYGLOT [Engine] Passed Pawns="100"
+1438340749.554 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438340749.554 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438340749.554 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438340749.554 POLYGLOT Setting PolyGlot option "Log=true"
+1438340749.554 POLYGLOT *** SWITCHING LOGFILE ***
+1438340749.554 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340749.567 POLYGLOT *** LOGFILE OPENED ***
+1438340749.568 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340749.568 POLYGLOT *** SWITCHING LOGFILE ***
+1438340749.568 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438340749.577 POLYGLOT *** LOGFILE OPENED ***
+1438340749.578 POLYGLOT Setting PolyGlot option "Book=false"
+1438340749.578 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438340749.578 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438340749.578 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438340749.578 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438340749.578 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438340749.578 POLYGLOT Setting PolyGlot option "UCI=false"
+1438340749.578 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438340749.578 POLYGLOT Adjust Engine Piority
+1438340749.578 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438340749.578 POLYGLOT Setting PolyGlot option "Resign=false"
+1438340749.578 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438340749.578 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438340749.578 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438340749.578 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438340749.578 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438340749.578 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438340749.578 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438340749.578 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438340749.579 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438340749.579 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438340749.579 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438340749.579 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438340749.579 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438340749.579 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438340749.579 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438340749.579 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438340749.579 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438340749.579 POLYGLOT *** Mainloop started ***
+1438340749.579 POLYGLOT *** Mainloop has ended ***
+1438340749.579 POLYGLOT Closing engine.
+1438340749.579 Adapter->Engine: EOF
+1438340749.579 POLYGLOT Waiting for child process to exit.
+1438340749.579 POLYGLOT pipex_exit(): java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo: child exited unexpectedly.
+1438340749.580 POLYGLOT *** QUIT ***
+1438340749.781 POLYGLOT Calling exit
+1438341837.063 POLYGLOT *** LOGFILE OPENED ***
+1438341837.063 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341837.063 POLYGLOT *** SWITCHING LOGFILE ***
+1438341837.063 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341837.069 POLYGLOT *** LOGFILE OPENED ***
+1438341837.070 POLYGLOT *** LOGFILE OPENED ***
+1438341837.070 PolyGlot 2.0.1 by Fabien Letouzey.
+1438341837.070 POLYGLOT *** START ***
+1438341837.070 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438341837.082 Adapter->Engine: uci
+1438341838.965 Engine->Adapter: java.lang.OutOfMemoryError: Java heap space
+1438341839.180 Engine->Adapter: 	at org.krudo.Move.<init>(Move.java:57)
+1438341839.180 Engine->Adapter: 	at org.krudo.Move.<clinit>(Move.java:48)
+1438341839.180 Engine->Adapter: 	at org.krudo.Search.<init>(Search.java:66)
+1438341839.180 Engine->Adapter: 	at org.krudo.Thinker.<init>(Thinker.java:44)
+1438341839.180 Engine->Adapter: 	at org.krudo.Thinker.getInstance(Thinker.java:54)
+1438341839.181 Engine->Adapter: 	at org.krudo.Krudo.<clinit>(Krudo.java:37)
+1438341839.185 Engine->Adapter: EOF
+1438341839.185 POLYGLOG OPTIONS 
+1438341839.185 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438341839.185 POLYGLOT [Polyglot] EngineDir="."
+1438341839.185 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438341839.185 POLYGLOT [Polyglot] Log="true"
+1438341839.185 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341839.185 POLYGLOT [Polyglot] Book="false"
+1438341839.185 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438341839.185 POLYGLOT [Polyglot] BookRandom="false"
+1438341839.185 POLYGLOT [Polyglot] BookDepth="256"
+1438341839.185 POLYGLOT [Polyglot] BookLearn="false"
+1438341839.185 POLYGLOT [Polyglot] BookTreshold="5"
+1438341839.185 POLYGLOT [Polyglot] UCI="false"
+1438341839.186 POLYGLOT [Polyglot] UseNice="false"
+1438341839.186 POLYGLOT [Polyglot] NiceValue="5"
+1438341839.186 POLYGLOT [Polyglot] Resign="false"
+1438341839.186 POLYGLOT [Polyglot] ResignMoves="3"
+1438341839.186 POLYGLOT [Polyglot] ResignScore="600"
+1438341839.186 POLYGLOT [Polyglot] MateScore="10000"
+1438341839.186 POLYGLOT [Polyglot] KibitzMove="false"
+1438341839.186 POLYGLOT [Polyglot] KibitzPV="false"
+1438341839.186 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438341839.186 POLYGLOT [Polyglot] KibitzDelay="5"
+1438341839.186 POLYGLOT [Polyglot] KibitzInterval="0"
+1438341839.186 POLYGLOT [Polyglot] ShowPonder="false"
+1438341839.186 POLYGLOT [Polyglot] ScoreWhite="false"
+1438341839.186 POLYGLOT [Polyglot] UCIVersion="2"
+1438341839.186 POLYGLOT [Polyglot] RepeatPV="true"
+1438341839.186 POLYGLOT [Polyglot] SyncStop="false"
+1438341839.186 POLYGLOT [Polyglot] CanPonder="false"
+1438341839.186 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438341839.186 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438341839.186 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438341839.186 POLYGLOT [Engine] Hash="68"
+1438341839.186 POLYGLOT [Engine] Ponder="false"
+1438341839.186 POLYGLOT [Engine] OwnBook="false"
+1438341839.186 POLYGLOT [Engine] Book="false"
+1438341839.186 POLYGLOT [Engine] BookFile="book_small.bin"
+1438341839.186 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438341839.187 POLYGLOT [Engine] NullMove Reduction="3"
+1438341839.187 POLYGLOT [Engine] Verification Search="Endgame"
+1438341839.187 POLYGLOT [Engine] Verification Reduction="5"
+1438341839.187 POLYGLOT [Engine] History Pruning="true"
+1438341839.187 POLYGLOT [Engine] History Threshold="60"
+1438341839.187 POLYGLOT [Engine] Futility Pruning="false"
+1438341839.187 POLYGLOT [Engine] Futility Margin="100"
+1438341839.187 POLYGLOT [Engine] Delta Pruning="false"
+1438341839.187 POLYGLOT [Engine] Delta Margin="50"
+1438341839.187 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438341839.187 POLYGLOT [Engine] Material="100"
+1438341839.187 POLYGLOT [Engine] Piece Activity="100"
+1438341839.187 POLYGLOT [Engine] King Safety="100"
+1438341839.187 POLYGLOT [Engine] Pawn Structure="100"
+1438341839.187 POLYGLOT [Engine] Passed Pawns="100"
+1438341839.187 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438341839.187 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438341839.187 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438341839.187 POLYGLOT Setting PolyGlot option "Log=true"
+1438341839.187 POLYGLOT *** SWITCHING LOGFILE ***
+1438341839.187 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341839.195 POLYGLOT *** LOGFILE OPENED ***
+1438341839.195 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341839.195 POLYGLOT *** SWITCHING LOGFILE ***
+1438341839.195 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341839.202 POLYGLOT *** LOGFILE OPENED ***
+1438341839.203 POLYGLOT Setting PolyGlot option "Book=false"
+1438341839.203 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438341839.203 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438341839.203 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438341839.203 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438341839.203 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438341839.203 POLYGLOT Setting PolyGlot option "UCI=false"
+1438341839.203 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438341839.203 POLYGLOT Adjust Engine Piority
+1438341839.203 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438341839.203 POLYGLOT Setting PolyGlot option "Resign=false"
+1438341839.203 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438341839.203 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438341839.203 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438341839.203 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438341839.203 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438341839.203 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438341839.203 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438341839.203 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438341839.203 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438341839.204 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438341839.204 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438341839.204 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438341839.204 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438341839.204 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438341839.204 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438341839.204 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438341839.204 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438341839.204 POLYGLOT *** Mainloop started ***
+1438341839.204 POLYGLOT *** Mainloop has ended ***
+1438341839.204 POLYGLOT Closing engine.
+1438341839.204 Adapter->Engine: EOF
+1438341839.204 POLYGLOT Waiting for child process to exit.
+1438341839.204 POLYGLOT pipex_exit(): java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo: child exited unexpectedly.
+1438341839.205 POLYGLOT *** QUIT ***
+1438341839.406 POLYGLOT Calling exit
+1438341894.981 POLYGLOT *** LOGFILE OPENED ***
+1438341894.981 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341894.981 POLYGLOT *** SWITCHING LOGFILE ***
+1438341894.981 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341894.987 POLYGLOT *** LOGFILE OPENED ***
+1438341894.987 POLYGLOT *** LOGFILE OPENED ***
+1438341894.987 PolyGlot 2.0.1 by Fabien Letouzey.
+1438341894.987 POLYGLOT *** START ***
+1438341894.987 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438341894.996 Adapter->Engine: uci
+1438341896.888 Engine->Adapter: java.lang.OutOfMemoryError: Java heap space
+1438341897.103 Engine->Adapter: 	at org.krudo.Move.<init>(Move.java:57)
+1438341897.103 Engine->Adapter: 	at org.krudo.Move.<clinit>(Move.java:48)
+1438341897.104 Engine->Adapter: 	at org.krudo.Search.<init>(Search.java:66)
+1438341897.104 Engine->Adapter: 	at org.krudo.Thinker.<init>(Thinker.java:44)
+1438341897.104 Engine->Adapter: 	at org.krudo.Thinker.getInstance(Thinker.java:54)
+1438341897.104 Engine->Adapter: 	at org.krudo.Krudo.<clinit>(Krudo.java:37)
+1438341897.108 Engine->Adapter: EOF
+1438341897.108 POLYGLOG OPTIONS 
+1438341897.108 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438341897.108 POLYGLOT [Polyglot] EngineDir="."
+1438341897.108 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438341897.108 POLYGLOT [Polyglot] Log="true"
+1438341897.108 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341897.108 POLYGLOT [Polyglot] Book="false"
+1438341897.108 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438341897.108 POLYGLOT [Polyglot] BookRandom="false"
+1438341897.108 POLYGLOT [Polyglot] BookDepth="256"
+1438341897.108 POLYGLOT [Polyglot] BookLearn="false"
+1438341897.108 POLYGLOT [Polyglot] BookTreshold="5"
+1438341897.109 POLYGLOT [Polyglot] UCI="false"
+1438341897.109 POLYGLOT [Polyglot] UseNice="false"
+1438341897.109 POLYGLOT [Polyglot] NiceValue="5"
+1438341897.109 POLYGLOT [Polyglot] Resign="false"
+1438341897.109 POLYGLOT [Polyglot] ResignMoves="3"
+1438341897.109 POLYGLOT [Polyglot] ResignScore="600"
+1438341897.109 POLYGLOT [Polyglot] MateScore="10000"
+1438341897.109 POLYGLOT [Polyglot] KibitzMove="false"
+1438341897.109 POLYGLOT [Polyglot] KibitzPV="false"
+1438341897.109 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438341897.109 POLYGLOT [Polyglot] KibitzDelay="5"
+1438341897.109 POLYGLOT [Polyglot] KibitzInterval="0"
+1438341897.109 POLYGLOT [Polyglot] ShowPonder="false"
+1438341897.109 POLYGLOT [Polyglot] ScoreWhite="false"
+1438341897.109 POLYGLOT [Polyglot] UCIVersion="2"
+1438341897.109 POLYGLOT [Polyglot] RepeatPV="true"
+1438341897.109 POLYGLOT [Polyglot] SyncStop="false"
+1438341897.109 POLYGLOT [Polyglot] CanPonder="false"
+1438341897.109 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438341897.109 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438341897.109 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438341897.109 POLYGLOT [Engine] Hash="68"
+1438341897.109 POLYGLOT [Engine] Ponder="false"
+1438341897.109 POLYGLOT [Engine] OwnBook="false"
+1438341897.109 POLYGLOT [Engine] Book="false"
+1438341897.110 POLYGLOT [Engine] BookFile="book_small.bin"
+1438341897.110 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438341897.110 POLYGLOT [Engine] NullMove Reduction="3"
+1438341897.110 POLYGLOT [Engine] Verification Search="Endgame"
+1438341897.110 POLYGLOT [Engine] Verification Reduction="5"
+1438341897.110 POLYGLOT [Engine] History Pruning="true"
+1438341897.110 POLYGLOT [Engine] History Threshold="60"
+1438341897.110 POLYGLOT [Engine] Futility Pruning="false"
+1438341897.110 POLYGLOT [Engine] Futility Margin="100"
+1438341897.110 POLYGLOT [Engine] Delta Pruning="false"
+1438341897.110 POLYGLOT [Engine] Delta Margin="50"
+1438341897.110 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438341897.110 POLYGLOT [Engine] Material="100"
+1438341897.110 POLYGLOT [Engine] Piece Activity="100"
+1438341897.110 POLYGLOT [Engine] King Safety="100"
+1438341897.110 POLYGLOT [Engine] Pawn Structure="100"
+1438341897.110 POLYGLOT [Engine] Passed Pawns="100"
+1438341897.110 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438341897.110 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438341897.110 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438341897.110 POLYGLOT Setting PolyGlot option "Log=true"
+1438341897.110 POLYGLOT *** SWITCHING LOGFILE ***
+1438341897.110 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341897.118 POLYGLOT *** LOGFILE OPENED ***
+1438341897.118 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341897.118 POLYGLOT *** SWITCHING LOGFILE ***
+1438341897.118 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341897.124 POLYGLOT *** LOGFILE OPENED ***
+1438341897.124 POLYGLOT Setting PolyGlot option "Book=false"
+1438341897.124 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438341897.124 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438341897.124 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438341897.124 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438341897.125 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438341897.125 POLYGLOT Setting PolyGlot option "UCI=false"
+1438341897.125 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438341897.125 POLYGLOT Adjust Engine Piority
+1438341897.125 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438341897.125 POLYGLOT Setting PolyGlot option "Resign=false"
+1438341897.125 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438341897.125 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438341897.125 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438341897.125 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438341897.125 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438341897.125 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438341897.125 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438341897.125 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438341897.125 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438341897.125 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438341897.125 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438341897.125 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438341897.125 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438341897.125 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438341897.126 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438341897.126 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438341897.126 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438341897.126 POLYGLOT *** Mainloop started ***
+1438341897.126 POLYGLOT *** Mainloop has ended ***
+1438341897.126 POLYGLOT Closing engine.
+1438341897.126 Adapter->Engine: EOF
+1438341897.126 POLYGLOT Waiting for child process to exit.
+1438341897.126 POLYGLOT pipex_exit(): java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo: child exited unexpectedly.
+1438341897.127 POLYGLOT *** QUIT ***
+1438341897.329 POLYGLOT Calling exit
+1438341930.509 POLYGLOT *** LOGFILE OPENED ***
+1438341930.509 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341930.509 POLYGLOT *** SWITCHING LOGFILE ***
+1438341930.509 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341930.515 POLYGLOT *** LOGFILE OPENED ***
+1438341930.515 POLYGLOT *** LOGFILE OPENED ***
+1438341930.515 PolyGlot 2.0.1 by Fabien Letouzey.
+1438341930.515 POLYGLOT *** START ***
+1438341930.515 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438341930.527 Adapter->Engine: uci
+1438341932.595 Engine->Adapter: java.lang.OutOfMemoryError: Java heap space
+1438341932.824 Engine->Adapter: 	at org.krudo.Move.<init>(Move.java:57)
+1438341932.824 Engine->Adapter: 	at org.krudo.Move.<clinit>(Move.java:48)
+1438341932.824 Engine->Adapter: 	at org.krudo.Search.<init>(Search.java:66)
+1438341932.824 Engine->Adapter: 	at org.krudo.Thinker.<init>(Thinker.java:44)
+1438341932.824 Engine->Adapter: 	at org.krudo.Thinker.getInstance(Thinker.java:54)
+1438341932.824 Engine->Adapter: 	at org.krudo.Krudo.<clinit>(Krudo.java:37)
+1438341932.828 Engine->Adapter: EOF
+1438341932.829 POLYGLOG OPTIONS 
+1438341932.829 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438341932.829 POLYGLOT [Polyglot] EngineDir="."
+1438341932.829 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo"
+1438341932.829 POLYGLOT [Polyglot] Log="true"
+1438341932.829 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341932.829 POLYGLOT [Polyglot] Book="false"
+1438341932.829 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438341932.829 POLYGLOT [Polyglot] BookRandom="false"
+1438341932.829 POLYGLOT [Polyglot] BookDepth="256"
+1438341932.829 POLYGLOT [Polyglot] BookLearn="false"
+1438341932.829 POLYGLOT [Polyglot] BookTreshold="5"
+1438341932.829 POLYGLOT [Polyglot] UCI="false"
+1438341932.829 POLYGLOT [Polyglot] UseNice="false"
+1438341932.829 POLYGLOT [Polyglot] NiceValue="5"
+1438341932.829 POLYGLOT [Polyglot] Resign="false"
+1438341932.829 POLYGLOT [Polyglot] ResignMoves="3"
+1438341932.829 POLYGLOT [Polyglot] ResignScore="600"
+1438341932.829 POLYGLOT [Polyglot] MateScore="10000"
+1438341932.829 POLYGLOT [Polyglot] KibitzMove="false"
+1438341932.829 POLYGLOT [Polyglot] KibitzPV="false"
+1438341932.829 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438341932.829 POLYGLOT [Polyglot] KibitzDelay="5"
+1438341932.829 POLYGLOT [Polyglot] KibitzInterval="0"
+1438341932.829 POLYGLOT [Polyglot] ShowPonder="false"
+1438341932.829 POLYGLOT [Polyglot] ScoreWhite="false"
+1438341932.829 POLYGLOT [Polyglot] UCIVersion="2"
+1438341932.830 POLYGLOT [Polyglot] RepeatPV="true"
+1438341932.830 POLYGLOT [Polyglot] SyncStop="false"
+1438341932.830 POLYGLOT [Polyglot] CanPonder="false"
+1438341932.830 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438341932.830 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438341932.830 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438341932.830 POLYGLOT [Engine] Hash="68"
+1438341932.830 POLYGLOT [Engine] Ponder="false"
+1438341932.830 POLYGLOT [Engine] OwnBook="false"
+1438341932.830 POLYGLOT [Engine] Book="false"
+1438341932.830 POLYGLOT [Engine] BookFile="book_small.bin"
+1438341932.830 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438341932.830 POLYGLOT [Engine] NullMove Reduction="3"
+1438341932.830 POLYGLOT [Engine] Verification Search="Endgame"
+1438341932.830 POLYGLOT [Engine] Verification Reduction="5"
+1438341932.830 POLYGLOT [Engine] History Pruning="true"
+1438341932.830 POLYGLOT [Engine] History Threshold="60"
+1438341932.830 POLYGLOT [Engine] Futility Pruning="false"
+1438341932.830 POLYGLOT [Engine] Futility Margin="100"
+1438341932.830 POLYGLOT [Engine] Delta Pruning="false"
+1438341932.830 POLYGLOT [Engine] Delta Margin="50"
+1438341932.830 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438341932.830 POLYGLOT [Engine] Material="100"
+1438341932.830 POLYGLOT [Engine] Piece Activity="100"
+1438341932.830 POLYGLOT [Engine] King Safety="100"
+1438341932.831 POLYGLOT [Engine] Pawn Structure="100"
+1438341932.831 POLYGLOT [Engine] Passed Pawns="100"
+1438341932.831 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438341932.831 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438341932.831 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo"
+1438341932.831 POLYGLOT Setting PolyGlot option "Log=true"
+1438341932.831 POLYGLOT *** SWITCHING LOGFILE ***
+1438341932.831 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341932.839 POLYGLOT *** LOGFILE OPENED ***
+1438341932.839 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341932.839 POLYGLOT *** SWITCHING LOGFILE ***
+1438341932.839 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438341932.847 POLYGLOT *** LOGFILE OPENED ***
+1438341932.847 POLYGLOT Setting PolyGlot option "Book=false"
+1438341932.847 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438341932.847 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438341932.847 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438341932.847 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438341932.847 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438341932.847 POLYGLOT Setting PolyGlot option "UCI=false"
+1438341932.847 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438341932.847 POLYGLOT Adjust Engine Piority
+1438341932.847 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438341932.847 POLYGLOT Setting PolyGlot option "Resign=false"
+1438341932.847 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438341932.848 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438341932.848 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438341932.848 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438341932.848 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438341932.848 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438341932.848 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438341932.848 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438341932.848 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438341932.848 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438341932.848 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438341932.848 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438341932.848 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438341932.848 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438341932.848 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438341932.848 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438341932.848 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438341932.849 POLYGLOT *** Mainloop started ***
+1438341932.849 POLYGLOT *** Mainloop has ended ***
+1438341932.849 POLYGLOT Closing engine.
+1438341932.849 Adapter->Engine: EOF
+1438341932.849 POLYGLOT Waiting for child process to exit.
+1438341932.849 POLYGLOT pipex_exit(): java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work//../build/classes org.krudo.Krudo: child exited unexpectedly.
+1438341932.850 POLYGLOT *** QUIT ***
+1438341933.050 POLYGLOT Calling exit
+1438342127.613 POLYGLOT *** LOGFILE OPENED ***
+1438342127.613 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342127.613 POLYGLOT *** SWITCHING LOGFILE ***
+1438342127.613 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342127.619 POLYGLOT *** LOGFILE OPENED ***
+1438342127.619 POLYGLOT *** LOGFILE OPENED ***
+1438342127.619 PolyGlot 2.0.1 by Fabien Letouzey.
+1438342127.619 POLYGLOT *** START ***
+1438342127.619 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342127.630 Adapter->Engine: uci
+1438342128.376 Engine->Adapter: Krudo 0.15a by Francesco Bianco <bianco@javanile.org>
+1438342128.464 Engine->Adapter: id name Krudo 0.15a
+1438342128.464 Engine->Adapter: id author Francesco Bianco
+1438342128.464 Engine->Adapter: uciok
+1438342128.464 POLYGLOG OPTIONS 
+1438342128.464 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438342128.464 POLYGLOT [Polyglot] EngineDir="."
+1438342128.465 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342128.465 POLYGLOT [Polyglot] Log="true"
+1438342128.465 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342128.465 POLYGLOT [Polyglot] Book="false"
+1438342128.465 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438342128.465 POLYGLOT [Polyglot] BookRandom="false"
+1438342128.465 POLYGLOT [Polyglot] BookDepth="256"
+1438342128.465 POLYGLOT [Polyglot] BookLearn="false"
+1438342128.465 POLYGLOT [Polyglot] BookTreshold="5"
+1438342128.465 POLYGLOT [Polyglot] UCI="false"
+1438342128.465 POLYGLOT [Polyglot] UseNice="false"
+1438342128.465 POLYGLOT [Polyglot] NiceValue="5"
+1438342128.465 POLYGLOT [Polyglot] Resign="false"
+1438342128.465 POLYGLOT [Polyglot] ResignMoves="3"
+1438342128.465 POLYGLOT [Polyglot] ResignScore="600"
+1438342128.465 POLYGLOT [Polyglot] MateScore="10000"
+1438342128.465 POLYGLOT [Polyglot] KibitzMove="false"
+1438342128.465 POLYGLOT [Polyglot] KibitzPV="false"
+1438342128.465 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438342128.465 POLYGLOT [Polyglot] KibitzDelay="5"
+1438342128.465 POLYGLOT [Polyglot] KibitzInterval="0"
+1438342128.465 POLYGLOT [Polyglot] ShowPonder="false"
+1438342128.465 POLYGLOT [Polyglot] ScoreWhite="false"
+1438342128.466 POLYGLOT [Polyglot] UCIVersion="2"
+1438342128.466 POLYGLOT [Polyglot] RepeatPV="true"
+1438342128.466 POLYGLOT [Polyglot] SyncStop="false"
+1438342128.466 POLYGLOT [Polyglot] CanPonder="false"
+1438342128.466 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438342128.466 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438342128.466 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438342128.466 POLYGLOT [Engine] Hash="68"
+1438342128.466 POLYGLOT [Engine] Ponder="false"
+1438342128.466 POLYGLOT [Engine] OwnBook="false"
+1438342128.466 POLYGLOT [Engine] Book="false"
+1438342128.466 POLYGLOT [Engine] BookFile="book_small.bin"
+1438342128.466 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438342128.466 POLYGLOT [Engine] NullMove Reduction="3"
+1438342128.466 POLYGLOT [Engine] Verification Search="Endgame"
+1438342128.466 POLYGLOT [Engine] Verification Reduction="5"
+1438342128.466 POLYGLOT [Engine] History Pruning="true"
+1438342128.466 POLYGLOT [Engine] History Threshold="60"
+1438342128.466 POLYGLOT [Engine] Futility Pruning="false"
+1438342128.467 POLYGLOT [Engine] Futility Margin="100"
+1438342128.467 POLYGLOT [Engine] Delta Pruning="false"
+1438342128.467 POLYGLOT [Engine] Delta Margin="50"
+1438342128.467 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438342128.467 POLYGLOT [Engine] Material="100"
+1438342128.467 POLYGLOT [Engine] Piece Activity="100"
+1438342128.467 POLYGLOT [Engine] King Safety="100"
+1438342128.467 POLYGLOT [Engine] Pawn Structure="100"
+1438342128.467 POLYGLOT [Engine] Passed Pawns="100"
+1438342128.467 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438342128.467 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438342128.467 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342128.467 POLYGLOT Setting PolyGlot option "Log=true"
+1438342128.467 POLYGLOT *** SWITCHING LOGFILE ***
+1438342128.467 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342128.468 POLYGLOT *** LOGFILE OPENED ***
+1438342128.468 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342128.468 POLYGLOT *** SWITCHING LOGFILE ***
+1438342128.468 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342128.476 POLYGLOT *** LOGFILE OPENED ***
+1438342128.477 POLYGLOT Setting PolyGlot option "Book=false"
+1438342128.477 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438342128.477 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438342128.477 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438342128.477 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438342128.477 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438342128.477 POLYGLOT Setting PolyGlot option "UCI=false"
+1438342128.477 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438342128.477 POLYGLOT Adjust Engine Piority
+1438342128.477 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438342128.477 POLYGLOT Setting PolyGlot option "Resign=false"
+1438342128.477 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438342128.477 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438342128.477 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438342128.477 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438342128.477 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438342128.478 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438342128.478 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438342128.478 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438342128.478 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438342128.478 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438342128.478 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438342128.478 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438342128.478 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438342128.478 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438342128.478 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438342128.478 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438342128.478 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438342128.478 POLYGLOT *** Mainloop started ***
+1438342128.479 GUI->Adapter: xboard
+1438342128.491 GUI->Adapter: protover 2
+1438342128.491 Adapter->GUI: feature done=0
+1438342128.491 Adapter->GUI: feature analyze=1
+1438342128.491 Adapter->GUI: feature exclude=1
+1438342128.491 Adapter->GUI: feature colors=0
+1438342128.491 Adapter->GUI: feature draw=1
+1438342128.491 Adapter->GUI: feature ics=1
+1438342128.491 Adapter->GUI: feature myname="Krudo 0.15a"
+1438342128.491 Adapter->GUI: feature name=1
+1438342128.491 Adapter->GUI: feature pause=0
+1438342128.491 Adapter->GUI: feature ping=1
+1438342128.491 Adapter->GUI: feature playother=1
+1438342128.492 Adapter->GUI: feature sigint=1
+1438342128.492 Adapter->GUI: feature reuse=1
+1438342128.492 Adapter->GUI: feature san=0
+1438342128.492 Adapter->GUI: feature setboard=1
+1438342128.492 Adapter->GUI: feature sigint=0
+1438342128.492 Adapter->GUI: feature sigterm=0
+1438342128.492 Adapter->GUI: feature time=1
+1438342128.492 Adapter->GUI: feature usermove=1
+1438342128.493 Adapter->GUI: feature nps=1
+1438342128.493 Adapter->GUI: feature memory=0
+1438342128.493 Adapter->GUI: feature smp=0
+1438342128.493 Adapter->GUI: feature egt=""
+1438342128.493 Adapter->GUI: feature variants="normal"
+1438342128.493 Adapter->GUI: feature option="Polyglot exclude move -string "
+1438342128.493 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342128.493 Adapter->GUI: feature option="Polyglot Log -check 1"
+1438342128.493 Adapter->GUI: feature option="Polyglot LogFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342128.493 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1438342128.493 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1438342128.494 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1438342128.494 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1438342128.494 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1438342128.494 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1438342128.494 Adapter->GUI: feature option="Polyglot Book -check 0"
+1438342128.494 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1438342128.494 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1438342128.494 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1438342128.494 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1438342128.494 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1438342128.494 Adapter->GUI: feature option="Polyglot Save -save"
+1438342128.495 Adapter->GUI: feature done=1
+1438342128.495 GUI->Adapter: accepted done
+1438342128.495 GUI->Adapter: accepted analyze
+1438342128.495 GUI->Adapter: accepted exclude
+1438342128.495 GUI->Adapter: accepted colors
+1438342128.495 GUI->Adapter: accepted draw
+1438342128.495 GUI->Adapter: accepted ics
+1438342128.495 GUI->Adapter: accepted myname
+1438342128.495 GUI->Adapter: accepted name
+1438342128.495 GUI->Adapter: accepted pause
+1438342128.495 GUI->Adapter: accepted ping
+1438342128.495 GUI->Adapter: accepted playother
+1438342128.495 GUI->Adapter: accepted sigint
+1438342128.495 GUI->Adapter: accepted reuse
+1438342128.495 GUI->Adapter: accepted san
+1438342128.495 GUI->Adapter: accepted setboard
+1438342128.495 GUI->Adapter: accepted sigint
+1438342128.495 GUI->Adapter: accepted sigterm
+1438342128.495 GUI->Adapter: accepted time
+1438342128.495 GUI->Adapter: accepted usermove
+1438342128.496 GUI->Adapter: accepted nps
+1438342128.496 GUI->Adapter: accepted memory
+1438342128.496 GUI->Adapter: accepted smp
+1438342128.496 GUI->Adapter: accepted egt
+1438342128.496 GUI->Adapter: accepted variants
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.496 GUI->Adapter: accepted option
+1438342128.497 GUI->Adapter: accepted done
+1438342128.505 GUI->Adapter: new
+1438342128.505 Adapter->Engine: isready
+1438342128.533 Engine->Adapter: readyok
+1438342128.533 POLYGLOT NEW GAME
+1438342128.534 POLYGLOT WAIT
+1438342128.534 Adapter->Engine: ucinewgame
+1438342128.534 GUI->Adapter: random
+1438342128.534 GUI->Adapter: ics -
+1438342128.534 GUI->Adapter: level 0 5 0
+1438342128.534 GUI->Adapter: post
+1438342128.534 GUI->Adapter: hard
+1438342128.534 POLYGLOT WAIT
+1438342128.534 GUI->Adapter: ping 1
+1438342128.534 Adapter->GUI: pong 1
+1438342128.534 GUI->Adapter: force
+1438342128.534 POLYGLOT WAIT
+1438342128.534 GUI->Adapter: ping 2
+1438342128.534 Adapter->GUI: pong 2
+1438342128.534 GUI->Adapter: new
+1438342128.534 Adapter->Engine: isready
+1438342128.534 Engine->Adapter: readyok
+1438342128.534 POLYGLOT NEW GAME
+1438342128.534 POLYGLOT WAIT
+1438342128.534 Adapter->Engine: ucinewgame
+1438342128.535 GUI->Adapter: random
+1438342128.535 GUI->Adapter: ics -
+1438342128.535 GUI->Adapter: level 0 5 0
+1438342128.535 GUI->Adapter: post
+1438342128.535 GUI->Adapter: hard
+1438342128.535 POLYGLOT WAIT
+1438342128.535 GUI->Adapter: ping 3
+1438342128.535 Adapter->GUI: pong 3
+1438342128.535 GUI->Adapter: force
+1438342128.535 POLYGLOT WAIT
+1438342129.661 GUI->Adapter: computer
+1438342129.661 GUI->Adapter: name Fairy-Max 4.8S
+1438342129.661 GUI->Adapter: time 30000
+1438342129.661 GUI->Adapter: otim 30000
+1438342129.661 GUI->Adapter: go
+1438342129.661 POLYGLOT THINK
+1438342129.661 POLYGLOT START SEARCH
+1438342129.661 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1438342129.661 Adapter->Engine: position startpos
+1438342129.662 Adapter->Engine: go wtime 300000 btime 300000
+1438342129.813 Engine->Adapter: bestmove c2c4
+1438342129.813 Adapter->GUI: move c2c4
+1438342129.813 POLYGLOT MOVE c4
+1438342129.813 POLYGLOT THINK -> WAIT
+1438342136.350 GUI->Adapter: time 29983
+1438342136.350 GUI->Adapter: otim 29347
+1438342136.350 GUI->Adapter: usermove g8f6
+1438342136.350 POLYGLOT MOVE Nf6
+1438342136.350 POLYGLOT WAIT -> THINK
+1438342136.350 POLYGLOT START SEARCH
+1438342136.350 POLYGLOT FEN rnbqkb1r/pppppppp/5n2/8/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 1 2
+1438342136.350 Adapter->Engine: position startpos moves c2c4 g8f6
+1438342136.350 Adapter->Engine: go wtime 299830 btime 293470
+1438342136.512 Engine->Adapter: bestmove g1f3
+1438342136.512 Adapter->GUI: move g1f3
+1438342136.512 POLYGLOT MOVE Nf3
+1438342136.512 POLYGLOT THINK -> WAIT
+1438342143.398 GUI->Adapter: result * {xboard exit}
+1438342143.398 POLYGLOT GAME END
+1438342143.398 POLYGLOT WAIT
+1438342143.398 GUI->Adapter: force
+1438342143.398 POLYGLOT WAIT
+1438342143.398 GUI->Adapter: ping 4
+1438342143.398 Adapter->GUI: pong 4
+1438342144.879 GUI->Adapter: quit
+1438342144.879 POLYGLOT *** "quit" from GUI ***
+1438342144.879 POLYGLOT *** QUIT ***
+1438342144.879 Adapter->Engine: quit
+1438342144.879 POLYGLOT Closing engine.
+1438342144.879 Adapter->Engine: EOF
+1438342144.879 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438342144.980 Engine->Adapter: exit
+1438342144.980 POLYGLOT Waiting for child process to exit.
+1438342145.182 POLYGLOT Calling exit
+1438342267.334 POLYGLOT *** LOGFILE OPENED ***
+1438342267.334 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342267.334 POLYGLOT *** SWITCHING LOGFILE ***
+1438342267.334 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342267.340 POLYGLOT *** LOGFILE OPENED ***
+1438342267.341 POLYGLOT *** LOGFILE OPENED ***
+1438342267.341 PolyGlot 2.0.1 by Fabien Letouzey.
+1438342267.341 POLYGLOT *** START ***
+1438342267.341 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342267.353 Adapter->Engine: uci
+1438342268.084 Engine->Adapter: Krudo 0.15a by Francesco Bianco <bianco@javanile.org>
+1438342268.086 Engine->Adapter: id name Krudo 0.15a
+1438342268.086 Engine->Adapter: id author Francesco Bianco
+1438342268.087 Engine->Adapter: uciok
+1438342268.087 POLYGLOG OPTIONS 
+1438342268.087 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438342268.087 POLYGLOT [Polyglot] EngineDir="."
+1438342268.087 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342268.087 POLYGLOT [Polyglot] Log="true"
+1438342268.087 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342268.087 POLYGLOT [Polyglot] Book="false"
+1438342268.087 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438342268.087 POLYGLOT [Polyglot] BookRandom="false"
+1438342268.087 POLYGLOT [Polyglot] BookDepth="256"
+1438342268.087 POLYGLOT [Polyglot] BookLearn="false"
+1438342268.087 POLYGLOT [Polyglot] BookTreshold="5"
+1438342268.087 POLYGLOT [Polyglot] UCI="false"
+1438342268.087 POLYGLOT [Polyglot] UseNice="false"
+1438342268.087 POLYGLOT [Polyglot] NiceValue="5"
+1438342268.087 POLYGLOT [Polyglot] Resign="false"
+1438342268.087 POLYGLOT [Polyglot] ResignMoves="3"
+1438342268.087 POLYGLOT [Polyglot] ResignScore="600"
+1438342268.087 POLYGLOT [Polyglot] MateScore="10000"
+1438342268.087 POLYGLOT [Polyglot] KibitzMove="false"
+1438342268.087 POLYGLOT [Polyglot] KibitzPV="false"
+1438342268.087 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438342268.087 POLYGLOT [Polyglot] KibitzDelay="5"
+1438342268.087 POLYGLOT [Polyglot] KibitzInterval="0"
+1438342268.087 POLYGLOT [Polyglot] ShowPonder="false"
+1438342268.087 POLYGLOT [Polyglot] ScoreWhite="false"
+1438342268.087 POLYGLOT [Polyglot] UCIVersion="2"
+1438342268.087 POLYGLOT [Polyglot] RepeatPV="true"
+1438342268.087 POLYGLOT [Polyglot] SyncStop="false"
+1438342268.087 POLYGLOT [Polyglot] CanPonder="false"
+1438342268.087 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438342268.088 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438342268.088 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438342268.088 POLYGLOT [Engine] Hash="68"
+1438342268.088 POLYGLOT [Engine] Ponder="false"
+1438342268.088 POLYGLOT [Engine] OwnBook="false"
+1438342268.088 POLYGLOT [Engine] Book="false"
+1438342268.088 POLYGLOT [Engine] BookFile="book_small.bin"
+1438342268.088 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438342268.088 POLYGLOT [Engine] NullMove Reduction="3"
+1438342268.088 POLYGLOT [Engine] Verification Search="Endgame"
+1438342268.088 POLYGLOT [Engine] Verification Reduction="5"
+1438342268.088 POLYGLOT [Engine] History Pruning="true"
+1438342268.088 POLYGLOT [Engine] History Threshold="60"
+1438342268.088 POLYGLOT [Engine] Futility Pruning="false"
+1438342268.088 POLYGLOT [Engine] Futility Margin="100"
+1438342268.088 POLYGLOT [Engine] Delta Pruning="false"
+1438342268.088 POLYGLOT [Engine] Delta Margin="50"
+1438342268.088 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438342268.088 POLYGLOT [Engine] Material="100"
+1438342268.088 POLYGLOT [Engine] Piece Activity="100"
+1438342268.088 POLYGLOT [Engine] King Safety="100"
+1438342268.088 POLYGLOT [Engine] Pawn Structure="100"
+1438342268.088 POLYGLOT [Engine] Passed Pawns="100"
+1438342268.088 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438342268.088 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438342268.088 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342268.088 POLYGLOT Setting PolyGlot option "Log=true"
+1438342268.088 POLYGLOT *** SWITCHING LOGFILE ***
+1438342268.088 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342268.089 POLYGLOT *** LOGFILE OPENED ***
+1438342268.089 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342268.089 POLYGLOT *** SWITCHING LOGFILE ***
+1438342268.089 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342268.105 POLYGLOT *** LOGFILE OPENED ***
+1438342268.105 POLYGLOT Setting PolyGlot option "Book=false"
+1438342268.105 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438342268.106 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438342268.106 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438342268.106 POLYGLOT Setting PolyGlot option "UCI=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438342268.106 POLYGLOT Adjust Engine Piority
+1438342268.106 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438342268.106 POLYGLOT Setting PolyGlot option "Resign=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438342268.106 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438342268.106 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438342268.106 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438342268.106 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438342268.106 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438342268.106 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438342268.106 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438342268.106 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438342268.106 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438342268.106 POLYGLOT *** Mainloop started ***
+1438342268.107 GUI->Adapter: xboard
+1438342268.107 GUI->Adapter: protover 2
+1438342268.107 Adapter->GUI: feature done=0
+1438342268.107 Adapter->GUI: feature analyze=1
+1438342268.107 Adapter->GUI: feature exclude=1
+1438342268.107 Adapter->GUI: feature colors=0
+1438342268.107 Adapter->GUI: feature draw=1
+1438342268.107 Adapter->GUI: feature ics=1
+1438342268.107 Adapter->GUI: feature myname="Krudo 0.15a"
+1438342268.107 Adapter->GUI: feature name=1
+1438342268.107 Adapter->GUI: feature pause=0
+1438342268.107 Adapter->GUI: feature ping=1
+1438342268.107 Adapter->GUI: feature playother=1
+1438342268.107 Adapter->GUI: feature sigint=1
+1438342268.107 Adapter->GUI: feature reuse=1
+1438342268.107 Adapter->GUI: feature san=0
+1438342268.107 Adapter->GUI: feature setboard=1
+1438342268.107 Adapter->GUI: feature sigint=0
+1438342268.107 Adapter->GUI: feature sigterm=0
+1438342268.107 Adapter->GUI: feature time=1
+1438342268.107 Adapter->GUI: feature usermove=1
+1438342268.108 Adapter->GUI: feature nps=1
+1438342268.108 Adapter->GUI: feature memory=0
+1438342268.108 Adapter->GUI: feature smp=0
+1438342268.108 Adapter->GUI: feature egt=""
+1438342268.108 Adapter->GUI: feature variants="normal"
+1438342268.108 Adapter->GUI: feature option="Polyglot exclude move -string "
+1438342268.108 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342268.108 Adapter->GUI: feature option="Polyglot Log -check 1"
+1438342268.108 Adapter->GUI: feature option="Polyglot LogFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342268.108 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1438342268.108 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1438342268.108 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1438342268.108 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1438342268.108 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1438342268.109 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1438342268.109 Adapter->GUI: feature option="Polyglot Book -check 0"
+1438342268.109 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1438342268.109 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1438342268.109 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1438342268.109 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1438342268.109 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1438342268.109 Adapter->GUI: feature option="Polyglot Save -save"
+1438342268.109 Adapter->GUI: feature done=1
+1438342268.109 GUI->Adapter: accepted done
+1438342268.109 GUI->Adapter: accepted analyze
+1438342268.109 GUI->Adapter: accepted exclude
+1438342268.109 GUI->Adapter: accepted colors
+1438342268.109 GUI->Adapter: accepted draw
+1438342268.109 GUI->Adapter: accepted ics
+1438342268.110 GUI->Adapter: accepted myname
+1438342268.110 GUI->Adapter: accepted name
+1438342268.110 GUI->Adapter: accepted pause
+1438342268.110 GUI->Adapter: accepted ping
+1438342268.110 GUI->Adapter: accepted playother
+1438342268.110 GUI->Adapter: accepted sigint
+1438342268.110 GUI->Adapter: accepted reuse
+1438342268.110 GUI->Adapter: accepted san
+1438342268.110 GUI->Adapter: accepted setboard
+1438342268.110 GUI->Adapter: accepted sigint
+1438342268.110 GUI->Adapter: accepted sigterm
+1438342268.110 GUI->Adapter: accepted time
+1438342268.110 GUI->Adapter: accepted usermove
+1438342268.110 GUI->Adapter: accepted nps
+1438342268.110 GUI->Adapter: accepted memory
+1438342268.110 GUI->Adapter: accepted smp
+1438342268.110 GUI->Adapter: accepted egt
+1438342268.110 GUI->Adapter: accepted variants
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.110 GUI->Adapter: accepted option
+1438342268.111 GUI->Adapter: accepted option
+1438342268.111 GUI->Adapter: accepted option
+1438342268.111 GUI->Adapter: accepted option
+1438342268.111 GUI->Adapter: accepted option
+1438342268.111 GUI->Adapter: accepted done
+1438342268.112 GUI->Adapter: new
+1438342268.112 Adapter->Engine: isready
+1438342268.123 Engine->Adapter: readyok
+1438342268.123 POLYGLOT NEW GAME
+1438342268.123 POLYGLOT WAIT
+1438342268.123 Adapter->Engine: ucinewgame
+1438342268.123 GUI->Adapter: random
+1438342268.123 GUI->Adapter: ics -
+1438342268.123 GUI->Adapter: level 0 5 0
+1438342268.123 GUI->Adapter: post
+1438342268.123 GUI->Adapter: hard
+1438342268.123 POLYGLOT WAIT
+1438342268.123 GUI->Adapter: ping 1
+1438342268.124 Adapter->GUI: pong 1
+1438342268.124 GUI->Adapter: force
+1438342268.124 POLYGLOT WAIT
+1438342268.124 GUI->Adapter: ping 2
+1438342268.124 Adapter->GUI: pong 2
+1438342268.124 GUI->Adapter: new
+1438342268.124 Adapter->Engine: isready
+1438342268.124 Engine->Adapter: readyok
+1438342268.124 POLYGLOT NEW GAME
+1438342268.124 POLYGLOT WAIT
+1438342268.124 Adapter->Engine: ucinewgame
+1438342268.124 GUI->Adapter: random
+1438342268.124 GUI->Adapter: ics -
+1438342268.124 GUI->Adapter: level 0 5 0
+1438342268.124 GUI->Adapter: post
+1438342268.125 GUI->Adapter: hard
+1438342268.125 POLYGLOT WAIT
+1438342268.125 GUI->Adapter: ping 3
+1438342268.125 Adapter->GUI: pong 3
+1438342268.125 GUI->Adapter: force
+1438342268.125 POLYGLOT WAIT
+1438342268.705 GUI->Adapter: computer
+1438342268.705 GUI->Adapter: name Fairy-Max 4.8S
+1438342268.705 GUI->Adapter: time 30000
+1438342268.705 GUI->Adapter: otim 30000
+1438342268.705 GUI->Adapter: go
+1438342268.705 POLYGLOT THINK
+1438342268.705 POLYGLOT START SEARCH
+1438342268.705 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1438342268.705 Adapter->Engine: position startpos
+1438342268.705 Adapter->Engine: go wtime 300000 btime 300000
+1438342268.893 Engine->Adapter: bestmove d2d4
+1438342268.893 Adapter->GUI: move d2d4
+1438342268.893 POLYGLOT MOVE d4
+1438342268.893 POLYGLOT THINK -> WAIT
+1438342275.652 GUI->Adapter: time 29981
+1438342275.652 GUI->Adapter: otim 29324
+1438342275.652 GUI->Adapter: usermove b8c6
+1438342275.652 POLYGLOT MOVE Nc6
+1438342275.652 POLYGLOT WAIT -> THINK
+1438342275.652 POLYGLOT START SEARCH
+1438342275.652 POLYGLOT FEN r1bqkbnr/pppppppp/2n5/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 1 2
+1438342275.652 Adapter->Engine: position startpos moves d2d4 b8c6
+1438342275.652 Adapter->Engine: go wtime 299810 btime 293240
+1438342275.662 Engine->Adapter: info depth 2 score cp 0 time 7 nodes 44 pv c1f4 c6b4
+1438342275.662 parse info 0 0
+1438342275.663 Adapter->GUI: 2 +0 1 44 Bf4 Nb4
+1438342275.819 Engine->Adapter: bestmove d4d5
+1438342275.819 Adapter->GUI: 2 +0 1 44 Bf4 Nb4
+1438342275.819 Adapter->GUI: move d4d5
+1438342275.819 POLYGLOT MOVE d5
+1438342275.819 POLYGLOT THINK -> WAIT
+1438342281.321 GUI->Adapter: time 29964
+1438342281.321 GUI->Adapter: otim 28774
+1438342281.321 GUI->Adapter: usermove c6b4
+1438342281.321 POLYGLOT MOVE Nb4
+1438342281.321 POLYGLOT WAIT -> THINK
+1438342281.321 POLYGLOT START SEARCH
+1438342281.321 POLYGLOT FEN r1bqkbnr/pppppppp/8/3P4/1n6/8/PPP1PPPP/RNBQKBNR w KQkq - 1 3
+1438342281.321 Adapter->Engine: position startpos moves d2d4 b8c6 d4d5 c6b4
+1438342281.321 Adapter->Engine: go wtime 299640 btime 287740
+1438342281.323 Engine->Adapter: info depth 2 score cp 0 time 1 nodes 48 pv e2e4 e7e5
+1438342281.324 parse info 0 0
+1438342281.324 Adapter->GUI: 2 +0 0 48 e4 e5
+1438342281.473 Engine->Adapter: info depth 1 score cp 0 time 0 nodes 2 pv e2e4
+1438342281.474 parse info 2 2
+1438342281.474 killed because of small depth 1 < 2
+1438342281.474 Engine->Adapter: info depth 2 score cp 0 time 1 nodes 77 pv e2e4 c7c5
+1438342281.474 parse info 1 2
+1438342281.474 Adapter->GUI: 2 +0 0 77 e4 c5
+1438342281.499 Engine->Adapter: info depth 3 score cp 0 time 25 nodes 276 pv e2e4 c7c5 f1c4
+1438342281.499 parse info 2 2
+1438342281.499 Adapter->GUI: 3 +0 2 276 e4 c5 Bc4
+1438342281.596 Engine->Adapter: info depth 4 score cp 0 time 122 nodes 3928 pv e2e4 c7c5 f1c4 g8f6
+1438342281.596 parse info 3 3
+1438342281.596 Adapter->GUI: 4 +0 12 3928 e4 c5 Bc4 Nf6
+1438342283.593 Engine->Adapter: info depth 5 score cp 0 time 2119 nodes 37085 pv e2e4 c7c5 f1c4 g8f6 e4e5
+1438342283.593 parse info 4 4
+1438342283.593 Adapter->GUI: 5 +0 212 37085 e4 c5 Bc4 Nf6 e5
+1438342284.995 Engine->Adapter: bestmove e2e4
+1438342284.995 Adapter->GUI: 5 +0 212 37085 e4 c5 Bc4 Nf6 e5
+1438342284.995 Adapter->GUI: move e2e4
+1438342284.995 POLYGLOT MOVE e4
+1438342284.995 POLYGLOT THINK -> WAIT
+1438342289.990 GUI->Adapter: time 29596
+1438342289.990 GUI->Adapter: otim 28274
+1438342289.990 GUI->Adapter: usermove c7c5
+1438342289.990 POLYGLOT MOVE c5
+1438342289.990 POLYGLOT WAIT -> THINK
+1438342289.990 POLYGLOT START SEARCH
+1438342289.990 POLYGLOT FEN r1bqkbnr/pp1ppppp/8/2pP4/1n2P3/8/PPP2PPP/RNBQKBNR w KQkq c6 0 4
+1438342289.990 Adapter->Engine: position startpos moves d2d4 b8c6 d4d5 c6b4 e2e4 c7c5
+1438342289.990 Adapter->Engine: go wtime 295960 btime 282740
+1438342289.991 Engine->Adapter: info depth 2 score cp 0 time 0 nodes 50 pv f1c4 g8f6
+1438342289.991 parse info 0 0
+1438342289.992 Adapter->GUI: 2 +0 0 50 Bc4 Nf6
+1438342290.128 Engine->Adapter: info depth 1 score cp 0 time 0 nodes 2 pv f1c4
+1438342290.128 parse info 2 2
+1438342290.128 killed because of small depth 1 < 2
+1438342290.129 Engine->Adapter: info depth 2 score cp 0 time 1 nodes 90 pv f1c4 e7e5
+1438342290.129 parse info 1 2
+1438342290.129 Adapter->GUI: 2 +0 0 90 Bc4 e5
+1438342290.156 Engine->Adapter: info depth 3 score cp 0 time 29 nodes 345 pv f1c4 e7e5 c1e3
+1438342290.156 parse info 2 2
+1438342290.156 Adapter->GUI: 3 +0 3 345 Bc4 e5 Be3
+1438342290.237 Engine->Adapter: info depth 4 score cp 0 time 110 nodes 5546 pv f1c4 e7e5 c1e3 f8d6
+1438342290.237 parse info 3 3
+1438342290.238 Adapter->GUI: 4 +0 11 5546 Bc4 e5 Be3 Bd6
+1438342290.506 Engine->Adapter: java.lang.NullPointerException
+1438342290.506 Engine->Adapter: 	at org.krudo.Move.pop(Move.java:70)
+1438342290.506 Engine->Adapter: 	at org.krudo.Node.legals(Node.java:405)
+1438342290.506 Engine->Adapter: 	at org.krudo.Search.qmax(Search.java:367)
+1438342290.506 Engine->Adapter: 	at org.krudo.Search.qmin(Search.java:449)
+1438342290.506 Engine->Adapter: 	at org.krudo.Search.qmax(Search.java:384)
+1438342290.506 Engine->Adapter: 	at org.krudo.Search.abmax(Search.java:235)
+1438342290.506 Engine->Adapter: 	at org.krudo.Search.abmin(Search.java:319)
+1438342290.507 Engine->Adapter: 	at org.krudo.Search.abmax(Search.java:256)
+1438342290.507 Engine->Adapter: 	at org.krudo.Search.abmin(Search.java:319)
+1438342290.507 Engine->Adapter: 	at org.krudo.Search.abrun(Search.java:201)
+1438342290.507 Engine->Adapter: 	at org.krudo.Search.idrun(Search.java:160)
+1438342290.507 Engine->Adapter: 	at org.krudo.Search.start(Search.java:111)
+1438342290.507 Engine->Adapter: 	at org.krudo.Search.start(Search.java:92)
+1438342290.507 Engine->Adapter: 	at org.krudo.Thinker.go(Thinker.java:132)
+1438342290.507 Engine->Adapter: 	at org.krudo.Thinker.go(Thinker.java:103)
+1438342290.507 Engine->Adapter: 	at org.krudo.Thinker.go(Thinker.java:90)
+1438342290.507 Engine->Adapter: 	at org.krudo.Krudo.main(Krudo.java:121)
+1438342290.507 Engine->Adapter: 
+1438342290.507 Engine->Adapter: exit
+1438342290.532 POLYGLOT *** Mainloop has ended ***
+1438342290.532 POLYGLOT Closing engine.
+1438342290.532 Adapter->Engine: EOF
+1438342290.532 POLYGLOT Waiting for child process to exit.
+1438342290.532 POLYGLOT pipex_exit(): java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo: child exited unexpectedly.
+1438342290.533 POLYGLOT *** QUIT ***
+1438342290.734 POLYGLOT Calling exit
+1438342710.592 POLYGLOT *** LOGFILE OPENED ***
+1438342710.593 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342710.593 POLYGLOT *** SWITCHING LOGFILE ***
+1438342710.593 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342710.600 POLYGLOT *** LOGFILE OPENED ***
+1438342710.601 POLYGLOT *** LOGFILE OPENED ***
+1438342710.601 PolyGlot 2.0.1 by Fabien Letouzey.
+1438342710.601 POLYGLOT *** START ***
+1438342710.601 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342710.612 Adapter->Engine: uci
+1438342711.403 Engine->Adapter: Krudo 0.15a by Francesco Bianco <bianco@javanile.org>
+1438342711.406 Engine->Adapter: id name Krudo 0.15a
+1438342711.406 Engine->Adapter: id author Francesco Bianco
+1438342711.406 Engine->Adapter: uciok
+1438342711.406 POLYGLOG OPTIONS 
+1438342711.406 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438342711.406 POLYGLOT [Polyglot] EngineDir="."
+1438342711.406 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342711.406 POLYGLOT [Polyglot] Log="true"
+1438342711.406 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342711.406 POLYGLOT [Polyglot] Book="false"
+1438342711.406 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438342711.406 POLYGLOT [Polyglot] BookRandom="false"
+1438342711.406 POLYGLOT [Polyglot] BookDepth="256"
+1438342711.406 POLYGLOT [Polyglot] BookLearn="false"
+1438342711.406 POLYGLOT [Polyglot] BookTreshold="5"
+1438342711.406 POLYGLOT [Polyglot] UCI="false"
+1438342711.406 POLYGLOT [Polyglot] UseNice="false"
+1438342711.406 POLYGLOT [Polyglot] NiceValue="5"
+1438342711.406 POLYGLOT [Polyglot] Resign="false"
+1438342711.407 POLYGLOT [Polyglot] ResignMoves="3"
+1438342711.407 POLYGLOT [Polyglot] ResignScore="600"
+1438342711.407 POLYGLOT [Polyglot] MateScore="10000"
+1438342711.407 POLYGLOT [Polyglot] KibitzMove="false"
+1438342711.407 POLYGLOT [Polyglot] KibitzPV="false"
+1438342711.407 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438342711.407 POLYGLOT [Polyglot] KibitzDelay="5"
+1438342711.407 POLYGLOT [Polyglot] KibitzInterval="0"
+1438342711.407 POLYGLOT [Polyglot] ShowPonder="false"
+1438342711.407 POLYGLOT [Polyglot] ScoreWhite="false"
+1438342711.407 POLYGLOT [Polyglot] UCIVersion="2"
+1438342711.407 POLYGLOT [Polyglot] RepeatPV="true"
+1438342711.407 POLYGLOT [Polyglot] SyncStop="false"
+1438342711.407 POLYGLOT [Polyglot] CanPonder="false"
+1438342711.407 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438342711.407 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438342711.407 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438342711.407 POLYGLOT [Engine] Hash="68"
+1438342711.407 POLYGLOT [Engine] Ponder="false"
+1438342711.407 POLYGLOT [Engine] OwnBook="false"
+1438342711.407 POLYGLOT [Engine] Book="false"
+1438342711.407 POLYGLOT [Engine] BookFile="book_small.bin"
+1438342711.407 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438342711.407 POLYGLOT [Engine] NullMove Reduction="3"
+1438342711.407 POLYGLOT [Engine] Verification Search="Endgame"
+1438342711.407 POLYGLOT [Engine] Verification Reduction="5"
+1438342711.407 POLYGLOT [Engine] History Pruning="true"
+1438342711.407 POLYGLOT [Engine] History Threshold="60"
+1438342711.407 POLYGLOT [Engine] Futility Pruning="false"
+1438342711.407 POLYGLOT [Engine] Futility Margin="100"
+1438342711.407 POLYGLOT [Engine] Delta Pruning="false"
+1438342711.407 POLYGLOT [Engine] Delta Margin="50"
+1438342711.407 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438342711.407 POLYGLOT [Engine] Material="100"
+1438342711.407 POLYGLOT [Engine] Piece Activity="100"
+1438342711.407 POLYGLOT [Engine] King Safety="100"
+1438342711.407 POLYGLOT [Engine] Pawn Structure="100"
+1438342711.408 POLYGLOT [Engine] Passed Pawns="100"
+1438342711.408 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438342711.408 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438342711.408 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342711.408 POLYGLOT Setting PolyGlot option "Log=true"
+1438342711.408 POLYGLOT *** SWITCHING LOGFILE ***
+1438342711.408 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342711.408 POLYGLOT *** LOGFILE OPENED ***
+1438342711.408 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342711.408 POLYGLOT *** SWITCHING LOGFILE ***
+1438342711.408 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342711.414 POLYGLOT *** LOGFILE OPENED ***
+1438342711.414 POLYGLOT Setting PolyGlot option "Book=false"
+1438342711.414 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438342711.414 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438342711.415 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438342711.415 POLYGLOT Setting PolyGlot option "UCI=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438342711.415 POLYGLOT Adjust Engine Piority
+1438342711.415 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438342711.415 POLYGLOT Setting PolyGlot option "Resign=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438342711.415 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438342711.415 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438342711.415 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438342711.415 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438342711.415 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438342711.415 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438342711.415 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438342711.415 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438342711.415 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438342711.416 POLYGLOT *** Mainloop started ***
+1438342711.416 GUI->Adapter: xboard
+1438342711.416 GUI->Adapter: protover 2
+1438342711.416 Adapter->GUI: feature done=0
+1438342711.416 Adapter->GUI: feature analyze=1
+1438342711.416 Adapter->GUI: feature exclude=1
+1438342711.416 Adapter->GUI: feature colors=0
+1438342711.416 Adapter->GUI: feature draw=1
+1438342711.416 Adapter->GUI: feature ics=1
+1438342711.416 Adapter->GUI: feature myname="Krudo 0.15a"
+1438342711.416 Adapter->GUI: feature name=1
+1438342711.416 Adapter->GUI: feature pause=0
+1438342711.416 Adapter->GUI: feature ping=1
+1438342711.416 Adapter->GUI: feature playother=1
+1438342711.416 Adapter->GUI: feature sigint=1
+1438342711.416 Adapter->GUI: feature reuse=1
+1438342711.417 Adapter->GUI: feature san=0
+1438342711.417 Adapter->GUI: feature setboard=1
+1438342711.417 Adapter->GUI: feature sigint=0
+1438342711.417 Adapter->GUI: feature sigterm=0
+1438342711.417 Adapter->GUI: feature time=1
+1438342711.417 Adapter->GUI: feature usermove=1
+1438342711.417 Adapter->GUI: feature nps=1
+1438342711.417 Adapter->GUI: feature memory=0
+1438342711.417 Adapter->GUI: feature smp=0
+1438342711.417 Adapter->GUI: feature egt=""
+1438342711.417 Adapter->GUI: feature variants="normal"
+1438342711.417 Adapter->GUI: feature option="Polyglot exclude move -string "
+1438342711.417 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342711.417 Adapter->GUI: feature option="Polyglot Log -check 1"
+1438342711.417 Adapter->GUI: feature option="Polyglot LogFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342711.418 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1438342711.418 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1438342711.418 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1438342711.418 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1438342711.418 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1438342711.418 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1438342711.418 Adapter->GUI: feature option="Polyglot Book -check 0"
+1438342711.418 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1438342711.418 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1438342711.418 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1438342711.418 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1438342711.418 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1438342711.418 Adapter->GUI: feature option="Polyglot Save -save"
+1438342711.418 Adapter->GUI: feature done=1
+1438342711.418 GUI->Adapter: accepted done
+1438342711.419 GUI->Adapter: accepted analyze
+1438342711.419 GUI->Adapter: accepted exclude
+1438342711.419 GUI->Adapter: accepted colors
+1438342711.419 GUI->Adapter: accepted draw
+1438342711.419 GUI->Adapter: accepted ics
+1438342711.419 GUI->Adapter: accepted myname
+1438342711.419 GUI->Adapter: accepted name
+1438342711.419 GUI->Adapter: accepted pause
+1438342711.419 GUI->Adapter: accepted ping
+1438342711.419 GUI->Adapter: accepted playother
+1438342711.419 GUI->Adapter: accepted sigint
+1438342711.419 GUI->Adapter: accepted reuse
+1438342711.419 GUI->Adapter: accepted san
+1438342711.419 GUI->Adapter: accepted setboard
+1438342711.419 GUI->Adapter: accepted sigint
+1438342711.419 GUI->Adapter: accepted sigterm
+1438342711.419 GUI->Adapter: accepted time
+1438342711.419 GUI->Adapter: accepted usermove
+1438342711.419 GUI->Adapter: accepted nps
+1438342711.419 GUI->Adapter: accepted memory
+1438342711.419 GUI->Adapter: accepted smp
+1438342711.419 GUI->Adapter: accepted egt
+1438342711.419 GUI->Adapter: accepted variants
+1438342711.419 GUI->Adapter: accepted option
+1438342711.419 GUI->Adapter: accepted option
+1438342711.419 GUI->Adapter: accepted option
+1438342711.419 GUI->Adapter: accepted option
+1438342711.419 GUI->Adapter: accepted option
+1438342711.419 GUI->Adapter: accepted option
+1438342711.419 GUI->Adapter: accepted option
+1438342711.419 GUI->Adapter: accepted option
+1438342711.419 GUI->Adapter: accepted option
+1438342711.420 GUI->Adapter: accepted option
+1438342711.420 GUI->Adapter: accepted option
+1438342711.420 GUI->Adapter: accepted option
+1438342711.420 GUI->Adapter: accepted option
+1438342711.420 GUI->Adapter: accepted option
+1438342711.420 GUI->Adapter: accepted option
+1438342711.420 GUI->Adapter: accepted option
+1438342711.420 GUI->Adapter: accepted option
+1438342711.420 GUI->Adapter: accepted done
+1438342711.428 GUI->Adapter: new
+1438342711.428 Adapter->Engine: isready
+1438342711.444 Engine->Adapter: readyok
+1438342711.444 POLYGLOT NEW GAME
+1438342711.444 POLYGLOT WAIT
+1438342711.444 Adapter->Engine: ucinewgame
+1438342711.444 GUI->Adapter: random
+1438342711.444 GUI->Adapter: ics -
+1438342711.444 GUI->Adapter: level 0 5 0
+1438342711.444 GUI->Adapter: post
+1438342711.444 GUI->Adapter: hard
+1438342711.444 POLYGLOT WAIT
+1438342711.444 GUI->Adapter: ping 1
+1438342711.444 Adapter->GUI: pong 1
+1438342711.444 GUI->Adapter: force
+1438342711.445 POLYGLOT WAIT
+1438342711.445 GUI->Adapter: ping 2
+1438342711.445 Adapter->GUI: pong 2
+1438342711.445 GUI->Adapter: new
+1438342711.445 Adapter->Engine: isready
+1438342711.445 Engine->Adapter: readyok
+1438342711.445 POLYGLOT NEW GAME
+1438342711.445 POLYGLOT WAIT
+1438342711.445 Adapter->Engine: ucinewgame
+1438342711.445 GUI->Adapter: random
+1438342711.445 GUI->Adapter: ics -
+1438342711.445 GUI->Adapter: level 0 5 0
+1438342711.445 GUI->Adapter: post
+1438342711.445 GUI->Adapter: hard
+1438342711.445 POLYGLOT WAIT
+1438342711.445 GUI->Adapter: ping 3
+1438342711.446 Adapter->GUI: pong 3
+1438342711.446 GUI->Adapter: force
+1438342711.446 POLYGLOT WAIT
+1438342712.126 GUI->Adapter: computer
+1438342712.127 GUI->Adapter: name Fairy-Max 4.8S
+1438342712.127 GUI->Adapter: time 30000
+1438342712.127 GUI->Adapter: otim 30000
+1438342712.127 GUI->Adapter: go
+1438342712.127 POLYGLOT THINK
+1438342712.127 POLYGLOT START SEARCH
+1438342712.127 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1438342712.127 Adapter->Engine: position startpos
+1438342712.127 Adapter->Engine: go wtime 300000 btime 300000
+1438342712.300 Engine->Adapter: bestmove b2b3
+1438342712.300 Adapter->GUI: move b2b3
+1438342712.300 POLYGLOT MOVE b3
+1438342712.300 POLYGLOT THINK -> WAIT
+1438342722.835 GUI->Adapter: time 29982
+1438342722.835 GUI->Adapter: otim 28946
+1438342722.835 GUI->Adapter: usermove d7d5
+1438342722.835 POLYGLOT MOVE d5
+1438342722.835 POLYGLOT WAIT -> THINK
+1438342722.835 POLYGLOT START SEARCH
+1438342722.835 POLYGLOT FEN rnbqkbnr/ppp1pppp/8/3p4/8/1P6/P1PPPPPP/RNBQKBNR w KQkq - 0 2
+1438342722.835 Adapter->Engine: position startpos moves b2b3 d7d5
+1438342722.835 Adapter->Engine: go wtime 299820 btime 289460
+1438342722.843 Engine->Adapter: info depth 2 score cp -100 time 5 nodes 59 pv e2e4 d5e4
+1438342722.843 parse info 0 0
+1438342722.843 Adapter->GUI: 2 -100 0 59 e4 dxe4
+1438342722.847 Engine->Adapter: info depth 2 score cp 0 time 11 nodes 113 pv d2d4 c8f5
+1438342722.847 parse info 2 2
+1438342722.847 Adapter->GUI: 2 +0 1 113 d4 Bf5
+1438342723.022 Engine->Adapter: bestmove c1b2
+1438342723.022 Adapter->GUI: 2 +0 1 113 d4 Bf5
+1438342723.022 Adapter->GUI: move c1b2
+1438342723.022 POLYGLOT MOVE Bb2
+1438342723.022 POLYGLOT THINK -> WAIT
+1438342734.533 GUI->Adapter: time 29963
+1438342734.534 GUI->Adapter: otim 27795
+1438342734.534 GUI->Adapter: usermove g8f6
+1438342734.534 POLYGLOT MOVE Nf6
+1438342734.534 POLYGLOT WAIT -> THINK
+1438342734.534 POLYGLOT START SEARCH
+1438342734.534 POLYGLOT FEN rnbqkb1r/ppp1pppp/5n2/3p4/8/1P6/PBPPPPPP/RN1QKBNR w KQkq - 2 3
+1438342734.534 Adapter->Engine: position startpos moves b2b3 d7d5 c1b2 g8f6
+1438342734.534 Adapter->Engine: go wtime 299630 btime 277950
+1438342734.537 Engine->Adapter: info depth 2 score cp -100 time 2 nodes 63 pv e2e4 d5e4
+1438342734.537 parse info 0 0
+1438342734.538 Adapter->GUI: 2 -100 0 63 e4 dxe4
+1438342734.539 Engine->Adapter: info depth 2 score cp 0 time 3 nodes 121 pv d2d4 c8f5
+1438342734.539 parse info 2 2
+1438342734.539 Adapter->GUI: 2 +0 0 121 d4 Bf5
+1438342734.688 Engine->Adapter: bestmove e2e3
+1438342734.689 Adapter->GUI: 2 +0 0 121 d4 Bf5
+1438342734.689 Adapter->GUI: move e2e3
+1438342734.689 POLYGLOT MOVE e3
+1438342734.689 POLYGLOT THINK -> WAIT
+1438342741.061 GUI->Adapter: time 29948
+1438342741.061 GUI->Adapter: otim 27158
+1438342741.061 GUI->Adapter: usermove c7c5
+1438342741.061 POLYGLOT MOVE c5
+1438342741.061 POLYGLOT WAIT -> THINK
+1438342741.061 POLYGLOT START SEARCH
+1438342741.061 POLYGLOT FEN rnbqkb1r/pp2pppp/5n2/2pp4/8/1P2P3/PBPP1PPP/RN1QKBNR w KQkq - 0 4
+1438342741.061 Adapter->Engine: position startpos moves b2b3 d7d5 c1b2 g8f6 e2e3 c7c5
+1438342741.061 Adapter->Engine: go wtime 299480 btime 271580
+1438342741.065 Engine->Adapter: info depth 2 score cp -205 time 2 nodes 65 pv f1c4 d5c4
+1438342741.065 parse info 0 0
+1438342741.065 Adapter->GUI: 2 -205 0 65 Bc4 dxc4
+1438342741.067 Engine->Adapter: info depth 2 score cp 0 time 4 nodes 130 pv d2d4 c8g4
+1438342741.067 parse info 2 2
+1438342741.067 Adapter->GUI: 2 +0 0 130 d4 Bg4
+1438342741.236 Engine->Adapter: info depth 1 score cp 0 time 1 nodes 2 pv d2d4
+1438342741.236 parse info 2 2
+1438342741.236 killed because of small depth 1 < 2
+1438342741.237 Engine->Adapter: info depth 2 score cp 0 time 2 nodes 102 pv d2d4 b7b6
+1438342741.238 parse info 1 2
+1438342741.238 Adapter->GUI: 2 +0 0 102 d4 b6
+1438342741.281 Engine->Adapter: info depth 3 score cp 0 time 46 nodes 566 pv d2d4 b7b6 b1c3
+1438342741.281 parse info 2 2
+1438342741.281 Adapter->GUI: 3 +0 5 566 d4 b6 Nc3
+1438342741.849 Engine->Adapter: info depth 4 score cp 0 time 614 nodes 6251 pv d2d4 b7b6 b1c3 f6e4
+1438342741.849 parse info 3 3
+1438342741.849 Adapter->GUI: 4 +0 61 6251 d4 b6 Nc3 Ne4
+1438342757.360 Engine->Adapter: info depth 5 score cp 0 time 16125 nodes 29075 pv d2d4 c8f5 c2c4 c5d4 e3d4
+1438342757.361 parse info 4 4
+1438342757.361 Adapter->GUI: 5 +0 1612 29075 d4 Bf5 c4 cxd4 exd4
+1438342780.212 Engine->Adapter: exit
+1438342781.058 Engine->Adapter: Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+1438342782.414 Engine->Adapter: 	at java.util.Arrays.copyOf(Unknown Source)
+1438342784.563 Engine->Adapter: 	at java.lang.AbstractStringBuilder.expandCapacity(Unknown Source)
+1438342786.708 Engine->Adapter: 	at java.lang.AbstractStringBuilder.ensureCapacityInternal(Unknown Source)
+1438342787.614 Engine->Adapter: 	at java.lang.AbstractStringBuilder.append(Unknown Source)
+1438342788.913 Engine->Adapter: 	at java.lang.StringBuilder.append(Unknown Source)
+1438342791.050 Engine->Adapter: 	at org.krudo.Console.log(Console.java:137)
+1438342792.789 Engine->Adapter: 	at org.krudo.Console.put(Console.java:83)
+1438342794.519 Engine->Adapter: 	at org.krudo.Krudo.main(Krudo.java:167)
+1438342795.035 POLYGLOT *** Mainloop has ended ***
+1438342795.035 POLYGLOT Closing engine.
+1438342795.035 Adapter->Engine: EOF
+1438342795.036 POLYGLOT Waiting for child process to exit.
+1438342795.036 POLYGLOT pipex_exit(): java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo: child exited unexpectedly.
+1438342795.036 POLYGLOT *** QUIT ***
+1438342795.238 POLYGLOT Calling exit
+1438342853.867 POLYGLOT *** LOGFILE OPENED ***
+1438342853.867 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342853.867 POLYGLOT *** SWITCHING LOGFILE ***
+1438342853.867 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342853.873 POLYGLOT *** LOGFILE OPENED ***
+1438342853.873 POLYGLOT *** LOGFILE OPENED ***
+1438342853.873 PolyGlot 2.0.1 by Fabien Letouzey.
+1438342853.873 POLYGLOT *** START ***
+1438342853.873 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342853.884 Adapter->Engine: uci
+1438342854.321 Engine->Adapter: Krudo 0.15a by Francesco Bianco <bianco@javanile.org>
+1438342854.324 Engine->Adapter: id name Krudo 0.15a
+1438342854.324 Engine->Adapter: id author Francesco Bianco
+1438342854.324 Engine->Adapter: uciok
+1438342854.324 POLYGLOG OPTIONS 
+1438342854.324 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438342854.324 POLYGLOT [Polyglot] EngineDir="."
+1438342854.324 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342854.324 POLYGLOT [Polyglot] Log="true"
+1438342854.324 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342854.324 POLYGLOT [Polyglot] Book="false"
+1438342854.324 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438342854.324 POLYGLOT [Polyglot] BookRandom="false"
+1438342854.324 POLYGLOT [Polyglot] BookDepth="256"
+1438342854.324 POLYGLOT [Polyglot] BookLearn="false"
+1438342854.324 POLYGLOT [Polyglot] BookTreshold="5"
+1438342854.324 POLYGLOT [Polyglot] UCI="false"
+1438342854.324 POLYGLOT [Polyglot] UseNice="false"
+1438342854.325 POLYGLOT [Polyglot] NiceValue="5"
+1438342854.325 POLYGLOT [Polyglot] Resign="false"
+1438342854.325 POLYGLOT [Polyglot] ResignMoves="3"
+1438342854.325 POLYGLOT [Polyglot] ResignScore="600"
+1438342854.325 POLYGLOT [Polyglot] MateScore="10000"
+1438342854.325 POLYGLOT [Polyglot] KibitzMove="false"
+1438342854.325 POLYGLOT [Polyglot] KibitzPV="false"
+1438342854.325 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438342854.325 POLYGLOT [Polyglot] KibitzDelay="5"
+1438342854.325 POLYGLOT [Polyglot] KibitzInterval="0"
+1438342854.325 POLYGLOT [Polyglot] ShowPonder="false"
+1438342854.325 POLYGLOT [Polyglot] ScoreWhite="false"
+1438342854.325 POLYGLOT [Polyglot] UCIVersion="2"
+1438342854.325 POLYGLOT [Polyglot] RepeatPV="true"
+1438342854.325 POLYGLOT [Polyglot] SyncStop="false"
+1438342854.325 POLYGLOT [Polyglot] CanPonder="false"
+1438342854.325 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438342854.325 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438342854.325 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438342854.325 POLYGLOT [Engine] Hash="68"
+1438342854.325 POLYGLOT [Engine] Ponder="false"
+1438342854.325 POLYGLOT [Engine] OwnBook="false"
+1438342854.325 POLYGLOT [Engine] Book="false"
+1438342854.325 POLYGLOT [Engine] BookFile="book_small.bin"
+1438342854.325 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438342854.325 POLYGLOT [Engine] NullMove Reduction="3"
+1438342854.325 POLYGLOT [Engine] Verification Search="Endgame"
+1438342854.325 POLYGLOT [Engine] Verification Reduction="5"
+1438342854.325 POLYGLOT [Engine] History Pruning="true"
+1438342854.325 POLYGLOT [Engine] History Threshold="60"
+1438342854.325 POLYGLOT [Engine] Futility Pruning="false"
+1438342854.325 POLYGLOT [Engine] Futility Margin="100"
+1438342854.325 POLYGLOT [Engine] Delta Pruning="false"
+1438342854.325 POLYGLOT [Engine] Delta Margin="50"
+1438342854.325 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438342854.325 POLYGLOT [Engine] Material="100"
+1438342854.325 POLYGLOT [Engine] Piece Activity="100"
+1438342854.325 POLYGLOT [Engine] King Safety="100"
+1438342854.325 POLYGLOT [Engine] Pawn Structure="100"
+1438342854.325 POLYGLOT [Engine] Passed Pawns="100"
+1438342854.325 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438342854.326 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438342854.326 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342854.326 POLYGLOT Setting PolyGlot option "Log=true"
+1438342854.326 POLYGLOT *** SWITCHING LOGFILE ***
+1438342854.326 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342854.326 POLYGLOT *** LOGFILE OPENED ***
+1438342854.326 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342854.326 POLYGLOT *** SWITCHING LOGFILE ***
+1438342854.326 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342854.331 POLYGLOT *** LOGFILE OPENED ***
+1438342854.331 POLYGLOT Setting PolyGlot option "Book=false"
+1438342854.331 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438342854.331 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438342854.331 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438342854.331 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438342854.331 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438342854.331 POLYGLOT Setting PolyGlot option "UCI=false"
+1438342854.331 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438342854.331 POLYGLOT Adjust Engine Piority
+1438342854.331 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438342854.331 POLYGLOT Setting PolyGlot option "Resign=false"
+1438342854.331 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438342854.331 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438342854.331 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438342854.331 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438342854.331 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438342854.331 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438342854.331 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438342854.331 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438342854.332 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438342854.332 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438342854.332 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438342854.332 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438342854.332 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438342854.332 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438342854.332 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438342854.332 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438342854.332 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438342854.332 POLYGLOT *** Mainloop started ***
+1438342854.360 GUI->Adapter: xboard
+1438342854.360 GUI->Adapter: protover 2
+1438342854.360 Adapter->GUI: feature done=0
+1438342854.360 Adapter->GUI: feature analyze=1
+1438342854.360 Adapter->GUI: feature exclude=1
+1438342854.360 Adapter->GUI: feature colors=0
+1438342854.360 Adapter->GUI: feature draw=1
+1438342854.360 Adapter->GUI: feature ics=1
+1438342854.360 Adapter->GUI: feature myname="Krudo 0.15a"
+1438342854.360 Adapter->GUI: feature name=1
+1438342854.360 Adapter->GUI: feature pause=0
+1438342854.360 Adapter->GUI: feature ping=1
+1438342854.360 Adapter->GUI: feature playother=1
+1438342854.361 Adapter->GUI: feature sigint=1
+1438342854.361 Adapter->GUI: feature reuse=1
+1438342854.361 Adapter->GUI: feature san=0
+1438342854.361 Adapter->GUI: feature setboard=1
+1438342854.361 Adapter->GUI: feature sigint=0
+1438342854.361 Adapter->GUI: feature sigterm=0
+1438342854.361 Adapter->GUI: feature time=1
+1438342854.361 Adapter->GUI: feature usermove=1
+1438342854.361 Adapter->GUI: feature nps=1
+1438342854.361 Adapter->GUI: feature memory=0
+1438342854.361 Adapter->GUI: feature smp=0
+1438342854.361 Adapter->GUI: feature egt=""
+1438342854.361 Adapter->GUI: feature variants="normal"
+1438342854.361 Adapter->GUI: feature option="Polyglot exclude move -string "
+1438342854.361 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342854.361 Adapter->GUI: feature option="Polyglot Log -check 1"
+1438342854.361 Adapter->GUI: feature option="Polyglot LogFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342854.361 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1438342854.362 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1438342854.362 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1438342854.362 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1438342854.362 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1438342854.362 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1438342854.362 Adapter->GUI: feature option="Polyglot Book -check 0"
+1438342854.362 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1438342854.362 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1438342854.362 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1438342854.362 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1438342854.362 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1438342854.362 Adapter->GUI: feature option="Polyglot Save -save"
+1438342854.362 Adapter->GUI: feature done=1
+1438342854.385 GUI->Adapter: accepted done
+1438342854.385 GUI->Adapter: accepted analyze
+1438342854.385 GUI->Adapter: accepted exclude
+1438342854.385 GUI->Adapter: accepted colors
+1438342854.385 GUI->Adapter: accepted draw
+1438342854.385 GUI->Adapter: accepted ics
+1438342854.385 GUI->Adapter: accepted myname
+1438342854.386 GUI->Adapter: accepted name
+1438342854.386 GUI->Adapter: accepted pause
+1438342854.386 GUI->Adapter: accepted ping
+1438342854.386 GUI->Adapter: accepted playother
+1438342854.386 GUI->Adapter: accepted sigint
+1438342854.386 GUI->Adapter: accepted reuse
+1438342854.386 GUI->Adapter: accepted san
+1438342854.386 GUI->Adapter: accepted setboard
+1438342854.386 GUI->Adapter: accepted sigint
+1438342854.386 GUI->Adapter: accepted sigterm
+1438342854.386 GUI->Adapter: accepted time
+1438342854.386 GUI->Adapter: accepted usermove
+1438342854.386 GUI->Adapter: accepted nps
+1438342854.387 GUI->Adapter: accepted memory
+1438342854.387 GUI->Adapter: accepted smp
+1438342854.387 GUI->Adapter: accepted egt
+1438342854.387 GUI->Adapter: accepted variants
+1438342854.387 GUI->Adapter: accepted option
+1438342854.387 GUI->Adapter: accepted option
+1438342854.387 GUI->Adapter: accepted option
+1438342854.387 GUI->Adapter: accepted option
+1438342854.387 GUI->Adapter: accepted option
+1438342854.387 GUI->Adapter: accepted option
+1438342854.387 GUI->Adapter: accepted option
+1438342854.387 GUI->Adapter: accepted option
+1438342854.387 GUI->Adapter: accepted option
+1438342854.387 GUI->Adapter: accepted option
+1438342854.388 GUI->Adapter: accepted option
+1438342854.388 GUI->Adapter: accepted option
+1438342854.388 GUI->Adapter: accepted option
+1438342854.388 GUI->Adapter: accepted option
+1438342854.388 GUI->Adapter: accepted option
+1438342854.388 GUI->Adapter: accepted option
+1438342854.388 GUI->Adapter: accepted option
+1438342854.388 GUI->Adapter: accepted done
+1438342854.397 GUI->Adapter: new
+1438342854.397 Adapter->Engine: isready
+1438342854.410 Engine->Adapter: readyok
+1438342854.410 POLYGLOT NEW GAME
+1438342854.410 POLYGLOT WAIT
+1438342854.410 Adapter->Engine: ucinewgame
+1438342854.410 GUI->Adapter: random
+1438342854.410 GUI->Adapter: ics -
+1438342854.410 GUI->Adapter: level 0 1 0
+1438342854.410 GUI->Adapter: post
+1438342854.410 GUI->Adapter: hard
+1438342854.410 POLYGLOT WAIT
+1438342854.411 GUI->Adapter: ping 1
+1438342854.411 Adapter->GUI: pong 1
+1438342854.411 GUI->Adapter: force
+1438342854.411 POLYGLOT WAIT
+1438342854.411 GUI->Adapter: ping 2
+1438342854.411 Adapter->GUI: pong 2
+1438342854.411 GUI->Adapter: new
+1438342854.411 Adapter->Engine: isready
+1438342854.412 Engine->Adapter: readyok
+1438342854.412 POLYGLOT NEW GAME
+1438342854.412 POLYGLOT WAIT
+1438342854.412 Adapter->Engine: ucinewgame
+1438342854.412 GUI->Adapter: random
+1438342854.412 GUI->Adapter: ics -
+1438342854.412 GUI->Adapter: level 0 1 0
+1438342854.412 GUI->Adapter: post
+1438342854.412 GUI->Adapter: hard
+1438342854.412 POLYGLOT WAIT
+1438342854.412 GUI->Adapter: ping 3
+1438342854.412 Adapter->GUI: pong 3
+1438342854.412 GUI->Adapter: force
+1438342854.412 POLYGLOT WAIT
+1438342855.017 GUI->Adapter: computer
+1438342855.017 GUI->Adapter: name Fairy-Max 4.8S
+1438342855.018 GUI->Adapter: time 6000
+1438342855.018 GUI->Adapter: otim 6000
+1438342855.018 GUI->Adapter: go
+1438342855.018 POLYGLOT THINK
+1438342855.018 POLYGLOT START SEARCH
+1438342855.018 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1438342855.018 Adapter->Engine: position startpos
+1438342855.018 Adapter->Engine: go wtime 60000 btime 60000
+1438342855.156 Engine->Adapter: bestmove g1f3
+1438342855.156 Adapter->GUI: move g1f3
+1438342855.156 POLYGLOT MOVE Nf3
+1438342855.156 POLYGLOT THINK -> WAIT
+1438342858.399 GUI->Adapter: time 5986
+1438342858.399 GUI->Adapter: otim 5675
+1438342858.399 GUI->Adapter: usermove g8f6
+1438342858.399 POLYGLOT MOVE Nf6
+1438342858.399 POLYGLOT WAIT -> THINK
+1438342858.399 POLYGLOT START SEARCH
+1438342858.399 POLYGLOT FEN rnbqkb1r/pppppppp/5n2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2
+1438342858.399 Adapter->Engine: position startpos moves g1f3 g8f6
+1438342858.399 Adapter->Engine: go wtime 59860 btime 56750
+1438342858.405 Engine->Adapter: info depth 2 score cp -100 time 4 nodes 45 pv e2e4 f6e4
+1438342858.405 parse info 0 0
+1438342858.405 Adapter->GUI: 2 -100 0 45 e4 Nxe4
+1438342858.407 Engine->Adapter: info depth 2 score cp 0 time 7 nodes 89 pv d2d4 d7d5
+1438342858.407 parse info 2 2
+1438342858.407 Adapter->GUI: 2 +0 1 89 d4 d5
+1438342858.556 Engine->Adapter: bestmove c2c4
+1438342858.556 Adapter->GUI: 2 +0 1 89 d4 d5
+1438342858.557 Adapter->GUI: move c2c4
+1438342858.557 POLYGLOT MOVE c4
+1438342858.557 POLYGLOT THINK -> WAIT
+1438342859.410 GUI->Adapter: time 5970
+1438342859.410 GUI->Adapter: otim 5590
+1438342859.410 GUI->Adapter: usermove c7c5
+1438342859.411 POLYGLOT MOVE c5
+1438342859.411 POLYGLOT WAIT -> THINK
+1438342859.411 POLYGLOT START SEARCH
+1438342859.411 POLYGLOT FEN rnbqkb1r/pp1ppppp/5n2/2p5/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq - 0 3
+1438342859.411 Adapter->Engine: position startpos moves g1f3 g8f6 c2c4 c7c5
+1438342859.411 Adapter->Engine: go wtime 59700 btime 55900
+1438342859.413 Engine->Adapter: info depth 2 score cp -100 time 1 nodes 47 pv e2e4 f6e4
+1438342859.413 parse info 0 0
+1438342859.413 Adapter->GUI: 2 -100 0 47 e4 Nxe4
+1438342859.415 Engine->Adapter: info depth 2 score cp 0 time 2 nodes 95 pv d2d4 d8c7
+1438342859.415 parse info 2 2
+1438342859.415 Adapter->GUI: 2 +0 0 95 d4 Qc7
+1438342859.566 Engine->Adapter: bestmove b1c3
+1438342859.566 Adapter->GUI: 2 +0 0 95 d4 Qc7
+1438342859.566 Adapter->GUI: move b1c3
+1438342859.566 POLYGLOT MOVE Nc3
+1438342859.566 POLYGLOT THINK -> WAIT
+1438342860.657 GUI->Adapter: time 5954
+1438342860.657 GUI->Adapter: otim 5481
+1438342860.657 GUI->Adapter: usermove b8c6
+1438342860.657 POLYGLOT MOVE Nc6
+1438342860.657 POLYGLOT WAIT -> THINK
+1438342860.657 POLYGLOT START SEARCH
+1438342860.658 POLYGLOT FEN r1bqkb1r/pp1ppppp/2n2n2/2p5/2P5/2N2N2/PP1PPPPP/R1BQKB1R w KQkq - 2 4
+1438342860.658 Adapter->Engine: position startpos moves g1f3 g8f6 c2c4 c7c5 b1c3 b8c6
+1438342860.658 Adapter->Engine: go wtime 59540 btime 54810
+1438342860.670 Engine->Adapter: info depth 2 score cp 0 time 12 nodes 54 pv e2e4 e7e5
+1438342860.670 parse info 0 0
+1438342860.670 Adapter->GUI: 2 +0 1 54 e4 e5
+1438342860.808 Engine->Adapter: bestmove d2d4
+1438342860.808 Adapter->GUI: 2 +0 1 54 e4 e5
+1438342860.808 Adapter->GUI: move d2d4
+1438342860.808 POLYGLOT MOVE d4
+1438342860.808 POLYGLOT THINK -> WAIT
+1438342864.356 GUI->Adapter: time 5939
+1438342864.356 GUI->Adapter: otim 5127
+1438342864.356 GUI->Adapter: usermove c5d4
+1438342864.356 POLYGLOT MOVE cxd4
+1438342864.356 POLYGLOT WAIT -> THINK
+1438342864.356 POLYGLOT START SEARCH
+1438342864.356 POLYGLOT FEN r1bqkb1r/pp1ppppp/2n2n2/8/2Pp4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5
+1438342864.356 Adapter->Engine: position startpos moves g1f3 g8f6 c2c4 c7c5 b1c3 b8c6 d2d4 c5d4
+1438342864.356 Adapter->Engine: go wtime 59390 btime 51270
+1438342864.360 Engine->Adapter: info depth 2 score cp -300 time 3 nodes 58 pv c1f4 d4c3
+1438342864.360 parse info 0 0
+1438342864.360 Adapter->GUI: 2 -300 0 58 Bf4 dxc3
+1438342864.361 Engine->Adapter: info depth 2 score cp 0 time 4 nodes 112 pv f3d4 e7e5
+1438342864.361 parse info 2 2
+1438342864.361 Adapter->GUI: 2 +0 0 112 Nxd4 e5
+1438342864.499 Engine->Adapter: bestmove f3d4
+1438342864.499 Adapter->GUI: 2 +0 0 112 Nxd4 e5
+1438342864.499 Adapter->GUI: move f3d4
+1438342864.499 POLYGLOT MOVE Nxd4
+1438342864.499 POLYGLOT THINK -> WAIT
+1438342873.147 GUI->Adapter: time 5924
+1438342873.147 GUI->Adapter: otim 4262
+1438342873.147 GUI->Adapter: usermove d7d6
+1438342873.147 POLYGLOT MOVE d6
+1438342873.147 POLYGLOT WAIT -> THINK
+1438342873.147 POLYGLOT START SEARCH
+1438342873.147 POLYGLOT FEN r1bqkb1r/pp2pppp/2np1n2/8/2PN4/2N5/PP2PPPP/R1BQKB1R w KQkq - 0 6
+1438342873.148 Adapter->Engine: position startpos moves g1f3 g8f6 c2c4 c7c5 b1c3 b8c6 d2d4 c5d4 f3d4 d7d6
+1438342873.148 Adapter->Engine: go wtime 59240 btime 42620
+1438342873.150 Engine->Adapter: info depth 2 score cp 0 time 2 nodes 69 pv c1f4 e7e5
+1438342873.150 parse info 0 0
+1438342873.150 Adapter->GUI: 2 +0 0 69 Bf4 e5
+1438342873.381 Engine->Adapter: info depth 1 score cp 0 time 1 nodes 2 pv e2e4
+1438342873.381 parse info 2 2
+1438342873.381 killed because of small depth 1 < 2
+1438342873.383 Engine->Adapter: info depth 2 score cp 0 time 3 nodes 108 pv e2e4 c6d4
+1438342873.383 parse info 1 2
+1438342873.384 Adapter->GUI: 2 +0 0 108 e4 Nxd4
+1438342873.506 Engine->Adapter: info depth 3 score cp 0 time 126 nodes 444 pv e2e4 c6d4 d1d4
+1438342873.506 parse info 2 2
+1438342873.506 Adapter->GUI: 3 +0 13 444 e4 Nxd4 Qxd4
+1438342874.435 Engine->Adapter: info depth 4 score cp 0 time 1054 nodes 7039 pv e2e4 c6d4 d1d4 c8e6
+1438342874.435 parse info 3 3
+1438342874.435 Adapter->GUI: 4 +0 105 7039 e4 Nxd4 Qxd4 Be6
+1438342923.191 Engine->Adapter: info depth 5 score cp 0 time 49811 nodes 45073 pv e2e4 e7e5 d4b3 h7h5 f1d3
+1438342923.191 parse info 4 4
+1438342923.192 Adapter->GUI: 5 +0 4981 45073 e4 e5 Nb3 h5 Bd3
+1438342932.417 GUI->Adapter: result 0-1 {Black wins on time}
+1438342932.418 POLYGLOT GAME END
+1438342932.418 POLYGLOT STOP SEARCH
+1438342932.418 Adapter->Engine: stop
+1438342932.418 POLYGLOT WAIT
+1438342932.418 GUI->Adapter: force
+1438342932.418 POLYGLOT WAIT
+1438342932.418 GUI->Adapter: ping 4
+1438342932.418 Adapter->GUI: pong 4
+1438342935.856 GUI->Adapter: quit
+1438342935.856 POLYGLOT *** "quit" from GUI ***
+1438342935.856 POLYGLOT *** QUIT ***
+1438342935.857 Adapter->Engine: quit
+1438342935.857 POLYGLOT Closing engine.
+1438342935.857 Adapter->Engine: EOF
+1438342935.857 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438342935.958 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438342936.059 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438342936.161 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438342936.262 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438342936.363 POLYGLOT Waited more than 500ms. Moving on.
+1438342936.363 POLYGLOT Waiting for child process to exit.
+1438342936.363 POLYGLOT Child has not exited yet. Sleeping 100ms.
+1438342936.463 POLYGLOT Child has not exited yet. Sleeping 100ms.
+1438342936.564 POLYGLOT Child wouldn't exit by itself. Terminating it.
+1438342936.765 POLYGLOT Calling exit
+1438342950.767 POLYGLOT *** LOGFILE OPENED ***
+1438342950.767 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342950.767 POLYGLOT *** SWITCHING LOGFILE ***
+1438342950.767 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342950.774 POLYGLOT *** LOGFILE OPENED ***
+1438342950.774 POLYGLOT *** LOGFILE OPENED ***
+1438342950.774 PolyGlot 2.0.1 by Fabien Letouzey.
+1438342950.774 POLYGLOT *** START ***
+1438342950.774 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342950.784 Adapter->Engine: uci
+1438342951.239 Engine->Adapter: Krudo 0.15a by Francesco Bianco <bianco@javanile.org>
+1438342951.241 Engine->Adapter: id name Krudo 0.15a
+1438342951.242 Engine->Adapter: id author Francesco Bianco
+1438342951.242 Engine->Adapter: uciok
+1438342951.242 POLYGLOG OPTIONS 
+1438342951.242 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1438342951.242 POLYGLOT [Polyglot] EngineDir="."
+1438342951.242 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342951.242 POLYGLOT [Polyglot] Log="true"
+1438342951.242 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342951.242 POLYGLOT [Polyglot] Book="false"
+1438342951.242 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1438342951.242 POLYGLOT [Polyglot] BookRandom="false"
+1438342951.242 POLYGLOT [Polyglot] BookDepth="256"
+1438342951.242 POLYGLOT [Polyglot] BookLearn="false"
+1438342951.242 POLYGLOT [Polyglot] BookTreshold="5"
+1438342951.242 POLYGLOT [Polyglot] UCI="false"
+1438342951.242 POLYGLOT [Polyglot] UseNice="false"
+1438342951.242 POLYGLOT [Polyglot] NiceValue="5"
+1438342951.242 POLYGLOT [Polyglot] Resign="false"
+1438342951.242 POLYGLOT [Polyglot] ResignMoves="3"
+1438342951.242 POLYGLOT [Polyglot] ResignScore="600"
+1438342951.242 POLYGLOT [Polyglot] MateScore="10000"
+1438342951.242 POLYGLOT [Polyglot] KibitzMove="false"
+1438342951.242 POLYGLOT [Polyglot] KibitzPV="false"
+1438342951.242 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1438342951.242 POLYGLOT [Polyglot] KibitzDelay="5"
+1438342951.242 POLYGLOT [Polyglot] KibitzInterval="0"
+1438342951.242 POLYGLOT [Polyglot] ShowPonder="false"
+1438342951.242 POLYGLOT [Polyglot] ScoreWhite="false"
+1438342951.242 POLYGLOT [Polyglot] UCIVersion="2"
+1438342951.242 POLYGLOT [Polyglot] RepeatPV="true"
+1438342951.242 POLYGLOT [Polyglot] SyncStop="false"
+1438342951.242 POLYGLOT [Polyglot] CanPonder="false"
+1438342951.242 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1438342951.242 POLYGLOT [Polyglot] WbWorkArounds="false"
+1438342951.242 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1438342951.242 POLYGLOT [Engine] Hash="68"
+1438342951.242 POLYGLOT [Engine] Ponder="false"
+1438342951.242 POLYGLOT [Engine] OwnBook="false"
+1438342951.242 POLYGLOT [Engine] Book="false"
+1438342951.243 POLYGLOT [Engine] BookFile="book_small.bin"
+1438342951.243 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1438342951.243 POLYGLOT [Engine] NullMove Reduction="3"
+1438342951.243 POLYGLOT [Engine] Verification Search="Endgame"
+1438342951.243 POLYGLOT [Engine] Verification Reduction="5"
+1438342951.243 POLYGLOT [Engine] History Pruning="true"
+1438342951.243 POLYGLOT [Engine] History Threshold="60"
+1438342951.243 POLYGLOT [Engine] Futility Pruning="false"
+1438342951.243 POLYGLOT [Engine] Futility Margin="100"
+1438342951.243 POLYGLOT [Engine] Delta Pruning="false"
+1438342951.243 POLYGLOT [Engine] Delta Margin="50"
+1438342951.243 POLYGLOT [Engine] Quiescence Check Plies="1"
+1438342951.243 POLYGLOT [Engine] Material="100"
+1438342951.243 POLYGLOT [Engine] Piece Activity="100"
+1438342951.243 POLYGLOT [Engine] King Safety="100"
+1438342951.243 POLYGLOT [Engine] Pawn Structure="100"
+1438342951.243 POLYGLOT [Engine] Passed Pawns="100"
+1438342951.243 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1438342951.243 POLYGLOT Setting PolyGlot option "EngineDir=."
+1438342951.243 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/../build/classes org.krudo.Krudo"
+1438342951.243 POLYGLOT Setting PolyGlot option "Log=true"
+1438342951.243 POLYGLOT *** SWITCHING LOGFILE ***
+1438342951.243 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342951.244 POLYGLOT *** LOGFILE OPENED ***
+1438342951.244 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342951.244 POLYGLOT *** SWITCHING LOGFILE ***
+1438342951.244 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342951.249 POLYGLOT *** LOGFILE OPENED ***
+1438342951.249 POLYGLOT Setting PolyGlot option "Book=false"
+1438342951.249 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1438342951.249 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1438342951.249 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1438342951.249 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1438342951.249 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1438342951.249 POLYGLOT Setting PolyGlot option "UCI=false"
+1438342951.249 POLYGLOT Setting PolyGlot option "UseNice=false"
+1438342951.249 POLYGLOT Adjust Engine Piority
+1438342951.249 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1438342951.249 POLYGLOT Setting PolyGlot option "Resign=false"
+1438342951.249 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1438342951.249 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1438342951.249 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1438342951.249 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1438342951.249 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1438342951.250 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1438342951.250 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1438342951.250 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1438342951.250 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1438342951.250 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1438342951.250 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1438342951.250 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1438342951.250 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1438342951.250 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1438342951.250 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1438342951.250 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1438342951.250 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1438342951.250 POLYGLOT *** Mainloop started ***
+1438342951.260 GUI->Adapter: xboard
+1438342951.260 GUI->Adapter: protover 2
+1438342951.260 Adapter->GUI: feature done=0
+1438342951.260 Adapter->GUI: feature analyze=1
+1438342951.260 Adapter->GUI: feature exclude=1
+1438342951.260 Adapter->GUI: feature colors=0
+1438342951.260 Adapter->GUI: feature draw=1
+1438342951.260 Adapter->GUI: feature ics=1
+1438342951.260 Adapter->GUI: feature myname="Krudo 0.15a"
+1438342951.260 Adapter->GUI: feature name=1
+1438342951.260 Adapter->GUI: feature pause=0
+1438342951.260 Adapter->GUI: feature ping=1
+1438342951.260 Adapter->GUI: feature playother=1
+1438342951.261 Adapter->GUI: feature sigint=1
+1438342951.261 Adapter->GUI: feature reuse=1
+1438342951.261 Adapter->GUI: feature san=0
+1438342951.261 Adapter->GUI: feature setboard=1
+1438342951.261 Adapter->GUI: feature sigint=0
+1438342951.261 Adapter->GUI: feature sigterm=0
+1438342951.261 Adapter->GUI: feature time=1
+1438342951.261 Adapter->GUI: feature usermove=1
+1438342951.261 Adapter->GUI: feature nps=1
+1438342951.261 Adapter->GUI: feature memory=0
+1438342951.261 Adapter->GUI: feature smp=0
+1438342951.261 Adapter->GUI: feature egt=""
+1438342951.261 Adapter->GUI: feature variants="normal"
+1438342951.261 Adapter->GUI: feature option="Polyglot exclude move -string "
+1438342951.261 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\Krudo.ini"
+1438342951.261 Adapter->GUI: feature option="Polyglot Log -check 1"
+1438342951.261 Adapter->GUI: feature option="Polyglot LogFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/sf/engine/krudo/work/\polyglot.log"
+1438342951.261 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1438342951.262 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1438342951.262 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1438342951.262 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1438342951.262 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1438342951.262 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1438342951.262 Adapter->GUI: feature option="Polyglot Book -check 0"
+1438342951.262 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1438342951.262 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1438342951.262 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1438342951.262 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1438342951.262 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1438342951.262 Adapter->GUI: feature option="Polyglot Save -save"
+1438342951.262 Adapter->GUI: feature done=1
+1438342951.279 GUI->Adapter: accepted done
+1438342951.279 GUI->Adapter: accepted analyze
+1438342951.279 GUI->Adapter: accepted exclude
+1438342951.279 GUI->Adapter: accepted colors
+1438342951.279 GUI->Adapter: accepted draw
+1438342951.279 GUI->Adapter: accepted ics
+1438342951.279 GUI->Adapter: accepted myname
+1438342951.279 GUI->Adapter: accepted name
+1438342951.279 GUI->Adapter: accepted pause
+1438342951.279 GUI->Adapter: accepted ping
+1438342951.279 GUI->Adapter: accepted playother
+1438342951.279 GUI->Adapter: accepted sigint
+1438342951.279 GUI->Adapter: accepted reuse
+1438342951.280 GUI->Adapter: accepted san
+1438342951.280 GUI->Adapter: accepted setboard
+1438342951.280 GUI->Adapter: accepted sigint
+1438342951.280 GUI->Adapter: accepted sigterm
+1438342951.280 GUI->Adapter: accepted time
+1438342951.280 GUI->Adapter: accepted usermove
+1438342951.280 GUI->Adapter: accepted nps
+1438342951.280 GUI->Adapter: accepted memory
+1438342951.280 GUI->Adapter: accepted smp
+1438342951.280 GUI->Adapter: accepted egt
+1438342951.280 GUI->Adapter: accepted variants
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted option
+1438342951.280 GUI->Adapter: accepted done
+1438342951.284 GUI->Adapter: new
+1438342951.284 Adapter->Engine: isready
+1438342951.298 Engine->Adapter: readyok
+1438342951.298 POLYGLOT NEW GAME
+1438342951.298 POLYGLOT WAIT
+1438342951.298 Adapter->Engine: ucinewgame
+1438342951.298 GUI->Adapter: random
+1438342951.298 GUI->Adapter: ics -
+1438342951.298 GUI->Adapter: level 0 1 0
+1438342951.298 GUI->Adapter: post
+1438342951.298 GUI->Adapter: hard
+1438342951.298 POLYGLOT WAIT
+1438342951.299 GUI->Adapter: ping 1
+1438342951.299 Adapter->GUI: pong 1
+1438342951.299 GUI->Adapter: force
+1438342951.299 POLYGLOT WAIT
+1438342951.299 GUI->Adapter: ping 2
+1438342951.299 Adapter->GUI: pong 2
+1438342951.299 GUI->Adapter: new
+1438342951.299 Adapter->Engine: isready
+1438342951.299 Engine->Adapter: readyok
+1438342951.299 POLYGLOT NEW GAME
+1438342951.299 POLYGLOT WAIT
+1438342951.299 Adapter->Engine: ucinewgame
+1438342951.299 GUI->Adapter: random
+1438342951.299 GUI->Adapter: ics -
+1438342951.299 GUI->Adapter: level 0 1 0
+1438342951.299 GUI->Adapter: post
+1438342951.299 GUI->Adapter: hard
+1438342951.299 POLYGLOT WAIT
+1438342951.299 GUI->Adapter: ping 3
+1438342951.299 Adapter->GUI: pong 3
+1438342951.299 GUI->Adapter: force
+1438342951.299 POLYGLOT WAIT
+1438342951.910 GUI->Adapter: computer
+1438342951.910 GUI->Adapter: name Fairy-Max 4.8S
+1438342951.911 GUI->Adapter: time 6000
+1438342951.911 GUI->Adapter: otim 6000
+1438342951.911 GUI->Adapter: go
+1438342951.911 POLYGLOT THINK
+1438342951.911 POLYGLOT START SEARCH
+1438342951.911 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1438342951.911 Adapter->Engine: position startpos
+1438342951.911 Adapter->Engine: go wtime 60000 btime 60000
+1438342952.050 Engine->Adapter: bestmove g1f3
+1438342952.050 Adapter->GUI: move g1f3
+1438342952.050 POLYGLOT MOVE Nf3
+1438342952.050 POLYGLOT THINK -> WAIT
+1438342955.001 GUI->Adapter: time 5986
+1438342955.001 GUI->Adapter: otim 5704
+1438342955.001 GUI->Adapter: usermove d7d6
+1438342955.001 POLYGLOT MOVE d6
+1438342955.001 POLYGLOT WAIT -> THINK
+1438342955.001 POLYGLOT START SEARCH
+1438342955.001 POLYGLOT FEN rnbqkbnr/ppp1pppp/3p4/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 0 2
+1438342955.002 Adapter->Engine: position startpos moves g1f3 d7d6
+1438342955.002 Adapter->Engine: go wtime 59860 btime 57040
+1438342955.010 Engine->Adapter: info depth 2 score cp 0 time 7 nodes 54 pv e2e4 d6d5
+1438342955.010 parse info 0 0
+1438342955.011 Adapter->GUI: 2 +0 1 54 e4 d5
+1438342955.183 Engine->Adapter: bestmove d2d4
+1438342955.183 Adapter->GUI: 2 +0 1 54 e4 d5
+1438342955.183 Adapter->GUI: move d2d4
+1438342955.183 POLYGLOT MOVE d4
+1438342955.183 POLYGLOT THINK -> WAIT
+1438342957.278 GUI->Adapter: time 5967
+1438342957.278 GUI->Adapter: otim 5495
+1438342957.278 GUI->Adapter: usermove g8f6
+1438342957.278 POLYGLOT MOVE Nf6
+1438342957.278 POLYGLOT WAIT -> THINK
+1438342957.278 POLYGLOT START SEARCH
+1438342957.278 POLYGLOT FEN rnbqkb1r/ppp1pppp/3p1n2/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq - 1 3
+1438342957.278 Adapter->Engine: position startpos moves g1f3 d7d6 d2d4 g8f6
+1438342957.278 Adapter->Engine: go wtime 59670 btime 54950
+1438342957.280 Engine->Adapter: info depth 2 score cp 0 time 1 nodes 60 pv c1f4 d6d5
+1438342957.280 parse info 0 0
+1438342957.280 Adapter->GUI: 2 +0 0 60 Bf4 d5
+1438342957.425 Engine->Adapter: bestmove c2c4
+1438342957.425 Adapter->GUI: 2 +0 0 60 Bf4 d5
+1438342957.425 Adapter->GUI: move c2c4
+1438342957.425 POLYGLOT MOVE c4
+1438342957.425 POLYGLOT THINK -> WAIT
+1438342961.605 GUI->Adapter: time 5952
+1438342961.605 GUI->Adapter: otim 5077
+1438342961.605 GUI->Adapter: usermove c8f5
+1438342961.606 POLYGLOT MOVE Bf5
+1438342961.606 POLYGLOT WAIT -> THINK
+1438342961.606 POLYGLOT START SEARCH
+1438342961.606 POLYGLOT FEN rn1qkb1r/ppp1pppp/3p1n2/5b2/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 1 4
+1438342961.606 Adapter->Engine: position startpos moves g1f3 d7d6 d2d4 g8f6 c2c4 c8f5
+1438342961.606 Adapter->Engine: go wtime 59520 btime 50770
+1438342961.611 Engine->Adapter: info depth 2 score cp -100 time 4 nodes 68 pv e2e4 f6e4
+1438342961.611 parse info 0 0
+1438342961.611 Adapter->GUI: 2 -100 0 68 e4 Nxe4
+1438342961.612 Engine->Adapter: info depth 2 score cp 0 time 6 nodes 140 pv c1f4 d6d5
+1438342961.612 parse info 2 2
+1438342961.612 Adapter->GUI: 2 +0 1 140 Bf4 d5
+1438342961.769 Engine->Adapter: info depth 1 score cp -100 time 0 nodes 2 pv e2e4
+1438342961.769 parse info 2 2
+1438342961.770 killed because of small depth 1 < 2
+1438342961.770 Engine->Adapter: info depth 1 score cp 0 time 1 nodes 4 pv e2e3
+1438342961.770 parse info 1 2
+1438342961.770 killed because of small depth 1 < 2
+1438342961.770 Engine->Adapter: info depth 2 score cp 0 time 1 nodes 106 pv e2e3 d6d5
+1438342961.770 parse info 1 2
+1438342961.771 Adapter->GUI: 2 +0 0 106 e3 d5
+1438342961.799 Engine->Adapter: info depth 3 score cp 0 time 30 nodes 366 pv e2e3 d6d5 f1d3
+1438342961.799 parse info 2 2
+1438342961.800 Adapter->GUI: 3 +0 3 366 e3 d5 Bd3
+1438342961.996 Engine->Adapter: info depth 4 score cp 0 time 226 nodes 6956 pv e2e3 d6d5 f1d3 f6e4
+1438342961.996 parse info 3 3
+1438342961.996 Adapter->GUI: 4 +0 23 6956 e3 d5 Bd3 Ne4
+1438342979.152 Engine->Adapter: bestmove e2e3
+1438342979.152 Adapter->GUI: 4 +0 23 6956 e3 d5 Bd3 Ne4
+1438342979.152 Adapter->GUI: move e2e3
+1438342979.153 POLYGLOT MOVE e3
+1438342979.153 POLYGLOT THINK -> WAIT
+1438342980.942 GUI->Adapter: time 4197
+1438342980.942 GUI->Adapter: otim 4899
+1438342980.942 GUI->Adapter: usermove c7c5
+1438342980.942 POLYGLOT MOVE c5
+1438342980.942 POLYGLOT WAIT -> THINK
+1438342980.942 POLYGLOT START SEARCH
+1438342980.942 POLYGLOT FEN rn1qkb1r/pp2pppp/3p1n2/2p2b2/2PP4/4PN2/PP3PPP/RNBQKB1R w KQkq - 0 5
+1438342980.942 Adapter->Engine: position startpos moves g1f3 d7d6 d2d4 g8f6 c2c4 c8f5 e2e3 c7c5
+1438342980.942 Adapter->Engine: go wtime 41970 btime 48990
+1438342980.945 Engine->Adapter: info depth 2 score cp 0 time 2 nodes 73 pv f1d3 f6e4
+1438342980.946 parse info 0 0
+1438342980.946 Adapter->GUI: 2 +0 0 73 Bd3 Ne4
+1438342981.150 Engine->Adapter: info depth 1 score cp 0 time 1 nodes 2 pv f1d3
+1438342981.150 parse info 2 2
+1438342981.150 killed because of small depth 1 < 2
+1438342981.154 Engine->Adapter: info depth 2 score cp 0 time 5 nodes 105 pv f1d3 f6e4
+1438342981.154 parse info 1 2
+1438342981.154 Adapter->GUI: 2 +0 0 105 Bd3 Ne4
+1438342981.277 Engine->Adapter: info depth 3 score cp 0 time 128 nodes 473 pv f1d3 f6e4 d4d5
+1438342981.277 parse info 2 2
+1438342981.277 Adapter->GUI: 3 +0 13 473 Bd3 Ne4 d5
+1438342983.839 Engine->Adapter: info depth 4 score cp 0 time 2690 nodes 7200 pv f1d3 f6e4 d4d5 e7e5
+1438342983.839 parse info 3 3
+1438342983.839 Adapter->GUI: 4 +0 269 7200 Bd3 Ne4 d5 e5
+1438343022.944 GUI->Adapter: result 0-1 {Black wins on time}
+1438343022.944 POLYGLOT GAME END
+1438343022.944 POLYGLOT STOP SEARCH
+1438343022.944 Adapter->Engine: stop
+1438343022.944 POLYGLOT WAIT
+1438343022.945 GUI->Adapter: force
+1438343022.945 POLYGLOT WAIT
+1438343022.945 GUI->Adapter: ping 4
+1438343022.945 Adapter->GUI: pong 4
+1438343026.161 GUI->Adapter: quit
+1438343026.161 POLYGLOT *** "quit" from GUI ***
+1438343026.161 POLYGLOT *** QUIT ***
+1438343026.161 Adapter->Engine: quit
+1438343026.161 POLYGLOT Closing engine.
+1438343026.161 Adapter->Engine: EOF
+1438343026.161 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438343026.262 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438343026.363 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438343026.464 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438343026.565 POLYGLOT Engine does not reply. Sleeping 100ms.
+1438343026.666 POLYGLOT Waited more than 500ms. Moving on.
+1438343026.666 POLYGLOT Waiting for child process to exit.
+1438343026.666 POLYGLOT Child has not exited yet. Sleeping 100ms.
+1438343026.767 POLYGLOT Child has not exited yet. Sleeping 100ms.
+1438343026.868 POLYGLOT Child wouldn't exit by itself. Terminating it.
+1438343027.069 POLYGLOT Calling exit

@@ -1,11 +1,11 @@
 package org.krudo.test;
 
-import static org.krudo.util.Debug.*;
+import static org.krudo.utils.Debug.*;
 import static org.krudo.Const.*;
-import static org.krudo.util.Trans.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.utils.Trans.*;
+import static org.krudo.utils.Tools.*;
 
-import org.krudo.Thinker;
+import org.krudo.Engine;
 import org.krudo.UCI;
 
 //
@@ -15,7 +15,7 @@ public class Search1 {
 	public static void main(String[] args) {
 		
 		//
-		final Thinker e = new Thinker();
+		final Engine e = new Engine();
 			
 		//
 		//e.n.domove("e2e4 e7e5 f1a6 b7a6".split("\\s"));

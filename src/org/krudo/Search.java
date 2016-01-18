@@ -1,11 +1,17 @@
+/**
+ * Krudo 0.16a 
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
 package org.krudo;
 
 // required static class
 import static org.krudo.Const.*;
-import static org.krudo.util.Trans.*;
-import static org.krudo.util.Tools.*;
-import static org.krudo.util.Debug.*;
-import static org.krudo.Zobrist.hash;
+import static org.krudo.utils.Trans.*;
+import static org.krudo.utils.Tools.*;
+import static org.krudo.utils.Debug.*;
+import static org.krudo.utils.Zobrist.hash;
 
 // search main class
 public final class Search {	
@@ -83,7 +89,7 @@ public final class Search {
 		init();
 																	
 		//
-		find.clr();
+		find.empty();
 	
 		// set time limit for the searcing engine
 		timeLimit = time() + TIME_5_MINUTES;
@@ -160,7 +166,7 @@ public final class Search {
 		deep = deepStart;
 		
 		// empity moves stack
-		move.clr();
+		move.empty();
 			
 		// iterative deeping alpha start value
 		int alfa = -oo;
@@ -172,7 +178,7 @@ public final class Search {
 		while (deep <= deepLimit && stop == not) {			
 						
 			// empty founded moves
-			find.clr();
+			find.empty();
 
 			// launch alfa-beta for searcing candidates 
 			eval = abrun(deep, alfa, beta);		

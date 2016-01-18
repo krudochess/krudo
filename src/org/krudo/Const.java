@@ -16,11 +16,11 @@ public final class Const {
 	Q = 0b000000_101000_101000,  
 	K = 0b000000_101010_101010;  
 	
-	// color turn
+	// colors and side to move turn 
 	public final static int		 	
 	w = 0b000000_000001_000001,
 	b = 0b000000_010000_010000,
-	t = 0b000000_010001_010001;
+	T = 0b000000_010001_010001;
 		
 	// white piece
 	public final static int 
@@ -41,9 +41,9 @@ public final class Const {
 	bk = b|K;
 
 	// pieche mask
-	public final static int 
-	pi = 0b000000_000000_001111, // piece index mask		
-	hi = 0b000000_001111_000000; // piece index mask		
+	public final static int
+	pi = 0b0_0_000000_000000_000000_000000_001111, // piece index mask		
+	hi = 0b0_0_000000_000000_000000_001111_000000; // piece index mask		
 		
 	// castling flags "c values"
 	public final static int 
@@ -96,9 +96,11 @@ public final class Const {
 	prom = 0b010000_000000_000000|quie,
 	pmov = prom|move,
 	pcap = prom|capt|move,		
+	wpmo = w|prom|move,
+	bpmo = b|prom|move,
 	qpmo = Q|pmov, 
 	rpmo = R|pmov,
-	bpmo = B|pmov,			
+	//bpmo = B|pmov,			
 	npmo = N|pmov,
 	wqpm = w|Q|pmov, 
 	wrpm = w|R|pmov,
@@ -278,6 +280,13 @@ public final class Const {
 	};
 	
 	//
+	public final static int[]
+	wecs = new int[] {},
+	becs = new int[] {}; 		
+	
+	
+	
+	//
 	public final static int
 	orto = 0b0000_000_000_000_111, 
 	diag = 0b0000_000_000_111_000, 
@@ -370,7 +379,6 @@ public final class Const {
 	
 	// internals
 	public final static int
-	MOVE_SIZE			= 110,
 	MOVE_CACHE_SIZE		= 100000,
 	MOVE_BUFFER_SIZE	= 105000,
 	EVAL_CACHE_SIZE		= 1000,
@@ -391,7 +399,7 @@ public final class Const {
 	MOVE_BUFFER		= true,
 	MOVE_LEGALS		= true,
 	SEARCH_CUT_OFF	= true,
-	PSEUDO_AUTOMAP	= true,
+	PSEUDO_REMAPS	= false,
 	THREAD			= false, // use threats in run-time
 	TABLE			= false, // use threats in run-time
 	ASPIRATION		= false;

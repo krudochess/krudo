@@ -1,7 +1,7 @@
 package org.krudo;
 
 import static org.krudo.Const.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.utils.Tools.*;
 
 //
 public final class Timer {

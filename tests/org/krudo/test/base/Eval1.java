@@ -1,12 +1,12 @@
 package org.krudo.test.base;
 
 // required static class
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.utils.Debug.*;
+import static org.krudo.utils.Tools.*;
 import static org.krudo.Const.*;
 
 // required non-static class
-import org.krudo.Book;
+import org.krudo.utils.Book;
 import org.krudo.Eval;
 import org.krudo.Node;
 

@@ -1,46 +1,49 @@
+/**
+ * Krudo 0.16a 
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
 package org.krudo;
 
-// required static class
+// required non-static classes
+import org.krudo.utils.Fen;
+
+// required static classes and methods
 import static org.krudo.Const.*;
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Trans.*;
-import static org.krudo.util.Tools.*;
-import static org.krudo.Zobrist.hash;
+import static org.krudo.utils.Trans.*;
+import static org.krudo.utils.Tools.*;
+import static org.krudo.utils.Zobrist.hash;
 
 // Spizzy main class
 public final class Node {
-
-	// internal status
-	public int B[];		// board
-	public int T;		// turn (side to move)
-	public int e;		// en-passant
-	public int c;		// castling status
-	public int cw;		// count white piece
-	public int cb;		// count black piece
-	public int wks;		// white king square
-	public int bks;		// black king square
-	public int hm;		// half-move after pawn move or calpture
-	public int n;		// count moves from the begin
-	public int i;		// count half-move from the begin
-			
-	// moves history line
-	public Line L = new Line();
 	
+	// board internal status
+	public final int B[] = new int[64]; 
+	
+	// moves history line
+	public final Line L = new Line();
+	
+	// node status  
+	public int t;   // turn (side to move)
+	public int e;   // en-passant
+	public int c;   // castling status
+	public int cw;  // count white piece
+	public int cb;  // count black piece
+	public int wks; // white king square
+	public int bks; // black king square
+	public int hm;  // half-move after pawn move or calpture
+	public int n;   // count moves from the begin
+	public int i;   // count half-move from the begin
+				
 	// legals moves-stack internal
 	private Move m;
 	
 	// zobrist hash key temp
 	private long h;
 	
-	// globals first order
-	private int v;	// versus square in move generation loops
-	private int x;	// captured piece
-	private int k;	// kind-of-move
-	private int u;	// alternative versus square
-	private int r;	// square rank
-	
 	// white boardmap improve white piece lookup on board
-	public final int[] wbm = new int[] {
+	private final int[] wbm = new int[] {
 		// board center
 		c3, f3, d3, e3,
 		c4, d4, e4, f4,
@@ -63,7 +66,7 @@ public final class Node {
 	};
 	
 	// black boardmap improve black piece lookup on board
-	public final int[] bbm = new int[] {
+	private final int[] bbm = new int[] {
 		// center
 		c6, d6, e6, f6,
 		c5, d5, e5, f5,
@@ -83,42 +86,25 @@ public final class Node {
 		e2, d2, c2, f2, b2, g2, h2, a2, 		
 		b1, g1, a1, c1, d1, e1, h1, f1, 				
 	};
-	
-	// constructor create a ready to use node with standard chess start position set 
-	public Node() {
-		
-		//
-		startpos();
-	}
-	
-	// constructor with FEN position create a ready to use node with custom start position
-	public Node(String fen) {
-		
-		//
-		startpos(fen);
-	}
+
+	// empty contructor
+	public void Node() {}
 	
 	// restore node to start position
-	public final void startpos() {
-		
-		//
-		Fen.parse(this, STARTPOS);
-	}
+	public final void startpos() { Fen.parse(this, STARTPOS); }
 	
 	// restore node to position passed in FEN
-	public final void startpos(
-		final String fen
-	) {
-		//
-		Fen.parse(this,fen);
-	}
+	public final void startpos(final String fen) { Fen.parse(this, fen); }
 	
 	// do-play a moves sequence passed by array
 	public final void domove(
 		final String[] moves
 	) {
+		
 		// loop throu moves
 		for (String move: moves) {
+			
+			// do single move
 			domove(move);
 		}
 	}
@@ -127,10 +113,11 @@ public final class Node {
 	public final void domove(
 		final String move
 	) {		
+		
 		// parse move parts and retrieve s,v,k
 		int s = s2i(move.substring(0, 2));
 		int v = s2i(move.substring(2, 4));
-		int k = k2i(move, B[s], s, v, B[v], T);							
+		int k = k2i(move, B[s], s, v, B[v], t);							
 		
 		// do-play move apply status changes
 		domove(s, v, k);
@@ -139,7 +126,8 @@ public final class Node {
 	// do a move placed into internal "m" select by index
 	public final void domove(		
 		final int index
-	) {		
+	) {	
+		
 		// call direct s-v-k domove
 		domove(
 			m.s[index],
@@ -153,6 +141,7 @@ public final class Node {
 		final Move moves, 
 		final int index
 	) {		
+		
 		// call direct s-v-k domove
 		domove(
 			moves.s[index],
@@ -165,6 +154,7 @@ public final class Node {
 	public final void domove(
 		final Move moves
 	) {		
+		
 		// call direct s-v-k domove
 		domove(
 			moves.s[moves.i],
@@ -176,9 +166,10 @@ public final class Node {
 	// domove and change node internal status
 	public final void domove(
 		final int s,
-		final int v, 
+		final int v,
 		final int k
 	) {		
+		
 		// get moved piece
 		int p = B[s];
 				
@@ -197,83 +188,84 @@ public final class Node {
 		// set zero en-passant square
 		e = 0;
 				
-		// swat turn side
-		T ^= t;
+		// swap turn side
+		t ^= T;
 		
 		// increase half-move count
 		i++;
 				
 		//
-		if (k != move) {
-			domove_switch_k(s, v, k);
-		}				
+		if (k == move) { return; } 
+
+		// 
+		if (t == b) { 
+			white_domove(s, v, k); 
+		} else {
+			black_domove(s, v, k);			
+		}			
 	}
 	
-	//
-	private void domove_switch_k(int s, int v, int k) {
-	
-		// ending operation based on kind-move
-		switch (k) {
-																
-			// capture move			
-			case wcap: cb--; return;
-			case bcap: cw--; return;
-			
-			// pawn doublepass	
-			case wpdm: e = span[s][nn]; return;	
-			case bpdm: e = span[s][ss]; return;	
-						
-			// en-passant capture
-			case weca: B[span[v][ss]] = 0; cb--; return;
-			case beca: B[span[v][nn]] = 0; cw--; return;
-			
-			// king move
-			case wkmo: wks = v; c |= WKC | WQC; return;
-			case bkmo: bks = v; c |= BKC | BQC; return;
-			
-			// king capture
-			case wkca: wks = v; cb--; c |= WKC | WQC; return;
-			case bkca: bks = v; cw--; c |= BKC | BQC; return;				
-			
-			// rook move
-			case wrmo: c |= s == a1 ? WQC : (s == h1 ? WKC : 0); return;
-			case brmo: c |= s == a8 ? BQC : (s == h8 ? BKC : 0); return;
-			
-			// rook capture
-			case wrca: cb--; c |= s == a1 ? WQC : (s == h1 ? WKC : 0); return;
-			case brca: cw--; c |= s == a8 ? BQC : (s == h8 ? BKC : 0); return;				
-			
-			// castling
-			case wksc: B[h1] = 0; wks = g1; B[f1] = wr; c |= WKC | WQC; return;
-			case wqsc: B[a1] = 0; wks = c1; B[d1] = wr; c |= WKC | WQC; return;
-			case bksc: B[h8] = 0; bks = g8; B[f8] = br; c |= BKC | BQC; return;
-			case bqsc: B[a8] = 0; bks = c8; B[d8] = br; c |= BKC | BQC; return;
-			
-			// promotion to queen
- 			case wqpm: B[v] = wq; return;
-			case bqpm: B[v] = bq; return;
-			case wqpc: B[v] = wq; cb--; return;
-			case bqpc: B[v] = bq; cw--; return;
-													
-			// promotion to other	
-			case wrpm: B[v] = wr; return;
-			case wbpm: B[v] = wb; return; 
-			case wnpm: B[v] = wn; return;
-			case brpm: B[v] = br; return;
-			case bbpm: B[v] = bb; return; 
-			case bnpm: B[v] = bn; return;
-			case wrpc: B[v] = wr; cb--; return;
-			case wbpc: B[v] = wb; cb--; return; 
-			case wnpc: B[v] = wn; cb--; return;
-			case brpc: B[v] = br; cw--; return;
-			case bbpc: B[v] = bb; cw--; return; 
-			case bnpc: B[v] = bn; cw--; return;
-								
-			// fault!
-			default: exit("DOMOVE FAULT!");				
+	// domove and change node internal status
+	private void white_domove(
+		final int s,
+		final int v,
+		final int k
+	) {		
+
+		//
+		if ((k & wkmo) == wkmo) { 
+			wks = v; 
+			if (s == e1) { c |= WKC | WQC; } 
 		}
-	}
+				
+		//
+		if ((k & wcap) == wcap) { 
+			cb--; 
+			if (k == weca) { B[v + 8] = 0; return; } 
+		} 				
 		
+		//
+		switch (k) {
+			case
+		}
+		
+		//
+		if (k == wrmo) { c |= WQC; } return; }
+				
+		//
+		if (k == wpdm) { e = s+8; return; } 
+		
+		//
+		if (k == wksc) { }
+
+		//
+		if (k == wqsc) { }
+
+		//
+		if ((k & pmov) == pmov) { B[v] = k & pi; }						
+	}
+	
+	// domove and change node internal status
+	private void black_domove(
+		final int s,
+		final int v,
+		final int k
+	) {		
+	
+		//
+		if ((k & bcap) == bcap) { cw--; if (k == beca) { B[v-8] = 0; return; } }
+		
+		//
+		if (p == wk) { wks = v; c |= WKC | WQC; }
+		
+		//
+		if (p == wk) { bks = v; c |= BKC | BQC; }
+		
+		//
+		if ((k & ) == wcap) { cb--; if (k == weca) { B[v+8] = 0; return; } } 
+				
+	}
+	
 	// undo last move 
 	public final void unmove() {
 		
@@ -287,9 +279,9 @@ public final class Node {
 		int s = L.s[i];
 		
 		// get versus square
-		int v = L.v[i]; 
+		int v = L.v[i];
 		
-		// get versus square
+		// get captured piece
 		int x = L.x[i]; 
 		
 		//
@@ -298,8 +290,8 @@ public final class Node {
 		// restore piece in start square
 		B[s] = p; 
 
-		// restore versus square
-		B[v] = 0;
+		// restore versus square with captured piece
+		B[v] = x;
 				
 		// retrieve previsour en-passant square
 		e = L.e[i];
@@ -308,84 +300,82 @@ public final class Node {
 		c = L.c[i];
 			
 		// swap side-to-move
-		T ^= t;
-				
-		//	
-		if (k != move) {
-			unmove_switch_k();
-		}
+		t ^= T;
+
+		//
+		if (k == move) { return; } 
+		
+		//
+		if (t == b) {
+			white_unmove();
+		} else {
+			black_unmove();		
+		}		
 	}
 	
-	//
-	private void unmove_switch_k() {
 	
+	private void white_unmove(	final int s,
+		final int v,
+		final int k
+	) {
+			//
+		if ((k & wcap) == wcap) { cb++; if (k == weca) { B[v+8] = bp; return; } } 
+		
 		//
-		switch(L.k[i]) {
+		if ((k & bcap) == bcap) { cw++; if (k == beca) { B[v-8] = wp; return; } }
 		
-			// capture move
-			case wcap: B[v] = x; cb++; return;				
-			case bcap: B[v] = x; cw++; return;				
-										
-			// pawn doublepass 
-			case wpdm: return;		
-			case bpdm: return;	
-
-			// en-passant capture
-			case weca: B[span[v][ss]] = bp; cb++; return;
-			case beca: B[span[v][nn]] = wp; cw++; return;
+		//
+		if (p == wk) { wks = s; }
 		
-			// king move	
-			case wkmo: wks = 0; return;
-			case bkmo: bks = 0; return;
-			
-			// king capture
-			case wkca: B[v] = x; wks = 0; cb++; return;
-			case bkca: B[v] = x; bks = 0; cw++; return;
-			
-			// rook move	
-			case wrmo: return;
-			case brmo: return;
-			
-			// rook capture
-			case wrca: B[v] = x; cb++; return;
-			case brca: B[v] = x; cw++; return;
-			
-			// castling	
-			case wksc: B[f1] = 0; B[h1] = wr; wks = e1; return;
-			case wqsc: B[d1] = 0; B[a1] = wr; wks = e1; return;
-			case bksc: B[f8] = 0; B[h8] = br; bks = e8; return;
-			case bqsc: B[d8] = 0; B[a8] = br; bks = e8; return;
-						
-			// promotion to queen
-			case wqpm: return;
-			case bqpm: return;
-			case wqpc: B[v] = x; cb++; return;
-			case bqpc: B[v] = x; cw++; return;
-															
-			// promotion to other
-			case wrpm: return;
-			case wbpm: return; 
-			case wnpm: return;
-			case brpm: return;
-			case bbpm: return; 
-			case bnpm: return;
-			case wrpc: B[v] = x; cb++; return;
-			case wbpc: B[v] = x; cb++; return; 
-			case wnpc: B[v] = x; cb++; return;
-			case brpc: B[v] = x; cw++; return;
-			case bbpc: B[v] = x; cw++; return; 
-			case bnpc: B[v] = x; cw++; return;
-							
-			// fault!
-			default: dump(L); exit("UNMOVE FAULT!"); 			
-		}	
+		//
+		if (p == bk) { bks = s; }
+		
+		//	
+		unmove_switch(s, v, k);		
+	}
+	
+	
+	private void white_unmove(	final int s,
+		final int v,
+		final int k
+	) {
+			//
+		if ((k & wcap) == wcap) { cb++; if (k == weca) { B[v+8] = bp; return; } } 
+		
+		//
+		if ((k & bcap) == bcap) { cw++; if (k == beca) { B[v-8] = wp; return; } }
+		
+		//
+		if (p == wk) { wks = s; }
+		
+		//
+		if (p == bk) { bks = s; }
+		
+		//	
+		unmove_switch(s, v, k);		
 	}
 		
 	// generate moves-stack with legal-moves
 	public final Move legals() {
+				
+		// move-stack get move stack from move buffer pre-created
+		m = Memory.moves.pull();
+						
+		// generate-fill m with white legal moves
+		if (t == w) { white_legals(); } else { black_legals(); }	
+		
+		// evaluate every move in stack
+		//if (MOVE_EVAL) { Eval.eval(m, this); }
+
+		// retur move-stack reference
+		return m; 
+	}
+	
+	// generate moves-stack with legal-moves
+	public final Move cache_legals() {
 		
 		// use zobrist cached 
-		if (MOVE_CACHE) {
+		if (MOVE_CACHE) { 
 			
 			// compute hash of position
 			h = hash(this);
@@ -396,35 +386,9 @@ public final class Node {
 			}			
 		}
 		
-		// move-stack get move stack from move buffer pre-created
-		// to avoid creating this sta
-		m = Move.pop();
-		
 		//
-		m.h = h;
+		legals();
 		
-		// store in cache bu hash
-		if (MOVE_CACHE) { 
-						
-			//
-			Cache.legals.add(h, m); 
-		}
-		
-		// generate-fill m with legal moves
-		if (T == w) {
-			white_legals();
-		}
-		
-		//
-		else {
-			black_legals();
-		}	
-
-		// evaluate every move in stack
-		if (MOVE_EVAL) {
-			Eval.eval(m,this);
-		}
-
 		// retur move-stack reference
 		return m; 
 	}
@@ -435,8 +399,11 @@ public final class Node {
 		// generate pseudo-moves
 		white_pseudo(); 		
 
+		// skip legals test for moves 
+		if (!MOVE_LEGALS) { return; }
+		
 		// increase loop counter 
-		m.loop();
+		//m.loop();
 
 		// loop throut pseudo-legal moves ("i" cursor)			
 		int i = m.i;
@@ -470,7 +437,7 @@ public final class Node {
 		}
 
 		// decrase loop counter
-		m.stop();
+		//m.stop();
 
 	} 
 			
@@ -479,7 +446,10 @@ public final class Node {
 		
 		// generate pseudo-moves into "m"
 		black_pseudo(); 		
-				
+		
+		// skip legals test for moves 
+		if (!MOVE_LEGALS) { return; }
+		
 		// prepare "j" loop cursor
 		int j = m.i; 
 		
@@ -512,7 +482,7 @@ public final class Node {
 			unmove();			
 		}
 	}						
-				
+		
 	// populate move-stack with pseudo-legal moves
 	private void white_pseudo() {
 
@@ -532,17 +502,13 @@ public final class Node {
 			int p = B[s];
 			
 			// square have a side to move piece
-			if ((p & w) != w) {
-				continue;
-			}
-			
+			if ((p & w) != w) { continue; }
+				
 			// decrease piece count
 			pi--;
 			
 			// remap square in wbm 
-			if (PSEUDO_AUTOMAP) {
-				white_remaps(si, pi, s);
-			}
+			if (PSEUDO_REMAPS) { white_remaps(si, pi, s); }
 
 			// switch to specific piece 
 			switch (p) {
@@ -566,7 +532,7 @@ public final class Node {
 				case wk: king(s); break;
 
 				// default exit
-				default: exit("WHITE PSEUDO FAULT!");											
+				default: exit("default: white_pseudo()");											
 			}			
 		} 
 		
@@ -593,14 +559,10 @@ public final class Node {
 			int p = B[s];
 
 			// not is a black piece continue
-			if ((p & b) != b) {
-				continue;
-			}	
+			if ((p & b) != b) { continue; }	
 				
-			//
-			if (PSEUDO_AUTOMAP) {
-				black_remaps(si, pi, s);
-			}
+			// 
+			//if (PSEUDO_AUTOMAP) { black_remaps(si, pi, s); }
 			
 			// switch by piece
 			switch (p) {
@@ -639,6 +601,7 @@ public final class Node {
 	public final boolean white_attack(
 		final int a
 	) {				
+		
 		// cuont squares
 		int si = 0;
 		
@@ -681,7 +644,7 @@ public final class Node {
 				case wk: if (near(s, a) && spon(s, a)) { return true; } break;	
 
 				//
-				default: exit("WHITE ATTACK FAULT!");	
+				default: exit("default: white_attack()");	
 			}	
 
 			// decrease founded piece counter
@@ -714,17 +677,13 @@ public final class Node {
 			int p = B[s];
 				
 			// piece not is black			
-			if ((p & b) == b) {
-				continue;
-			}
+			if ((p & b) != b) { continue; }
 			
 			//
 			pi--;
 			
 			//
-			if (PSEUDO_AUTOMAP) {
-				black_remaps(si, pi, s);
-			}
+			if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
 			
 			//
 			switch (p) {				
@@ -748,7 +707,7 @@ public final class Node {
 				case bk: if (near(s, a) && spon(s, a)) { return true; } break;
 
 				//
-				default: exit("BLACK ATTACK FAULT!");	
+				default: exit("default: black_attack()");	
 			}			
 		}
 		
@@ -761,9 +720,9 @@ public final class Node {
 	
 	//
 	private void white_remaps(
-		int si, 
-		int pi,
-		int s
+		final int si, 
+		final int pi,
+		final int s
 	) {							
 		//
 		if (si >> 4 != 0) {
@@ -781,19 +740,18 @@ public final class Node {
 	
 	//
 	private void black_remaps(
-		int si, 
-		int pi,
-		int s
-	) {					
+		final int si, 
+		final int pi,
+		final int s
+	) {		
+		
 		//
 		bbm[si] = bbm[pi];
 
 		//
 		bbm[pi] = s;
 	}
-	
-	
-	
+		
 	// handle queen/bishop/rook moves
 	private void span(
 		final int s,
@@ -813,12 +771,12 @@ public final class Node {
 				
 				// 
 				if (B[v] == 0) {
-					m.add(s, v, x2);
+					m.pseudo(s, v, x2);
 				} 
 				
 				//
-				else if ((B[v] & t) != T) {
-					m.add(s, v, x3);
+				else if ((B[v] & T) != t) {
+					m.pseudo(s, v, x3);
 					break;
 				} 
 				
@@ -889,12 +847,12 @@ public final class Node {
 			
 			// if square is empty add to moves
 			if (x == 0) { 				
-				m.add(s, v, move);
+				m.pseudo(s, v, move);
 			} 
 			
 			// if empty is occupay by opponent piece add capture
-			else if ((x & t) != T) {
-				m.add(s, v, capt|T);			
+			else if ((x & T) != t) {
+				m.pseudo(s, v, capt|t);			
 			}
 		}
 	}
@@ -951,15 +909,15 @@ public final class Node {
 			if (B[v] == 0) {
 
 				//
-				u =	span[v][nn]; 				
+				int u =	span[v][nn]; 				
 
 				//
 				if (r == 1 && B[u] == 0) {
-					m.add(s, u, wpdm);
+					m.pseudo(s, u, wpdm);
 				}
 
 				//
-				m.add(s, v, move);				
+				m.pseudo(s, v, move);				
 			}	
 			
 			//
@@ -967,12 +925,12 @@ public final class Node {
 			
 			//
 			if (v != xx && (B[v] & b) == b) {
-				m.add(s, v, wcap);				
+				m.pseudo(s, v, wcap);				
 			} 
 			
 			//
 			else if (r == 4 && v == e) {
-				m.add(s, v, weca);
+				m.pseudo(s, v, weca);
 			}	
 			
 			//
@@ -980,12 +938,12 @@ public final class Node {
 			
 			//
 			if (v != xx && (B[v] & b) == b) {
-				m.add(s, v, wcap);
+				m.pseudo(s, v, wcap);
 			} 
 			
 			//
 			else if (r == 4 && v == e) {
-				m.add(s, v, weca);			
+				m.pseudo(s, v, weca);			
 			}			
 		} 
 		
@@ -994,10 +952,10 @@ public final class Node {
 						
 			//
 			if (B[v] == 0) {
-				m.add(s, v, wqpm);
-				m.add(s, v, wrpm);
-				m.add(s, v, wbpm);
-				m.add(s, v, wnpm);
+				m.pseudo(s, v, wqpm);
+				m.pseudo(s, v, wrpm);
+				m.pseudo(s, v, wbpm);
+				m.pseudo(s, v, wnpm);
 			}
 					
 			//
@@ -1005,10 +963,10 @@ public final class Node {
 			
 			//
 			if (v != xx && mask(B[v],b)) {
-				m.add(s, v, wqpc);
-				m.add(s, v, wrpc);
-				m.add(s, v, wbpc);
-				m.add(s, v, wnpc);
+				m.pseudo(s, v, wqpc);
+				m.pseudo(s, v, wrpc);
+				m.pseudo(s, v, wbpc);
+				m.pseudo(s, v, wnpc);
 			}
 			
 			//
@@ -1016,10 +974,10 @@ public final class Node {
 			
 			//
 			if (v != xx && mask(B[v],b)) {
-				m.add(s, v, wqpc);
-				m.add(s, v, wrpc);
-				m.add(s, v, wbpc);
-				m.add(s, v, wnpc);
+				m.pseudo(s, v, wqpc);
+				m.pseudo(s, v, wrpc);
+				m.pseudo(s, v, wbpc);
+				m.pseudo(s, v, wnpc);
 			}							
 		}	
 	}
@@ -1031,12 +989,12 @@ public final class Node {
 		// get start square rank 
 		int r = s >> 3;
 		
+		//
+		int v =	span[s][ss]; 				
+		
 		// not is in promotion rank
 		if (r != 1) {
-		
-			// 
-			int v =	span[s][ss]; 				
-			
+					
 			//
 			if (B[v] == 0) {
 
@@ -1045,11 +1003,11 @@ public final class Node {
 
 				//
 				if (r == 6 && B[u] == 0) {					
-					m.add(s, u, bpdm);
+					m.pseudo(s, u, bpdm);
 				}
 
 				//
-				m.add(s, v, move);				
+				m.pseudo(s, v, move);				
 			}	
 			
 			//
@@ -1057,12 +1015,12 @@ public final class Node {
 			
 			//
 			if (v != xx && mask(B[v],w)) {
-				m.add(s, v, bcap);				
+				m.pseudo(s, v, bcap);				
 			} 
 			
 			//
 			else if (r == 3 && v == e) {
-				m.add(s, v, beca);
+				m.pseudo(s, v, beca);
 			}	
 			
 			//
@@ -1070,27 +1028,24 @@ public final class Node {
 			
 			//
 			if (v != xx && mask(B[v],w)) {
-				m.add(s, v, bcap);
+				m.pseudo(s, v, bcap);
 			} 
 			
 			//
 			else if (r == 3 && v == e) {
-				m.add(s, v, beca);			
+				m.pseudo(s, v, beca);			
 			}			
 		} 
 		
 		// else pawn is in promotion rank
 		else {
-			
-			// protion square
-			v =	span[s][ss];
-			
+						
 			// if square is empty add 4 promotion moves
 			if (B[v] == 0) {
-				m.add(s, v, bqpm);
-				m.add(s, v, brpm);
-				m.add(s, v, bbpm);
-				m.add(s, v, bnpm);
+				m.pseudo(s, v, bqpm);
+				m.pseudo(s, v, brpm);
+				m.pseudo(s, v, bbpm);
+				m.pseudo(s, v, bnpm);
 			}
 			
 			// promotion est-capture square
@@ -1098,10 +1053,10 @@ public final class Node {
 			
 			//
 			if (v != xx && mask(B[v],w)) {
-				m.add(s, v, bqpc);
-				m.add(s, v, brpc);
-				m.add(s, v, bbpc);
-				m.add(s, v, bnpc);
+				m.pseudo(s, v, bqpc);
+				m.pseudo(s, v, brpc);
+				m.pseudo(s, v, bbpc);
+				m.pseudo(s, v, bnpc);
 			}
 			
 			//
@@ -1109,10 +1064,10 @@ public final class Node {
 			
 			//
 			if (v != xx && mask(B[v],w)) {
-				m.add(s, v, bqpc);
-				m.add(s, v, brpc);
-				m.add(s, v, bbpc);
-				m.add(s, v, bnpc);
+				m.pseudo(s, v, bqpc);
+				m.pseudo(s, v, brpc);
+				m.pseudo(s, v, bbpc);
+				m.pseudo(s, v, bnpc);
 			}										
 		}	
 	}
@@ -1155,23 +1110,23 @@ public final class Node {
 			
 			// add if found empty square
 			if (x == 0) { 				
-				m.add(s, v, wkmo);
+				m.pseudo(s, v, wkmo);
 			} 
 			
 			// add if captured is black piece
 			else if ((x & b) == b) {
-				m.add(s, v, wkca);			
+				m.pseudo(s, v, wkca);			
 			}
 		}		
 		
 		// king-side white castling
 		if (s==e1 && B[h1]==wr && mask(c,WKC,0) && B[f1]==0 && B[g1]==0) {
-			m.add(e1, g1, wksc);
+			m.pseudo(e1, g1, wksc);
 		}
 				
 		// queen-side white castling
 		if (s==e1 && B[a1]==wr && mask(c,WQC,0) && B[d1]==0 && B[c1]==0 && B[b1]==0) {			
-			m.add(e1, c1, wqsc);
+			m.pseudo(e1, c1, wqsc);
 		}			
 	} 
 	
@@ -1191,23 +1146,23 @@ public final class Node {
 			
 			// add move to stack if found empty square
 			if (B[v] == 0) { 				
-				m.add(s, v, bkmo);
+				m.pseudo(s, v, bkmo);
 			} 
 			
 			// or add capture move if found opponnet piece
 			else if (mask(B[v],w)) {
-				m.add(s, v, bkca);			
+				m.pseudo(s, v, bkca);			
 			}
 		}
 		
 		// test for valid king-side castling and add to move stack
 		if (s == e8 && mask(c,BKC,0) && B[h8] == br  && B[f8] == 0 && B[g8] == 0) {
-			m.add(e8, g8, bksc);
+			m.pseudo(e8, g8, bksc);
 		}
 		
 		// test for valid queen-side castling adn add to move stack
 		if (s == e8 && mask(c,BQC,0) && B[a8] == br  && B[d8] == 0 && B[c8] == 0 && B[b8] == 0) {
-			m.add(e8, c8, bqsc);
+			m.pseudo(e8, c8, bqsc);
 		}
 	}	
 	

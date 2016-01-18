@@ -1,7 +1,7 @@
 package org.krudo.test.base;
 
 //
-import org.krudo.Thinker;
+import org.krudo.Engine;
 
 // 
 public class Thinker1 {
@@ -10,7 +10,7 @@ public class Thinker1 {
 	public static void main(String[] args) {
 				
 		// 
-		Thinker t = Thinker.getInstance();
+		Engine t = Engine.getInstance();
 		
 		/*\
 		+----+
