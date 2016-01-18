@@ -3,19 +3,17 @@
  * by Francesco Bianco <bianco@javanile.org>
  */
 
-//
+// 
 package org.krudo;
-
+ 
 // required non-static classes
 import org.krudo.utils.Fen;
 
 // required static classes and methods
 import static org.krudo.Const.*;
 import static org.krudo.utils.Trans.*;
-import static org.krudo.utils.Tools.*;
-import static org.krudo.utils.Zobrist.hash;
 
-// Spizzy main class
+// Spizzy XBoard version of Krudo 
 public final class Node {
 	
 	// board internal status
