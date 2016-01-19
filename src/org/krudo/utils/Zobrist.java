@@ -244,22 +244,22 @@ public final class Zobrist {
 		}
 				
 		// hash white king-side castling
-		if ((n.c & WKC) == 0) { 
+		if ((n.c & wkc) == 0) { 
 			h ^= hash_wkc;
 		}
 		
 		// hash white queen-side castling
-		if ((n.c & WQC) == 0) { 
+		if ((n.c & wqc) == 0) { 
 			h ^= hash_wqc; 
 		}
 		
 		// hash black king-side castling
-		if ((n.c & BKC) == 0) {
+		if ((n.c & bkc) == 0) {
 			h ^= hash_bkc;
 		}
 		
 		// hash black queen-side castling 			
-		if ((n.c & BQC) == 0) {
+		if ((n.c & bqc) == 0) {
 			h ^= hash_bqc; 
 		}
 						

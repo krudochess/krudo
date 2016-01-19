@@ -385,7 +385,7 @@ public final class Eval {
 			p = n.B[m.s[j]];
 			
 			//
-			i = p&pi;
+			i = p&lo;
 			
 			// get versus square
 			v = m.v[j];
@@ -394,7 +394,7 @@ public final class Eval {
 			x = n.B[v];
 					
 			// 
-			g += x != 0 ? cw[i][x&pi] : 0;
+			g += x != 0 ? cw[i][x&lo] : 0;
 			
 			//
 			u = span[v][ne]; if (u != xx && n.B[u] != 0) { g+=1; }
@@ -471,7 +471,7 @@ public final class Eval {
 			if (p == 0) { continue; }
 			
 			//
-			i = p&pi;
+			i = p&lo;
 			
 			//
 			if (mask(p,t,w)) {

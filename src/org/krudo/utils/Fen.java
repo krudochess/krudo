@@ -86,10 +86,10 @@ public final class Fen {
 				case 2:
 					for(int i1=0; i1<p[i].length(); i1++) {					
 						switch(p[i].charAt(i1)) {
-							case 'K': n.c ^= WKC; break;	
-							case 'Q': n.c ^= WQC; break;
-							case 'k': n.c ^= BKC; break;	
-							case 'q': n.c ^= BQC; break;
+							case 'K': n.c ^= wkc; break;	
+							case 'Q': n.c ^= wqc; break;
+							case 'k': n.c ^= bkc; break;	
+							case 'q': n.c ^= bqc; break;
 						}
 					}
 					break;					

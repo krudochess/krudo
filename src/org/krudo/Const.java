@@ -9,55 +9,53 @@ public final class Const {
 	
 	// piece redundant piece code 
 	public final static int 
-	P = 0b000000_100000_100000,  			
-	N = 0b000000_100010_100010,  
-	B = 0b000000_100100_100100,  
-	R = 0b000000_100110_100110,  
-	Q = 0b000000_101000_101000,  
-	K = 0b000000_101010_101010;  
+	O    = 0b0__000000__000000000000, // empty no piece		
+	P    = 0b0__000000__100000100000, // pawn 			
+	N    = 0b0__000000__100010100010, // knight 
+	B    = 0b0__000000__100100100100, // bishop 
+	R    = 0b0__000000__100110100110, // rook 
+	Q    = 0b0__000000__101000101000, // queen 
+	K    = 0b0__000000__101010101010; // king 
 	
 	// colors and side to move turn 
 	public final static int		 	
-	w = 0b000000_000001_000001,
-	b = 0b000000_010000_010000,
-	T = 0b000000_010001_010001;
-		
+	w    = 0b0__000000__000001000001, // white side move "turn"
+	b    = 0b0__000000__010000010000, // black side move "turn"
+	T    = 0b0__000000__010001010001; // side move switch "turn swap"
+	
+	// piece index mapper HI map and LOW map
+	public final static int
+	lo   = 0b0__000000__000000001111, // piece index mask		
+	hi   = 0b0__000000__001111000000, // piece index mask	
+	pi   = 0b0__000000__111111111111; // extract piece from "k"
+
+	// special constant for "k"
+	public final static int
+	move = 0b0__000001__000000000000, // normal move	
+	capt = 0b0__000011__000000000000, // capture move
+	cast = 0b0__000101__000000000000, // castling move
+	pdmo = 0b0__001001__000000000000, // pawn double move
+	ecap = 0b0__010011__000000000000, // en-passant capture move		
+	prom = 0b0__100001__000000000000; // promotion move	
+			
 	// white piece
 	public final static int 
-	wp = w|P,  
-	wn = w|N,
-	wb = w|B,
-	wr = w|R,
-	wq = w|Q,
-	wk = w|K;
+	wp = w | P, wn = w | N, wb = w | B,
+	wr = w | R, wq = w | Q, wk = w | K;
 	
 	// black piece
 	public final static int 
-	bp = b|P,
-	bn = b|N,
-	bb = b|B,
-	br = b|R,
-	bq = b|Q,
-	bk = b|K;
-
-	// pieche mask
-	public final static int
-	pi = 0b0_0_000000_000000_000000_000000_001111, // piece index mask		
-	hi = 0b0_0_000000_000000_000000_001111_000000; // piece index mask		
-		
+	bp = b | P, bn = b | N, bb = b | B,
+	br = b | R, bq = b | Q, bk = b | K;
+	
 	// castling flags "c values"
 	public final static int 
-	WKC = 0b00000001,
-	WQC = 0b00000010,
-	BKC = 0b00000100,
-	BQC = 0b00001000;
-		
+	wkc = 1, wqc = 2, wca = wkc | wqc,
+	bkc = 4, bqc = 8, bca = bkc | bqc;
+				
 	// kind of moves
 	public final static int 
-	//		
-	quie = 0b100000_000000_000000, 		
 	// moves
-	move = 0b000001_000000_000000,	
 	wmov = w|move,
 	bmov = b|move,		
 	kmov = K|move,
@@ -66,8 +64,7 @@ public final class Const {
 	rmov = R|move,
 	wrmo = w|R|move,	
 	brmo = b|R|move,
-	// captures
-	capt = 0b000010_000000_000000|move|quie,
+	// captures	
 	wcap = w|capt,
 	bcap = b|capt,		
 	kcap = K|capt,
@@ -76,24 +73,20 @@ public final class Const {
 	rcap = R|capt,
 	wrca = w|R|capt,	
 	brca = b|R|capt,	
-	// castling kind of move "k values";	
-	cast = 0b000100_000000_000000|move, // castling
+	// castling kind of move "k values";		
 	ksca = K|cast, // white king-side castling
 	qsca = Q|cast, 
 	wksc = w|K|cast, // white king-side castling
 	wqsc = w|Q|cast, 
 	bksc = b|K|cast,
 	bqsc = b|Q|cast,		
-	// pawn double pass
-	pdmo = 0b001000_000000_000000|move,		
+	// pawn double pass			
 	wpdm = w|pdmo,
 	bpdm = b|pdmo,
-	// en-passant	
-	ecap = 0b001000_000000_000000|move|capt|quie,		
+	// en-passant			
 	weca = w|ecap,
 	beca = b|ecap,	
-	// promotion		
-	prom = 0b010000_000000_000000|quie,
+	// promotion			
 	pmov = prom|move,
 	pcap = prom|capt|move,		
 	wpmo = w|prom|move,
@@ -113,35 +106,27 @@ public final class Const {
 	qpca = pcap|Q,
 	rpca = pcap|R,
 	bpca = pcap|B,
-	npca = pcap|N,
-	wqpc = pcap|wq,
-	wrpc = pcap|wr,
-	wbpc = pcap|wb,
-	wnpc = pcap|wn,
-	bqpc = pcap|bq,
-	brpc = pcap|br,
-	bbpc = pcap|bb,
-	bnpc = pcap|bn;
+	npca = pcap|N,	
 				
 	// squares
 	public final static int 
-	a8=56, b8=57, c8=58, d8=59, e8=60, f8=61, g8=62, h8=63,
-	a7=48, b7=49, c7=50, d7=51, e7=52, f7=53, g7=54, h7=55,
-	a6=40, b6=41, c6=42, d6=43, e6=44, f6=45, g6=46, h6=47, 
-	a5=32, b5=33, c5=34, d5=35, e5=36, f5=37, g5=38, h5=39, 
-	a4=24, b4=25, c4=26, d4=27, e4=28, f4=29, g4=30, h4=31, 	
-	a3=16, b3=17, c3=18, d3=19, e3=20, f3=21, g3=22, h3=23, 
-	a2= 8, b2= 9, c2=10, d2=11, e2=12, f2=13, g2=14, h2=15, 
-	a1= 0, b1= 1, c1= 2, d1= 3, e1= 4, f1= 5, g1= 6, h1= 7;
+	a8 = 56, b8 = 57, c8 = 58, d8 = 59, e8 = 60, f8 = 61, g8 = 62, h8 = 63,
+	a7 = 48, b7 = 49, c7 = 50, d7 = 51, e7 = 52, f7 = 53, g7 = 54, h7 = 55,
+	a6 = 40, b6 = 41, c6 = 42, d6 = 43, e6 = 44, f6=45, g6=46, h6=47, 
+	a5 = 32, b5 = 33, c5 = 34, d5 = 35, e5 = 36, f5=37, g5=38, h5=39, 
+	a4 = 24, b4 = 25, c4 = 26, d4 = 27, e4 = 28, f4=29, g4=30, h4=31, 	
+	a3 = 16, b3 = 17, c3 = 18, d3 = 19, e3 = 20, f3=21, g3=22, h3=23, 
+	a2 = 8,  b2 = 9,  c2 = 10, d2 = 11, e2 = 12, f2=13, g2=14, h2=15, 
+	a1 = 0,  b1 = 1,  c1 = 2,  d1 = 3,  e1 = 4,  f1= 5, g1= 6, h1= 7;
 
 	// out-of-board symbols
 	public final static int xx = 64;
 
 	// cardinals for span smapims 
 	public final static int 
-	nw=7, nn=1, ne=6,
-	ww=3,		ee=2,
-	sw=4, ss=0, se=5;
+	nw = 7, nn = 1, ne = 6,
+	ww = 3,		    ee = 2,
+	sw = 4, ss = 0, se = 5;
 				
 	// smapims for span
 	public final static int[][] span = { 

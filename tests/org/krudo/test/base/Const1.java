@@ -16,7 +16,7 @@ public class Const1 {
 	//
 	public static void main(String[] args) {
 		
-		echo (pi << 6);
+		echo (lo << 6);
 		
 		for(int i=0; i<12; i++) {
 		
