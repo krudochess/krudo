@@ -11,21 +11,24 @@ import org.krudo.utils.Fen;
 
 // required static classes and methods
 import static org.krudo.Const.*;
+import static org.krudo.Config.*;
 import static org.krudo.utils.Trans.*;
 
 // Spizzy XBoard version of Krudo 
 public final class Node {
 	
 	// board internal status
-	private final int B[] = new int[64]; 
+	public final int B[] = new int[64]; 
+	
+	// node status  
+	public int t; // turn (side to move)
+	public int e; // en-passant
+	public int c; // castling status
 	
 	// moves history line
 	private final Line L = new Line();
-	
-	// node status  
-	private int t;   // turn (side to move)
-	private int e;   // en-passant
-	private int c;   // castling status
+		
+	//
 	private int cw;  // count white piece
 	private int cb;  // count black piece
 	private int wks; // white king square
@@ -264,7 +267,7 @@ public final class Node {
 	}
 	
 	// undo last move 
-	private final void unmove() {
+	public final void unmove() {
 		
 		// decrease half-move index
 		i--;
@@ -295,83 +298,67 @@ public final class Node {
 		
 		// retrieve previsour castling status
 		c = L.c[i];
-			
+					
+		//
+		if (k != move) if (t == w) {
+			white_unmove(p, s, v, x, k);
+		} else {
+			black_unmove(p, s, v, x, k);		
+		}	
+		
 		// swap side-to-move
 		t ^= T;
-
-		//
-		if (k == move) { return; } 
-		
-		//
-		if (t == b) {
-			white_unmove();
-		} else {
-			black_unmove();		
-		}		
 	}
 	
 	//
-	private void white_unmove (
+	private void white_unmove(
+		final int p,
 		final int s,
 		final int v,
+		final int x,
 		final int k
 	) {
-			//
-		if ((k & wcap) == wcap) { cb++; if (k == weca) { B[v+8] = bp; return; } } 
-		
-		//
-		if ((k & bcap) == bcap) { cw++; if (k == beca) { B[v-8] = wp; return; } }
-		
-		//
+		// decreate black piece counter
+		if (x != O) { cb++; }
+				
+		// update white king square and castling
 		if (p == wk) { wks = s; }
-		
-		//
-		if (p == bk) { bks = s; }
-		
-		//	
-		unmove_switch(s, v, k);		
 	}
 	
-	
-	private void white_unmove(	final int s,
+	//
+	private void black_unmove(	
+		final int p,
+		final int s,
 		final int v,
+		final int x,
 		final int k
 	) {
-			//
-		if ((k & wcap) == wcap) { cb++; if (k == weca) { B[v+8] = bp; return; } } 
-		
-		//
-		if ((k & bcap) == bcap) { cw++; if (k == beca) { B[v-8] = wp; return; } }
-		
-		//
-		if (p == wk) { wks = s; }
-		
-		//
-		if (p == bk) { bks = s; }
-		
-		//	
-		unmove_switch(s, v, k);		
+		// decreate black piece counter
+		if (x != O) { cw++; }
+				
+		// update white king square and castling
+		if (p == wk) { bks = s; }
 	}
 		
 	// generate moves-stack with legal-moves
-	private final Move legals () {
-				
-		// move-stack get move stack from move buffer pre-created
-		m = Memory.moves.pull();
+	public final Move legals() 
+	{			
+		// move-container get move from move-stack pre-created
+		m = Stack.moves.pull();
 						
-		// generate-fill m with white legal moves
+		// generate-fill "m" with white or black legal moves
 		if (t == w) { white_legals(); } else { black_legals(); }	
 		
 		// evaluate every move in stack
-		//if (MOVE_EVAL) { Eval.eval(m, this); }
-
+		if (LEGALS_EVAL) { Eval.move(this); }
+		
 		// retur move-stack reference
-		return m; 
+		return m;
 	}
 	
 	// generate moves-stack with legal-moves
-	private final Move cache_legals () {
-		
+	private final Move cache_legals() 
+	{	
 		// use zobrist cached 
 		if (MOVE_CACHE) { 
 			

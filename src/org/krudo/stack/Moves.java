@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.krudo;
+package org.krudo.stack;
 
-import org.krudo.memory.Moves;
+import org.krudo.Move;
 
 /**
  *
  * @author cicciodarkast
  */
-public class Memory {
+public class Moves {
+		//
+	public Move pull() {
 	
-	public static final Moves moves = new Moves();
-	
-	
+		return new Move();
+	} 	
 }

@@ -8,8 +8,9 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Const.*;
-import static org.krudo.utils.Zobrist.*;
+import static org.krudo.Config.*;
 import static org.krudo.utils.Tools.*;
+import static org.krudo.utils.Zobrist.*;
 
 //
 public final class Eval {
@@ -371,12 +372,12 @@ public final class Eval {
 		final Move m,
 		final Node n
 	) {
-		
+		/**
 		//
 		b = eval(n);
 		
 		// loop throu moves and assgin values
-		for(j=0; j<m.l; j++) {			
+		for (j = m.l - 1; j == 0; j--) {			
 			
 			//
 			g = b;
@@ -404,7 +405,8 @@ public final class Eval {
 						
 			// assign tapered value
 			m.w[j] = (ow[i][v] >> ep[n.cw]) + (ew[i][v] >> op[n.cw]) + g;
-		}		
+		}
+		*/ 
 	}
 	
 	// eval no verbose output 
@@ -421,7 +423,7 @@ public final class Eval {
 		final Node n, // node to eval
 		final boolean debug // verbose flag true for debug
 	) {
-	
+		/**
 		// if node eval is enabled pass-throu else return zero forever
 		if (!NODE_EVAL) { return 0; }
 		
@@ -462,7 +464,7 @@ public final class Eval {
 		bps = 0;
 		
 		//
-		for (s=0; s<64; s++) {
+		for (s=0; s < 64; s++) {
 			
 			//
 			p = n.B[s];
@@ -490,9 +492,9 @@ public final class Eval {
 						v = span[s][ww]; if (v != xx && n.B[v] == wp) { wps += 10; }
 						v = span[s][ee]; if (v != xx && n.B[v] == wp) { wps += 10; }
 						// pedone incatenati pedone o difende e attacca
-						v = span[s][se]; if (v != xx) { /*w += pad[n.B[v]&pi];*/ }						
+						v = span[s][se]; if (v != xx) { / *w += pad[n.B[v]&pi];* / }						
 						// pedone incatenati pedone o difende e attacca
-						v = span[s][sw]; if (v != xx) { /*w += pad[n.B[v]&pi];*/ }
+						v = span[s][sw]; if (v != xx) { / *w += pad[n.B[v]&pi];* / }
 						//
 						wph |= 1 << (s & 7);
 						break;
@@ -517,8 +519,8 @@ public final class Eval {
 
 					//
 					case wk:						
-						/* add king's pawn shield score and evaluate part of piece blockage score
-					    (the rest of the latter will be done via piece eval) */ 
+						/ * add king's pawn shield score and evaluate part of piece blockage score
+					    (the rest of the latter will be done via piece eval) * / 
 						v = span[s][nn]; if (v != xx && n.B[v] == wp) wkd += 5;
 						v = span[s][ne]; if (v != xx && n.B[v] == wp) wkd += 5;
 						v = span[s][nw]; if (v != xx && n.B[v] == wp) wkd += 5;						
@@ -543,9 +545,9 @@ public final class Eval {
 						v = span[s][ww]; if (v != xx && n.B[v] == bp) { bps += 10; }
 						v = span[s][ee]; if (v != xx && n.B[v] == bp) { bps += 10; }
 						// pedone incatenati pedone o difende e attacca
-						v = span[s][se]; if (v != xx) { /*w += pad[n.B[v]&pi];*/ }
+						v = span[s][se]; if (v != xx) { /*w += pad[n.B[v]&pi];* / }
 						// pedone incatenati pedone o difende e attacca
-						v = span[s][sw]; if (v != xx) { /*w += pad[n.B[v]&pi];*/ }
+						v = span[s][sw]; if (v != xx) { /*w += pad[n.B[v]&pi];* / }
 						//
 						bph |= 1 << (s & 7);
 						
@@ -574,7 +576,7 @@ public final class Eval {
 					//
 					case bk:
 						/* add king's pawn shield score and evaluate part of piece blockage score
-					   (the rest of the latter will be done via piece eval) */ 
+					   (the rest of the latter will be done via piece eval) * / 
 						v = span[s][ss]; if (v != xx && n.B[v] == bp) bkd += 5;
 						v = span[s][se]; if (v != xx && n.B[v] == bp) bkd += 5;
 						v = span[s][sw]; if (v != xx && n.B[v] == bp) bkd += 5;						
@@ -605,7 +607,7 @@ public final class Eval {
 		
 		/* tempo bonus 
 			player hava turn have 5point bonus
-		*/ 
+		* / 
 		int tot = n.t==w ? wtt-btt : btt-wtt; 
 		
 		if (debug) {
@@ -630,6 +632,12 @@ public final class Eval {
 		if (EVAL_CACHE) { Cache.eval.add(h, tot); }
 		
 		//
-		return tot;
+		return tot;*/
+		return 0;
 	}		
+	
+	public final static void move(Node n) {
+	
+	
+	}
 }

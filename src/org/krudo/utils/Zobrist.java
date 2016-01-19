@@ -244,48 +244,36 @@ public final class Zobrist {
 		}
 				
 		// hash white king-side castling
-		if ((n.c & wkc) == 0) { 
-			h ^= hash_wkc;
-		}
+		if ((n.c & wkc) == 0) { h ^= hash_wkc; }
 		
 		// hash white queen-side castling
-		if ((n.c & wqc) == 0) { 
-			h ^= hash_wqc; 
-		}
+		if ((n.c & wqc) == 0) { h ^= hash_wqc; }
 		
 		// hash black king-side castling
-		if ((n.c & bkc) == 0) {
-			h ^= hash_bkc;
-		}
+		if ((n.c & bkc) == 0) { h ^= hash_bkc; }
 		
 		// hash black queen-side castling 			
-		if ((n.c & bqc) == 0) {
-			h ^= hash_bqc; 
-		}
+		if ((n.c & bqc) == 0) { h ^= hash_bqc; }
 						
 		// hash potential en-passnt 
-		if (n.e != 0) {
-			if (n.t == w) {
-				if (span[n.e][se] != xx && n.B[span[n.e][se]] == wp) {
-					h ^= HASH[e + n.e % 8];									
-				} else if (span[n.e][sw] != xx && n.B[span[n.e][sw]] == wp) {
-					h ^= HASH[e + n.e % 8];				
+		if (n.e != 0) if (n.t == w) {
+			if (span[n.e][se] != xx && n.B[span[n.e][se]] == wp) {
+				h ^= HASH[e + n.e % 8];									
+			} else if (span[n.e][sw] != xx && n.B[span[n.e][sw]] == wp) {
+				h ^= HASH[e + n.e % 8];				
+			}
+		} else {
+			if (span[n.e][ne] != xx && n.B[span[n.e][ne]] == bp) {
+				h ^= HASH[e + n.e % 8];				
+			} else if (span[n.e][nw] != xx) {
+				if (n.B[span[n.e][nw]] == bp) {
+					h ^= HASH[e + n.e % 8];
 				}
-			} else {
-				if (span[n.e][ne] != xx && n.B[span[n.e][ne]] == bp) {
-					h ^= HASH[e + n.e % 8];				
-				} else if (span[n.e][nw] != xx) {
-					if (n.B[span[n.e][nw]] == bp) {
-						h ^= HASH[e + n.e % 8];
-					}
-				}
-			}					
-		} 		
-		
+			}
+		}					
+		 				
 		// apply hash for side-color to play (turn)
-		if (n.t == w) { 
-			h ^= hash_t;
-		}
+		if (n.t == w) { h ^= hash_t; }
 			
 		// return hash value
 		return h;
