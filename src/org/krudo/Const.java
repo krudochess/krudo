@@ -33,7 +33,8 @@ public final class Const {
 	public final static int
 	move = 0b0__000001__000000000000, // normal move	
 	capt = 0b0__000011__000000000000, // capture move
-	cast = 0b0__000101__000000000000, // castling move
+	ksca = 0b0__000101__000000000000, // king side castling move
+	qsca = 0b0__000111__000000000000, // queen side castling move
 	pdmo = 0b0__001001__000000000000, // pawn double move
 	ecap = 0b0__010011__000000000000, // en-passant capture move		
 	prom = 0b0__100001__000000000000; // promotion move	
@@ -52,10 +53,13 @@ public final class Const {
 	public final static int 
 	wkc = 1, wqc = 2, wca = wkc | wqc,
 	bkc = 4, bqc = 8, bca = bkc | bqc;
-				
+	
 	// kind of moves
 	public final static int 
+	ksrm = ksca | R,
+	qsrm = qsca | R;	
 	// moves
+	/*
 	wmov = w|move,
 	bmov = b|move,		
 	kmov = K|move,
@@ -79,7 +83,9 @@ public final class Const {
 	wksc = w|K|cast, // white king-side castling
 	wqsc = w|Q|cast, 
 	bksc = b|K|cast,
-	bqsc = b|Q|cast,		
+	bqsc = b|Q|cast,	
+	ksrm = 
+	qsrm = 	
 	// pawn double pass			
 	wpdm = w|pdmo,
 	bpdm = b|pdmo,
@@ -107,7 +113,8 @@ public final class Const {
 	rpca = pcap|R,
 	bpca = pcap|B,
 	npca = pcap|N,	
-				
+	*/		
+	
 	// squares
 	public final static int 
 	a8 = 56, b8 = 57, c8 = 58, d8 = 59, e8 = 60, f8 = 61, g8 = 62, h8 = 63,
@@ -130,13 +137,13 @@ public final class Const {
 				
 	// smapims for span
 	public final static int[][] span = { 
-		/*a1:*/{xx,a2,b1,xx,xx,xx,b2,xx},
-		/*b1:*/{xx,b2,c1,a1,xx,xx,c2,a2},
-		/*c1:*/{xx,c2,d1,b1,xx,xx,d2,b2},
-		/*d1:*/{xx,d2,e1,c1,xx,xx,e2,c2},
-		/*e1:*/{xx,e2,f1,d1,xx,xx,f2,d2},
-		/*f1:*/{xx,f2,g1,e1,xx,xx,g2,e2},
-		/*g1:*/{xx,g2,h1,f1,xx,xx,h2,f2},
+		/*a1:*/{xx, a2, b1, xx, xx, xx, b2, xx}, 
+		/*b1:*/{xx, b2, c1, a1, xx, xx, c2, a2}, 
+		/*c1:*/{xx, c2, d1, b1, xx, xx, d2, b2}, 
+		/*d1:*/{xx, d2, e1, c1, xx, xx, e2, c2}, 
+		/*e1:*/{xx, e2, f1, d1, xx, xx, f2, d2}, 
+		/*f1:*/{xx, f2, g1, e1, xx, xx, g2, e2}, 
+		/*g1:*/{xx, g2, h1,f1,xx,xx,h2,f2},
 		/*h1:*/{xx,h2,xx,g1,xx,xx,xx,g2},
 		/*a2:*/{a1,a3,b2,xx,xx,b1,b3,xx},
 		/*b2:*/{b1,b3,c2,a2,a1,c1,c3,a3},

@@ -84,7 +84,7 @@ public final class Node {
 	private final void startpos(final String fen) { Fen.parse(this, fen); }
 	
 	// do-play a moves sequence passed by array
-	private final void domove(
+	public final void domove(
 		final String[] moves
 	) {		
 		// loop throu moves
@@ -92,7 +92,7 @@ public final class Node {
 	}
 	
 	// do-play a move represented as coordinates (es. "e2e4")
-	private final void domove(
+	public final void domove(
 		final String move
 	) {		
 		// parse move parts and retrieve s,v,k
@@ -105,7 +105,7 @@ public final class Node {
 	}
 	
 	// do a move placed into internal "m" select by index
-	private final void domove(		
+	public final void domove(		
 		final int index
 	) {			
 		// call direct s-v-k domove
@@ -117,7 +117,7 @@ public final class Node {
 	}
 	
 	// do a move placed into moves-stack select by index
-	private final void domove(
+	public final void domove(
 		final Move moves, 
 		final int index
 	) {				
@@ -130,7 +130,7 @@ public final class Node {
 	}
 	
 	// do a move placed into moves-stack current index
-	private final void domove(
+	public final void domove(
 		final Move moves
 	) {				
 		// call direct s-v-k domove
@@ -142,7 +142,7 @@ public final class Node {
 	}
 	
 	// domove and change node internal status
-	private final void domove(
+	public final void domove(
 		final int s,
 		final int v,
 		final int k
@@ -186,23 +186,29 @@ public final class Node {
 		final int x,
 		final int k
 	) {				
-		// 
+		// decrease black piece counter
 		if (x != 0) { cb--; }
 				
 		// update white king square and castling
-		if (p == wk) { wks = v; c |= wc; }
+		if (p == wk) { wks = v; c |= wca; }
 								
 		//
 		switch (k) {
 			
 			//
-			case wpdm: e = v - 8; return;
+			case capt: return;
 			
 			//
-			case weca: cb--; B[v - 8] = 0; return;  
+			case pdmo: e = v - 8; return;
+			
+			//
+			case ecap: cb--; B[v - 8] = 0; return;  
 							
 			//	
-			case wksc: B[f1] = wr; c |= wc; return; 	
+			case ksca: B[f1] = wr; c |= wca; return; 	
+			
+			//	
+			case qsca: B[d1] = wr; c |= wca; return; 	
 			
 			//	
 			case ksrm: c |= wkc; return; 	
@@ -210,30 +216,51 @@ public final class Node {
 			//	
 			case qsrm: c |= wqc; return; 	
 			
-			//
-			default: B[v] = k;	
+			// by default promote piece
+			default: B[v] = k & pi;	
 		}									
 	}
 	
 	// domove and change node internal status
 	private void black_domove(
-		final int s,
+		final int p,		
 		final int v,
+		final int x,
 		final int k
 	) {		
-	
-		//
-		if ((k & bcap) == bcap) { cw--; if (k == beca) { B[v-8] = 0; return; } }
-		
-		//
-		if (p == wk) { wks = v; c |= WKC | WQC; }
-		
-		//
-		if (p == wk) { bks = v; c |= bkc | bqc; }
-		
-		//
-		if ((k & ) == wcap) { cb--; if (k == weca) { B[v+8] = 0; return; } } 
+		// decreate white piece counter
+		if (x != O) { cw--; }
 				
+		// update white king square and castling
+		if (p == bk) { bks = v; c |= bca; }
+								
+		//
+		switch (k) {
+			
+			//
+			case capt: return;
+			
+			//
+			case pdmo: e = v + 8; return;
+			
+			//
+			case ecap: cw--; B[v + 8] = 0; return;  
+							
+			//	
+			case ksca: B[f8] = br; c |= bca; return; 	
+			
+			//	
+			case qsca: B[d8] = br; c |= bca; return; 	
+			
+			//	
+			case ksrm: c |= bkc; return; 	
+			
+			//	
+			case qsrm: c |= bqc; return; 	
+			
+			// by default promote piece
+			default: B[v] = k & pi;	
+		}									
 	}
 	
 	// undo last move 
