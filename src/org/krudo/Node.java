@@ -12,6 +12,7 @@ import org.krudo.utils.Fen;
 // required static classes and methods
 import static org.krudo.Const.*;
 import static org.krudo.Config.*;
+import static org.krudo.utils.Tools.*;
 import static org.krudo.utils.Trans.*;
 
 // Spizzy XBoard version of Krudo 
@@ -78,13 +79,13 @@ public final class Node {
 	};
 
 	// empty contructor
-	private void Node() {}
+	public void Node() {}
 	
 	// restore node to start position
-	private final void startpos() { Fen.parse(this, STARTPOS); }
+	public final void startpos() { Fen.parse(this, STARTPOS); }
 	
 	// restore node to position passed in FEN
-	private final void startpos(final String fen) { Fen.parse(this, fen); }
+	public final void startpos(final String fen) { Fen.parse(this, fen); }
 	
 	// do-play a moves sequence passed by array
 	public final void domove(
@@ -350,7 +351,7 @@ public final class Node {
 		if (t == w) { white_legals(); } else { black_legals(); }	
 		
 		// evaluate every move in stack
-		if (LEGALS_EVAL) { Eval.move(this); }
+		if (EVAL_LEGALS) { Eval.move(this); }
 		
 		// retur move-stack reference
 		return m;
@@ -379,44 +380,33 @@ public final class Node {
 	}
 	
 	// generate moves-stack with legal-moves
-	private final void white_legals () {
+	private void white_legals() {
 				
-		// generate pseudo-moves
+		// generate white pseudo-moves
 		white_pseudo(); 		
 
 		// skip legals test for moves 
 		if (!MOVE_LEGALS) { return; }
-		
-		// increase loop counter 
-		//m.loop();
-
+			
 		// loop throut pseudo-legal moves ("i" cursor)			
-		int i = m.i;
+		int j = m.i;
 		
-		while (i != 0) {						
+		//
+		while (j != 0) {						
 
 			//
-			i--;
+			j--;
 			
 			//
-			domove(m, i);
+			domove(j);
 
 			//
-			if (MOVE_LEGALS) {
-				if (!black_attack(wks)) {
-					switch(m.k[i]) {
-						case wksc: if (!black_attack(e1) && !black_attack(f1)) {m.fix(i);} break; 	
-						case wqsc: if (!black_attack(e1) && !black_attack(d1)) {m.fix(i);} break; 	
-						default: m.fix(i); 	
-					}
-				}
-			} 
-
-			//
-			else {
-				m.fix(i);
+			if (!black_attack(wks)) switch(m.k[j]) {
+				case ksca: if (!black_attack(e1) && !black_attack(f1)) {m.fix(j);} break; 	
+				case qsca: if (!black_attack(e1) && !black_attack(d1)) {m.fix(j);} break; 	
+				default: m.fix(j); 	
 			}
-
+			
 			//
 			unmove();			
 		}
@@ -427,7 +417,7 @@ public final class Node {
 	} 
 			
 	// generate moves-stack with legal-moves
-	private final void black_legals () {	
+	private void black_legals () {	
 		
 		// generate pseudo-moves into "m"
 		black_pseudo(); 		
@@ -448,28 +438,19 @@ public final class Node {
 			domove(j);
 
 			//
-			if (MOVE_LEGALS) {
-				if (!white_attack(bks)) {
-					switch(m.k[j]) {						
-						case bksc: if (!white_attack(e8) && !white_attack(f8)) {m.fix(j);} break; 	
-						case bqsc: if (!white_attack(e8) && !white_attack(d8)) {m.fix(j);} break; 	
-						default: m.fix(j); 	
-					}
-				}
-			} 
-
-			//
-			else {
-				m.fix(j);
+			if (!white_attack(bks)) switch(m.k[j]) {						
+				case ksca: if (!white_attack(e8) && !white_attack(f8)) {m.fix(j);} break; 	
+				case qsca: if (!white_attack(e8) && !white_attack(d8)) {m.fix(j);} break; 	
+				default: m.fix(j); 	
 			}
-
+			
 			//
 			unmove();			
 		}
 	}						
 		
 	// populate move-stack with pseudo-legal moves
-	private void white_pseudo () {
+	private void white_pseudo() {
 
 		// index count squares
 		int si = 0;
@@ -894,7 +875,7 @@ public final class Node {
 
 				//
 				if (r == 1 && B[u] == O) {
-					m.pseudo(s, u, wpdm);
+					m.pseudo(s, u, pdmo);
 				}
 
 				//
@@ -906,9 +887,9 @@ public final class Node {
 			
 			//
 			if (v != xx) if ((B[v] & b) == b) {
-				m.pseudo(s, v, wcap);				
+				m.pseudo(s, v, capt);				
 			} else if (r == 4 && v == e) {
-				m.pseudo(s, v, weca);
+				m.pseudo(s, v, ecap);
 			}	
 			
 			//
@@ -916,9 +897,9 @@ public final class Node {
 			
 			// 
 			if (v != xx) if ((B[v] & b) == b) {
-				m.pseudo(s, v, wcap);
+				m.pseudo(s, v, capt);
 			} else if (r == 4 && v == e) {
-				m.pseudo(s, v, weca);			
+				m.pseudo(s, v, ecap);			
 			}							
 		} 
 		
@@ -978,7 +959,7 @@ public final class Node {
 
 				//
 				if (r == 6 && B[u] == 0) {					
-					m.pseudo(s, u, bpdm);
+					m.pseudo(s, u, pdmo);
 				}
 
 				//
@@ -990,12 +971,12 @@ public final class Node {
 			
 			//
 			if (v != xx && mask(B[v],w)) {
-				m.pseudo(s, v, bcap);				
+				m.pseudo(s, v, capt);				
 			} 
 			
 			//
 			else if (r == 3 && v == e) {
-				m.pseudo(s, v, beca);
+				m.pseudo(s, v, ecap);
 			}	
 			
 			//
@@ -1003,12 +984,12 @@ public final class Node {
 			
 			//
 			if (v != xx && mask(B[v],w)) {
-				m.pseudo(s, v, bcap);
+				m.pseudo(s, v, capt);
 			} 
 			
 			//
 			else if (r == 3 && v == e) {
-				m.pseudo(s, v, beca);			
+				m.pseudo(s, v, ecap);			
 			}			
 		} 
 		
@@ -1027,30 +1008,30 @@ public final class Node {
 			v = span[s][se]; 			
 			
 			//
-			if (v != xx && mask(B[v],w)) {
-				m.pseudo(s, v, bqpc);
-				m.pseudo(s, v, brpc);
-				m.pseudo(s, v, bbpc);
-				m.pseudo(s, v, bnpc);
+			if (v != xx && (B[v] & w) == w) {
+				m.pseudo(s, v, bqpm);
+				m.pseudo(s, v, brpm);
+				m.pseudo(s, v, bbpm);
+				m.pseudo(s, v, bnpm);
 			}
 			
 			//
 			v = span[s][sw];
 			
 			//
-			if (v != xx && mask(B[v],w)) {
-				m.pseudo(s, v, bqpc);
-				m.pseudo(s, v, brpc);
-				m.pseudo(s, v, bbpc);
-				m.pseudo(s, v, bnpc);
+			if (v != xx && (B[v] & w) == w) {
+				m.pseudo(s, v, bqpm);
+				m.pseudo(s, v, brpm);
+				m.pseudo(s, v, bbpm);
+				m.pseudo(s, v, bnpm);
 			}										
 		}	
 	}
 	
 	// return true if pawn in "s" can capture in "a"
 	private static boolean pawn(
-		final int s,	// start square		
-		final int a		// aimed attack square				
+		final int s, // start square		
+		final int a	 // aimed attack square				
 	){				
 		//
 		return span[s][ne] != a ? span[s][nw] == a : true;

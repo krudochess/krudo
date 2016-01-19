@@ -14,8 +14,11 @@ public final class Config {
 			
 	// enable/disable evaluation 
 	// of legal moves generated
-	LEGALS_EVAL = false,		
+	EVAL_LEGALS = false,		
 	
+	// enable/disable evaluation 
+	// of legal moves generated
+	MOVE_LEGALS	= false,
 			
 			
 	NODE_EVAL		= true,
@@ -24,7 +27,6 @@ public final class Config {
 	MOVE_SORT		= true, // use threats in run-time
 	MOVE_CACHE		= true,	// use caching systems (TT, Zobrist, ecc...)
 	MOVE_BUFFER		= true,
-	MOVE_LEGALS		= true,
 	SEARCH_CUT_OFF	= true,
 	PSEUDO_REMAPS	= false,
 	THREAD			= false, // use threats in run-time

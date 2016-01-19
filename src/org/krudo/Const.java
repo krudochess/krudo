@@ -62,8 +62,17 @@ public final class Const {
 	// kind of moves
 	public final static int 
 	ksrm = ksca | R,
-	qsrm = qsca | R;	
-	// moves
+	qsrm = qsca | R,	
+	wqpm = prom | wq, 
+	wrpm = prom | wr,
+	wbpm = prom | wb,			
+	wnpm = prom | wn,
+	bqpm = prom | bq, 
+	brpm = prom | br,
+	bbpm = prom | bb,			
+	bnpm = prom | bn;
+		
+// moves
 	/*
 	wmov = w|move,
 	bmov = b|move,		
@@ -106,14 +115,6 @@ public final class Const {
 	rpmo = R|pmov,
 	//bpmo = B|pmov,			
 	npmo = N|pmov,
-	wqpm = w|Q|pmov, 
-	wrpm = w|R|pmov,
-	wbpm = w|B|pmov,			
-	wnpm = pmov|wn,
-	bqpm = pmov|bq, 
-	brpm = pmov|br,
-	bbpm = pmov|bb,			
-	bnpm = pmov|bn,
 	qpca = pcap|Q,
 	rpca = pcap|R,
 	bpca = pcap|B,
