@@ -1,5 +1,12 @@
+/**
+ * Krudo 0.16a - a chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
 package org.krudo;
 
+//
 import static org.krudo.Const.*;
 import static org.krudo.util.Tools.*;
 

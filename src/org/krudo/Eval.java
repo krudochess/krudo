@@ -1,5 +1,5 @@
 /**
- * Krudo 0.16a 
+ * Krudo 0.16a - a chess engine for cooks
  * by Francesco Bianco <bianco@javanile.org>
  */
 
