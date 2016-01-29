@@ -8,10 +8,10 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Const.*;
-import static org.krudo.utils.Trans.*;
-import static org.krudo.utils.Tools.*;
-import static org.krudo.utils.Debug.*;
-import static org.krudo.utils.Zobrist.hash;
+import static org.krudo.util.Trans.*;
+import static org.krudo.util.Tools.*;
+import static org.krudo.util.Debug.*;
+import static org.krudo.util.Zobrist.hash;
 
 // search main class
 public final class Search {	

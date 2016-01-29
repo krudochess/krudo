@@ -61,6 +61,7 @@ public final class Const {
 	
 	// kind of moves
 	public final static int 
+	kmov = move | K,
 	ksrm = ksca | R,
 	qsrm = qsca | R,	
 	wqpm = prom | wq, 

@@ -8,7 +8,7 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Const.*;
-import static org.krudo.utils.Tools.*;
+import static org.krudo.util.Tools.*;
 
 // main class entry point for java application
 public final class Krudo {

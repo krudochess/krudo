@@ -7,13 +7,13 @@
 package org.krudo;
  
 // required non-static classes
-import org.krudo.utils.Fen;
+import org.krudo.util.Fen;
 
 // required static classes and methods
 import static org.krudo.Const.*;
 import static org.krudo.Config.*;
-import static org.krudo.utils.Tools.*;
-import static org.krudo.utils.Trans.*;
+import static org.krudo.util.Tools.*;
+import static org.krudo.util.Trans.*;
 
 // Spizzy XBoard version of Krudo 
 public final class Node {
@@ -171,9 +171,9 @@ public final class Node {
 								
 		// for special moves handle move rules
 		if (k != move) if (t == w) {  
-			white_domove(p, v, x, k); 
+			white_domove(v, x, k); 
 		} else { 
-			black_domove(p, v, x, k); 
+			black_domove(v, x, k); 
 		}		
 		
 		// swap turn side
@@ -185,17 +185,13 @@ public final class Node {
 	
 	// domove and change node internal status
 	private void white_domove(
-		final int p,		
 		final int v,
 		final int x,
 		final int k
 	) {				
 		// decrease black piece counter
 		if (x != 0) { cb--; }
-				
-		// update white king square and castling
-		if (p == wk) { wks = v; c |= wca; }
-								
+												
 		//
 		switch (k) {
 			
@@ -207,12 +203,15 @@ public final class Node {
 			
 			//
 			case ecap: cb--; B[v - 8] = 0; return;  
-							
+				
+			// update white king square and castling	
+			case kmov: wks = v; c |= wca; return;
+					
 			//	
-			case ksca: B[f1] = wr; c |= wca; return; 	
+			case ksca: B[f1] = wr; B[h1] = O; c |= wca; wks = g1; return; 	
 			
 			//	
-			case qsca: B[d1] = wr; c |= wca; return; 	
+			case qsca: B[d1] = wr; B[a1] = O; c |= wca; wks = c1; return; 	
 			
 			//	
 			case ksrm: c |= wkc; return; 	
@@ -227,17 +226,13 @@ public final class Node {
 	
 	// domove and change node internal status
 	private void black_domove(
-		final int p,		
 		final int v,
 		final int x,
 		final int k
 	) {		
 		// decreate white piece counter
 		if (x != O) { cw--; }
-				
-		// update white king square and castling
-		if (p == bk) { bks = v; c |= bca; }
-								
+												
 		//
 		switch (k) {
 			
@@ -249,12 +244,15 @@ public final class Node {
 			
 			//
 			case ecap: cw--; B[v + 8] = 0; return;  
-							
+		
+			//
+			case kmov: c |= bca; bks = v; return;	
+				
 			//	
-			case ksca: B[f8] = br; c |= bca; return; 	
+			case ksca: B[f8] = br; c |= bca; bks = v; return; 	
 			
 			//	
-			case qsca: B[d8] = br; c |= bca; return; 	
+			case qsca: B[d8] = br; c |= bca; bks = v; return; 	
 			
 			//	
 			case ksrm: c |= bkc; return; 	
@@ -321,9 +319,6 @@ public final class Node {
 	) {
 		// decreate black piece counter
 		if (x != O) { cb++; }
-				
-		// update white king square and castling
-		if (p == wk) { wks = s; }
 	}
 	
 	//
@@ -388,36 +383,31 @@ public final class Node {
 		// skip legals test for moves 
 		if (!MOVE_LEGALS) { return; }
 			
-		// loop throut pseudo-legal moves ("i" cursor)			
+		// 			
 		int j = m.i;
 		
-		//
+		// loop throut pseudo-legal
 		while (j != 0) {						
 
 			//
 			j--;
 			
 			//
+			if (white_castling(j)) { m.legalize(j); continue; } 
+						
+			//
 			domove(j);
 
 			//
-			if (!black_attack(wks)) switch(m.k[j]) {
-				case ksca: if (!black_attack(e1) && !black_attack(f1)) {m.fix(j);} break; 	
-				case qsca: if (!black_attack(e1) && !black_attack(d1)) {m.fix(j);} break; 	
-				default: m.fix(j); 	
-			}
-			
+			if (!black_attack(wks)) { m.legalize(j); }
+
 			//
-			unmove();			
+			unmove();
 		}
-
-		// decrase loop counter
-		//m.stop();
-
 	} 
 			
 	// generate moves-stack with legal-moves
-	private void black_legals () {	
+	private void black_legals() {	
 		
 		// generate pseudo-moves into "m"
 		black_pseudo(); 		
@@ -435,20 +425,55 @@ public final class Node {
 			j--;
 			
 			//
+			if (black_castling(j)) { m.legalize(j); continue; } 
+			
+			//
 			domove(j);
 
 			//
-			if (!white_attack(bks)) switch(m.k[j]) {						
-				case ksca: if (!white_attack(e8) && !white_attack(f8)) {m.fix(j);} break; 	
-				case qsca: if (!white_attack(e8) && !white_attack(d8)) {m.fix(j);} break; 	
-				default: m.fix(j); 	
-			}
+			if (!white_attack(bks)) { m.legalize(j); }
 			
 			//
 			unmove();			
 		}
 	}						
 		
+	//
+	private boolean white_castling(
+		final int j
+	) {		
+		//		
+		return wca != (c & wca) 
+			&& m.s[j] == e1
+			&& m.k[j] == ksca 
+			?! black_attack(e1)
+		   &&! black_attack(f1)
+		   &&! black_attack(g1)				
+			 : m.k[j] == qsca
+			?! black_attack(e1)
+		   &&! black_attack(d1)
+		   &&! black_attack(c1)				
+			 : false;	
+	}
+
+	//
+	private boolean black_castling(
+		final int j
+	) {		
+		//		
+		return bca != (c & bca) 
+			&& m.s[j] == e8
+			&& m.k[j] == ksca 
+			?! black_attack(e8)
+		   &&! black_attack(f8)
+		   &&! black_attack(g8)				
+			 : m.k[j] == qsca
+			?! black_attack(e8)
+		   &&! black_attack(d8)
+		   &&! black_attack(c8)				
+			 : false;	
+	}
+
 	// populate move-stack with pseudo-legal moves
 	private void white_pseudo() {
 
@@ -564,7 +589,7 @@ public final class Node {
 	}
 
 	// return true if side-player can attack square "a"
-	private final boolean white_attack (
+	private boolean white_attack(
 		final int a
 	) {						
 		// cuont squares
@@ -583,9 +608,7 @@ public final class Node {
 			int p = B[s];
 			
 			// if is white piece
-			if ((p & w) != w) {
-				continue;
-			}	
+			if ((p & w) != w) { continue; }	
 			
 			// 
 			switch (p) {
@@ -1028,71 +1051,89 @@ public final class Node {
 		}	
 	}
 	
-	// return true if pawn in "s" can capture in "a"
+	// return true if white pawn in "s" can capture in "a"
 	private static boolean pawn(
 		final int s, // start square		
 		final int a	 // aimed attack square				
-	){				
+	) {				
 		//
 		return span[s][ne] != a ? span[s][nw] == a : true;
 	}
 
-	// return true if pawn in "s" can capture in "a"
+	// return true if black pawn in "s" can capture in "a"
 	private static boolean down(
-		final int s,	// start square		
-		final int a		// aimed attack square					
-	){				
+		final int s, // start square		
+		final int a	 // aimed attack square					
+	) {				
 		//
 		return span[s][sw] != a ? span[s][se] == a : true;
 	}
 
 	// handle white king pseudo-moves
 	private void king(
-		final int s		// start square
+		final int s	// start square
 	){			
 		//
-		for (int j = 0; j < 8; j++) {
+		for (int j = 7; j == 0; j--) {
 			
 			// get versus square
 			int v = span[s][j];			
 			
 			// skip found out-of-board
-			if (v == xx) { 
-				continue; 
-			}
+			if (v == xx) { continue; }
 			
 			// look square for captured piece
 			int x = B[v];
-			
-			// add if found empty square
+
+			// add if found empty square			
 			if (x == 0) { 				
-				m.pseudo(s, v, wkmo);
+				m.pseudo(s, v, kmov);
 			} 
 			
-			// add if captured is black piece
+			// add if captured is black piece			
 			else if ((x & b) == b) {
-				m.pseudo(s, v, wkca);			
+				m.pseudo(s, v, kmov);			
 			}
 		}		
 		
 		// king-side white castling
-		if (s==e1 && B[h1]==wr && mask(c,WKC,0) && B[f1]==0 && B[g1]==0) {
-			m.pseudo(e1, g1, wksc);
-		}
-				
-		// queen-side white castling
-		if (s==e1 && B[a1]==wr && mask(c,WQC,0) && B[d1]==0 && B[c1]==0 && B[b1]==0) {			
-			m.pseudo(e1, c1, wqsc);
+		if (s == e1) if (wksc()) { 
+			m.pseudo(e1, g1, ksca); 
+		} 
+		
+		// queen-side white castling		
+		else if (wqsc()) {			
+			m.pseudo(e1, c1, qsca);
 		}			
 	} 
 	
+	//
+	private boolean wksc() {
+		
+		//
+		return 0 == (c & wkc)
+			&& B[h1] == wr 
+			&& B[g1] == 0 
+			&& B[f1] == 0;
+	}
+	
+	//
+	private boolean wqsc() {
+		
+		//
+		return 0 == (c & wqc) 
+			&& B[a1] == wr 
+			&& B[d1] == 0 
+			&& B[c1] == 0 
+			&& B[b1] == 0;
+	}
+	
 	// handle black king pseudo-moves
 	private void kong(
-		int s
-	) {		
-		
+		final int s // start square
+	) {				
 		// loop throut array-direction "d"
-		for (int j = 0; j < 8; j++) {
+		for (int j = 7; j == 0; j--) {
 			
 			// get versus square
 			int v = span[s][j];			
@@ -1101,27 +1142,44 @@ public final class Node {
 			if (v == xx) { continue; }
 			
 			// add move to stack if found empty square
-			if (B[v] == 0) { 				
-				m.pseudo(s, v, bkmo);
-			} 
+			if (B[v] == O) { m.pseudo(s, v, kmov); } 
 			
 			// or add capture move if found opponnet piece
-			else if (mask(B[v],w)) {
-				m.pseudo(s, v, bkca);			
-			}
+			else if ((B[v] & w) == w) { m.pseudo(s, v, kmov); }
 		}
 		
 		// test for valid king-side castling and add to move stack
-		if (s == e8 && mask(c,bkc,0) && B[h8] == br  && B[f8] == 0 && B[g8] == 0) {
-			m.pseudo(e8, g8, bksc);
-		}
+		if (s == e8) if (bksc()) {
+			m.pseudo(e8, g8, ksca);
+		} 
 		
-		// test for valid queen-side castling adn add to move stack
-		if (s == e8 && mask(c,bqc,0) && B[a8] == br  && B[d8] == 0 && B[c8] == 0 && B[b8] == 0) {
-			m.pseudo(e8, c8, bqsc);
+		// or queen-side castling and add to move stack
+		else if (bqsc()) {
+			m.pseudo(e8, c8, qsca);
 		}
 	}	
 	
+	//
+	private boolean bksc() {
+		
+		//
+		return 0 == (c & bkc) 
+			&& B[h8] == br 			 
+			&& B[g8] == O 
+			&& B[g8] == O;
+	}
+	
+	//
+	private boolean bqsc() {
+		
+		//
+		return 0 == (c & bqc) 
+			&& B[a8] == br 
+			&& B[d8] == O 
+			&& B[c8] == O 
+			&& B[b8] == O;
+	}
+		
 	//
 	private static boolean diag(
 		final int a, 

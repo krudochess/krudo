@@ -1,11 +1,11 @@
 package org.krudo;
 
 //
-import org.krudo.utils.Book;
+import org.krudo.util.Book;
 
 //
 import static org.krudo.Const.*;
-import static org.krudo.utils.Tools.*;
+import static org.krudo.util.Tools.*;
 
 //
 public final class Engine {	

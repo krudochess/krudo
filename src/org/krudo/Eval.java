@@ -9,8 +9,8 @@ package org.krudo;
 // required static class
 import static org.krudo.Const.*;
 import static org.krudo.Config.*;
-import static org.krudo.utils.Tools.*;
-import static org.krudo.utils.Zobrist.*;
+import static org.krudo.util.Tools.*;
+import static org.krudo.util.Zobrist.*;
 
 //
 public final class Eval {

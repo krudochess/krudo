@@ -7,7 +7,7 @@
 package org.krudo;
 
 // required static class
-import static org.krudo.utils.Trans.*;
+import static org.krudo.util.Trans.*;
 
 // a stack of moves user for legal
 public final class Move {		
@@ -88,7 +88,7 @@ public final class Move {
 	}
 	
 	// fix move i0-index as legal-move
- 	public final void fix(
+ 	public final void legalize(
 		final int i0
 	) {
 		
