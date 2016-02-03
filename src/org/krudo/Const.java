@@ -39,8 +39,7 @@ public final class Const {
 	public final static int
 	move = 0b0__000001__000000000000, // normal move	
 	capt = 0b0__000011__000000000000, // capture move
-	ksca = 0b0__000101__000000000000, // king side castling move
-	qsca = 0b0__000111__000000000000, // queen side castling move
+	cast = 0b0__000101__000000000000, // castling move
 	pdmo = 0b0__001001__000000000000, // pawn double move
 	ecap = 0b0__010011__000000000000, // en-passant capture move		
 	prom = 0b0__100001__000000000000; // promotion move	
@@ -63,8 +62,7 @@ public final class Const {
 	// kind of moves
 	public final static int 
 	kmov = move | K,
-	ksrm = ksca | R,
-	qsrm = qsca | R,	
+	rmov = move | R,
 	wqpm = prom | wq, 
 	wrpm = prom | wr,
 	wbpm = prom | wb,			

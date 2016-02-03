@@ -2,13 +2,9 @@
  * Krudo 0.16a 
  * by Francesco Bianco <bianco@javanile.org>
  */
-package org.krudo.util;
 
 //
-import static org.krudo.Const.*;
-import static org.krudo.util.Tools.*;
-import static org.krudo.util.Trans.*;
-import static org.krudo.util.Zobrist.hash;
+package org.krudo.util;
 
 //
 import org.krudo.Line;
@@ -21,8 +17,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.FileInputStream;
 import java.util.regex.*;
-import java.io.FileNotFoundException;
 
+//
+import static org.krudo.Const.*;
+import static org.krudo.util.Tools.*;
+import static org.krudo.util.Trans.*;
+import static org.krudo.util.Zobrist.hash;
 
 //
 public final class Debug {
@@ -96,6 +96,8 @@ public final class Debug {
 				System.out.print(i2p(n.B[(7-r)*8+c])+" ");
 			}
 			System.out.print(r==0 && n.t==b || r==7 && n.t==w ? "<" : " ");
+			
+			/*
 			switch(r) {
 				case 0: keys("e:",i2s(n.e),"c:",Integer.toBinaryString(n.c)); break;
 				case 1: keys("cw:",n.cw,"cb:",n.cb); break;
@@ -106,7 +108,48 @@ public final class Debug {
 				case 6: keys("hm:",n.hm,"n:",n.n); break;
 				case 7: keys("h:",Long.toHexString(hash(n))); break;					
 			}
+			*/
+			
+			System.out.print("\n");
 		}		
+		
+		//
+		System.out.print("\n");
+	}
+	
+	//
+	public final static void dump(
+		final Node n,
+		final Move m
+	) {
+		for(int r=0;r<8;r++) {
+			for(int c=0;c<8;c++) {
+				System.out.print(i2p(n.B[(7-r)*8+c])+" ");
+			}
+			System.out.print(r==0 && n.t==b || r==7 && n.t==w ? "<  " : "   ");
+			
+			for(int i=r*4; i<m.i; i++) {
+				System.out.print(desc(m,i)+" ");
+			}
+			
+			/*
+			switch(r) {
+				case 0: keys("e:",i2s(n.e),"c:",Integer.toBinaryString(n.c)); break;
+				case 1: keys("cw:",n.cw,"cb:",n.cb); break;
+				case 2: keys("wks:",i2s(n.wks),"bks:",i2s(n.bks)); break;
+				case 3: keys("wrs:",i2s(n.wks),"brs:",i2s(n.bks)); break;
+				case 4: keys("ph:",n.cw,"ew:",n.wks); break;
+				case 5: keys("wpw:",n.wks,"bpw:",n.wks); break;
+				case 6: keys("hm:",n.hm,"n:",n.n); break;
+				case 7: keys("h:",Long.toHexString(hash(n))); break;					
+			}
+			*/
+			
+			System.out.print("\n");
+		}		
+		
+		//
+		System.out.print("\n");
 	}
 		
 	//
@@ -139,7 +182,7 @@ public final class Debug {
 		
 		dump(n);
 		echo("-------------");
-		Move m = n.legals().sort();
+		Move m = n.legals();
 		
 		for(int l=0; l<m.l; l++) {
 			echo(
@@ -181,7 +224,7 @@ public final class Debug {
 		//
 		public final static void doing(Node n, int d, Perft p, int s, int v, int k) {		
 			if (d>0) {			
-				Move m = n.legals().sort();
+				Move m = n.legals();
 				for(int l=0; l<m.l; l++) {								
 					n.domove(m,l);				
 					doing(n,d-1,p,m.s[l],m.v[l],m.k[l]);
@@ -242,7 +285,7 @@ public final class Debug {
 	public final static long doing(Node n, int d) {		
 		if (d>0) {
 			int c = 0;
-			Move m = n.legals().sort();
+			Move m = n.legals();
 			//m.loop();
 			for(int i=0; i<m.l; i++) {								
 				n.domove(m,i);				

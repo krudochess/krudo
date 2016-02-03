@@ -74,6 +74,7 @@ public final class Trans {
 	
 	//
 	public static final String i2k(int k) {
+		/*
 		switch(k) {
 			case 0:	   return ".";
 			case move: return "move";		
@@ -96,7 +97,8 @@ public final class Trans {
 			case wcap: return "wcap";
 			case bcap: return "bcap";				
 			default: return "?";	
-		}	
+		}*/
+		return "?";
 	}
 	
 	//
@@ -200,7 +202,7 @@ public final class Trans {
 
 	//
 	public static final boolean eqc(int s, int c) {
-		return s%8==c;
+		return s % 8 == c;
 	}
 	
 	//
@@ -217,46 +219,42 @@ public final class Trans {
 	public static final int k2i(String m, int p, int s, int v, int x, int t) {		
 		if (m.length()>4) {
 			switch(m.charAt(4)) {
-				case 'q': return x==0 ? qpmo|t : qpca|t;
-				case 'r': return x==0 ? rpmo|t : rpca|t;
-				case 'b': return x==0 ? bpmo|t : bpca|t;
-				case 'n': return x==0 ? npmo|t : npca|t;
-				default: return x==0 ? move|t : capt|t;
+				case 'q': return t==w ? wqpm : bqpm;
+				case 'r': return t==w ? wrpm : brpm;
+				case 'b': return t==w ? wbpm : bbpm;
+				case 'n': return t==w ? wnpm : bnpm;
+				default: return move;
 			}				
-		} else if ((p==wk) && s==e1 && (v==g1||v==h1)) {
-			return wksc;
-		} else if ((p==wk) && s==e1 && (v==c1||v==a1)) {
-			return wqsc;
-		} else if ((p==bk) && s==e8 && (v==g8||v==h8)) {
-			return bksc;
-		} else if ((p==bk) && s==e8 && (v==c8||v==a8)) {			
-			return bqsc;
-		} else if ((p==wk) && x==0) {
-			return wkmo;
-		} else if ((p==wk) && x!=0) {
-			return wkca;
-		} else if ((p==bk) && x==0) {
-			return bkmo;
-		} else if ((p==bk) && x!=0) {
-			return bkca;			
-		} else if ((p==wr) && x==0) {
-			return wrmo;
-		} else if ((p==wr) && x!=0) {
-			return wrca;
-		} else if ((p==br) && x==0) {
-			return brmo;
-		} else if ((p==br) && x!=0) {
-			return brca;			
-		} else if ((p==wp) && s/8==1 && v/8==3) {			
-			return wpdm;
-		} else if ((p==wp) && s/8==4 && x==0 && ((v-s)==9 || (v-s)==7)) {
-			return weca;		
-		} else if ((p==bp) && s/8==6 && v/8==4) {
-			return bpdm;
-		} else if ((p==bp) && s/8==3 && x==0 && ((s-v)==9 || (s-v)==7)) {
-			return beca;		
-		} else if (x!=0) {
-			return capt|t;
+		} else if (p == wk && s == e1 && (v == g1 || v == h1)) {
+			return ksca;
+		} else if (p == wk && s == e1 && (v == c1 || v == a1)) {
+			return qsca;
+		} else if (p == bk && s == e8 && (v == g8 || v == h8)) {
+			return ksca;
+		} else if (p == bk && s == e8 && (v == c8 || v == a8)) {			
+			return qsca;
+		} else if (p == wk) {
+			return kmov;
+		} else if (p == bk) {
+			return kmov;
+		} else if (p == wr && s == h1) {
+			return ksrm;
+		} else if (p == wr && s == a1) {
+			return qsrm;
+		} else if (p == br && s == h8) {
+			return ksrm;
+		} else if (p == br && s == a8) {
+			return qsrm;			
+		} else if (p == wp && (s/8) == 1 && (v/8) == 3) {			
+			return pdmo;
+		} else if (p == wp && (s/8) == 4 && x == 0 && ((v-s) == 9 || (v-s) == 7)) {
+			return ecap;		
+		} else if (p == bp && s/8==6 && v/8==4) {
+			return pdmo;
+		} else if (p == bp && s/8==3 && x==0 && ((s-v)==9 || (s-v)==7)) {
+			return ecap;		
+		} else if (x != O) {
+			return capt;
 		} else {
 			return move;
 		}	

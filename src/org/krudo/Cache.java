@@ -3,6 +3,7 @@
  * by Francesco Bianco <bianco@javanile.org>
  */
 
+//
 package org.krudo;
 
 // required non-static class

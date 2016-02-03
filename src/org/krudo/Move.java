@@ -18,8 +18,7 @@ public final class Move {
 	
 	// counters 
 	public int 
-	i = 0, // pseudo counter index
-	l = 0; // legals counter index
+	i = 0; // pseudo counter index
 	
 	// fields
 	public final int[] 
@@ -31,13 +30,13 @@ public final class Move {
 	// empty constructor
 	public Move() {}
 						
-	// add pseudo-move into stack - used in Node.pseudo()
-	public final void pseudo(
+	// add pseudo-move into stack 
+	// used in Node.pseudo()
+	public final void add(
 		final int s0, 
 		final int v0,
 		final int k0
-	) {
-		
+	) {		
 		//
 		s[i] = s0;
 		v[i] = v0;
@@ -45,12 +44,12 @@ public final class Move {
 		i++;
 	}
 
+	/*
 	// add legal move into stack
 	public final void put(
 		final Move m0,
 		final int i0
-	) {
-		
+	) {	
 		//
 		s[l] = m0.s[i0];
 		v[l] = m0.v[i0];
@@ -58,14 +57,15 @@ public final class Move {
 		w[l] = m0.w[i0];	
 		l++;
 	}
+	*/
 	
+	/*
 	// add legal move into stack width new wight
 	public final void put(
 		final Move m0, 
 		final int i0,
 		final int w0
-	) {
-		
+	) {		
 		//
 		s[l] = m0.s[i0];
 		v[l] = m0.v[i0];
@@ -73,7 +73,9 @@ public final class Move {
 		w[l] = w0;	
 		l++;
 	}
+	*/
 	
+	/*
 	// put legal move into stack - used into Book
 	public final void put(
 		final Node n0,
@@ -86,7 +88,9 @@ public final class Move {
 		w[l] = w0;	
 		l++;
 	}
+	*/
 	
+	/*
 	// fix move i0-index as legal-move
  	public final void legalize(
 		final int i0
@@ -103,6 +107,7 @@ public final class Move {
 		//
 		l++;				
 	}
+	*/
 	
 	/*
 	// copy move from m0 to self

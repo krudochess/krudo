@@ -1,10 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Krudo 0.16a - a chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
  */
+
+//
 package org.krudo.util;
 
+//
 import static org.krudo.Const.b;
 import static org.krudo.Const.bp;
 import static org.krudo.Const.cast;

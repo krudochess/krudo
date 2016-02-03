@@ -1,7 +1,9 @@
 /**
- * Krudo 0.16a 
+ * Krudo 0.16a - a chess engine for cooks
  * by Francesco Bianco <bianco@javanile.org>
  */
+
+//
 package org.krudo;
 
 // class for contain move-hystory or move sequence in game
@@ -13,7 +15,7 @@ public final class Line {
 	
 	// stack move fields 
 	public final int[] 
-	p, // piece
+	p, // moved piece
 	s, // start square
 	v, // versus square
 	x, // captured piece
@@ -22,8 +24,8 @@ public final class Line {
 	c; // castling status
 	
 	// constuctor
-	public Line() 
-	{		
+	public Line() {
+		
 		// initialization of memory 
 		p = new int[MAX];
 		s = new int[MAX];
