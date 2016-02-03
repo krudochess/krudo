@@ -43,6 +43,20 @@ public final class Move {
 		k[i] = k0;	
 		i++;
 	}
+	
+	// copy move by index i0 from to i1
+	public final void copy(
+		final int i0, // from index to copy
+		final int i1  // destination index to copy
+	) {		
+		// exit if no-sense copy
+		if (i0 == i1) { return; }
+		
+		// performe value copy
+		s[i1] = s[i0];
+		v[i1] = v[i0];
+		k[i1] = k[i0];								
+	}
 
 	/*
 	// add legal move into stack
