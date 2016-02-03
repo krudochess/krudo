@@ -20,11 +20,13 @@ public final class Config {
 	// of legal moves generated
 	MOVE_LEGALS	= false,
 			
+	// enable/disable sorting function 
+	// into move stack used for search		
+	MOVE_SORT		= true, 
 			
 	NODE_EVAL		= true,
 	EVAL_CACHE		= false,
 	MOVE_EVAL		= true, // use threats in run-time
-	MOVE_SORT		= true, // use threats in run-time
 	MOVE_CACHE		= true,	// use caching systems (TT, Zobrist, ecc...)
 	MOVE_BUFFER		= true,
 	SEARCH_CUT_OFF	= true,

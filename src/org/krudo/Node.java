@@ -621,13 +621,13 @@ public final class Node {
 				//
 				case wp: if (pawn(s, a)) { return true; } break;															
 				//
-				case wr: if (orto(s, a) && span(s, a, 0, 4)) { return true; } break;																
+				case wr: if (orto(s, a) && spak(s, a, 0, 4)) { return true; } break;																
 				//
 				case wn: if (hipe(s, a)) { return true; } break;						
 				//
-				case wb: if (diag(s, a) && span(s, a, 4, 8)) { return true; } break;						
+				case wb: if (diag(s, a) && spak(s, a, 4, 8)) { return true; } break;						
 				//
-				case wq: if (star(s, a) && span(s, a, 0, 8)) { return true; } break;
+				case wq: if (star(s, a) && spak(s, a, 0, 8)) { return true; } break;
 				//
 				case wk: if (near(s, a) && spon(s, a)) { return true; } break;	
 				//
@@ -646,7 +646,7 @@ public final class Node {
 	}
 
 	// return true if black-side-player can attack square "a"
-	private final boolean black_attack (int a) {
+	private final boolean black_attack(int a) {
 		
 		// cuont squares
 		int si = 0;
@@ -658,10 +658,10 @@ public final class Node {
 		do {		
 			
 			//
-			int s = bbm[si++]; 
+			final int s = bbm[si++]; 
 			
 			//
-			int p = B[s];
+			final int p = B[s];
 				
 			// piece not is black			
 			if ((p & b) != b) { continue; }
@@ -674,25 +674,18 @@ public final class Node {
 			
 			//
 			switch (p) {				
-
 				// handle black pawn attack
 				case bp: if (down(s, a)) { return true; } break; 																
-
 				//
-				case br: if (orto(s, a) && span(s, a, 0, 4)) { return true; } break;					
-
+				case br: if (orto(s, a) && spak(s, a, 0, 4)) { return true; } break;					
 				// handle black knight attack
 				case bn: if (hipe(s, a)) { return true; } break;								
-
 				// 
-				case bb: if (diag(s, a) && span(s, a, 4, 8)) { return true; } break;
-
+				case bb: if (diag(s, a) && spak(s, a, 4, 8)) { return true; } break;
 				//
-				case bq: if (star(s, a) && span(s, a, 0, 8)) { return true; } break;
-
+				case bq: if (star(s, a) && spak(s, a, 0, 8)) { return true; } break;
 				//
 				case bk: if (near(s, a) && spon(s, a)) { return true; } break;
-
 				//
 				default: exit("default: black_attack()");	
 			}			
@@ -741,8 +734,7 @@ public final class Node {
 		final int s,
 		final int x0,	// start direction
 		final int x1,	// final direction
-		final int x2,	// k-value for normal move
-		final int x3	// k-value for capture move
+		final int x2	// k-value for normal move
 	) {						
 		// loop throut directions
 		for (int j = x0; j < x1; j++) {
@@ -754,15 +746,10 @@ public final class Node {
 			while (v != xx) {
 				
 				// 
-				if (B[v] == 0) {
-					m.add(s, v, x2);
-				} 
+				if (B[v] == 0) { m.add(s, v, x2); } 
 				
 				//
-				else if ((B[v] & T) != t) {
-					m.add(s, v, x3);
-					break;
-				} 
+				else if ((B[v] & T) != t) { m.add(s, v, x2); break; } 
 				
 				//
 				else { break; }				
@@ -774,14 +761,14 @@ public final class Node {
 	}
 
 	// handle queen/bishop/rook moves attack-test
-	private boolean span (		
+	private boolean spak (		
 		final int s,	// start square
 		final int a,	// aimed target square		
 		final int x1,	// direction start window 
 		final int x2	// direction end window  	
 	) {					
 		//
-		for (int j = x1; j < x2; j++) {
+		for (int j = x1; j != x2; j++) {
 		
 			//
 			int v = span[s][j];
@@ -790,19 +777,13 @@ public final class Node {
 			while (v != xx) {
 				
 				// 
-				if (B[v] == 0) {
-					v = span[v][j]; 
-				}
+				if (B[v] == O) { v = span[v][j]; }
 				
 				//
-				else if (v == a) { 
-					return true; 
-				}
+				else if (v == a) { return true; }
 				
 				//
-				else { 
-					break; 
-				}
+				else { break; }
 			}
 		}
 		
@@ -814,30 +795,23 @@ public final class Node {
 	private void hope(
 		final int s //
 	) {	
-		
 		//
-		for (int i3 = 0; i3 < 8; i3++) {
+		for (int j = 0; j < 8; j++) {
 			
 			// get versus square
-			int v = hope[s][i3];			
+			final int v = hope[s][j];			
 			
 			// skip found out-of-board
-			if (v == xx) { 
-				return; 
-			}
+			if (v == xx) { return; }
 			
 			//
-			int x = B[v];
+			final int x = B[v];
 			
 			// if square is empty add to moves
-			if (x == 0) { 				
-				m.add(s, v, move);
-			} 
+			if (x == 0) { m.add(s, v, move); } 
 			
 			// if empty is occupay by opponent piece add capture
-			else if ((x & T) != t) {
-				m.add(s, v, capt|t);			
-			}
+			else if ((x & T) != t) { m.add(s, v, capt);	}
 		}
 	}
 	
@@ -1106,7 +1080,7 @@ public final class Node {
 		}			
 	} 
 	
-	//
+	// look there are condition for white king-side castling
 	private boolean wksc() {
 		
 		//
@@ -1116,7 +1090,7 @@ public final class Node {
 			&& B[f1] == O;
 	}
 	
-	//
+	// look there are condition for white queen-side castling
 	private boolean wqsc() {
 		
 		//

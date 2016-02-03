@@ -64,7 +64,7 @@ public final class Search {
 	// temp for root score for recursive call
 	private int s;
 
-	private Table t = Cache.table;
+	//private Table t = Cache.table;
 	
 	// constructor with node-centric search
 	public Search(Node node) {
@@ -89,7 +89,7 @@ public final class Search {
 		init();
 																	
 		//
-		find.empty();
+		//find.empty();
 	
 		// set time limit for the searcing engine
 		timeLimit = time() + TIME_5_MINUTES;
@@ -131,7 +131,7 @@ public final class Search {
 		start(deep);
 		
 		// return best move founded by descriptive
-		return desc(n,move,0);
+		return ""; //desc(n,move,0);
 	}
 	
 	

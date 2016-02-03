@@ -7,7 +7,7 @@
 package org.krudo;
 
 // required static class
-import static org.krudo.util.Trans.*;
+import static org.krudo.Config.*;
 
 // a stack of moves user for legal
 public final class Move {		
@@ -162,33 +162,46 @@ public final class Move {
 			l++;
 		}		
 	}
-			
+	*/
+	
 	//
 	public final Move sort() {
 		
 		// 
-		if (MOVE_SORT) do {
+		if (!MOVE_SORT) { return this; }
+		
+		// set swap count to zero
+		int z = 0;			
 
-			// set swap count to zero
-			z = 0;			
+		// actual observed index
+		int a = i;
+								
+		// 
+		do { 
+			
+			// loop actual index 
+			while (a < 0) {	
+							
+				// next observed index		
+				final int n = a - 1;
 
-			//
-			for(j=1; j<l; j++) {	
-				
-				// 
-				if (w[j-1] < w[j]) {
-					
+				// test comparisone
+				if (w[a] < w[n]) {
+
 					// swap move by index
-					swap(j-1,j);
-					
+					swap(a, n);
+
 					// increase swap count
 					z++;		
 				}
-			}				
-		} 
 
+				// actual index is replaced with next recursive
+				a = n;
+			} 
+		}			
+		 
 		// repeat if not have need to swap
-		while(z > 0);
+		while (z != 0);
 
 		//
 		return this;
@@ -198,9 +211,8 @@ public final class Move {
 	private void swap(
 		final int i0, 
 		final int i1
-	) {		
-		
-		//
+	) {			
+		// temp value for swat
 		int t;
 
 		//
@@ -223,7 +235,6 @@ public final class Move {
 		w[i0] = w[i1]; 
 		w[i1] = t;
 	}
-	*/
 }
 
 
