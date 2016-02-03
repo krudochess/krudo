@@ -123,8 +123,9 @@ public final class Debug {
 		final Move m
 	) {
 		for(int r=0;r<8;r++) {
+			
 			for(int c=0;c<8;c++) {
-				System.out.print(i2p(n.B[(7-r)*8+c])+" ");
+				print(i2p(n.B[(7-r)*8+c])+" ");
 			}
 			System.out.print(r==0 && n.t==b || r==7 && n.t==w ? "<  " : "   ");
 			

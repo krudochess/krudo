@@ -1,5 +1,5 @@
 /**
- * Krudo 0.16a 
+ * Krudo 0.16a - a chess engine for cooks
  * by Francesco Bianco <bianco@javanile.org>
  */
 
@@ -11,19 +11,19 @@ import java.io.File;
 import java.util.Random;
 
 //
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Describe.*;
-
-//
 public final class Tools {
 
 	// random int between min and max with min and max included
 	public static final int rand(int min, int max) {
+		
+		//
 		return new Random().nextInt((max - min) + 1) + min;
 	}
 	
 	// random int between min and max with min and max included
 	public static final int rand() {
+		
+		//
 		return new Random().nextInt();
 	}
 	
@@ -31,7 +31,7 @@ public final class Tools {
 	public static final boolean mask(int v, int m) {
 		
 		//
-		return (v&m)==m;
+		return (v & m) == m;
 	}
 
 	//
@@ -42,23 +42,40 @@ public final class Tools {
 	}
 	
 	//
+	public static final void echo(Object arg) {
+		
+		//
+		System.out.print(arg);				
+	}
+	
+	//
 	public static final void echo(Object... args) {
+		
+		//
 		String sep = "";
+		
+		//
 		for(Object arg: args) {			
-			System.out.print(sep+arg);
+			
+			//
+			System.out.print(sep);
+			
+			//
+			System.out.print(arg);
+			
+			//
 			sep = " ";
-		}
-		System.out.print("\n");
+		}				
 	}
 	
 	//
 	public static final void print(Object arg) {
 		
 		//
-		System.out.print(desc(arg));		
+		System.out.print(arg);		
 		
 		//
-		System.out.print("\n");		
+		System.out.print("\n");
 	}
 	
 	//
@@ -74,11 +91,11 @@ public final class Tools {
 			System.out.print(sep);
 			
 			//
-			System.out.print(desc(arg));
+			System.out.print(arg);
 			
 			//
 			sep = " ";
-		}		
+		}	
 		
 		//
 		System.out.print("\n");

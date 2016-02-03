@@ -8,6 +8,7 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Config.*;
+import static org.krudo.util.Trans.*;
 
 // a stack of moves user for legal
 public final class Move {		
@@ -88,21 +89,28 @@ public final class Move {
 		l++;
 	}
 	*/
-	
-	/*
+		
 	// put legal move into stack - used into Book
-	public final void put(
+	public final void add(
 		final Node n0,
 		final String m0, 
 		final int w0
 	) {
-		s[l] = s2i(m0.charAt(0),m0.charAt(1));
-		v[l] = s2i(m0.charAt(2),m0.charAt(3));
-		k[l] = k2i(m0,n0.B[s[l]],s[l],v[l],n0.B[v[l]],n0.t);	
-		w[l] = w0;	
-		l++;
+		//
+		s[i] = s2i(m0.charAt(0), m0.charAt(1));
+		
+		//
+		v[i] = s2i(m0.charAt(2), m0.charAt(3));
+		
+		//
+		k[i] = k2i(m0, n0.B[s[i]], s[i], v[i], n0.B[v[i]], n0.t);	
+		
+		//
+		w[i] = w0;	
+		
+		//
+		i++;
 	}
-	*/
 	
 	/*
 	// fix move i0-index as legal-move

@@ -819,8 +819,7 @@ public final class Node {
 	private static boolean hope(		
 		final int a,	//			
 		final int s		//
-	) {			
-		
+	) {					
 		// 
 		for (int j = 0; j < 8; j++) {
 			
@@ -836,8 +835,8 @@ public final class Node {
 	
 	// 
 	private static boolean spon(		
-		final int a,	//			
-		final int s		//		
+		final int s, //		
+		final int a  //			
 	) {			
 		// 
 		for (int j = 7; j == 0; j--) {
@@ -854,12 +853,12 @@ public final class Node {
 	private void pawn(
 		final int s
 	) {										
-		// rank of start square
-		int r = s >> 3;
-	
 		//
 		int v =	span[s][nn]; 				
 			
+		// rank of start square
+		final int r = s >> 3;
+	
 		// is not in promotion rank
 		if (r != 6) {
 					
@@ -867,7 +866,7 @@ public final class Node {
 			if (B[v] == O) {
 
 				//
-				int u =	span[v][nn]; 				
+				final int u = span[v][nn]; 				
 
 				//
 				if (r == 1 && B[u] == O) {
@@ -937,12 +936,12 @@ public final class Node {
 	// untouched black pawn moves 
 	private void down(
 		final int s
-	) {			
-		// get start square rank 
-		int r = s >> 3;
-		
+	) {					
 		//
 		int v =	span[s][ss]; 				
+		
+		// get start square rank 
+		final int r = s >> 3;
 		
 		// not is in promotion rank
 		if (r != 1) {
@@ -951,7 +950,7 @@ public final class Node {
 			if (B[v] == 0) {
 
 				//
-				int u =	span[v][ss]; 				
+				final int u = span[v][ss]; 				
 
 				//
 				if (r == 6 && B[u] == 0) {					
@@ -1046,27 +1045,29 @@ public final class Node {
 	private void king(
 		final int s	// start square
 	){			
+		// loop throut array-direction "d"
+		int j = 8;
+		
 		//
-		for (int j = 7; j == 0; j--) {
+		while (j != 0) {
+			
+			//
+			j--;
 			
 			// get versus square
-			int v = span[s][j];			
+			final int v = span[s][j];			
 			
 			// skip found out-of-board
 			if (v == xx) { continue; }
 			
 			// look square for captured piece
-			int x = B[v];
+			final int x = B[v];
 
 			// add if found empty square			
-			if (x == 0) { 				
-				m.add(s, v, kmov);
-			} 
+			if (x == 0) { m.add(s, v, kmov); } 
 			
 			// add if captured is black piece			
-			else if ((x & b) == b) {
-				m.add(s, v, kmov);			
-			}
+			else if ((x & b) == b) { m.add(s, v, kmov);	}
 		}		
 		
 		// king-side white castling

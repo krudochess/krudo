@@ -1,5 +1,10 @@
-package org.krudo.util;
+/**
+ * Krudo 0.16a - a chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
+ */
 
+//
+package org.krudo.util;
 
 //
 import java.io.IOException;
@@ -10,9 +15,8 @@ import org.krudo.Move;
 import org.krudo.Node;
 
 //
-import static org.krudo.util.Zobrist.*;
 import static org.krudo.util.Tools.*;
-import static org.krudo.util.Trans.*;
+import static org.krudo.util.Zobrist.*;
 
 // book access tool
 public final class Book {
@@ -21,7 +25,7 @@ public final class Book {
 	private static FileInputStream i;
 
 	// current record after .read() method
-	private static final byte[] r = new byte[16];
+	private static final byte[] R = new byte[16];
 
 	// key-hash of current move after a .read() method 
 	private static long k = 0;	
@@ -69,8 +73,8 @@ public final class Book {
 		
 		//
 		try {
-			e = i.read(r);
-			k = byte2long(r,0,8);			
+			e = i.read(R);
+			k = byte2long(R, 0, 8);			
 		} 
 		
 		//
@@ -130,7 +134,7 @@ public final class Book {
 			
 			// if found position hash put move into stack
 			if (k == h) {				
-				a.put(n, move(), weight());
+				a.add(n, move(), weight());
 			}
 		}
 				
