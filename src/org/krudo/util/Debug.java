@@ -19,16 +19,20 @@ import java.io.FileInputStream;
 import java.util.regex.*;
 
 //
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 import static org.krudo.util.Tools.*;
-import static org.krudo.util.Trans.*;
+import static org.krudo.util.Decode.*;
+import static org.krudo.util.Describe.*;
 import static org.krudo.util.Zobrist.hash;
 
 //
 public final class Debug {
 
 	//
-	public final static void dump(String t,Line l) {		
+	public static boolean DEBUG_SHOW_WEIGTH = false;
+	
+	//
+	public final static void dump(String t, Line l) {		
 		/*
 		String d = "";
 		String s = "";
@@ -41,11 +45,18 @@ public final class Debug {
 		*/
 	}
 
+	//
 	public final static void line(int d, Move m) {		
-		String l = d+" "+m.l+" ";
-		for(int i=0;i<m.l;i++) {
-			l += " "+i2m(m.s[i],m.v[i],m.k[i]);
+	
+		//
+		String l = d + " " + m.i + " ";
+		
+		//
+		for (int i = 0; i < m.i; i++) {
+			l += " "+ i2m(m.s[i], m.v[i], m.k[i]);
 		}	
+		
+		//
 		echo(l);
 	}
 
@@ -61,13 +72,12 @@ public final class Debug {
 	
 	//
 	public final static void dump(Move m) {				
-		String d = "";
-		String s = "";
-		for(int i=0;i<m.l;i++) {
-			d += s + i2m(m.s[i],m.v[i],m.k[i])+" " ;
-			s = i%6==5 ? "\n" : " ";
-		}	
-		echo(d);
+		
+		//
+		String s = desc(m);
+		
+		//
+		print(s);
 	}
 	
 	//
@@ -77,7 +87,7 @@ public final class Debug {
 			String d = "";
 			String s = "";
 			for(int i=0;i<m.i;i++) {
-				d += s + i2m(m.s[i],m.v[i],m.k[i])+" ("+i2k(m.k[i])+m.w[i]+")" ;
+				d += s + i2m(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")" ;
 				s = i%10==9 ? "\n" : " ";
 			}	
 			echo("("+j+")",d);
@@ -86,14 +96,14 @@ public final class Debug {
 	
 	//
 	public final static void dump(Move m, int i) {		
-		echo(i2m(m.s[i],m.v[i],m.k[i])+" ("+i2k(m.k[i])+m.w[i]+")");		
+		echo(i2m(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")");		
 	}
 
 	//
 	public final static void dump(Node n) {
 		for(int r=0;r<8;r++) {
 			for(int c=0;c<8;c++) {
-				System.out.print(i2p(n.B[(7-r)*8+c])+" ");
+				System.out.print(p2s(n.B[(7-r)*8+c])+" ");
 			}
 			System.out.print(r==0 && n.t==b || r==7 && n.t==w ? "<" : " ");
 			
@@ -120,37 +130,9 @@ public final class Debug {
 	//
 	public final static void dump(
 		final Node n,
-		final Move m
-	) {
-		for(int r=0;r<8;r++) {
-			
-			for(int c=0;c<8;c++) {
-				print(i2p(n.B[(7-r)*8+c])+" ");
-			}
-			System.out.print(r==0 && n.t==b || r==7 && n.t==w ? "<  " : "   ");
-			
-			for(int i=r*4; i<m.i; i++) {
-				System.out.print(desc(m,i)+" ");
-			}
-			
-			/*
-			switch(r) {
-				case 0: keys("e:",i2s(n.e),"c:",Integer.toBinaryString(n.c)); break;
-				case 1: keys("cw:",n.cw,"cb:",n.cb); break;
-				case 2: keys("wks:",i2s(n.wks),"bks:",i2s(n.bks)); break;
-				case 3: keys("wrs:",i2s(n.wks),"brs:",i2s(n.bks)); break;
-				case 4: keys("ph:",n.cw,"ew:",n.wks); break;
-				case 5: keys("wpw:",n.wks,"bpw:",n.wks); break;
-				case 6: keys("hm:",n.hm,"n:",n.n); break;
-				case 7: keys("h:",Long.toHexString(hash(n))); break;					
-			}
-			*/
-			
-			System.out.print("\n");
-		}		
-		
-		//
-		System.out.print("\n");
+		final Move m	
+	) {						
+		print(desc(n, m));
 	}
 		
 	//
@@ -164,7 +146,7 @@ public final class Debug {
 	public final static void dump(int[] s) {
 	
 		for (int i=0; i<s.length; i++) {
-			System.out.print(i2s(s[i])+" "); 			
+			System.out.print(s2s(s[i])+" "); 			
 		}
 		
 	
@@ -173,7 +155,7 @@ public final class Debug {
 	
 	//
 	public final static void table(Move moves) {
-		for(int l=0; l<moves.l; l++) {
+		for(int l=0; l<moves.i; l++) {
 			echo(i2m(moves,l),moves.w[l]);		
 		}	
 	}
@@ -185,7 +167,7 @@ public final class Debug {
 		echo("-------------");
 		Move m = n.legals();
 		
-		for(int l=0; l<m.l; l++) {
+		for(int l=0; l<m.i; l++) {
 			echo(
 				pad(i2m(m.s[l],m.v[l],m.k[l],n.B[m.s[l]]),5),
 				pad(m.w[l],5)
@@ -226,7 +208,7 @@ public final class Debug {
 		public final static void doing(Node n, int d, Perft p, int s, int v, int k) {		
 			if (d>0) {			
 				Move m = n.legals();
-				for(int l=0; l<m.l; l++) {								
+				for(int l=0; l<m.i; l++) {								
 					n.domove(m,l);				
 					doing(n,d-1,p,m.s[l],m.v[l],m.k[l]);
 					n.unmove();
@@ -288,7 +270,7 @@ public final class Debug {
 			int c = 0;
 			Move m = n.legals();
 			//m.loop();
-			for(int i=0; i<m.l; i++) {								
+			for(int i=0; i<m.i; i++) {								
 				n.domove(m,i);				
 				c += doing(n,d-1);
 				n.unmove();

@@ -10,8 +10,8 @@ package org.krudo.util;
 import org.krudo.Node;
 
 // required static classes and methods
-import static org.krudo.Const.*;
-import static org.krudo.util.Trans.*;
+import static org.krudo.Constant.*;
+import static org.krudo.util.Decode.*;
 
 // fen class utility
 public final class Fen {

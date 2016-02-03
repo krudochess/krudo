@@ -10,10 +10,10 @@ package org.krudo;
 import org.krudo.util.Fen;
 
 // required static classes and methods
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 import static org.krudo.Config.*;
 import static org.krudo.util.Tools.*;
-import static org.krudo.util.Trans.*;
+import static org.krudo.util.Decode.*;
 
 // Spizzy XBoard version of Krudo 
 public final class Node {

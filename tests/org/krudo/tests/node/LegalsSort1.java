@@ -12,16 +12,17 @@ import org.krudo.Move;
 
 //
 import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tools.exit;
 import static org.krudo.util.Tools.print;
-import static org.krudo.Config.MOVE_LEGALS;
 
 //
 public class LegalsSort1 {
 
 	//
 	public static void main(String[] args) {
-			
+		
+		//
+		DEBUG_SHOW_WEIGTH = true;
+		
 		//
 		Node n = new Node();
 

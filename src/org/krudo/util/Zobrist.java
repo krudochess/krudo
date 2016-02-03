@@ -8,7 +8,7 @@ package org.krudo.util;
 
 // required static constants
 import org.krudo.Node;
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 
 // zobrist tool class
 public final class Zobrist {

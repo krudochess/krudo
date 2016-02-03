@@ -7,25 +7,15 @@
 package org.krudo.util;
 
 //
-import static org.krudo.Const.b;
-import static org.krudo.Const.bp;
-import static org.krudo.Const.cast;
-import static org.krudo.Const.ksca;
-import static org.krudo.Const.qsca;
-import static org.krudo.Const.w;
-import static org.krudo.Const.wp;
 import org.krudo.Line;
 import org.krudo.Move;
 import org.krudo.Node;
-import static org.krudo.util.Tools.echo;
-import static org.krudo.util.Tools.keys;
-import static org.krudo.util.Tools.lpad;
-import static org.krudo.util.Tools.rpad;
-import static org.krudo.util.Trans.i2f;
-import static org.krudo.util.Trans.i2m;
-import static org.krudo.util.Trans.i2p;
-import static org.krudo.util.Trans.i2s;
-import static org.krudo.util.Zobrist.hash;
+
+//
+import static org.krudo.Constant.*;
+import static org.krudo.util.Tools.*;
+import static org.krudo.util.Encode.*;
+import static org.krudo.util.Decode.*;
 
 /**
  *
@@ -33,8 +23,12 @@ import static org.krudo.util.Zobrist.hash;
  */
 public class Describe {
 
-	
-	public final static String desc(Node n, Move m, int i) {
+	//
+	public final static String desc(
+		final Move m, 		
+		final int i,
+		final Node n
+	) {
 	
 		String a = "";
 			
@@ -43,14 +37,14 @@ public class Describe {
 
 		if ((m.k[i] & cast) != cast) {
 			if (p!=wp && p!=bp) {
-				a += i2f(p);
+				a += f2s(p);
 			} 
 
 			if (x != 0) {
 				a += "x";
 			}
 
-			a += i2s(m.v[i]);
+			a += s2s(m.v[i]);
 
 			/*
 			if (x != 0) {
@@ -60,38 +54,26 @@ public class Describe {
 		} 
 
 		//
-		else if ((m.k[i]&ksca) == ksca) {
+		else if (false) {
 			a += "O-O";
 		} 
 
 		//
-		else if ((m.k[i]&qsca) == qsca) {
+		else if (false) {
 			a += "O-O-O";
 		}
 
 		//
 		n.domove(m,i);
-		if (n.t==w?n.black_attack(n.wks):n.white_attack(n.bks)) {
-			a += "+";
-		}
+		//if (n.t==w?n.black_attack(n.wks):n.white_attack(n.bks)) {
+		//	a += "+";
+		//}
 		n.unmove();
 		
 		//
 		return a;	
 	}
 
-	//
-	public final static String desc(Object arg) {
-
-		if (arg instanceof Node) {
-			return Describe.desc((Node) arg);
-		} else if (arg instanceof Move) {
-			return Describe.desc((Move) arg);
-		} else {		
-			return arg.toString();
-		}
-	}
-	
 	//
 	public final static String desc(Node n) {
 	
@@ -103,7 +85,7 @@ public class Describe {
 					
 			//
 			for(int c = 0; c < 8; c++) {
-				desc += i2p(n.B[i2s(r, c)]) + " ";
+				desc += p2s(n.B[cr2i(c, r)]) + " ";
 			}
 			
 			//
@@ -182,12 +164,57 @@ public class Describe {
 	}
 	
 	//
-	public final static void desc(Node n, Move m) {
+	public final static String desc(Node n, Move m) {
+	
+		//
+		String desc = "";
 		
+		//
+		for (int r = 0; r < 8; r++) {
+			
+			//
+			for (int c = 0; c < 8; c++) {
+				desc += p2s(n.B[(7-r)*8+c]) + " ";
+			}
+			
+			//
+			desc += r==0 && n.t==b || r==7 && n.t==w ? "<  " : "   ";
+			
+			//
+			for(int i = r * 4; i < 4; i++) {
+				if (i < m.i) {
+					desc += desc(m, i) + " ";
+				}
+			}
+			
+			/*
+			switch(r) {
+				case 0: keys("e:",i2s(n.e),"c:",Integer.toBinaryString(n.c)); break;
+				case 1: keys("cw:",n.cw,"cb:",n.cb); break;
+				case 2: keys("wks:",i2s(n.wks),"bks:",i2s(n.bks)); break;
+				case 3: keys("wrs:",i2s(n.wks),"brs:",i2s(n.bks)); break;
+				case 4: keys("ph:",n.cw,"ew:",n.wks); break;
+				case 5: keys("wpw:",n.wks,"bpw:",n.wks); break;
+				case 6: keys("hm:",n.hm,"n:",n.n); break;
+				case 7: keys("h:",Long.toHexString(hash(n))); break;					
+			}
+			*/
+			
+			desc += "\n";
+		}		
+					
+		//
+		return desc;
+	}
+	
+	//
+	public final static void desc(Move m, Node n) {
+		
+		//
 		String o = "";
 
 		//
-		for(int i=0; i<m.l; i++) {
+		for(int i = 0; i < m.i; i++) {
 			
 			
 			
@@ -198,35 +225,42 @@ public class Describe {
 			
 			if ((m.k[i] & cast) != cast) {
 				if (p!=wp && p!=bp) {
-					a += i2f(p);
+					a += f2s(p);
 				} 
 
 				if (x != 0) {
 					a += "x";
 				}
 
-				a += i2s(m.v[i]);
+				a += s2s(m.v[i]);
 				
 				if (x != 0) {
-					a += " ("+i2f(x)+")";
+					a += " ("+f2s(x)+")";
 				}
 			} 
 			
 			//
-			else if ((m.k[i]&ksca) == ksca) {
-				a += "O-O";
-			} 
+			//else if ((m.k[i]&ksca) == ksca) {
+			//	a += "O-O";
+			//} 
 			
 			//
-			else if ((m.k[i]&qsca) == qsca) {
-				a += "O-O-O";
-			}
+			//else if ((m.k[i]&qsca) == qsca) {
+			//	a += "O-O-O";
+			//}
 			
 			//
-			o += lpad(a,8) + rpad(m.w[i],4)+"\n";;
+			o += lpad(a,8) + rpad(m.w[i],4)+"\n";
 		}
 		
 		echo(o);
 	}
 	
+	//
+	public final static String desc(		
+		final Move m, 
+		final int i
+	) {
+		return "CIAO";
+	}
 }

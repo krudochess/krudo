@@ -1,7 +1,7 @@
 package org.krudo.cache;
 
 //
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 
 //
 import java.util.LinkedHashMap;

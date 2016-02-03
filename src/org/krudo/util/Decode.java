@@ -1,3 +1,9 @@
+/**
+ * Krudo 0.16a - a chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
 package org.krudo.util;
 
 //
@@ -5,25 +11,26 @@ import org.krudo.Line;
 import org.krudo.Move;
 
 //
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 
 //
-public final class Trans {
+public final class Decode {
 
-	//
-	public static final String i2s(int s) {
+	// square to string
+	public static final String s2s(
+		final int s // square
+	) {		
+		//
 		return ""+(char)('a'+s%8)+(char)('1'+s/8);		
 	}  
 	
-	//
-	public static final int i2s(int r, int c) {
-		return r * 8 + c;
-	}
-	
-	//
-	public static final String i2p(int piece) {
-		switch(piece) {
-			case 0:  return ".";			
+	// piece to string
+	public static final String p2s(
+		final int p // piece
+	) {		
+		//
+		switch(p) {
+			case O:  return ".";			
 			case wp: return "P";	
 			case wn: return "N";	
 			case wb: return "B";	
@@ -35,21 +42,15 @@ public final class Trans {
 			case bb: return "b";	
 			case br: return "r";	
 			case bq: return "q";	
-			case bk: return "k";	
-			case K:  return "K";	
-			case Q:  return "Q";	
-			case R:  return "R";	
-			case B:  return "B";	
-			case N:  return "N";	
-			case P:  return "P";				
+			case bk: return "k";						
 			default: return "?";	
 		}	
 	} 
 	
-	//
-	public static final String i2f(int piece) {
+	// figure to string
+	public static final String f2s(int piece) {
 		switch(piece) {
-			case 0:  return ".";			
+			case O:  return ".";			
 			case wp: return "P";	
 			case wn: return "N";	
 			case wb: return "B";	
@@ -61,19 +62,13 @@ public final class Trans {
 			case bb: return "B";	
 			case br: return "R";	
 			case bq: return "Q";	
-			case bk: return "K";	
-			case K:  return "K";	
-			case Q:  return "Q";	
-			case R:  return "R";	
-			case B:  return "B";	
-			case N:  return "N";	
-			case P:  return "P";				
+			case bk: return "K";					
 			default: return "?";	
 		}	
 	} 
 	
-	//
-	public static final String i2k(int k) {
+	// kind-of-move to string
+	public static final String k2s(int k) {
 		/*
 		switch(k) {
 			case 0:	   return ".";
@@ -115,14 +110,11 @@ public final class Trans {
 		return s2i(s.charAt(0),s.charAt(1));
 	}
 	
-	//
-	public static final int s2i(char c0, char c1) {
-		return (int)(c1-'1')*8 + c0-'a';
-	}
+	
 	
 	//
 	public static final String i2m(int s,int v) {
-		return i2s(s)+i2s(v);
+		return s2s(s)+s2s(v);
 	}
 	
 	//
@@ -134,21 +126,29 @@ public final class Trans {
 			case B:p="b";break;
 			case N:p="n";break;
 		}			
-		return i2s(s)+i2s(v)+p;
+		return s2s(s)+s2s(v)+p;
 	}
 	
 	//
-	public static final String i2m(int s, int v, int k, int p) {
+	public static final String i2m(int p, int s, int v, int k) {
+		
+		//
 		String m = "";
+		
+		//
 		switch(p) {
 			case wp: case bp: break;
-			case wn: case bn: m+="N"; break;	
-			case wb: case bb: m+="B"; break;	
-			case wr: case br: m+="R"; break;	
-			case wq: case bq: m+="Q"; break;	
-			case wk: case bk: m+="K"; break;	
+			case wn: case bn: m += "N"; break;	
+			case wb: case bb: m += "B"; break;	
+			case wr: case br: m += "R"; break;	
+			case wq: case bq: m += "Q"; break;	
+			case wk: case bk: m += "K"; break;	
 		}
-		m += i2s(v);		
+		
+		//
+		m += s2s(v);		
+		
+		//
 		return m;
 	}
 	
@@ -156,7 +156,7 @@ public final class Trans {
 	public static final String i2m(Move m) {
 		String o = "";
 		String s = "";		
-		for(int i=0; i<m.l; i++) {
+		for(int i=0; i<m.i; i++) {
 			o+= s + i2m(m.s[i],m.v[i],m.k[i]); 
 			s = " ";
 		}
@@ -215,49 +215,6 @@ public final class Trans {
 		return 7-s/8;
 	}
 	
-	// return "k" for move passed  
-	public static final int k2i(String m, int p, int s, int v, int x, int t) {		
-		if (m.length()>4) {
-			switch(m.charAt(4)) {
-				case 'q': return t==w ? wqpm : bqpm;
-				case 'r': return t==w ? wrpm : brpm;
-				case 'b': return t==w ? wbpm : bbpm;
-				case 'n': return t==w ? wnpm : bnpm;
-				default: return move;
-			}				
-		} else if (p == wk && s == e1 && (v == g1 || v == h1)) {
-			return ksca;
-		} else if (p == wk && s == e1 && (v == c1 || v == a1)) {
-			return qsca;
-		} else if (p == bk && s == e8 && (v == g8 || v == h8)) {
-			return ksca;
-		} else if (p == bk && s == e8 && (v == c8 || v == a8)) {			
-			return qsca;
-		} else if (p == wk) {
-			return kmov;
-		} else if (p == bk) {
-			return kmov;
-		} else if (p == wr && s == h1) {
-			return ksrm;
-		} else if (p == wr && s == a1) {
-			return qsrm;
-		} else if (p == br && s == h8) {
-			return ksrm;
-		} else if (p == br && s == a8) {
-			return qsrm;			
-		} else if (p == wp && (s/8) == 1 && (v/8) == 3) {			
-			return pdmo;
-		} else if (p == wp && (s/8) == 4 && x == 0 && ((v-s) == 9 || (v-s) == 7)) {
-			return ecap;		
-		} else if (p == bp && s/8==6 && v/8==4) {
-			return pdmo;
-		} else if (p == bp && s/8==3 && x==0 && ((s-v)==9 || (s-v)==7)) {
-			return ecap;		
-		} else if (x != O) {
-			return capt;
-		} else {
-			return move;
-		}	
-	}
+	
 	
 }

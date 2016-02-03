@@ -1,7 +1,7 @@
 package org.krudo.tests;
 
 import static org.krudo.util.Debug.*;
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 
 import org.krudo.Node;
 import org.krudo.Engine;

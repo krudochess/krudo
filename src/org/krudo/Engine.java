@@ -10,7 +10,7 @@ package org.krudo;
 import org.krudo.util.Book;
 
 //
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 import static org.krudo.util.Tools.*;
 
 //

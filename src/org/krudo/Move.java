@@ -8,7 +8,7 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Config.*;
-import static org.krudo.util.Trans.*;
+import static org.krudo.util.Decode.*;
 
 // a stack of moves user for legal
 public final class Move {		

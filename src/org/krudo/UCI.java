@@ -7,7 +7,7 @@
 package org.krudo;
 
 // required static class
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 
 // protocol definition class
 public final class UCI {

@@ -1,8 +1,8 @@
 package org.krudo.tests;
 
 import static org.krudo.util.Debug.*;
-import static org.krudo.Const.*;
-import static org.krudo.util.Trans.*;
+import static org.krudo.Constant.*;
+import static org.krudo.util.Decode.*;
 import static org.krudo.util.Tools.*;
 
 import org.krudo.Engine;

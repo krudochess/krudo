@@ -7,7 +7,7 @@
 package org.krudo;
 
 //
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 import static org.krudo.util.Tools.*;
 
 //
@@ -21,7 +21,7 @@ public final class Timer {
 		int w = Integer.parseInt(wtime);
 		int b = Integer.parseInt(btime);
 		
-		return t==Const.w ? w-b : b-w;
+		return t==Constant.w ? w-b : b-w;
 	}
 		
 	//

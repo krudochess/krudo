@@ -7,7 +7,7 @@
 package org.krudo;
 
 // required static class
-import static org.krudo.Const.*;
+import static org.krudo.Constant.*;
 import static org.krudo.Config.*;
 import static org.krudo.util.Tools.*;
 import static org.krudo.util.Zobrist.*;
