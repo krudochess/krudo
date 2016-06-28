@@ -3,7 +3,7 @@
  * by Francesco Bianco <bianco@javanile.org>
  */
 
-//
+// root package
 package org.krudo;
 
 // require non-static class
@@ -133,7 +133,7 @@ public final class Console {
 		}		
 	}
 	
-	//
+	// handler program generated errors
 	public final void error(Throwable e) {
 		
 		//
@@ -146,7 +146,7 @@ public final class Console {
 		send(o);
 	}
 	
-	//
+	// write into log file
 	public final void log(String arg) {
 		
 		//
@@ -162,10 +162,16 @@ public final class Console {
 		}		
 	}
 
-	// 
+	// convert Throwable to string for print it
 	public final static String trace(Throwable e) {
-		StringWriter s = new StringWriter();
-		e.printStackTrace(new PrintWriter(s));
-		return s.toString(); 	
+		
+        //
+        StringWriter s = new StringWriter();
+		
+        //
+        e.printStackTrace(new PrintWriter(s));
+		
+        //
+        return s.toString(); 	
 	}
 }

@@ -50,7 +50,7 @@ public final class Book {
 		
 		//
 		catch (FileNotFoundException ex) {
-			Krudo.console.error(ex);			
+			Krudo.CONSOLE.error(ex);			
 		} 		
 	}
 	
@@ -64,7 +64,7 @@ public final class Book {
 		
 		//
 		catch (IOException ex) {
-			Krudo.console.error(ex);			
+			Krudo.CONSOLE.error(ex);			
 		}
 	}
 	
@@ -79,7 +79,7 @@ public final class Book {
 		
 		//
 		catch (IOException ex) {
-			Krudo.console.error(ex);
+			Krudo.CONSOLE.error(ex);
 			stop();
 		}
 		

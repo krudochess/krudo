@@ -3,7 +3,7 @@
  * by Francesco Bianco <bianco@javanile.org>
  */
 
-//
+// root package
 package org.krudo;
 
 // required static class
@@ -13,125 +13,147 @@ import static org.krudo.util.Tool.*;
 // main class entry point for java application
 public final class Krudo {
 	
+    // engine name
+    public final static String NAME = "Krudo 0.16a";
+    
+    // author name
+    public final static String AUTHOR = "Francesco Bianco";
+
+    // author contact
+    public final static String CONTACT = "bianco@javanile.org";
+    
 	// engine store chess game status is chess brain interface	 	
-	public final static Engine engine = new Engine();
+	public final static Engine ENGINE = new Engine();
 	
 	// console interface with "standard i/o" management
-	public final static Console console = new Console(); 
-			
+	public final static Console CONSOLE = new Console(); 
+			            
 	// entry-point for console application
-	public static void main(String[] args) {
-		
-		// start input loop of engine 
-		try {
-					
-			// initialize console
-			console.open(path("Krudo.log"));
+	public static void main(String[] args) 
+    {		
+        // prepare and start input loop of engine 
+		try 
+        {    
+            // initialize console
+            CONSOLE.open(path("Krudo.log"));
 
-			// credits message
-			console.print("Krudo 0.16a by Francesco Bianco <bianco@javanile.org>");
-						
-			// do input wait loop
-			main: for (;;) {	
-		
-				// parse and read input from stdin
-				UCI i = UCI.parse(console.input());
+            // credits message
+            CONSOLE.print(NAME + " by " + AUTHOR + " <" + CONTACT + ">");
 
-				// switch based on parsed command
-				switch (i.cmd) {
-				
-					// start uci session
-					case UCI.UCI:	
-
-						// initialize thinker
-						engine.init();
-           	
-						// set search callback function in onDone-event search
-						engine.setBestMoveCallback(UCI.BEST_MOVE_CALLBACK);									
-						engine.setSearchLogCallback(UCI.SEARCH_LOG_CALLBACK);									
-												
-						// uci first message
-						console.print(UCI.ID_NAME, "Krudo 0.16a");
-						console.print(UCI.ID_AUTHOR, "Francesco Bianco");
-												
-						// uci is ready to receive command
-						console.print(UCI.UCIOK);
-						
-						// break switch
-						break;
-
-					// isready request
-					case UCI.ISREADY:
-						
-						// print out im ready
-						if (engine.isReady()) {
-							console.print(UCI.READYOK);
-						}
-												
-						// break switch
-						break;
-
-					// set thinker to start position
-					case UCI.POSITION_STARTPOS:
-						
-						// set to start position
-						engine.startpos();
-						
-						// break switch
-						break;
-					
-					// set thinker to start position e do move sequences	
-					case UCI.POSITION_STARTPOS_MOVES:
-						
-						//
-						engine.startpos();
-						
-						//
-						engine.domove(i.arg);
-												
-						/*_* /
-						int w = t.eval();
-						if (w < 0) {
-							c.put("exit-before-lose:", w);
-							c.end();
-							exit();
-						}
-						/*_*/
-						
-						// break switch
-						break;
-						
-					// start thinking based on args passed	
-					case UCI.GO:						
-						
-						// call go with black and white time attentions
-						if (has(i.arg[UCI.WTIME]) && has(i.arg[UCI.BTIME])) {
-							engine.go(i.arg[UCI.WTIME], i.arg[UCI.BTIME]);
-						} 
-						
-						// call go wihout parameters use default
-						else {
-							engine.go();
-						}
-						
-						// break switch						
-						break;
-											
-					// quit from main loop	
-					case CMD.QUIT: break main;
-				}
-			} 
+            //
+			loop();					
 		} 
 		
 		// exception catched print in console
-		catch (Throwable e) {
-			console.error(e);			
+		catch (Throwable e) 
+        {            
+            //
+			CONSOLE.error(e);			
 		} 
 				
 		// exit and close console
-		finally {			
-			console.print("exit");
-			console.close();			
+		finally 
+        {            
+            //
+			CONSOLE.print("exit");
+			
+            //
+            CONSOLE.close();			
 		}	
 	}
+    
+    //
+    private static void loop() 
+    {                
+        // do input wait loop
+        for (;;) 
+        {	
+            // parse and read input from stdin
+            UCI i = UCI.parse(CONSOLE.input());
+
+            // switch based on parsed command
+            switch (i.cmd)
+            {
+                // start uci session
+                case UCI.UCI:	
+
+                    // initialize thinker
+                    ENGINE.init();
+
+                    // set search callback function in onDone-event search
+                    ENGINE.setBestMoveCallback(UCI.BEST_MOVE_CALLBACK);									
+                    ENGINE.setSearchLogCallback(UCI.SEARCH_LOG_CALLBACK);									
+
+                    // uci first message
+                    CONSOLE.print(UCI.ID_NAME, "Krudo 0.16a");
+                    CONSOLE.print(UCI.ID_AUTHOR, "Francesco Bianco");
+
+                    // uci is ready to receive command
+                    CONSOLE.print(UCI.UCIOK);
+
+                    // break switch
+                    break;
+
+                // isready request
+                case UCI.ISREADY:
+
+                    // print out im ready
+                    if (ENGINE.isReady()) {
+                        CONSOLE.print(UCI.READYOK);
+                    }
+
+                    // break switch
+                    break;
+
+                // set thinker to start position
+                case UCI.POSITION_STARTPOS:
+
+                    // set to start position
+                    ENGINE.startpos();
+
+                    // break switch
+                    break;
+
+                // set thinker to start position e do move sequences	
+                case UCI.POSITION_STARTPOS_MOVES:
+
+                    //
+                    ENGINE.startpos();
+
+                    //
+                    ENGINE.domove(i.arg);
+
+                    /*_* /
+                    int w = t.eval();
+                    if (w < 0) {
+                        c.put("exit-before-lose:", w);
+                        c.end();
+                        exit();
+                    }
+                    /*_*/
+
+                    // break switch
+                    break;
+
+                // start thinking based on args passed	
+                case UCI.GO:						
+
+                    // call go with black and white time attentions
+                    if (has(i.arg[UCI.WTIME]) && has(i.arg[UCI.BTIME])) {
+                        ENGINE.go(i.arg[UCI.WTIME], i.arg[UCI.BTIME]);
+                    } 
+
+                    // call go wihout parameters use default
+                    else {
+                        ENGINE.go();
+                    }
+
+                    // break switch						
+                    break;
+
+                // quit from main loop	
+                case CMD.QUIT: return;
+            }
+        } 
+    }
 }

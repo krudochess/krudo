@@ -59,18 +59,18 @@ public final class UCI {
 		public void run() {
 			
 			//
-			switch (Krudo.engine.search.logAction) {
+			switch (Krudo.ENGINE.search.logAction) {
 			
 				//
 				case SEARCH_LOG_UP:
 					
 					//
-					Krudo.console.print(INFO, 
-						DEPTH,		Krudo.engine.search.logDeep, 
-						SCORE_CP,	Krudo.engine.search.logWeight,
-						TIME,		Krudo.engine.search.logTime,
-						NODES,		Krudo.engine.search.logNodes,
-						PV,			Krudo.engine.search.logLine
+					Krudo.CONSOLE.print(INFO, 
+						DEPTH,		Krudo.ENGINE.search.logDeep, 
+						SCORE_CP,	Krudo.ENGINE.search.logWeight,
+						TIME,		Krudo.ENGINE.search.logTime,
+						NODES,		Krudo.ENGINE.search.logNodes,
+						PV,			Krudo.ENGINE.search.logLine
 					);
 					
 					//
@@ -80,10 +80,10 @@ public final class UCI {
 				case SEARCH_LOG_BM:
 					
 					//
-					Krudo.engine.bm = Krudo.engine.search.logMove;
+					Krudo.ENGINE.bm = Krudo.ENGINE.search.logMove;
 					
 					//
-					Krudo.engine.bmc.run();
+					Krudo.ENGINE.bmc.run();
 					
 					//
 					break;		
@@ -99,7 +99,7 @@ public final class UCI {
 		public void run() {
 			
 			//
-			Krudo.console.print(BESTMOVE, Krudo.engine.bm);									
+			Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bm);									
 		}	
 	};			
 		
