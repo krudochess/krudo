@@ -1,13 +1,14 @@
 package org.krudo.tests.tuning;
 
 //
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 import static org.krudo.util.Debug.*;
 import static org.krudo.Eval.eval;
 
 //
 import org.krudo.Node;
 import org.krudo.Search;
+import static org.krudo.Eval.eval;
 
 // 
 public class Eval1 {

@@ -12,6 +12,8 @@ import org.krudo.Move;
 
 //
 import static org.krudo.Constant.*;
+import static org.krudo.util.Debug.*;
+import static org.krudo.util.Encode.*;
 
 //
 public final class Decode {
@@ -107,7 +109,7 @@ public final class Decode {
 	
 	//
 	public static final int s2i(String s) {
-		return s2i(s.charAt(0),s.charAt(1));
+		return cr2i(s.charAt(0), s.charAt(1));
 	}
 	
 	
@@ -117,16 +119,45 @@ public final class Decode {
 		return s2s(s)+s2s(v);
 	}
 	
-	//
-	public static final String i2m(int s, int v, int k) {
+	// move to string
+	public static final String m2s(int s, int v, int k) {
 		String p = "";
 		switch(k) {
-			case Q:p="q";break;
-			case R:p="r";break;
-			case B:p="b";break;
-			case N:p="n";break;
+			case Q: p = "q"; break;
+			case R: p = "r"; break;
+			case B: p = "b"; break;
+			case N: p = "n"; break;
 		}			
 		return s2s(s)+s2s(v)+p;
+	}
+	
+	// move to string
+	public static final String m2s(int s, int v, int k, int w) {
+		
+		//
+		String move = s2s(s) + s2s(v);
+		
+		//
+		String p = "";
+		
+		//
+		switch(k) {
+			case Q: p = "q"; break;
+			case R: p = "r"; break;
+			case B: p = "b"; break;
+			case N: p = "n"; break;
+		}
+		
+		//
+		move += p;
+		
+		//
+		if (DEBUG_SHOW_WEIGTH) {
+			move += String.format("(%+d)",w);
+		}
+				
+		//
+		return move;
 	}
 	
 	//
@@ -157,7 +188,7 @@ public final class Decode {
 		String o = "";
 		String s = "";		
 		for(int i=0; i<m.i; i++) {
-			o+= s + i2m(m.s[i],m.v[i],m.k[i]); 
+			o+= s + m2s(m.s[i],m.v[i],m.k[i]); 
 			s = " ";
 		}
 		return o;
@@ -165,7 +196,7 @@ public final class Decode {
 	
 	//
 	public static final String i2m(Move m, int i) {
-		return i2m(m.s[i],m.v[i],m.k[i]);
+		return m2s(m.s[i],m.v[i],m.k[i]);
 	}
 	
 	//
@@ -178,7 +209,7 @@ public final class Decode {
 		String o = "";
 		String s = "";		
 		for(int i=f; i<t; i++) {
-			o+= s + i2m(m.s[i],m.v[i],m.k[i]); 
+			o+= s + m2s(m.s[i],m.v[i],m.k[i]); 
 			s = " ";
 		}
 		return o;

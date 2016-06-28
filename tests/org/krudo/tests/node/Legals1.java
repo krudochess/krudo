@@ -7,23 +7,23 @@
 package org.krudo.tests.node;
 
 //
-import static org.krudo.Config.MOVE_LEGALS;
 import org.krudo.Node;
+import org.krudo.Move;
 
 //
-import static org.krudo.util.Tool.*;
 import static org.krudo.util.Debug.*;
 
 //
-public class Pseudo1 {
+public class Legals1 {
 
 	//
 	public static void main(String[] args) {
-
+		
 		//
-		if (MOVE_LEGALS) {
-			exit("set int Config class MOVE_LEGALS = false and retry");
-		}
+		DEBUG_SHOW_WEIGTH = true;
+		
+		//
+		DEBUG_SHOW_ALGEBRIC = true;
 		
 		//
 		Node n = new Node();
@@ -32,9 +32,12 @@ public class Pseudo1 {
 		n.startpos();
 		
 		//
-		dump(n, n.legals());
+		n.domove("e2e4");
 		
 		//
-		print();
+		Move m = n.legals();
+		
+		//
+		dump(m, n);			
 	}	
 }

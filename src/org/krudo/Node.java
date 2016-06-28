@@ -10,10 +10,12 @@ package org.krudo;
 import org.krudo.util.Fen;
 
 // required static classes and methods
-import static org.krudo.Constant.*;
 import static org.krudo.Config.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.Constant.*;
+import static org.krudo.util.Tool.*;
 import static org.krudo.util.Decode.*;
+import static org.krudo.util.Encode.*;
+import static org.krudo.util.Describe.*;
 
 // Spizzy XBoard version of Krudo 
 public final class Node {
@@ -27,7 +29,7 @@ public final class Node {
 	public int c; // castling status
 	
 	// moves history line
-	private final Line L = new Line();
+	public final Line L = new Line();
 		
 	// other node status
 	public int cw;  // count white piece
@@ -39,7 +41,7 @@ public final class Node {
 	public int i;   // count half-move from the begin
 				
 	// legals moves-stack internal
-	private Move m;
+	public Move m;
 	
 	// zobrist hash key temp
 	private long h;
@@ -364,7 +366,7 @@ public final class Node {
 		if (t == w) { white_legals(); } else { black_legals(); }	
 		
 		// evaluate every move in stack
-		if (EVAL_LEGALS) { Eval.move(this); }
+		if (EVAL_LEGALS) { Eval.move(m, this); }
 		
 		// retur move-stack reference
 		return m;
@@ -446,7 +448,7 @@ public final class Node {
 			
 		// loop throut pseudo-legal moves
 		for (int j = 0; j != p; j++) {						
-				
+						
 			//
 			if (m.k[j] == cast) if (black_castling(m.v[j])) {
 				 m.copy(j, l); l++; continue;
@@ -456,7 +458,7 @@ public final class Node {
 			domove(j);
 
 			//
-			if (white_attack(bks)) { m.copy(j, l); l++; }
+			if (!white_attack(bks)) { m.copy(j, l); l++; }
 
 			//
 			unmove();			

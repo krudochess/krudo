@@ -20,7 +20,7 @@ import java.util.regex.*;
 
 //
 import static org.krudo.Constant.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 import static org.krudo.util.Decode.*;
 import static org.krudo.util.Describe.*;
 import static org.krudo.util.Zobrist.hash;
@@ -30,6 +30,9 @@ public final class Debug {
 
 	//
 	public static boolean DEBUG_SHOW_WEIGTH = false;
+	
+	//
+	public static boolean DEBUG_SHOW_ALGEBRIC = false;
 	
 	//
 	public final static void dump(String t, Line l) {		
@@ -46,14 +49,14 @@ public final class Debug {
 	}
 
 	//
-	public final static void line(int d, Move m) {		
+	public final static void dump(int d, Move m) {		
 	
 		//
 		String l = d + " " + m.i + " ";
 		
 		//
 		for (int i = 0; i < m.i; i++) {
-			l += " "+ i2m(m.s[i], m.v[i], m.k[i]);
+			l += " "+ m2s(m.s[i], m.v[i], m.k[i]);
 		}	
 		
 		//
@@ -87,7 +90,7 @@ public final class Debug {
 			String d = "";
 			String s = "";
 			for(int i=0;i<m.i;i++) {
-				d += s + i2m(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")" ;
+				d += s + m2s(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")" ;
 				s = i%10==9 ? "\n" : " ";
 			}	
 			echo("("+j+")",d);
@@ -96,7 +99,7 @@ public final class Debug {
 	
 	//
 	public final static void dump(Move m, int i) {		
-		echo(i2m(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")");		
+		echo(m2s(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")");		
 	}
 
 	//
@@ -134,23 +137,31 @@ public final class Debug {
 	) {						
 		print(desc(n, m));
 	}
+	
+	//
+	public final static void dump(
+		final Move m,	
+		final Node n
+	) {						
+		print(desc(m, n));
+	}
 		
 	//
-	public final static void dump(Exception e) {
+	public final static void dump(
+		final Exception e
+	) {
 		StringWriter s = new StringWriter();
 		e.printStackTrace(new PrintWriter(s));
 		System.out.print(s.toString()); 	
 	}
 	
 	//
-	public final static void dump(int[] s) {
-	
+	public final static void dump(
+		final int[] s
+	) {	
 		for (int i=0; i<s.length; i++) {
 			System.out.print(s2s(s[i])+" "); 			
-		}
-		
-	
-	
+		}				
 	}
 	
 	//

@@ -1,7 +1,7 @@
 package org.krudo.tests;
 
 //
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 
 //
 import org.krudo.util.Book;

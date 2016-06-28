@@ -15,7 +15,7 @@ import org.krudo.Move;
 import org.krudo.Node;
 
 //
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 import static org.krudo.util.Zobrist.*;
 
 // book access tool

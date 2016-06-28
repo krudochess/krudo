@@ -14,15 +14,40 @@ public final class Config {
 			
 	// enable/disable evaluation 
 	// of legal moves generated
-	EVAL_LEGALS = false,		
+	EVAL_LEGALS = true,		
+	
+	// enable/disable evaluation 
+	// of legal moves generated		
+	EVAL_MVV_LAA = false,
+			
+	// enable/disable evaluation 
+	// of legal moves generated		
+	EVAL_CAPTURE = false,
+						
+	// enable/disable evaluation 
+	// of legal moves generated
+	EVAL_POSITIONAL = true,		
 	
 	// enable/disable evaluation 
 	// of legal moves generated
-	MOVE_LEGALS	= false,
+	EVAL_TAPERED_ENDING = false,		
+	
+	// enable/disable evaluation 
+	// of legal moves generated
+	EVAL_TAPERED_OPENING = false,		
+				
+	// enable/disable evaluation 
+	// of legal moves generated
+	MOVE_LEGALS	= true,
 			
 	// enable/disable sorting function 
 	// into move stack used for search		
-	MOVE_SORT		= true, 
+	MOVE_SORT = true, 
+	
+
+
+
+			
 			
 	NODE_EVAL		= true,
 	EVAL_CACHE		= false,

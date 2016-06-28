@@ -1,7 +1,7 @@
 package org.krudo.tests.tuning;
 
 //
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 import static org.krudo.util.Debug.*;
 
 //

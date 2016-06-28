@@ -8,7 +8,9 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Config.*;
-import static org.krudo.util.Decode.*;
+import static org.krudo.util.Tool.*;
+import static org.krudo.util.Encode.*;
+import static org.krudo.util.Describe.*;
 
 // a stack of moves user for legal
 public final class Move {		
@@ -97,10 +99,10 @@ public final class Move {
 		final int w0
 	) {
 		//
-		s[i] = s2i(m0.charAt(0), m0.charAt(1));
+		s[i] = cr2i(m0.charAt(0), m0.charAt(1));
 		
 		//
-		v[i] = s2i(m0.charAt(2), m0.charAt(3));
+		v[i] = cr2i(m0.charAt(2), m0.charAt(3));
 		
 		//
 		k[i] = k2i(m0, n0.B[s[i]], s[i], v[i], n0.B[v[i]], n0.t);	
@@ -178,24 +180,35 @@ public final class Move {
 		// 
 		if (!MOVE_SORT) { return this; }
 		
-		// set swap count to zero
-		int z = 0;			
+		// count all swap
+		int c = 0; 
+		
+		// swap count
+		int z;			
 
-		// actual observed index
-		int a = i;
-								
+		// actual index
+		int a;
+
+		// next index
+		int n;
+		
 		// 
-		do { 
+		do { 								
+			// set swap count to zero
+			z = 0;
+			
+			// actual observed index
+			a = i;
 			
 			// loop actual index 
-			while (a < 0) {	
+			while (a != 0) {	
 							
 				// next observed index		
-				final int n = a - 1;
-
+				n = a - 1;
+				
 				// test comparisone
-				if (w[a] < w[n]) {
-
+				if (w[a] > w[n]) {
+			
 					// swap move by index
 					swap(a, n);
 
@@ -205,12 +218,18 @@ public final class Move {
 
 				// actual index is replaced with next recursive
 				a = n;
-			} 
+			}
+			
+			//
+			c += z;			
 		}			
 		 
 		// repeat if not have need to swap
 		while (z != 0);
-
+				
+		//
+		print("Fattore di correzione:", c);
+		
 		//
 		return this;
 	}

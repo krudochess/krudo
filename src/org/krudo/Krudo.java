@@ -8,7 +8,7 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Constant.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 
 // main class entry point for java application
 public final class Krudo {
@@ -32,13 +32,13 @@ public final class Krudo {
 			console.print("Krudo 0.16a by Francesco Bianco <bianco@javanile.org>");
 						
 			// do input wait loop
-			main: for(;;) {	
+			main: for (;;) {	
 		
 				// parse and read input from stdin
 				UCI i = UCI.parse(console.input());
 
 				// switch based on parsed command
-				switch(i.cmd) {
+				switch (i.cmd) {
 				
 					// start uci session
 					case UCI.UCI:	
@@ -51,7 +51,7 @@ public final class Krudo {
 						engine.setSearchLogCallback(UCI.SEARCH_LOG_CALLBACK);									
 												
 						// uci first message
-						console.print(UCI.ID_NAME, "Krudo 0.15a");
+						console.print(UCI.ID_NAME, "Krudo 0.16a");
 						console.print(UCI.ID_AUTHOR, "Francesco Bianco");
 												
 						// uci is ready to receive command

@@ -2,7 +2,7 @@ package org.krudo.tests.base;
 
 // required static class
 import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 
 // required non-static class
 import org.krudo.util.Book;

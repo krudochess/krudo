@@ -3,7 +3,7 @@ package org.krudo.tests.winatchess;
 //
 import static org.krudo.Eval.*;
 import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 
 //
 import org.krudo.Node;

@@ -9,7 +9,7 @@ package org.krudo;
 // required static class
 import static org.krudo.Constant.*;
 import static org.krudo.util.Decode.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 import static org.krudo.util.Debug.*;
 import static org.krudo.util.Zobrist.hash;
 
@@ -208,16 +208,22 @@ public final class Search {
 	private int abrun(int d, int a, int b) {
 				
 		// generate and sort legal-moves
-		Move m = n.legals().sort();
-					
-		// increase move-stack loop counter
-		m.loop();
-				
+		n.legals();
+			
+		// 
+		n.m.sort();
+		
+		// 
+		int j = n.m.i;
+		
 		// loop throut legal-moves
-		for (int i=0; i<m.l; i++) {
-						
+		do {
+				
+			//
+			j--;
+			
 			// make
-			n.domove(m,i);
+			n.domove(j);
 			
 			// recursive evaluation search					
 			s = abmin(d-1, a, a+1);
@@ -234,18 +240,18 @@ public final class Search {
 			if (s > a) {
 				pv[d].set(n.L, zero);
 				log(SEARCH_LOG_UP,pv,1,d,s);
-				find.put(m,i,s); 		
+				find.put(m,j,s); 		
 				//m.w[i] = s;
 				a = s;				
 			}			
 
 			// undo
-			n.unmove();
-		}
+			n.unmove();			
+		} 
 		
 		//
-		m.stop();
-			
+		while (j != 0);
+		
 		//
 		return a; 
 	}
@@ -323,25 +329,33 @@ public final class Search {
 	}
 
 	// alfa-beta min routine
-	private int abmin(int d, int a, int b) {
-							
+	private int abmin(
+		final int d, 
+		final int a, 
+		final int b
+	) {						
 		// at-end quiescence search and increase nodes count
-		if (d <= 0) { ns++; return qmin(a, b); }
+		if (d == 0) { ns++; return qmin(a, b); }
 		
 		// generate legal-moves and sort
-		Move m = n.legals().sort();
+		n.legals();
+			
+		//		
+		n.m.sort();
 
 		// no-legals-move exit checkmate
-		if (m.l == 0) { return +mate; }
+		if (n.m.i == 0) { return +mate+d; }
 		
 		//
 		int w, p = 0; 
-				
-		// 
-		m.loop();
+			
+		//
+		int j = n.m.i;
 		
 		// 
-		for (int i=0; i<m.l; i++) {
+		do {			
+			//
+			j--;
 			
 			// 
 			if (time() > timeLimit) { 
@@ -349,7 +363,7 @@ public final class Search {
 			}
 			
 			// make move
-			n.domove(m,i);
+			n.domove(j);
 					
 			// 
 			w = abmax(d-1, p==0 ? a : b-1, b);
@@ -370,12 +384,12 @@ public final class Search {
 			}					
 		
 			// unmake move
-			n.unmove(); 
-		}
+			n.unmove(); 		
+		} 
 		
 		//
-		m.stop();
-		
+		while (j != 0);
+				
 		//
 		return b;	
 	}
@@ -471,10 +485,7 @@ public final class Search {
 		if (m.l == 0) { 
 			return +mate; 
 		}
-		
-		//
-		m.loop();
-				
+						
 		// loop throut capturers
 		for (int i=0; i<m.l; i++) if ((m.k[i]&quie)==quie) { 
 			
@@ -493,9 +504,6 @@ public final class Search {
 			// soft cut-off
 			if (w < b) { b = w; }
 		}
-		
-		//
-		m.stop();
 		
 		// return new uppel limit
 		return b;

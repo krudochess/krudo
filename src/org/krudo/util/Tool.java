@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.Random;
 
 //
-public final class Tools {
+public final class Tool {
 
 	// random int between min and max with min and max included
 	public static final int rand(int min, int max) {

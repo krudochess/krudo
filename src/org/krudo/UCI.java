@@ -28,7 +28,8 @@ public final class UCI {
     BTIME					=   1,
     MOVESTOGO				=   2,
    	STOP					= 710,
-    PONDERHIT				= 711;
+    PONDERHIT				= 711,
+    QUIT					= 910;
     
     // engine to gui
     public final static String 
@@ -146,27 +147,39 @@ public final class UCI {
 		}
 		
 		//
-		else if (s.startsWith("go ")) {
-        	i.cmd = GO;
+		else if (s.startsWith("go")) {
+        	
+			//
+			i.cmd = GO;
+			
+			//
 			i.arg = new String[] {
 				"", /*WTIME*/		
 				"", /*BTIME*/		
 				"", /*MOVESTOGO*/
-			};			
-			String[] t = s.substring(3).split("\\s+");		
-			for(int j=0; j<t.length; j++) {
-				switch (t[j]) {
-					case "wtime":
-						i.arg[WTIME] = t[j+1];
-						break;
-					case "btime":
-						i.arg[BTIME] = t[j+1];
-						break;				
-					case "movestogo":
-						i.arg[MOVESTOGO] = t[j+1];
-						break;
-				}
-			}			        
+			};	
+			
+			//
+			if (s.length() > 3) {
+			
+				//
+				String[] args = s.substring(3).split("\\s+");		
+				
+				//
+				for(int j = 0; j < args.length; j++) {
+					switch (args[j]) {
+						case "wtime":
+							i.arg[WTIME] = args[j+1];
+							break;
+						case "btime":
+							i.arg[BTIME] = args[j+1];
+							break;				
+						case "movestogo":
+							i.arg[MOVESTOGO] = args[j+1];
+							break;
+					}
+				}			        
+			}
 		} 
 		
 		//
@@ -176,13 +189,8 @@ public final class UCI {
 			
 		//
 		else if (s.startsWith("quit")) {
-            i.cmd = CMD.QUIT;        
-		} 
-		
-		//
-		else {
-        	i.cmd = CMD.NOPE;
-        }
+            i.cmd = QUIT;        
+		} 		
 		
 		//
 		return i;

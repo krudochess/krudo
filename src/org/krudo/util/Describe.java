@@ -13,7 +13,8 @@ import org.krudo.Node;
 
 //
 import static org.krudo.Constant.*;
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Debug.*;
+import static org.krudo.util.Tool.*;
 import static org.krudo.util.Encode.*;
 import static org.krudo.util.Decode.*;
 
@@ -28,23 +29,28 @@ public class Describe {
 		final Move m, 		
 		final int i,
 		final Node n
-	) {
-	
-		String a = "";
-			
-		int p = n.B[m.s[i]];
-		int x = n.B[m.v[i]];
+	) {	
+		//
+		String move = "";
+		
+		//
+		final int p = n.B[m.s[i]];
+		
+		//
+		final int x = n.B[m.v[i]];
 
-		if ((m.k[i] & cast) != cast) {
-			if (p!=wp && p!=bp) {
-				a += f2s(p);
+		//
+		if (m.k[i] != cast) {
+			
+			if (p != wp && p != bp) {
+				move += f2s(p);
 			} 
 
 			if (x != 0) {
-				a += "x";
+				move += "x";
 			}
 
-			a += s2s(m.v[i]);
+			move += s2s(m.v[i]);
 
 			/*
 			if (x != 0) {
@@ -55,23 +61,28 @@ public class Describe {
 
 		//
 		else if (false) {
-			a += "O-O";
+			move += "O-O";
 		} 
 
 		//
 		else if (false) {
-			a += "O-O-O";
+			move += "O-O-O";
 		}
 
 		//
-		n.domove(m,i);
+		//n.domove(m,i);
 		//if (n.t==w?n.black_attack(n.wks):n.white_attack(n.bks)) {
 		//	a += "+";
 		//}
-		n.unmove();
+		//n.unmove();
 		
 		//
-		return a;	
+		if (DEBUG_SHOW_WEIGTH) {
+			move += String.format("(%+d)", m.w[i]);
+		}
+		
+		//
+		return move;	
 	}
 
 	//
@@ -154,9 +165,48 @@ public class Describe {
 		String sepa = "";
 		
 		//
-		for(int i=0; i < m.i; i++) {
-			desc += sepa + i2m(m.s[i], m.v[i], m.k[i]) + " ";
-			sepa = i%6 == 5 ? "\n" : " ";
+		for (int j=0; j < m.i; j++) {
+			
+			//
+			String move = desc(m, j);
+										
+			//
+			int cell = DEBUG_SHOW_WEIGTH ? 10 : 6;
+			
+			//
+			desc += sepa + lpad(move, cell);
+			
+			//
+			sepa = j%6 == 5 ? "\n" : " ";
+		}	
+		
+		//
+		return desc;
+	}
+	
+	//
+	public final static String desc(Move m, Node n) {
+	
+		//
+		String desc = "";
+		
+		//
+		String sepa = "";
+		
+		//
+		for (int j = 0; j < m.i; j++) {
+			
+			//
+			String move = desc(m, j);
+										
+			//
+			int cell = DEBUG_SHOW_WEIGTH ? 10 : 6;
+			
+			//
+			desc += sepa + lpad(move, cell);
+			
+			//
+			sepa = j % 6 == 5 ? "\n" : " ";
 		}	
 		
 		//
@@ -181,9 +231,9 @@ public class Describe {
 			desc += r==0 && n.t==b || r==7 && n.t==w ? "<  " : "   ";
 			
 			//
-			for(int i = r * 4; i < 4; i++) {
+			for(int i = r * 4; i < r * 4 + 4; i++) {
 				if (i < m.i) {
-					desc += desc(m, i) + " ";
+					desc += lpad(desc(m, i), 11);
 				}
 			}
 			
@@ -206,61 +256,13 @@ public class Describe {
 		//
 		return desc;
 	}
-	
-	//
-	public final static void desc(Move m, Node n) {
 		
-		//
-		String o = "";
-
-		//
-		for(int i = 0; i < m.i; i++) {
-			
-			
-			
-			String a = "";
-			
-			int p = n.B[m.s[i]];
-			int x = n.B[m.v[i]];
-			
-			if ((m.k[i] & cast) != cast) {
-				if (p!=wp && p!=bp) {
-					a += f2s(p);
-				} 
-
-				if (x != 0) {
-					a += "x";
-				}
-
-				a += s2s(m.v[i]);
-				
-				if (x != 0) {
-					a += " ("+f2s(x)+")";
-				}
-			} 
-			
-			//
-			//else if ((m.k[i]&ksca) == ksca) {
-			//	a += "O-O";
-			//} 
-			
-			//
-			//else if ((m.k[i]&qsca) == qsca) {
-			//	a += "O-O-O";
-			//}
-			
-			//
-			o += lpad(a,8) + rpad(m.w[i],4)+"\n";
-		}
-		
-		echo(o);
-	}
-	
 	//
 	public final static String desc(		
 		final Move m, 
 		final int i
 	) {
-		return "CIAO";
+		//
+		return m2s(m.s[i], m.v[i], m.k[i], m.w[i]);
 	}
 }

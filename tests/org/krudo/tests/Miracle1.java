@@ -5,7 +5,7 @@ import static org.krudo.Constant.*;
 
 import org.krudo.Node;
 import org.krudo.Engine;
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 
 //
 public class Miracle1 {

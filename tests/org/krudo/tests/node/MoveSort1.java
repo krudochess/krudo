@@ -11,11 +11,11 @@ import org.krudo.Node;
 import org.krudo.Move;
 
 //
+import static org.krudo.util.Tool.*;
 import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tools.print;
 
 //
-public class LegalsSort1 {
+public class MoveSort1 {
 
 	//
 	public static void main(String[] args) {
@@ -28,6 +28,9 @@ public class LegalsSort1 {
 
 		//
 		n.startpos();
+		
+		//
+		n.domove("e2e4");
 		
 		//
 		Move m = n.legals();

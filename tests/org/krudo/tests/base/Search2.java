@@ -1,6 +1,6 @@
 package org.krudo.tests.base;
 
-import static org.krudo.util.Tools.*;
+import static org.krudo.util.Tool.*;
 
 //
 import org.krudo.Node;

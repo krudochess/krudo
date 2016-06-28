@@ -1,0 +1,25 @@
+
+$ Thu Feb 04 23:09:03 CET 2016
+! Krudo 0.16a by Francesco Bianco <bianco@javanile.org>
+? uci
+! id name Krudo 0.15a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? go
+? go 
+& java.lang.RuntimeException: Uncompilable source code - illegal start of type
+	at org.krudo.cache.Legals.clr(Legals.java:55)
+	at org.krudo.Engine.go(Engine.java:112)
+	at org.krudo.Krudo.main(Krudo.java:114)
+! exit
+
+$ Thu Feb 04 23:11:35 CET 2016
+! Krudo 0.16a by Francesco Bianco <bianco@javanile.org>
+? go
+& java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1918)
+	at org.krudo.UCI.parse(UCI.java:156)
+	at org.krudo.Krudo.main(Krudo.java:38)
+! exit
