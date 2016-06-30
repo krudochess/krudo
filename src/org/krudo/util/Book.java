@@ -7,109 +7,110 @@
 package org.krudo.util;
 
 //
+import org.krudo.Node;
+import org.krudo.Move;
+import org.krudo.Krudo;
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import org.krudo.Krudo;
-import org.krudo.Move;
-import org.krudo.Node;
 
 //
 import static org.krudo.util.Tool.*;
 import static org.krudo.util.Zobrist.*;
 
 // book access tool
-public final class Book {
-		
-	// file handler input
-	private static FileInputStream i;
-
-	// current record after .read() method
-	private static final byte[] R = new byte[16];
+public final class Book 
+{		
+	// end of file flag handler
+	private static int eof = 0;
 
 	// key-hash of current move after a .read() method 
-	private static long k = 0;	
+	private static long key = 0;	
 
-	// temp var for hash in loops
-	private static long h = 0;
-	
-	// temp move container	
-	private static int m = 0;
-	
-	// end of file flag
-	private static int e = 0;
+	// book file input stream handler
+	private static FileInputStream fis;
 
+    // current record after .read() method
+	private static final byte[] RECORD = new byte[16];
+
+    // constant 
+    private static final String BOOKFILE = path("Krudo.bin");
+    
 	// open binary file
-	public static void open() {				
-		
+	public static void open() 
+    {					
 		//
-		try {			
-			e = 0;
-			i = new FileInputStream(path("Krudo.bin"));					
+		try 
+        {			
+			eof = 0;
+			fis = new FileInputStream(BOOKFILE);					
 		} 
 		
 		//
-		catch (FileNotFoundException ex) {
+		catch (FileNotFoundException ex) 
+        {
 			Krudo.CONSOLE.error(ex);			
 		} 		
 	}
 	
 	// close binary file
-	public static final void stop() {
-		
+	public static final void exit() 
+    {	
 		//
-		try {
-			i.close();					
+		try 
+        {
+			fis.close();					
 		} 
 		
 		//
-		catch (IOException ex) {
+		catch (IOException ex)
+        {
 			Krudo.CONSOLE.error(ex);			
 		}
 	}
 	
 	// read next input from file
-	public static final boolean read() {
-		
+	public static final boolean read() 
+    {	
 		//
-		try {
-			e = i.read(R);
-			k = byte2long(R, 0, 8);			
+		try 
+        {
+			eof = fis.read(RECORD);
+			key = byte2long(RECORD, 0, 8);			
 		} 
 		
 		//
 		catch (IOException ex) {
 			Krudo.CONSOLE.error(ex);
-			stop();
+			exit();
 		}
 		
 		//
-		return e != -1;
+		return eof != -1;
 	}
 		
 	// get first move into book based on node
 	public static final String best(
 		final Node n
 	) {
-		
 		// open file
 		open();
 		
 		//
-		h = hash(n);
+		long hash = hash(n);
 		
 		// loop throu records
 		while(read()) {
 			
 			// if found correspondent exit with move
-			if (k == h) {
-				stop();
+			if (key == hash) {
+				exit();
 				return move();
 			}
 		}
 				
 		// if not-found exit with "none"
-		stop();
+		exit();
 		
 		//
 		return null;
@@ -133,13 +134,13 @@ public final class Book {
 		while(read()) {
 			
 			// if found position hash put move into stack
-			if (k == h) {				
+			if (key == h) {				
 				a.add(n, move(), weight());
 			}
 		}
 				
 		// stop and close
-		stop();
+		exit();
 		
 		// return a move list
 		return a;
@@ -149,7 +150,6 @@ public final class Book {
 	public static final String rand(
 		final Node n
 	) {
-		
 		// get moves stored in book
 		//Move a = Book.list(n);
 		
