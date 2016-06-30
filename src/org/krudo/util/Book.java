@@ -80,7 +80,8 @@ public final class Book
 		} 
 		
 		//
-		catch (IOException ex) {
+		catch (IOException ex)
+        {
 			Krudo.CONSOLE.error(ex);
 			exit();
 		}
@@ -97,14 +98,18 @@ public final class Book
 		open();
 		
 		//
-		long hash = hash(n);
+		long lookup = hash(n);
 		
 		// loop throu records
-		while(read()) {
-			
+		while (read()) 
+        {	
 			// if found correspondent exit with move
-			if (key == hash) {
+			if (key == lookup) 
+            {
+                //
 				exit();
+                
+                //
 				return move();
 			}
 		}
@@ -117,10 +122,8 @@ public final class Book
 	}
 	
 	// get list of moves into book based on node
-	public static final Move list(
-		final Node n
-	) {
-				
+	public static final Move list(final Node n) 
+    {
 		// preparea a void move list
 		Move a = new Move();
 						
@@ -128,13 +131,14 @@ public final class Book
 		open();
 		
 		//
-		h = hash(n);
+		long hash = hash(n);
 		
 		// loop throu records
-		while(read()) {
-			
+		while(read()) 
+        {	
 			// if found position hash put move into stack
-			if (key == h) {				
+			if (key == hash) 
+            {				
 				a.add(n, move(), weight());
 			}
 		}
@@ -147,9 +151,8 @@ public final class Book
 	}
 	
 	//
-	public static final String rand(
-		final Node n
-	) {
+	public static final String rand(final Node n) 
+    {
 		// get moves stored in book
 		//Move a = Book.list(n);
 		
@@ -159,27 +162,26 @@ public final class Book
 		// return a random move on the availables
 		//return a.l > 0 ? i2m(a, rand(0, a.l-1)) : null;
 		return null;
-				
 	}
 	
 	// convert current move-record into move
-	public static final String move() {
-		
+	public static final String move() 
+    {
 		// convert byte-array to integer
-		m = byte2int(r,8,2);
+		int move = byte2int(RECORD,8,2);
 		
 		// return convert integer to move
 		return "" + 
-			(char)(((m & 0b000000111000000) >> 6) + 'a') +
-			(char)(((m & 0b000111000000000) >> 9) + '1') +			
-			(char)(((m & 0b000000000000111)		) + 'a') +
-			(char)(((m & 0b000000000111000) >> 3) + '1') ;		
+			(char)(((move & 0b000000111000000) >> 6) + 'a') +
+			(char)(((move & 0b000111000000000) >> 9) + '1') +			
+			(char)(((move & 0b000000000000111)     ) + 'a') +
+			(char)(((move & 0b000000000111000) >> 3) + '1') ;		
 	}
 	
 	// convert current move-record into move
-	public static final int weight() {
-		
+	public static final int weight() 
+    {	
 		// convert byte-array to integer
-		return byte2int(r,10,2);		
+		return byte2int(RECORD, 10, 2);		
 	}
 }
