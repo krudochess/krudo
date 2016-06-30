@@ -19,368 +19,368 @@ import static org.krudo.util.Describe.*;
 
 // Spizzy XBoard version of Krudo 
 public final class Node {
-	
-	// board internal status
-	public final int B[] = new int[64]; 
-	
-	// node status  
-	public int t; // turn (side to move)
-	public int e; // en-passant
-	public int c; // castling status
-	
-	// moves history line
-	public final Line L = new Line();
-		
-	// other node status
-	public int cw;  // count white piece
-	public int cb;  // count black piece
-	public int wks; // white king square
-	public int bks; // black king square
-	public int hm;  // half-move after pawn move or calpture
-	public int n;   // count moves from the begin
-	public int i;   // count half-move from the begin
-				
-	// legals moves-stack internal
-	public Move m;
-	
-	// zobrist hash key temp
-	private long h;
-	
-	// white boardmap improve white piece lookup on board
-	private final int[] wbm = new int[] {
-		// just center
-		c3, f3, d3, e3, c4, d4, e4, f4, c5, d5, e5, f5,
-		// development
-		b1, g1, c1, d1, f1, e1, h1, a1,
-		// first pawns
-		e2, d2, c2, f2,
-		// second pawn
-		h2, b2, g2, a2,
-		// white zones     		
-		a3, b3, h3, g3, a4, b4, g4, h4, a5, b5, g5, h5,
-		// far squares
-		a6, b6, c6, f6, g6, h6, d6, e6,	a7, b7, c7, d7, 
-		e7, f7, g7, h7, a8, b8, c8, d8, e8, f8, g8, h8, 
-	};
-	
-	// black boardmap improve black piece lookup on board
-	private final int[] bbm = new int[] {
-		// just center
-		c6, d6, e6, f6, c5, d5, e5, f5, c4, d4, e4, f4,
-		// development
-		d8, b8, c8, f8, g8, e8, a8, h8, 
-		// first pawns
-		c7, d7, e7, f7, 		
-		// second pawn
-		a7, b7, g7, h7, 		
-		// black zones
-		a6, b6, g6, h6, a5, b5, g5, h5, g4, h4, a4, b4,			  				
-		// far squares
-		a3, b3, c3, f3, g3, h3, d3, e3, e2, d2, c2, f2,
-		b2, g2, h2, a2, b1, g1, a1, c1, d1, e1, h1, f1, 				
-	};
+    
+    // board internal status
+    public final int B[] = new int[64]; 
+    
+    // node status  
+    public int t; // turn (side to move)
+    public int e; // en-passant
+    public int c; // castling status
+    
+    // moves history line
+    public final Line L = new Line();
+        
+    // other node status
+    public int cw;  // count white piece
+    public int cb;  // count black piece
+    public int wks; // white king square
+    public int bks; // black king square
+    public int hm;  // half-move after pawn move or calpture
+    public int n;   // count moves from the begin
+    public int i;   // count half-move from the begin
+                
+    // legals moves-stack internal
+    public Move m;
+    
+    // zobrist hash key temp
+    private long h;
+    
+    // white boardmap improve white piece lookup on board
+    private final int[] wbm = new int[] {
+        // just center
+        c3, f3, d3, e3, c4, d4, e4, f4, c5, d5, e5, f5,
+        // development
+        b1, g1, c1, d1, f1, e1, h1, a1,
+        // first pawns
+        e2, d2, c2, f2,
+        // second pawn
+        h2, b2, g2, a2,
+        // white zones             
+        a3, b3, h3, g3, a4, b4, g4, h4, a5, b5, g5, h5,
+        // far squares
+        a6, b6, c6, f6, g6, h6, d6, e6,    a7, b7, c7, d7, 
+        e7, f7, g7, h7, a8, b8, c8, d8, e8, f8, g8, h8, 
+    };
+    
+    // black boardmap improve black piece lookup on board
+    private final int[] bbm = new int[] {
+        // just center
+        c6, d6, e6, f6, c5, d5, e5, f5, c4, d4, e4, f4,
+        // development
+        d8, b8, c8, f8, g8, e8, a8, h8, 
+        // first pawns
+        c7, d7, e7, f7,         
+        // second pawn
+        a7, b7, g7, h7,         
+        // black zones
+        a6, b6, g6, h6, a5, b5, g5, h5, g4, h4, a4, b4,                              
+        // far squares
+        a3, b3, c3, f3, g3, h3, d3, e3, e2, d2, c2, f2,
+        b2, g2, h2, a2, b1, g1, a1, c1, d1, e1, h1, f1,                 
+    };
 
-	// empty contructor
-	public void Node() {}
-	
-	// restore node to start position
-	public final void startpos() { Fen.parse(this, STARTPOS); }
-	
-	// restore node to position passed in FEN
-	public final void startpos(final String fen) { Fen.parse(this, fen); }
-	
-	// do-play a moves sequence passed by array
-	public final void domove(
-		final String[] moves
-	) {		
-		// loop throu moves
-		for (String move: moves) { domove(move); }
-	}
-	
-	// do-play a move represented as coordinates (es. "e2e4")
-	public final void domove(
-		final String move
-	) {		
-		// parse move parts and retrieve s,v,k
-		int s = s2i(move.substring(0, 2));
-		int v = s2i(move.substring(2, 4));
-		int k = k2i(move, B[s], s, v, B[v], t);							
-		
-		// do-play move apply status changes
-		domove(s, v, k);
-	}
-	
-	// do a move placed into internal "m" select by index
-	public final void domove(		
-		final int index
-	) {			
-		// call direct s-v-k domove
-		domove(
-			m.s[index],
-			m.v[index],
-			m.k[index]
-		);
-	}
-	
-	// do a move placed into moves-stack select by index
-	public final void domove(
-		final Move moves, 
-		final int index
-	) {				
-		// call direct s-v-k domove
-		domove(
-			moves.s[index],
-			moves.v[index],
-			moves.k[index]
-		);
-	}
-	
-	// do a move placed into moves-stack current index
-	public final void domove(
-		final Move moves
-	) {				
-		// call direct s-v-k domove
-		domove(
-			moves.s[moves.i],
-			moves.v[moves.i],
-			moves.k[moves.i]
-		);
-	}
-	
-	// domove and change node internal status
-	public final void domove(
-		final int s,
-		final int v,
-		final int k
-	) {				
-		// get moved piece
-		final int p = B[s];
-				
-		// get captured piece
-		final int x = B[v];		
-		
-		// store status into history line
-		L.store(i, p, s, v, x, k, e, c);
-				
-		// set zero leaved square
-		B[s] = 0; 
+    // empty contructor
+    public void Node() {}
+    
+    // restore node to start position
+    public final void startpos() { Fen.parse(this, STARTPOS); }
+    
+    // restore node to position passed in FEN
+    public final void startpos(final String fen) { Fen.parse(this, fen); }
+    
+    // do-play a moves sequence passed by array
+    public final void domove(
+        final String[] moves
+    ) {        
+        // loop throu moves
+        for (String move: moves) { domove(move); }
+    }
+    
+    // do-play a move represented as coordinates (es. "e2e4")
+    public final void domove(
+        final String move
+    ) {        
+        // parse move parts and retrieve s,v,k
+        int s = s2i(move.substring(0, 2));
+        int v = s2i(move.substring(2, 4));
+        int k = k2i(move, B[s], s, v, B[v], t);                            
+        
+        // do-play move apply status changes
+        domove(s, v, k);
+    }
+    
+    // do a move placed into internal "m" select by index
+    public final void domove(        
+        final int index
+    ) {            
+        // call direct s-v-k domove
+        domove(
+            m.s[index],
+            m.v[index],
+            m.k[index]
+        );
+    }
+    
+    // do a move placed into moves-stack select by index
+    public final void domove(
+        final Move moves, 
+        final int index
+    ) {                
+        // call direct s-v-k domove
+        domove(
+            moves.s[index],
+            moves.v[index],
+            moves.k[index]
+        );
+    }
+    
+    // do a move placed into moves-stack current index
+    public final void domove(
+        final Move moves
+    ) {                
+        // call direct s-v-k domove
+        domove(
+            moves.s[moves.i],
+            moves.v[moves.i],
+            moves.k[moves.i]
+        );
+    }
+    
+    // domove and change node internal status
+    public final void domove(
+        final int s,
+        final int v,
+        final int k
+    ) {                
+        // get moved piece
+        final int p = B[s];
+                
+        // get captured piece
+        final int x = B[v];        
+        
+        // store status into history line
+        L.store(i, p, s, v, x, k, e, c);
+                
+        // set zero leaved square
+        B[s] = 0; 
 
-		// place moved piece into versus square
-		B[v] = p;
-				
-		// set zero en-passant square
-		e = 0;
-								
-		// for special moves handle move rules
-		if (k != move) if (t == w) {  
-			white_domove(s, v, x, k); 
-		} else { 
-			black_domove(s, v, x, k); 
-		}		
-		
-		// swap turn side
-		t ^= T;
-		
-		// increase half-move count
-		i++;		
-	}
-	
-	// domove and change node internal status
-	private void white_domove(
-		final int s,
-		final int v,
-		final int x,
-		final int k
-	) {				
-		// decrease black piece counter
-		if (x != O) { cb--; }
-												
-		// fix specific status
-		switch (k) {			
-			// fast exit if capture
-			case capt: return;			
-			// 
-			case pdmo: e = s + 8; return;			
-			//
-			case ecap: cb--; B[s + 8] = 0; return;  				
-			// update white king square and castling	
-			case kmov: wks = v; c |= wca; return;					
-			// handle castling status and rook bonus movement	
-			case cast: 
-				if (v == g1) {
-					B[f1] = wr; B[h1] = O; c |= wca; wks = g1;
-				} else {
-					B[d1] = wr; B[a1] = O; c |= wca; wks = c1;
-				}  				
-				return; 										
-			// disable opportune castling ability	
-			case rmov: c |= s == h1 ? wkc : wqc; return; 							
-			// by default promote piece
-			default: B[v] = k & pi;	
-		}									
-	}
-	
-	// domove and change node internal status
-	private void black_domove(
-		final int s,
-		final int v,
-		final int x,
-		final int k
-	) {		
-		// decreate white piece counter
-		if (x != O) { cw--; }
-												
-		// fix specific status
-		switch (k) {
-			// fast exit if capture
-			case capt: return;			
-			// set en-passant square
-			case pdmo: e = s - 8; return;			
-			// performe en-passant capture
-			case ecap: cw--; B[s - 8] = 0; return;  		
-			// set new king square and lose castling ability
-			case kmov: c |= bca; bks = v; return;					
-			// performe king-side castling
-			case cast: 
-				if (v == g8) {
-					B[f8] = br; B[h8] = O; c |= bca; bks = g8;
-				} else {
-					B[d8] = br; B[a8] = O; c |= wca; bks = c8;
-				}  				
-				return; 					
-			// lose king-side castling ability	
-			case rmov: c |= s == h8 ? bkc : bqc; return; 						
-			// by default promote piece
-			default: B[v] = k & pi;
-		}									
-	}
-	
-	// undo move every times
-	public final void unmove(final int times) {
-		
-		// repeat unmove n-times
-		for(int j = times; j != 0; j--) { unmove(); }
-	}
-	
-	// undo last move 
-	public final void unmove() {
-		
-		// decrease half-move index
-		i--;
-		
-		// swap side-to-move
-		t ^= T;
-				
-		// get moved piece
-		final int p = L.p[i];
-		
-		// get start square
-		final int s = L.s[i];
-		
-		// get versus square
-		final int v = L.v[i];
-		
-		// get captured piece
-		final int x = L.x[i]; 
-		
-		// get kind-of-move
-		final int k = L.k[i];
-		
-		// restore piece in start square
-		B[s] = p; 
+        // place moved piece into versus square
+        B[v] = p;
+                
+        // set zero en-passant square
+        e = 0;
+                                
+        // for special moves handle move rules
+        if (k != move) if (t == w) {  
+            white_domove(s, v, x, k); 
+        } else { 
+            black_domove(s, v, x, k); 
+        }        
+        
+        // swap turn side
+        t ^= T;
+        
+        // increase half-move count
+        i++;        
+    }
+    
+    // domove and change node internal status
+    private void white_domove(
+        final int s,
+        final int v,
+        final int x,
+        final int k
+    ) {                
+        // decrease black piece counter
+        if (x != O) { cb--; }
+                                                
+        // fix specific status
+        switch (k) {            
+            // fast exit if capture
+            case capt: return;            
+            // 
+            case pdmo: e = s + 8; return;            
+            //
+            case ecap: cb--; B[s + 8] = 0; return;                  
+            // update white king square and castling    
+            case kmov: wks = v; c |= wca; return;                    
+            // handle castling status and rook bonus movement    
+            case cast: 
+                if (v == g1) {
+                    B[f1] = wr; B[h1] = O; c |= wca; wks = g1;
+                } else {
+                    B[d1] = wr; B[a1] = O; c |= wca; wks = c1;
+                }                  
+                return;                                         
+            // disable opportune castling ability    
+            case rmov: c |= s == h1 ? wkc : wqc; return;                             
+            // by default promote piece
+            default: B[v] = k & pi;    
+        }                                    
+    }
+    
+    // domove and change node internal status
+    private void black_domove(
+        final int s,
+        final int v,
+        final int x,
+        final int k
+    ) {        
+        // decreate white piece counter
+        if (x != O) { cw--; }
+                                                
+        // fix specific status
+        switch (k) {
+            // fast exit if capture
+            case capt: return;            
+            // set en-passant square
+            case pdmo: e = s - 8; return;            
+            // performe en-passant capture
+            case ecap: cw--; B[s - 8] = 0; return;          
+            // set new king square and lose castling ability
+            case kmov: c |= bca; bks = v; return;                    
+            // performe king-side castling
+            case cast: 
+                if (v == g8) {
+                    B[f8] = br; B[h8] = O; c |= bca; bks = g8;
+                } else {
+                    B[d8] = br; B[a8] = O; c |= wca; bks = c8;
+                }                  
+                return;                     
+            // lose king-side castling ability    
+            case rmov: c |= s == h8 ? bkc : bqc; return;                         
+            // by default promote piece
+            default: B[v] = k & pi;
+        }                                    
+    }
+    
+    // undo move every times
+    public final void unmove(final int times) {
+        
+        // repeat unmove n-times
+        for(int j = times; j != 0; j--) { unmove(); }
+    }
+    
+    // undo last move 
+    public final void unmove() {
+        
+        // decrease half-move index
+        i--;
+        
+        // swap side-to-move
+        t ^= T;
+                
+        // get moved piece
+        final int p = L.p[i];
+        
+        // get start square
+        final int s = L.s[i];
+        
+        // get versus square
+        final int v = L.v[i];
+        
+        // get captured piece
+        final int x = L.x[i]; 
+        
+        // get kind-of-move
+        final int k = L.k[i];
+        
+        // restore piece in start square
+        B[s] = p; 
 
-		// restore versus square with captured piece
-		B[v] = x;
-				
-		// retrieve previsour en-passant square
-		e = L.e[i];
-		
-		// retrieve previsour castling status
-		c = L.c[i];
-					
-		//
-		if (k != move) if (t == w) {
-			white_unmove(p, s, v, x, k);
-		} else {
-			black_unmove(p, s, v, x, k);		
-		}				
-	}
-	
-	//
-	private void white_unmove(
-		final int p,
-		final int s,
-		final int v,
-		final int x,
-		final int k
-	) {
-		// decreate black piece counter
-		if (x != O) { cb++; }
-		
-		//
-		if (p == wk) { wks = s; }
-		
-		//
-		if (k == ecap) { cb++; B[s - 8] = bp; }
-		
-		//
-		if (k == cast) if (v == g1) {
-			B[h1] = wr; B[f1] = O;
-		} else {
-			B[a1] = wr; B[d1] = O;		
-		}				
-	}
-	
-	//
-	private void black_unmove(	
-		final int p,
-		final int s,
-		final int v,
-		final int x,
-		final int k
-	) {
-		// decreate black piece counter
-		if (x != O) { cw++; }
+        // restore versus square with captured piece
+        B[v] = x;
+                
+        // retrieve previsour en-passant square
+        e = L.e[i];
+        
+        // retrieve previsour castling status
+        c = L.c[i];
+                    
+        //
+        if (k != move) if (t == w) {
+            white_unmove(p, s, v, x, k);
+        } else {
+            black_unmove(p, s, v, x, k);        
+        }                
+    }
+    
+    //
+    private void white_unmove(
+        final int p,
+        final int s,
+        final int v,
+        final int x,
+        final int k
+    ) {
+        // decreate black piece counter
+        if (x != O) { cb++; }
+        
+        //
+        if (p == wk) { wks = s; }
+        
+        //
+        if (k == ecap) { cb++; B[s - 8] = bp; }
+        
+        //
+        if (k == cast) if (v == g1) {
+            B[h1] = wr; B[f1] = O;
+        } else {
+            B[a1] = wr; B[d1] = O;        
+        }                
+    }
+    
+    //
+    private void black_unmove(    
+        final int p,
+        final int s,
+        final int v,
+        final int x,
+        final int k
+    ) {
+        // decreate black piece counter
+        if (x != O) { cw++; }
 
-		//
-		if (p == bk) { bks = s; }
-		
-		//
-		if (k == ecap) { cw++; B[s + 8] = wp; }
-		
-		//
-		if (k == cast) if (v == g8) {
-			B[h8] = br; B[f8] = O;
-		} else {
-			B[a8] = br; B[d8] = O;		
-		}				
-	}
-		
-	// generate moves-stack with legal-moves
-	public final Move legals() 
-	{			
-		// move-container get move from move-stack pre-created
-		m = Stack.moves.pull();
-						
-		// generate-fill "m" with white or black legal moves
-		if (t == w) { white_legals(); } else { black_legals(); }	
-		
-		// evaluate every move in stack
-		if (EVAL_LEGALS) { Eval.move(m, this); }
-		
-		// retur move-stack reference
-		return m;
-	}
-	
-	// generate moves-stack with legal-moves
-	private final Move cache_legals() 
-	{	
-		// use zobrist cached 
-		if (MOVE_CACHE) { 
-			
-			// compute hash of position
-			// h = hash(this);
-						
+        //
+        if (p == bk) { bks = s; }
+        
+        //
+        if (k == ecap) { cw++; B[s + 8] = wp; }
+        
+        //
+        if (k == cast) if (v == g8) {
+            B[h8] = br; B[f8] = O;
+        } else {
+            B[a8] = br; B[d8] = O;        
+        }                
+    }
+        
+    // generate moves-stack with legal-moves
+    public final Move legals() 
+    {            
+        // move-container get move from move-stack pre-created
+        m = Stack.moves.pull();
+                        
+        // generate-fill "m" with white or black legal moves
+        if (t == w) { white_legals(); } else { black_legals(); }    
+        
+        // evaluate every move in stack
+        if (EVAL_LEGALS) { Eval.move(m, this); }
+        
+        // retur move-stack reference
+        return m;
+    }
+    
+    // generate moves-stack with legal-moves
+    private final Move cache_legals() 
+    {    
+        // use zobrist cached 
+        if (MOVE_CACHE) { 
+            
+            // compute hash of position
+            // h = hash(this);
+                        
 			// 
 			//if (Cache.legals.has(h)) {
 				//return Cache.legals.get(h); 		

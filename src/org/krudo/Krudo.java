@@ -12,62 +12,50 @@ import static org.krudo.util.Tool.*;
 
 // main class entry point for java application
 public final class Krudo {
-	
-    // engine name
-    public final static String NAME = "Krudo 0.16a";
+   
+    // engine store chess game status is chess brain interface         
+    public final static Engine ENGINE = new Engine();
     
-    // author name
-    public final static String AUTHOR = "Francesco Bianco";
-
-    // author contact
-    public final static String CONTACT = "bianco@javanile.org";
-    
-	// engine store chess game status is chess brain interface	 	
-	public final static Engine ENGINE = new Engine();
-	
-	// console interface with "standard i/o" management
-	public final static Console CONSOLE = new Console(); 
-			            
-	// entry-point for console application
-	public static void main(String[] args) 
-    {		
+    // console interface with "standard i/o" management
+    public final static Console CONSOLE = new Console(); 
+                        
+    // entry-point for console application
+    public static void main(String[] args) 
+    {        
         // prepare and start input loop of engine 
-		try 
+        try 
         {    
             // initialize console
-            CONSOLE.open(path("Krudo.log"));
+            CONSOLE.start(path("Krudo.log"));
 
             // credits message
-            CONSOLE.print(NAME + " by " + AUTHOR + " <" + CONTACT + ">");
+            CONSOLE.print("Krudo 0.16a by Francesco <bianco@javanile.org>");
 
             //
-			loop();					
-		} 
-		
-		// exception catched print in console
-		catch (Throwable e) 
+            loop();                    
+        } 
+        
+        // exception catched print in console
+        catch (Throwable e) 
         {            
             //
-			CONSOLE.error(e);			
-		} 
-				
-		// exit and close console
-		finally 
+            CONSOLE.error(e);            
+        } 
+                
+        // exit and close console
+        finally 
         {            
             //
-			CONSOLE.print("exit");
-			
-            //
-            CONSOLE.close();			
-		}	
-	}
+            CONSOLE.close();            
+        }    
+    }
     
     //
     private static void loop() 
     {                
         // do input wait loop
         for (;;) 
-        {	
+        {    
             // parse and read input from stdin
             UCI i = UCI.parse(CONSOLE.input());
 
@@ -75,14 +63,14 @@ public final class Krudo {
             switch (i.cmd)
             {
                 // start uci session
-                case UCI.UCI:	
+                case UCI.UCI:    
 
                     // initialize thinker
                     ENGINE.init();
 
                     // set search callback function in onDone-event search
-                    ENGINE.setBestMoveCallback(UCI.BEST_MOVE_CALLBACK);									
-                    ENGINE.setSearchLogCallback(UCI.SEARCH_LOG_CALLBACK);									
+                    ENGINE.setBestMoveCallback(UCI.BEST_MOVE_CALLBACK);                                    
+                    ENGINE.setSearchLogCallback(UCI.SEARCH_INFO_CALLBACK);                                    
 
                     // uci first message
                     CONSOLE.print(UCI.ID_NAME, "Krudo 0.16a");
@@ -114,7 +102,7 @@ public final class Krudo {
                     // break switch
                     break;
 
-                // set thinker to start position e do move sequences	
+                // set thinker to start position e do move sequences    
                 case UCI.POSITION_STARTPOS_MOVES:
 
                     //
@@ -135,8 +123,8 @@ public final class Krudo {
                     // break switch
                     break;
 
-                // start thinking based on args passed	
-                case UCI.GO:						
+                // start thinking based on args passed    
+                case UCI.GO:                        
 
                     // call go with black and white time attentions
                     if (has(i.arg[UCI.WTIME]) && has(i.arg[UCI.BTIME])) {
@@ -148,10 +136,10 @@ public final class Krudo {
                         ENGINE.go();
                     }
 
-                    // break switch						
+                    // break switch                        
                     break;
 
-                // quit from main loop	
+                // quit from main loop    
                 case CMD.QUIT: return;
             }
         } 

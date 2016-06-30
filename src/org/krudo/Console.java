@@ -16,162 +16,163 @@ import java.io.InputStreamReader;
 
 // console main class
 public final class Console {
-				
-	// log-file handler
-	private FileWriter w;
-	
-	// read input buffer
-	private BufferedReader b;
-
-	// constructor
-	public final void open(String log) {
-		
-		//
-		try {		
-			w = new FileWriter(log,true);
-			w.flush();
-			b = new BufferedReader(new InputStreamReader(System.in)); 
-			log("\n");
-			log("$ "+new java.util.Date().toString()+"\n");
-		} 
-		
-		//
-		catch (IOException ex) {
-			send(trace(ex));
-		}
-	}
-	
-	// read input and log it into log-file
-    public final String input() {				
-		
-		// prepare empty to-return string
-		String s = "";
-			
-		// try to read input from stdin
-		try {
-			
-			//
-			s = b.readLine();
-			
-			//
-			log("? "+s+"\n");		
-		} 
-		
-		//
-		catch (IOException ex) {
-			send(trace(ex));
-		}
-				
-		// return string
-		return s;			
-	}
-
-	// send output to console and log it into log-file 
-    public final void print(Object... args) {        		
-		
-		// try to send output
-		try {
-			
-			// send out to stdout
-			String s = send(args);
-			
-			// log this action in log file
-			log("! "+s+"\n");
-		} 
-		
-		// if fail send to out then output an error
-		catch (Exception ex) {			
-			send(trace(ex));
-		}		
-    }
-
-	// send output to console and return compund string 
-	private String send(Object... args) {        				
-		
-		// output string
-		String o = "";
-		
-		// separetor string
-		String s = "";
-		
-		// compund output string
-		for(Object a: args) { o += s + a; s = " "; }
-		
-		// print output in console
-		System.out.print(o+"\n");
-		
-		// return output string
-		return o;
-    }
-
-	// clear console like cls or clear command in bash
-    public final void clear() {
+                
+    // log-file handler
+    private FileWriter w;
     
-		//
-		System.out.print(((char) 27)+"[2J");
+    // read input buffer
+    private BufferedReader b;
+
+    // constructor
+    public final void start(String log) {
+        
+        //
+        try {        
+            w = new FileWriter(log,true);
+            w.flush();
+            b = new BufferedReader(new InputStreamReader(System.in)); 
+            log("\n");
+            log("$ "+new java.util.Date().toString()+"\n");
+        } 
+        
+        //
+        catch (IOException ex) {
+            write(trace(ex));
+        }
+    }
+    
+    // read input and log it into log-file
+    public final String input() {                
+        
+        // prepare empty to-return string
+        String s = "";
+            
+        // try to read input from stdin
+        try {
+            
+            //
+            s = b.readLine();
+            
+            //
+            log("? "+s+"\n");        
+        } 
+        
+        //
+        catch (IOException ex) {
+            write(trace(ex));
+        }
+                
+        // return string
+        return s;            
     }
 
-	// close stdin and stdout and flush pending data
-    public final void close() {
-		
-		//
-		try {			
-			
-			//
-			w.flush();
-			
-			//
-			w.close();
-			
-			//
-			b.close(); 
-		} 
-		
-		//
-		catch (IOException ex) {
-			send(trace(ex));
-		}		
-	}
-	
-	// handler program generated errors
-	public final void error(Throwable e) {
-		
-		//
-		String o = trace(e);
-		
-		//
-		log("& "+o);
-		
-		//
-		send(o);
-	}
-	
-	// write into log file
-	public final void log(String arg) {
-		
-		//
-		try {
-		
-			//
-			w.write(arg);
-		} 
-		
-		//
-		catch (IOException ex) {
-			send(trace(ex));
-		}		
-	}
+    // send output to console and log it into log-file 
+    public final void print(Object... args) 
+    {                  
+        // try to send output
+        try {
+            
+            // send out to stdout
+            String s = write(args);
+            
+            // log this action in log file
+            log("! "+s+"\n");
+        } 
+        
+        // if fail send to out then output an error
+        catch (Exception ex) {            
+            write(trace(ex));
+        }        
+    }
 
-	// convert Throwable to string for print it
-	public final static String trace(Throwable e) {
-		
+    // send output to console and return compound string 
+    private String write(Object... args) 
+    {                            
+        // output string
+        String o = "";
+        
+        // separetor string
+        String s = "";
+        
+        // compund output string
+        for (Object a: args) { o += s + a; s = " "; }
+        
+        // print output in console
+        System.out.print(o+"\n");
+        
+        // return output string
+        return o;
+    }
+
+    // clear console like cls or clear command in bash
+    public final void clear()
+    {
+        //
+        System.out.print(((char) 27)+"[2J");
+    }
+
+    // close stdin and stdout and flush pending data
+    public final void close() 
+    {    
+        //
+        try {            
+            
+            //
+            w.flush();
+            
+            //
+            w.close();
+            
+            //
+            b.close(); 
+        } 
+        
+        //
+        catch (IOException ex)
+        {
+            write(trace(ex));
+        }        
+    }
+    
+    // handler program generated errors
+    public final void error(Throwable e) 
+    {    
+        //
+        String o = trace(e);
+        
+        //
+        log("& "+o);
+        
+        //
+        write(o);
+    }
+    
+    // write into log file
+    public final void log(String arg)
+    {    
+        //
+        try
+        {
+            w.write(arg);
+        } 
+        
+        //
+        catch (IOException ex) 
+        {
+            write(trace(ex));
+        }        
+    }
+
+    // convert Throwable to string for print it
+    public final static String trace(Throwable e)
+    {    
         //
         StringWriter s = new StringWriter();
-		
+        
         //
         e.printStackTrace(new PrintWriter(s));
-		
+        
         //
-        return s.toString(); 	
-	}
+        return s.toString();     
+    }
 }

@@ -3,15 +3,15 @@
  * by Francesco Bianco <bianco@javanile.org>
  */
 
-//
+// root package
 package org.krudo;
 
 // required static class
 import static org.krudo.Constant.*;
 
 // protocol definition class
-public final class UCI {
-	
+public final class UCI 
+{	
     // gui to engine (700-900)	
     public final static int 
 	UCI						= 701,    
@@ -33,74 +33,64 @@ public final class UCI {
     
     // engine to gui
     public final static String 
-	ID_NAME         = "id name",
-    ID_AUTHOR       = "id author",
-    UCIOK           = "uciok",
-    READYOK         = "readyok",
-    BESTMOVE        = "bestmove",
-    COPYPROTECTION	= "copyprotection",
-    REGISTRATION    = "registration",
-    INFO            = "info",
-	DEPTH           = "depth",
-	SCORE_CP        = "score cp",
-	TIME			= "time",
-	NODES			= "nodes",
-	PV				= "pv",
-	OPTION          = "option";
+	ID_NAME        = "id name",
+    ID_AUTHOR      = "id author",
+    UCIOK          = "uciok",
+    READYOK        = "readyok",
+    BESTMOVE       = "bestmove",
+    COPYPROTECTION = "copyprotection",
+    REGISTRATION   = "registration",
+    INFO           = "info",
+	DEPTH          = "depth",
+	SCORE_CP       = "score cp",
+	TIME		   = "time",
+	NODES		   = "nodes",
+	PV			   = "pv",
+	OPTION         = "option";
 
-	// event log callbacks of UCI interface
+	// event info and move callbacks of UCI interface
 	public final static Runnable	
-	
+	            
 	// search log callback
-	SEARCH_LOG_CALLBACK = new Runnable() { 
-		
-		//
-		@Override 		
-		public void run() {
-			
-			//
-			switch (Krudo.ENGINE.search.logAction) {
-			
-				//
-				case SEARCH_LOG_UP:
-					
-					//
-					Krudo.CONSOLE.print(INFO, 
-						DEPTH,		Krudo.ENGINE.search.logDeep, 
-						SCORE_CP,	Krudo.ENGINE.search.logWeight,
-						TIME,		Krudo.ENGINE.search.logTime,
-						NODES,		Krudo.ENGINE.search.logNodes,
-						PV,			Krudo.ENGINE.search.logLine
-					);
-					
-					//
-					break;
-				
-				//	
-				case SEARCH_LOG_BM:
-					
-					//
-					Krudo.ENGINE.bm = Krudo.ENGINE.search.logMove;
-					
-					//
-					Krudo.ENGINE.bmc.run();
-					
-					//
-					break;		
-			}			
-		}
+	SEARCH_INFO_CALLBACK = () -> 
+    {					
+        //
+        switch (Krudo.ENGINE.search.logAction) 
+        {
+            //
+            case SEARCH_LOG_UP:
+
+                //
+                Krudo.CONSOLE.print(INFO, 
+                    DEPTH,		Krudo.ENGINE.search.logDeep, 
+                    SCORE_CP,	Krudo.ENGINE.search.logWeight,
+                    TIME,		Krudo.ENGINE.search.logTime,
+                    NODES,		Krudo.ENGINE.search.logNodes,
+                    PV,			Krudo.ENGINE.search.logLine
+                );
+
+                //
+                break;
+
+            //	
+            case SEARCH_LOG_BM:
+
+                //
+                Krudo.ENGINE.bm = Krudo.ENGINE.search.logMove;
+
+                //
+                Krudo.ENGINE.bmc.run();
+
+                //
+                break;		
+        }			
 	},
 		
 	//		
-	BEST_MOVE_CALLBACK = new Runnable() {
-	
-		//
-		@Override 
-		public void run() {
-			
-			//
-			Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bm);									
-		}	
+	BEST_MOVE_CALLBACK = () -> 
+    {        
+        //
+        Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bm);												
 	};			
 		
 	// 
