@@ -7,6 +7,7 @@
 package org.krudo;
 
 //
+import org.krudo.cache.Cache;
 import org.krudo.util.Book;
 
 //
@@ -14,13 +15,13 @@ import static org.krudo.Constant.*;
 import static org.krudo.util.Tool.*;
 
 //
-public final class Engine {    
+public final class Engine
+{       
+    //
+    public final Node NODE = new Node();
     
     //
-    public final Node node = new Node();
-    
-    //
-    public final Search search = new Search(node);
+    public final Search search = new Search(NODE);
         
     //
     private long wtime = 60000;
@@ -46,39 +47,39 @@ public final class Engine {
     
     //
     public final void startpos() {
-        node.startpos();
+        NODE.startpos();
     }
     
     //
     public final void startpos(String fen) {
-        node.startpos(fen);
+        NODE.startpos(fen);
     }
     
     //
     public final void domove(String move) {
-        node.domove(move);
+        NODE.domove(move);
     }
     
     //
     public final void domove(String[] moves) {
-        node.domove(moves);
+        NODE.domove(moves);
     }
     
     //
     public final void unmove() {
-        node.unmove();
+        NODE.unmove();
     }
     
     //
-    public final void go(String wtime0, String btime0) {
-    
+    public final void go(String wtime0, String btime0) 
+    {
         //
         go(toLong(wtime0), toLong(btime0));        
     }
     
     //
-    public final void go(long wtime0, long btime0) {
-    
+    public final void go(long wtime0, long btime0)
+    {
         //
         wtime = wtime0;
         
@@ -90,10 +91,10 @@ public final class Engine {
     }
     
     // start thinking process
-    public final void go() {
-        
+    public final void go() 
+    {    
         //
-        String m = Book.rand(node);
+        String m = Book.rand(NODE);
         
         //
         if (m != null) {
@@ -112,7 +113,7 @@ public final class Engine {
         Cache.legals.clr();
         
         //
-        long time = node.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
+        long time = NODE.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
         
         // call iterative deeping (wait here)
         search.start(4);
@@ -139,7 +140,7 @@ public final class Engine {
     public final boolean isReady() {
     
         //
-        node.legals();
+        NODE.legals();
         
         //
         return true;

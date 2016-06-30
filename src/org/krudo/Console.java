@@ -24,10 +24,11 @@ public final class Console {
     private BufferedReader b;
 
     // constructor
-    public final void start(String log) {
-        
+    public final void start(String log) 
+    {    
         //
-        try {        
+        try 
+        {        
             w = new FileWriter(log,true);
             w.flush();
             b = new BufferedReader(new InputStreamReader(System.in)); 
@@ -36,20 +37,21 @@ public final class Console {
         } 
         
         //
-        catch (IOException ex) {
+        catch (IOException ex) 
+        {
             write(trace(ex));
         }
     }
     
     // read input and log it into log-file
-    public final String input() {                
-        
+    public final String input() 
+    {                    
         // prepare empty to-return string
         String s = "";
             
         // try to read input from stdin
-        try {
-            
+        try
+        {   
             //
             s = b.readLine();
             
@@ -58,7 +60,8 @@ public final class Console {
         } 
         
         //
-        catch (IOException ex) {
+        catch (IOException ex) 
+        {
             write(trace(ex));
         }
                 
@@ -70,8 +73,8 @@ public final class Console {
     public final void print(Object... args) 
     {                  
         // try to send output
-        try {
-            
+        try 
+        {   
             // send out to stdout
             String s = write(args);
             
@@ -80,28 +83,10 @@ public final class Console {
         } 
         
         // if fail send to out then output an error
-        catch (Exception ex) {            
+        catch (Exception ex) 
+        {            
             write(trace(ex));
         }        
-    }
-
-    // send output to console and return compound string 
-    private String write(Object... args) 
-    {                            
-        // output string
-        String o = "";
-        
-        // separetor string
-        String s = "";
-        
-        // compund output string
-        for (Object a: args) { o += s + a; s = " "; }
-        
-        // print output in console
-        System.out.print(o+"\n");
-        
-        // return output string
-        return o;
     }
 
     // clear console like cls or clear command in bash
@@ -163,8 +148,27 @@ public final class Console {
         }        
     }
 
+    // send output to console and return compound string 
+    private String write(Object... args) 
+    {                            
+        // output string
+        String o = "";
+        
+        // separetor string
+        String s = "";
+        
+        // compund output string
+        for (Object a: args) { o += s + a; s = " "; }
+        
+        // print output in console
+        System.out.print(o+"\n");
+        
+        // return output string
+        return o;
+    }
+
     // convert Throwable to string for print it
-    public final static String trace(Throwable e)
+    private static String trace(Throwable e)
     {    
         //
         StringWriter s = new StringWriter();
