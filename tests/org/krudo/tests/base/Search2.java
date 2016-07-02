@@ -5,7 +5,7 @@ import static org.krudo.util.Tool.*;
 //
 import org.krudo.Node;
 import org.krudo.Move;
-import org.krudo.Cache;
+import org.krudo.cache.Cache;
 import org.krudo.Search;
 
 // 

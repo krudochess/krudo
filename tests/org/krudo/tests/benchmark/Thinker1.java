@@ -20,7 +20,7 @@ public class Thinker1 {
 		
 		//t.domove("d1d2");
 		
-		dump(t.node);
+		dump(t.NODE);
 		
 		//
 		t.search.start(10, 10000);

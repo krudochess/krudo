@@ -5,7 +5,7 @@ import static org.krudo.util.Debug.*;
 
 //
 import org.krudo.Node;
-import org.krudo.Cache;
+import org.krudo.cache.Cache;
 import org.krudo.Search;
 
 // 
