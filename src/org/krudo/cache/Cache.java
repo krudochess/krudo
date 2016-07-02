@@ -4,7 +4,7 @@
  */
 
 //
-package org.krudo;
+package org.krudo.cache;
 
 // required non-static class
 import org.krudo.cache.Evals;

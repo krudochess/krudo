@@ -360,7 +360,7 @@ public final class Node {
     public final Move legals() 
     {            
         // move-container get move from move-stack pre-created
-        m = Stack.moves.pull();
+        m = Moves.pick();
                         
         // generate-fill "m" with white or black legal moves
         if (t == w) { white_legals(); } else { black_legals(); }    

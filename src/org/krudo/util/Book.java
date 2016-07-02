@@ -1,6 +1,9 @@
 /**
  * Krudo 0.16a - a chess engine for cooks
  * by Francesco Bianco <bianco@javanile.org>
+ * 
+ * reference:
+ * http://hardy.uhasselt.be/Toga/book_format.html
  */
 
 //
@@ -10,6 +13,9 @@ package org.krudo.util;
 import org.krudo.Node;
 import org.krudo.Move;
 import org.krudo.Krudo;
+import org.krudo.empty.Moves;
+
+//
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -122,24 +128,21 @@ public final class Book
 	}
 	
 	// get list of moves into book based on node
-	public static final Move list(final Node n) 
+	public static final Move list(final long lookup) 
     {
 		// preparea a void move list
-		Move a = new Move();
+		Move a = Moves.get();
 						
 		// open file
 		open();
 		
-		//
-		long hash = hash(n);
-		
 		// loop throu records
-		while(read()) 
+		while (read()) 
         {	
 			// if found position hash put move into stack
-			if (key == hash) 
+			if (key == lookup) 
             {				
-				a.add(n, move(), weight());
+				a.add(move(), weight());
 			}
 		}
 				

@@ -13,8 +13,8 @@ import static org.krudo.util.Encode.*;
 import static org.krudo.util.Describe.*;
 
 // a stack of moves user for legal
-public final class Move {        
-    
+public final class Move 
+{            
     // constants
     public final static int
     MAX = 110; 
@@ -175,8 +175,8 @@ public final class Move {
     */
     
     //
-    public final Move sort() {
-        
+    public final Move sort() 
+    {    
         // 
         if (!MOVE_SORT) { return this; }
         
@@ -262,6 +262,8 @@ public final class Move {
         w[i0] = w[i1]; 
         w[i1] = t;
     }
+    
+    
 }
 
 

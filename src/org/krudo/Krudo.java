@@ -6,6 +6,9 @@
 // root package
 package org.krudo;
 
+//
+import org.krudo.empty.Moves;
+
 // required static class
 import static org.krudo.Constant.*;
 import static org.krudo.util.Tool.*;
@@ -32,6 +35,9 @@ public final class Krudo {
             CONSOLE.print("Krudo 0.16a by Francesco <bianco@javanile.org>");
 
             //
+            init();
+            
+            //
             loop();                    
         } 
         
@@ -49,6 +55,14 @@ public final class Krudo {
             CONSOLE.close();            
         }    
     }
+    
+    //
+    private static void init() 
+    {
+        //
+        Moves.init();
+    }
+    
     
     //
     private static void loop() 
