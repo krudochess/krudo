@@ -10,78 +10,78 @@ import org.krudo.Move;
 import java.util.Map;
 import java.util.LinkedHashMap;
 
-//	
-public class Legals extends LinkedHashMap<Long,Move> {	
-		
-	// 
-	public Legals() {		
+//    
+public class Legals extends LinkedHashMap<Long,Move> {    
+        
+    // 
+    public Legals() {        
 
-		//
-		super(MOVE_CACHE_SIZE, 0.95f, true);	
-	}
+        //
+        super(MOVE_CACHE_SIZE, 0.95f, true);    
+    }
 
-	//
-	public final void add(Long h, Move m) {			
+    //
+    public final void add(Long h, Move m) {            
 
-		//
-		if (MOVE_CACHE) { 
+        //
+        if (MOVE_CACHE) { 
 
-			//
-			m.c = 1;
+            //
+            m.c = 1;
 
-			//
-			put(h, m);				
-		}		
-	}
+            //
+            put(h, m);                
+        }        
+    }
 
-	//
-	public final boolean has(long h) {			
+    //
+    public final boolean has(long h) {            
 
-		//
-		if (MOVE_CACHE) {			
-			return containsKey(h);
-		} 
-		
-		//		
-		else {		
-			return  false;
-		}
-	}
-	
-	//
-	public final void clr() {
+        //
+        if (MOVE_CACHE) {            
+            return containsKey(h);
+        } 
+        
+        //        
+        else {        
+            return  false;
+        }
+    }
+    
+    //
+    public final void clr() {
 
-		//
-		if (MOVE_BUFFER) {
-			for(Move m: this.values()) {
-				Move.psh(m);
-			}
-		}
+        //
+        if (MOVE_BUFFER) {
+            for(Move m: this.values()) {
+                Move.psh(m);
+            }
+        }
 
-		//
-		clear();
-	}
+        //
+        clear();
+    }
 
-	//
-	@Override
-	protected boolean removeEldestEntry(Map.Entry<Long,Move> e) {
+    //
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<Long,Move> e) {
 
-		// 
-		if (size() > MOVE_CACHE_SIZE) {
+        // 
+        if (size() > MOVE_CACHE_SIZE) {
 
-			//
-			e.getValue().c = 0;
+            //
+            e.getValue().c = 0;
 
-			// if move not used of a loop recycle it into buffer
-			if (MOVE_BUFFER && e.getValue().n == 0) {
-				Move.psh(e.getValue());
-			} 	
+            // if move not used of a loop recycle it into buffer
+            if (MOVE_BUFFER && e.getValue().n == 0) {
+                Move.psh(e.getValue());
+            }     
 
-			// return true than remove
-			return true;													
-		}
+            // return true than remove
+            return true;                                                    
+        }
 
-		// return false not remove
-		return false; 
-	}
+        // return false not remove
+        return false; 
+    }
 }

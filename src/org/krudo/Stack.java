@@ -11,8 +11,8 @@ import org.krudo.stack.Moves;
 
 //
 public class Stack {
-	
-	public static final Moves moves = new Moves();
-	
-	
+    
+    public static final Moves moves = new Moves();
+    
+    
 }
