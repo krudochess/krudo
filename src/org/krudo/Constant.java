@@ -38,7 +38,7 @@ public final class Constant {
     // special constant for "k"
     public final static int
     move = 0b0__000001__000000000000, // normal move    
-    capt = 0b0__000011__000000000000, // capture move
+    //capt = 0b0__000011__000000000000, // capture move
     cast = 0b0__000101__000000000000, // castling move
     pdmo = 0b0__001001__000000000000, // pawn double move
     ecap = 0b0__010011__000000000000, // en-passant capture move        

@@ -22,8 +22,8 @@ import static org.krudo.util.Decode.*;
  *
  * @author cicciodarkast
  */
-public class Describe {
-
+public class Describe
+{
 	//
 	public final static String desc(
 		final Move m, 		
@@ -112,12 +112,12 @@ public class Describe {
 			switch (r)
             {
 				//case 0: keys("e:",i2s(n.e),"c:",Integer.toBinaryString(n.c)); break;
-				//case 1: keys("cw:",n.cw,"cb:",n.cb); break;
 				//case 2: keys("wks:",i2s(n.wks),"bks:",i2s(n.bks)); break;
 				//case 3: keys("wrs:",i2s(n.wks),"brs:",i2s(n.bks)); break;
 				//case 4: keys("ph:",n.cw,"ew:",n.wks); break;
 				//case 5: keys("wpw:",n.wks,"bpw:",n.wks); break;
 				//case 6: keys("hm:",n.hm,"n:",n.n); break;
+				case 1: desc += "cw: "+n.cw+"  cb: "+n.cb; break;
 				case 0: desc += "h: " + Long.toHexString(n.h); break;					
 			}
 			

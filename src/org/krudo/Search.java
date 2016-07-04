@@ -73,10 +73,10 @@ public final class Search {
         n = node;
         
         //
-        find = new Move();
+        //find = new Move();
         
         //
-        move = new Move();
+        //move = new Move();
         
         //
         logEnabled = true;
@@ -146,7 +146,7 @@ public final class Search {
         
         pv = new Move[20];
         for(int i=0; i<20; i++) {
-            pv[i] = new Move();            
+           // pv[i] = new Move();            
         }
         
         // reset stop flag

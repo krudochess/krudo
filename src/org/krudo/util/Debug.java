@@ -20,6 +20,7 @@ import java.util.regex.*;
 
 //
 import static org.krudo.Constant.*;
+import org.krudo.Moves;
 import static org.krudo.util.Tool.*;
 import static org.krudo.util.Decode.*;
 import static org.krudo.util.Describe.*;
@@ -284,20 +285,30 @@ public final class Debug {
 	}
 	
 	//
-	public final static long doing(Node n, int d) {		
-		if (d>0) {
-			int c = 0;
-			Move m = n.legals();
-			//m.loop();
-			for(int i=0; i<m.i; i++) {								
-				n.domove(m,i);				
-				c += doing(n,d-1);
-				n.unmove();
-			} 
-			//m.stop();
-			return c;
-		}
-		return 1;
+	public final static long doing(Node n, int d) 
+    {		
+        //
+		if (d == 0) { return 1; }
+        
+        //
+        int c = 0;
+        
+        //
+        Move m = n.legals();
+
+        //
+        for (int i = 0; i < m.i; i++) 
+        {								
+            n.domove(m, i);				
+            c += doing(n, d-1);
+            n.unmove();
+        } 
+
+        // 
+        Moves.free(m);
+        
+        //
+        return c;
 	}
 	
 	public final static String[][] EPDReader(String f) {

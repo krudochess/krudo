@@ -203,12 +203,15 @@ public final class Node
                 
         // set zero en-passant square
         e = 0;
-                                
+        
+        // decrease piece counter
+        if (x != O) if (t == w) { cb--; } else { cw--; }
+                                        
         // for special moves handle move rules
         if (k != move) if (t == w) {  
-            white_domove(s, v, x, k); 
+            white_domove(s, v, k); 
         } else { 
-            black_domove(s, v, x, k); 
+            black_domove(s, v, k); 
         }        
         
         // swap turn side
@@ -222,16 +225,12 @@ public final class Node
     private void white_domove(
         final int s,
         final int v,
-        final int x,
         final int k
     ) {                
-        // decrease black piece counter
-        if (x != O) { cb--; }
-                                                
+                                            
         // fix specific status
-        switch (k) {            
-            // fast exit if capture
-            case capt: return;            
+        switch (k) 
+        {                   
             // 
             case pdmo: e = s + 8; return;            
             //
@@ -256,17 +255,11 @@ public final class Node
     // domove and change node internal status
     private void black_domove(
         final int s,
-        final int v,
-        final int x,
+        final int v,   
         final int k
-    ) {        
-        // decreate white piece counter
-        if (x != O) { cw--; }
-                                                
+    ) {                                                        
         // fix specific status
-        switch (k) {
-            // fast exit if capture
-            case capt: return;            
+        switch (k) {      
             // set en-passant square
             case pdmo: e = s - 8; return;            
             // performe en-passant capture
@@ -682,17 +675,19 @@ public final class Node
     }
 
     // return true if black-side-player can attack square "a"
-    private final boolean black_attack(int a) {
-        
+    private boolean black_attack(int a) 
+    {    
         // cuont squares
         int si = 0;
         
         // count black pieces
         int pi = cb;
         
+        print("--");
+        
         // board squares loop to find black pieces
-        do {        
-            
+        do 
+        {            
             //
             final int s = bbm[si++]; 
             
@@ -702,14 +697,17 @@ public final class Node
             // piece not is black            
             if ((p & b) != b) { continue; }
             
+            print(s+" "+pi);
+            
             //
             pi--;
             
             //
-            if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
+            //if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
             
             //
-            switch (p) {                
+            switch (p) 
+            {                
                 // handle black pawn attack
                 case bp: if (down(s, a)) { return true; } break;                                                                 
                 //
@@ -847,7 +845,7 @@ public final class Node
             if (x == 0) { m.add(s, v, move); } 
             
             // if empty is occupay by opponent piece add capture
-            else if ((x & T) != t) { m.add(s, v, capt);    }
+            else if ((x & T) != t) { m.add(s, v, move); }
         }
     }
     
@@ -918,7 +916,7 @@ public final class Node
             
             //
             if (v != xx) if ((B[v] & b) == b) {
-                m.add(s, v, capt);                
+                m.add(s, v, move);                
             } else if (r == 4 && v == e) {
                 m.add(s, v, ecap);
             }    
@@ -928,7 +926,7 @@ public final class Node
             
             // 
             if (v != xx) if ((B[v] & b) == b) {
-                m.add(s, v, capt);
+                m.add(s, v, move);
             } else if (r == 4 && v == e) {
                 m.add(s, v, ecap);            
             }                            
@@ -1002,7 +1000,7 @@ public final class Node
             
             //
             if (v != xx && mask(B[v],w)) {
-                m.add(s, v, capt);                
+                m.add(s, v, move);                
             } 
             
             //
@@ -1015,7 +1013,7 @@ public final class Node
             
             //
             if (v != xx && mask(B[v],w)) {
-                m.add(s, v, capt);
+                m.add(s, v, move);
             } 
             
             //
