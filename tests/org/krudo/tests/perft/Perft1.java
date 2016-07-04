@@ -44,7 +44,7 @@ public class Perft1
             /*_*/
             for (int i=1; i<=6; i++) 
             {
-                echo(perft(n, i)) ;
+                print(perft(n, i)) ;
             }
             //echo (Cache.legals.size());
             //dump(n);

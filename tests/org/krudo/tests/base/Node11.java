@@ -8,7 +8,7 @@ import static org.krudo.util.Tool.*;
 import org.krudo.Node;
 
 // 
-public class Node1 {
+public class Node11 {
 
     //
     public static void main(String[] args) {
