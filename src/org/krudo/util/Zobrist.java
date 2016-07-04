@@ -279,4 +279,20 @@ public final class Zobrist {
 		// return hash value
 		return h;
 	}	
+    
+    // hashing function 
+	public static final long hash(long h, int p, int s, int v, int x)  {
+        
+        h ^= HASH[p & hi | s];
+        
+        if (x != O) {
+            h ^= HASH[x & hi | v];
+        }
+        
+        h ^= HASH[p & hi | v];
+        
+        h ^= hash_t;
+            
+        return h;
+    }	
 }

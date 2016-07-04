@@ -6,15 +6,13 @@
 // root package
 package org.krudo;
 
-//
-
 // required static class
 import static org.krudo.Constant.*;
 import static org.krudo.util.Tool.*;
 
 // main class entry point for java application
-public final class Krudo {
-   
+public final class Krudo 
+{   
     // engine store chess game status is chess brain interface         
     public final static Engine ENGINE = new Engine();
     
@@ -138,12 +136,14 @@ public final class Krudo {
                 case UCI.GO:                        
 
                     // call go with black and white time attentions
-                    if (has(i.arg[UCI.WTIME]) && has(i.arg[UCI.BTIME])) {
+                    if (has(i.arg[UCI.WTIME]) && has(i.arg[UCI.BTIME])) 
+                    {
                         ENGINE.go(i.arg[UCI.WTIME], i.arg[UCI.BTIME]);
                     } 
 
                     // call go wihout parameters use default
-                    else {
+                    else 
+                    {
                         ENGINE.go();
                     }
 

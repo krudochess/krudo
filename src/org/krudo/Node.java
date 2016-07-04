@@ -197,7 +197,7 @@ public final class Node
         
         // store status into history line
         L.store(i, p, s, v, x, k, e, c);
-                
+        
         // set zero leaved square
         B[s] = 0; 
 
@@ -217,11 +217,16 @@ public final class Node
             black_domove(s, v, k); 
         }        
         
+        //
+        h = hash(h, p, s, v, x);
+        
         // swap turn side
         t ^= T;
         
         // increase half-move count
         i++;   
+        
+        //
         Debug.assertPieceCount(this);
     }
     
