@@ -10,8 +10,8 @@ import org.krudo.Node;
 //
 public class Book1 
 {
-	//
-	public static void main(String[] args) 
+    //
+    public static void main(String[] args) 
     {
         //
         long[] nodes = new long[] 
@@ -56,7 +56,7 @@ public class Book1
         for (int i = 0; i < nodes.length; i++) {
             Book.list(nodes[i]);
         }
-	
+    
         Book.exit();
-	}	
+    }    
 }

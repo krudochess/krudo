@@ -15,25 +15,25 @@ import static org.krudo.util.Debug.*;
 //
 public class Domove1 {
 
-	//
-	public static void main(String[] args) {
+    //
+    public static void main(String[] args) {
 
-		//
-		Node n = new Node();
-		
-		//
-		n.startpos();
-		 
-		//
-		n.domove("e2e4");
+        //
+        Node n = new Node();
+        
+        //
+        n.startpos();
+         
+        //
+        n.domove("e2e4");
 
-		//
-		dump(n);
-		
-		//
-		n.unmove();
-		
-		//
-		dump(n);		
-	}	
+        //
+        dump(n);
+        
+        //
+        n.unmove();
+        
+        //
+        dump(n);        
+    }    
 }

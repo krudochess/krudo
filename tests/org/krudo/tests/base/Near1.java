@@ -13,9 +13,9 @@ import org.krudo.Node;
 // 
 public class Near1 {
 
-	//
-	public static void main(String[] args) {
-				
-		echo(bin(lookup[c4][e2],12));
-	}	
+    //
+    public static void main(String[] args) {
+                
+        echo(bin(lookup[c4][e2],12));
+    }    
 }

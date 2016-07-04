@@ -11,32 +11,32 @@ import org.krudo.Node;
 // 
 public class Book2 {
 
-	//
-	public static void main(String[] args) {
-				
-		// 
-		Node n = new Node();
-		
-		//
-		//n.domove("f2f4");
-		
-		//
-		String m = Book.rand(n);
+    //
+    public static void main(String[] args) {
+                
+        // 
+        Node n = new Node();
+        
+        //
+        //n.domove("f2f4");
+        
+        //
+        String m = Book.rand(n);
 
-		//
-		while(m != null) {
-			
-			//
-			n.domove(m);
+        //
+        while(m != null) {
+            
+            //
+            n.domove(m);
 
-			//
-			m = Book.rand(n);
-		}
-		
-		//
-		dump(n);	
-		
-		//
-		desc(n.L);			
-	}	
+            //
+            m = Book.rand(n);
+        }
+        
+        //
+        dump(n);    
+        
+        //
+        desc(n.L);            
+    }    
 }

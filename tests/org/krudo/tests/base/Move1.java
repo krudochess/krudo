@@ -11,27 +11,27 @@ import org.krudo.Move;
 // 
 public class Move1 {
 
-	//
-	public static void main(String[] args) {
-		
-		Move l = Move.pop(); 
-		
-		long t = System.currentTimeMillis();
-		
-		for(int i=0; i<50000; i++) {
-			
-			Move m = Move.pop(); 
-		}
+    //
+    public static void main(String[] args) {
+        
+        Move l = Move.pop(); 
+        
+        long t = System.currentTimeMillis();
+        
+        for(int i=0; i<50000; i++) {
+            
+            Move m = Move.pop(); 
+        }
 
-		echo (System.currentTimeMillis()-t);
+        echo (System.currentTimeMillis()-t);
 
 t = System.currentTimeMillis();
 
-		for(int i=0; i<50000; i++) {
-			
-			Move m = Move.pop(); 
-		}
+        for(int i=0; i<50000; i++) {
+            
+            Move m = Move.pop(); 
+        }
 
-		echo (System.currentTimeMillis()-t);
-	}	
+        echo (System.currentTimeMillis()-t);
+    }    
 }

@@ -4,14 +4,16 @@
  */
 
 //
-package org.krudo.tests.node;
+package org.krudo.tests.legals;
 
 //
-import org.krudo.Node;
-import org.krudo.Move;
-
-//
+import static org.krudo.Constant.*;
 import static org.krudo.util.Debug.*;
+import static org.krudo.util.Tool.*;
+import static org.krudo.util.Decode.*;
+
+//
+import org.krudo.*;
 
 //
 public class Legals1 {
@@ -20,10 +22,9 @@ public class Legals1 {
     public static void main(String[] args) {
         
         //
-        DEBUG_SHOW_WEIGTH = true;
-        
-        //
-        DEBUG_SHOW_ALGEBRIC = true;
+        if (!MOVE_LEGALS) {
+            exit("set MOVE_LEGALS = true and retry");
+        }
         
         //
         Node n = new Node();
@@ -32,12 +33,9 @@ public class Legals1 {
         n.startpos();
         
         //
-        n.domove("e2e4");
+        print(n);
         
         //
-        Move m = n.legals();
-        
-        //
-        dump(m, n);            
-    }    
+        print(n.legals());
+    }
 }

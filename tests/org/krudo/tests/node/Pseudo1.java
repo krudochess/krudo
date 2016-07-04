@@ -17,24 +17,24 @@ import static org.krudo.util.Debug.*;
 //
 public class Pseudo1 {
 
-	//
-	public static void main(String[] args) {
+    //
+    public static void main(String[] args) {
 
-		//
-		if (MOVE_LEGALS) {
-			exit("set int Config class MOVE_LEGALS = false and retry");
-		}
-		
-		//
-		Node n = new Node();
+        //
+        if (MOVE_LEGALS) {
+            exit("set int Config class MOVE_LEGALS = false and retry");
+        }
+        
+        //
+        Node n = new Node();
 
-		//
-		n.startpos();
-		
-		//
-		dump(n, n.legals());
-		
-		//
-		print();
-	}	
+        //
+        n.startpos();
+        
+        //
+        dump(n, n.legals());
+        
+        //
+        print();
+    }    
 }

@@ -10,13 +10,13 @@ import static org.krudo.util.Tool.*;
 //
 public class Miracle1 {
 
-	//
-	public static void main(String[] args) {
+    //
+    public static void main(String[] args) {
 
-				
-		echo (bin(wk << 6 & 960));
-		echo (bin(wk << 6 ));
-		echo (bin(bk << 6 ));
-	}
-	
+                
+        echo (bin(wk << 6 & 960));
+        echo (bin(wk << 6 ));
+        echo (bin(bk << 6 ));
+    }
+    
 }
