@@ -32,21 +32,27 @@ public final class Fen
 		n.hm = 0;
 		n.n	= 1;
 		n.i	= 0;
+        
+        for (int s = 0; s < 64; s++) {
+            n.B[s] = O;
+        }
 					
 		//
 		String[] p = f.split("\\s");
 		
 		//
-		for(int i=0; i<p.length; i++) {
-			
+		for(int i = 0; i < p.length; i++) 
+        {	
 			//
-			switch(i) {				
-				
+			switch(i) 
+            {					
 				// position
 				case 0: 		
 					int s = a8;		
-					for(int j=0; j<p[i].length(); j++) {					
-						switch(p[i].charAt(j)) {
+					for (int j=0; j<p[i].length(); j++) 
+                    {					
+						switch(p[i].charAt(j)) 
+                        {
 							case 'p': n.B[s] = bp; n.cb++; break;
 							case 'n': n.B[s] = bn; n.cb++; break;
 							case 'b': n.B[s] = bb; n.cb++; break;

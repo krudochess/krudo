@@ -257,7 +257,7 @@ public final class Zobrist {
 		if ((n.c & bqc) == 0) { h ^= hash_bqc; }
 						
 		// hash potential en-passnt 
-		if (n.e != 0) if (n.t == w) {
+        if (n.e != 0) if (n.t == w) {
 			if (span[n.e][se] != xx && n.B[span[n.e][se]] == wp) {
 				h ^= HASH[ENPASSANT + n.e % 8];									
 			} else if (span[n.e][sw] != xx && n.B[span[n.e][sw]] == wp) {
@@ -272,7 +272,7 @@ public final class Zobrist {
 				}
 			}
 		}					
-		 				
+				
 		// apply hash for side-color to play (turn)
 		if (n.t == w) { h ^= hash_t; }
 			
