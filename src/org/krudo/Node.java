@@ -18,8 +18,8 @@ import static org.krudo.util.Encode.*;
 import static org.krudo.util.Describe.*;
 
 // Spizzy XBoard version of Krudo 
-public final class Node {
-    
+public final class Node 
+{    
     // board internal status
     public final int B[] = new int[64]; 
     
@@ -43,41 +43,59 @@ public final class Node {
     // legals moves-stack internal
     public Move m;
     
-    // zobrist hash key temp
-    private long h;
+    // current zobrist hash key
+    public long h;
     
     // white boardmap improve white piece lookup on board
     private final int[] wbm = new int[] {
         // just center
-        c3, f3, d3, e3, c4, d4, e4, f4, c5, d5, e5, f5,
+        c3, f3, d3, e3, 
+        c4, d4, e4, f4, 
+        c5, d5, e5, f5,
         // development
-        b1, g1, c1, d1, f1, e1, h1, a1,
+        b1, g1, c1, d1, 
+        f1, e1, h1, a1,
         // first pawns
         e2, d2, c2, f2,
         // second pawn
         h2, b2, g2, a2,
         // white zones             
-        a3, b3, h3, g3, a4, b4, g4, h4, a5, b5, g5, h5,
+        a3, b3, h3, g3, 
+        a4, b4, g4, h4, 
+        a5, b5, g5, h5,
         // far squares
-        a6, b6, c6, f6, g6, h6, d6, e6,    a7, b7, c7, d7, 
-        e7, f7, g7, h7, a8, b8, c8, d8, e8, f8, g8, h8, 
+        a6, b6, c6, f6, 
+        g6, h6, d6, e6,   
+        a7, b7, c7, d7, 
+        e7, f7, g7, h7, 
+        a8, b8, c8, d8, 
+        e8, f8, g8, h8, 
     };
     
     // black boardmap improve black piece lookup on board
     private final int[] bbm = new int[] {
         // just center
-        c6, d6, e6, f6, c5, d5, e5, f5, c4, d4, e4, f4,
+        c6, d6, e6, f6, 
+        c5, d5, e5, f5, 
+        c4, d4, e4, f4,
         // development
-        d8, b8, c8, f8, g8, e8, a8, h8, 
+        d8, b8, c8, f8, 
+        g8, e8, a8, h8, 
         // first pawns
         c7, d7, e7, f7,         
         // second pawn
         a7, b7, g7, h7,         
         // black zones
-        a6, b6, g6, h6, a5, b5, g5, h5, g4, h4, a4, b4,                              
+        a6, b6, g6, h6, 
+        a5, b5, g5, h5, 
+        g4, h4, a4, b4,                              
         // far squares
-        a3, b3, c3, f3, g3, h3, d3, e3, e2, d2, c2, f2,
-        b2, g2, h2, a2, b1, g1, a1, c1, d1, e1, h1, f1,                 
+        a3, b3, c3, f3, 
+        g3, h3, d3, e3, 
+        e2, d2, c2, f2,
+        b2, g2, h2, a2, 
+        b1, g1, a1, c1, 
+        d1, e1, h1, f1,                 
     };
 
     // empty contructor
@@ -256,15 +274,15 @@ public final class Node {
     }
     
     // undo move every times
-    public final void unmove(final int times) {
-        
+    public final void unmove(final int times) 
+    {
         // repeat unmove n-times
         for(int j = times; j != 0; j--) { unmove(); }
     }
     
     // undo last move 
-    public final void unmove() {
-        
+    public final void unmove() 
+    {    
         // decrease half-move index
         i--;
         
@@ -395,8 +413,8 @@ public final class Node {
 	}
 	
 	// generate moves-stack with legal-moves
-	private void white_legals() {
-				
+	private void white_legals() 
+    {		
 		// generate white pseudo-moves
 		white_pseudo(); 		
 
@@ -410,10 +428,11 @@ public final class Node {
 		final int p = m.i;
 				
 		// loop throut pseudo-legal
-		for (int j = 0; j != p; j++) {						
-			
+		for (int j = 0; j != p; j++) 
+        {							
 			//
-			if (m.k[j] == cast) if (white_castling(m.v[j])) {
+			if (m.k[j] == cast) if (white_castling(m.v[j])) 
+            {
 				 m.copy(j, l); l++; continue;
 			} 			
 											
@@ -432,8 +451,8 @@ public final class Node {
 	} 
 			
 	// generate moves-stack with legal-moves
-	private void black_legals() {	
-		
+	private void black_legals() 
+    {			
 		// generate pseudo-moves into "m"
 		black_pseudo(); 		
 		

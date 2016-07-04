@@ -13,7 +13,7 @@ package org.krudo.util;
 import org.krudo.Node;
 import org.krudo.Move;
 import org.krudo.Krudo;
-import org.krudo.empty.Moves;
+import org.krudo.Moves;
 
 //
 import java.io.IOException;

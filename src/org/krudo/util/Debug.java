@@ -64,18 +64,20 @@ public final class Debug {
 	}
 
 	//
-	public final static void dump(Line l) {		
+	public final static void dump(Line l) 
+    {		
 		dump("",l);
 	}
 
 	//
-	public final static void dump(Line l, int i) {
+	public final static void dump(Line l, int i) 
+    {
 		
 	}
 	
 	//
-	public final static void dump(Move m) {				
-		
+	public final static void dump(Move m) 
+    {					
 		//
 		String s = desc(m);
 		
@@ -84,7 +86,8 @@ public final class Debug {
 	}
 	
 	//
-	public final static void dump(Move[] pv) {				
+	public final static void dump(Move[] pv) 
+    {				
 		for (int j=0; j<pv.length; j++) {
 			Move m = pv[j];
 			String d = "";

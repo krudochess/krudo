@@ -7,7 +7,6 @@
 package org.krudo;
 
 //
-import org.krudo.empty.Moves;
 
 // required static class
 import static org.krudo.Constant.*;
@@ -59,10 +58,8 @@ public final class Krudo {
     //
     private static void init() 
     {
-        //
-        Moves.init();
+        
     }
-    
     
     //
     private static void loop() 

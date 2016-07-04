@@ -123,7 +123,8 @@ public final class Tool {
 	}
 	
 	//
-	public static final long byte2long(byte[] b, int o, int l) {
+	public static final long byte2long(byte[] b, int o, int l) 
+    {
 		long v = 0L;
 		for (int i = o; i < o + l; i++) {
 		   v = (v << 8L) | (b[i] & 0xffL);
@@ -132,7 +133,8 @@ public final class Tool {
 	}
 	
 	//
-	public static final int byte2int(byte[] b, int o, int l) {
+	public static final int byte2int(byte[] b, int o, int l) 
+    {
 		int v = 0;
 		for (int i = o; i < o + l; i++) {
 		   v = (v << 8) + (b[i] & 0xff);

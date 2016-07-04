@@ -156,8 +156,8 @@ public class Describe {
 	}
 	
 	//
-	public final static String desc(Move m) {
-	
+	public final static String desc(Move m) 
+    {
 		//
 		String desc = "";
 		
