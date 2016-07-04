@@ -6,6 +6,8 @@
 //
 package org.krudo;
 
+import static org.krudo.util.Tool.*;
+
 //
 public class Moves 
 {
@@ -28,6 +30,10 @@ public class Moves
     //
     public static Move pick() 
     {
+        //if (count == 95) {
+        //    print ("90%");
+        //}
+        
         return STACK[--count];
     }
     
