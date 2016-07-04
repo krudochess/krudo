@@ -19,7 +19,7 @@ public class Zobrist2
     public static void main(String[] args) 
     {
         /**
-         * Zobrist progrssivo dopo una domove o una unmove
+         * Zobrist progressivo dopo una domove o una unmove
          */
         
         Node n = new Node();
