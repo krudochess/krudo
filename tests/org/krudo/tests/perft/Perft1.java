@@ -22,8 +22,8 @@ public class Perft1
         /*\
         FEN:       STARTPOS
         20         0 ms
-        400        16 ms
-        8902       141 ms
+        400        5 ms
+        8902       26 ms
         197281     173 ms
         4865609    2313 ms
         119060324  51176 ms
