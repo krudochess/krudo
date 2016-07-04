@@ -10,9 +10,12 @@ package org.krudo;
 import org.krudo.util.Fen;
 
 // required static classes and methods
+
 import static org.krudo.Config.*;
 import static org.krudo.Constant.*;
+import org.krudo.util.Debug;
 import static org.krudo.util.Tool.*;
+import static org.krudo.util.Debug.*;
 import static org.krudo.util.Decode.*;
 import static org.krudo.util.Encode.*;
 import static org.krudo.util.Zobrist.*;
@@ -218,7 +221,8 @@ public final class Node
         t ^= T;
         
         // increase half-move count
-        i++;        
+        i++;   
+        Debug.assertPieceCount(this);
     }
     
     // domove and change node internal status
@@ -234,7 +238,7 @@ public final class Node
             // 
             case pdmo: e = s + 8; return;            
             //
-            case ecap: cb--; B[s + 8] = 0; return;                  
+            case ecap: cb--; B[v - 8] = O; return;                  
             // update white king square and castling    
             case kmov: wks = v; c |= wca; return;                    
             // handle castling status and rook bonus movement    
@@ -263,7 +267,7 @@ public final class Node
             // set en-passant square
             case pdmo: e = s - 8; return;            
             // performe en-passant capture
-            case ecap: cw--; B[s - 8] = 0; return;          
+            case ecap: cw--; B[v + 8] = 0; return;          
             // set new king square and lose castling ability
             case kmov: c |= bca; bks = v; return;                    
             // performe king-side castling
@@ -323,13 +327,19 @@ public final class Node
         
         // retrieve previsour castling status
         c = L.c[i];
+        
+        // decrease piece counter
+        if (x != O) if (t == w) { cb++; } else { cw++; }
                     
         //
         if (k != move) if (t == w) {
-            white_unmove(p, s, v, x, k);
+            white_unmove(p, s, v, k);
         } else {
-            black_unmove(p, s, v, x, k);        
-        }                
+            black_unmove(p, s, v, k);        
+        }  
+        
+        
+
     }
     
     //
@@ -337,17 +347,13 @@ public final class Node
         final int p,
         final int s,
         final int v,
-        final int x,
         final int k
     ) {
-        // decreate black piece counter
-        if (x != O) { cb++; }
-        
         //
         if (p == wk) { wks = s; }
         
         //
-        if (k == ecap) { cb++; B[s - 8] = bp; }
+        if (k == ecap) { cb++; B[v - 8] = bp; }
         
         //
         if (k == cast) if (v == g1) {
@@ -362,17 +368,13 @@ public final class Node
         final int p,
         final int s,
         final int v,
-        final int x,
         final int k
     ) {
-        // decreate black piece counter
-        if (x != O) { cw++; }
-
         //
         if (p == bk) { bks = s; }
         
         //
-        if (k == ecap) { cw++; B[s + 8] = wp; }
+        if (k == ecap) { cw++; B[v + 8] = wp; }
         
         //
         if (k == cast) if (v == g8) {
@@ -583,8 +585,8 @@ public final class Node
         int pi = cb;
                 
         // loop throut black piece
-        do {
-        
+        do 
+        {        
             // next start square
             final int s = bbm[si++];
 
@@ -634,8 +636,8 @@ public final class Node
         int pi = cw;
                 
         // it is white turn loop throut white piece
-        do {
-            
+        do 
+        {    
             // get next start square
             int s = wbm[si++];
             
@@ -646,7 +648,8 @@ public final class Node
             if ((p & w) != w) { continue; }    
             
             // 
-            switch (p) {
+            switch (p) 
+            {
                 //
                 case wp: if (pawn(s, a)) { return true; } break;                                                            
                 //
@@ -683,8 +686,6 @@ public final class Node
         // count black pieces
         int pi = cb;
         
-        print("--");
-        
         // board squares loop to find black pieces
         do 
         {            
@@ -696,9 +697,7 @@ public final class Node
                 
             // piece not is black            
             if ((p & b) != b) { continue; }
-            
-            print(s+" "+pi);
-            
+           
             //
             pi--;
             
@@ -855,8 +854,8 @@ public final class Node
         final int s        //
     ) {                    
         // 
-        for (int j = 0; j < 8; j++) {
-            
+        for (int j = 0; j < 8; j++) 
+        {    
             //
             if (hope[s][j] == a) { 
                 return true;
@@ -873,8 +872,8 @@ public final class Node
         final int a  //            
     ) {            
         // 
-        for (int j = 7; j == 0; j--) {
-            
+        for (int j = 7; j == 0; j--)
+        {    
             //
             if (span[s][j] == a) { return true; }            
         }
@@ -888,7 +887,7 @@ public final class Node
         final int s
     ) {                                        
         //
-        int v =    span[s][nn];                 
+        int v = span[s][nn];                 
             
         // rank of start square
         final int r = s >> 3;
@@ -897,8 +896,8 @@ public final class Node
         if (r != 6) {
                     
             //
-            if (B[v] == O) {
-
+            if (B[v] == O) 
+            {
                 //
                 final int u = span[v][nn];                 
 
@@ -1163,8 +1162,9 @@ public final class Node
         }
         
         // test for valid king-side castling and add to move stack
-        if (s == e8) if (bksc()) {
-            m.add(e8, g8, cast);
+        if (s == e8) if (bksc()) 
+        {
+            //m.add(e8, g8, cast);
         } 
         
         // or queen-side castling and add to move stack
@@ -1174,20 +1174,20 @@ public final class Node
     }    
     
     //
-    private boolean bksc() {
-        
+    private boolean bksc() 
+    {    
         //
-        return 0 == (c & bkc) 
+        return (c & bkc) == 0
             && B[h8] == br              
-            && B[g8] == O 
+            && B[f8] == O 
             && B[g8] == O;
     }
     
     //
-    private boolean bqsc() {
-        
+    private boolean bqsc() 
+    {    
         //
-        return 0 == (c & bqc) 
+        return (c & bqc) == 0 
             && B[a8] == br 
             && B[d8] == O 
             && B[c8] == O 

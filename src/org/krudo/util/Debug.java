@@ -36,20 +36,6 @@ public final class Debug {
 	public static boolean DEBUG_SHOW_ALGEBRIC = false;
 	
 	//
-	public final static void dump(String t, Line l) {		
-		/*
-		String d = "";
-		String s = "";
-		
-		for(int i=LINE_OFFSET;i<l.i;i++) {
-			d += s + i2m(l.s[i],l.v[i],l.k[i])+" ("+i2k(l.k[i])+")" ;
-			s = i%3==2 ? "\n" : " ";
-		}	
-		echo(t+d);
-		*/
-	}
-
-	//
 	public final static void dump(int d, Move m) {		
 	
 		//
@@ -67,14 +53,12 @@ public final class Debug {
 	//
 	public final static void dump(Line l) 
     {		
-		dump("",l);
+		String desc = desc(l);
+        
+        print(desc);
 	}
 
-	//
-	public final static void dump(Line l, int i) 
-    {
-		
-	}
+	
 	
 	//
 	public final static void dump(Move m) 
@@ -235,9 +219,7 @@ public final class Debug {
 				} 
 			} else {
 				p.n++;
-				if (mask(k,capt)) {
-					p.x++;
-				}
+				
 				if (mask(k,ecap)) {
 					p.e++;
 				}			
@@ -350,4 +332,36 @@ public final class Debug {
 		return null;
 	}
 	
+    public static void assertPieceCount(Node n) {
+    
+        int cw = 0;
+        int cb = 0;
+        
+        for (int s=0; s<64; s++) {
+        
+            if ((n.B[s] & w) == w) {
+                cw++;
+            }
+            
+             if ((n.B[s] & b) == b) {
+                cb++;
+            }
+            
+        
+        
+        
+        }
+        
+        if (n.cw != cw || n.cb != cb) {
+            print("assertPieceCount fails");
+            dump(n);
+            dump(n.L);
+            exit();
+        
+        }
+    
+    
+    
+    }
+    
 }

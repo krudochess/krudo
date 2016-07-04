@@ -23,9 +23,12 @@ public final class Line {
     e, // en-passant square
     c; // castling status
     
+    //
+    public int i;
+    
     // constuctor
-    public Line() {
-        
+    public Line() 
+    {    
         // initialization of memory 
         p = new int[MAX];
         s = new int[MAX];
@@ -54,6 +57,7 @@ public final class Line {
         x[i0] = x0;
         k[i0] = k0;
         e[i0] = e0;
-        c[i0] = c0;        
+        c[i0] = c0;   
+        i = i0;
     }        
 }

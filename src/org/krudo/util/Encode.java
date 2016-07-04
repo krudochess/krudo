@@ -7,10 +7,6 @@
 package org.krudo.util;
 
 //
-import org.krudo.Line;
-import org.krudo.Move;
-
-//
 import static org.krudo.Constant.*;
 
 //
@@ -66,8 +62,6 @@ public final class Encode {
 			return pdmo;
 		} else if (p == bp && s/8==3 && x==0 && ((s-v)==9 || (s-v)==7)) {
 			return ecap;		
-		} else if (x != O) {
-			return capt;
 		} else {
 			return move;
 		}	

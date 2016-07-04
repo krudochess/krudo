@@ -205,11 +205,11 @@ public final class Decode {
 	}
 	
 	//
-	public static final String i2m(Line m, int f, int t) {
+	public static final String i2m(Line line) {
 		String o = "";
 		String s = "";		
-		for(int i=f; i<t; i++) {
-			o+= s + m2s(m.s[i],m.v[i],m.k[i]); 
+		for(int i=0; i<line.i; i++) {
+			o+= s + m2s(line.s[i],line.v[i],line.k[i]); 
 			s = " ";
 		}
 		return o;

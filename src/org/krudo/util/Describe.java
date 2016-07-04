@@ -130,37 +130,16 @@ public class Describe
 	}
 	
 	//
-	public final static void desc(Line l) 
+	public final static String desc(Line line) 
     {
-		/*
-		//
-		String o = "";
-		
-		//
-		int n = 1;
-		
-		//
-		for(int i=0; i<l.i; i++) {
-			
-			if (mask(l.p[i],t,w)) {
-				o += n+".";				
-			}
-			
-			if (l.p[i]!=wp && l.p[i]!=bp) {
-				o += i2f(l.p[i]);
-			}
-			
-			o += i2s(l.v[i]);
-			
-			o += " ";
-			
-			if (mask(l.p[i],t,b)) {
-				n++;				
-			}			
+		String desc = "";
+		String s = "";		
+		for(int i=0; i<line.i; i++) {
+			desc += s + m2s(line.s[i],line.v[i],line.k[i]); 
+			s = " ";
 		}
-			
-		//
-		echo(o);*/
+		return desc;
+		
 	}
 	
 	//
