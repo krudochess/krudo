@@ -42,11 +42,13 @@ public class Describe {
 		//
 		if (m.k[i] != cast) {
 			
-			if (p != wp && p != bp) {
+			if (p != wp && p != bp) 
+            {
 				move += f2s(p);
 			} 
 
-			if (x != 0) {
+			if (x != 0) 
+            {
 				move += "x";
 			}
 
@@ -60,12 +62,14 @@ public class Describe {
 		} 
 
 		//
-		else if (false) {
+		else if (false) 
+        {
 			move += "O-O";
 		} 
 
 		//
-		else if (false) {
+		else if (false) 
+        {
 			move += "O-O-O";
 		}
 
@@ -77,7 +81,8 @@ public class Describe {
 		//n.unmove();
 		
 		//
-		if (DEBUG_SHOW_WEIGTH) {
+		if (DEBUG_SHOW_WEIGTH) 
+        {
 			move += String.format("(%+d)", m.w[i]);
 		}
 		
@@ -86,33 +91,35 @@ public class Describe {
 	}
 
 	//
-	public final static String desc(Node n) {
-	
+	public final static String desc(Node n) 
+    {
 		//
 		String desc = "";
 		
 		//
-		for (int r = 7; r >= 0; r--) {
-					
+		for (int r = 7; r >= 0; r--) 
+        {			
 			//
-			for(int c = 0; c < 8; c++) {
+			for(int c = 0; c < 8; c++) 
+            {
 				desc += p2s(n.B[cr2i(c, r)]) + " ";
 			}
 			
 			//
-			desc += (r==0 && n.t==w || r==7 && n.t==b ? "<" : " ");
+			desc += (r==0 && n.t==w || r==7 && n.t==b ? "<  " : "   ");
 			
-			/*
-			switch(r) {
-				case 0: keys("e:",i2s(n.e),"c:",Integer.toBinaryString(n.c)); break;
-				case 1: keys("cw:",n.cw,"cb:",n.cb); break;
-				case 2: keys("wks:",i2s(n.wks),"bks:",i2s(n.bks)); break;
-				case 3: keys("wrs:",i2s(n.wks),"brs:",i2s(n.bks)); break;
-				case 4: keys("ph:",n.cw,"ew:",n.wks); break;
-				case 5: keys("wpw:",n.wks,"bpw:",n.wks); break;
-				case 6: keys("hm:",n.hm,"n:",n.n); break;
-				case 7: keys("h:",Long.toHexString(hash(n))); break;					
-			}*/
+			//
+			switch (r)
+            {
+				//case 0: keys("e:",i2s(n.e),"c:",Integer.toBinaryString(n.c)); break;
+				//case 1: keys("cw:",n.cw,"cb:",n.cb); break;
+				//case 2: keys("wks:",i2s(n.wks),"bks:",i2s(n.bks)); break;
+				//case 3: keys("wrs:",i2s(n.wks),"brs:",i2s(n.bks)); break;
+				//case 4: keys("ph:",n.cw,"ew:",n.wks); break;
+				//case 5: keys("wpw:",n.wks,"bpw:",n.wks); break;
+				//case 6: keys("hm:",n.hm,"n:",n.n); break;
+				case 0: desc += "h: " + Long.toHexString(n.h); break;					
+			}
 			
 			//
 			desc += "\n";
@@ -123,7 +130,8 @@ public class Describe {
 	}
 	
 	//
-	public final static void desc(Line l) {
+	public final static void desc(Line l) 
+    {
 		/*
 		//
 		String o = "";
@@ -177,7 +185,7 @@ public class Describe {
 			desc += sepa + lpad(move, cell);
 			
 			//
-			sepa = j%6 == 5 ? "\n" : " ";
+			sepa = j % 6 == 5 ? "\n" : " ";
 		}	
 		
 		//

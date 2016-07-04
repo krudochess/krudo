@@ -215,7 +215,7 @@ public final class Zobrist {
 	
 	// offset for hashing parts
 	private static final int 
-	e = 772;		
+	ENPASSANT = 772;		
 	// t	= 780,
 	// wkc	= 768,
 	// wqc	= 769,
@@ -231,13 +231,14 @@ public final class Zobrist {
 	hash_t   = 0xF8D626AAAF278509L; // hash[t];
 	
 	// hashing function 
-	public static final long hash(Node n) {
-				
+	public static final long hash(Node n) 
+    {			
 		//
 		long h = 0;
 		
 		// hash piece in board
-		for (int s = 0; s < 64; s++) {
+		for (int s = 0; s < 64; s++) 
+        {
 			if (n.B[s] != 0) { 
 				h ^= HASH[n.B[s] & hi | s];
 			}
@@ -258,16 +259,16 @@ public final class Zobrist {
 		// hash potential en-passnt 
 		if (n.e != 0) if (n.t == w) {
 			if (span[n.e][se] != xx && n.B[span[n.e][se]] == wp) {
-				h ^= HASH[e + n.e % 8];									
+				h ^= HASH[ENPASSANT + n.e % 8];									
 			} else if (span[n.e][sw] != xx && n.B[span[n.e][sw]] == wp) {
-				h ^= HASH[e + n.e % 8];				
+				h ^= HASH[ENPASSANT + n.e % 8];				
 			}
 		} else {
 			if (span[n.e][ne] != xx && n.B[span[n.e][ne]] == bp) {
-				h ^= HASH[e + n.e % 8];				
+				h ^= HASH[ENPASSANT + n.e % 8];				
 			} else if (span[n.e][nw] != xx) {
 				if (n.B[span[n.e][nw]] == bp) {
-					h ^= HASH[e + n.e % 8];
+					h ^= HASH[ENPASSANT + n.e % 8];
 				}
 			}
 		}					

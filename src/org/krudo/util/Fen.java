@@ -14,14 +14,13 @@ import static org.krudo.Constant.*;
 import static org.krudo.util.Decode.*;
 
 // fen class utility
-public final class Fen {
-		
+public final class Fen 
+{		
 	// parse fen and apply status into node passed
 	public static final void parse(
 		final Node n,  // node status position rappresentation apply to
 		final String f // fen string with position to parse
 	) {
-		
 		// base status fields
 		n.t	= w; // color-side to play
 		n.c	= 0b1111; // castling status
@@ -76,7 +75,8 @@ public final class Fen {
 				
 				// turn
 				case 1:	
-					switch(p[i].charAt(0)) {
+					switch(p[i].charAt(0)) 
+                    {
 						case 'b': n.t = b; break;	
 						case 'w': n.t = w; break;
 					}
@@ -84,8 +84,10 @@ public final class Fen {
 				
 				// castling	
 				case 2:
-					for(int i1=0; i1<p[i].length(); i1++) {					
-						switch(p[i].charAt(i1)) {
+					for (int i1=0; i1<p[i].length(); i1++) 
+                    {					
+						switch (p[i].charAt(i1)) 
+                        {
 							case 'K': n.c ^= wkc; break;	
 							case 'Q': n.c ^= wqc; break;
 							case 'k': n.c ^= bkc; break;	
@@ -96,7 +98,8 @@ public final class Fen {
 
 				// en-passant	
 				case 3:
-					if (p[i].charAt(0) != '-') {
+					if (p[i].charAt(0) != '-') 
+                    {
 						n.e = s2i(""+p[i].charAt(0)+p[i].charAt(1));
 					}
 					break;					

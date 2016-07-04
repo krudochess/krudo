@@ -15,6 +15,7 @@ import static org.krudo.Constant.*;
 import static org.krudo.util.Tool.*;
 import static org.krudo.util.Decode.*;
 import static org.krudo.util.Encode.*;
+import static org.krudo.util.Zobrist.*;
 import static org.krudo.util.Describe.*;
 
 // Spizzy XBoard version of Krudo 
@@ -102,10 +103,24 @@ public final class Node
     public void Node() {}
     
     // restore node to start position
-    public final void startpos() { Fen.parse(this, STARTPOS); }
+    public final void startpos() 
+    {     
+        //
+        Fen.parse(this, STARTPOS); 
+        
+        //
+        h = hash(this);
+    }
     
     // restore node to position passed in FEN
-    public final void startpos(final String fen) { Fen.parse(this, fen); }
+    public final void startpos(final String fen) 
+    {
+        //
+        Fen.parse(this, fen); 
+        
+        //
+        h = hash(this);
+    }
     
     // do-play a moves sequence passed by array
     public final void domove(

@@ -106,8 +106,13 @@ public final class Debug {
 	}
 
 	//
-	public final static void dump(Node n) {
-		for(int r=0;r<8;r++) {
+	public final static void dump(Node n) 
+    {
+        String desc = desc(n);
+        
+        print(desc);
+		/*
+        for(int r=0;r<8;r++) {
 			for(int c=0;c<8;c++) {
 				System.out.print(p2s(n.B[(7-r)*8+c])+" ");
 			}
@@ -125,12 +130,12 @@ public final class Debug {
 				case 7: keys("h:",Long.toHexString(hash(n))); break;					
 			}
 			*/
-			
+			/*
 			System.out.print("\n");
 		}		
 		
 		//
-		System.out.print("\n");
+		System.out.print("\n");*/
 	}
 	
 	//
