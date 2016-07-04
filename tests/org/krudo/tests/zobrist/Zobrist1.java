@@ -11,6 +11,7 @@ import org.krudo.*;
 
 //
 import static org.krudo.util.Tool.*;
+import static org.krudo.util.Debug.*;
 import static org.krudo.util.Zobrist.hash;
 
 // 
@@ -70,6 +71,9 @@ public class Zobrist1
             
             //
             long h = hash(n);
+            
+            //
+            //dump(n);
             
             //
             echo(hex(h),"==",tests[i+1],"->",tests[i+1].equals(hex(h))+"\n");        
