@@ -130,8 +130,8 @@ public final class Book
 	// get list of moves into book based on node
 	public static final Move list(final long lookup) 
     {
-		// preparea a void move list
-		Move a = Moves.get();
+		// prepare a void move list
+		Move m = Moves.pick();
 						
 		// open file
 		open();
@@ -142,7 +142,7 @@ public final class Book
 			// if found position hash put move into stack
 			if (key == lookup) 
             {				
-				a.add(move(), weight());
+				m.add(move(), weight());
 			}
 		}
 				
@@ -150,7 +150,7 @@ public final class Book
 		exit();
 		
 		// return a move list
-		return a;
+		return m;
 	}
 	
 	//
