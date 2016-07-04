@@ -228,7 +228,7 @@ public final class Zobrist {
 	hash_wqc = 0xF165B587DF898190L, // hash[wqc],
 	hash_bkc = 0xA57E6339DD2CF3A0L, // hash[bkc],
 	hash_bqc = 0x1EF6E6DBB1961EC9L, // hash[bqc],
-	hash_t   = 0xF8D626AAAF278509L; // hash[t];
+	HASH_TURN = 0xF8D626AAAF278509L; // hash[t];
 	
 	// hashing function 
 	public static final long hash(Node n) 
@@ -274,25 +274,28 @@ public final class Zobrist {
 		}					
 				
 		// apply hash for side-color to play (turn)
-		if (n.t == w) { h ^= hash_t; }
+		if (n.t == w) { h ^= HASH_TURN; }
 			
 		// return hash value
 		return h;
 	}	
     
     // hashing function 
-	public static final long hash(long h, int p, int s, int v, int x)  {
-        
+	public static final long hash(long h, int p, int s, int v, int x)  
+    {
+        //
         h ^= HASH[p & hi | s];
         
-        if (x != O) {
-            h ^= HASH[x & hi | v];
-        }
+        //
+        if (x != O) { h ^= HASH[x & hi | v]; }
         
+        //
         h ^= HASH[p & hi | v];
         
-        h ^= hash_t;
-            
+        //
+        h ^= HASH_TURN;
+          
+        //
         return h;
     }	
 }
