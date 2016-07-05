@@ -149,8 +149,14 @@ public final class Debug {
 	public final static void dump(
 		final int[] s
 	) {	
-		for (int i=0; i<s.length; i++) {
-			System.out.print(s2s(s[i])+" "); 			
+        //
+		for (int i = 0; i < s.length; i++) 
+        {
+            //
+			String sep = i%8==7 ? "\n" : " ";
+            
+            //
+            System.out.print(s2s(s[i])+sep);     
 		}				
 	}
 	

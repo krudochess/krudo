@@ -51,7 +51,8 @@ public final class Node
     public long h;
     
     // white boardmap improve white piece lookup on board
-    private final int[] wbm = new int[] {
+    public final int[] wbm = new int[]
+    {
         // just center
         c3, f3, d3, e3, 
         c4, d4, e4, f4, 
@@ -77,7 +78,8 @@ public final class Node
     };
     
     // black boardmap improve black piece lookup on board
-    private final int[] bbm = new int[] {
+    public final int[] bbm = new int[]
+    {
         // just center
         c6, d6, e6, f6, 
         c5, d5, e5, f5, 
