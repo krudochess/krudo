@@ -60,14 +60,11 @@ public final class Debug {
 
 	
 	
-	//
+	// 
 	public final static void dump(Move m) 
     {					
 		//
-		String s = desc(m);
-		
-		//
-		print(s);
+		print(desc(m));
 	}
 	
 	//

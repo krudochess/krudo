@@ -120,37 +120,34 @@ public final class Decode {
 	}
 	
 	// move to string
-	public static final String m2s(int s, int v, int k) {
-		String p = "";
-		switch(k) {
-			case Q: p = "q"; break;
-			case R: p = "r"; break;
-			case B: p = "b"; break;
-			case N: p = "n"; break;
-		}			
-		return s2s(s)+s2s(v)+p;
+	public static final String m2s(int s, int v, int k)
+    {
+		// promote symbol
+        String piece = "";
+		
+        //
+        switch (k) 
+        {
+			case wqpm:
+            case bqpm: piece = "q"; break;
+            case wrpm:
+            case brpm: piece = "r"; break;
+            case wbpm: 
+            case bbpm: piece = "b"; break;
+            case wnpm:
+            case bnpm: piece = "n"; break;
+		}		
+        
+        //
+		return s2s(s) + s2s(v) + piece;
 	}
 	
 	// move to string
-	public static final String m2s(int s, int v, int k, int w) {
-		
+	public static final String m2s(int s, int v, int k, int w) 
+    {
 		//
-		String move = s2s(s) + s2s(v);
-		
-		//
-		String p = "";
-		
-		//
-		switch(k) {
-			case Q: p = "q"; break;
-			case R: p = "r"; break;
-			case B: p = "b"; break;
-			case N: p = "n"; break;
-		}
-		
-		//
-		move += p;
-		
+		String move = m2s(s, v, k);
+
 		//
 		if (DEBUG_SHOW_WEIGTH) {
 			move += String.format("(%+d)",w);
