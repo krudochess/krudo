@@ -1,4 +1,4 @@
-package org.krudo.tests;
+package org.krudo.tests.search;
 
 import static org.krudo.util.Debug.*;
 import static org.krudo.Constant.*;
@@ -9,7 +9,7 @@ import org.krudo.Engine;
 import org.krudo.UCI;
 
 //
-public class Search1 {
+public class Search3 {
 
     //
     public static void main(String[] args) {

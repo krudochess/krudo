@@ -6,21 +6,23 @@
 //
 package org.krudo.tests.promotion;
 
-import static org.krudo.util.Tool.*;
-
 //
 import org.krudo.Node;
 import org.krudo.Search;
 
-// 
-public class Promotion1 {
+//
+import static org.krudo.util.Tool.*;
 
+// 
+public class Promotion1 
+{
     //
-    public static void main(String[] args) {
-                
+    public static void main(String[] args) 
+    {              
         // create a node to service the search
         Node n = new Node();
         
+        //
         n.startpos("k7/8/8/8/8/8/p6P/7K b");
         
         // create a serach engine based-on the node
@@ -28,6 +30,5 @@ public class Promotion1 {
             
         //
         s.start(4);
-        
     }    
 }

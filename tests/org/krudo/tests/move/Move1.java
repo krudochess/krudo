@@ -6,19 +6,20 @@
 //
 package org.krudo.tests.move;
 
-//
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tool.*;
-
 // 
 import org.krudo.Node;
 import org.krudo.Move;
+
+//
+import static org.krudo.util.Tool.*;
+import static org.krudo.util.Debug.*;
 
 // 
 public class Move1 {
 
     //
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         
         Move l = null/*Move.pop()*/; 
         
@@ -29,11 +30,12 @@ public class Move1 {
             Move m = null/*Move.pop()*/; 
         }
 
-        echo (System.currentTimeMillis()-t);
+        echo (System.currentTimeMillis() - t);
 
 t = System.currentTimeMillis();
 
-        for(int i=0; i<50000; i++) {
+        for(int i=0; i<50000; i++) 
+        {
             
             Move m = /*Move.pop()*/null; 
         }

@@ -4,7 +4,13 @@
  */
 
 //
-package org.krudo.tests;
+/**
+ * Krudo 0.16a - a chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
+package org.krudo.tests.pseudo;
 
 //
 import org.krudo.*;

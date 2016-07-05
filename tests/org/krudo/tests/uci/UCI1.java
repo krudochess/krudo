@@ -1,4 +1,4 @@
-package org.krudo.tests;
+package org.krudo.tests.uci;
 
 //
 import static org.krudo.util.Debug.*;
