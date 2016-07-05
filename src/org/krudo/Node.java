@@ -190,7 +190,7 @@ public final class Node
         final int s,
         final int v,
         final int k
-    ) {                
+    ) {  
         // get moved piece
         final int p = B[s];
                 
@@ -229,7 +229,7 @@ public final class Node
         i++;   
         
         //
-        Debug.assertPieceCount(this);
+        //Debug.assertPieceCount(this);
     }
     
     // domove and change node internal status
@@ -238,7 +238,7 @@ public final class Node
         final int v,
         final int k
     ) {                
-                                            
+                           
         // fix specific status
         switch (k) 
         {                   
@@ -301,7 +301,8 @@ public final class Node
     
     // undo last move 
     public final void unmove() 
-    {    
+    {   
+     
         // decrease half-move index
         i--;
         
@@ -393,7 +394,9 @@ public final class Node
         
     // generate moves-stack with legal-moves
     public final Move legals() 
-    {            
+    {    
+           
+        
         // move-container get move from move-stack pre-created
         m = Moves.pick();
                         
@@ -483,10 +486,11 @@ public final class Node
         final int p = m.i; 
             
         // loop throut pseudo-legal moves
-        for (int j = 0; j != p; j++) {                        
-                        
+        for (int j = 0; j != p; j++) 
+        {                                
             //
-            if (m.k[j] == cast) if (black_castling(m.v[j])) {
+            if (m.k[j] == cast) if (black_castling(m.v[j])) 
+            {
                  m.copy(j, l); l++; continue;
             }             
                         
@@ -494,7 +498,10 @@ public final class Node
             domove(j);
 
             //
-            if (!white_attack(bks)) { m.copy(j, l); l++; }
+            if (!white_attack(bks)) 
+            {
+                m.copy(j, l); l++; 
+            }
 
             //
             unmove();            
@@ -533,8 +540,10 @@ public final class Node
     }
 
     // populate move-stack with pseudo-legal moves
-    private void white_pseudo() {
-
+    private void white_pseudo()
+    {
+        
+        
         // index count squares
         int si = 0;
         
@@ -542,10 +551,10 @@ public final class Node
         int pi = cw;
         
         // looking for white pieces
-        do {
-                
+        do 
+        {        
             // next observed square
-            final int s = wbm[si++]; 
+            final int s = wbm[si++];          
 
             // get piece in start square
             final int p = B[s];
@@ -560,7 +569,8 @@ public final class Node
             if (PSEUDO_REMAPS) { white_remaps(si, pi, s); }
 
             // switch to specific piece 
-            switch (p) {
+            switch (p) 
+            {
                 // white pawn
                 case wp: pawn(s); break;                                        
                 // white rook
@@ -583,8 +593,8 @@ public final class Node
     }
 
     // populate move-stack with pseudo-legal moves
-    private void black_pseudo() {
-        
+    private void black_pseudo() 
+    {    
         // count squares
         int si = 0;
 
@@ -607,7 +617,8 @@ public final class Node
             if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
             
             // switch by piece
-            switch (p) {
+            switch (p) 
+            {
                 // add black pawn moves
                 case bp: down(s); break;                                             
                 // add sliding piece rook moves
@@ -900,8 +911,8 @@ public final class Node
         final int r = s >> 3;
     
         // is not in promotion rank
-        if (r != 6) {
-                    
+        if (r != 6) 
+        {            
             //
             if (B[v] == O) 
             {
@@ -921,9 +932,14 @@ public final class Node
             v = span[s][ne]; 
             
             //
-            if (v != xx) if ((B[v] & b) == b) {
+            if (v != xx) if ((B[v] & b) == b)
+            {
                 m.add(s, v, move);                
-            } else if (r == 4 && v == e) {
+            }
+            
+            //
+            else if (r == 4 && v == e) 
+            {
                 m.add(s, v, ecap);
             }    
             
@@ -931,18 +947,23 @@ public final class Node
             v = span[s][nw];
             
             // 
-            if (v != xx) if ((B[v] & b) == b) {
+            if (v != xx) if ((B[v] & b) == b) 
+            {
                 m.add(s, v, move);
-            } else if (r == 4 && v == e) {
+            } 
+            
+            //
+            else if (r == 4 && v == e) {
                 m.add(s, v, ecap);            
             }                            
         } 
         
         // yes is in promotion rank
-        else {    
-                        
+        else 
+        {                        
             //
-            if (B[v] == O) {
+            if (B[v] == O)
+            {
                 m.add(s, v, wqpm);
                 m.add(s, v, wrpm);
                 m.add(s, v, wbpm);
@@ -953,7 +974,8 @@ public final class Node
             v = span[s][ne];             
             
             //
-            if (v != xx && (B[v] & b) == b) {
+            if (v != xx && (B[v] & b) == b)
+            {
                 m.add(s, v, wqpm);
                 m.add(s, v, wrpm);
                 m.add(s, v, wbpm);
@@ -964,7 +986,8 @@ public final class Node
             v = span[s][nw];
             
             //
-            if (v != xx && (B[v] & b) == b) {
+            if (v != xx && (B[v] & b) == b) 
+            {
                 m.add(s, v, wqpm);
                 m.add(s, v, wrpm);
                 m.add(s, v, wbpm);

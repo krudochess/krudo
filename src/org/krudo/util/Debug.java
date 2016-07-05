@@ -210,9 +210,9 @@ public final class Debug
 			}
 		}
 
-	
 		//
-		public final static void table(Node n, int d) {				
+		public final static void table(Node n, int d) 
+        {				
 			echo("#     nodes      ms   rx    capt   ec   check");		
 			echo("----------------------------------------------");
 			for(int i=1; i<=d; i++) {
@@ -269,12 +269,17 @@ public final class Debug
         
         //
         Move m = n.legals();
-
+        
         //
         for (int i = 0; i < m.i; i++) 
-        {								
-            n.domove(m, i);				
+        {	
+            //
+            n.domove(m, i);		
+            
+            //
             c += doing(n, d-1);
+            
+            //
             n.unmove();
         } 
 
@@ -353,5 +358,25 @@ public final class Debug
             exit();
         
         }
+    }
+    
+    public static void slower(int weight) {
+    
+       int[] m = new int[weight];
+       
+       for(int j=0;j<weight; j++) {
+       
+
+            for(int i=0;i<weight; i++) {
+
+                m[i] = rand(0, weight);
+            }
+            
+            for(int i=0;i<weight; i++) {
+
+                m[j] = m[i];
+            }
+       }
+    
     }
 }
