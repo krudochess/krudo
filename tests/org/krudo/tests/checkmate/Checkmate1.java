@@ -1,4 +1,4 @@
-package org.krudo.tests;
+package org.krudo.tests.checkmate;
 
 import static org.krudo.util.Debug.*;
 import static org.krudo.Constant.*;

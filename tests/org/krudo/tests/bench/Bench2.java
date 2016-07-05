@@ -1,4 +1,4 @@
-package org.krudo.tests;
+package org.krudo.tests.bench;
 
 //
 import static org.krudo.util.Debug.*;
@@ -10,7 +10,7 @@ import static org.krudo.util.Decode.*;
 import org.krudo.*;
 
 //
-public class Bench1 {
+public class Bench2 {
 
     //
     public static void main(String[] args) {

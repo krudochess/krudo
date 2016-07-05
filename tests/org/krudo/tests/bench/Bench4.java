@@ -4,7 +4,7 @@
  */
 
 //
-package org.krudo.tests;
+package org.krudo.tests.bench;
 
 import static org.krudo.util.Debug.*;
 import static org.krudo.Constant.*;
@@ -14,7 +14,7 @@ import org.krudo.Engine;
 import static org.krudo.util.Tool.*;
 
 //
-public class Miracle1 {
+public class Bench4 {
 
     //
     public static void main(String[] args) {
