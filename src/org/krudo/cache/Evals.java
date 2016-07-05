@@ -1,35 +1,43 @@
-package org.krudo.cache;
+/**
+ * Krudo 0.16a - a chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
+ */
 
 //
-import static org.krudo.Constant.*;
+package org.krudo.cache;
 
 //
 import java.util.LinkedHashMap;
 
 //
-public class Evals extends LinkedHashMap<Long,Integer> {
-    // 
-    public Evals() {        
+import static org.krudo.Constant.*;
 
+//
+public class Evals extends LinkedHashMap<Long,Integer> 
+{
+    // 
+    public Evals() 
+    {        
         //
         super(EVAL_CACHE_SIZE, 0.95f, true);    
     }
 
     //
-    public final void add(long h, int w) {            
-
+    public final void add(long h, int w) 
+    {    
+/*        
         //
-        if (EVAL_CACHE) { 
-            
+        if (EVAL_CACHE) 
+        { 
             //
             put(h, w);                
-        }        
+        }     */   
     }
     
     //
-    public final boolean has(long h) {
-        
-        //
+    public final boolean has(long h) 
+    {
+       /* //
         if (EVAL_CACHE) {
             return containsKey(h);
         } 
@@ -37,6 +45,7 @@ public class Evals extends LinkedHashMap<Long,Integer> {
         //
         else {
             return false;
-        }
+        }*/
+        return false;
     }
 }

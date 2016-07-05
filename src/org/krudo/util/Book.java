@@ -142,7 +142,7 @@ public final class Book
 			// if found position hash put move into stack
 			if (key == lookup) 
             {				
-				m.add(move(), weight());
+				//m.add(move(), weight());
 			}
 		}
 				

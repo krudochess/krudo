@@ -17,13 +17,13 @@ import static org.krudo.util.Zobrist.hash;
 public final class Search {    
 
     // node-centric search
-    private final Node n; 
+    private final Node n = null; 
     
     // best moves of a positions after idrun call
-    private final Move find;    // founded moves after abrun
+    private final Move find = null;    // founded moves after abrun
     
     // candidate move after idrun
-    private final Move move;    
+    private final Move move = null;    
     
     // collect principal variation
     public Move[] pv;
@@ -41,8 +41,8 @@ public final class Search {
     
     // iterative deeping time values
     public long time;
-    public long    timeStart;
-    public long    timeLimit;
+    public long timeStart;
+    public long timeLimit;
         
     // count nodes for ab search
     public int ns;
@@ -56,7 +56,7 @@ public final class Search {
     public int logNodes;    // log weight of move founded
     public int logDeep;        // log weight of move founded
     public long logTime;    // log weight of move founded
-    public long    logNPS;        // log node per seconds        
+    public long logNPS;        // log node per seconds        
     public String logMove;    // log move observed
     public String logLine;    // log variation observed 
     public boolean logEnabled; // log node per seconds        
@@ -67,8 +67,9 @@ public final class Search {
     //private Table t = Cache.table;
     
     // constructor with node-centric search
-    public Search(Node node) {
-        
+    public Search(Node node) 
+    {   
+        /*
         // fill internal node use in node-centric search
         n = node;
         
@@ -79,7 +80,7 @@ public final class Search {
         //move = new Move();
         
         //
-        logEnabled = true;
+        logEnabled = true;*/
     }
         
     // launch alfabeta search to evaluate a position
@@ -166,7 +167,7 @@ public final class Search {
         deep = deepStart;
         
         // empity moves stack
-        move.empty();
+        //move.empty();
             
         // iterative deeping alpha start value
         int alfa = -oo;
@@ -178,19 +179,19 @@ public final class Search {
         while (deep <= deepLimit && stop == not) {            
                         
             // empty founded moves
-            find.empty();
+            //find.empty();
 
             // launch alfa-beta for searcing candidates 
             eval = abrun(deep, alfa, beta);        
                         
             // if found moves and search not are stopped put into candidates
-            if (find.l > 0 && stop == not) {
+            if (find.i > 0 && stop == not) {
                 
                 // log best move is the firt of founded 
                 log(SEARCH_LOG_PV, pv, 1, deep, eval);        
                                 
                 //
-                move.set(find); 
+                //move.set(find); 
             }
             
             // increade depth of search
@@ -238,9 +239,9 @@ public final class Search {
             
             // soft alfa-cut-off 
             if (s > a) {
-                pv[d].set(n.L, zero);
+                //pv[d].set(n.L, zero);
                 log(SEARCH_LOG_UP,pv,1,d,s);
-                find.put(m,j,s);         
+                //find.put(m,j,s);         
                 //m.w[i] = s;
                 a = s;                
             }            
@@ -263,28 +264,28 @@ public final class Search {
         int w;
         
         // prepare traspoisiont table for current hash
-        t.begin(hash(n));
+        //t.begin(hash(n));
         
         // trasposition table probe
-        if (t.probe(d, a, b)) { return t.value(); }
+       // if (t.probe(d, a, b)) { return t.value(); }
         
         // return quiescence value-search, increase node count and store trasposition table value
-        if (d == 0) { ns++; w = qmax(a, b); t.store(d, w, t.EXACT); return w; }
+       //if (d == 0) { ns++; w = qmax(a, b); t.store(d, w, t.EXACT); return w; }
                             
         // get legal-moves and sort 
         Move m = n.legals().sort();
         
         // no legal moves check-mate or stale-mate
-        if (m.l == 0) { return -mate; }
+        //if (m.l == 0) { return -mate; }
             
         //
-        m.loop();
+        //m.loop();
                 
         //
         int p = 0;
         
         //
-        for (int i=0; i<m.l; i++) {
+        for (int i=0; i<m.i; i++) {
             
             // 
             n.domove(m,i);
@@ -298,14 +299,14 @@ public final class Search {
             }
             
             // hard cut-off
-            if (w >= b) { n.unmove(); m.stop(); t.store(d, a, t.BETA); return b; }
+           // if (w >= b) { n.unmove(); m.stop(); t.store(d, a, t.BETA); return b; }
         
             //
             if (w > a) {                         
         
-                t.exact();
+              //  t.exact();
                 
-                pv[d].set(n.L, zero);
+             //   pv[d].set(n.L, zero);
                 
                 a = w;
                 
@@ -319,10 +320,10 @@ public final class Search {
         }
         
         //
-        m.stop();
+        //m.stop();
         
         //
-        t.store(d, a);
+      // t.store(d, a);
         
         //
         return a;        
@@ -374,12 +375,12 @@ public final class Search {
             }
                                         
             // hard cut-off
-            if (w <= a || stop == yes) { n.unmove(); m.stop(); return a; }
+            //if (w <= a || stop == yes) { n.unmove(); m.stop(); return a; }
                                                 
             //
             if (w < b) {                 
-                pv[d].set(n.L, zero);
-                b = w;         
+              //  pv[d].set(n.L, zero);
+             //   b = w;         
                 p++;
             }                    
         
@@ -417,15 +418,17 @@ public final class Search {
         Move m = n.legals().sort();
                 
         // checkmate exit from 
+        /*
         if (m.l == 0) {
             return -mate; 
         }
+        */
         
         //
-        m.loop();
+        //m.loop();
         
         //
-        for (int i=0; i<m.l; i++) if (mask(m.k[i],capt)) { 
+        for (int i=0; i<m.i; i++) if (mask(m.k[i],0/*capt*/)) { 
             
             //
             n.domove(m,i);
@@ -440,7 +443,7 @@ public final class Search {
             if (w >= b) { 
                 
                 //
-                m.stop();
+                //m.stop();
         
                 //
                 return b; 
@@ -453,7 +456,7 @@ public final class Search {
         }
                 
         //
-        m.stop();
+       // m.stop();
         
         //
         return a;
@@ -482,12 +485,12 @@ public final class Search {
         Move m = n.legals().sort();
 
         // exit checkmate or stalemate
-        if (m.l == 0) { 
+        if (m.i == 0) { 
             return +mate; 
         }
                         
         // loop throut capturers
-        for (int i=0; i<m.l; i++) if ((m.k[i]&quie)==quie) { 
+        for (int i=0; i<m.i; i++) if ((m.k[i]&0/*quie*/)==0/*quie*/) { 
             
             // make move 
             n.domove(m, i);
@@ -499,7 +502,7 @@ public final class Search {
             n.unmove();
 
             // hard cut-off
-            if (w <= a) { m.stop(); return a; }        
+           // if (w <= a) { m.stop(); return a; }        
                 
             // soft cut-off
             if (w < b) { b = w; }
