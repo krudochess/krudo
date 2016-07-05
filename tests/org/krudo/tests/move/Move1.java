@@ -1,4 +1,4 @@
-package org.krudo.tests.base;
+package org.krudo.tests.move;
 
 //
 import static org.krudo.util.Debug.*;

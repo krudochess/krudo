@@ -42,7 +42,7 @@ public class Perft1
         try
         {
             /*_*/
-            for (int i=1; i<=5; i++) 
+            for (int i = 1; i <= 5; i++) 
             {
                 print(perft(n, i)) ;
             }

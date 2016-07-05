@@ -16,15 +16,15 @@ import static org.krudo.util.Decode.*;
 import org.krudo.*;
 
 //
-public class Legals1 {
-
+public class Legals1 
+{
     //
-    public static void main(String[] args) {
-        
+    public static void main(String[] args)
+    {    
         //
-        if (!MOVE_LEGALS) {
-            exit("set MOVE_LEGALS = true and retry");
-        }
+        //if (!MOVE_LEGALS) {
+          //  exit("set MOVE_LEGALS = true and retry");
+        //}
         
         //
         Node n = new Node();

@@ -1,3 +1,9 @@
+/**
+ * Krudo 0.16a - a chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
 package org.krudo.tests.base;
 
 //
@@ -8,13 +14,13 @@ import static org.krudo.util.Tool.*;
 import org.krudo.Console;
 
 // 
-public class Console1 {
-
+public class Console1 
+{
     //
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) 
+    {     
         //
-        Console c = Console.getInstance();
+        Console c = new Console();
 
         c.print("start");
             
@@ -35,6 +41,6 @@ public class Console1 {
         c.close();    
     
         echo ("----");    
-        echo (c.log());
+        //echo (c.log());
     }    
 }

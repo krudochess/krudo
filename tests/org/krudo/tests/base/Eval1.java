@@ -11,11 +11,11 @@ import org.krudo.Eval;
 import org.krudo.Node;
 
 // 
-public class Eval1 {
-
+public class Eval1    
+{
     //
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) 
+    {    
         echo(a1);
         
         //
@@ -27,7 +27,9 @@ public class Eval1 {
         
     
         // 
-        Node n = new Node(p);
+        Node n = new Node();
+        
+        n.startpos(p);
         
         //n.domove("e2e4");
         //n.domove("a7a6");

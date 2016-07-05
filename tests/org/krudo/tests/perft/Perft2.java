@@ -23,7 +23,9 @@ public class Perft2 {
         \*/
                 
         //Node n = new Node("r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq -");
-        Node n = new Node("3k4/8/8/8/8/8/8/4K3 w KQkq -");
+        Node n = new Node();
+        
+        n.startpos("3k4/8/8/8/8/8/8/4K3 w KQkq -");
                 
         try {
             /*_*/

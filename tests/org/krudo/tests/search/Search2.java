@@ -1,4 +1,4 @@
-package org.krudo.tests.base;
+package org.krudo.tests.search;
 
 import static org.krudo.util.Tool.*;
 
