@@ -18,11 +18,15 @@ public class Bench4 {
 
     //
     public static void main(String[] args) {
-
-                
-        echo (bin(wk << 6 & 960));
-        echo (bin(wk << 6 ));
-        echo (bin(bk << 6 ));
+//
+        long t = time();
+        
+slower(100);        
+        
+        
+        //
+        print(time() - t, "ms");
+        
     }
     
 }
