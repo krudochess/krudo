@@ -27,8 +27,8 @@ import static org.krudo.util.Describe.*;
 import static org.krudo.util.Zobrist.hash;
 
 //
-public final class Debug {
-
+public final class Debug 
+{
 	//
 	public static boolean DEBUG_SHOW_WEIGTH = false;
 	
@@ -36,13 +36,14 @@ public final class Debug {
 	public static boolean DEBUG_SHOW_ALGEBRIC = false;
 	
 	//
-	public final static void dump(int d, Move m) {		
-	
+	public final static void dump(int d, Move m)
+    {		
 		//
 		String l = d + " " + m.i + " ";
 		
 		//
-		for (int i = 0; i < m.i; i++) {
+		for (int i = 0; i < m.i; i++)
+        {
 			l += " "+ m2s(m.s[i], m.v[i], m.k[i]);
 		}	
 		
@@ -53,13 +54,10 @@ public final class Debug {
 	//
 	public final static void dump(Line l) 
     {		
-		String desc = desc(l);
-        
-        print(desc);
+        //        
+        print(desc(l));
 	}
 
-	
-	
 	// 
 	public final static void dump(Move m) 
     {					
@@ -69,8 +67,10 @@ public final class Debug {
 	
 	//
 	public final static void dump(Move[] pv) 
-    {				
-		for (int j=0; j<pv.length; j++) {
+    {		
+        //
+		for (int j=0; j<pv.length; j++) 
+        {
 			Move m = pv[j];
 			String d = "";
 			String s = "";
@@ -83,41 +83,17 @@ public final class Debug {
 	}
 	
 	//
-	public final static void dump(Move m, int i) {		
-		echo(m2s(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")");		
+	public final static void dump(Move m, int i) 
+    {		
+        //
+        echo(m2s(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")");		
 	}
 
 	//
 	public final static void dump(Node n) 
     {
-        String desc = desc(n);
-        
-        print(desc);
-		/*
-        for(int r=0;r<8;r++) {
-			for(int c=0;c<8;c++) {
-				System.out.print(p2s(n.B[(7-r)*8+c])+" ");
-			}
-			System.out.print(r==0 && n.t==b || r==7 && n.t==w ? "<" : " ");
-			
-			/*
-			switch(r) {
-				case 0: keys("e:",i2s(n.e),"c:",Integer.toBinaryString(n.c)); break;
-				case 1: keys("cw:",n.cw,"cb:",n.cb); break;
-				case 2: keys("wks:",i2s(n.wks),"bks:",i2s(n.bks)); break;
-				case 3: keys("wrs:",i2s(n.wks),"brs:",i2s(n.bks)); break;
-				case 4: keys("ph:",n.cw,"ew:",n.wks); break;
-				case 5: keys("wpw:",n.wks,"bpw:",n.wks); break;
-				case 6: keys("hm:",n.hm,"n:",n.n); break;
-				case 7: keys("h:",Long.toHexString(hash(n))); break;					
-			}
-			*/
-			/*
-			System.out.print("\n");
-		}		
-		
-		//
-		System.out.print("\n");*/
+        //
+        print(desc(n));
 	}
 	
 	//
@@ -168,8 +144,8 @@ public final class Debug {
 	}
 	
 	//
-	public final static void tune(Node n) {
-		
+	public final static void tune(Node n) 
+    {	
 		dump(n);
 		echo("-------------");
 		Move m = n.legals();
@@ -180,11 +156,11 @@ public final class Debug {
 				pad(m.w[l],5)
 			);
 		}
-		
 	}
 	
-	public static final class Perft {
-	
+    //
+	public static final class Perft 
+    {
 		//
 		public int n; // nodes
 		public int e; // en-passant captures	
@@ -256,17 +232,30 @@ public final class Debug {
 		}
 
 	}
-
-
-	
+    
 	//
-	public final static String perft(Node n, int d) {
+	public final static String perft(Node n, int d) 
+    {
+        //
 		long s = System.currentTimeMillis();
-		long c = doing(n,d);
-		long e = System.currentTimeMillis();
-		long m = (e - s);
-		long r = m>0 ? c/m : 0;
-		return "perft("+d+"): "+rpad(c,10)+rpad(String.valueOf(m)+" ms",12)+rpad(r+" kNPS",12);
+		
+        //
+        long c = doing(n,d);
+		
+        //
+        long e = System.currentTimeMillis();
+		
+        //
+        long m = (e - s);
+		
+        //
+        long r = m > 0 ? c / m : 0;
+		
+        //
+        return "perft("+d+"): "
+             + rpad(c,10)
+             + rpad(String.valueOf(m)+" ms",12)
+             + rpad(r+" kNPS",12);
 	}
 	
 	//
@@ -296,8 +285,9 @@ public final class Debug {
         return c;
 	}
 	
-	public final static String[][] EPDReader(String f) {
-		
+    //
+	public final static String[][] EPDReader(String f) 
+    {
 		try {
 			File file = new File(f);
 			FileInputStream fis = new FileInputStream(file);
@@ -335,24 +325,25 @@ public final class Debug {
 		return null;
 	}
 	
-    public static void assertPieceCount(Node n) {
-    
+    //
+    public static void assertPieceCount(Node n) 
+    {
         int cw = 0;
         int cb = 0;
         
-        for (int s=0; s<64; s++) {
-        
-            if ((n.B[s] & w) == w) {
+        for (int s=0; s<64; s++)
+        {    
+            //
+            if ((n.B[s] & w) == w) 
+            {
                 cw++;
             }
-            
-             if ((n.B[s] & b) == b) {
+
+            //
+            if ((n.B[s] & b) == b) 
+            {
                 cb++;
             }
-            
-        
-        
-        
         }
         
         if (n.cw != cw || n.cb != cb) {
@@ -362,9 +353,5 @@ public final class Debug {
             exit();
         
         }
-    
-    
-    
     }
-    
 }
