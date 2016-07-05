@@ -542,8 +542,6 @@ public final class Node
     // populate move-stack with pseudo-legal moves
     private void white_pseudo()
     {
-        
-        
         // index count squares
         int si = 0;
         
@@ -647,6 +645,85 @@ public final class Node
     private boolean white_attack(
         final int a
     ) {                        
+        // attacked from white pawn
+        int v = span[a][se];
+                        
+        //
+        if (v != xx && B[v] == wp) { return true; }
+        
+        //
+        v = span[a][sw];
+        
+        //
+        if (v != xx && B[v] == wp) { return true; }
+        
+        // attacked from queen or bishop
+        for (int j = 4; j < 8; j++) 
+        {        
+            // versus square
+            v = span[a][j];
+        
+            //
+            while (v != xx) 
+            {             
+                switch (B[v]) 
+                {
+                    case O: continue;
+                    case wb:
+                    case wq: return true;
+                    default: v = span[v][j];
+                }                
+            }
+        }
+
+        // attacked from queen or rook
+        for (int j = 0; j < 4; j++) 
+        {        
+            // versus square
+            v = span[a][j];
+        
+            //
+            while (v != xx) 
+            {             
+                switch (B[v]) 
+                {
+                    case O: continue;
+                    case wr:
+                    case wq: return true;
+                    default: v = span[v][j];
+                }                
+            }
+        }
+                
+        //
+        for (int j = 7; j != -1; j--) 
+        {            
+            // get versus square
+            v = span[a][j];            
+            
+            // skip found out-of-board
+            if (v == xx) { continue; }
+            
+            // add move to stack if found empty square
+            if (B[v] == wk) { return true; } 
+        }
+        
+        //
+        for (int j = 7; j != -1; j--) 
+        {            
+            // get versus square
+            v = hope[a][j];            
+            
+            // skip found out-of-board
+            if (v == xx) { continue; }
+            
+            // add move to stack if found empty square
+            if (B[v] == wn) { return true; } 
+        }
+        
+        //
+        return false;
+        /*
         // cuont squares
         int si = 0;
         
@@ -693,11 +770,92 @@ public final class Node
         
         //
         return false;
+        */
     }
 
     // return true if black-side-player can attack square "a"
     private boolean black_attack(int a) 
     {    
+        // attacked from white pawn
+        int v = span[a][ne];
+                        
+        //
+        if (v != xx && B[v] == bp) { return true; }
+        
+        //
+        v = span[a][nw];
+        
+        //
+        if (v != xx && B[v] == bp) { return true; }
+        
+        // attacked from queen or bishop
+        for (int j = 4; j < 8; j++) 
+        {        
+            // versus square
+            v = span[a][j];
+        
+            //
+            while (v != xx) 
+            {             
+                switch (B[v]) 
+                {
+                    case O: continue;
+                    case bb:
+                    case bq: return true;
+                    default: v = span[v][j];
+                }                
+            }
+        }
+
+        // attacked from queen or rook
+        for (int j = 0; j < 4; j++) 
+        {        
+            // versus square
+            v = span[a][j];
+        
+            //
+            while (v != xx) 
+            {             
+                switch (B[v]) 
+                {
+                    case O: continue;
+                    case br:
+                    case bq: return true;
+                    default: v = span[v][j];
+                }                
+            }
+        }
+                
+        //
+        for (int j = 7; j != -1; j--) 
+        {            
+            // get versus square
+            v = span[a][j];            
+            
+            // skip found out-of-board
+            if (v == xx) { continue; }
+            
+            // add move to stack if found empty square
+            if (B[v] == bk) { return true; } 
+        }
+        
+        //
+        for (int j = 7; j != -1; j--) 
+        {            
+            // get versus square
+            v = hope[a][j];            
+            
+            // skip found out-of-board
+            if (v == xx) { continue; }
+            
+            // add move to stack if found empty square
+            if (B[v] == bn) { return true; } 
+        }
+        
+        
+        
+        return false;
+        /*
         // cuont squares
         int si = 0;
         
@@ -747,6 +905,7 @@ public final class Node
         
         //
         return false;
+        */
     }
     
     //
@@ -788,8 +947,8 @@ public final class Node
         final int x2    // k-value for normal move
     ) {                        
         // loop throut directions
-        for (int j = x0; j < x1; j++) {
-        
+        for (int j = x0; j < x1; j++) 
+        {        
             // versus square
             int v = span[s][j];
             
@@ -797,7 +956,7 @@ public final class Node
             while (v != xx) {
                 
                 // 
-                if (B[v] == 0) { m.add(s, v, x2); } 
+                if (B[v] == O) { m.add(s, v, x2); } 
                 
                 //
                 else if ((B[v] & T) != t) { m.add(s, v, x2); break; } 
