@@ -13,11 +13,11 @@ import org.krudo.Node;
 import static org.krudo.util.Debug.*;
 
 //
-public class Domove1 {
-
+public class Node1 
+{
     //
-    public static void main(String[] args) {
-
+    public static void main(String[] args) 
+    {
         //
         Node n = new Node();
         

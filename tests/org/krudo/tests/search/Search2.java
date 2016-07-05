@@ -24,6 +24,6 @@ public class Search2 {
         echo(s.eval(7), s.ns, time()-s.timeStart);        
         
         //
-        echo(Move.b.size(),Cache.legals.size());
+       // echo(Move.b.size(),Cache.legals.size());
     }    
 }

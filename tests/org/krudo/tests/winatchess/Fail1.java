@@ -15,6 +15,7 @@ public class Fail1 {
     //
     public static void main(String[] args) {
         
+        /*
         String[][] epd = EPDReader("./demo/org/krudo/test/winatchess/WinAtChess.epd");
         
         Node n = new Node();
@@ -50,5 +51,6 @@ public class Fail1 {
             
             echo(row[0], row[2],"==",bm);                        
         }        
+*/
     }    
 }

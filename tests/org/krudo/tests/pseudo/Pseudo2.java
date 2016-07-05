@@ -4,7 +4,7 @@
  */
 
 //
-package org.krudo.tests.node;
+package org.krudo.tests.pseudo;
 
 //
 import static org.krudo.Config.MOVE_LEGALS;
@@ -15,11 +15,11 @@ import static org.krudo.util.Tool.*;
 import static org.krudo.util.Debug.*;
 
 //
-public class Pseudo1 {
-
+public class Pseudo2 
+{
     //
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         //
         if (MOVE_LEGALS) {
             exit("set int Config class MOVE_LEGALS = false and retry");
@@ -32,9 +32,9 @@ public class Pseudo1 {
         n.startpos();
         
         //
-        dump(n, n.legals());
+        dump(n);
         
         //
-        print();
+        dump(n.legals());
     }    
 }

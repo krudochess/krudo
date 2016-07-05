@@ -28,7 +28,7 @@ public class Sort1 {
         dump(n);
         
         //
-        desc(n, n.legals().sort());
+       // desc(n, n.legals().sort());
         
         
     }    

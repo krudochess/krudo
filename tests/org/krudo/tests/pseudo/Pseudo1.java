@@ -4,12 +4,6 @@
  */
 
 //
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
-
-//
 package org.krudo.tests.pseudo;
 
 //
@@ -23,11 +17,11 @@ import static org.krudo.util.Tool.*;
 import static org.krudo.util.Decode.*;
 
 //
-public class Pseudo1 {
-
+public class Pseudo1 
+{
     //
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) 
+    {    
         //
         if (MOVE_LEGALS) {
             exit("set MOVE_LEGALS = false and retry");
@@ -40,9 +34,9 @@ public class Pseudo1 {
         n.startpos();
         
         //
-        print(n);
+        dump(n);
         
         //
-        print(n.legals());
+        dump(n.legals());
     }
 }
