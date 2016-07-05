@@ -404,7 +404,7 @@ public final class Node
         if (t == w) { white_legals(); } else { black_legals(); }    
         
         // evaluate every move in stack
-        if (EVAL_LEGALS) { Eval.move(m, this); }
+        //if (EVAL_LEGALS) { Eval.move(m, this); }
         
         // retur move-stack reference
         return m;
@@ -437,10 +437,10 @@ public final class Node
     {        
         // generate white pseudo-moves
         white_pseudo();         
-
+        
         // skip legals test for moves 
         if (!MOVE_LEGALS) { return; }
-        
+         
         // legal move index
         int l = 0;
         
@@ -453,7 +453,7 @@ public final class Node
             //
             if (m.k[j] == cast) if (white_castling(m.v[j])) 
             {
-                 m.copy(j, l); l++; continue;
+                m.copy(j, l); l++; continue;
             }             
                                             
             //
@@ -1145,8 +1145,8 @@ public final class Node
     } 
     
     // look there are condition for white king-side castling
-    private boolean wksc() {
-        
+    private boolean wksc() 
+    {    
         //
         return 0 == (c & wkc)
             && B[h1] == wr 
