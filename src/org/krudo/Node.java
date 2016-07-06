@@ -643,26 +643,25 @@ public final class Node
 
     // return true if side-player can attack square "a"
     public boolean white_attack(
-        final int a
-    ) {                        
+        final int s
+    ) {    
         // attacked from white pawn
-        int v = span[a][se];
+        int v = span[s][se];
                         
         //
         if (v != xx && B[v] == wp) { return true; }
         
         //
-        v = span[a][sw];
+        v = span[s][sw];
         
         //
         if (v != xx && B[v] == wp) { return true; }
-        
-        
+              
         // attacked from queen or bishop
         for (int j = 4; j < 8; j++) 
         {        
             // versus square
-            v = span[a][j];
+            v = span[s][j];
         
             //
             while (v != xx) 
@@ -681,13 +680,12 @@ public final class Node
                 break;
             }
         }
-   
-       
+         
         // attacked from queen or rook
         for (int j = 0; j < 4; j++) 
         {        
             // versus square
-            v = span[a][j];
+            v = span[s][j];
         
             //
             while (v != xx) 
@@ -703,13 +701,12 @@ public final class Node
                 break;
             }
         }
-                   
-        
+                          
         //
         for (int j = 0; j < 8; j++) 
         {            
             // get versus square
-            v = span[a][j];            
+            v = span[s][j];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -717,14 +714,12 @@ public final class Node
             // add move to stack if found empty square
             if (B[v] == wk) { return true; } 
         }
-        
-           
-       
+    
         //
         for (int j = 0; j < 8; j++) 
         {            
             // get versus square
-            v = hope[a][j];            
+            v = hope[s][j];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -733,64 +728,13 @@ public final class Node
             if (B[v] == wn) { return true; } 
         }
         
-        
-           
-        
         //
         return false;
-        /*
-        // cuont squares
-        int si = 0;
-        
-        // count pieces
-        int pi = cw;
-                
-        // it is white turn loop throut white piece
-        do 
-        {    
-            // get next start square
-            int s = wbm[si++];
-            
-            // get piece in start square
-            int p = B[s];
-            
-            // if is white piece
-            if ((p & w) != w) { continue; }    
-            
-            // 
-            switch (p) 
-            {
-                //
-                case wp: if (pawn(s, a)) { return true; } break;                                                            
-                //
-                case wr: if (orto(s, a) && spak(s, a, 0, 4)) { return true; } break;                                                                
-                //
-                case wn: if (hipe(s, a)) { return true; } break;                        
-                //
-                case wb: if (diag(s, a) && spak(s, a, 4, 8)) { return true; } break;                        
-                //
-                case wq: if (star(s, a) && spak(s, a, 0, 8)) { return true; } break;
-                //
-                case wk: if (near(s, a) && spon(s, a)) { return true; } break;    
-                //
-                default: exit("default: white_attack()");    
-            }    
-
-            // decrease founded piece counter
-            pi--;                                    
-        } 
-        
-        //
-        while (pi != 0);
-        
-        //
-        return false;
-        */
     }
 
     // return true if black-side-player can attack square "a"
     public boolean black_attack(int a) 
-    {    
+    {       
         // attacked from white pawn
         int v = span[a][ne];
                         
@@ -816,8 +760,7 @@ public final class Node
                 {
                     case O: v = span[v][j]; continue;
                     case bb:
-                    case bq: return true;
-                    
+                    case bq: return true;                    
                 }            
                 
                 break;
@@ -870,61 +813,9 @@ public final class Node
             // add move to stack if found empty square
             if (B[v] == bn) { return true; } 
         }
-        
-        
-        
-        return false;
-        /*
-        // cuont squares
-        int si = 0;
-        
-        // count black pieces
-        int pi = cb;
-        
-        // board squares loop to find black pieces
-        do 
-        {            
-            //
-            final int s = bbm[si++]; 
-            
-            //
-            final int p = B[s];
                 
-            // piece not is black            
-            if ((p & b) != b) { continue; }
-           
-            //
-            pi--;
-            
-            //
-            //if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
-            
-            //
-            switch (p) 
-            {                
-                // handle black pawn attack
-                case bp: if (down(s, a)) { return true; } break;                                                                 
-                //
-                case br: if (orto(s, a) && spak(s, a, 0, 4)) { return true; } break;                    
-                // handle black knight attack
-                case bn: if (hipe(s, a)) { return true; } break;                                
-                // 
-                case bb: if (diag(s, a) && spak(s, a, 4, 8)) { return true; } break;
-                //
-                case bq: if (star(s, a) && spak(s, a, 0, 8)) { return true; } break;
-                //
-                case bk: if (near(s, a) && spon(s, a)) { return true; } break;
-                //
-                default: exit("default: black_attack()");    
-            }            
-        }
-        
-        //
-        while (pi != 0);
-        
         //
         return false;
-        */
     }
     
     //
@@ -934,8 +825,8 @@ public final class Node
         final int s
     ) {                            
         //
-        if (si >> 4 != 0) {
-            
+        if (si >> 4 != 0)
+        {   
             //
             wbm[si] = wbm[pi];
 
@@ -949,8 +840,7 @@ public final class Node
         final int si, 
         final int pi,
         final int s
-    ) {        
-        
+    ) {               
         //
         bbm[si] = bbm[pi];
 
@@ -959,7 +849,7 @@ public final class Node
     }
         
     // handle queen/bishop/rook moves
-    private void span (
+    private void span(
         final int s,
         final int x0,    // start direction
         final int x1,    // final direction
@@ -972,8 +862,8 @@ public final class Node
             int v = span[s][j];
             
             // while not found out-of-board
-            while (v != xx) {
-                
+            while (v != xx)
+            {    
                 // 
                 if (B[v] == O) { m.add(s, v, x2); } 
                 
@@ -987,37 +877,6 @@ public final class Node
                 v = span[v][j];
             }
         }
-    }
-
-    // handle queen/bishop/rook moves attack-test
-    private boolean spak (        
-        final int s,    // start square
-        final int a,    // aimed target square        
-        final int x1,    // direction start window 
-        final int x2    // direction end window      
-    ) {                    
-        //
-        for (int j = x1; j != x2; j++) {
-        
-            //
-            int v = span[s][j];
-            
-            // 
-            while (v != xx) {
-                
-                // 
-                if (B[v] == O) { v = span[v][j]; }
-                
-                //
-                else if (v == a) { return true; }
-                
-                //
-                else { break; }
-            }
-        }
-        
-        //
-        return false;
     }
 
     // handle knight normal move
@@ -1043,41 +902,7 @@ public final class Node
             else if ((x & T) != t) { m.add(s, v, move); }
         }
     }
-    
-    // 
-    private static boolean hope(        
-        final int a,    //            
-        final int s        //
-    ) {                    
-        // 
-        for (int j = 0; j < 8; j++) 
-        {    
-            //
-            if (hope[s][j] == a) { 
-                return true;
-            }
-        }
-        
-        //
-        return false;        
-    }
-    
-    // 
-    private static boolean spon(        
-        final int s, //        
-        final int a  //            
-    ) {            
-        // 
-        for (int j = 7; j == 0; j--)
-        {    
-            //
-            if (span[s][j] == a) { return true; }            
-        }
-        
-        //
-        return false;        
-    }
-    
+      
     // white pawn moves
     private void pawn(
         final int s
@@ -1233,7 +1058,8 @@ public final class Node
         else {
                         
             // if square is empty add 4 promotion moves
-            if (B[v] == 0) {
+            if (B[v] == 0) 
+            {
                 m.add(s, v, bqpm);
                 m.add(s, v, brpm);
                 m.add(s, v, bbpm);
@@ -1244,7 +1070,8 @@ public final class Node
             v = span[s][se];             
             
             //
-            if (v != xx && (B[v] & w) == w) {
+            if (v != xx && (B[v] & w) == w)
+            {
                 m.add(s, v, bqpm);
                 m.add(s, v, brpm);
                 m.add(s, v, bbpm);
@@ -1255,7 +1082,8 @@ public final class Node
             v = span[s][sw];
             
             //
-            if (v != xx && (B[v] & w) == w) {
+            if (v != xx && (B[v] & w) == w) 
+            {
                 m.add(s, v, bqpm);
                 m.add(s, v, brpm);
                 m.add(s, v, bbpm);
@@ -1263,25 +1091,7 @@ public final class Node
             }                                        
         }    
     }
-    
-    // return true if white pawn in "s" can capture in "a"
-    private static boolean pawn(
-        final int s, // start square        
-        final int a     // aimed attack square                
-    ) {                
-        //
-        return span[s][ne] != a ? span[s][nw] == a : true;
-    }
-
-    // return true if black pawn in "s" can capture in "a"
-    private static boolean down(
-        final int s, // start square        
-        final int a     // aimed attack square                    
-    ) {                
-        //
-        return span[s][sw] != a ? span[s][se] == a : true;
-    }
-
+   
     // handle white king pseudo-moves
     private void king(
         final int s    // start square
@@ -1290,8 +1100,8 @@ public final class Node
         int j = 8;
         
         //
-        while (j != 0) {
-            
+        while (j != 0) 
+        {    
             //
             j--;
             
@@ -1308,7 +1118,7 @@ public final class Node
             if (x == 0) { m.add(s, v, kmov); } 
             
             // add if captured is black piece            
-            else if ((x & b) == b) { m.add(s, v, kmov);    }
+            else if ((x & b) == b) { m.add(s, v, kmov); }
         }        
         
         // king-side white castling
@@ -1333,8 +1143,8 @@ public final class Node
     }
     
     // look there are condition for white queen-side castling
-    private boolean wqsc() {
-        
+    private boolean wqsc() 
+    {       
         //
         return 0 == (c & wqc) 
             && B[a1] == wr 
@@ -1402,49 +1212,9 @@ public final class Node
             && B[b8] == O;
     }
         
-    //
-    private static boolean diag(
-        final int a, 
-        final int s
-    ) {
-        //
-        return (diag & lookup[a][s]) == 0;
-    } 
-
-    //
-    private static boolean orto(
-        final int a, 
-        final int s
-    ) {
-        //
-        return (orto & lookup[a][s]) == 0;    
-    } 
     
-    //
-    private static boolean star(
-        final int a, 
-        final int s
-    ) {        
-        //
-        return (diag & lookup[a][s]) == 0 
-            || (orto & lookup[a][s]) == 0;
-    }
 
-    //
-    private static boolean near(
-        final int a,
-        final int s
-    ) {            
-        //
-        return (near & lookup[a][s]) == 0;
-    }
     
-    //
-    private static boolean hipe(
-        final int a, 
-        final int s
-    ) {            
-        //
-        return (hipe & lookup[a][s]) == 0;
-    }
+    
+    
 }
