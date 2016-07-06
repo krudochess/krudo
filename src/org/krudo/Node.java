@@ -642,7 +642,7 @@ public final class Node
     }
 
     // return true if side-player can attack square "a"
-    private boolean white_attack(
+    public boolean white_attack(
         final int a
     ) {                        
         // attacked from white pawn
@@ -657,6 +657,7 @@ public final class Node
         //
         if (v != xx && B[v] == wp) { return true; }
         
+        
         // attacked from queen or bishop
         for (int j = 4; j < 8; j++) 
         {        
@@ -665,17 +666,23 @@ public final class Node
         
             //
             while (v != xx) 
-            {             
+            {       
+                //
+           
+                //
                 switch (B[v]) 
                 {
-                    case O: continue;
+                    case O: v = span[v][j]; continue;
                     case wb:
                     case wq: return true;
-                    default: v = span[v][j];
-                }                
+                }
+                
+                //
+                break;
             }
         }
-
+   
+       
         // attacked from queen or rook
         for (int j = 0; j < 4; j++) 
         {        
@@ -687,16 +694,19 @@ public final class Node
             {             
                 switch (B[v]) 
                 {
-                    case O: continue;
+                    case O: v = span[v][j]; continue;
                     case wr:
                     case wq: return true;
-                    default: v = span[v][j];
-                }                
+                    
+                }   
+                
+                break;
             }
         }
-                
+                   
+        
         //
-        for (int j = 7; j != -1; j--) 
+        for (int j = 0; j < 8; j++) 
         {            
             // get versus square
             v = span[a][j];            
@@ -708,8 +718,10 @@ public final class Node
             if (B[v] == wk) { return true; } 
         }
         
+           
+       
         //
-        for (int j = 7; j != -1; j--) 
+        for (int j = 0; j < 8; j++) 
         {            
             // get versus square
             v = hope[a][j];            
@@ -720,6 +732,9 @@ public final class Node
             // add move to stack if found empty square
             if (B[v] == wn) { return true; } 
         }
+        
+        
+           
         
         //
         return false;
@@ -774,7 +789,7 @@ public final class Node
     }
 
     // return true if black-side-player can attack square "a"
-    private boolean black_attack(int a) 
+    public boolean black_attack(int a) 
     {    
         // attacked from white pawn
         int v = span[a][ne];
@@ -799,11 +814,13 @@ public final class Node
             {             
                 switch (B[v]) 
                 {
-                    case O: continue;
+                    case O: v = span[v][j]; continue;
                     case bb:
                     case bq: return true;
-                    default: v = span[v][j];
-                }                
+                    
+                }            
+                
+                break;
             }
         }
 
@@ -818,11 +835,13 @@ public final class Node
             {             
                 switch (B[v]) 
                 {
-                    case O: continue;
+                    case O: v = span[v][j]; continue;
                     case br:
                     case bq: return true;
-                    default: v = span[v][j];
-                }                
+                   
+                }   
+                
+                break;
             }
         }
                 
