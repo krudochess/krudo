@@ -213,9 +213,14 @@ public final class Node
         if (x != O) if (t == w) { cb--; } else { cw--; }
                                         
         // for special moves handle move rules
-        if (k != move) if (t == w) {  
+        if (k != move) if (t == w) 
+        {  
             white_domove(s, v, k); 
-        } else { 
+        }
+        
+        //
+        else 
+        { 
             black_domove(s, v, k); 
         }        
         
@@ -955,7 +960,8 @@ public final class Node
             } 
             
             //
-            else if (r == 4 && v == e) {
+            else if (r == 4 && v == e)
+            {
                 m.add(s, v, ecap);            
             }                            
         } 

@@ -239,7 +239,7 @@ public final class Zobrist {
 		// hash piece in board
 		for (int s = 0; s < 64; s++) 
         {
-			if (n.B[s] != 0) { 
+			if (n.B[s] != O) { 
 				h ^= HASH[n.B[s] & hi | s];
 			}
 		}
