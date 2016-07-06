@@ -1009,11 +1009,11 @@ public final class Node
         final int r = s >> 3;
         
         // not is in promotion rank
-        if (r != 1) {
-                    
+        if (r != 1) 
+        {            
             //
-            if (B[v] == 0) {
-
+            if (B[v] == 0) 
+            {
                 //
                 final int u = span[v][ss];                 
 
@@ -1030,12 +1030,14 @@ public final class Node
             v = span[s][se]; 
             
             //
-            if (v != xx && mask(B[v],w)) {
+            if (v != xx && mask(B[v],w)) 
+            {
                 m.add(s, v, move);                
             } 
             
             //
-            else if (r == 3 && v == e) {
+            else if (r == 3 && v == e) 
+            {
                 m.add(s, v, ecap);
             }    
             
@@ -1056,8 +1058,8 @@ public final class Node
         } 
         
         // else pawn is in promotion rank
-        else {
-                        
+        else 
+        {                
             // if square is empty add 4 promotion moves
             if (B[v] == 0) 
             {
@@ -1116,17 +1118,21 @@ public final class Node
             else if ((x & b) == b) { m.add(s, v, kmov); }
         }        
         
-        // king-side white castling
-        if (s == e1) if (wksc())
-        { 
-            m.add(e1, g1, cast); 
-        } 
+        //
+        if (s == e1) 
+        {
+            // king-side white castling
+            if (wksc())
+            { 
+                m.add(e1, g1, cast); 
+            } 
         
-        // queen-side white castling        
-        else if (wqsc()) 
-        {            
-            m.add(e1, c1, cast);
-        }            
+            // queen-side white castling        
+            if (wqsc()) 
+            {            
+                m.add(e1, c1, cast);
+            }   
+        }
     } 
     
     // look there are condition for white king-side castling
@@ -1170,15 +1176,19 @@ public final class Node
             else if ((B[v] & w) == w) { m.add(s, v, kmov); }
         }
         
-        // test for valid king-side castling and add to move stack
-        if (s == e8) if (bksc()) 
+        //
+        if (s == e8) 
         {
-            m.add(e8, g8, cast);
-        } 
+            // test for valid king-side castling and add to move stack
+            if (bksc()) 
+            {
+                m.add(e8, g8, cast);
+            } 
         
-        // or queen-side castling and add to move stack
-        else if (bqsc()) {
-            m.add(e8, c8, cast);
+            // or queen-side castling and add to move stack
+            if (bqsc()) {
+                m.add(e8, c8, cast);
+            }
         }
     }    
     
