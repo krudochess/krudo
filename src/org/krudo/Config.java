@@ -7,8 +7,8 @@
 package org.krudo;
 
 //
-public final class Config {
-    
+public final class Config 
+{    
     // config flags
     public final static boolean 
             

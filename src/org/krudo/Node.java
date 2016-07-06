@@ -200,6 +200,9 @@ public final class Node
         // store status into history line
         L.store(i, p, s, v, x, k, e, c);
         
+        //
+        h = hash_step1(h, x, e, c);
+        
         // set zero leaved square
         B[s] = 0; 
 
@@ -225,7 +228,7 @@ public final class Node
         }        
         
         //
-        h = hash(h, p, s, v, x);
+        h = hash_step2(h, p, s, v);
         
         // swap turn side
         t ^= T;

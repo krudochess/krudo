@@ -281,13 +281,32 @@ public final class Zobrist {
 	}	
     
     // hashing function 
-	public static final long hash(long h, int p, int s, int v, int x)  
+	public static final long hash_step1(long h, int x, int e, int c)  
+    {
+/*        
+//
+        if (x != O) { h ^= HASH[x & hi | v]; }        
+
+        //
+        //h ^= HASH[p & hi | s];
+        
+        //
+        if (x != O) { h ^= HASH[x & hi | v]; }
+        
+        //
+        h ^= HASH[p & hi | v];
+           */
+        //
+        return h;
+    }	
+    
+    // hashing function 
+	public static final long hash_step2(long h, int p, int s, int v)  
     {
         //
         h ^= HASH[p & hi | s];
         
-        //
-        if (x != O) { h ^= HASH[x & hi | v]; }
+        
         
         //
         h ^= HASH[p & hi | v];
