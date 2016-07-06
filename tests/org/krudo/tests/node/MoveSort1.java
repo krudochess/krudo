@@ -7,19 +7,18 @@
 package org.krudo.tests.node;
 
 //
-import org.krudo.Node;
-import org.krudo.Move;
+import org.krudo.*;
 
 //
 import static org.krudo.util.Tool.*;
 import static org.krudo.util.Debug.*;
 
 //
-public class MoveSort1 {
-
+public class MoveSort1 
+{
     //
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) 
+    {    
         //
         DEBUG_SHOW_WEIGTH = true;
         
