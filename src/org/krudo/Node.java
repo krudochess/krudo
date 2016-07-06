@@ -667,8 +667,6 @@ public final class Node
             while (v != xx) 
             {       
                 //
-           
-                //
                 switch (B[v]) 
                 {
                     case O: v = span[v][j]; continue;
@@ -698,6 +696,7 @@ public final class Node
                     
                 }   
                 
+                //
                 break;
             }
         }
@@ -734,7 +733,7 @@ public final class Node
 
     // return true if black-side-player can attack square "a"
     public boolean black_attack(int a) 
-    {       
+    {        
         // attacked from white pawn
         int v = span[a][ne];
                         
@@ -789,7 +788,7 @@ public final class Node
         }
                 
         //
-        for (int j = 7; j != -1; j--) 
+        for (int j = 0; j < 8; j++) 
         {            
             // get versus square
             v = span[a][j];            
@@ -802,7 +801,7 @@ public final class Node
         }
         
         //
-        for (int j = 7; j != -1; j--) 
+        for (int j = 0; j < 8; j++) 
         {            
             // get versus square
             v = hope[a][j];            
@@ -819,7 +818,7 @@ public final class Node
     }
     
     //
-    private void white_remaps (
+    private void white_remaps(
         final int si, 
         final int pi,
         final int s
@@ -836,7 +835,7 @@ public final class Node
     }
     
     //
-    private void black_remaps (
+    private void black_remaps(
         final int si, 
         final int pi,
         final int s
@@ -1004,7 +1003,7 @@ public final class Node
         final int s
     ) {                    
         //
-        int v =    span[s][ss];                 
+        int v = span[s][ss];                 
         
         // get start square rank 
         final int r = s >> 3;
@@ -1044,12 +1043,14 @@ public final class Node
             v = span[s][sw];
             
             //
-            if (v != xx && mask(B[v],w)) {
+            if (v != xx && (B[v] & w) == w)
+            {
                 m.add(s, v, move);
             } 
             
             //
-            else if (r == 3 && v == e) {
+            else if (r == 3 && v == e) 
+            {
                 m.add(s, v, ecap);            
             }            
         } 
@@ -1094,17 +1095,11 @@ public final class Node
    
     // handle white king pseudo-moves
     private void king(
-        final int s    // start square
-    ){            
-        // loop throut array-direction "d"
-        int j = 8;
-        
+        final int s // start square
+    ) {            
         //
-        while (j != 0) 
-        {    
-            //
-            j--;
-            
+        for (int j = 0; j < 8; j++)
+        {   
             // get versus square
             final int v = span[s][j];            
             
@@ -1122,12 +1117,14 @@ public final class Node
         }        
         
         // king-side white castling
-        if (s == e1) if (wksc()) { 
+        if (s == e1) if (wksc())
+        { 
             m.add(e1, g1, cast); 
         } 
         
         // queen-side white castling        
-        else if (wqsc()) {            
+        else if (wqsc()) 
+        {            
             m.add(e1, c1, cast);
         }            
     } 
@@ -1156,16 +1153,10 @@ public final class Node
     // handle black king pseudo-moves
     private void kong(
         final int s // start square
-    ) {                
-        // loop throut array-direction "d"
-        int j = 8;
-        
+    ) {    
         //
-        while (j != 0) {
-            
-            //
-            j--;
-            
+        for (int j = 0; j < 8; j++) 
+        {
             // get versus square
             final int v = span[s][j];            
             
@@ -1182,7 +1173,7 @@ public final class Node
         // test for valid king-side castling and add to move stack
         if (s == e8) if (bksc()) 
         {
-            //m.add(e8, g8, cast);
+            m.add(e8, g8, cast);
         } 
         
         // or queen-side castling and add to move stack
@@ -1211,10 +1202,4 @@ public final class Node
             && B[c8] == O 
             && B[b8] == O;
     }
-        
-    
-
-    
-    
-    
 }
