@@ -231,7 +231,7 @@ public final class Node
         t ^= T;
         
         //
-        hash_step2(this, p, s, v, x);
+        hash_step2(this, p, s, v, x, k);
                 
         // increase half-move count
         i++;   

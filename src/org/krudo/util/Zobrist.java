@@ -350,7 +350,7 @@ public final class Zobrist {
     }	
     
     // hashing function 
-	public static final void hash_step2(Node n, int p, int s, int v, int x)  
+	public static final void hash_step2(Node n, int p, int s, int v, int x, int k)  
     {                
         //
         n.h ^= HASH[p & hi | s];
@@ -380,6 +380,12 @@ public final class Zobrist {
         if (enpassant(n)) 
         {
             n.h ^= HASH[ENPASSANT + n.e % 8];											        
+        }
+        
+        //
+        if (k == ecap) 
+        {
+            n.h ^= HASH[n.t == w ? wp & hi | (v + 8) : v - 8];        
         }
     }	
 }
