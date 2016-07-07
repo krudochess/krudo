@@ -8,6 +8,7 @@ package org.krudo.tests.perft;
 
 //
 import org.krudo.*;
+import org.krudo.Legals;
 
 //
 import static org.krudo.util.Tool.*;
@@ -46,7 +47,8 @@ public class Perft1
             {
                 print(perft(n, i)) ;
             }
-            //echo (Cache.legals.size());
+            
+            Legals.info();
             //dump(n);
             /*/
             Perft.table(n,5);
