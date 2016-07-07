@@ -201,7 +201,7 @@ public final class Node
         L.store(i, p, s, v, x, k, e, c);
         
         //
-        h = hash_step1(h, x, e, c);
+        hash_step1(this);
         
         // set zero leaved square
         B[s] = 0; 
@@ -227,12 +227,12 @@ public final class Node
             black_domove(s, v, k); 
         }        
         
-        //
-        h = hash_step2(h, p, s, v);
-        
         // swap turn side
         t ^= T;
         
+        //
+        hash_step2(this, p, s, v, x);
+                
         // increase half-move count
         i++;   
         

@@ -257,22 +257,10 @@ public final class Zobrist {
 		if ((n.c & bqc) == 0) { h ^= hash_bqc; }
 						
 		// hash potential en-passnt 
-        if (n.e != 0) if (n.t == w) {
-			if (span[n.e][se] != xx && n.B[span[n.e][se]] == wp) {
-				h ^= HASH[ENPASSANT + n.e % 8];									
-			} else if (span[n.e][sw] != xx && n.B[span[n.e][sw]] == wp) {
-				h ^= HASH[ENPASSANT + n.e % 8];				
-			}
-		} else {
-			if (span[n.e][ne] != xx && n.B[span[n.e][ne]] == bp) {
-				h ^= HASH[ENPASSANT + n.e % 8];				
-			} else if (span[n.e][nw] != xx) {
-				if (n.B[span[n.e][nw]] == bp) {
-					h ^= HASH[ENPASSANT + n.e % 8];
-				}
-			}
-		}					
-				
+        if (enpassant(n)) {
+            h ^= HASH[ENPASSANT + n.e % 8];											
+        }
+                
 		// apply hash for side-color to play (turn)
 		if (n.t == w) { h ^= HASH_TURN; }
 			
@@ -280,41 +268,118 @@ public final class Zobrist {
 		return h;
 	}	
     
-    // hashing function 
-	public static final long hash_step1(long h, int x, int e, int c)  
+    //
+    public static final boolean enpassant(Node n) 
     {
-/*        
-//
-        if (x != O) { h ^= HASH[x & hi | v]; }        
+        //
+        if (n.e == 0) 
+        {
+            return false;
+        } 
+        
+        //
+        int u;        
+        
+        //
+        if (n.t == w) 
+        {
+            //
+			u = span[n.e][se];
+            
+            //
+            if (u != xx && n.B[u] == wp) 
+            {
+                return true;
+            } 
+            
+            //
+            u = span[n.e][sw];
+            
+            //
+            if (u != xx && n.B[u] == wp) 
+            {
+			    return true;
+            }
+		} 
+        
+        //
+        else 
+        {
+            //
+            u = span[n.e][ne];
+            
+            //
+			if (u != xx && n.B[u] == bp) 
+            {
+				return true;				
+			} 
+            
+            //
+            u = span[n.e][nw];
+            
+            if (u != xx && n.B[u] == bp) 
+            {
+				return true;
+			}
+		}					
+		        
+        //
+        return false;    
+    }
+    
+    // hashing function 
+	public static final void hash_step1(Node n)  
+    {        
+        // hash white king-side castling
+		if ((n.c & wkc) == 0) { n.h ^= hash_wkc; }
+		
+		// hash white queen-side castling
+		if ((n.c & wqc) == 0) { n.h ^= hash_wqc; }
+		
+		// hash black king-side castling
+		if ((n.c & bkc) == 0) { n.h ^= hash_bkc; }
+		
+		// hash black queen-side castling 			
+		if ((n.c & bqc) == 0) { n.h ^= hash_bqc; }
 
         //
-        //h ^= HASH[p & hi | s];
-        
-        //
-        if (x != O) { h ^= HASH[x & hi | v]; }
-        
-        //
-        h ^= HASH[p & hi | v];
-           */
-        //
-        return h;
+        if (enpassant(n)) 
+        {
+            n.h ^= HASH[ENPASSANT + n.e % 8];											        
+        }
     }	
     
     // hashing function 
-	public static final long hash_step2(long h, int p, int s, int v)  
-    {
+	public static final void hash_step2(Node n, int p, int s, int v, int x)  
+    {                
         //
-        h ^= HASH[p & hi | s];
-        
-        
+        n.h ^= HASH[p & hi | s];
+
+        //
+        if (x != O) { n.h ^= HASH[x & hi | v]; }        
+
+        //
+        n.h ^= HASH[p & hi | v];
         
         //
-        h ^= HASH[p & hi | v];
-        
+        n.h ^= HASH_TURN;
+
+        // hash white king-side castling
+		if ((n.c & wkc) == 0) { n.h ^= hash_wkc; }
+		
+		// hash white queen-side castling
+		if ((n.c & wqc) == 0) { n.h ^= hash_wqc; }
+		
+		// hash black king-side castling
+		if ((n.c & bkc) == 0) { n.h ^= hash_bkc; }
+		
+		// hash black queen-side castling 			
+		if ((n.c & bqc) == 0) { n.h ^= hash_bqc; }
+
         //
-        h ^= HASH_TURN;
-          
-        //
-        return h;
+        if (enpassant(n)) 
+        {
+            n.h ^= HASH[ENPASSANT + n.e % 8];											        
+        }
     }	
 }
