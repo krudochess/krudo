@@ -51,5 +51,10 @@ public class Zobrist2
         n.domove("e8f7");
         
         dump(n); // 00fdd303c946bdd9
+        
+        for (int i = 0; i < 6; i++) {
+            n.unmove();
+            dump(n);
+        }
     }    
 }
