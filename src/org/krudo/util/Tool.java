@@ -210,4 +210,27 @@ public final class Tool {
 	public static final void exit() {
 		System.exit(-1);		
 	}
+    
+    public static final String info() 
+    {
+        String bit = System.getProperty("sun.arch.data.model"); 
+            
+        System.out.println(System.getenv("PROCESSOR_IDENTIFIER"));
+System.out.println(System.getenv("PROCESSOR_ARCHITECTURE"));
+System.out.println(System.getenv("PROCESSOR_ARCHITEW6432"));
+System.out.println(System.getenv("NUMBER_OF_PROCESSORS"));
+        
+        System.out.println(Runtime.getRuntime().availableProcessors());
+        String cmd = "wmic cpu get name";
+        
+        try {
+         java.util.Scanner s = new java.util.Scanner(Runtime.getRuntime().exec(cmd).getInputStream()).useDelimiter("\\A");
+        String output = s.hasNext() ? s.next() : "";
+        print(output);
+        }catch (java.io.IOException ioe) {
+        } 
+        
+        
+        return System.getenv("PROCESSOR_IDENTIFIER")+" ("+bit+"bit)";
+    }
 }

@@ -188,7 +188,8 @@ public final class Debug
 		}
 
 		//
-		public final static void doing(Node n, int d, Perft p, int s, int v, int k) {		
+		public final static void doing(Node n, int d, Perft p, int s, int v, int k) 
+        {		
 			if (d>0) {			
 				Move m = n.legals();
 				for(int l=0; l<m.i; l++) {								
