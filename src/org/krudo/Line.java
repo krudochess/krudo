@@ -24,6 +24,10 @@ public final class Line {
     c; // castling status
     
     //
+    public final long[]
+    h; //
+    
+    //
     public int i;
     
     // constuctor
@@ -37,6 +41,7 @@ public final class Line {
         k = new int[MAX];
         e = new int[MAX];    
         c = new int[MAX];        
+        h = new long[MAX];        
     }
     
     // add move into stack 
@@ -48,7 +53,8 @@ public final class Line {
         final int x0, 
         final int k0, 
         final int e0, 
-        final int c0
+        final int c0,
+        final long h0
     ) {
         // put and next record
         p[i0] = p0;        
@@ -58,6 +64,7 @@ public final class Line {
         k[i0] = k0;
         e[i0] = e0;
         c[i0] = c0;   
+        h[i0] = h0;   
         i = i0;
     }        
 }

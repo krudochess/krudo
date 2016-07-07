@@ -38,7 +38,7 @@ public final class Config
                 
     // enable/disable evaluation 
     // of legal moves generated
-    MOVE_LEGALS = true,
+    MOVE_LEGALS = false,
             
     // enable/disable sorting function 
     // into move stack used for search        

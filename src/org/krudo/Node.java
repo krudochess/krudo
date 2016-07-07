@@ -198,7 +198,7 @@ public final class Node
         final int x = B[v];        
         
         // store status into history line
-        L.store(i, p, s, v, x, k, e, c);
+        L.store(i, p, s, v, x, k, e, c, h);
         
         //
         hash_step1(this);
@@ -344,18 +344,23 @@ public final class Node
         // retrieve previsour castling status
         c = L.c[i];
         
+        //
+        h = L.h[i];
+        
         // decrease piece counter
         if (x != O) if (t == w) { cb++; } else { cw++; }
                     
         //
-        if (k != move) if (t == w) {
+        if (k != move) if (t == w) 
+        {
             white_unmove(p, s, v, k);
-        } else {
+        } 
+        
+        //
+        else 
+        {
             black_unmove(p, s, v, k);        
-        }  
-        
-        
-
+        }                
     }
     
     //
@@ -372,10 +377,17 @@ public final class Node
         if (k == ecap) { cb++; B[v - 8] = bp; }
         
         //
-        if (k == cast) if (v == g1) {
-            B[h1] = wr; B[f1] = O;
-        } else {
-            B[a1] = wr; B[d1] = O;        
+        if (k == cast) if (v == g1)
+        {
+            B[h1] = wr; 
+            B[f1] = O;
+        } 
+        
+        //
+        else         
+        {
+            B[a1] = wr; 
+            B[d1] = O;        
         }                
     }
     
@@ -393,18 +405,21 @@ public final class Node
         if (k == ecap) { cw++; B[v + 8] = wp; }
         
         //
-        if (k == cast) if (v == g8) {
+        if (k == cast) if (v == g8) 
+        {
             B[h8] = br; B[f8] = O;
-        } else {
+        } 
+        
+        //
+        else 
+        {
             B[a8] = br; B[d8] = O;        
         }                
     }
         
     // generate moves-stack with legal-moves
     public final Move legals() 
-    {    
-           
-        
+    {                     
         // move-container get move from move-stack pre-created
         m = Moves.pick();
                         
