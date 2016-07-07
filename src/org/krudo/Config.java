@@ -11,6 +11,11 @@ public final class Config
 {    
     // config flags
     public final static boolean 
+    
+            
+    CACHE_LEGALS = true, 
+            
+            
             
     // enable/disable evaluation 
     // of legal moves generated
@@ -38,14 +43,14 @@ public final class Config
                 
     // enable/disable evaluation 
     // of legal moves generated
-    MOVE_LEGALS = false,
+    MOVE_LEGALS = true,
             
     // enable/disable sorting function 
     // into move stack used for search        
     MOVE_SORT = true, 
     
 
-
+            
 
             
             

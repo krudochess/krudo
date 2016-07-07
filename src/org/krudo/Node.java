@@ -419,40 +419,35 @@ public final class Node
         
     // generate moves-stack with legal-moves
     public final Move legals() 
-    {                     
-        // move-container get move from move-stack pre-created
-        m = Moves.pick();
-                        
-        // generate-fill "m" with white or black legal moves
-        if (t == w) { white_legals(); } else { black_legals(); }    
-        
-        // evaluate every move in stack
-        //if (EVAL_LEGALS) { Eval.move(m, this); }
-        
-        // retur move-stack reference
-        return m;
+    {   
+        //
+        cache_legals();
+                
+        //
+        return m.duplicate();
     }
     
     // generate moves-stack with legal-moves
-    private final Move cache_legals() 
-    {    
-        // use zobrist cached 
-        if (MOVE_CACHE) { 
-            
-            // compute hash of position
-            // h = hash(this);
-                        
-            // 
-            //if (Cache.legals.has(h)) {
-                //return Cache.legals.get(h);         
-            //}            
-        }
+    private final void cache_legals() 
+    {   
+        //
+        if (Legals.has(h)) 
+        {
+            m = Legals.get(h);
+        } 
         
         //
-        legals();
-        
-        // retur move-stack reference
-        return m; 
+        else
+        {
+            // move-container get move from move-stack pre-created
+            m = Moves.pick();
+
+            // generate-fill "m" with white or black legal moves
+            if (t == w) { white_legals(); } else { black_legals(); }
+            
+            //
+            Legals.add(h, m);
+        }        
     }
     
     // generate moves-stack with legal-moves

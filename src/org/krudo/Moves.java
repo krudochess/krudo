@@ -11,29 +11,31 @@ import static org.krudo.util.Tool.*;
 //
 public class Moves 
 {
+    public final static int MOVES_STACK_SIZE = 100100;
+    
     //
     private static int count=0;
     
     //
-    private final static Move[] STACK = new Move[100];
+    private final static Move[] STACK = new Move[MOVES_STACK_SIZE];
     
     //
     public static void init()
     {
-        for (int i=0; i<100; i++)
+        //
+        for (int i = 0; i < MOVES_STACK_SIZE; i++)
         {
             STACK[i] = new Move(); 
         }
-        count = 100;
+        
+        //
+        count = MOVES_STACK_SIZE;
     }
     
     //
     public static Move pick() 
     {
-        //if (count == 95) {
-        //    print ("90%");
-        //}
-        
+        //
         return STACK[--count];
     }
     

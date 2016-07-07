@@ -7,7 +7,6 @@
 package org.krudo;
 
 //
-import org.krudo.cache.Cache;
 import org.krudo.util.Book;
 
 //
@@ -108,10 +107,7 @@ public final class Engine
             //
             return;
         }
-        
-        //
-        Cache.legals.clr();
-        
+                
         //
         long time = NODE.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
         

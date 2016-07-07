@@ -263,6 +263,20 @@ public final class Move
         w[i1] = t;
     }
     
+    //
+    public final Move duplicate()
+    {
+        Move m = Moves.pick();
+        
+        System.arraycopy(s, 0, m.s, 0, i);
+        System.arraycopy(v, 0, m.v, 0, i);
+        System.arraycopy(k, 0, m.k, 0, i);
+        System.arraycopy(w, 0, m.w, 0, i);
+                                
+        m.i = i;
+        
+        return m;
+    }
     
 }
 
