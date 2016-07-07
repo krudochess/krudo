@@ -270,6 +270,23 @@ public final class Debug
         //
         Move m = n.legals();
         
+        /*
+        //
+        if (m.i == 0) {
+            print("mate: "+desc(n.L));   
+            if (n.L.s[0] == g2) {                
+                dump(n);
+                dump(n.L);
+                print(n.L.i);
+                n.unmove();
+                dump(n);
+                dump(n.L);
+                print(n.L.i);
+                exit();
+            }
+        }
+        */
+        
         //
         for (int i = 0; i < m.i; i++) 
         {	

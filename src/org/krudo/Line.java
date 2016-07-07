@@ -41,12 +41,12 @@ public final class Line {
         k = new int[MAX];
         e = new int[MAX];    
         c = new int[MAX];        
-        h = new long[MAX];        
+        h = new long[MAX];
+        i = 0;
     }
     
     // add move into stack 
     public final void store(
-        final int i0,
         final int p0, 
         final int s0, 
         final int v0, 
@@ -57,14 +57,14 @@ public final class Line {
         final long h0
     ) {
         // put and next record
-        p[i0] = p0;        
-        s[i0] = s0;
-        v[i0] = v0;
-        x[i0] = x0;
-        k[i0] = k0;
-        e[i0] = e0;
-        c[i0] = c0;   
-        h[i0] = h0;   
-        i = i0;
+        p[i] = p0;        
+        s[i] = s0;
+        v[i] = v0;
+        x[i] = x0;
+        k[i] = k0;
+        e[i] = e0;
+        c[i] = c0;   
+        h[i] = h0;   
+        i++;
     }        
 }

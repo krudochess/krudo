@@ -42,7 +42,6 @@ public final class Node
     public int bks; // black king square
     public int hm;  // half-move after pawn move or calpture
     public int n;   // count moves from the begin
-    public int i;   // count half-move from the begin
                 
     // legals moves-stack internal
     public Move m;
@@ -198,7 +197,7 @@ public final class Node
         final int x = B[v];        
         
         // store status into history line
-        L.store(i, p, s, v, x, k, e, c, h);
+        L.store(p, s, v, x, k, e, c, h);
         
         //
         hash_step1(this);
@@ -233,8 +232,6 @@ public final class Node
         //
         hash_step2(this, p, s, v, x, k);
                 
-        // increase half-move count
-        i++;   
         
         //
         //Debug.assertPieceCount(this);
@@ -312,25 +309,25 @@ public final class Node
     {   
      
         // decrease half-move index
-        i--;
+        L.i--;
         
         // swap side-to-move
         t ^= T;
                 
         // get moved piece
-        final int p = L.p[i];
+        final int p = L.p[L.i];
         
         // get start square
-        final int s = L.s[i];
+        final int s = L.s[L.i];
         
         // get versus square
-        final int v = L.v[i];
+        final int v = L.v[L.i];
         
         // get captured piece
-        final int x = L.x[i]; 
+        final int x = L.x[L.i]; 
         
         // get kind-of-move
-        final int k = L.k[i];
+        final int k = L.k[L.i];
         
         // restore piece in start square
         B[s] = p; 
@@ -339,13 +336,13 @@ public final class Node
         B[v] = x;
                 
         // retrieve previsour en-passant square
-        e = L.e[i];
+        e = L.e[L.i];
         
         // retrieve previsour castling status
-        c = L.c[i];
+        c = L.c[L.i];
         
         //
-        h = L.h[i];
+        h = L.h[L.i];
         
         // decrease piece counter
         if (x != O) if (t == w) { cb++; } else { cw++; }

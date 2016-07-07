@@ -132,14 +132,21 @@ public class Describe
 	//
 	public final static String desc(Line line) 
     {
+        //
 		String desc = "";
-		String s = "";		
-		for(int i=0; i<line.i; i++) {
-			desc += s + m2s(line.s[i],line.v[i],line.k[i]); 
+		
+        //
+        String s = "";		
+		
+        //
+        for (int i=0; i<line.i; i++)
+        {
+			desc += s + m2s(line.s[i], line.v[i], line.k[i]); 
 			s = " ";
 		}
-		return desc;
-		
+        
+        //
+		return desc;		
 	}
 	
 	//
