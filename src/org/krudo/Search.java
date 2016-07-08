@@ -20,7 +20,7 @@ public final class Search {
     private final Node n = null; 
     
     // best moves of a positions after idrun call
-    private final Move find = null;    // founded moves after abrun
+    private final Move find = null; // founded moves after abrun
     
     // candidate move after idrun
     private final Move move = null;    
@@ -30,7 +30,7 @@ public final class Search {
             
     // searching controls and related         
     public int stop = 0;
-    public int zero = 0;
+    public int lineStart = 0;
     public int beep = 0;
     
     // iterative deepiing deep cursor and limit
@@ -83,12 +83,10 @@ public final class Search {
         logEnabled = true;*/
     }
         
+    /*
     // launch alfabeta search to evaluate a position
-    public final int eval(int d) {
-    
-        //
-        init();
-                                                                    
+    public final int eval(int d)
+    { 
         //
         //find.empty();
     
@@ -98,19 +96,32 @@ public final class Search {
         // run alpha-beta routine to evaluate
         return abrun(d,-oo,+oo);        
     }
+    */
     
     // public method to start search with large time-limit
-    public final void start(int deep) {
-        
+    public final void start(int deep) 
+    {    
         // start search time limit 5minutes
         start(deep, TIME_5_MINUTES);
     }
         
     // public method to start search custom time-limit
-    public final void start(int deep, long time) {
-                
+    public final void start(int deep, long time) 
+    {            
+        // reset nodes search counter
+        ns = 0;
+        
+        // reset nodes quiesce counter
+        nq = 0;
+        
         //
-        init();
+        //pv = new Move[20];
+        
+        // reset stop flag
+        //stop = not;    
+        
+        // place offset for search variation
+        lineStart = n.L.i;
         
         // deep start value for iterative deeping
         deepStart = 1;
@@ -118,51 +129,19 @@ public final class Search {
         // set deep limit for iterative deeping
         deepLimit = deep;
                     
+        // set time start for required log or other
+        timeStart = time();
+        
         // set time limit for the searcing engine routine
         timeLimit = timeStart + time;
 
         // start iterative deeping search
         idrun();
     }
-    
-    //
-    public final String bestmove(int deep) {
-        
-        // launch iterative deeping search
-        start(deep);
-        
-        // return best move founded by descriptive
-        return ""; //desc(n,move,0);
-    }
-    
-    
-    // preset for start search or eval
-    private void init() {
-        
-        // reset nodes search counter
-        ns = 0;
-        
-        // reset nodes quiesce counter
-        nq = 0;
-        
-        pv = new Move[20];
-        for(int i=0; i<20; i++) {
-           // pv[i] = new Move();            
-        }
-        
-        // reset stop flag
-        stop = not;    
-        
-        // place offset for search variation
-        zero = n.L.i;
-        
-        // set time start for required log or other
-        timeStart = time();
-    }
-        
+         
     // iterative deeping entry-point
-    private void idrun() {                        
-                                                            
+    private void idrun() 
+    {                                                                                
         // iterative deeping deep start value
         deep = deepStart;
         
@@ -176,8 +155,8 @@ public final class Search {
         int beta = +oo;
                 
         // iterative deeping loop
-        while (deep <= deepLimit && stop == not) {            
-                        
+        while (deep <= deepLimit && stop == not)
+        {                            
             // empty founded moves
             //find.empty();
 
@@ -185,10 +164,10 @@ public final class Search {
             eval = abrun(deep, alfa, beta);        
                         
             // if found moves and search not are stopped put into candidates
-            if (find.i > 0 && stop == not) {
-                
+            if (find.i > 0 && stop == not) 
+            {    
                 // log best move is the firt of founded 
-                log(SEARCH_LOG_PV, pv, 1, deep, eval);        
+                //log(SEARCH_LOG_PV, pv, 1, deep, eval);        
                                 
                 //
                 //move.set(find); 
@@ -199,38 +178,34 @@ public final class Search {
         }    
         
         // exit from iterative deep sort best moves        
-        move.sort();
+        //move.sort();
         
         // log best move is the firt of founded 
-        log(SEARCH_LOG_BM, move, 0);        
+        //log(SEARCH_LOG_BM, move, 0);        
     }
     
     // alfa-beta entry-point
-    private int abrun(int d, int a, int b) {
-                
+    private int abrun(int d, int a, int b) 
+    {            
         // generate and sort legal-moves
-        n.legals();
+        Move m = n.legals();
             
         // 
-        n.m.sort();
+        m.sort();
         
-        // 
-        int j = n.m.i;
-        
-        // loop throut legal-moves
-        do {
-                
-            //
-            j--;
-            
+        //
+        for (int i = 0; i < m.i; i++) 
+        {            
             // make
-            n.domove(j);
+            n.domove(m, i);
             
             // recursive evaluation search                    
-            s = abmin(d-1, a, a+1);
+            s = abmin(d-1, a, b);
 
+            /*
             // use null window for correction
-            if (s > a) {
+            if (s > a) 
+            {
                 s = abmin(d-1, a, b);                
             }
                             
@@ -245,13 +220,11 @@ public final class Search {
                 //m.w[i] = s;
                 a = s;                
             }            
-
+            */
+            
             // undo
             n.unmove();            
         } 
-        
-        //
-        while (j != 0);
         
         //
         return a; 
@@ -583,7 +556,7 @@ public final class Search {
     
     //
     private void log(int a, int w) {
-        logLine        = i2m(n.L,zero);
+        logLine        = i2m(n.L,lineStart);
         logWeight    = w;
         log(a);
     }
