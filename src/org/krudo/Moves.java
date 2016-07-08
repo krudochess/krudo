@@ -11,7 +11,7 @@ import static org.krudo.util.Tool.*;
 //
 public class Moves 
 {
-    public final static int MOVES_STACK_SIZE = 100100;
+    public final static int MOVES_STACK_SIZE = 200100;
     
     //
     private static int count=0;

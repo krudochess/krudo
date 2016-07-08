@@ -25,7 +25,7 @@ import static org.krudo.Constant.*;
 public class Legals 
 {    
     //
-    private static final int LEGALS_CACHE_SIZE = 100000;
+    private static final int LEGALS_CACHE_SIZE = 200000;
     
     //
     private static int queries = 0;
