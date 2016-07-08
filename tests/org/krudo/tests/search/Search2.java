@@ -11,6 +11,7 @@ import static org.krudo.util.Tool.*;
 //
 import org.krudo.Node;
 import org.krudo.Move;
+import org.krudo.Moves;
 import org.krudo.Search;
 
 // 
@@ -19,14 +20,21 @@ public class Search2
     //
     public static void main(String[] args) 
     {
-                
+        //
+        Moves.init();
+        
         // create a node to service the search
         Node n = new Node();
+        
+        //
+        n.startpos();
         
         // create a serach engine based-on the node
         Search s = new Search(n);
         
+        //
         s.start(1);
+        
         
         //
         //echo(s.eval(7), s.ns, time()-s.timeStart);        
