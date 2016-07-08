@@ -119,7 +119,7 @@ public final class Engine
     public final int eval() {
 
         //
-        return search.eval(2);
+        return /*search.eval(2)*/0;
     }
     
     //

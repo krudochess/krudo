@@ -17,7 +17,7 @@ import static org.krudo.util.Zobrist.hash;
 public final class Search {    
 
     // node-centric search
-    private final Node n = null; 
+    public Node n = null; 
     
     // best moves of a positions after idrun call
     private final Move find = null; // founded moves after abrun
@@ -69,10 +69,10 @@ public final class Search {
     // constructor with node-centric search
     public Search(Node node) 
     {   
-        /*
         // fill internal node use in node-centric search
         n = node;
         
+        /*
         //
         //find = new Move();
         
@@ -162,7 +162,8 @@ public final class Search {
 
             // launch alfa-beta for searcing candidates 
             eval = abrun(deep, alfa, beta);        
-                        
+            
+            /*            
             // if found moves and search not are stopped put into candidates
             if (find.i > 0 && stop == not) 
             {    
@@ -172,6 +173,7 @@ public final class Search {
                 //
                 //move.set(find); 
             }
+            */
             
             // increade depth of search
             deep++;                        
@@ -231,7 +233,8 @@ public final class Search {
     }
     
     //
-    private int abmax(int d , int a, int b) {
+    private int abmax(int d , int a, int b) 
+    {
     
         // temp var to store evaluation weight orscore
         int w;
@@ -258,7 +261,8 @@ public final class Search {
         int p = 0;
         
         //
-        for (int i=0; i<m.i; i++) {
+        for (int i=0; i<m.i; i++) 
+        {
             
             // 
             n.domove(m,i);
@@ -369,7 +373,8 @@ public final class Search {
     }
 
     // quiescence max routine
-    private int qmax(int a, int b) {
+    private int qmax(int a, int b)
+    {
                         
         // eval position
         int w = Eval.eval(n);
