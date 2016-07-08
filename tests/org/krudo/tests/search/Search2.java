@@ -1,3 +1,9 @@
+/**
+ * Krudo 0.16a - a chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
 package org.krudo.tests.search;
 
 import static org.krudo.util.Tool.*;
@@ -5,14 +11,14 @@ import static org.krudo.util.Tool.*;
 //
 import org.krudo.Node;
 import org.krudo.Move;
-import org.krudo.cache.Cache;
 import org.krudo.Search;
 
 // 
-public class Search2 {
-
+public class Search2 
+{
     //
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
                 
         // create a node to service the search
         Node n = new Node();
@@ -20,10 +26,12 @@ public class Search2 {
         // create a serach engine based-on the node
         Search s = new Search(n);
         
-        //
-        echo(s.eval(7), s.ns, time()-s.timeStart);        
+        s.start(1);
         
         //
-       // echo(Move.b.size(),Cache.legals.size());
+        //echo(s.eval(7), s.ns, time()-s.timeStart);        
+        
+        //
+        // echo(Move.b.size(),Cache.legals.size());
     }    
 }

@@ -49,7 +49,7 @@ public class Perft1
             {
                 print(perft(n, i)) ;
             }
-            
+           
             Legals.info();
             //dump(n);
             /*/
