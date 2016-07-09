@@ -226,10 +226,7 @@ public final class Move
          
         // repeat if not have need to swap
         while (z != 0);
-                
-        //
-        print("Fattore di correzione:", c);
-        
+                        
         //
         return this;
     }

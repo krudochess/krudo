@@ -108,11 +108,6 @@ public final class Search {
     // public method to start search custom time-limit
     public final void start(int deep, long time) 
     {            
-        // reset nodes search counter
-        ns = 0;
-        
-        // reset nodes quiesce counter
-        nq = 0;
         
         //
         //pv = new Move[20];
@@ -157,6 +152,12 @@ public final class Search {
         // iterative deeping loop
         while (deep <= deepLimit && stop == not)
         {                            
+            // reset nodes search counter
+            ns = 0;
+
+            // reset nodes quiesce counter
+            nq = 0;
+
             // empty founded moves
             //find.empty();
 
@@ -174,6 +175,9 @@ public final class Search {
                 //move.set(find); 
             }
             */
+            
+            
+            print(deep+"/"+deepLimit+" "+ns);
             
             // increade depth of search
             deep++;                        
@@ -204,6 +208,9 @@ public final class Search {
             // recursive evaluation search                    
             s = abmin(d-1, a, b);
 
+            // undo
+            n.unmove();            
+
             /*
             // use null window for correction
             if (s > a) 
@@ -224,9 +231,10 @@ public final class Search {
             }            
             */
             
-            // undo
-            n.unmove();            
         } 
+        
+        //
+        Moves.free(m);
         
         //
         return a; 
@@ -246,10 +254,18 @@ public final class Search {
        // if (t.probe(d, a, b)) { return t.value(); }
         
         // return quiescence value-search, increase node count and store trasposition table value
-       //if (d == 0) { ns++; w = qmax(a, b); t.store(d, w, t.EXACT); return w; }
+        if (d == 0) { 
+            ns++;
+            w = qmax(a, b); 
+            //t.store(d, w, t.EXACT); 
+            return w; 
+        }
                             
         // get legal-moves and sort 
-        Move m = n.legals().sort();
+        Move m = n.legals();
+                
+        //        
+        m.sort();
         
         // no legal moves check-mate or stale-mate
         //if (m.l == 0) { return -mate; }
@@ -262,18 +278,20 @@ public final class Search {
         
         //
         for (int i=0; i<m.i; i++) 
-        {
-            
+        {            
             // 
             n.domove(m,i);
                                     
             //                 
-            w = abmin(d-1, a, p == 0 ? b : a+1);
+            //w = abmin(d-1, a, p == 0 ? b : a+1);
             
             //
-            if (w > a && p > 0) {
+            //if (w > a && p > 0) {
                 w = abmin(d-1, a, b);                
-            }
+            //}
+
+            //
+            n.unmove();                
             
             // hard cut-off
            // if (w >= b) { n.unmove(); m.stop(); t.store(d, a, t.BETA); return b; }
@@ -291,8 +309,6 @@ public final class Search {
                 p++;
             }
             
-            //
-            n.unmove();                
         
         }
         
@@ -301,6 +317,8 @@ public final class Search {
         
         //
       // t.store(d, a);
+        //
+        Moves.free(m);
         
         //
         return a;        
@@ -316,66 +334,61 @@ public final class Search {
         if (d == 0) { ns++; return qmin(a, b); }
         
         // generate legal-moves and sort
-        n.legals();
+        
             
         //        
-        n.m.sort();
+        Move m = n.legals();
 
         // no-legals-move exit checkmate
-        if (n.m.i == 0) { return +mate+d; }
+        //if (m.i == 0) { return +mate+d; }
         
         //
         int w, p = 0; 
             
-        //
-        int j = n.m.i;
         
-        // 
-        do {            
-            //
-            j--;
-            
+        for (int j = 0; j < m.i; j++) {
+        
             // 
-            if (time() > timeLimit) { 
+            if (time() > timeLimit) 
+            { 
             //    stop = yes;
             }
             
             // make move
-            n.domove(j);
+            n.domove(m, j);
                     
             // 
-            w = abmax(d-1, p==0 ? a : b-1, b);
+            //w = abmax(d-1, p==0 ? a : b-1, b);
             
             //
-            if (w < b && p > 0) {
+            //if (w < b && p > 0) {
                 w = abmax(d-1, a, b);                
-            }
-                                        
+            //}
+
+            // unmake move
+            n.unmove();         
+
             // hard cut-off
             //if (w <= a || stop == yes) { n.unmove(); m.stop(); return a; }
                                                 
             //
             if (w < b) {                 
               //  pv[d].set(n.L, zero);
-             //   b = w;         
+              //   b = w;         
                 p++;
             }                    
         
-            // unmake move
-            n.unmove();         
         } 
-        
         //
-        while (j != 0);
-                
+        Moves.free(m);
+   
         //
         return b;    
     }
 
     // quiescence max routine
     private int qmax(int a, int b)
-    {
-                        
+    {                        
         // eval position
         int w = Eval.eval(n);
         
@@ -383,17 +396,22 @@ public final class Search {
         nq++;
         
         //
-        if (w >= b) { 
+        if (w >= b) 
+        { 
             return b; 
         }
         
         //
-        if (w > a) { 
+        if (w > a) 
+        { 
             a = w; 
         }
 
         // quiescence need sort moves
-        Move m = n.legals().sort();
+        Move m = n.legals();
+        
+        //
+        m.sort();
                 
         // checkmate exit from 
         /*
@@ -401,15 +419,12 @@ public final class Search {
             return -mate; 
         }
         */
-        
+               
         //
-        //m.loop();
-        
-        //
-        for (int i=0; i<m.i; i++) if (mask(m.k[i],0/*capt*/)) { 
-            
+        for (int i=0; i<m.i; i++) if (mask(m.k[i],0/*capt*/)) 
+        {             
             //
-            n.domove(m,i);
+            n.domove(m, i);
                         
             //
             w = qmin(a, b);
@@ -418,13 +433,10 @@ public final class Search {
             n.unmove();
             
             //
-            if (w >= b) { 
-                
-                //
-                //m.stop();
-        
-                //
-                return b; 
+            if (w >= b) 
+            { 
+                a = b;
+                break; 
             }
 
             //
@@ -434,15 +446,15 @@ public final class Search {
         }
                 
         //
-       // m.stop();
+        Moves.free(m);
         
         //
         return a;
     }
  
     // quiescence min search
-    private int qmin(int a, int b) {
-        
+    private int qmin(int a, int b) 
+    {        
         // eval position 
         int w = -Eval.eval(n);
 
@@ -450,26 +462,32 @@ public final class Search {
         nq++;
         
         // return alfa if wrost
-        if (w <= a) { 
+        if (w <= a) 
+        { 
             return a; 
         }
         
         // set new value for upper limit
-        if (w < b) { 
+        if (w < b) 
+        { 
             b = w; 
         }
         
         // quiescenze need sort moves
-        Move m = n.legals().sort();
+        Move m = n.legals();
+        
+        //
+        m.sort();
 
         // exit checkmate or stalemate
-        if (m.i == 0) { 
-            return +mate; 
-        }
+        //if (m.i == 0) 
+        //{ 
+        //    return +mate; 
+        //}
                         
         // loop throut capturers
-        for (int i=0; i<m.i; i++) if ((m.k[i]&0/*quie*/)==0/*quie*/) { 
-            
+        for (int i = 0; i < m.i; i++) if ((m.k[i]&0/*quie*/)==0/*quie*/) 
+        {             
             // make move 
             n.domove(m, i);
                         
@@ -480,11 +498,21 @@ public final class Search {
             n.unmove();
 
             // hard cut-off
-           // if (w <= a) { m.stop(); return a; }        
+            if (w <= a)
+            { 
+                b = a;
+                break;
+            }        
                 
             // soft cut-off
-            if (w < b) { b = w; }
+            if (w < b) 
+            { 
+                b = w; 
+            }
         }
+
+        //
+        Moves.free(m);
         
         // return new uppel limit
         return b;

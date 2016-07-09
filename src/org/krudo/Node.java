@@ -232,9 +232,8 @@ public final class Node
         //
         hash_step2(this, p, s, v, x, k);
                 
-        
-        //
-        //Debug.assertPieceCount(this);
+       // dump(this);
+       // dump(L);
     }
     
     // domove and change node internal status
@@ -357,7 +356,11 @@ public final class Node
         else 
         {
             black_unmove(p, s, v, k);        
-        }                
+        }
+        
+                //
+        Debug.assertPieceCount(this);
+
     }
     
     //
