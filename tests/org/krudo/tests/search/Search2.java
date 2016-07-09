@@ -33,7 +33,7 @@ public class Search2
         Search s = new Search(n);
         
         //
-        s.start(1);
+        s.start(6);
         
         
         //
