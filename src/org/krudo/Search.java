@@ -14,8 +14,8 @@ import static org.krudo.util.Debug.*;
 import static org.krudo.util.Zobrist.hash;
 
 // search main class
-public final class Search {    
-
+public final class Search 
+{    
     // node-centric search
     public Node n = null; 
     
@@ -46,6 +46,7 @@ public final class Search {
         
     // count nodes for ab search
     public int ns;
+    public int nsnext;
     
     // count nodes for quiesce search
     public int nq;
@@ -177,7 +178,7 @@ public final class Search {
             */
             
             
-            print(deep+"/"+deepLimit+" "+ns);
+         
             
             // increade depth of search
             deep++;                        
@@ -193,9 +194,18 @@ public final class Search {
     // alfa-beta entry-point
     private int abrun(int d, int a, int b) 
     {            
+        long t = time();
+
         // generate and sort legal-moves
         Move m = n.legals();
-            
+        
+        
+        // no legal moves check-mate or stale-mate
+        if (m.i == 0) 
+        { 
+            return -mate; 
+        }
+                
         // 
         m.sort();
         
@@ -229,19 +239,24 @@ public final class Search {
                 //m.w[i] = s;
                 a = s;                
             }            
-            */
-            
+            */            
         } 
         
         //
         Moves.free(m);
+        
+        t = time()-t;
+        
+        long nps = ns / t; 
+        
+        print("abrun "+deep+"/"+deepLimit+" "+ns+" "+t+" "+nps);
         
         //
         return a; 
     }
     
     //
-    private int abmax(int d , int a, int b) 
+    private int abmax(int d, int a, int b) 
     {
     
         // temp var to store evaluation weight orscore
@@ -254,7 +269,12 @@ public final class Search {
        // if (t.probe(d, a, b)) { return t.value(); }
         
         // return quiescence value-search, increase node count and store trasposition table value
-        if (d == 0) { 
+        if (d == 0) 
+        { 
+            if (ns > nsnext) {
+                //print("- "+ns);
+                nsnext = ns + 100000;
+            }
             ns++;
             w = qmax(a, b); 
             //t.store(d, w, t.EXACT); 
@@ -421,8 +441,8 @@ public final class Search {
         */
                
         //
-        for (int i=0; i<m.i; i++) if (mask(m.k[i],0/*capt*/)) 
-        {             
+        for (int i = 0; i < m.i; i++) if (m.k[i] == ecap || n.B[m.v[i]] != O) 
+        {
             //
             n.domove(m, i);
                         
@@ -486,8 +506,8 @@ public final class Search {
         //}
                         
         // loop throut capturers
-        for (int i = 0; i < m.i; i++) if ((m.k[i]&0/*quie*/)==0/*quie*/) 
-        {             
+        for (int i = 0; i < m.i; i++) if (m.k[i] == ecap || n.B[m.v[i]] != O) 
+        {
             // make move 
             n.domove(m, i);
                         
