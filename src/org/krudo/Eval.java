@@ -13,14 +13,14 @@ import static org.krudo.util.Tool.*;
 import static org.krudo.util.Zobrist.*;
 
 //
-public final class Eval {
-    
+public final class Eval 
+{    
     // white partials evalued weight
     private static int wma; // white matirial weight
     private static int wow; // white opening weight
     private static int wew; // white ending weight
     private static int wmw; // white mixed opening ending weight
-    private static int wkd;    // white king defended value
+    private static int wkd; // white king defended value
     private static int wph; // white pawn structure hash
     private static int wps; // white pawn structure value
     private static int wtt; // white total weight
@@ -35,9 +35,6 @@ public final class Eval {
     private static int bps; // black pawn structure value
     private static int btt; // black total weight
 
-    // hash temp global variable
-    private static long h;
-        
     // positional piece sqaure weight
     private final static int[][] pw = {       
         /*bp*/
@@ -538,7 +535,6 @@ public final class Eval {
     public final static int eval(
         final Node n
     ) {
-        
         // return verbose off
         return eval(n,false);
     }
@@ -763,39 +759,33 @@ public final class Eval {
     
     //
     public final static void move(
-        final Move m, 
         final Node n
     ) {            
-        //
-        //b = eval(n);
-        int b = 0;
-        
-        //
-        int j = m.i;
-        
-        // loop throu moves and assgin values
-        while (j != 0) {
+        for (int i = 0; i < n.m.i; i++)            
+        {
+            //            
+            final int s = n.m.s[i];         
             
-            //
-            j--;            
-                                    
-            // get moved piece
-            final int p = n.B[m.s[j]] & lo;
-                        
             // get versus square
-            final int v = m.v[j];
+            final int v = n.m.v[i];
+            
+            // get moved piece
+            final int p = n.B[s] & lo;
+            
             
             // get captured piece
             final int x = n.B[v] & lo;
                     
             //
-            int w = b;
+            int w = 0;
                         
             //
-            if (EVAL_POSITIONAL) {
+            if (EVAL_POSITIONAL)
+            {
                 w += pw[p][v];
             }
             
+            /*
             //
             if (EVAL_MVV_LAA) {
                 w += x != O ? ml[p][x] : 0;
@@ -815,9 +805,10 @@ public final class Eval {
             if (EVAL_TAPERED_OPENING) {
                 w += ow[p][v] >> ep[n.cw];
             }
+            */
             
             // assign tapered value
-            m.w[j] = w;
+            n.m.w[i] = w;
         }
         
     }

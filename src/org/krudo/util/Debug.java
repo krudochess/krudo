@@ -7,9 +7,7 @@
 package org.krudo.util;
 
 //
-import org.krudo.Line;
-import org.krudo.Move;
-import org.krudo.Node;
+import org.krudo.*;
 
 //
 import java.io.File;
@@ -24,17 +22,17 @@ import org.krudo.Moves;
 import static org.krudo.util.Tool.*;
 import static org.krudo.util.Decode.*;
 import static org.krudo.util.Describe.*;
-import static org.krudo.util.Zobrist.hash;
 
 //
 public final class Debug 
 {
 	//
-	public static boolean DEBUG_SHOW_WEIGTH = false;
+	public static boolean DEBUG_SHOW_MOVE_WEIGHT = false;
 	
 	//
 	public static boolean DEBUG_SHOW_ALGEBRIC = false;
 	
+    /*
 	//
 	public final static void dump(int d, Move m)
     {		
@@ -50,7 +48,8 @@ public final class Debug
 		//
 		echo(l);
 	}
-
+    */
+    
 	//
 	public final static void dump(Line l) 
     {		

@@ -99,8 +99,10 @@ public final class Decode {
 	}
 	
 	//
-	public static final String i2t(int t) {
-		switch(t) {
+	public static final String i2t(int t) 
+    {
+		switch(t) 
+        {
 			case w: return "w";
 			case b: return "b";		
 			default: return "?";	
@@ -108,14 +110,14 @@ public final class Decode {
 	}
 	
 	//
-	public static final int s2i(String s) {
+	public static final int s2i(String s) 
+    {
 		return cr2i(s.charAt(0), s.charAt(1));
 	}
 	
-	
-	
 	//
-	public static final String i2m(int s,int v) {
+	public static final String i2m(int s,int v) 
+    {
 		return s2s(s)+s2s(v);
 	}
 	
@@ -149,8 +151,8 @@ public final class Decode {
 		String move = m2s(s, v, k);
 
 		//
-		if (DEBUG_SHOW_WEIGTH) {
-			move += String.format("(%+d)",w);
+		if (DEBUG_SHOW_MOVE_WEIGHT) {
+			move += String.format("=%+d", w);
 		}
 				
 		//

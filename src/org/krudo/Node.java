@@ -446,6 +446,9 @@ public final class Node
             if (t == w) { white_legals(); } else { black_legals(); }
             
             //
+            if (MOVE_EVAL) { Eval.move(this); }
+            
+            //
             Legals.add(h, m);
         }        
     }

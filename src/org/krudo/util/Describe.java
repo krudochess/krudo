@@ -81,7 +81,7 @@ public class Describe
 		//n.unmove();
 		
 		//
-		if (DEBUG_SHOW_WEIGTH) 
+		if (DEBUG_SHOW_MOVE_WEIGHT) 
         {
 			move += String.format("(%+d)", m.w[i]);
 		}
@@ -158,20 +158,23 @@ public class Describe
 		//
 		String sepa = "";
 		
+        //
+        int cell = DEBUG_SHOW_MOVE_WEIGHT ? 10 : 6;
+			
+        //
+        int colm = DEBUG_SHOW_MOVE_WEIGHT ? 4 : 6;    
+        
 		//
-		for (int j=0; j < m.i; j++) {
-			
+		for (int i = 0; i < m.i; i++)
+        {	
 			//
-			String move = desc(m, j);
+			String move = desc(m, i);
 										
-			//
-			int cell = DEBUG_SHOW_WEIGTH ? 10 : 6;
-			
 			//
 			desc += sepa + lpad(move, cell);
 			
 			//
-			sepa = j % 6 == 5 ? "\n" : " ";
+			sepa = i % colm == (colm - 1) ? "\n" : " ";
 		}	
 		
 		//
@@ -194,7 +197,7 @@ public class Describe
 			String move = desc(m, j);
 										
 			//
-			int cell = DEBUG_SHOW_WEIGTH ? 10 : 6;
+			int cell = DEBUG_SHOW_MOVE_WEIGHT ? 10 : 6;
 			
 			//
 			desc += sepa + lpad(move, cell);
