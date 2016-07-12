@@ -6,6 +6,7 @@
 //
 package org.krudo.tests.search;
 
+import org.krudo.Legals;
 import static org.krudo.util.Tool.*;
 
 //
@@ -33,8 +34,10 @@ public class Search2
         Search s = new Search(n);
         
         //
-        s.start(6);
+        s.start(5);
         
+        //
+        Legals.info();
         
         //
         //echo(s.eval(7), s.ns, time()-s.timeStart);        
