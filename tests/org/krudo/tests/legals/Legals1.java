@@ -7,10 +7,9 @@
 package org.krudo.tests.legals;
 
 //
-import static org.krudo.Constant.*;
-import static org.krudo.util.Debug.*;
+import static org.krudo.Config.*;
 import static org.krudo.util.Tool.*;
-import static org.krudo.util.Decode.*;
+import static org.krudo.util.Debug.*;
 
 //
 import org.krudo.*;
@@ -22,9 +21,15 @@ public class Legals1
     public static void main(String[] args)
     {    
         //
-        //if (!MOVE_LEGALS) {
-          //  exit("set MOVE_LEGALS = true and retry");
-        //}
+        if (!MOVE_LEGALS) {
+            exit("set MOVE_LEGALS = true and retry");
+        }
+        
+        //
+        DEBUG_SHOW_MOVE_WEIGHT = true;
+        
+        //
+        Moves.init();
         
         //
         Node n = new Node();
@@ -33,9 +38,9 @@ public class Legals1
         n.startpos();
         
         //
-        print(n);
+        dump(n);
         
         //
-        print(n.legals());
+        dump(n.legals());
     }
 }

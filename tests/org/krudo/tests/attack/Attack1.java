@@ -22,7 +22,7 @@ public class Attack1
     public static void main(String[] args) 
     {
         //
-        DEBUG_SHOW_WEIGTH = true;
+        DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
         Node n = new Node();

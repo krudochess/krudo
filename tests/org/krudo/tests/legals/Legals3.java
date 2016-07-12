@@ -34,6 +34,12 @@ public class Legals3
         dump(n.legals());
         
         //
+        n.domove("b1a3");
+
+        //
+        dump(n.legals());
+        
+        //
         Legals.dump();
     }
 }

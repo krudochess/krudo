@@ -9,6 +9,8 @@ import static org.krudo.Eval.eval;
 import org.krudo.Node;
 import org.krudo.Search;
 import static org.krudo.Eval.eval;
+import static org.krudo.Eval.eval;
+import static org.krudo.Eval.eval;
 
 // 
 public class Eval1 {

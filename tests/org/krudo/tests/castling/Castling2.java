@@ -8,7 +8,7 @@ package org.krudo.tests.castling;
 
 //
 import org.krudo.Node;
-import org.krudo.cache.Cache;
+
 import org.krudo.Search;
 
 //

@@ -20,7 +20,7 @@ public class Legals1 {
     public static void main(String[] args) {
         
         //
-        DEBUG_SHOW_WEIGTH = true;
+        DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
         DEBUG_SHOW_ALGEBRIC = true;
