@@ -265,8 +265,11 @@ public final class Search
         // prepare traspoisiont table for current hash
         //t.begin(hash(n));
         
+        
         // trasposition table probe
-       // if (t.probe(d, a, b)) { return t.value(); }
+        if (Tables.probe(n.h, d, a, b)) { 
+        
+        }
         
         // return quiescence value-search, increase node count and store trasposition table value
         if (d == 0) 
@@ -280,7 +283,11 @@ public final class Search
             //t.store(d, w, t.EXACT); 
             return w; 
         }
-                            
+        
+        
+        
+        
+        
         // get legal-moves and sort 
         Move m = n.legals();
                 
@@ -332,11 +339,11 @@ public final class Search
         
         }
         
-        //
-        //m.stop();
+       
         
         //
       // t.store(d, a);
+        
         //
         Moves.free(m);
         
