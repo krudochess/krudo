@@ -42,12 +42,32 @@ public final class Node
     public int bks; // black king square
     public int hm;  // half-move after pawn move or calpture
     public int n;   // count moves from the begin
+    public int ph;  // game phases (opening to final)
                 
     // legals moves-stack internal
     public Move m;
     
     // current zobrist hash key
     public long h;
+    
+    //
+    public final static int[] wph = new int[]
+    {
+        0, 0, 10, 10, 12, 12, 21, 21, 42, 42, 0, 0
+    };
+    
+    // white+black boardmap improve piece lookup on board
+    public final int[] bm = new int[]
+    {
+        c3, f3, d3, e3, c4, d4, e4, f4, 
+        a7, b7, c7, d7, e7, f7, g7, h7, 
+        a8, b8, c8, d8, e8, f8, g8, h8, 
+        c5, d5, e5, f5, b1, g1, c1, d1, 
+        f1, e1, h1, a1, e2, d2, c2, f2,
+        h2, b2, g2, a2,  a3, b3, h3, g3, 
+        a4, b4, g4, h4,  a5, b5, g5, h5,
+        a6, b6, c6, f6, g6, h6, d6, e6
+    };
     
     // white boardmap improve white piece lookup on board
     public final int[] wbm = new int[]
@@ -212,7 +232,14 @@ public final class Node
         e = 0;
         
         // decrease piece counter
-        if (x != O) if (t == w) { cb--; } else { cw--; }
+        if (x != O) 
+        {
+            //
+            ph += wph[x & lo];
+            
+            //
+            if (t == w) { cb--; } else { cw--; }
+        }
                                         
         // for special moves handle move rules
         if (k != move) if (t == w) 
@@ -231,9 +258,6 @@ public final class Node
         
         //
         hash_step2(this, p, s, v, x, k);
-                
-       // dump(this);
-       // dump(L);
     }
     
     // domove and change node internal status
@@ -344,8 +368,15 @@ public final class Node
         h = L.h[L.i];
         
         // decrease piece counter
-        if (x != O) if (t == w) { cb++; } else { cw++; }
-                    
+        if (x != O) 
+        {
+            //
+            ph -= wph[x & lo];
+            
+            //
+            if (t == w) { cb++; } else { cw++; }
+        }
+        
         //
         if (k != move) if (t == w) 
         {

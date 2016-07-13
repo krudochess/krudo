@@ -6,6 +6,7 @@
 //
 package org.krudo;
 
+//
 import static org.krudo.util.Tool.*;
 
 //

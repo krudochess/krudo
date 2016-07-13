@@ -13,13 +13,13 @@ public final class Config
     public final static boolean 
     
             
-    CACHE_LEGALS = true, 
-            
+    CACHE_LEGALS = true,
+    CACHE_EVAL = true,      
             
             
     // enable/disable evaluation 
     // of legal moves generated
-    EVAL_LEGALS = false,        
+    EVAL_LEGALS = false,     
     
     // enable/disable evaluation 
     // of legal moves generated        

@@ -53,7 +53,7 @@ public class Legals
     };
        
     //
-    public final static void add(Long h, Move m)
+    public final static void add(long h, Move m)
     {           
         //
         if (CACHE_LEGALS) 
