@@ -16,8 +16,8 @@ import static org.krudo.util.Debug.*;
 import static org.krudo.util.Encode.*;
 
 //
-public final class Decode {
-
+public final class Decode 
+{
 	// square to string
 	public static final String s2s(
 		final int s // square

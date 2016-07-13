@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import static org.krudo.Config.*;
 import static org.krudo.Constant.*;
+import static org.krudo.util.Decode.*;
 import static org.krudo.util.Describe.desc;
 import static org.krudo.util.Tool.*;
 import static org.krudo.util.Zobrist.*;
@@ -722,11 +723,14 @@ public final class Eval
     public final static void move(final Node n)
     {  
         //
-        int w = node(n);
+        int b = node(n);
         
         //
         for (int i = 0; i < n.m.i; i++)            
         {
+            //
+            int w = b;
+            
             //            
             final int s = n.m.s[i];         
             
@@ -735,13 +739,10 @@ public final class Eval
             
             // get moved piece
             final int p = n.B[s] & lo;
-            
-            
+                      
             // get captured piece
             final int x = n.B[v] & lo;
-                    
-          
-                        
+                                  
             //
             if (EVAL_POSITIONAL)
             {
@@ -769,6 +770,8 @@ public final class Eval
                 w += ow[p][v] >> ep[n.cw];
             }
             */
+            
+            //print(s2s(s)+s2s(v)+"="+OPW[p][v]);
             
             // assign tapered value
             n.m.w[i] = w;

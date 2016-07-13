@@ -186,40 +186,22 @@ public final class Move
         // swap count
         int z;            
 
-        // actual index
-        int a;
-
-        // next index
-        int n;
-        
         // 
-        do {                                 
+        do 
+        {                                 
             // set swap count to zero
             z = 0;
             
-            // actual observed index
-            a = i;
-            
-            // loop actual index 
-            while (a != 0) {    
-                            
-                // next observed index        
-                n = a - 1;
-                
-                // test comparisone
-                if (w[a] > w[n]) {
-            
-                    // swap move by index
-                    swap(a, n);
+            //
+            for (int j = 1; j < i; j++) if (w[j-1] < w[j]) 
+            {
+                // swap move by index
+                swap(j - 1, j);
 
-                    // increase swap count
-                    z++;        
-                }
-
-                // actual index is replaced with next recursive
-                a = n;
+                // increase swap count
+                z++;    
             }
-            
+           
             //
             c += z;            
         }            
@@ -260,21 +242,24 @@ public final class Move
         w[i1] = t;
     }
     
-    //
+    // duplicate a move-stack instance
     public final Move duplicate()
     {
+        //
         Move m = Moves.pick();
         
+        //
         System.arraycopy(s, 0, m.s, 0, i);
         System.arraycopy(v, 0, m.v, 0, i);
         System.arraycopy(k, 0, m.k, 0, i);
         System.arraycopy(w, 0, m.w, 0, i);
-                                
+          
+        //
         m.i = i;
         
+        //
         return m;
     }
-    
 }
 
 
