@@ -12,48 +12,49 @@ public final class Config
     // config flags
     public final static boolean 
     
-            
-    CACHE_LEGALS = true,
-    CACHE_EVAL = true,      
-            
-    
+        /**
+         * CACHING SETTINGS
+         * 
+         */
 
-    /**
-     * EVALUATION CONFIG
-     * 
-     * manage every evaluation activity
-     * 
-     * 
-     */
-        
-    //    
-    EVAL_NODE = true,
-       
-    // of legal moves generated
-    EVAL_LEGALS = false,     
-    
-    // enable/disable evaluation 
-    // of legal moves generated        
-    EVAL_MVV_LAA = false,
-            
-    // enable/disable evaluation 
-    // of legal moves generated        
-    EVAL_CAPTURE = false,
-                        
-    // enable/disable evaluation 
-    // of legal moves generated
-    EVAL_POSITIONAL = true,        
-    
-    // enable/disable evaluation 
-    // of legal moves generated
-    EVAL_TAPERED_ENDING = false,        
-    
-    // enable/disable evaluation 
-    // of legal moves generated
-    EVAL_TAPERED_OPENING = false,        
-        
+        //    
+        CACHE_EVAL = true,   
+
+        //
+        CACHE_LEGALS = true,
+
+        /**
+        * EVALUATION SETTINGS
+        * 
+        * manage every evaluation activity
+        * 
+        * 
+        */
+
+        //    
+        EVAL_NODE = true,
+
+        // of legal moves generated
+        EVAL_LEGALS = false,     
+
+        // of legal moves generated        
+        EVAL_MVV_LAA = false,
+
+        // of legal moves generated        
+        EVAL_CAPTURE = false,
+
+        // of legal moves generated
+        EVAL_POSITIONAL = true,        
+
+        // of legal moves generated
+        EVAL_TAPERED_ENDING = false,        
+
+        // of legal moves generated
+        EVAL_TAPERED_OPENING = false,        
+
+        //
         EVAL_REMAPS = false,
-        
+
         
         
                 

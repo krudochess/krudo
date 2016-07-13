@@ -631,4 +631,31 @@ public final class Search
             log.run();
         }
     }
+    
+    //
+    public final static void walk(final Node n, int deep, int width)
+    {
+        if (deep == 0) {
+            //dump(n.L);
+            return;
+        }
+        
+        //
+        Move m = n.legals().sort();
+    
+        //
+        int w = m.i > width ? width : m.i;
+        
+        //
+        for (int i = 0; i < w; i++) 
+        {
+            n.domove(m, i);
+            
+            walk(n, deep - 1, width);
+            
+            n.unmove();
+        }
+        
+        Moves.free(m);
+    }
 }

@@ -60,10 +60,10 @@ public final class Fen
 							case 'q': n.B[s] = bq; n.cb++; n.ph -= Node.wph[bq & lo]; break;
 							case 'k': n.B[s] = bk; n.bks = s; n.cb++; break;
 							case 'P': n.B[s] = wp; n.cw++; break;
-							case 'N': n.B[s] = wn; n.cw++; break;
-							case 'B': n.B[s] = wb; n.cw++; break;
-							case 'R': n.B[s] = wr; n.cw++; break;
-							case 'Q': n.B[s] = wq; n.cw++; break;
+							case 'N': n.B[s] = wn; n.cw++; n.ph -= Node.wph[wn & lo]; break;
+							case 'B': n.B[s] = wb; n.cw++; n.ph -= Node.wph[wb & lo]; break;
+							case 'R': n.B[s] = wr; n.cw++; n.ph -= Node.wph[wr & lo]; break;
+							case 'Q': n.B[s] = wq; n.cw++; n.ph -= Node.wph[wq & lo]; break;
 							case 'K': n.B[s] = wk; n.wks = s; n.cw++; break;
 							case '/': s = s - 17; break;						
 							case '1': s = s + 0; break;
