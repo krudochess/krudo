@@ -45,6 +45,6 @@ public class Eval1
         dump(n);
         
         //
-        Eval.eval(n);
+        Eval.node(n);
     }    
 }
