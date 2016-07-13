@@ -17,6 +17,10 @@ import static org.krudo.util.Zobrist.*;
 import static org.krudo.util.Describe.desc;
 import static org.krudo.util.Describe.desc;
 import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
 
 //
 public final class Eval 
@@ -107,27 +111,7 @@ public final class Eval
     
     
     
-    /*
-    // white partials evalued weight
-    private static int wma; // white matirial weight
-    private static int wow; // white opening weight
-    private static int wew; // white ending weight
-    private static int wmw; // white mixed opening ending weight
-    private static int wkd; // white king defended value
-    private static int wph; // white pawn structure hash
-    private static int wps; // white pawn structure value
-    private static int wtt; // white total weight
     
-    // black partials evaluad weight
-    private static int bma; // black matirial weight
-    private static int bow; // black opening weight
-    private static int bew; // black ending weigt
-    private static int bmw; // black mixed opening ending weight
-    private static int bkd;    // black king defended value 
-    private static int bph; // black pawn structure hash
-    private static int bps; // black pawn structure value
-    private static int btt; // black total weight   
-    */
     
     // opening piece sqaure weight
     private final static int[][] OPW = {       
@@ -403,8 +387,8 @@ public final class Eval
 
     // capture piece weight
     private final static int[] PW = {
-        100,    100,    300,    300,    305,    305,    
-        500,    500,    900,    900,    6090,   6090
+        -100,    +100,    -300,   +300,    -305,    +305,    
+        -500,    +500,    -900,   +900,    -6090,   +6090
     };
     
     // MVV/LAA 
@@ -461,16 +445,76 @@ public final class Eval
     // eval 
     private static int cache_node(final Node n) 
     {
-        /**
         // if node eval is enabled pass-throu else return zero forever
-        if (!NODE_EVAL) { return 0; }
-        
-        // hash node for get position hash-key
-        h = hash(n);
+        if (!EVAL_NODE) 
+        {
+            return 0; 
+        }
         
         //
-        if (EVAL_CACHE && Cache.eval.has(h)) { return Cache.eval.get(h); }
+        int w = 0;
         
+        // index count squares
+        int si = 0;
+        
+        // index count pieces
+        int pi = n.cw + n.cb;
+        
+        // looking for pieces
+        do 
+        {        
+            // next observed square
+            final int s = n.bm[si++];          
+
+            // get piece in start square
+            final int p = n.B[s];
+            
+            // square not have a side to move piece skip
+            if (p == O) { continue; }
+            
+             //
+            final int i = p & lo;
+                
+            // decrease piece count
+            pi--;
+            
+            // remap square in wbm 
+            if (EVAL_REMAPS) { n.remaps(si, pi, s); }
+
+            // piece value
+            w += PW[i];
+        } 
+        
+        //
+        while (pi != 0);
+        
+        //
+        return w;
+        
+        
+        /*
+    // white partials evalued weight
+    private static int wma; // white matirial weight
+    private static int wow; // white opening weight
+    private static int wew; // white ending weight
+    private static int wmw; // white mixed opening ending weight
+    private static int wkd; // white king defended value
+    private static int wph; // white pawn structure hash
+    private static int wps; // white pawn structure value
+    private static int wtt; // white total weight
+    
+    // black partials evaluad weight
+    private static int bma; // black matirial weight
+    private static int bow; // black opening weight
+    private static int bew; // black ending weigt
+    private static int bmw; // black mixed opening ending weight
+    private static int bkd;    // black king defended value 
+    private static int bph; // black pawn structure hash
+    private static int bps; // black pawn structure value
+    private static int btt; // black total weight   
+    */
+         /**
+       
         // empty white matirial weight
         wma = 0;
                 
@@ -671,7 +715,7 @@ public final class Eval
         
         //
         return tot;*/
-        return 0;
+       
     }        
     
     // score move stack for first time use in search

@@ -267,9 +267,9 @@ public final class Search
         
         
         // trasposition table probe
-        if (Tables.probe(n.h, d, a, b)) { 
+        //if (Tables.probe(n.h, d, a, b)) { 
         
-        }
+        //}
         
         // return quiescence value-search, increase node count and store trasposition table value
         if (d == 0) 
@@ -417,7 +417,7 @@ public final class Search
     private int qmax(int a, int b)
     {                        
         // eval position
-        int w = Eval.eval(n);
+        int w = Eval.node(n);
         
         // increase nodes quiesce count
         nq++;
@@ -483,7 +483,7 @@ public final class Search
     private int qmin(int a, int b) 
     {        
         // eval position 
-        int w = -Eval.eval(n);
+        int w = -Eval.node(n);
 
         // increase nodes count
         nq++;

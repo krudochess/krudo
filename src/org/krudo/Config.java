@@ -16,8 +16,19 @@ public final class Config
     CACHE_LEGALS = true,
     CACHE_EVAL = true,      
             
-            
-    // enable/disable evaluation 
+    
+
+    /**
+     * EVALUATION CONFIG
+     * 
+     * manage every evaluation activity
+     * 
+     * 
+     */
+        
+    //    
+    EVAL_NODE = true,
+       
     // of legal moves generated
     EVAL_LEGALS = false,     
     
@@ -40,6 +51,11 @@ public final class Config
     // enable/disable evaluation 
     // of legal moves generated
     EVAL_TAPERED_OPENING = false,        
+        
+        EVAL_REMAPS = false,
+        
+        
+        
                 
     // enable/disable evaluation 
     // of legal moves generated
@@ -53,9 +69,8 @@ public final class Config
             
 
             
-            
-    NODE_EVAL        = true,
-    EVAL_CACHE        = false,
+   
+   
     MOVE_EVAL        = true, // use threats in run-time
     MOVE_CACHE        = false,    // use caching systems (TT, Zobrist, ecc...)
     MOVE_BUFFER        = true,

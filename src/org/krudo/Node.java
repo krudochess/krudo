@@ -870,20 +870,29 @@ public final class Node
     }
     
     //
+    public void remaps(
+        final int si, 
+        final int pi,
+        final int s
+    ) {                              
+        //
+        bm[si] = bm[pi];
+
+        //
+        bm[pi] = s;
+    }
+    
+    //
     private void white_remaps(
         final int si, 
         final int pi,
         final int s
-    ) {                            
+    ) {                             
         //
-        if (si >> 4 != 0)
-        {   
-            //
-            wbm[si] = wbm[pi];
+        wbm[si] = wbm[pi];
 
-            //
-            wbm[pi] = s;
-        }
+        //
+        wbm[pi] = s;
     }
     
     //
