@@ -203,9 +203,9 @@ public final class Book
         if (m.isEmpty()) { return; }
         
         //
-        n.domove(m.get(0));
+        n.domove(m.get(u % m.size()));
     
         //
-        walk(n, u);
+        walk(n, u / m.size());
     }
 }
