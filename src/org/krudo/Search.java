@@ -34,7 +34,7 @@ public final class Search
     public int beep = 0;
     
     // iterative deepiing deep cursor and limit
-    public int eval;
+    public int score;
     public int deep;
     public int deepStart;
     public int deepLimit;
@@ -163,7 +163,7 @@ public final class Search
             //find.empty();
 
             // launch alfa-beta for searcing candidates 
-            eval = abrun(deep, alfa, beta);        
+            score = abrun(deep, alfa, beta);        
             
             /*            
             // if found moves and search not are stopped put into candidates
@@ -198,8 +198,7 @@ public final class Search
 
         // generate and sort legal-moves
         Move m = n.legals();
-        
-        
+              
         // no legal moves check-mate or stale-mate
         if (m.i == 0) 
         { 
