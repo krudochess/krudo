@@ -398,7 +398,7 @@ public final class Node
         }
         
                 //
-        Debug.assertPieceCount(this);
+        //Debug.assertPieceCount(this);
 
     }
     

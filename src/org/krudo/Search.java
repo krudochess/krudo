@@ -7,6 +7,7 @@
 package org.krudo;
 
 // required static class
+import static org.krudo.Config.*;
 import static org.krudo.Constant.*;
 import static org.krudo.util.Decode.*;
 import static org.krudo.util.Tool.*;
@@ -149,7 +150,10 @@ public final class Search
         
         // iterative deeping beta start value
         int beta = +oo;
-                
+              
+        //
+        info("id-run", ""+deepLimit);
+        
         // iterative deeping loop
         while (deep <= deepLimit && stop == not)
         {                            
@@ -158,12 +162,18 @@ public final class Search
 
             // reset nodes quiesce counter
             nq = 0;
+            
+            //
+            long t = time();
+            
+            //
+            info("id-loop-run", deep+"/"+deepLimit);
 
             // empty founded moves
             //find.empty();
 
             // launch alfa-beta for searcing candidates 
-            score = abrun(deep, alfa, beta);        
+            abrun(alfa, beta);        
             
             /*            
             // if found moves and search not are stopped put into candidates
@@ -177,12 +187,21 @@ public final class Search
             }
             */
             
+            //
+            t = time() - t;
             
-         
-            
+            //
+            long r = ns / t;
+                
+            //
+            info("id-loop-end", deep+"/"+deepLimit+" "+t+"ms "+ns+"n "+r+"knps");
+              
             // increade depth of search
             deep++;                        
         }    
+        
+        //
+        info("id-end", ""+deepLimit);
         
         // exit from iterative deep sort best moves        
         //move.sort();
@@ -192,9 +211,9 @@ public final class Search
     }
     
     // alfa-beta entry-point
-    private int abrun(int d, int a, int b) 
-    {            
-        long t = time();
+    private int abrun(int a, int b) 
+    {    
+        
 
         // generate and sort legal-moves
         Move m = n.legals();
@@ -215,7 +234,7 @@ public final class Search
             n.domove(m, i);
             
             // recursive evaluation search                    
-            s = abmin(d-1, a, b);
+            s = abmin(deep - 1, a, b);
 
             // undo
             n.unmove();            
@@ -226,38 +245,30 @@ public final class Search
             {
                 s = abmin(d-1, a, b);                
             }
-                            
-            // log move wight
-            //log(SEARCH_LOG_MW, m, i, w);
+            */               
             
             // soft alfa-cut-off 
-            if (s > a) {
+            if (s > a) 
+            {
                 //pv[d].set(n.L, zero);
-                log(SEARCH_LOG_UP,pv,1,d,s);
+                //log(SEARCH_LOG_UP, pv, 1,d,s);
                 //find.put(m,j,s);         
                 //m.w[i] = s;
                 a = s;                
-            }            
-            */            
+            }   
+            
+            // log move wight
+            //log(SEARCH_LOG_MW, m, i, w);            
         } 
         
-        //
-        Moves.free(m);
-        
-        t = time()-t;
-        
-        long nps = ns / t; 
-        
-        print("abrun "+deep+"/"+deepLimit+" "+ns+" "+t+" "+nps);
-        
+       
         //
         return a; 
     }
     
     //
     private int abmax(int d, int a, int b) 
-    {
-    
+    {   
         // temp var to store evaluation weight orscore
         int w;
         
@@ -270,7 +281,7 @@ public final class Search
         
         //}
         
-        // return quiescence value-search, increase node count and store trasposition table value
+        // return quiescence value-search, 
         if (d == 0) 
         { 
             if (ns > nsnext) {
@@ -283,10 +294,6 @@ public final class Search
             return w; 
         }
         
-        
-        
-        
-        
         // get legal-moves and sort 
         Move m = n.legals();
                 
@@ -295,53 +302,44 @@ public final class Search
         
         // no legal moves check-mate or stale-mate
         //if (m.l == 0) { return -mate; }
-            
+                                  
         //
-        //m.loop();
-                
-        //
-        int p = 0;
-        
-        //
-        for (int i=0; i<m.i; i++) 
+        for (int i = 0; i < m.i; i++) 
         {            
             // 
-            n.domove(m,i);
+            n.domove(m, i);
                                     
             //                 
             //w = abmin(d-1, a, p == 0 ? b : a+1);
             
             //
             //if (w > a && p > 0) {
-                w = abmin(d-1, a, b);                
+            w = abmin(d-1, a, b);                
             //}
 
             //
             n.unmove();                
             
             // hard cut-off
-           // if (w >= b) { n.unmove(); m.stop(); t.store(d, a, t.BETA); return b; }
-        
-            //
-            if (w > a) {                         
-        
-              //  t.exact();
-                
-             //   pv[d].set(n.L, zero);
-                
-                a = w;
-                
-                //
-                p++;
+            if (w >= b && !SEARCH_BRUTE_FORCE) 
+            {  
+                //t.store(d, a, t.BETA); 
+                //return b; 
+                a = b;
+                break;
             }
-            
         
+            // soft cut-off
+            if (w > a) 
+            {                         
+                // t.exact();
+                // pv[d].set(n.L, zero);
+                a = w;             
+            }
         }
         
-       
-        
         //
-      // t.store(d, a);
+        // t.store(d, a);
         
         //
         Moves.free(m);
@@ -353,26 +351,37 @@ public final class Search
     // alfa-beta min routine
     private int abmin(
         final int d, 
-        final int a, 
-        final int b
+        int a, 
+        int b
     ) {                        
-        // at-end quiescence search and increase nodes count
-        if (d == 0) { ns++; return qmin(a, b); }
-        
-        // generate legal-moves and sort
-        
+        // at-end quiescence search and 
+        if (d == 0) 
+        {
+            // increase nodes count
+            ns++;
             
-        //        
+            // return quesence values
+            return qmin(a, b); 
+        }
+        
+        // generate legal-moves 
         Move m = n.legals();
 
         // no-legals-move exit checkmate
-        //if (m.i == 0) { return +mate+d; }
+        if (m.i == 0) 
+        {
+            return +mate + d; 
+        }
+        
+        // and sort
+        m.sort();
         
         //
-        int w, p = 0; 
+        int w; 
             
         
-        for (int j = 0; j < m.i; j++) {
+        for (int i = 0; i < m.i; i++)
+        {
         
             // 
             if (time() > timeLimit) 
@@ -381,30 +390,35 @@ public final class Search
             }
             
             // make move
-            n.domove(m, j);
+            n.domove(m, i);
                     
             // 
             //w = abmax(d-1, p==0 ? a : b-1, b);
             
             //
             //if (w < b && p > 0) {
-                w = abmax(d-1, a, b);                
+            w = abmax(d-1, a, b);                
             //}
 
             // unmake move
             n.unmove();         
 
             // hard cut-off
-            //if (w <= a || stop == yes) { n.unmove(); m.stop(); return a; }
+            if (w <= a && !SEARCH_BRUTE_FORCE) 
+            { 
+                b = a;
+                    break;
+            }
                                                 
-            //
-            if (w < b) {                 
+            // soft cut-off
+            if (w < b) 
+            {                 
               //  pv[d].set(n.L, zero);
               //   b = w;         
-                p++;
+               // p++;
             }                    
-        
         } 
+        
         //
         Moves.free(m);
    
@@ -630,6 +644,15 @@ public final class Search
             log.run();
         }
     }
+    
+    //
+    private void info(String event, String message)
+    {
+    
+        print(rpad(event, 14)+" "+message);
+    
+    }
+    
     
     //
     public final static void walk(final Node n, int deep, int width)
