@@ -7,7 +7,6 @@
 package org.krudo;
 
 //
-import org.krudo.util.Book;
 
 //
 import static org.krudo.Constant.*;

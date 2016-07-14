@@ -7,7 +7,7 @@
  */
 
 //
-package org.krudo.util;
+package org.krudo;
 
 //
 import org.krudo.Node;
@@ -22,6 +22,7 @@ import java.io.FileNotFoundException;
 
 //
 import static org.krudo.util.Tool.*;
+import static org.krudo.util.Debug.*;
 import static org.krudo.util.Zobrist.*;
 
 // book access tool
@@ -187,4 +188,11 @@ public final class Book
 		// convert byte-array to integer
 		return byte2int(RECORD, 10, 2);		
 	}
+    
+    //
+    public static final void walk(final Node n, final int u)
+    {
+        dump(list(n.h));
+    
+    }
 }
