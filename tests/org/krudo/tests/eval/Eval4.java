@@ -7,12 +7,10 @@
 package org.krudo.tests.eval;
 
 //
-import org.krudo.tests.legals.*;
 import org.krudo.*;
 
 //
 import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tool.*;
     
 //
 public class Eval4 
@@ -33,6 +31,6 @@ public class Eval4
         n.startpos();
         
         //
-        Eval.walk(n, 2, 1);
+        Eval.walk(n, 5, 1);
     }
 }
