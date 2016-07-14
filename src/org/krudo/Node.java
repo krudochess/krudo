@@ -200,6 +200,19 @@ public final class Node
         );
     }
     
+    // do a move placed into moves-stack select by index
+    public final void domove(
+        final Capture captures, 
+        final int index
+    ) {                
+        // call direct s-v-k domove
+        domove(
+            captures.s[index],
+            captures.v[index],
+            captures.k[index]
+        );
+    }
+    
     // do a move placed into moves-stack current index
     public final void domove(
         final Move moves
@@ -878,6 +891,215 @@ public final class Node
     }
     
     //
+    public final Capture capture()
+    {
+        // new empty capture-stack
+        final Capture c = new Capture();
+        
+        // legal move index
+        int l = 0;
+            
+        //
+        if (t == w) 
+        {       
+            //
+            white_capture(c); 
+                            
+            // loop throut pseudo-legal moves
+            for (int i = 0; i < c.i; i++) 
+            {                                
+                //
+                domove(c, i);
+
+                //
+                if (!black_attack(wks)) { c.copy(i, l); l++; }
+
+                //
+                unmove();            
+            }
+        } 
+        
+        //
+        else 
+        { 
+            //
+            black_capture(c); 
+        
+            // loop throut pseudo-legal moves
+            for (int i = 0; i < c.i; i++) 
+            {                                
+                //
+                domove(c, i);
+
+                //
+                if (!white_attack(bks)) { c.copy(i, l); l++; }
+
+                //
+                unmove();            
+            }
+        }
+                
+        //
+        c.i = l;
+
+        //
+        return c; 
+    }
+    
+    //
+    private void white_capture(final Capture c)
+    {
+        // count squares
+        int si = 0;
+
+        // count pieces
+        int pi = cw;
+                
+        // loop throut black piece
+        do 
+        {        
+            // next start square
+            final int s = wbm[si++];
+
+            // get piece in start square
+            final int p = B[s];
+
+            // not is a black piece continue
+            if ((p & w) != w) { continue; }    
+                
+            // apply boars search square remaps
+            //if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
+            
+            int v;
+            
+            // switch by piece
+            switch (p) 
+            {
+                // add black pawn capture
+                case wp:
+                    v = span[s][ne]; 
+                    if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    v = span[s][nw]; 
+                    if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    break;
+                                        
+                // add sliding piece rook moves
+                case wr: spac(c, s, 0, 4); break;
+                
+                // add sliding piece bishop moves
+                
+                case wb: spac(c, s, 4, 8); break;
+                // add sliding piece queen moves     
+                
+                case wq: spac(c, s, 0, 8); break;
+                
+                // add kngiht moves
+                case wn: 
+                    for (int i = 0; i < 8; i++) 
+                    {
+                        v = hope[s][i];            
+                        if (v != xx && (B[v] & b) == b) { c.add(s, v, move); }
+                    }
+                    break;
+                
+                // add kings moves and castling
+                case wk: 
+                    for (int i = 0; i < 8; i++) 
+                    {
+                        v = span[s][i];            
+                        if (v != xx && (B[v] & b) == b) { c.add(s, v, kmov); }
+                    }
+                    break;    
+
+                // unrecognized piece fault stop
+                default: exit("WHITE CAPTURE FAULT");                        
+            }
+
+            // count founded piece
+            pi--;            
+        }
+        
+        //
+        while (pi != 0);        
+    }
+    
+    //
+    private void black_capture(final Capture c)
+    {
+        // count squares
+        int si = 0;
+
+        // count pieces
+        int pi = cb;
+                
+        // loop throut black piece
+        do 
+        {        
+            // next start square
+            final int s = bbm[si++];
+
+            // get piece in start square
+            final int p = B[s];
+
+            // not is a black piece continue
+            if ((p & b) != b) { continue; }    
+                
+            // apply boars search square remaps
+            //if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
+            
+            int v;
+            
+            // switch by piece
+            switch (p) 
+            {
+                // add sliding piece rook moves
+                case br: spac(c, s, 0, 4); break;
+                
+                // add sliding piece bishop moves               
+                case bb: spac(c, s, 4, 8); break;
+                
+                // add sliding piece queen moves                     
+                case bq: spac(c, s, 0, 8); break;
+
+                // add black pawn capture
+                case bp:
+                    v = span[s][se]; 
+                    if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    v = span[s][sw]; 
+                    if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    break;
+                
+                // add kngiht moves
+                case bn: 
+                    for (int i = 0; i < 8; i++) 
+                    {
+                        v = hope[s][i];            
+                        if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }
+                    }
+                    break;
+                
+                // add kings moves and castling
+                case bk: 
+                    for (int i = 0; i < 8; i++) 
+                    {
+                        v = span[s][i];            
+                        if (v != xx && (B[v] & w) == w) { c.add(s, v, kmov); }
+                    }
+                    break;    
+                
+                // unrecognized piece fault stop
+                default: exit("BLACK CAPTURE FAULT");                        
+            }
+
+            // count founded piece
+            pi--;            
+        }
+        
+        //
+        while (pi != 0);    
+    }
+    
+    //
     public void remaps(
         final int si, 
         final int pi,
@@ -1281,5 +1503,25 @@ public final class Node
             && B[d8] == O 
             && B[c8] == O 
             && B[b8] == O;
+    }
+    
+    //
+    private void spac(
+        final Capture c, 
+        final int s,
+        final int x0, 
+        final int x1
+    ) {
+        //
+        for (int i = x0; i < x1; i++) 
+        {        
+            int v = span[s][i];
+            while (v != xx)
+            {    
+                if (B[v] == O) { v = span[v][i]; continue; } 
+                if ((B[v] & T) != t) { c.add(s, v, move); } 
+                break; 
+            }
+        } 
     }
 }

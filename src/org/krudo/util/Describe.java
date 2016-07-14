@@ -7,9 +7,7 @@
 package org.krudo.util;
 
 //
-import org.krudo.Line;
-import org.krudo.Move;
-import org.krudo.Node;
+import org.krudo.*;
 
 //
 import static org.krudo.Constant.*;
@@ -180,7 +178,39 @@ public class Describe
 		//
 		return desc;
 	}
-	
+
+    //
+	public final static String desc(final Capture c) 
+    {
+		//
+		String desc = "";
+		
+		//
+		String sepa = "";
+		
+        //
+        int cell = DEBUG_SHOW_MOVE_WEIGHT ? 10 : 6;
+			
+        //
+        int colm = DEBUG_SHOW_MOVE_WEIGHT ? 4 : 6;    
+        
+		//
+		for (int i = 0; i < c.i; i++)
+        {	
+			//
+			String move = desc(c, i);
+										
+			//
+			desc += sepa + lpad(move, cell);
+			
+			//
+			sepa = i % colm == (colm - 1) ? "\n" : " ";
+		}	
+		
+		//
+		return desc;
+	}
+
 	//
 	public final static String desc(Move m, Node n) {
 	
@@ -261,5 +291,14 @@ public class Describe
 	) {
 		//
 		return m2s(m.s[i], m.v[i], m.k[i], m.w[i]);
+	}
+    
+    //
+	public final static String desc(		
+		final Capture c, 
+		final int i
+	) {
+		//
+		return m2s(c.s[i], c.v[i], c.k[i], c.w[i]);
 	}
 }

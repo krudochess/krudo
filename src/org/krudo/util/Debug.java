@@ -64,6 +64,13 @@ public final class Debug
 		print(desc(m));
 	}
 	
+    // 
+	public final static void dump(Capture m) 
+    {					
+		//
+		print(desc(m));
+	}
+	
 	//
 	public final static void dump(Move[] pv) 
     {		

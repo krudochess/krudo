@@ -65,9 +65,7 @@ public final class Search
     public String logLine;    // log variation observed 
     public boolean logEnabled; // log node per seconds        
     
-    // temp for root score for recursive call
-    private int s;
-
+  
     //private Table t = Cache.table;
     
     // constructor with node-centric search
@@ -220,8 +218,6 @@ public final class Search
     // alfa-beta entry-point
     private int abrun(int a, int b) 
     {    
-        
-
         // generate and sort legal-moves
         Move m = n.legals();
               
@@ -241,7 +237,7 @@ public final class Search
             n.domove(m, i);
             
             // recursive evaluation search                    
-            s = abmin(deep - 1, a, b);
+            int s = abmin(deep - 1, a, b);
 
             // undo
             n.unmove();            
@@ -268,43 +264,48 @@ public final class Search
             //log(SEARCH_LOG_MW, m, i, w);            
         } 
         
+        //
+        Moves.free(m);
        
         //
         return a; 
     }
     
     //
-    private int abmax(int d, int a, int b) 
+    private int abmax(final int d, int a, int b) 
     {   
         // temp var to store evaluation weight orscore
-        int w;
+        int s;
         
         // prepare traspoisiont table for current hash
         //t.begin(hash(n));
-        
-        
+                
         // trasposition table probe
-        //if (Tables.probe(n.h, d, a, b)) { 
-        
+        //if (Tables.probe(n.h, d, a, b)) {         
         //}
         
         // return quiescence value-search, 
         if (d == 0) 
         { 
+            //
             ns++;
              
             //
             abspeed();
             
-            w = qmax(a, b); 
+            //
+            s = qmax(a, b);
+            
             //t.store(d, w, t.EXACT); 
-            return w; 
+            
+            //
+            return s; 
         }
         
-        // get legal-moves and sort 
+        // get legal-moves  
         Move m = n.legals();
                 
-        //        
+        // and sort       
         m.sort();
         
         // no legal moves check-mate or stale-mate
@@ -321,14 +322,14 @@ public final class Search
             
             //
             //if (w > a && p > 0) {
-            w = abmin(d-1, a, b);                
+            s = abmin(d-1, a, b);                
             //}
 
             //
             n.unmove();                
             
             // hard cut-off
-            if (w >= b && !SEARCH_BRUTE_FORCE) 
+            if (s >= b && !SEARCH_BRUTE_FORCE) 
             {  
                 //t.store(d, a, t.BETA); 
                 //return b; 
@@ -337,11 +338,11 @@ public final class Search
             }
         
             // soft cut-off
-            if (w > a) 
+            if (s > a) 
             {                         
                 // t.exact();
                 // pv[d].set(n.L, zero);
-                a = w;             
+                a = s;             
             }
         }
         
@@ -356,11 +357,11 @@ public final class Search
     }
 
     // alfa-beta min routine
-    private int abmin(
-        final int d, 
-        int a, 
-        int b
-    ) {                        
+    private int abmin(final int d, int a, int b)
+    {                        
+        //
+        int s; 
+
         // at-end quiescence search and 
         if (d == 0) 
         {
@@ -384,15 +385,11 @@ public final class Search
         }
         
         // and sort
-        m.sort();
-        
-        //
-        int w; 
+        m.sort();        
             
-        
+        //
         for (int i = 0; i < m.i; i++)
-        {
-        
+        {        
             // 
             if (time() > timeLimit) 
             { 
@@ -407,25 +404,25 @@ public final class Search
             
             //
             //if (w < b && p > 0) {
-            w = abmax(d-1, a, b);                
+            s = abmax(d-1, a, b);                
             //}
 
             // unmake move
             n.unmove();         
 
             // hard cut-off
-            if (w <= a && !SEARCH_BRUTE_FORCE) 
+            if (s <= a && !SEARCH_BRUTE_FORCE) 
             { 
                 b = a;
-                    break;
+                break;
             }
                                                 
             // soft cut-off
-            if (w < b) 
+            if (s < b) 
             {                 
-              //  pv[d].set(n.L, zero);
-              //   b = w;         
-               // p++;
+                // pv[d].set(n.L, zero);
+                // p++;
+                b = s;                       
             }                    
         } 
         
@@ -438,67 +435,49 @@ public final class Search
 
     // quiescence max routine
     private int qmax(int a, int b)
-    {           
-        
-        if (true) return 0;
+    {                   
         // eval position
-        int w = Eval.node(n);
+        int s = Eval.node(n);
+                                
+        // hard cut-off
+        if (s >= b) { return b; }
         
-        // increase nodes quiesce count
-        nq++;
+        // 
+        if (!SEARCH_QUIESCENCE) { return s; }
         
-        //
-        if (w >= b) 
-        { 
-            return b; 
-        }
-        
-        //
-        if (w > a) 
-        { 
-            a = w; 
-        }
-
-        // quiescence need sort moves
-        Move m = n.legals();
-        
-        //
-        m.sort();
+        // soft cut-off
+        if (s > a) { a = s; }
                 
-        // checkmate exit from 
-        /*
-        if (m.l == 0) {
-            return -mate; 
-        }
-        */
-               
+        // quiescence need sort moves
+        Capture c = n.capture();
+        
+        // 
+        c.sort();
+                               
         //
-        for (int i = 0; i < m.i; i++) if (m.k[i] == ecap || n.B[m.v[i]] != O) 
+        for (int i = 0; i < c.i; i++)  
         {
             //
-            n.domove(m, i);
+            n.domove(c, i);
                         
             //
-            w = qmin(a, b);
+            s = qmin(a, b);
             
             //
             n.unmove();
             
             //
-            if (w >= b) 
+            if (s >= b) 
             { 
                 a = b;
                 break; 
             }
 
             //
-            if (w > a) { 
-                a = w; 
+            if (s > a) { 
+                a = s; 
             }
         }
-                
-        //
-        Moves.free(m);
         
         //
         return a;
@@ -507,68 +486,54 @@ public final class Search
     // quiescence min search
     private int qmin(int a, int b) 
     {        
-        if (true) return 0;
-        
-        // eval position 
-        int w = -Eval.node(n);
-
         // increase nodes count
         nq++;
+                
+        // eval position 
+        int s = -Eval.node(n);
         
         // return alfa if wrost
-        if (w <= a) 
-        { 
-            return a; 
-        }
+        if (s <= a) { return a; }
+
+        //
+        if (!SEARCH_QUIESCENCE) { return s; }
         
         // set new value for upper limit
-        if (w < b) 
-        { 
-            b = w; 
-        }
-        
+        if (s < b) { b = s; }
+                
         // quiescenze need sort moves
-        Move m = n.legals();
+        Capture c = n.capture();
         
         //
-        m.sort();
-
-        // exit checkmate or stalemate
-        //if (m.i == 0) 
-        //{ 
-        //    return +mate; 
-        //}
+        c.sort();
                         
         // loop throut capturers
-        for (int i = 0; i < m.i; i++) if (m.k[i] == ecap || n.B[m.v[i]] != O) 
+        for (int i = 0; i < c.i; i++) 
         {
             // make move 
-            n.domove(m, i);
+            n.domove(c, i);
                         
             // iterate qsearch
-            w = qmax(a, b);
+            s = qmax(a, b);
             
             // redo move
             n.unmove();
 
             // hard cut-off
-            if (w <= a)
+            if (s <= a)
             { 
                 b = a;
                 break;
             }        
                 
             // soft cut-off
-            if (w < b) 
+            if (s < b) 
             { 
-                b = w; 
+                b = s; 
             }
         }
 
-        //
-        Moves.free(m);
-        
-        // return new uppel limit
+        // 
         return b;
     }
     
