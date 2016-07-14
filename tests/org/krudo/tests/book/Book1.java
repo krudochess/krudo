@@ -10,7 +10,7 @@ package org.krudo.tests.book;
 import static org.krudo.util.Tool.*;
 
 //
-import org.krudo.util.Book;
+import org.krudo.Book;
 import org.krudo.Node;
 
 //

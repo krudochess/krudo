@@ -12,7 +12,7 @@ import static org.krudo.util.Tool.*;
 import static org.krudo.Constant.*;
 
 // required non-static class
-import org.krudo.util.Book;
+import org.krudo.Book;
 import org.krudo.Eval;
 import org.krudo.Node;
 

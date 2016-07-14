@@ -8,12 +8,12 @@ package org.krudo.tests.eval;
 
 //
 import org.krudo.*;
-
+    
 //
 import static org.krudo.util.Debug.*;
     
 //
-public class Eval4 
+public class Eval5 
 {
     //
     public static void main(String[] args) 
@@ -31,6 +31,6 @@ public class Eval4
         n.startpos();
         
         //
-        Eval.walk(n, 27, 1);
+        Book.walk(n, 0);
     }
 }

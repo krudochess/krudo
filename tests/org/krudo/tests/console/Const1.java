@@ -6,7 +6,7 @@ import static org.krudo.util.Tool.*;
 import static org.krudo.Constant.*;
 
 //
-import org.krudo.util.Book;
+import org.krudo.Book;
 import org.krudo.Move;
 import org.krudo.Node;
 

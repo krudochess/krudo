@@ -8,7 +8,7 @@ package org.krudo.tests.book;
 
 // required non-static class
 import org.krudo.Node;
-import org.krudo.util.Book;
+import org.krudo.Book;
 
 // required static class
 import static org.krudo.util.Tool.*;
