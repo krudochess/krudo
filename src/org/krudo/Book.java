@@ -15,7 +15,9 @@ import org.krudo.Move;
 import org.krudo.Krudo;
 import org.krudo.Moves;
 
+
 //
+import java.util.ArrayList;
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,6 +25,7 @@ import java.io.FileNotFoundException;
 //
 import static org.krudo.util.Tool.*;
 import static org.krudo.util.Debug.*;
+import org.krudo.util.Tool;
 import static org.krudo.util.Zobrist.*;
 
 // book access tool
@@ -55,8 +58,9 @@ public final class Book
 		
 		//
 		catch (FileNotFoundException ex) 
-        {
-			Krudo.CONSOLE.error(ex);			
+        {			
+            Krudo.CONSOLE.error(ex);	
+            Tool.exit();
 		} 		
 	}
 	
@@ -72,10 +76,10 @@ public final class Book
 		//
 		catch (IOException ex)
         {
-			Krudo.CONSOLE.error(ex);			
+			Krudo.CONSOLE.error(ex);	
 		}
 	}
-	
+    
 	// read next input from file
 	public static final boolean read() 
     {	
@@ -129,10 +133,10 @@ public final class Book
 	}
 	
 	// get list of moves into book based on node
-	public static final Move list(final long lookup) 
+	public static final ArrayList<String> list(final long lookup) 
     {
 		// prepare a void move list
-		Move m = Moves.pick();
+		ArrayList<String> m = new ArrayList<>();
 						
 		// open file
 		open();
@@ -143,7 +147,7 @@ public final class Book
 			// if found position hash put move into stack
 			if (key == lookup) 
             {				
-				//m.add(move(), weight());
+				m.add(move());
 			}
 		}
 				
@@ -192,7 +196,16 @@ public final class Book
     //
     public static final void walk(final Node n, final int u)
     {
-        dump(list(n.h));
+        //
+        ArrayList<String> m = list(n.h);
+        
+        //
+        if (m.isEmpty()) { return; }
+        
+        //
+        n.domove(m.get(0));
     
+        //
+        walk(n, u);
     }
 }

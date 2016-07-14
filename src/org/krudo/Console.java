@@ -15,8 +15,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 // console main class
-public final class Console {
-                
+public final class Console 
+{                
     // log-file handler
     private FileWriter w;
     
@@ -29,7 +29,7 @@ public final class Console {
         //
         try 
         {        
-            w = new FileWriter(log,true);
+            w = new FileWriter(log, true);
             w.flush();
             b = new BufferedReader(new InputStreamReader(System.in)); 
             log("\n");
@@ -100,16 +100,19 @@ public final class Console {
     public final void close() 
     {    
         //
-        try {            
-            
-            //
-            w.flush();
-            
-            //
-            w.close();
-            
-            //
-            b.close(); 
+        try 
+        {                
+            if (w != null && b != null)
+            {
+                //
+                w.flush();
+
+                //
+                w.close();
+
+                //
+                b.close(); 
+            }
         } 
         
         //
@@ -138,7 +141,10 @@ public final class Console {
         //
         try
         {
-            w.write(arg);
+            if (w != null)
+            {
+                w.write(arg);
+            }
         } 
         
         //

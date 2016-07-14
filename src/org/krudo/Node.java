@@ -161,7 +161,15 @@ public final class Node
         // parse move parts and retrieve s,v,k
         int s = s2i(move.substring(0, 2));
         int v = s2i(move.substring(2, 4));
-        int k = k2i(move, B[s], s, v, B[v], t);                            
+        int k = k2i(move, B[s], s, v, B[v], t);  
+        
+        // fix book castling move
+        if (k == cast) switch (v) {
+            case a1: v = c1; break;  
+            case a8: v = c8; break;  
+            case h1: v = g1; break;  
+            case h8: v = g8; break;  
+        }
         
         // do-play move apply status changes
         domove(s, v, k);

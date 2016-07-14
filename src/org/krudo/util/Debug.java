@@ -372,8 +372,11 @@ public final class Debug
             print("assertPieceCount fails");
             dump(n);
             dump(n.L);
+            n.unmove();
+            dump(n);
+            dump(n.legals());
+            print(Book.list(n.h));
             exit();
-        
         }
     }
     
