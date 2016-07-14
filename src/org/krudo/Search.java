@@ -46,8 +46,10 @@ public final class Search
     public long timeLimit;
         
     // count nodes for ab search
-    public int ns;
-    public int nsnext;
+    public long ns;
+    public long nsnext;
+    public long nstime;
+    public long nspoll = 500000;
     
     // count nodes for quiesce search
     public int nq;
@@ -164,6 +166,11 @@ public final class Search
             nq = 0;
             
             //
+            nstime = time();
+            
+            nsnext = 100000;
+            
+            //
             long t = time();
             
             //
@@ -191,7 +198,7 @@ public final class Search
             t = time() - t;
             
             //
-            long r = ns / t;
+            long r = t > 0 ? ns / t : 0;
                 
             //
             info("id-loop-end", deep+"/"+deepLimit+" "+t+"ms "+ns+"n "+r+"knps");
@@ -284,11 +291,11 @@ public final class Search
         // return quiescence value-search, 
         if (d == 0) 
         { 
-            if (ns > nsnext) {
-                //print("- "+ns);
-                nsnext = ns + 100000;
-            }
             ns++;
+             
+            //
+            abspeed();
+            
             w = qmax(a, b); 
             //t.store(d, w, t.EXACT); 
             return w; 
@@ -360,6 +367,9 @@ public final class Search
             // increase nodes count
             ns++;
             
+            //
+            abspeed();
+            
             // return quesence values
             return qmin(a, b); 
         }
@@ -428,7 +438,9 @@ public final class Search
 
     // quiescence max routine
     private int qmax(int a, int b)
-    {                        
+    {           
+        
+        if (true) return 0;
         // eval position
         int w = Eval.node(n);
         
@@ -495,6 +507,8 @@ public final class Search
     // quiescence min search
     private int qmin(int a, int b) 
     {        
+        if (true) return 0;
+        
         // eval position 
         int w = -Eval.node(n);
 
@@ -557,7 +571,27 @@ public final class Search
         // return new uppel limit
         return b;
     }
+    
+    //
+    private void abspeed()
+    {
+        if (ns >= nsnext) {
+            //print("- "+ns);
+            nsnext = ns + nspoll;
+
+            long t = time() - nstime;
+
+            long r = nspoll / t;
+
+            nstime = time();
+
+            info("ab-speed", deep+"/"+deepLimit+" "+t+"ms "+ns+"n "+r+"knps");
             
+            //print(Runtime.getRuntime().freeMemory());
+        }
+    }
+    
+    
     // default log callback
     public Runnable log = new Runnable() {
         
@@ -638,7 +672,7 @@ public final class Search
     private void log(int a) {
         logAction    = a;
         logTime        = time() - timeStart;
-        logNodes    = ns;
+        //logNodes    = ns;
         logNPS        = logTime > 0 ? ns / logTime : 0; 
         if (logEnabled) {
             log.run();
