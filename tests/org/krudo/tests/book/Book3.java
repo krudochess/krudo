@@ -6,8 +6,11 @@
 //
 package org.krudo.tests.book;
 
+import java.util.ArrayList;
+
 //
 import static org.krudo.util.Debug.*;
+import static org.krudo.util.Tool.*;
 
 //
 import org.krudo.Book;
@@ -24,12 +27,12 @@ public class Book3
         Node n = new Node();
         
         //
-        Move m = Book.list(n.h);
+        ArrayList<String> m = Book.list(n.h);
 
         //
         dump(n);
         
         // print out position
-        dump(m);
+        print(m);
     }    
 }

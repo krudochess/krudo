@@ -10,6 +10,7 @@ package org.krudo.tests.eval;
 import org.krudo.*;
     
 //
+import static org.krudo.util.Tool.*;
 import static org.krudo.util.Debug.*;
     
 //
@@ -31,13 +32,16 @@ public class Eval5
         n.startpos();
         
         //
-        Book.walk(n, 1);
+        Book.walk(n, 20);
         
         //
         dump(n);
         
         //
-        dump(n.legals());
+        print("Eval: "+Eval.node(n));
+        
+        //
+        dump(n.legals().sort());
         
         //
         dump(n.L);
