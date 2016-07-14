@@ -23,6 +23,30 @@ import static org.krudo.util.Describe.desc;
 import static org.krudo.util.Describe.desc;
 import static org.krudo.util.Describe.desc;
 import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
+import static org.krudo.util.Describe.desc;
 
 //
 public final class Eval 
@@ -118,7 +142,7 @@ public final class Eval
         // black pawn from a8 to h1
         {
             +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,              
+            +0,    +0,    +0,    -2,    -2,    +0,    +0,    +0,              
             +0,    +0,    +0,    +14,   +15,   +0,    +0,    +0,
             +0,    +0,    +0,    +24,   +25,   +0,    +0,    +0,              
             +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
@@ -128,14 +152,14 @@ public final class Eval
         },                
         /*wp*/
         {
-        +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
-        +6,    +6,    +6,    +0,    +0,    +6,    +6,    +6,    
-        +0,    +0,    +3,    +2,    +2,    -4,    +0,    +0,    
-        +0,    +0,    +4,    +8,    +8,    +1,    +0,    +0,    
-        +0,    +0,    +4,    +9,    +9,    +4,    +0,    +0,    
-        +3,    +3,    +3,    +3,    +3,    +3,    +3,    +3,    
-        +3,    +3,    +3,    +3,    +3,    +3,    +3,    +3,    
-        +3,    +3,    +3,    +3,    +3,    +3,    +3,    +3,    
+            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
+            +6,    +6,    +6,    +0,    +0,    +6,    +6,    +6,    
+            +0,    +0,    +3,    +2,    +2,    -4,    +0,    +0,    
+            +0,    +0,    +4,    +8,    +8,    +1,    +0,    +0,    
+            +0,    +0,    +4,    +9,    +9,    +4,    +0,    +0,    
+            +3,    +3,    +3,    +3,    +3,    +3,    +3,    +3,    
+            +3,    +3,    +3,    +3,    +3,    +3,    +3,    +3,    
+            +3,    +3,    +3,    +3,    +3,    +3,    +3,    +3,    
         },                
         /*bn*/
         {
@@ -250,16 +274,16 @@ public final class Eval
     }; 
 
     //
-    private final static int[][] EPW = {       
+    public final static int[][] EPW = {       
         /*bp*/
         {
-        +5,    +6,    +6,    +8,    +8,    +6,    +6,    +5,    
-        +7,    +8,    +8,    +8,    +8,    +8,    +8,    +7,    
-        +6,    +7,    +7,    +6,    +6,    +7,    +7,    +6,    
-        +5,    +6,    +6,    +5,    +5,    +6,    +6,    +5,    
-        +4,    +5,    +5,    +4,    +4,    +5,    +5,    +4,    
+        +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
+        +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
         +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
-        -9,    -9,    -9,    -9,    -9,    -9,    -9,    -9,    
+        +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
+        +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
+        +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
+        +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
         +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
         },                
         /*wp*/
@@ -390,22 +414,57 @@ public final class Eval
     {
         for (int p = 0; p < 12; p++)
         {
-            for (int s = 0; s < 32; s++)
+            for (int r = 0; r < 4; r++)
+            {
+                for (int c = 0; c < 8; c++)
+                {
+                    //
+                    int s0 = r * 8 + c;
+                    
+                    //
+                    int s1 = (7 - r) * 8 + c;
+                    
+                    //
+                    int t0 = OPW[p][s0];
+                    
+                    //
+                    OPW[p][s0] = OPW[p][s1];
+                    
+                    //
+                    OPW[p][s1] = t0;
+                    
+                    //
+                    int t1 = EPW[p][s0];
+                    
+                    //
+                    EPW[p][s0] = EPW[p][s1];
+                    
+                    //
+                    EPW[p][s1] = t1;
+                }   
+            }
+        }    
+        
+        //
+        for (int p = 0; p < 12; p++)
+        {
+            //
+            for (int s = 0; s < 64; s++)
             {
                 //
                 if (p % 2 == 0) 
                 {
                     //
                     OPW[p][s] = -OPW[p][s];
-                    
+
                     //
                     EPW[p][s] = -EPW[p][s];
                 }
-                
+
                 //
                 EPW[p][s] -= OPW[p][s];
-            }      
-        }    
+            }
+        }
     }
    
     // capture piece weight
@@ -475,7 +534,7 @@ public final class Eval
         }
         
         //
-        int w = 0;
+        int score = 0;
         
         // index count squares
         int si = 0;
@@ -505,14 +564,14 @@ public final class Eval
             if (EVAL_REMAPS) { n.remaps(si, pi, s); }
 
             // piece value
-            w += PW[i];
+            score += PW[i];
         } 
         
         //
         while (pi != 0);
         
         //
-        return w;
+        return n.t == w ? score : -score;
         
         
         /*
@@ -751,7 +810,7 @@ public final class Eval
         for (int i = 0; i < n.m.i; i++)            
         {
             //
-            int w = b;
+            int score = b;
             
             //            
             final int s = n.m.s[i];         
@@ -768,7 +827,7 @@ public final class Eval
             //
             if (EVAL_POSITIONAL)
             {
-                w += OPW[p][v];
+                score += OPW[p][v];
             }
             
             /*
@@ -796,7 +855,7 @@ public final class Eval
             //print(s2s(s)+s2s(v)+"="+OPW[p][v]);
             
             // assign tapered value
-            n.m.w[i] = w;
+            n.m.w[i] = n.t == w ? score : -score;
         }
         
     }
