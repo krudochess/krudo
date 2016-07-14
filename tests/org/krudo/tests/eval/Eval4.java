@@ -31,6 +31,6 @@ public class Eval4
         n.startpos();
         
         //
-        Eval.walk(n, 5, 1);
+        Eval.walk(n, 18, 1);
     }
 }
