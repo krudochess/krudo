@@ -63,7 +63,7 @@ public final class Config
 */
         SEARCH_BRUTE_FORCE = true,
             
-            SEARCH_QUIESCENCE = false,
+            SEARCH_QUIESCENCE = true,
 
         
                 

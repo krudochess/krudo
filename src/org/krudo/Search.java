@@ -166,7 +166,7 @@ public final class Search
             //
             nstime = time();
             
-            nsnext = 100000;
+            nsnext = nspoll;
             
             //
             long t = time();
