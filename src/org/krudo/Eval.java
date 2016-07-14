@@ -14,6 +14,7 @@ import static org.krudo.Constant.*;
 import static org.krudo.util.Decode.*;
 import static org.krudo.util.Describe.desc;
 import static org.krudo.util.Tool.*;
+import static org.krudo.util.Debug.*;
 import static org.krudo.util.Zobrist.*;
 import static org.krudo.util.Describe.desc;
 import static org.krudo.util.Describe.desc;
@@ -89,6 +90,7 @@ public final class Eval
         return 0;
     }
     
+    /*
     //
     public final static void dump()
     {
@@ -102,6 +104,7 @@ public final class Eval
             print(Long.toHexString(i.getKey())+" => "+i.getValue());      
         }    
     }
+    */
     
     //
     public final static void info()
@@ -110,22 +113,18 @@ public final class Eval
         print("Eval (size:"+CACHE.size()+" q:"+queries+" s:"+success+")");
     }    
     
-    
-    
-    
-    
     // opening piece sqaure weight
-    private final static int[][] OPW = {       
-        /*bp*/
+    public final static int[][] OPW = {       
+        // black pawn from a8 to h1
         {
-        +3,    +3,    +3,    +3,    +3,    +3,    +3,    +3,    
-        +3,    +3,    +3,    +3,    +3,    +3,    +3,    +3,    
-        +3,    +3,    +3,    +3,    +3,    +3,    +3,    +3,    
-        +0,    +0,    +4,    +9,    +9,    +4,    +0,    +0,    
-        +0,    +0,    +4,    +8,    +8,    +1,    +0,    +0,    
-        +0,    +0,    +3,    +2,    +2,    -4,    +0,    +0,    
-        +6,    +6,    +6,    +0,    +0,    +6,    +6,    +6,    
-        +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
+            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
+            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,              
+            +0,    +0,    +0,    +14,   +15,   +0,    +0,    +0,
+            +0,    +0,    +0,    +24,   +25,   +0,    +0,    +0,              
+            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
+            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,              
+            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
+            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,              
         },                
         /*wp*/
         {
@@ -386,6 +385,29 @@ public final class Eval
         }
     }; 
 
+    //
+    static 
+    {
+        for (int p = 0; p < 12; p++)
+        {
+            for (int s = 0; s < 32; s++)
+            {
+                //
+                if (p % 2 == 0) 
+                {
+                    //
+                    OPW[p][s] = -OPW[p][s];
+                    
+                    //
+                    EPW[p][s] = -EPW[p][s];
+                }
+                
+                //
+                EPW[p][s] -= OPW[p][s];
+            }      
+        }    
+    }
+   
     // capture piece weight
     private final static int[] PW = {
         -100,    +100,    -300,   +300,    -305,    +305,    
@@ -778,5 +800,36 @@ public final class Eval
         }
         
     }
+      
+    //
+    public final static void walk(final Node n, int deep, int width)
+    {
+        if (deep == 0) {
+            dump(n);
+            return;
+        }
         
+        //
+        Move m = n.legals().sort();
+    
+        //
+        int w = m.i > width ? width : m.i;
+        
+        //
+        for (int i = 0; i < w; i++) 
+        {
+            n.domove(m, i);
+            
+            walk(n, deep - 1, width);
+            
+            n.unmove();
+            
+            if (deep == 1) {
+                dump(m);
+                print("\n");
+            }
+        }
+        
+        Moves.free(m);
+    }
 }
