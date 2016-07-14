@@ -29,7 +29,7 @@ public class Eval1
 	//
 	public static void main(String[] args) 
     {
-
+/*
         int o = -100;
         int f = 200 - o;
         
@@ -44,8 +44,8 @@ public class Eval1
         print(bin(wr));
         print(bin(wb));
         print(bin(wn));
-        print(wn & m);
-        
+        print(wn & m);*/
+        print(Eval.OPW[bp&lo][e5]);
 	}
 }
 

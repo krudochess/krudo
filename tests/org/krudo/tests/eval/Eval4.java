@@ -15,7 +15,7 @@ import static org.krudo.util.Debug.*;
 import static org.krudo.util.Tool.*;
     
 //
-public class Eval3 
+public class Eval4 
 {
     //
     public static void main(String[] args) 
@@ -30,30 +30,9 @@ public class Eval3
         Node n = new Node();
 
         //
-        n.startpos("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/1NBQKBNR w KQkq - 0 1");
+        n.startpos();
         
         //
-        dump(n);
-        
-        //
-        dump(n.legals().sort());
-        
-        //
-        n.domove("b1a3");
-        
-        //
-        print("");
-        
-        //
-        dump(n);
-
-        //
-        dump(n.legals().sort());
-        
-        //
-        print("");
-        
-        //
-        //Eval.dump();
+        Eval.walk(n, 2, 1);
     }
 }
