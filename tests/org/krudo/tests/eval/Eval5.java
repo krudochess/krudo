@@ -31,6 +31,15 @@ public class Eval5
         n.startpos();
         
         //
-        Book.walk(n, 0);
+        Book.walk(n, 1);
+        
+        //
+        dump(n);
+        
+        //
+        dump(n.legals());
+        
+        //
+        dump(n.L);
     }
 }
