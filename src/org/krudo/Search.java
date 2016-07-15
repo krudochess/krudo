@@ -294,7 +294,7 @@ public final class Search
             ns++;
              
             //
-            abspeed();
+            abcontrol();
             
             //
             s = qmax(a, b, pv);
@@ -339,7 +339,11 @@ public final class Search
             {  
                 //t.store(d, a, t.BETA); 
                 //return b; 
+                
+                //
                 a = b;
+                
+                //
                 break;
             }
         
@@ -347,7 +351,7 @@ public final class Search
             if (s > a) 
             {                         
                 // t.exact();
-                // pv[d].set(n.L, zero);
+              
                 a = s;             
             }
         }
@@ -375,7 +379,7 @@ public final class Search
             ns++;
             
             //
-            abspeed();
+            abcontrol();
             
             // return quesence values
             return qmin(a, b, pv); 
@@ -399,12 +403,8 @@ public final class Search
         //
         for (int i = 0; i < m.i; i++)
         {        
-            // 
-            if (time() > timeLimit) 
-            { 
-            //    stop = yes;
-            }
-            
+        
+           
             // make move
             n.domove(m, i);
                     
@@ -422,15 +422,20 @@ public final class Search
             // hard cut-off
             if (s <= a && !SEARCH_BRUTE_FORCE) 
             { 
+                //
                 b = a;
+                
+                //
                 break;
             }
                                                 
             // soft cut-off
             if (s < b) 
             {                 
-                // pv[d].set(n.L, zero);
-                // p++;
+                //
+                pv.copy(new_pv, m, i);
+                
+                //
                 b = s;                       
             }                    
         } 
@@ -478,15 +483,23 @@ public final class Search
             //
             n.unmove();
             
-            //
-            if (s >= b) 
+            // hard cut-off
+            if (s >= b && !SEARCH_BRUTE_FORCE) 
             { 
+                //
                 a = b;
+                
+                //
                 break; 
             }
 
-            //
-            if (s > a) { 
+            // soft cut-off
+            if (s > a) 
+            { 
+                //
+                pv.copy(new_pv, c, i);
+                
+                //
                 a = s; 
             }
         }
@@ -535,9 +548,12 @@ public final class Search
             n.unmove();
 
             // hard cut-off
-            if (s <= a)
+            if (s <= a  && !SEARCH_BRUTE_FORCE)
             { 
+                //
                 b = a;
+                
+                //
                 break;
             }        
                 
@@ -557,8 +573,14 @@ public final class Search
     }
     
     //
-    private void abspeed()
+    private void abcontrol()
     {
+        // 
+        if (time() > timeLimit) 
+        { 
+        //    stop = yes;
+        }
+        
         if (ns >= nsnext) 
         {
             //print("- "+ns);
