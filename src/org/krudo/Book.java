@@ -23,10 +23,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 //
-import static org.krudo.util.Tool.*;
-import static org.krudo.util.Debug.*;
-import org.krudo.util.Tool;
-import static org.krudo.util.Zobrist.*;
+import static org.krudo.Tool.*;
+import static org.krudo.Debug.*;
+import static org.krudo.Zobrist.*;
 
 // book access tool
 public final class Book 

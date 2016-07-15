@@ -7,19 +7,17 @@
 package org.krudo;
  
 // required non-static classes
-import org.krudo.util.Fen;
 
 // required static classes and methods
 
 import static org.krudo.Config.*;
 import static org.krudo.Constant.*;
-import org.krudo.util.Debug;
-import static org.krudo.util.Tool.*;
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Decode.*;
-import static org.krudo.util.Encode.*;
-import static org.krudo.util.Zobrist.*;
-import static org.krudo.util.Describe.*;
+import static org.krudo.Tool.*;
+import static org.krudo.Debug.*;
+import static org.krudo.Decode.*;
+import static org.krudo.Encode.*;
+import static org.krudo.Zobrist.*;
+import static org.krudo.Describe.*;
 
 // Spizzy XBoard version of Krudo 
 public final class Node 

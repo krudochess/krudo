@@ -10,7 +10,7 @@ package org.krudo;
 
 //
 import static org.krudo.Constant.*;
-import static org.krudo.util.Tool.*;
+import static org.krudo.Tool.*;
 
 //
 public final class Engine

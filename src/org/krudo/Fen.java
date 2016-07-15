@@ -4,14 +4,14 @@
  */
 
 // utility to parse fen string
-package org.krudo.util;
+package org.krudo;
 
 // required non-static classes
 import org.krudo.Node;
 
 // required static classes and methods
 import static org.krudo.Constant.*;
-import static org.krudo.util.Decode.*;
+import static org.krudo.Decode.*;
 
 // fen class utility
 public final class Fen 

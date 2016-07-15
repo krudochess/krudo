@@ -4,7 +4,7 @@
  */
 
 //
-package org.krudo.util;
+package org.krudo;
 
 //
 import static org.krudo.Constant.*;

@@ -7,7 +7,7 @@
 package org.krudo;
 
 //
-import static org.krudo.util.Tool.*;
+import static org.krudo.Tool.*;
 
 //
 public class Moves 

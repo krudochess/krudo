@@ -4,7 +4,7 @@
  */
 
 //
-package org.krudo.util;
+package org.krudo;
 
 //
 import org.krudo.*;
@@ -19,9 +19,9 @@ import java.util.regex.*;
 //
 import static org.krudo.Constant.*;
 import org.krudo.Moves;
-import static org.krudo.util.Tool.*;
-import static org.krudo.util.Decode.*;
-import static org.krudo.util.Describe.*;
+import static org.krudo.Tool.*;
+import static org.krudo.Decode.*;
+import static org.krudo.Describe.*;
 
 //
 public final class Debug 

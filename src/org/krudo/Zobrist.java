@@ -4,7 +4,7 @@
  */
 
 //
-package org.krudo.util;
+package org.krudo;
 
 // required static constants
 import org.krudo.Node;

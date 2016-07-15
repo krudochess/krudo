@@ -1,4 +1,4 @@
-package org.krudo.cache;
+package org.krudo;
 
 //
 import java.util.LinkedHashMap;
