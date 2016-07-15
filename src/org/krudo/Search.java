@@ -64,7 +64,8 @@ public final class Search
     public String logMove;    // log move observed
     public String logLine;    // log variation observed 
     public boolean logEnabled; // log node per seconds        
-    
+  
+    private final static int NT_NODE = 0;
   
     //private Table t = Cache.table;
     
@@ -218,6 +219,8 @@ public final class Search
     // alfa-beta entry-point
     private int abrun(int a, int b) 
     {    
+        PV pv = new PV();
+        
         // generate and sort legal-moves
         Move m = n.legals();
               
@@ -237,7 +240,7 @@ public final class Search
             n.domove(m, i);
             
             // recursive evaluation search                    
-            int s = abmin(deep - 1, a, b);
+            int s = abmin(deep - 1, a, b, pv, NT_NODE);
 
             // undo
             n.unmove();            
@@ -272,9 +275,9 @@ public final class Search
     }
     
     //
-    private int abmax(final int d, int a, int b) 
+    private int abmax(final int d, int a, int b, final PV pv, final int nt) 
     {   
-        // temp var to store evaluation weight orscore
+        // score
         int s;
         
         // prepare traspoisiont table for current hash
@@ -294,13 +297,16 @@ public final class Search
             abspeed();
             
             //
-            s = qmax(a, b);
+            s = qmax(a, b, pv);
             
             //t.store(d, w, t.EXACT); 
             
             //
             return s; 
         }
+        
+        //
+        PV new_pv = new PV();
         
         // get legal-moves  
         Move m = n.legals();
@@ -322,7 +328,7 @@ public final class Search
             
             //
             //if (w > a && p > 0) {
-            s = abmin(d-1, a, b);                
+            s = abmin(d-1, a, b, new_pv, NT_NODE);                
             //}
 
             //
@@ -357,7 +363,7 @@ public final class Search
     }
 
     // alfa-beta min routine
-    private int abmin(final int d, int a, int b)
+    private int abmin(final int d, int a, int b, final PV pv, final int nt)
     {                        
         //
         int s; 
@@ -372,8 +378,11 @@ public final class Search
             abspeed();
             
             // return quesence values
-            return qmin(a, b); 
+            return qmin(a, b, pv); 
         }
+        
+        //
+        PV new_pv = new PV();
         
         // generate legal-moves 
         Move m = n.legals();
@@ -404,7 +413,7 @@ public final class Search
             
             //
             //if (w < b && p > 0) {
-            s = abmax(d-1, a, b);                
+            s = abmax(d - 1, a, b, new_pv, NT_NODE);                
             //}
 
             // unmake move
@@ -434,7 +443,7 @@ public final class Search
     }
 
     // quiescence max routine
-    private int qmax(int a, int b)
+    private int qmax(int a, int b, PV pv)
     {                   
         // eval position
         int s = Eval.node(n);
@@ -447,6 +456,9 @@ public final class Search
         
         // soft cut-off
         if (s > a) { a = s; }
+        
+        //
+        PV new_pv = new PV();
                 
         // quiescence need sort moves
         Capture c = n.capture();
@@ -461,7 +473,7 @@ public final class Search
             n.domove(c, i);
                         
             //
-            s = qmin(a, b);
+            s = qmin(a, b, new_pv);
             
             //
             n.unmove();
@@ -484,7 +496,7 @@ public final class Search
     }
  
     // quiescence min search
-    private int qmin(int a, int b) 
+    private int qmin(int a, int b, PV pv) 
     {        
         // increase nodes count
         nq++;
@@ -501,6 +513,9 @@ public final class Search
         // set new value for upper limit
         if (s < b) { b = s; }
                 
+        //
+        PV new_pv = new PV();
+        
         // quiescenze need sort moves
         Capture c = n.capture();
         
@@ -514,7 +529,7 @@ public final class Search
             n.domove(c, i);
                         
             // iterate qsearch
-            s = qmax(a, b);
+            s = qmax(a, b, new_pv);
             
             // redo move
             n.unmove();
@@ -529,6 +544,10 @@ public final class Search
             // soft cut-off
             if (s < b) 
             { 
+                //
+                pv.copy(new_pv, c, i);
+                
+                //
                 b = s; 
             }
         }
@@ -540,7 +559,8 @@ public final class Search
     //
     private void abspeed()
     {
-        if (ns >= nsnext) {
+        if (ns >= nsnext) 
+        {
             //print("- "+ns);
             nsnext = ns + nspoll;
 
@@ -554,8 +574,7 @@ public final class Search
             
             //print(Runtime.getRuntime().freeMemory());
         }
-    }
-    
+    } 
     
     // default log callback
     public Runnable log = new Runnable() {
