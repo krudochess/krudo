@@ -11,7 +11,7 @@ rem clean logs
 del %ENGINELOG% > nul 2> nul
 del %ENGINEDIR%polyglot.log
 
-echo Piriton vs. Fairymax 
+rem Piriton vs. Fairymax 
 %WINBOARD% @%ENGINEDIR%\vs-fairymax.ini
 
 rem post game
