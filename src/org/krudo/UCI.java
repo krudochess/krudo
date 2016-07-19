@@ -6,10 +6,6 @@
 // root package
 package org.krudo;
 
-// required static class
-import static org.krudo.Tool.*;
-import static org.krudo.Constant.*;
-
 // protocol definition class
 public final class UCI 
 {    
@@ -55,6 +51,7 @@ public final class UCI
     // search log callback
     SEARCH_INFO_CALLBACK = () -> 
     {                    
+        /*
         //
         switch (Krudo.ENGINE.search.logAction) 
         {
@@ -84,7 +81,7 @@ public final class UCI
 
                 //
                 break;        
-        }            
+        }    */        
     },
         
     //        
@@ -101,64 +98,64 @@ public final class UCI
     public String[] arg;
     
     //
-    public static final UCI parse(String s) {
-        
+    public static final UCI parse(String s) 
+    {     
         //
         UCI i = new UCI();
         
         //
-        if (s.startsWith("ucinewgame")) {
-            i.cmd = UCINEWGAME;
-        } 
+        if (s.startsWith("uci")) { i.cmd = UCI; } 
+              
+        //
+        else if (s.startsWith("ucinewgame")) { i.cmd = UCINEWGAME; } 
+                
+        //
+        else if (s.startsWith("isready")) { i.cmd = ISREADY; } 
         
         //
-        else if (s.startsWith("uci")) {
-            i.cmd = UCI;        
-        } 
-        
-        //
-        else if (s.startsWith("isready")) {
-            i.cmd = ISREADY;        
-        } 
-        
-        //
-        else if (s.startsWith("position fen ")) {
+        else if (s.startsWith("position fen "))
+        {
             i.cmd = POSITION_FEN;        
-        } 
-        
-        //
-        else if (s.startsWith("position startpos moves ")) {
-            i.cmd = POSITION_STARTPOS_MOVES;
-            i.arg = s.substring(24).split("\\s");        
         } 
                 
         //
-        else if (s.startsWith("position startpos")) {
+        else if (s.startsWith("position startpos"))
+        {
             i.cmd = POSITION_STARTPOS;                
         }
         
         //
-        else if (s.startsWith("go")) {
-            
+        else if (s.startsWith("position startpos moves ")) 
+        {
+            i.cmd = POSITION_STARTPOS_MOVES;
+            i.arg = s.substring(24).split("\\s");        
+        } 
+        
+        //
+        else if (s.startsWith("go")) 
+        {    
             //
             i.cmd = GO;
             
             //
-            i.arg = new String[] {
+            i.arg = new String[]
+            {
                 "", /*WTIME*/        
                 "", /*BTIME*/        
                 "", /*MOVESTOGO*/
             };    
             
             //
-            if (s.length() > 3) {
-            
+            if (s.length() > 3) 
+            {
                 //
                 String[] args = s.substring(3).split("\\s+");        
                 
                 //
-                for(int j = 0; j < args.length; j++) {
-                    switch (args[j]) {
+                for(int j = 0; j < args.length; j++) 
+                {
+                    switch (args[j]) 
+                    {
                         case "wtime":
                             i.arg[WTIME] = args[j+1];
                             break;
@@ -174,9 +171,7 @@ public final class UCI
         } 
         
         //
-        else if (s.startsWith("stop")) {
-            i.cmd = STOP;        
-        } 
+        else if (s.equals("stop")) { i.cmd = STOP; } 
             
         //
         else if (s.equals("quit")) { i.cmd = QUIT; }         
