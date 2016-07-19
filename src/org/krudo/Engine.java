@@ -26,10 +26,10 @@ public final class Engine
     public long btime = 60000;
     
     //
-    public int depth = 5;
+    public int depth = 3;
     
     //
-    public boolean book = false;
+    public boolean book = true;
     
     //
     public String info;
