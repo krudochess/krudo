@@ -519,19 +519,23 @@ public final class Node
         final int p = m.i;
                 
         // loop throut pseudo-legal
-        for (int j = 0; j != p; j++) 
+        for (int i = 0; i != p; i++) 
         {                            
             //
-            if (m.k[j] == cast) if (white_castling(m.v[j])) 
+            if (m.k[i] == cast) 
             {
-                m.copy(j, l); l++; continue;
-            }             
-                                            
+                //
+                if (white_castling(m.v[i])) { m.copy(i, l); l++; }             
+                
+                //
+                continue;
+            }
+            
             //
-            domove(j);
+            domove(i);
 
             //
-            if (!black_attack(wks)) { m.copy(j, l); l++; }
+            if (!black_attack(wks)) { m.copy(i, l); l++; }
 
             //
             unmove();            
@@ -560,19 +564,20 @@ public final class Node
         for (int j = 0; j != p; j++) 
         {                                
             //
-            if (m.k[j] == cast) if (black_castling(m.v[j])) 
+            if (m.k[j] == cast) 
             {
-                 m.copy(j, l); l++; continue;
+                //
+                if (black_castling(m.v[j])) { m.copy(j, l); l++; }
+                
+                //
+                continue;
             }             
                         
             //
             domove(j);
 
             //
-            if (!white_attack(bks)) 
-            {
-                m.copy(j, l); l++; 
-            }
+            if (!white_attack(bks)) { m.copy(j, l); l++; }
 
             //
             unmove();            
@@ -583,31 +588,36 @@ public final class Node
     }                        
         
     //
-    private boolean white_castling(
-        final int v
-    ) {        
+    private boolean white_castling(final int v) 
+    {   
+        //
+        boolean castling = v == g1
+             ?! black_attack(e1)
+            &&! black_attack(f1)
+            &&! black_attack(g1)                
+             :! black_attack(e1)
+            &&! black_attack(d1)
+            &&! black_attack(c1);    
+                
         //        
-        return v == g1
-            ?! black_attack(e1)
-           &&! black_attack(f1)
-           &&! black_attack(g1)                
-            :! black_attack(e1)
-           &&! black_attack(d1)
-           &&! black_attack(c1);    
+        return castling;
     }
 
     //
     private boolean black_castling(
         final int v
     ) {        
+        //
+        boolean castling = v == g8
+             ?! white_attack(e8)
+            &&! white_attack(f8)
+            &&! white_attack(g8)                
+             :! white_attack(e8)
+            &&! white_attack(d8)
+            &&! white_attack(c8); 
+        
         //        
-        return v == g8
-            ?! white_attack(e8)
-           &&! white_attack(f8)
-           &&! white_attack(g8)                
-            :! white_attack(e8)
-           &&! white_attack(d8)
-           &&! white_attack(c8);    
+        return castling;    
     }
 
     // populate move-stack with pseudo-legal moves

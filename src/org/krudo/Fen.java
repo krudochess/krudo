@@ -32,8 +32,11 @@ public final class Fen
 		n.bks = e8;
 		n.hm = 0;
 		n.n	= 1;
+        n.L.i = 0;
         
-        for (int s = 0; s < 64; s++) {
+        //
+        for (int s = 0; s < 64; s++)
+        {
             n.B[s] = O;
         }
 					
