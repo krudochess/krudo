@@ -10,8 +10,8 @@ package org.krudo.tests.perft;
 import org.krudo.*;
 
 //
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tool.*;
+import static org.krudo.Debug.*;
+import static org.krudo.Tool.*;
 
 //
 public class Perft2 

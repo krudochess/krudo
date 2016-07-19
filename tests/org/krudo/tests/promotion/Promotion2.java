@@ -10,7 +10,7 @@ package org.krudo.tests.promotion;
 import org.krudo.*;
 
 //
-import static org.krudo.util.Debug.*;
+import static org.krudo.Debug.*;
 
 // 
 public class Promotion2 

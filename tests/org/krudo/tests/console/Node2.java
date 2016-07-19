@@ -7,7 +7,7 @@
 package org.krudo.tests.console;
 
 // required static
-import static org.krudo.util.Debug.*;
+import static org.krudo.Debug.*;
 
 // required non-static 
 import org.krudo.Move;

@@ -10,7 +10,7 @@ package org.krudo.tests.zobrist;
 import org.krudo.*;
 
 //
-import static org.krudo.util.Debug.*;
+import static org.krudo.Debug.*;
 
 // 
 public class Zobrist3 

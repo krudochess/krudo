@@ -6,12 +6,12 @@
 //
 package org.krudo.tests.bench;
 
-import static org.krudo.util.Debug.*;
+import static org.krudo.Debug.*;
 import static org.krudo.Constant.*;
 
 import org.krudo.Node;
 import org.krudo.Engine;
-import static org.krudo.util.Tool.*;
+import static org.krudo.Tool.*;
 
 //
 public class Bench4 {

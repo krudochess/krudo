@@ -10,7 +10,7 @@ package org.krudo.tests.bench;
 import org.krudo.Line;
 
 //
-import static org.krudo.util.Tool.*;
+import static org.krudo.Tool.*;
 
 //
 public class Bench1 

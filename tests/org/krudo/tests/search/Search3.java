@@ -6,10 +6,10 @@
 //
 package org.krudo.tests.search;
 
-import static org.krudo.util.Debug.*;
+import static org.krudo.Debug.*;
 import static org.krudo.Constant.*;
-import static org.krudo.util.Decode.*;
-import static org.krudo.util.Tool.*;
+import static org.krudo.Decode.*;
+import static org.krudo.Tool.*;
 
 import org.krudo.Engine;
 import org.krudo.UCI;

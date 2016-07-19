@@ -10,7 +10,7 @@ package org.krudo.tests.node;
 import org.krudo.Node;
 
 //
-import static org.krudo.util.Debug.*;
+import static org.krudo.Debug.*;
 
 //
 public class Domove2 {

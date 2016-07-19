@@ -7,8 +7,8 @@
 package org.krudo.tests.console;
 
 // required static class
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tool.*;
+import static org.krudo.Debug.*;
+import static org.krudo.Tool.*;
 import static org.krudo.Constant.*;
 
 // required non-static class

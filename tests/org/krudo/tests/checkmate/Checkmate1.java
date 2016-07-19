@@ -1,12 +1,12 @@
 package org.krudo.tests.checkmate;
 
-import static org.krudo.util.Debug.*;
+import static org.krudo.Debug.*;
 import static org.krudo.Constant.*;
 
 import org.krudo.Node;
 import org.krudo.Engine;
 import org.krudo.Search;
-import static org.krudo.util.Tool.*;
+import static org.krudo.Tool.*;
 
 //
 public class Checkmate1 {

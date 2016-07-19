@@ -10,9 +10,9 @@ package org.krudo.tests.zobrist;
 import org.krudo.*;
 
 //
-import static org.krudo.util.Tool.*;
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Zobrist.hash;
+import static org.krudo.Tool.*;
+import static org.krudo.Debug.*;
+import static org.krudo.Zobrist.hash;
 
 // 
 public class Zobrist1 

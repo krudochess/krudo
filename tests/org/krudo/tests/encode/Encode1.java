@@ -7,9 +7,9 @@
 package org.krudo.tests.encode;
 
 //
-import static org.krudo.util.Tool.*;
-import static org.krudo.util.Decode.*;
-import static org.krudo.util.Encode.*;
+import static org.krudo.Tool.*;
+import static org.krudo.Decode.*;
+import static org.krudo.Encode.*;
 
 //
 public class Encode1 {

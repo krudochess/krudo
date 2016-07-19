@@ -11,7 +11,7 @@ import org.krudo.Node;
 import org.krudo.Move;
 
 //
-import static org.krudo.util.Debug.*;
+import static org.krudo.Debug.*;
 
 //
 public class Legals1 {

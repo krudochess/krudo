@@ -7,7 +7,7 @@
 package org.krudo.tests.search;
 
 import org.krudo.Moves;
-import static org.krudo.util.Tool.*;
+import static org.krudo.Tool.*;
 
 //
 import org.krudo.Node;
@@ -32,6 +32,6 @@ public class Search5
         Search s = new Search(n);
      
         //
-        s.start(6);       
+        s.start(1);       
     }    
 }

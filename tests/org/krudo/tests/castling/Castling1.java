@@ -2,8 +2,8 @@ package org.krudo.tests.castling;
 
 //
 import org.krudo.Moves;
-import static org.krudo.util.Debug.*;
-import static org.krudo.util.Tool.*;
+import static org.krudo.Debug.*;
+import static org.krudo.Tool.*;
 
 // 
 import org.krudo.Node;

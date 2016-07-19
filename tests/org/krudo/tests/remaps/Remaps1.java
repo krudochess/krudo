@@ -7,7 +7,7 @@
 package org.krudo.tests.remaps;
 
 //
-import static org.krudo.util.Debug.*;
+import static org.krudo.Debug.*;
 
 //
 import org.krudo.Book;

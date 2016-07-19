@@ -6,7 +6,7 @@
 //
 package org.krudo.tests.search;
 
-import static org.krudo.util.Tool.*;
+import static org.krudo.Tool.*;
 
 //
 import org.krudo.Node;
