@@ -31,5 +31,3 @@ rem other tools
 set POLYGLOT=%WINBOARD%\..\polyglot.exe
 set BUILDENV=%PYTHON% %ENGINEDIR%\tool\buildenv.py
 set POSTGAME=%PYTHON% %ENGINEDIR%\tool\postgame.py
-
-echo %POLYGLOT%
