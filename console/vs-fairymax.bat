@@ -8,10 +8,10 @@ rem prepare file
 %BUILDENV% %ENGINEDIR%\vs-fairymax.src %ENGINEDIR%\vs-fairymax.ini
 
 rem clean logs
-del %ENGINELOG% > nul 2> null
-rem del %ENGINEDIR%polyglot.log
+del %ENGINELOG% > nul 2> nul
+del %ENGINEDIR%polyglot.log
 
-rem Piriton vs. Fairymax 
+echo Piriton vs. Fairymax 
 %WINBOARD% @%ENGINEDIR%\vs-fairymax.ini
 
 rem post game
