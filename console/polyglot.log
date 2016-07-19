@@ -3943,3 +3943,1714 @@
 1468943947.218 POLYGLOT Closing engine.
 1468943947.218 Adapter->Engine: EOF
 1468943947.218 POLYGLOT Engine does not reply. Sleeping 100ms.
+1468944043.686 POLYGLOT *** LOGFILE OPENED ***
+1468944043.686 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944043.686 POLYGLOT *** SWITCHING LOGFILE ***
+1468944043.686 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944043.693 POLYGLOT *** LOGFILE OPENED ***
+1468944043.693 POLYGLOT *** LOGFILE OPENED ***
+1468944043.693 PolyGlot 2.0.2 by Fabien Letouzey.
+1468944043.693 POLYGLOT *** START ***
+1468944043.693 POLYGLOT INI file "C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468944043.696 affinity = ffffffff
+1468944043.697 Adapter->Engine: uci
+1468944043.977 Engine->Adapter: Krudo 0.16a by Francesco <bianco@javanile.org>
+1468944043.977 Adapter->GUI: # Krudo 0.16a by Francesco <bianco@javanile.org>
+
+1468944044.388 Engine->Adapter: id name Krudo 0.16a
+1468944044.388 Adapter->GUI: # id name Krudo 0.16a
+
+1468944044.388 Engine->Adapter: id author Francesco Bianco
+1468944044.388 Adapter->GUI: # id author Francesco Bianco
+
+1468944044.388 Engine->Adapter: uciok
+1468944044.388 Adapter->GUI: # uciok
+
+1468944044.388 POLYGLOG OPTIONS 
+1468944044.389 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1468944044.389 POLYGLOT [Polyglot] EngineDir="."
+1468944044.389 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468944044.389 POLYGLOT [Polyglot] Log="true"
+1468944044.389 POLYGLOT [Polyglot] LogFile="C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944044.389 POLYGLOT [Polyglot] Book="false"
+1468944044.389 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1468944044.389 POLYGLOT [Polyglot] BookRandom="false"
+1468944044.389 POLYGLOT [Polyglot] BookDepth="256"
+1468944044.389 POLYGLOT [Polyglot] BookLearn="false"
+1468944044.389 POLYGLOT [Polyglot] BookTreshold="5"
+1468944044.389 POLYGLOT [Polyglot] UCI="false"
+1468944044.389 POLYGLOT [Polyglot] UseNice="false"
+1468944044.389 POLYGLOT [Polyglot] NiceValue="5"
+1468944044.389 POLYGLOT [Polyglot] Resign="false"
+1468944044.389 POLYGLOT [Polyglot] ResignMoves="3"
+1468944044.389 POLYGLOT [Polyglot] ResignScore="600"
+1468944044.389 POLYGLOT [Polyglot] MateScore="10000"
+1468944044.389 POLYGLOT [Polyglot] KibitzMove="false"
+1468944044.389 POLYGLOT [Polyglot] KibitzPV="false"
+1468944044.389 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1468944044.389 POLYGLOT [Polyglot] KibitzDelay="5"
+1468944044.389 POLYGLOT [Polyglot] KibitzInterval="0"
+1468944044.389 POLYGLOT [Polyglot] ShowPonder="false"
+1468944044.389 POLYGLOT [Polyglot] ScoreWhite="false"
+1468944044.389 POLYGLOT [Polyglot] UCIVersion="2"
+1468944044.389 POLYGLOT [Polyglot] RepeatPV="true"
+1468944044.389 POLYGLOT [Polyglot] SyncStop="false"
+1468944044.389 POLYGLOT [Polyglot] CanPonder="false"
+1468944044.389 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1468944044.389 POLYGLOT [Polyglot] WbWorkArounds="false"
+1468944044.389 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1468944044.389 POLYGLOT [Engine] Hash="68"
+1468944044.389 POLYGLOT [Engine] Ponder="false"
+1468944044.389 POLYGLOT [Engine] OwnBook="false"
+1468944044.389 POLYGLOT [Engine] Book="false"
+1468944044.389 POLYGLOT [Engine] BookFile="book_small.bin"
+1468944044.389 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1468944044.389 POLYGLOT [Engine] NullMove Reduction="3"
+1468944044.389 POLYGLOT [Engine] Verification Search="Endgame"
+1468944044.389 POLYGLOT [Engine] Verification Reduction="5"
+1468944044.389 POLYGLOT [Engine] History Pruning="true"
+1468944044.389 POLYGLOT [Engine] History Threshold="60"
+1468944044.389 POLYGLOT [Engine] Futility Pruning="false"
+1468944044.389 POLYGLOT [Engine] Futility Margin="100"
+1468944044.389 POLYGLOT [Engine] Delta Pruning="false"
+1468944044.389 POLYGLOT [Engine] Delta Margin="50"
+1468944044.389 POLYGLOT [Engine] Quiescence Check Plies="1"
+1468944044.389 POLYGLOT [Engine] Material="100"
+1468944044.389 POLYGLOT [Engine] Piece Activity="100"
+1468944044.389 POLYGLOT [Engine] King Safety="100"
+1468944044.390 POLYGLOT [Engine] Pawn Structure="100"
+1468944044.390 POLYGLOT [Engine] Passed Pawns="100"
+1468944044.390 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1468944044.390 POLYGLOT Setting PolyGlot option "EngineDir=."
+1468944044.390 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468944044.390 POLYGLOT Setting PolyGlot option "Log=true"
+1468944044.390 POLYGLOT *** SWITCHING LOGFILE ***
+1468944044.390 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944044.390 POLYGLOT *** LOGFILE OPENED ***
+1468944044.390 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944044.390 POLYGLOT *** SWITCHING LOGFILE ***
+1468944044.390 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944044.398 POLYGLOT *** LOGFILE OPENED ***
+1468944044.398 POLYGLOT Setting PolyGlot option "Book=false"
+1468944044.398 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1468944044.398 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1468944044.398 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1468944044.398 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1468944044.398 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1468944044.399 POLYGLOT Setting PolyGlot option "UCI=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "UseNice=false"
+1468944044.399 POLYGLOT Adjust Engine Piority
+1468944044.399 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1468944044.399 POLYGLOT Setting PolyGlot option "Resign=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1468944044.399 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1468944044.399 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1468944044.399 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1468944044.399 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1468944044.399 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1468944044.399 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1468944044.399 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1468944044.399 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1468944044.399 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1468944044.399 POLYGLOT *** Mainloop started ***
+1468944044.399 GUI->Adapter: xboard
+1468944044.399 GUI->Adapter: protover 2
+1468944044.399 Adapter->GUI: feature done=0
+1468944044.399 Adapter->GUI: feature analyze=1
+1468944044.399 Adapter->GUI: feature exclude=1
+1468944044.399 Adapter->GUI: feature colors=0
+1468944044.399 Adapter->GUI: feature draw=1
+1468944044.400 Adapter->GUI: feature ics=1
+1468944044.400 Adapter->GUI: feature myname="Krudo 0.15a"
+1468944044.400 Adapter->GUI: feature name=1
+1468944044.400 Adapter->GUI: feature pause=0
+1468944044.400 Adapter->GUI: feature ping=1
+1468944044.400 Adapter->GUI: feature playother=1
+1468944044.400 Adapter->GUI: feature sigint=1
+1468944044.400 Adapter->GUI: feature reuse=1
+1468944044.400 Adapter->GUI: feature san=0
+1468944044.400 Adapter->GUI: feature setboard=1
+1468944044.400 Adapter->GUI: feature sigint=0
+1468944044.400 Adapter->GUI: feature sigterm=0
+1468944044.401 Adapter->GUI: feature time=1
+1468944044.401 Adapter->GUI: feature usermove=1
+1468944044.401 Adapter->GUI: feature nps=1
+1468944044.401 Adapter->GUI: feature memory=0
+1468944044.401 Adapter->GUI: feature smp=0
+1468944044.401 Adapter->GUI: feature egt=""
+1468944044.401 Adapter->GUI: feature variants="normal"
+1468944044.401 Adapter->GUI: feature option="Polyglot exclude move -string "
+1468944044.401 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468944044.401 Adapter->GUI: feature option="Polyglot Log -check 1"
+1468944044.401 Adapter->GUI: feature option="Polyglot LogFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944044.401 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1468944044.401 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1468944044.402 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1468944044.402 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1468944044.402 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1468944044.402 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1468944044.402 Adapter->GUI: feature option="Polyglot Book -check 0"
+1468944044.402 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1468944044.402 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1468944044.402 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1468944044.402 Adapter->GUI: feature option="Polyglot ShowTbHits -check 0"
+1468944044.402 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1468944044.402 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1468944044.402 Adapter->GUI: feature option="Polyglot Save -save"
+1468944044.402 Adapter->GUI: feature done=1
+1468944044.402 GUI->Adapter: accepted done
+1468944044.402 GUI->Adapter: accepted analyze
+1468944044.402 GUI->Adapter: accepted exclude
+1468944044.402 GUI->Adapter: accepted colors
+1468944044.402 GUI->Adapter: accepted draw
+1468944044.402 GUI->Adapter: accepted ics
+1468944044.402 GUI->Adapter: accepted myname
+1468944044.402 GUI->Adapter: accepted name
+1468944044.402 GUI->Adapter: accepted pause
+1468944044.402 GUI->Adapter: accepted ping
+1468944044.402 GUI->Adapter: accepted playother
+1468944044.402 GUI->Adapter: accepted sigint
+1468944044.402 GUI->Adapter: accepted reuse
+1468944044.403 GUI->Adapter: accepted san
+1468944044.403 GUI->Adapter: accepted setboard
+1468944044.403 GUI->Adapter: accepted sigint
+1468944044.403 GUI->Adapter: accepted sigterm
+1468944044.403 GUI->Adapter: accepted time
+1468944044.403 GUI->Adapter: accepted usermove
+1468944044.403 GUI->Adapter: accepted nps
+1468944044.403 GUI->Adapter: accepted memory
+1468944044.403 GUI->Adapter: accepted smp
+1468944044.403 GUI->Adapter: accepted egt
+1468944044.403 GUI->Adapter: accepted variants
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted option
+1468944044.403 GUI->Adapter: accepted done
+1468944044.409 GUI->Adapter: new
+1468944044.410 Adapter->Engine: isready
+1468944044.428 Engine->Adapter: readyok
+1468944044.428 Adapter->GUI: # readyok
+
+1468944044.428 POLYGLOT NEW GAME
+1468944044.428 POLYGLOT WAIT
+1468944044.428 Adapter->Engine: ucinewgame
+1468944044.428 GUI->Adapter: random
+1468944044.428 GUI->Adapter: ics -
+1468944044.428 GUI->Adapter: level 40 1 0
+1468944044.428 GUI->Adapter: post
+1468944044.428 GUI->Adapter: hard
+1468944044.428 POLYGLOT WAIT
+1468944044.428 GUI->Adapter: ping 1
+1468944044.428 Adapter->GUI: pong 1
+1468944044.428 GUI->Adapter: force
+1468944044.428 POLYGLOT WAIT
+1468944044.428 GUI->Adapter: ping 2
+1468944044.428 Adapter->GUI: pong 2
+1468944044.428 GUI->Adapter: new
+1468944044.429 Adapter->Engine: isready
+1468944044.429 Engine->Adapter: id name Krudo 0.16a
+1468944044.429 Adapter->GUI: # id name Krudo 0.16a
+
+1468944044.429 Engine->Adapter: id author Francesco Bianco
+1468944044.429 Adapter->GUI: # id author Francesco Bianco
+
+1468944044.429 Engine->Adapter: uciok
+1468944044.429 Adapter->GUI: # uciok
+
+1468944044.429 Engine->Adapter: readyok
+1468944044.429 Adapter->GUI: # readyok
+
+1468944044.429 POLYGLOT NEW GAME
+1468944044.429 POLYGLOT WAIT
+1468944044.429 Adapter->Engine: ucinewgame
+1468944044.429 GUI->Adapter: random
+1468944044.429 GUI->Adapter: ics -
+1468944044.429 GUI->Adapter: level 40 1 0
+1468944044.429 GUI->Adapter: post
+1468944044.429 GUI->Adapter: hard
+1468944044.429 POLYGLOT WAIT
+1468944044.429 GUI->Adapter: ping 3
+1468944044.429 Adapter->GUI: pong 3
+1468944044.429 GUI->Adapter: force
+1468944044.429 POLYGLOT WAIT
+1468944044.429 Engine->Adapter: id name Krudo 0.16a
+1468944044.429 Adapter->GUI: # id name Krudo 0.16a
+
+1468944044.430 Engine->Adapter: id author Francesco Bianco
+1468944044.430 Adapter->GUI: # id author Francesco Bianco
+
+1468944044.430 Engine->Adapter: uciok
+1468944044.430 Adapter->GUI: # uciok
+
+1468944045.048 GUI->Adapter: computer
+1468944045.048 GUI->Adapter: name Fairy-Max 4.8V
+1468944045.048 GUI->Adapter: time 6000
+1468944045.048 GUI->Adapter: otim 6000
+1468944045.048 GUI->Adapter: go
+1468944045.048 POLYGLOT THINK
+1468944045.048 POLYGLOT START SEARCH
+1468944045.049 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1468944045.049 Adapter->Engine: position startpos
+1468944045.049 Adapter->Engine: go wtime 60000 btime 60000 movestogo 40
+1468944045.079 Engine->Adapter:           id-run 3
+1468944045.079 Adapter->GUI: #           id-run 3
+
+1468944045.079 Engine->Adapter:      id-loop-run 1/3
+1468944045.079 Adapter->GUI: #      id-loop-run 1/3
+
+1468944045.085 Engine->Adapter:  ab-soft-cut-off e2e4=27 [-100000;100000]
+1468944045.085 Adapter->GUI: #  ab-soft-cut-off e2e4=27 [-100000;100000]
+
+1468944045.085 Engine->Adapter:      id-loop-end 1/3 6ms 20n 3knps
+1468944045.085 Adapter->GUI: #      id-loop-end 1/3 6ms 20n 3knps
+
+1468944045.085 Engine->Adapter:      id-loop-run 2/3
+1468944045.085 Adapter->GUI: #      id-loop-run 2/3
+
+1468944045.086 Engine->Adapter:  ab-soft-cut-off e2e4=0 [-100000;100000]
+1468944045.086 Adapter->GUI: #  ab-soft-cut-off e2e4=0 [-100000;100000]
+
+1468944045.090 Engine->Adapter:      id-loop-end 2/3 4ms 40n 10knps
+1468944045.090 Adapter->GUI: #      id-loop-end 2/3 4ms 40n 10knps
+
+1468944045.090 Engine->Adapter:      id-loop-run 3/3
+1468944045.090 Adapter->GUI: #      id-loop-run 3/3
+
+1468944045.095 Engine->Adapter:  ab-soft-cut-off e2e4=1 [-100000;100000]
+1468944045.095 Adapter->GUI: #  ab-soft-cut-off e2e4=1 [-100000;100000]
+
+1468944045.098 Engine->Adapter:  ab-soft-cut-off d2d4=17 [1;100000]
+1468944045.099 Adapter->GUI: #  ab-soft-cut-off d2d4=17 [1;100000]
+
+1468944045.104 Engine->Adapter:      id-loop-end 3/3 12ms 590n 49knps
+1468944045.104 Adapter->GUI: #      id-loop-end 3/3 12ms 590n 49knps
+
+1468944045.104 Engine->Adapter:           id-end 3 17 d2d4 d7d5 e2e3
+1468944045.104 Adapter->GUI: #           id-end 3 17 d2d4 d7d5 e2e3
+
+1468944045.104 Engine->Adapter: bestmove d2d4
+1468944045.105 Adapter->GUI: # bestmove d2d4
+
+1468944045.105 Adapter->GUI: move d2d4
+1468944045.105 POLYGLOT MOVE d4
+1468944045.105 POLYGLOT THINK -> WAIT
+1468944046.472 GUI->Adapter: time 5994
+1468944046.472 GUI->Adapter: otim 5863
+1468944046.472 GUI->Adapter: usermove g8f6
+1468944046.472 POLYGLOT MOVE Nf6
+1468944046.472 POLYGLOT WAIT -> THINK
+1468944046.472 POLYGLOT START SEARCH
+1468944046.472 POLYGLOT FEN rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 1 2
+1468944046.472 Adapter->Engine: position startpos moves d2d4 g8f6
+1468944046.472 Adapter->Engine: go wtime 59940 btime 58630 movestogo 39
+1468944046.474 Engine->Adapter:           id-run 3
+1468944046.475 Adapter->GUI: #           id-run 3
+
+1468944046.475 Engine->Adapter:      id-loop-run 1/3
+1468944046.475 Adapter->GUI: #      id-loop-run 1/3
+
+1468944046.475 Engine->Adapter:  ab-soft-cut-off e2e4=27 [-100000;100000]
+1468944046.475 Adapter->GUI: #  ab-soft-cut-off e2e4=27 [-100000;100000]
+
+1468944046.475 Engine->Adapter:      id-loop-end 1/3 1ms 20n 20knps
+1468944046.475 Adapter->GUI: #      id-loop-end 1/3 1ms 20n 20knps
+
+1468944046.475 Engine->Adapter:      id-loop-run 2/3
+1468944046.476 Adapter->GUI: #      id-loop-run 2/3
+
+1468944046.476 Engine->Adapter:  ab-soft-cut-off e2e4=0 [-100000;100000]
+1468944046.476 Adapter->GUI: #  ab-soft-cut-off e2e4=0 [-100000;100000]
+
+1468944046.476 Engine->Adapter:      id-loop-end 2/3 1ms 40n 40knps
+1468944046.476 Adapter->GUI: #      id-loop-end 2/3 1ms 40n 40knps
+
+1468944046.476 Engine->Adapter:      id-loop-run 3/3
+1468944046.476 Adapter->GUI: #      id-loop-run 3/3
+
+1468944046.477 Engine->Adapter:  ab-soft-cut-off e2e4=1 [-100000;100000]
+1468944046.477 Adapter->GUI: #  ab-soft-cut-off e2e4=1 [-100000;100000]
+
+1468944046.477 Engine->Adapter:  ab-soft-cut-off d2d4=17 [1;100000]
+1468944046.477 Adapter->GUI: #  ab-soft-cut-off d2d4=17 [1;100000]
+
+1468944046.478 Engine->Adapter:      id-loop-end 3/3 3ms 590n 196knps
+1468944046.478 Adapter->GUI: #      id-loop-end 3/3 3ms 590n 196knps
+
+1468944046.478 Engine->Adapter:           id-end 3 17 d2d4 d7d5 e2e3
+1468944046.478 Adapter->GUI: #           id-end 3 17 d2d4 d7d5 e2e3
+
+1468944046.478 Engine->Adapter: bestmove d2d4
+1468944046.478 Adapter->GUI: # bestmove d2d4
+
+1468944046.478 Adapter->GUI: 0-1 {polyglot: resign (illegal engine move by white: d2d4)}
+1468944046.478 POLYGLOT FEN rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 1 2
+1468944046.478 POLYGLOT *** CURRENT BOARD ***
+1468944046.478 POLYGLOT rnbqkb-r
+1468944046.478 POLYGLOT pppppppp
+1468944046.478 POLYGLOT -----n--
+1468944046.478 POLYGLOT --------
+1468944046.478 POLYGLOT ---P----
+1468944046.478 POLYGLOT --------
+1468944046.478 POLYGLOT PPP-PPPP
+1468944046.478 POLYGLOT RNBQKBNR
+1468944046.478 POLYGLOT white to play
+1468944046.478 POLYGLOT
+1468944046.478 POLYGLOT WAIT
+1468944046.589 GUI->Adapter: result 0-1 {polyglot: resign (illegal engine move by white: d2d4)}
+1468944046.589 POLYGLOT GAME END
+1468944046.589 POLYGLOT WAIT
+1468944046.589 GUI->Adapter: force
+1468944046.590 POLYGLOT WAIT
+1468944046.590 GUI->Adapter: ping 4
+1468944046.590 Adapter->GUI: pong 4
+1468944048.058 GUI->Adapter: quit
+1468944048.058 POLYGLOT *** "quit" from GUI ***
+1468944048.058 POLYGLOT *** QUIT ***
+1468944048.058 Adapter->Engine: quit
+1468944048.058 POLYGLOT Closing engine.
+1468944048.058 Adapter->Engine: EOF
+1468944048.058 POLYGLOT Engine does not reply. Sleeping 100ms.
+1468944100.056 POLYGLOT *** LOGFILE OPENED ***
+1468944100.056 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944100.056 POLYGLOT *** SWITCHING LOGFILE ***
+1468944100.056 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944100.061 POLYGLOT *** LOGFILE OPENED ***
+1468944100.061 POLYGLOT *** LOGFILE OPENED ***
+1468944100.061 PolyGlot 2.0.2 by Fabien Letouzey.
+1468944100.061 POLYGLOT *** START ***
+1468944100.061 POLYGLOT INI file "C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468944100.064 affinity = ffffffff
+1468944100.064 Adapter->Engine: uci
+1468944100.289 Engine->Adapter: Krudo 0.16a by Francesco <bianco@javanile.org>
+1468944100.289 Adapter->GUI: # Krudo 0.16a by Francesco <bianco@javanile.org>
+
+1468944100.685 Engine->Adapter: id name Krudo 0.16a
+1468944100.685 Adapter->GUI: # id name Krudo 0.16a
+
+1468944100.685 Engine->Adapter: id author Francesco Bianco
+1468944100.685 Adapter->GUI: # id author Francesco Bianco
+
+1468944100.685 Engine->Adapter: uciok
+1468944100.685 Adapter->GUI: # uciok
+
+1468944100.685 POLYGLOG OPTIONS 
+1468944100.685 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1468944100.685 POLYGLOT [Polyglot] EngineDir="."
+1468944100.685 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468944100.685 POLYGLOT [Polyglot] Log="true"
+1468944100.685 POLYGLOT [Polyglot] LogFile="C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944100.685 POLYGLOT [Polyglot] Book="false"
+1468944100.685 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1468944100.685 POLYGLOT [Polyglot] BookRandom="false"
+1468944100.685 POLYGLOT [Polyglot] BookDepth="256"
+1468944100.685 POLYGLOT [Polyglot] BookLearn="false"
+1468944100.685 POLYGLOT [Polyglot] BookTreshold="5"
+1468944100.685 POLYGLOT [Polyglot] UCI="false"
+1468944100.685 POLYGLOT [Polyglot] UseNice="false"
+1468944100.685 POLYGLOT [Polyglot] NiceValue="5"
+1468944100.685 POLYGLOT [Polyglot] Resign="false"
+1468944100.685 POLYGLOT [Polyglot] ResignMoves="3"
+1468944100.685 POLYGLOT [Polyglot] ResignScore="600"
+1468944100.685 POLYGLOT [Polyglot] MateScore="10000"
+1468944100.685 POLYGLOT [Polyglot] KibitzMove="false"
+1468944100.685 POLYGLOT [Polyglot] KibitzPV="false"
+1468944100.685 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1468944100.685 POLYGLOT [Polyglot] KibitzDelay="5"
+1468944100.686 POLYGLOT [Polyglot] KibitzInterval="0"
+1468944100.686 POLYGLOT [Polyglot] ShowPonder="false"
+1468944100.686 POLYGLOT [Polyglot] ScoreWhite="false"
+1468944100.686 POLYGLOT [Polyglot] UCIVersion="2"
+1468944100.686 POLYGLOT [Polyglot] RepeatPV="true"
+1468944100.686 POLYGLOT [Polyglot] SyncStop="false"
+1468944100.686 POLYGLOT [Polyglot] CanPonder="false"
+1468944100.686 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1468944100.686 POLYGLOT [Polyglot] WbWorkArounds="false"
+1468944100.686 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1468944100.686 POLYGLOT [Engine] Hash="68"
+1468944100.686 POLYGLOT [Engine] Ponder="false"
+1468944100.686 POLYGLOT [Engine] OwnBook="false"
+1468944100.686 POLYGLOT [Engine] Book="false"
+1468944100.686 POLYGLOT [Engine] BookFile="book_small.bin"
+1468944100.686 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1468944100.686 POLYGLOT [Engine] NullMove Reduction="3"
+1468944100.686 POLYGLOT [Engine] Verification Search="Endgame"
+1468944100.686 POLYGLOT [Engine] Verification Reduction="5"
+1468944100.686 POLYGLOT [Engine] History Pruning="true"
+1468944100.686 POLYGLOT [Engine] History Threshold="60"
+1468944100.686 POLYGLOT [Engine] Futility Pruning="false"
+1468944100.686 POLYGLOT [Engine] Futility Margin="100"
+1468944100.686 POLYGLOT [Engine] Delta Pruning="false"
+1468944100.686 POLYGLOT [Engine] Delta Margin="50"
+1468944100.686 POLYGLOT [Engine] Quiescence Check Plies="1"
+1468944100.686 POLYGLOT [Engine] Material="100"
+1468944100.686 POLYGLOT [Engine] Piece Activity="100"
+1468944100.686 POLYGLOT [Engine] King Safety="100"
+1468944100.686 POLYGLOT [Engine] Pawn Structure="100"
+1468944100.686 POLYGLOT [Engine] Passed Pawns="100"
+1468944100.686 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1468944100.686 POLYGLOT Setting PolyGlot option "EngineDir=."
+1468944100.686 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468944100.686 POLYGLOT Setting PolyGlot option "Log=true"
+1468944100.686 POLYGLOT *** SWITCHING LOGFILE ***
+1468944100.686 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944100.686 POLYGLOT *** LOGFILE OPENED ***
+1468944100.686 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944100.686 POLYGLOT *** SWITCHING LOGFILE ***
+1468944100.686 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944100.691 POLYGLOT *** LOGFILE OPENED ***
+1468944100.691 POLYGLOT Setting PolyGlot option "Book=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1468944100.691 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1468944100.691 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1468944100.691 POLYGLOT Setting PolyGlot option "UCI=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "UseNice=false"
+1468944100.691 POLYGLOT Adjust Engine Piority
+1468944100.691 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1468944100.691 POLYGLOT Setting PolyGlot option "Resign=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1468944100.691 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1468944100.691 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1468944100.691 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1468944100.691 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1468944100.691 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1468944100.691 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1468944100.691 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1468944100.691 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1468944100.691 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1468944100.691 POLYGLOT *** Mainloop started ***
+1468944100.691 GUI->Adapter: xboard
+1468944100.691 GUI->Adapter: protover 2
+1468944100.691 Adapter->GUI: feature done=0
+1468944100.691 Adapter->GUI: feature analyze=1
+1468944100.691 Adapter->GUI: feature exclude=1
+1468944100.691 Adapter->GUI: feature colors=0
+1468944100.691 Adapter->GUI: feature draw=1
+1468944100.691 Adapter->GUI: feature ics=1
+1468944100.691 Adapter->GUI: feature myname="Krudo 0.15a"
+1468944100.691 Adapter->GUI: feature name=1
+1468944100.691 Adapter->GUI: feature pause=0
+1468944100.691 Adapter->GUI: feature ping=1
+1468944100.691 Adapter->GUI: feature playother=1
+1468944100.691 Adapter->GUI: feature sigint=1
+1468944100.692 Adapter->GUI: feature reuse=1
+1468944100.692 Adapter->GUI: feature san=0
+1468944100.692 Adapter->GUI: feature setboard=1
+1468944100.692 Adapter->GUI: feature sigint=0
+1468944100.692 Adapter->GUI: feature sigterm=0
+1468944100.692 Adapter->GUI: feature time=1
+1468944100.692 Adapter->GUI: feature usermove=1
+1468944100.692 Adapter->GUI: feature nps=1
+1468944100.692 Adapter->GUI: feature memory=0
+1468944100.692 Adapter->GUI: feature smp=0
+1468944100.692 Adapter->GUI: feature egt=""
+1468944100.692 Adapter->GUI: feature variants="normal"
+1468944100.692 Adapter->GUI: feature option="Polyglot exclude move -string "
+1468944100.692 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468944100.692 Adapter->GUI: feature option="Polyglot Log -check 1"
+1468944100.692 Adapter->GUI: feature option="Polyglot LogFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468944100.692 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1468944100.692 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1468944100.692 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1468944100.692 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1468944100.692 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1468944100.692 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1468944100.692 Adapter->GUI: feature option="Polyglot Book -check 0"
+1468944100.692 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1468944100.692 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1468944100.692 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1468944100.692 Adapter->GUI: feature option="Polyglot ShowTbHits -check 0"
+1468944100.692 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1468944100.692 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1468944100.692 Adapter->GUI: feature option="Polyglot Save -save"
+1468944100.693 Adapter->GUI: feature done=1
+1468944100.693 GUI->Adapter: accepted done
+1468944100.693 GUI->Adapter: accepted analyze
+1468944100.693 GUI->Adapter: accepted exclude
+1468944100.693 GUI->Adapter: accepted colors
+1468944100.693 GUI->Adapter: accepted draw
+1468944100.693 GUI->Adapter: accepted ics
+1468944100.693 GUI->Adapter: accepted myname
+1468944100.693 GUI->Adapter: accepted name
+1468944100.693 GUI->Adapter: accepted pause
+1468944100.693 GUI->Adapter: accepted ping
+1468944100.693 GUI->Adapter: accepted playother
+1468944100.693 GUI->Adapter: accepted sigint
+1468944100.693 GUI->Adapter: accepted reuse
+1468944100.693 GUI->Adapter: accepted san
+1468944100.693 GUI->Adapter: accepted setboard
+1468944100.693 GUI->Adapter: accepted sigint
+1468944100.693 GUI->Adapter: accepted sigterm
+1468944100.693 GUI->Adapter: accepted time
+1468944100.693 GUI->Adapter: accepted usermove
+1468944100.693 GUI->Adapter: accepted nps
+1468944100.693 GUI->Adapter: accepted memory
+1468944100.693 GUI->Adapter: accepted smp
+1468944100.693 GUI->Adapter: accepted egt
+1468944100.693 GUI->Adapter: accepted variants
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted option
+1468944100.693 GUI->Adapter: accepted done
+1468944100.705 GUI->Adapter: new
+1468944100.705 Adapter->Engine: isready
+1468944100.716 Engine->Adapter: readyok
+1468944100.716 Adapter->GUI: # readyok
+
+1468944100.716 POLYGLOT NEW GAME
+1468944100.716 POLYGLOT WAIT
+1468944100.716 Adapter->Engine: ucinewgame
+1468944100.716 GUI->Adapter: random
+1468944100.716 GUI->Adapter: ics -
+1468944100.716 GUI->Adapter: level 40 1 0
+1468944100.716 GUI->Adapter: post
+1468944100.716 GUI->Adapter: hard
+1468944100.716 POLYGLOT WAIT
+1468944100.716 GUI->Adapter: ping 1
+1468944100.716 Adapter->GUI: pong 1
+1468944100.716 GUI->Adapter: force
+1468944100.716 POLYGLOT WAIT
+1468944100.716 GUI->Adapter: ping 2
+1468944100.716 Adapter->GUI: pong 2
+1468944100.716 GUI->Adapter: new
+1468944100.716 Adapter->Engine: isready
+1468944100.716 Engine->Adapter: id name Krudo 0.16a
+1468944100.716 Adapter->GUI: # id name Krudo 0.16a
+
+1468944100.717 Engine->Adapter: id author Francesco Bianco
+1468944100.717 Adapter->GUI: # id author Francesco Bianco
+
+1468944100.717 Engine->Adapter: uciok
+1468944100.717 Adapter->GUI: # uciok
+
+1468944100.717 Engine->Adapter: readyok
+1468944100.717 Adapter->GUI: # readyok
+
+1468944100.717 POLYGLOT NEW GAME
+1468944100.717 POLYGLOT WAIT
+1468944100.717 Adapter->Engine: ucinewgame
+1468944100.717 GUI->Adapter: random
+1468944100.717 GUI->Adapter: ics -
+1468944100.717 GUI->Adapter: level 40 1 0
+1468944100.717 GUI->Adapter: post
+1468944100.717 GUI->Adapter: hard
+1468944100.717 POLYGLOT WAIT
+1468944100.717 GUI->Adapter: ping 3
+1468944100.717 Adapter->GUI: pong 3
+1468944100.718 GUI->Adapter: force
+1468944100.718 POLYGLOT WAIT
+1468944100.718 Engine->Adapter: id name Krudo 0.16a
+1468944100.718 Adapter->GUI: # id name Krudo 0.16a
+
+1468944100.718 Engine->Adapter: id author Francesco Bianco
+1468944100.718 Adapter->GUI: # id author Francesco Bianco
+
+1468944100.718 Engine->Adapter: uciok
+1468944100.718 Adapter->GUI: # uciok
+
+1468944101.330 GUI->Adapter: computer
+1468944101.330 GUI->Adapter: name Fairy-Max 4.8V
+1468944101.330 GUI->Adapter: time 6000
+1468944101.330 GUI->Adapter: otim 6000
+1468944101.330 GUI->Adapter: go
+1468944101.330 POLYGLOT THINK
+1468944101.330 POLYGLOT START SEARCH
+1468944101.330 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1468944101.330 Adapter->Engine: position startpos
+1468944101.330 Adapter->Engine: go wtime 60000 btime 60000 movestogo 40
+1468944101.402 Engine->Adapter:           id-run 3
+1468944101.402 Adapter->GUI: #           id-run 3
+
+1468944101.402 Engine->Adapter:      id-loop-run 1/3
+1468944101.402 Adapter->GUI: #      id-loop-run 1/3
+
+1468944101.438 Engine->Adapter:  ab-soft-cut-off e2e4=27 [-100000;100000]
+1468944101.439 Adapter->GUI: #  ab-soft-cut-off e2e4=27 [-100000;100000]
+
+1468944101.439 Engine->Adapter:      id-loop-end 1/3 37ms 20n 0knps
+1468944101.439 Adapter->GUI: #      id-loop-end 1/3 37ms 20n 0knps
+
+1468944101.439 Engine->Adapter:      id-loop-run 2/3
+1468944101.439 Adapter->GUI: #      id-loop-run 2/3
+
+1468944101.440 Engine->Adapter:  ab-soft-cut-off e2e4=0 [-100000;100000]
+1468944101.440 Adapter->GUI: #  ab-soft-cut-off e2e4=0 [-100000;100000]
+
+1468944101.443 Engine->Adapter:      id-loop-end 2/3 3ms 40n 13knps
+1468944101.443 Adapter->GUI: #      id-loop-end 2/3 3ms 40n 13knps
+
+1468944101.443 Engine->Adapter:      id-loop-run 3/3
+1468944101.443 Adapter->GUI: #      id-loop-run 3/3
+
+1468944101.450 Engine->Adapter:  ab-soft-cut-off e2e4=1 [-100000;100000]
+1468944101.450 Adapter->GUI: #  ab-soft-cut-off e2e4=1 [-100000;100000]
+
+1468944101.456 Engine->Adapter:  ab-soft-cut-off d2d4=17 [1;100000]
+1468944101.457 Adapter->GUI: #  ab-soft-cut-off d2d4=17 [1;100000]
+
+1468944101.460 Engine->Adapter:      id-loop-end 3/3 15ms 590n 39knps
+1468944101.460 Adapter->GUI: #      id-loop-end 3/3 15ms 590n 39knps
+
+1468944101.483 Engine->Adapter:           id-end 3 17 d2d4 d7d5 e2e3
+1468944101.484 Adapter->GUI: #           id-end 3 17 d2d4 d7d5 e2e3
+
+1468944101.484 Engine->Adapter: bestmove d2d4
+1468944101.484 Adapter->GUI: # bestmove d2d4
+
+1468944101.484 Adapter->GUI: move d2d4
+1468944101.484 POLYGLOT MOVE d4
+1468944101.484 POLYGLOT THINK -> WAIT
+1468944103.912 GUI->Adapter: time 5984
+1468944103.912 GUI->Adapter: otim 5757
+1468944103.912 GUI->Adapter: usermove g8f6
+1468944103.912 POLYGLOT MOVE Nf6
+1468944103.912 POLYGLOT WAIT -> THINK
+1468944103.912 POLYGLOT START SEARCH
+1468944103.912 POLYGLOT FEN rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 1 2
+1468944103.912 Adapter->Engine: position startpos moves d2d4 g8f6
+1468944103.912 Adapter->Engine: go wtime 59840 btime 57570 movestogo 39
+1468944103.943 Engine->Adapter:           id-run 3
+1468944103.943 Adapter->GUI: #           id-run 3
+
+1468944103.943 Engine->Adapter:      id-loop-run 1/3
+1468944103.943 Adapter->GUI: #      id-loop-run 1/3
+
+1468944103.944 Engine->Adapter:  ab-soft-cut-off e2e4=-72 [-100000;100000]
+1468944103.944 Adapter->GUI: #  ab-soft-cut-off e2e4=-72 [-100000;100000]
+
+1468944103.944 Engine->Adapter:  ab-soft-cut-off e2e3=32 [-72;100000]
+1468944103.944 Adapter->GUI: #  ab-soft-cut-off e2e3=32 [-72;100000]
+
+1468944103.944 Engine->Adapter:      id-loop-end 1/3 1ms 28n 28knps
+1468944103.944 Adapter->GUI: #      id-loop-end 1/3 1ms 28n 28knps
+
+1468944103.944 Engine->Adapter:      id-loop-run 2/3
+1468944103.944 Adapter->GUI: #      id-loop-run 2/3
+
+1468944103.944 Engine->Adapter:  ab-soft-cut-off e2e4=-72 [-100000;100000]
+1468944103.944 Adapter->GUI: #  ab-soft-cut-off e2e4=-72 [-100000;100000]
+
+1468944103.945 Engine->Adapter:  ab-soft-cut-off e2e3=5 [-72;100000]
+1468944103.945 Adapter->GUI: #  ab-soft-cut-off e2e3=5 [-72;100000]
+
+1468944103.948 Engine->Adapter:      id-loop-end 2/3 3ms 72n 24knps
+1468944103.949 Adapter->GUI: #      id-loop-end 2/3 3ms 72n 24knps
+
+1468944103.949 Engine->Adapter:      id-loop-run 3/3
+1468944103.949 Adapter->GUI: #      id-loop-run 3/3
+
+1468944103.961 Engine->Adapter:  ab-soft-cut-off e2e4=-60 [-100000;100000]
+1468944103.961 Adapter->GUI: #  ab-soft-cut-off e2e4=-60 [-100000;100000]
+
+1468944103.961 Engine->Adapter:  ab-soft-cut-off e2e3=18 [-60;100000]
+1468944103.961 Adapter->GUI: #  ab-soft-cut-off e2e3=18 [-60;100000]
+
+1468944103.968 Engine->Adapter:      id-loop-end 3/3 20ms 1591n 79knps
+1468944103.968 Adapter->GUI: #      id-loop-end 3/3 20ms 1591n 79knps
+
+1468944103.968 Engine->Adapter:           id-end 3 18 e2e3 d7d5 g1f3
+1468944103.968 Adapter->GUI: #           id-end 3 18 e2e3 d7d5 g1f3
+
+1468944103.968 Engine->Adapter: bestmove e2e3
+1468944103.968 Adapter->GUI: # bestmove e2e3
+
+1468944103.968 Adapter->GUI: move e2e3
+1468944103.968 POLYGLOT MOVE e3
+1468944103.968 POLYGLOT THINK -> WAIT
+1468944105.572 GUI->Adapter: time 5973
+1468944105.572 GUI->Adapter: otim 5602
+1468944105.572 GUI->Adapter: usermove d7d5
+1468944105.572 POLYGLOT MOVE d5
+1468944105.572 POLYGLOT WAIT -> THINK
+1468944105.572 POLYGLOT START SEARCH
+1468944105.572 POLYGLOT FEN rnbqkb1r/ppp1pppp/5n2/3p4/3P4/4P3/PPP2PPP/RNBQKBNR w KQkq - 0 3
+1468944105.572 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5
+1468944105.572 Adapter->Engine: go wtime 59730 btime 56020 movestogo 38
+1468944105.573 Engine->Adapter:           id-run 3
+1468944105.573 Adapter->GUI: #           id-run 3
+
+1468944105.573 Engine->Adapter:      id-loop-run 1/3
+1468944105.573 Adapter->GUI: #      id-loop-run 1/3
+
+1468944105.573 Engine->Adapter:  ab-soft-cut-off g1f3=18 [-100000;100000]
+1468944105.573 Adapter->GUI: #  ab-soft-cut-off g1f3=18 [-100000;100000]
+
+1468944105.574 Engine->Adapter:      id-loop-end 1/3 0ms 33n 0knps
+1468944105.574 Adapter->GUI: #      id-loop-end 1/3 0ms 33n 0knps
+
+1468944105.574 Engine->Adapter:      id-loop-run 2/3
+1468944105.574 Adapter->GUI: #      id-loop-run 2/3
+
+1468944105.574 Engine->Adapter:  ab-soft-cut-off g1f3=1 [-100000;100000]
+1468944105.574 Adapter->GUI: #  ab-soft-cut-off g1f3=1 [-100000;100000]
+
+1468944105.577 Engine->Adapter:      id-loop-end 2/3 3ms 62n 20knps
+1468944105.577 Adapter->GUI: #      id-loop-end 2/3 3ms 62n 20knps
+
+1468944105.577 Engine->Adapter:      id-loop-run 3/3
+1468944105.577 Adapter->GUI: #      id-loop-run 3/3
+
+1468944105.582 Engine->Adapter:  ab-soft-cut-off g1f3=12 [-100000;100000]
+1468944105.582 Adapter->GUI: #  ab-soft-cut-off g1f3=12 [-100000;100000]
+
+1468944105.587 Engine->Adapter:      id-loop-end 3/3 10ms 1962n 196knps
+1468944105.587 Adapter->GUI: #      id-loop-end 3/3 10ms 1962n 196knps
+
+1468944105.587 Engine->Adapter:           id-end 3 12 g1f3 e7e6 b1c3
+1468944105.587 Adapter->GUI: #           id-end 3 12 g1f3 e7e6 b1c3
+
+1468944105.587 Engine->Adapter: bestmove g1f3
+1468944105.587 Adapter->GUI: # bestmove g1f3
+
+1468944105.587 Adapter->GUI: move g1f3
+1468944105.587 POLYGLOT MOVE Nf3
+1468944105.587 POLYGLOT THINK -> WAIT
+1468944106.486 GUI->Adapter: time 5964
+1468944106.486 GUI->Adapter: otim 5520
+1468944106.486 GUI->Adapter: usermove c7c5
+1468944106.486 POLYGLOT MOVE c5
+1468944106.486 POLYGLOT WAIT -> THINK
+1468944106.486 POLYGLOT START SEARCH
+1468944106.486 POLYGLOT FEN rnbqkb1r/pp2pppp/5n2/2pp4/3P4/4PN2/PPP2PPP/RNBQKB1R w KQkq - 0 4
+1468944106.486 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5
+1468944106.486 Adapter->Engine: go wtime 59640 btime 55200 movestogo 37
+1468944106.487 Engine->Adapter:           id-run 3
+1468944106.487 Adapter->GUI: #           id-run 3
+
+1468944106.487 Engine->Adapter:      id-loop-run 1/3
+1468944106.487 Adapter->GUI: #      id-loop-run 1/3
+
+1468944106.487 Engine->Adapter:  ab-soft-cut-off b1c3=5 [-100000;100000]
+1468944106.487 Adapter->GUI: #  ab-soft-cut-off b1c3=5 [-100000;100000]
+
+1468944106.487 Engine->Adapter:  ab-soft-cut-off f1b5=18 [5;100000]
+1468944106.487 Adapter->GUI: #  ab-soft-cut-off f1b5=18 [5;100000]
+
+1468944106.487 Engine->Adapter:  ab-soft-cut-off d4c5=94 [18;100000]
+1468944106.487 Adapter->GUI: #  ab-soft-cut-off d4c5=94 [18;100000]
+
+1468944106.488 Engine->Adapter:      id-loop-end 1/3 1ms 32n 32knps
+1468944106.488 Adapter->GUI: #      id-loop-end 1/3 1ms 32n 32knps
+
+1468944106.488 Engine->Adapter:      id-loop-run 2/3
+1468944106.488 Adapter->GUI: #      id-loop-run 2/3
+
+1468944106.488 Engine->Adapter:  ab-soft-cut-off b1c3=5 [-100000;100000]
+1468944106.488 Adapter->GUI: #  ab-soft-cut-off b1c3=5 [-100000;100000]
+
+1468944106.492 Engine->Adapter:  ab-soft-cut-off f1b5=13 [5;100000]
+1468944106.495 Adapter->GUI: #  ab-soft-cut-off f1b5=13 [5;100000]
+
+1468944106.502 Engine->Adapter:  ab-soft-cut-off d4c5=77 [13;100000]
+1468944106.502 Adapter->GUI: #  ab-soft-cut-off d4c5=77 [13;100000]
+
+1468944106.502 Engine->Adapter:      id-loop-end 2/3 14ms 117n 8knps
+1468944106.502 Adapter->GUI: #      id-loop-end 2/3 14ms 117n 8knps
+
+1468944106.503 Engine->Adapter:      id-loop-run 3/3
+1468944106.503 Adapter->GUI: #      id-loop-run 3/3
+
+1468944106.670 Engine->Adapter:  ab-soft-cut-off b1c3=7 [-100000;100000]
+1468944106.670 Adapter->GUI: #  ab-soft-cut-off b1c3=7 [-100000;100000]
+
+1468944106.681 Engine->Adapter:  ab-soft-cut-off f1b5=18 [7;100000]
+1468944106.681 Adapter->GUI: #  ab-soft-cut-off f1b5=18 [7;100000]
+
+1468944106.692 Engine->Adapter:      id-loop-end 3/3 189ms 2377n 12knps
+1468944106.692 Adapter->GUI: #      id-loop-end 3/3 189ms 2377n 12knps
+
+1468944106.692 Engine->Adapter:           id-end 3 18 f1b5 c8d7 b5d7 d8d7
+1468944106.692 Adapter->GUI: #           id-end 3 18 f1b5 c8d7 b5d7 d8d7
+
+1468944106.692 Engine->Adapter: bestmove f1b5
+1468944106.692 Adapter->GUI: # bestmove f1b5
+
+1468944106.692 Adapter->GUI: move f1b5
+1468944106.693 POLYGLOT MOVE Bb5+
+1468944106.695 POLYGLOT THINK -> WAIT
+1468944107.768 GUI->Adapter: time 5943
+1468944107.768 GUI->Adapter: otim 5412
+1468944107.768 GUI->Adapter: usermove c8d7
+1468944107.768 POLYGLOT MOVE Bd7
+1468944107.768 POLYGLOT WAIT -> THINK
+1468944107.768 POLYGLOT START SEARCH
+1468944107.768 POLYGLOT FEN rn1qkb1r/pp1bpppp/5n2/1Bpp4/3P4/4PN2/PPP2PPP/RNBQK2R w KQkq - 2 5
+1468944107.768 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7
+1468944107.769 Adapter->Engine: go wtime 59430 btime 54120 movestogo 36
+1468944107.775 Engine->Adapter:           id-run 3
+1468944107.775 Adapter->GUI: #           id-run 3
+
+1468944107.775 Engine->Adapter:      id-loop-run 1/3
+1468944107.775 Adapter->GUI: #      id-loop-run 1/3
+
+1468944107.775 Engine->Adapter:  ab-soft-cut-off b1c3=-6 [-100000;100000]
+1468944107.775 Adapter->GUI: #  ab-soft-cut-off b1c3=-6 [-100000;100000]
+
+1468944107.775 Engine->Adapter:  ab-soft-cut-off b5d7=18 [-6;100000]
+1468944107.775 Adapter->GUI: #  ab-soft-cut-off b5d7=18 [-6;100000]
+
+1468944107.776 Engine->Adapter:      id-loop-end 1/3 2ms 38n 19knps
+1468944107.776 Adapter->GUI: #      id-loop-end 1/3 2ms 38n 19knps
+
+1468944107.776 Engine->Adapter:      id-loop-run 2/3
+1468944107.776 Adapter->GUI: #      id-loop-run 2/3
+
+1468944107.776 Engine->Adapter:  ab-soft-cut-off b1c3=-6 [-100000;100000]
+1468944107.776 Adapter->GUI: #  ab-soft-cut-off b1c3=-6 [-100000;100000]
+
+1468944107.791 Engine->Adapter:  ab-soft-cut-off b5d7=18 [-6;100000]
+1468944107.792 Adapter->GUI: #  ab-soft-cut-off b5d7=18 [-6;100000]
+
+1468944107.795 Engine->Adapter:      id-loop-end 2/3 23ms 116n 5knps
+1468944107.795 Adapter->GUI: #      id-loop-end 2/3 23ms 116n 5knps
+
+1468944107.795 Engine->Adapter:      id-loop-run 3/3
+1468944107.795 Adapter->GUI: #      id-loop-run 3/3
+
+1468944108.005 Engine->Adapter:  ab-soft-cut-off b1c3=-6 [-100000;100000]
+1468944108.005 Adapter->GUI: #  ab-soft-cut-off b1c3=-6 [-100000;100000]
+
+1468944108.230 Engine->Adapter:  ab-soft-cut-off b5d7=5 [-6;100000]
+1468944108.230 Adapter->GUI: #  ab-soft-cut-off b5d7=5 [-6;100000]
+
+1468944108.257 Engine->Adapter:      id-loop-end 3/3 462ms 2956n 6knps
+1468944108.258 Adapter->GUI: #      id-loop-end 3/3 462ms 2956n 6knps
+
+1468944108.258 Engine->Adapter:           id-end 3 5 b5d7 b8d7 b1c3 c5d4 d1d4
+1468944108.258 Adapter->GUI: #           id-end 3 5 b5d7 b8d7 b1c3 c5d4 d1d4
+
+1468944108.258 Engine->Adapter: bestmove b5d7
+1468944108.258 Adapter->GUI: # bestmove b5d7
+
+1468944108.258 Adapter->GUI: move b5d7
+1468944108.260 POLYGLOT MOVE Bxd7+
+1468944108.260 POLYGLOT THINK -> WAIT
+1468944109.696 GUI->Adapter: time 5894
+1468944109.696 GUI->Adapter: otim 5268
+1468944109.696 GUI->Adapter: usermove b8d7
+1468944109.696 POLYGLOT MOVE Nbxd7
+1468944109.696 POLYGLOT WAIT -> THINK
+1468944109.696 POLYGLOT START SEARCH
+1468944109.696 POLYGLOT FEN r2qkb1r/pp1npppp/5n2/2pp4/3P4/4PN2/PPP2PPP/RNBQK2R w KQkq - 0 6
+1468944109.696 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7
+1468944109.696 Adapter->Engine: go wtime 58940 btime 52680 movestogo 35
+1468944109.701 Engine->Adapter:           id-run 3
+1468944109.701 Adapter->GUI: #           id-run 3
+
+1468944109.701 Engine->Adapter:      id-loop-run 1/3
+1468944109.701 Adapter->GUI: #      id-loop-run 1/3
+
+1468944109.701 Engine->Adapter:  ab-soft-cut-off b1c3=5 [-100000;100000]
+1468944109.701 Adapter->GUI: #  ab-soft-cut-off b1c3=5 [-100000;100000]
+
+1468944109.701 Engine->Adapter:      id-loop-end 1/3 1ms 30n 30knps
+1468944109.701 Adapter->GUI: #      id-loop-end 1/3 1ms 30n 30knps
+
+1468944109.701 Engine->Adapter:      id-loop-run 2/3
+1468944109.701 Adapter->GUI: #      id-loop-run 2/3
+
+1468944109.701 Engine->Adapter:  ab-soft-cut-off b1c3=2 [-100000;100000]
+1468944109.701 Adapter->GUI: #  ab-soft-cut-off b1c3=2 [-100000;100000]
+
+1468944109.703 Engine->Adapter:      id-loop-end 2/3 5ms 72n 14knps
+1468944109.703 Adapter->GUI: #      id-loop-end 2/3 5ms 72n 14knps
+
+1468944109.704 Engine->Adapter:      id-loop-run 3/3
+1468944109.704 Adapter->GUI: #      id-loop-run 3/3
+
+1468944109.730 Engine->Adapter:  ab-soft-cut-off b1c3=-3 [-100000;100000]
+1468944109.730 Adapter->GUI: #  ab-soft-cut-off b1c3=-3 [-100000;100000]
+
+1468944109.755 Engine->Adapter:      id-loop-end 3/3 51ms 1922n 37knps
+1468944109.755 Adapter->GUI: #      id-loop-end 3/3 51ms 1922n 37knps
+
+1468944109.755 Engine->Adapter:           id-end 3 -3 b1c3 e7e6 e1g1 c5d4 d1d4
+1468944109.755 Adapter->GUI: #           id-end 3 -3 b1c3 e7e6 e1g1 c5d4 d1d4
+
+1468944109.755 Engine->Adapter: bestmove b1c3
+1468944109.755 Adapter->GUI: # bestmove b1c3
+
+1468944109.755 Adapter->GUI: move b1c3
+1468944109.755 POLYGLOT MOVE Nc3
+1468944109.755 POLYGLOT THINK -> WAIT
+1468944110.826 GUI->Adapter: time 5883
+1468944110.826 GUI->Adapter: otim 5167
+1468944110.826 GUI->Adapter: usermove d8c7
+1468944110.826 POLYGLOT MOVE Qc7
+1468944110.826 POLYGLOT WAIT -> THINK
+1468944110.826 POLYGLOT START SEARCH
+1468944110.826 POLYGLOT FEN r3kb1r/ppqnpppp/5n2/2pp4/3P4/2N1PN2/PPP2PPP/R1BQK2R w KQkq - 2 7
+1468944110.826 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7
+1468944110.827 Adapter->Engine: go wtime 58830 btime 51670 movestogo 34
+1468944110.828 Engine->Adapter:           id-run 3
+1468944110.828 Adapter->GUI: #           id-run 3
+
+1468944110.828 Engine->Adapter:      id-loop-run 1/3
+1468944110.828 Adapter->GUI: #      id-loop-run 1/3
+
+1468944110.828 Engine->Adapter:  ab-soft-cut-off e3e4=-85 [-100000;100000]
+1468944110.828 Adapter->GUI: #  ab-soft-cut-off e3e4=-85 [-100000;100000]
+
+1468944110.829 Engine->Adapter:  ab-soft-cut-off e1g1=14 [-85;100000]
+1468944110.829 Adapter->GUI: #  ab-soft-cut-off e1g1=14 [-85;100000]
+
+1468944110.830 Engine->Adapter:  ab-soft-cut-off c3b5=18 [14;100000]
+1468944110.830 Adapter->GUI: #  ab-soft-cut-off c3b5=18 [14;100000]
+
+1468944110.830 Engine->Adapter:      id-loop-end 1/3 2ms 32n 16knps
+1468944110.830 Adapter->GUI: #      id-loop-end 1/3 2ms 32n 16knps
+
+1468944110.830 Engine->Adapter:      id-loop-run 2/3
+1468944110.830 Adapter->GUI: #      id-loop-run 2/3
+
+1468944110.833 Engine->Adapter:  ab-soft-cut-off e3e4=-85 [-100000;100000]
+1468944110.833 Adapter->GUI: #  ab-soft-cut-off e3e4=-85 [-100000;100000]
+
+1468944110.834 Engine->Adapter:  ab-soft-cut-off e1g1=11 [-85;100000]
+1468944110.834 Adapter->GUI: #  ab-soft-cut-off e1g1=11 [-85;100000]
+
+1468944110.877 Engine->Adapter:  ab-soft-cut-off c3b5=18 [11;100000]
+1468944110.877 Adapter->GUI: #  ab-soft-cut-off c3b5=18 [11;100000]
+
+1468944110.883 Engine->Adapter:      id-loop-end 2/3 53ms 186n 3knps
+1468944110.883 Adapter->GUI: #      id-loop-end 2/3 53ms 186n 3knps
+
+1468944110.883 Engine->Adapter:      id-loop-run 3/3
+1468944110.883 Adapter->GUI: #      id-loop-run 3/3
+
+1468944111.182 Engine->Adapter:  ab-soft-cut-off e3e4=-86 [-100000;100000]
+1468944111.182 Adapter->GUI: #  ab-soft-cut-off e3e4=-86 [-100000;100000]
+
+1468944111.326 Engine->Adapter:  ab-soft-cut-off e1g1=8 [-86;100000]
+1468944111.326 Adapter->GUI: #  ab-soft-cut-off e1g1=8 [-86;100000]
+
+1468944111.429 Engine->Adapter:      id-loop-end 3/3 546ms 2727n 4knps
+1468944111.429 Adapter->GUI: #      id-loop-end 3/3 546ms 2727n 4knps
+
+1468944111.429 Engine->Adapter:           id-end 3 8 e1g1 e8c8 c3b5
+1468944111.430 Adapter->GUI: #           id-end 3 8 e1g1 e8c8 c3b5
+
+1468944111.430 Engine->Adapter: bestmove e1g1
+1468944111.430 Adapter->GUI: # bestmove e1g1
+
+1468944111.430 Adapter->GUI: move e1g1
+1468944111.430 POLYGLOT MOVE O-O
+1468944111.430 POLYGLOT THINK -> WAIT
+1468944112.402 GUI->Adapter: time 5822
+1468944112.402 GUI->Adapter: otim 5070
+1468944112.402 GUI->Adapter: usermove h7h6
+1468944112.402 POLYGLOT MOVE h6
+1468944112.402 POLYGLOT WAIT -> THINK
+1468944112.402 POLYGLOT START SEARCH
+1468944112.402 POLYGLOT FEN r3kb1r/ppqnppp1/5n1p/2pp4/3P4/2N1PN2/PPP2PPP/R1BQ1RK1 w kq - 0 8
+1468944112.402 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6
+1468944112.403 Adapter->Engine: go wtime 58220 btime 50700 movestogo 33
+1468944112.406 Engine->Adapter:           id-run 3
+1468944112.406 Adapter->GUI: #           id-run 3
+
+1468944112.406 Engine->Adapter:      id-loop-run 1/3
+1468944112.406 Adapter->GUI: #      id-loop-run 1/3
+
+1468944112.410 Engine->Adapter:  ab-soft-cut-off e3e4=-76 [-100000;100000]
+1468944112.410 Adapter->GUI: #  ab-soft-cut-off e3e4=-76 [-100000;100000]
+
+1468944112.410 Engine->Adapter:  ab-soft-cut-off d1d3=14 [-76;100000]
+1468944112.411 Adapter->GUI: #  ab-soft-cut-off d1d3=14 [-76;100000]
+
+1468944112.411 Engine->Adapter:  ab-soft-cut-off f1e1=22 [14;100000]
+1468944112.411 Adapter->GUI: #  ab-soft-cut-off f1e1=22 [14;100000]
+
+1468944112.411 Engine->Adapter:  ab-soft-cut-off c3b5=27 [22;100000]
+1468944112.411 Adapter->GUI: #  ab-soft-cut-off c3b5=27 [22;100000]
+
+1468944112.412 Engine->Adapter:      id-loop-end 1/3 7ms 29n 4knps
+1468944112.412 Adapter->GUI: #      id-loop-end 1/3 7ms 29n 4knps
+
+1468944112.412 Engine->Adapter:      id-loop-run 2/3
+1468944112.412 Adapter->GUI: #      id-loop-run 2/3
+
+1468944112.453 Engine->Adapter:  ab-soft-cut-off e3e4=-76 [-100000;100000]
+1468944112.453 Adapter->GUI: #  ab-soft-cut-off e3e4=-76 [-100000;100000]
+
+1468944112.456 Engine->Adapter:  ab-soft-cut-off d1d3=14 [-76;100000]
+1468944112.456 Adapter->GUI: #  ab-soft-cut-off d1d3=14 [-76;100000]
+
+1468944112.456 Engine->Adapter:  ab-soft-cut-off f1e1=19 [14;100000]
+1468944112.457 Adapter->GUI: #  ab-soft-cut-off f1e1=19 [14;100000]
+
+1468944112.528 Engine->Adapter:  ab-soft-cut-off c3b5=27 [19;100000]
+1468944112.528 Adapter->GUI: #  ab-soft-cut-off c3b5=27 [19;100000]
+
+1468944112.534 Engine->Adapter:      id-loop-end 2/3 122ms 223n 1knps
+1468944112.534 Adapter->GUI: #      id-loop-end 2/3 122ms 223n 1knps
+
+1468944112.534 Engine->Adapter:      id-loop-run 3/3
+1468944112.534 Adapter->GUI: #      id-loop-run 3/3
+
+1468944114.218 Engine->Adapter:  ab-soft-cut-off e3e4=-77 [-100000;100000]
+1468944114.218 Adapter->GUI: #  ab-soft-cut-off e3e4=-77 [-100000;100000]
+
+1468944114.747 Engine->Adapter:  ab-soft-cut-off d1d3=16 [-77;100000]
+1468944114.747 Adapter->GUI: #  ab-soft-cut-off d1d3=16 [-77;100000]
+
+1468944114.940 Engine->Adapter:      id-loop-end 3/3 2406ms 2439n 1knps
+1468944114.940 Adapter->GUI: #      id-loop-end 3/3 2406ms 2439n 1knps
+
+1468944114.940 Engine->Adapter:           id-end 3 16 d1d3 e8c8 c3b5
+1468944114.940 Adapter->GUI: #           id-end 3 16 d1d3 e8c8 c3b5
+
+1468944114.940 Engine->Adapter: bestmove d1d3
+1468944114.940 Adapter->GUI: # bestmove d1d3
+
+1468944114.940 Adapter->GUI: move d1d3
+1468944114.941 POLYGLOT MOVE Qd3
+1468944114.941 POLYGLOT THINK -> WAIT
+1468944117.038 GUI->Adapter: time 5568
+1468944117.038 GUI->Adapter: otim 4860
+1468944117.038 GUI->Adapter: usermove e8c8
+1468944117.038 POLYGLOT MOVE O-O-O
+1468944117.038 POLYGLOT WAIT -> THINK
+1468944117.038 POLYGLOT START SEARCH
+1468944117.038 POLYGLOT FEN 2kr1b1r/ppqnppp1/5n1p/2pp4/3P4/2NQPN2/PPP2PPP/R1B2RK1 w - - 2 9
+1468944117.038 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8
+1468944117.038 Adapter->Engine: go wtime 55680 btime 48600 movestogo 32
+1468944117.040 Engine->Adapter:           id-run 3
+1468944117.040 Adapter->GUI: #           id-run 3
+
+1468944117.040 Engine->Adapter:      id-loop-run 1/3
+1468944117.040 Adapter->GUI: #      id-loop-run 1/3
+
+1468944117.044 Engine->Adapter:  ab-soft-cut-off e3e4=-7 [-100000;100000]
+1468944117.044 Adapter->GUI: #  ab-soft-cut-off e3e4=-7 [-100000;100000]
+
+1468944117.044 Engine->Adapter:  ab-soft-cut-off f1e1=3 [-7;100000]
+1468944117.044 Adapter->GUI: #  ab-soft-cut-off f1e1=3 [-7;100000]
+
+1468944117.045 Engine->Adapter:  ab-soft-cut-off d3f5=4 [3;100000]
+1468944117.045 Adapter->GUI: #  ab-soft-cut-off d3f5=4 [3;100000]
+
+1468944117.045 Engine->Adapter:  ab-soft-cut-off c3b5=16 [4;100000]
+1468944117.045 Adapter->GUI: #  ab-soft-cut-off c3b5=16 [4;100000]
+
+1468944117.046 Engine->Adapter:      id-loop-end 1/3 7ms 37n 5knps
+1468944117.046 Adapter->GUI: #      id-loop-end 1/3 7ms 37n 5knps
+
+1468944117.046 Engine->Adapter:      id-loop-run 2/3
+1468944117.046 Adapter->GUI: #      id-loop-run 2/3
+
+1468944117.157 Engine->Adapter:  ab-soft-cut-off e3e4=-7 [-100000;100000]
+1468944117.157 Adapter->GUI: #  ab-soft-cut-off e3e4=-7 [-100000;100000]
+
+1468944117.159 Engine->Adapter:  ab-soft-cut-off f1e1=3 [-7;100000]
+1468944117.159 Adapter->GUI: #  ab-soft-cut-off f1e1=3 [-7;100000]
+
+1468944117.257 Engine->Adapter:  ab-soft-cut-off c3b5=16 [3;100000]
+1468944117.257 Adapter->GUI: #  ab-soft-cut-off c3b5=16 [3;100000]
+
+1468944117.273 Engine->Adapter:      id-loop-end 2/3 226ms 183n 0knps
+1468944117.273 Adapter->GUI: #      id-loop-end 2/3 226ms 183n 0knps
+
+1468944117.273 Engine->Adapter:      id-loop-run 3/3
+1468944117.273 Adapter->GUI: #      id-loop-run 3/3
+
+1468944118.677 Engine->Adapter:  ab-soft-cut-off e3e4=-7 [-100000;100000]
+1468944118.677 Adapter->GUI: #  ab-soft-cut-off e3e4=-7 [-100000;100000]
+
+1468944118.853 Engine->Adapter:  ab-soft-cut-off f1e1=7 [-7;100000]
+1468944118.853 Adapter->GUI: #  ab-soft-cut-off f1e1=7 [-7;100000]
+
+1468944119.118 Engine->Adapter:      id-loop-end 3/3 1844ms 3034n 1knps
+1468944119.118 Adapter->GUI: #      id-loop-end 3/3 1844ms 3034n 1knps
+
+1468944119.118 Engine->Adapter:           id-end 3 7 f1e1 e7e6 c3b5
+1468944119.118 Adapter->GUI: #           id-end 3 7 f1e1 e7e6 c3b5
+
+1468944119.118 Engine->Adapter: bestmove f1e1
+1468944119.118 Adapter->GUI: # bestmove f1e1
+
+1468944119.118 Adapter->GUI: move f1e1
+1468944119.119 POLYGLOT MOVE Re1
+1468944119.119 POLYGLOT THINK -> WAIT
+1468944120.435 GUI->Adapter: time 5360
+1468944120.435 GUI->Adapter: otim 4728
+1468944120.435 GUI->Adapter: usermove c7b8
+1468944120.435 POLYGLOT MOVE Qb8
+1468944120.435 POLYGLOT WAIT -> THINK
+1468944120.435 POLYGLOT START SEARCH
+1468944120.435 POLYGLOT FEN 1qkr1b1r/pp1nppp1/5n1p/2pp4/3P4/2NQPN2/PPP2PPP/R1B1R1K1 w - - 4 10
+1468944120.435 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8
+1468944120.435 Adapter->Engine: go wtime 53600 btime 47280 movestogo 31
+1468944120.436 Engine->Adapter:           id-run 3
+1468944120.436 Adapter->GUI: #           id-run 3
+
+1468944120.436 Engine->Adapter:      id-loop-run 1/3
+1468944120.436 Adapter->GUI: #      id-loop-run 1/3
+
+1468944120.439 Engine->Adapter:  ab-soft-cut-off e3e4=1 [-100000;100000]
+1468944120.439 Adapter->GUI: #  ab-soft-cut-off e3e4=1 [-100000;100000]
+
+1468944120.439 Engine->Adapter:  ab-soft-cut-off a1b1=5 [1;100000]
+1468944120.439 Adapter->GUI: #  ab-soft-cut-off a1b1=5 [1;100000]
+
+1468944120.441 Engine->Adapter:  ab-soft-cut-off d3f5=13 [5;100000]
+1468944120.441 Adapter->GUI: #  ab-soft-cut-off d3f5=13 [5;100000]
+
+1468944120.441 Engine->Adapter:      id-loop-end 1/3 4ms 39n 9knps
+1468944120.441 Adapter->GUI: #      id-loop-end 1/3 4ms 39n 9knps
+
+1468944120.441 Engine->Adapter:      id-loop-run 2/3
+1468944120.441 Adapter->GUI: #      id-loop-run 2/3
+
+1468944120.474 Engine->Adapter:  ab-soft-cut-off e3e4=1 [-100000;100000]
+1468944120.474 Adapter->GUI: #  ab-soft-cut-off e3e4=1 [-100000;100000]
+
+1468944120.476 Engine->Adapter:  ab-soft-cut-off a1b1=5 [1;100000]
+1468944120.476 Adapter->GUI: #  ab-soft-cut-off a1b1=5 [1;100000]
+
+1468944120.548 Engine->Adapter:  ab-soft-cut-off d4c5=11 [5;100000]
+1468944120.548 Adapter->GUI: #  ab-soft-cut-off d4c5=11 [5;100000]
+
+1468944120.548 Engine->Adapter:      id-loop-end 2/3 108ms 221n 2knps
+1468944120.548 Adapter->GUI: #      id-loop-end 2/3 108ms 221n 2knps
+
+1468944120.548 Engine->Adapter:      id-loop-run 3/3
+1468944120.549 Adapter->GUI: #      id-loop-run 3/3
+
+1468944121.035 Engine->Adapter:  ab-soft-cut-off e3e4=1 [-100000;100000]
+1468944121.326 Adapter->GUI: #  ab-soft-cut-off e3e4=1 [-100000;100000]
+
+1468944121.326 Engine->Adapter:      id-loop-end 3/3 725ms 3207n 4knps
+1468944121.326 Adapter->GUI: #      id-loop-end 3/3 725ms 3207n 4knps
+
+1468944121.326 Engine->Adapter:           id-end 3 1 e3e4 c5d4 d3d4 d5e4 c3e4
+1468944121.326 Adapter->GUI: #           id-end 3 1 e3e4 c5d4 d3d4 d5e4 c3e4
+
+1468944121.326 Engine->Adapter: bestmove e3e4
+1468944121.326 Adapter->GUI: # bestmove e3e4
+
+1468944121.327 Adapter->GUI: move e3e4
+1468944121.327 POLYGLOT MOVE e4
+1468944121.329 POLYGLOT THINK -> WAIT
+1468944122.371 GUI->Adapter: time 5271
+1468944122.371 GUI->Adapter: otim 4624
+1468944122.371 GUI->Adapter: usermove e7e5
+1468944122.371 POLYGLOT MOVE e5
+1468944122.372 POLYGLOT WAIT -> THINK
+1468944122.372 POLYGLOT START SEARCH
+1468944122.372 POLYGLOT FEN 1qkr1b1r/pp1n1pp1/5n1p/2ppp3/3PP3/2NQ1N2/PPP2PPP/R1B1R1K1 w - - 0 11
+1468944122.372 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5
+1468944122.373 Adapter->Engine: go wtime 52710 btime 46240 movestogo 30
+1468944122.373 Engine->Adapter:           id-run 3
+1468944122.373 Adapter->GUI: #           id-run 3
+
+1468944122.373 Engine->Adapter:      id-loop-run 1/3
+1468944122.373 Adapter->GUI: #      id-loop-run 1/3
+
+1468944122.391 Engine->Adapter:  ab-soft-cut-off c1f4=-262 [-100000;100000]
+1468944122.391 Adapter->GUI: #  ab-soft-cut-off c1f4=-262 [-100000;100000]
+
+1468944122.393 Engine->Adapter:  ab-soft-cut-off e1e3=-103 [-262;100000]
+1468944122.409 Adapter->GUI: #  ab-soft-cut-off e1e3=-103 [-262;100000]
+
+1468944122.788 Engine->Adapter:  ab-soft-cut-off d3b5=-91 [-103;100000]
+1468944122.789 Adapter->GUI: #  ab-soft-cut-off d3b5=-91 [-103;100000]
+
+1468944122.876 Engine->Adapter:  ab-soft-cut-off d4e5=18 [-91;100000]
+1468944122.876 Adapter->GUI: #  ab-soft-cut-off d4e5=18 [-91;100000]
+
+1468944122.885 Engine->Adapter:      id-loop-end 1/3 506ms 41n 0knps
+1468944122.885 Adapter->GUI: #      id-loop-end 1/3 506ms 41n 0knps
+
+1468944122.885 Engine->Adapter:      id-loop-run 2/3
+1468944122.885 Adapter->GUI: #      id-loop-run 2/3
+
+1468944122.991 Engine->Adapter:  ab-soft-cut-off c1f4=-262 [-100000;100000]
+1468944122.991 Adapter->GUI: #  ab-soft-cut-off c1f4=-262 [-100000;100000]
+
+1468944122.994 Engine->Adapter:  ab-soft-cut-off e1e3=-103 [-262;100000]
+1468944122.994 Adapter->GUI: #  ab-soft-cut-off e1e3=-103 [-262;100000]
+
+1468944124.186 Engine->Adapter:  ab-soft-cut-off d3b5=-91 [-103;100000]
+1468944124.186 Adapter->GUI: #  ab-soft-cut-off d3b5=-91 [-103;100000]
+
+1468944124.402 Engine->Adapter:  ab-soft-cut-off d4e5=18 [-91;100000]
+1468944124.402 Adapter->GUI: #  ab-soft-cut-off d4e5=18 [-91;100000]
+
+1468944124.421 Engine->Adapter:      id-loop-end 2/3 1542ms 291n 0knps
+1468944124.421 Adapter->GUI: #      id-loop-end 2/3 1542ms 291n 0knps
+
+1468944124.421 Engine->Adapter:      id-loop-run 3/3
+1468944124.421 Adapter->GUI: #      id-loop-run 3/3
+
+1468944125.257 Engine->Adapter:  ab-soft-cut-off c1f4=-271 [-100000;100000]
+1468944125.257 Adapter->GUI: #  ab-soft-cut-off c1f4=-271 [-100000;100000]
+
+1468944125.365 Engine->Adapter:  ab-soft-cut-off e1e3=-210 [-271;100000]
+1468944125.365 Adapter->GUI: #  ab-soft-cut-off e1e3=-210 [-271;100000]
+
+1468944127.463 Engine->Adapter:  ab-soft-cut-off f3e5=6 [-210;100000]
+1468944127.463 Adapter->GUI: #  ab-soft-cut-off f3e5=6 [-210;100000]
+
+1468944130.399 Engine->Adapter:  ab-soft-cut-off d4e5=7 [6;100000]
+1468944130.399 Adapter->GUI: #  ab-soft-cut-off d4e5=7 [6;100000]
+
+1468944131.169 Engine->Adapter:      id-loop-end 3/3 6748ms 4608n 0knps
+1468944131.169 Adapter->GUI: #      id-loop-end 3/3 6748ms 4608n 0knps
+
+1468944131.169 Engine->Adapter:           id-end 3 7 d4e5 d7e5 f3e5 b8e5
+1468944131.169 Adapter->GUI: #           id-end 3 7 d4e5 d7e5 f3e5 b8e5
+
+1468944131.170 Engine->Adapter: bestmove d4e5
+1468944131.170 Adapter->GUI: # bestmove d4e5
+
+1468944131.170 Adapter->GUI: move d4e5
+1468944131.170 POLYGLOT MOVE dxe5
+1468944131.170 POLYGLOT THINK -> WAIT
+1468944132.190 GUI->Adapter: time 4391
+1468944132.190 GUI->Adapter: otim 4522
+1468944132.190 GUI->Adapter: usermove d7e5
+1468944132.190 POLYGLOT MOVE Nxe5
+1468944132.190 POLYGLOT WAIT -> THINK
+1468944132.190 POLYGLOT START SEARCH
+1468944132.190 POLYGLOT FEN 1qkr1b1r/pp3pp1/5n1p/2ppn3/4P3/2NQ1N2/PPP2PPP/R1B1R1K1 w - - 0 12
+1468944132.190 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5
+1468944132.191 Adapter->Engine: go wtime 43910 btime 45220 movestogo 29
+1468944132.191 Engine->Adapter:           id-run 3
+1468944132.191 Adapter->GUI: #           id-run 3
+
+1468944132.191 Engine->Adapter:      id-loop-run 1/3
+1468944132.191 Adapter->GUI: #      id-loop-run 1/3
+
+1468944132.193 Engine->Adapter:  ab-soft-cut-off c1f4=-487 [-100000;100000]
+1468944132.193 Adapter->GUI: #  ab-soft-cut-off c1f4=-487 [-100000;100000]
+
+1468944132.194 Engine->Adapter:  ab-soft-cut-off f3e5=7 [-487;100000]
+1468944132.194 Adapter->GUI: #  ab-soft-cut-off f3e5=7 [-487;100000]
+
+1468944132.198 Engine->Adapter:      id-loop-end 1/3 7ms 42n 6knps
+1468944132.198 Adapter->GUI: #      id-loop-end 1/3 7ms 42n 6knps
+
+1468944132.199 Engine->Adapter:      id-loop-run 2/3
+1468944132.199 Adapter->GUI: #      id-loop-run 2/3
+
+1468944132.203 Engine->Adapter:  ab-soft-cut-off c1f4=-487 [-100000;100000]
+1468944132.203 Adapter->GUI: #  ab-soft-cut-off c1f4=-487 [-100000;100000]
+
+1468944132.205 Engine->Adapter:  ab-soft-cut-off f3e5=7 [-487;100000]
+1468944132.205 Adapter->GUI: #  ab-soft-cut-off f3e5=7 [-487;100000]
+
+1468944132.231 Engine->Adapter:      id-loop-end 2/3 33ms 143n 4knps
+1468944132.231 Adapter->GUI: #      id-loop-end 2/3 33ms 143n 4knps
+
+1468944132.231 Engine->Adapter:      id-loop-run 3/3
+1468944132.231 Adapter->GUI: #      id-loop-run 3/3
+
+1468944132.334 Engine->Adapter:  ab-soft-cut-off c1f4=-487 [-100000;100000]
+1468944132.334 Adapter->GUI: #  ab-soft-cut-off c1f4=-487 [-100000;100000]
+
+1468944132.412 Engine->Adapter:  ab-soft-cut-off f3e5=6 [-487;100000]
+1468944132.412 Adapter->GUI: #  ab-soft-cut-off f3e5=6 [-487;100000]
+
+1468944132.630 Engine->Adapter:      id-loop-end 3/3 399ms 4260n 10knps
+1468944132.630 Adapter->GUI: #      id-loop-end 3/3 399ms 4260n 10knps
+
+1468944132.630 Engine->Adapter:           id-end 3 6 f3e5 b8e5 e1d1 f6e4 c3d5
+1468944132.630 Adapter->GUI: #           id-end 3 6 f3e5 b8e5 e1d1 f6e4 c3d5
+
+1468944132.630 Engine->Adapter: bestmove f3e5
+1468944132.630 Adapter->GUI: # bestmove f3e5
+
+1468944132.630 Adapter->GUI: move f3e5
+1468944132.630 POLYGLOT MOVE Nxe5
+1468944132.630 POLYGLOT THINK -> WAIT
+1468944133.523 GUI->Adapter: time 4347
+1468944133.523 GUI->Adapter: otim 4433
+1468944133.523 GUI->Adapter: usermove b8e5
+1468944133.523 POLYGLOT MOVE Qxe5
+1468944133.523 POLYGLOT WAIT -> THINK
+1468944133.523 POLYGLOT START SEARCH
+1468944133.523 POLYGLOT FEN 2kr1b1r/pp3pp1/5n1p/2ppq3/4P3/2NQ4/PPP2PPP/R1B1R1K1 w - - 0 13
+1468944133.524 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5
+1468944133.524 Adapter->Engine: go wtime 43470 btime 44330 movestogo 28
+1468944133.524 Engine->Adapter:           id-run 3
+1468944133.524 Adapter->GUI: #           id-run 3
+
+1468944133.524 Engine->Adapter:      id-loop-run 1/3
+1468944133.524 Adapter->GUI: #      id-loop-run 1/3
+
+1468944133.525 Engine->Adapter:  ab-soft-cut-off c1f4=-298 [-100000;100000]
+1468944133.525 Adapter->GUI: #  ab-soft-cut-off c1f4=-298 [-100000;100000]
+
+1468944133.526 Engine->Adapter:  ab-soft-cut-off e1e3=-91 [-298;100000]
+1468944133.526 Adapter->GUI: #  ab-soft-cut-off e1e3=-91 [-298;100000]
+
+1468944133.528 Engine->Adapter:  ab-soft-cut-off e1d1=6 [-91;100000]
+1468944133.528 Adapter->GUI: #  ab-soft-cut-off e1d1=6 [-91;100000]
+
+1468944133.528 Engine->Adapter:      id-loop-end 1/3 4ms 42n 10knps
+1468944133.528 Adapter->GUI: #      id-loop-end 1/3 4ms 42n 10knps
+
+1468944133.528 Engine->Adapter:      id-loop-run 2/3
+1468944133.529 Adapter->GUI: #      id-loop-run 2/3
+
+1468944133.529 Engine->Adapter:  ab-soft-cut-off c1f4=-298 [-100000;100000]
+1468944133.529 Adapter->GUI: #  ab-soft-cut-off c1f4=-298 [-100000;100000]
+
+1468944133.530 Engine->Adapter:  ab-soft-cut-off e1e3=-91 [-298;100000]
+1468944133.530 Adapter->GUI: #  ab-soft-cut-off e1e3=-91 [-298;100000]
+
+1468944133.533 Engine->Adapter:  ab-soft-cut-off e1d1=-1 [-91;100000]
+1468944133.533 Adapter->GUI: #  ab-soft-cut-off e1d1=-1 [-91;100000]
+
+1468944133.544 Engine->Adapter:      id-loop-end 2/3 16ms 345n 21knps
+1468944133.544 Adapter->GUI: #      id-loop-end 2/3 16ms 345n 21knps
+
+1468944133.544 Engine->Adapter:      id-loop-run 3/3
+1468944133.544 Adapter->GUI: #      id-loop-run 3/3
+
+1468944133.607 Engine->Adapter:  ab-soft-cut-off c1f4=-199 [-100000;100000]
+1468944133.607 Adapter->GUI: #  ab-soft-cut-off c1f4=-199 [-100000;100000]
+
+1468944133.863 Engine->Adapter:  ab-soft-cut-off a1b1=-96 [-199;100000]
+1468944133.863 Adapter->GUI: #  ab-soft-cut-off a1b1=-96 [-199;100000]
+
+1468944134.563 Engine->Adapter:  ab-soft-cut-off e1d1=-1 [-96;100000]
+1468944134.563 Adapter->GUI: #  ab-soft-cut-off e1d1=-1 [-96;100000]
+
+1468944134.673 Engine->Adapter:      id-loop-end 3/3 1129ms 10472n 9knps
+1468944134.673 Adapter->GUI: #      id-loop-end 3/3 1129ms 10472n 9knps
+
+1468944134.673 Engine->Adapter:           id-end 3 -1 e1d1 c5c4 d3h3
+1468944134.673 Adapter->GUI: #           id-end 3 -1 e1d1 c5c4 d3h3
+
+1468944134.673 Engine->Adapter: bestmove e1d1
+1468944134.673 Adapter->GUI: # bestmove e1d1
+
+1468944134.673 Adapter->GUI: move e1d1
+1468944134.673 POLYGLOT MOVE Rd1
+1468944134.673 POLYGLOT THINK -> WAIT
+1468944136.082 GUI->Adapter: time 4232
+1468944136.082 GUI->Adapter: otim 4292
+1468944136.082 GUI->Adapter: usermove d5d4
+1468944136.082 POLYGLOT MOVE d4
+1468944136.082 POLYGLOT WAIT -> THINK
+1468944136.082 POLYGLOT START SEARCH
+1468944136.082 POLYGLOT FEN 2kr1b1r/pp3pp1/5n1p/2p1q3/3pP3/2NQ4/PPP2PPP/R1BR2K1 w - - 0 14
+1468944136.082 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4
+1468944136.082 Adapter->Engine: go wtime 42320 btime 42920 movestogo 27
+1468944136.083 Engine->Adapter:           id-run 3
+1468944136.083 Adapter->GUI: #           id-run 3
+
+1468944136.083 Engine->Adapter:      id-loop-run 1/3
+1468944136.083 Adapter->GUI: #      id-loop-run 1/3
+
+1468944136.083 Engine->Adapter:  ab-soft-cut-off c1f4=-274 [-100000;100000]
+1468944136.083 Adapter->GUI: #  ab-soft-cut-off c1f4=-274 [-100000;100000]
+
+1468944136.083 Engine->Adapter:  ab-soft-cut-off d1d2=34 [-274;100000]
+1468944136.083 Adapter->GUI: #  ab-soft-cut-off d1d2=34 [-274;100000]
+
+1468944136.083 Engine->Adapter:      id-loop-end 1/3 0ms 37n 0knps
+1468944136.083 Adapter->GUI: #      id-loop-end 1/3 0ms 37n 0knps
+
+1468944136.083 Engine->Adapter:      id-loop-run 2/3
+1468944136.083 Adapter->GUI: #      id-loop-run 2/3
+
+1468944136.085 Engine->Adapter:  ab-soft-cut-off c1f4=-274 [-100000;100000]
+1468944136.085 Adapter->GUI: #  ab-soft-cut-off c1f4=-274 [-100000;100000]
+
+1468944136.085 Engine->Adapter:  ab-soft-cut-off d1d2=26 [-274;100000]
+1468944136.085 Adapter->GUI: #  ab-soft-cut-off d1d2=26 [-274;100000]
+
+1468944136.096 Engine->Adapter:      id-loop-end 2/3 12ms 156n 13knps
+1468944136.096 Adapter->GUI: #      id-loop-end 2/3 12ms 156n 13knps
+
+1468944136.096 Engine->Adapter:      id-loop-run 3/3
+1468944136.096 Adapter->GUI: #      id-loop-run 3/3
+
+1468944136.143 Engine->Adapter:  ab-soft-cut-off c1f4=-271 [-100000;100000]
+1468944136.143 Adapter->GUI: #  ab-soft-cut-off c1f4=-271 [-100000;100000]
+
+1468944136.200 Engine->Adapter:  ab-soft-cut-off d1d2=-22 [-271;100000]
+1468944136.200 Adapter->GUI: #  ab-soft-cut-off d1d2=-22 [-271;100000]
+
+1468944136.300 Engine->Adapter:  ab-soft-cut-off f2f4=15 [-22;100000]
+1468944136.300 Adapter->GUI: #  ab-soft-cut-off f2f4=15 [-22;100000]
+
+1468944136.339 Engine->Adapter:      id-loop-end 3/3 243ms 4045n 16knps
+1468944136.339 Adapter->GUI: #      id-loop-end 3/3 243ms 4045n 16knps
+
+1468944136.339 Engine->Adapter:           id-end 3 15 f2f4 e5d6 d3f3
+1468944136.339 Adapter->GUI: #           id-end 3 15 f2f4 e5d6 d3f3
+
+1468944136.339 Engine->Adapter: bestmove f2f4
+1468944136.339 Adapter->GUI: # bestmove f2f4
+
+1468944136.339 Adapter->GUI: move f2f4
+1468944136.339 POLYGLOT MOVE f4
+1468944136.339 POLYGLOT THINK -> WAIT
+1468944138.081 GUI->Adapter: time 4206
+1468944138.081 GUI->Adapter: otim 4118
+1468944138.081 GUI->Adapter: usermove e5e6
+1468944138.081 POLYGLOT MOVE Qe6
+1468944138.081 POLYGLOT WAIT -> THINK
+1468944138.081 POLYGLOT START SEARCH
+1468944138.081 POLYGLOT FEN 2kr1b1r/pp3pp1/4qn1p/2p5/3pPP2/2NQ4/PPP3PP/R1BR2K1 w - - 1 15
+1468944138.081 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4 f2f4 e5e6
+1468944138.081 Adapter->Engine: go wtime 42060 btime 41180 movestogo 26
+1468944138.082 Engine->Adapter:           id-run 3
+1468944138.082 Adapter->GUI: #           id-run 3
+
+1468944138.082 Engine->Adapter:      id-loop-run 1/3
+1468944138.082 Adapter->GUI: #      id-loop-run 1/3
+
+1468944138.082 Engine->Adapter:  ab-soft-cut-off d1d2=30 [-100000;100000]
+1468944138.082 Adapter->GUI: #  ab-soft-cut-off d1d2=30 [-100000;100000]
+
+1468944138.082 Engine->Adapter:      id-loop-end 1/3 0ms 35n 0knps
+1468944138.082 Adapter->GUI: #      id-loop-end 1/3 0ms 35n 0knps
+
+1468944138.082 Engine->Adapter:      id-loop-run 2/3
+1468944138.082 Adapter->GUI: #      id-loop-run 2/3
+
+1468944138.082 Engine->Adapter:  ab-soft-cut-off d1d2=26 [-100000;100000]
+1468944138.083 Adapter->GUI: #  ab-soft-cut-off d1d2=26 [-100000;100000]
+
+1468944138.087 Engine->Adapter:      id-loop-end 2/3 5ms 91n 18knps
+1468944138.087 Adapter->GUI: #      id-loop-end 2/3 5ms 91n 18knps
+
+1468944138.087 Engine->Adapter:      id-loop-run 3/3
+1468944138.087 Adapter->GUI: #      id-loop-run 3/3
+
+1468944138.102 Engine->Adapter:  ab-soft-cut-off d1d2=-281 [-100000;100000]
+1468944138.102 Adapter->GUI: #  ab-soft-cut-off d1d2=-281 [-100000;100000]
+
+1468944138.148 Engine->Adapter:  ab-soft-cut-off a1b1=-93 [-281;100000]
+1468944138.148 Adapter->GUI: #  ab-soft-cut-off a1b1=-93 [-281;100000]
+
+1468944138.188 Engine->Adapter:  ab-soft-cut-off f4f5=-22 [-93;100000]
+1468944138.188 Adapter->GUI: #  ab-soft-cut-off f4f5=-22 [-93;100000]
+
+1468944138.337 Engine->Adapter:      id-loop-end 3/3 250ms 4282n 17knps
+1468944138.337 Adapter->GUI: #      id-loop-end 3/3 250ms 4282n 17knps
+
+1468944138.337 Engine->Adapter:           id-end 3 -22 f4f5 e6e5 c3b5 e5e4 d3e4 f6e4 b5a7
+1468944138.337 Adapter->GUI: #           id-end 3 -22 f4f5 e6e5 c3b5 e5e4 d3e4 f6e4 b5a7
+
+1468944138.337 Engine->Adapter: bestmove f4f5
+1468944138.337 Adapter->GUI: # bestmove f4f5
+
+1468944138.337 Adapter->GUI: move f4f5
+1468944138.337 POLYGLOT MOVE f5
+1468944138.337 POLYGLOT THINK -> WAIT
+1468944142.052 GUI->Adapter: time 4181
+1468944142.052 GUI->Adapter: otim 3746
+1468944142.052 GUI->Adapter: usermove e6e5
+1468944142.052 POLYGLOT MOVE Qe5
+1468944142.052 POLYGLOT WAIT -> THINK
+1468944142.052 POLYGLOT START SEARCH
+1468944142.052 POLYGLOT FEN 2kr1b1r/pp3pp1/5n1p/2p1qP2/3pP3/2NQ4/PPP3PP/R1BR2K1 w - - 1 16
+1468944142.052 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4 f2f4 e5e6 f4f5 e6e5
+1468944142.052 Adapter->Engine: go wtime 41810 btime 37460 movestogo 25
+1468944142.053 Engine->Adapter:           id-run 3
+1468944142.053 Adapter->GUI: #           id-run 3
+
+1468944142.053 Engine->Adapter:      id-loop-run 1/3
+1468944142.053 Adapter->GUI: #      id-loop-run 1/3
+
+1468944142.054 Engine->Adapter:  ab-soft-cut-off c1f4=-274 [-100000;100000]
+1468944142.054 Adapter->GUI: #  ab-soft-cut-off c1f4=-274 [-100000;100000]
+
+1468944142.054 Engine->Adapter:  ab-soft-cut-off d1d2=-66 [-274;100000]
+1468944142.054 Adapter->GUI: #  ab-soft-cut-off d1d2=-66 [-274;100000]
+
+1468944142.061 Engine->Adapter:  ab-soft-cut-off c3b5=-22 [-66;100000]
+1468944142.061 Adapter->GUI: #  ab-soft-cut-off c3b5=-22 [-66;100000]
+
+1468944142.061 Engine->Adapter:      id-loop-end 1/3 8ms 36n 4knps
+1468944142.061 Adapter->GUI: #      id-loop-end 1/3 8ms 36n 4knps
+
+1468944142.061 Engine->Adapter:      id-loop-run 2/3
+1468944142.061 Adapter->GUI: #      id-loop-run 2/3
+
+1468944142.062 Engine->Adapter:  ab-soft-cut-off c1f4=-274 [-100000;100000]
+1468944142.062 Adapter->GUI: #  ab-soft-cut-off c1f4=-274 [-100000;100000]
+
+1468944142.062 Engine->Adapter:  ab-soft-cut-off d1d2=-66 [-274;100000]
+1468944142.062 Adapter->GUI: #  ab-soft-cut-off d1d2=-66 [-274;100000]
+
+1468944142.082 Engine->Adapter:  ab-soft-cut-off c3b5=-22 [-66;100000]
+1468944142.082 Adapter->GUI: #  ab-soft-cut-off c3b5=-22 [-66;100000]
+
+1468944142.083 Engine->Adapter:      id-loop-end 2/3 22ms 422n 19knps
+1468944142.083 Adapter->GUI: #      id-loop-end 2/3 22ms 422n 19knps
+
+1468944142.083 Engine->Adapter:      id-loop-run 3/3
+1468944142.083 Adapter->GUI: #      id-loop-run 3/3
+
+1468944142.148 Engine->Adapter:  ab-soft-cut-off c1f4=-282 [-100000;100000]
+1468944142.149 Adapter->GUI: #  ab-soft-cut-off c1f4=-282 [-100000;100000]
+
+1468944142.265 Engine->Adapter:  ab-soft-cut-off d1d2=-77 [-282;100000]
+1468944142.265 Adapter->GUI: #  ab-soft-cut-off d1d2=-77 [-282;100000]
+
+1468944142.751 Engine->Adapter:  ab-soft-cut-off h2h4=-66 [-77;100000]
+1468944142.751 Adapter->GUI: #  ab-soft-cut-off h2h4=-66 [-77;100000]
+
+1468944144.005 Engine->Adapter:  ab-soft-cut-off c3b5=-22 [-66;100000]
+1468944144.005 Adapter->GUI: #  ab-soft-cut-off c3b5=-22 [-66;100000]
+
+1468944144.046 Engine->Adapter:      id-loop-end 3/3 1963ms 10407n 5knps
+1468944144.046 Adapter->GUI: #      id-loop-end 3/3 1963ms 10407n 5knps
+
+1468944144.046 Engine->Adapter:           id-end 3 -22 c3b5 e5e4 d3e4 f6e4 b5a7
+1468944144.046 Adapter->GUI: #           id-end 3 -22 c3b5 e5e4 d3e4 f6e4 b5a7
+
+1468944144.046 Engine->Adapter: bestmove c3b5
+1468944144.046 Adapter->GUI: # bestmove c3b5
+
+1468944144.046 Adapter->GUI: move c3b5
+1468944144.047 POLYGLOT MOVE Nb5
+1468944144.047 POLYGLOT THINK -> WAIT
+1468944145.030 GUI->Adapter: time 3981
+1468944145.030 GUI->Adapter: otim 3648
+1468944145.030 GUI->Adapter: usermove a7a6
+1468944145.030 POLYGLOT MOVE a6
+1468944145.030 POLYGLOT WAIT -> THINK
+1468944145.030 POLYGLOT START SEARCH
+1468944145.030 POLYGLOT FEN 2kr1b1r/1p3pp1/p4n1p/1Np1qP2/3pP3/3Q4/PPP3PP/R1BR2K1 w - - 0 17
+1468944145.030 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4 f2f4 e5e6 f4f5 e6e5 c3b5 a7a6
+1468944145.030 Adapter->Engine: go wtime 39810 btime 36480 movestogo 24
+1468944145.032 Engine->Adapter:           id-run 3
+1468944145.032 Adapter->GUI: #           id-run 3
+
+1468944145.032 Engine->Adapter:      id-loop-run 1/3
+1468944145.032 Adapter->GUI: #      id-loop-run 1/3
+
+1468944145.032 Engine->Adapter:  ab-soft-cut-off b5c3=-69 [-100000;100000]
+1468944145.032 Adapter->GUI: #  ab-soft-cut-off b5c3=-69 [-100000;100000]
+
+1468944145.037 Engine->Adapter:  ab-soft-cut-off b5a7=0 [-69;100000]
+1468944145.037 Adapter->GUI: #  ab-soft-cut-off b5a7=0 [-69;100000]
+
+1468944145.037 Engine->Adapter:      id-loop-end 1/3 6ms 40n 6knps
+1468944145.037 Adapter->GUI: #      id-loop-end 1/3 6ms 40n 6knps
+
+1468944145.037 Engine->Adapter:      id-loop-run 2/3
+1468944145.037 Adapter->GUI: #      id-loop-run 2/3
+
+1468944145.038 Engine->Adapter:  ab-soft-cut-off b5c3=-69 [-100000;100000]
+1468944145.038 Adapter->GUI: #  ab-soft-cut-off b5c3=-69 [-100000;100000]
+
+1468944145.100 Engine->Adapter:  ab-soft-cut-off b5a7=5 [-69;100000]
+1468944145.100 Adapter->GUI: #  ab-soft-cut-off b5a7=5 [-69;100000]
+
+1468944145.100 Engine->Adapter:      id-loop-end 2/3 63ms 246n 3knps
+1468944145.100 Adapter->GUI: #      id-loop-end 2/3 63ms 246n 3knps
+
+1468944145.100 Engine->Adapter:      id-loop-run 3/3
+1468944145.100 Adapter->GUI: #      id-loop-run 3/3
+
+1468944145.176 Engine->Adapter:  ab-soft-cut-off b5c3=-105 [-100000;100000]
+1468944145.176 Adapter->GUI: #  ab-soft-cut-off b5c3=-105 [-100000;100000]
+
+1468944147.524 Engine->Adapter:      id-loop-end 3/3 2423ms 13878n 5knps
+1468944147.524 Adapter->GUI: #      id-loop-end 3/3 2423ms 13878n 5knps
+
+1468944147.524 Engine->Adapter:           id-end 3 -105 b5c3 d8d7 c3b1 e5e4 d3e4 f6e4
+1468944147.524 Adapter->GUI: #           id-end 3 -105 b5c3 d8d7 c3b1 e5e4 d3e4 f6e4
+
+1468944147.524 Engine->Adapter: bestmove b5c3
+1468944147.524 Adapter->GUI: # bestmove b5c3
+
+1468944147.524 Adapter->GUI: move b5c3
+1468944147.524 POLYGLOT MOVE Nc3
+1468944147.524 POLYGLOT THINK -> WAIT
+1468944148.582 GUI->Adapter: time 3732
+1468944148.582 GUI->Adapter: otim 3542
+1468944148.582 GUI->Adapter: usermove f8d6
+1468944148.582 POLYGLOT MOVE Bd6
+1468944148.582 POLYGLOT WAIT -> THINK
+1468944148.582 POLYGLOT START SEARCH
+1468944148.582 POLYGLOT FEN 2kr3r/1p3pp1/p2b1n1p/2p1qP2/3pP3/2NQ4/PPP3PP/R1BR2K1 w - - 2 18
+1468944148.582 Adapter->Engine: position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4 f2f4 e5e6 f4f5 e6e5 c3b5 a7a6 b5c3 f8d6
+1468944148.582 Adapter->Engine: go wtime 37320 btime 35420 movestogo 23
+1468944148.652 Engine->Adapter: java.lang.ArrayIndexOutOfBoundsException: 300
+1468944148.652 Adapter->GUI: # java.lang.ArrayIndexOutOfBoundsException: 300
+
+1468944148.652 Engine->Adapter: 	at org.krudo.Line.store(Unknown Source)
+1468944148.652 Adapter->GUI: # 	at org.krudo.Line.store(Unknown Source)
+
+1468944148.652 Engine->Adapter: 	at org.krudo.Node.domove(Unknown Source)
+1468944148.652 Adapter->GUI: # 	at org.krudo.Node.domove(Unknown Source)
+
+1468944148.652 Engine->Adapter: 	at org.krudo.Node.domove(Unknown Source)
+1468944148.652 Adapter->GUI: # 	at org.krudo.Node.domove(Unknown Source)
+
+1468944148.652 Engine->Adapter: 	at org.krudo.Node.domove(Unknown Source)
+1468944148.652 Adapter->GUI: # 	at org.krudo.Node.domove(Unknown Source)
+
+1468944148.652 Engine->Adapter: 	at org.krudo.Engine.domove(Unknown Source)
+1468944148.652 Adapter->GUI: # 	at org.krudo.Engine.domove(Unknown Source)
+
+1468944148.652 Engine->Adapter: 	at org.krudo.Krudo.loop(Unknown Source)
+1468944148.652 Adapter->GUI: # 	at org.krudo.Krudo.loop(Unknown Source)
+
+1468944148.652 Engine->Adapter: 	at org.krudo.Krudo.main(Unknown Source)
+1468944148.652 Adapter->GUI: # 	at org.krudo.Krudo.main(Unknown Source)
+
+1468944148.652 Engine->Adapter: 
+1468944148.652 Adapter->GUI: # 
+
+1468944148.722 POLYGLOT *** Mainloop has ended ***
+1468944148.722 POLYGLOT Closing engine.
+1468944148.722 Adapter->Engine: EOF
+1468944148.723 POLYGLOT Waiting for child process to exit.
+1468944148.723 POLYGLOT pipex_exit(): java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo: child exited unexpectedly.
+1468944148.723 POLYGLOT *** QUIT ***
+1468944148.924 POLYGLOT Calling exit

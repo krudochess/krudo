@@ -11,7 +11,7 @@ public final class Line {
 
     // internal constants
     private final static int 
-    MAX = 300; // maximum number of half move into line
+    MAX = 500; // maximum number of half move into line
     
     // stack move fields 
     public final int[] 

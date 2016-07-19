@@ -6277,3 +6277,34 @@ Nxd4 {+0.00/2 0.1} d6 {+0.11/8 9}
 1. d4 d5 {+0.21/7 1.9}
 {polyglot: resign (illegal engine move by white: d2d4)} 0-1
 
+[Event "Training"]
+[Site "DEVSTATION01"]
+[Date "2016.07.19"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8V"]
+[Result "0-1"]
+[TimeControl "40/60"]
+[Annotator "1... +0.22"]
+
+1. d4 Nf6 {+0.22/7 1.4}
+{polyglot: resign (illegal engine move by white: d2d4)} 0-1
+
+[Event "Training"]
+[Site "DEVSTATION01"]
+[Date "2016.07.19"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8V"]
+[Result "0-1"]
+[TimeControl "40/60"]
+[Annotator "1... +0.24"]
+
+1. d4 Nf6 {+0.24/7 2.4} 2. e3 d5 {+0.19/7 1.5} 3. Nf3 c5 {+0.01/6 0.8} 4.
+Bb5+ Bd7 {-0.05/7 1.1} 5. Bxd7+ Nbxd7 {-0.06/8 1.4} 6. Nc3 Qc7
+{-0.05/7 1.0} 7. O-O h6 {+0.21/7 1.0} 8. Qd3 O-O-O {+0.19/7 2.1} 9. Re1 Qb8
+{+0.02/6 1.3} 10. e4 e5 {+0.09/7 1.0} 11. dxe5 Nxe5 {-0.03/8 1.0} 12. Nxe5
+Qxe5 {-0.08/7 0.9} 13. Rd1 d4 {-0.09/7 1.4} 14. f4 Qe6 {+0.03/8 1.7} 15. f5
+Qe5 {+0.67/8 4} 16. Nb5 a6 {+0.59/7 1.0} 17. Nc3 Bd6 {+2.17/8 1.1}
+{Error: first chess program (polyglot C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+

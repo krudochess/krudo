@@ -139,3 +139,236 @@ $ Tue Jul 19 17:59:02 CEST 2016
 ? go wtime 59950 btime 58090 movestogo 39
 ! bestmove d2d4
 ? quit
+
+$ Tue Jul 19 18:00:43 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? position startpos
+? go wtime 60000 btime 60000 movestogo 40
+! bestmove d2d4
+? position startpos moves d2d4 g8f6
+? go wtime 59940 btime 58630 movestogo 39
+! bestmove d2d4
+? quit
+
+$ Tue Jul 19 18:01:40 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? position startpos
+? go wtime 60000 btime 60000 movestogo 40
+! bestmove d2d4
+? position startpos moves d2d4 g8f6
+r n b q k b . r    
+x x x x x x x x    
+. . . . . n . .    
+. . . . . . . .    
+. . . P . . . .    
+. . . . . . . .    
+P P P . P P P P    cw: 16  cb: 16  ph: 0
+R N B Q K B N R <  h: d8e08d47aaa29048
+? go wtime 59840 btime 57570 movestogo 39
+! bestmove e2e3
+? position startpos moves d2d4 g8f6 e2e3 d7d5
+r n b q k b . r    
+x x x . x x x x    
+. . . . . n . .    
+. . . x . . . .    
+. . . P . . . .    
+. . . . P . . .    
+P P P . . P P P    cw: 16  cb: 16  ph: 0
+R N B Q K B N R <  h: f0a7ede1122956ca
+? go wtime 59730 btime 56020 movestogo 38
+! bestmove g1f3
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5
+r n b q k b . r    
+x x . . x x x x    
+. . . . . n . .    
+. . x x . . . .    
+. . . P . . . .    
+. . . . P N . .    
+P P P . . P P P    cw: 16  cb: 16  ph: 0
+R N B Q K B . R <  h: cdb2d0b985883c8a
+? go wtime 59640 btime 55200 movestogo 37
+! bestmove f1b5
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7
+r n . q k b . r    
+x x . b x x x x    
+. . . . . n . .    
+. B x x . . . .    
+. . . P . . . .    
+. . . . P N . .    
+P P P . . P P P    cw: 16  cb: 16  ph: 0
+R N B Q K . . R <  h: 1cadff443a467f38
+? go wtime 59430 btime 54120 movestogo 36
+! bestmove b5d7
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7
+r . . q k b . r    
+x x . n x x x x    
+. . . . . n . .    
+. . x x . . . .    
+. . . P . . . .    
+. . . . P N . .    
+P P P . . P P P    cw: 15  cb: 15  ph: 24
+R N B Q K . . R <  h: 104637cb9e432c43
+? go wtime 58940 btime 52680 movestogo 35
+! bestmove b1c3
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7
+r . . . k b . r    
+x x q n x x x x    
+. . . . . n . .    
+. . x x . . . .    
+. . . P . . . .    
+. . N . P N . .    
+P P P . . P P P    cw: 15  cb: 15  ph: 24
+R . B Q K . . R <  h: edce104830eae19b
+? go wtime 58830 btime 51670 movestogo 34
+! bestmove e1g1
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6
+r . . . k b . r    
+x x q n x x x .    
+. . . . . n . x    
+. . x x . . . .    
+. . . P . . . .    
+. . N . P N . .    
+P P P . . P P P    cw: 15  cb: 15  ph: 24
+R . B Q . R K . <  h: 1adf92d6a36a9d91
+? go wtime 58220 btime 50700 movestogo 33
+! bestmove d1d3
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8
+. . k r . b . r    
+x x q n x x x .    
+. . . . . n . x    
+. . x x . . . .    
+. . . P . . . .    
+. . N Q P N . .    
+P P P . . P P P    cw: 15  cb: 15  ph: 24
+R . B . . R K . <  h: 2b8c9fd18ba9181e
+? go wtime 55680 btime 48600 movestogo 32
+! bestmove f1e1
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8
+. q k r . b . r    
+x x . n x x x .    
+. . . . . n . x    
+. . x x . . . .    
+. . . P . . . .    
+. . N Q P N . .    
+P P P . . P P P    cw: 15  cb: 15  ph: 24
+R . B . R . K . <  h: 4438fd87991d39a5
+? go wtime 53600 btime 47280 movestogo 31
+! bestmove e3e4
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5
+. q k r . b . r    
+x x . n . x x .    
+. . . . . n . x    
+. . x x x . . .    
+. . . P P . . .    
+. . N Q . N . .    
+P P P . . P P P    cw: 15  cb: 15  ph: 24
+R . B . R . K . <  h: 5fbc9c9d6a007134
+? go wtime 52710 btime 46240 movestogo 30
+! bestmove d4e5
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5
+. q k r . b . r    
+x x . . . x x .    
+. . . . . n . x    
+. . x x n . . .    
+. . . . P . . .    
+. . N Q . N . .    
+P P P . . P P P    cw: 14  cb: 14  ph: 24
+R . B . R . K . <  h: b562efba43442d6f
+? go wtime 43910 btime 45220 movestogo 29
+! bestmove f3e5
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5
+. . k r . b . r    
+x x . . . x x .    
+. . . . . n . x    
+. . x x q . . .    
+. . . . P . . .    
+. . N Q . . . .    
+P P P . . P P P    cw: 13  cb: 13  ph: 44
+R . B . R . K . <  h: e7ab1e6afcceb129
+? go wtime 43470 btime 44330 movestogo 28
+! bestmove e1d1
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4
+. . k r . b . r    
+x x . . . x x .    
+. . . . . n . x    
+. . x . q . . .    
+. . . x P . . .    
+. . N Q . . . .    
+P P P . . P P P    cw: 13  cb: 13  ph: 44
+R . B R . . K . <  h: 94866ce080cb43dc
+? go wtime 42320 btime 42920 movestogo 27
+! bestmove f2f4
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4 f2f4 e5e6
+. . k r . b . r    
+x x . . . x x .    
+. . . . q n . x    
+. . x . . . . .    
+. . . x P P . .    
+. . N Q . . . .    
+P P P . . . P P    cw: 13  cb: 13  ph: 44
+R . B R . . K . <  h: d7c3c3e17e2b4448
+? go wtime 42060 btime 41180 movestogo 26
+! bestmove f4f5
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4 f2f4 e5e6 f4f5 e6e5
+. . k r . b . r    
+x x . . . x x .    
+. . . . . n . x    
+. . x . q P . .    
+. . . x P . . .    
+. . N Q . . . .    
+P P P . . . P P    cw: 13  cb: 13  ph: 44
+R . B R . . K . <  h: 210ac5271e54fb6
+? go wtime 41810 btime 37460 movestogo 25
+! bestmove c3b5
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4 f2f4 e5e6 f4f5 e6e5 c3b5 a7a6
+. . k r . b . r    
+. x . . . x x .    
+x . . . . n . x    
+. N x . q P . .    
+. . . x P . . .    
+. . . Q . . . .    
+P P P . . . P P    cw: 13  cb: 13  ph: 44
+R . B R . . K . <  h: 243116e7cf2f2190
+? go wtime 39810 btime 36480 movestogo 24
+! bestmove b5c3
+? position startpos moves d2d4 g8f6 e2e3 d7d5 g1f3 c7c5 f1b5 c8d7 b5d7 b8d7 b1c3 d8c7 e1g1 h7h6 d1d3 e8c8 f1e1 c7b8 e3e4 e7e5 d4e5 d7e5 f3e5 b8e5 e1d1 d5d4 f2f4 e5e6 f4f5 e6e5 c3b5 a7a6 b5c3 f8d6
+& java.lang.ArrayIndexOutOfBoundsException: 300
+	at org.krudo.Line.store(Unknown Source)
+	at org.krudo.Node.domove(Unknown Source)
+	at org.krudo.Node.domove(Unknown Source)
+	at org.krudo.Node.domove(Unknown Source)
+	at org.krudo.Engine.domove(Unknown Source)
+	at org.krudo.Krudo.loop(Unknown Source)
+	at org.krudo.Krudo.main(Unknown Source)
