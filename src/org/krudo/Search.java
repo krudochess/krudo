@@ -281,7 +281,7 @@ public final class Search
                 info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
                 //
                 pv.cat(new_pv, m, i);
-                //dump(pv);
+                dump(pv);
                 //pv[d].set(n.L, zero);
                 //log(SEARCH_LOG_UP, pv, 1,d,s);
                 //find.put(m,j,s);         
@@ -500,6 +500,9 @@ public final class Search
         if (s > a) { a = s; }
         
         //
+        pv.i = 0;
+        
+        //
         PV new_pv = new PV();
                 
         // quiescence need sort moves
@@ -562,7 +565,10 @@ public final class Search
         
         // set new value for upper limit
         if (s < b) { b = s; }
-                
+              
+        //
+        pv.i = 0;
+        
         //
         PV new_pv = new PV();
         

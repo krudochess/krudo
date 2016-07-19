@@ -46,28 +46,28 @@ public class PV
     public final void cat(PV pv, Move m, int mi) 
     {  
         //
-        s[i] = m.s[mi];
-        v[i] = m.v[mi];
-        k[i] = m.k[mi];
+        s[0] = m.s[mi];
+        v[0] = m.v[mi];
+        k[0] = m.k[mi];
+       
+        i = 1;
+        
+        //print("1:");
+        //dump(this);
+        
+        //print("2:");
+        //dump(pv);
         
         //
-        i++;
-        
-        print("1:");
-        dump(pv);
-        print("2:");
-        dump(this);
-        
-        //
-        System.arraycopy(pv.s, 1, s, 0, pv.i);
-        System.arraycopy(pv.v, 1, v, 0, pv.i);
-        System.arraycopy(pv.k, 1, k, 0, pv.i);
+        System.arraycopy(pv.s, 0, s, 1, pv.i);
+        System.arraycopy(pv.v, 0, v, 1, pv.i);
+        System.arraycopy(pv.k, 0, k, 1, pv.i);
         
         //
         i = pv.i + 1;
         
-        print("=:");
-        dump(this);
+        //print("=:");
+        //dump(this);
     }  
    
     //
@@ -79,9 +79,12 @@ public class PV
         k[0] = c.k[ci];
         
         //
-        System.arraycopy(pv.s, 1, s, 0, pv.i);
-        System.arraycopy(pv.v, 1, v, 0, pv.i);
-        System.arraycopy(pv.k, 1, k, 0, pv.i);
+        i = 1;
+        
+        //
+        System.arraycopy(pv.s, 0, s, 1, pv.i);
+        System.arraycopy(pv.v, 0, v, 1, pv.i);
+        System.arraycopy(pv.k, 0, k, 1, pv.i);
         
         //
         i = pv.i + 1;       
