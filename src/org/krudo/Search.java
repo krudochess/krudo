@@ -221,7 +221,7 @@ public final class Search
     private int abrun(int a, int b) 
     {    
         //
-        PV pv = new PV();
+        PV new_pv = new PV();
         
         // generate and sort legal-moves
         Move m = n.legals();
@@ -238,11 +238,14 @@ public final class Search
         //
         for (int i = 0; i < m.i; i++) 
         {   
+            //
+            info("ab-loop-run", m2s(m, i));
+            
             // make
             n.domove(m, i);
             
             // recursive evaluation search                    
-            int s = abmin(deep - 1, a, b, pv, NT_NODE);
+            int s = abmin(deep - 1, a, b, new_pv, NT_NODE);
 
             // undo
             n.unmove();            
@@ -254,13 +257,11 @@ public final class Search
                 s = abmin(d-1, a, b);                
             }
             */ 
-            
-            //
-            info("ab-loop-run", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
-            
+                
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 
             {  
+                info("ab-hard-cut-off","");
                 //t.store(d, a, t.BETA); 
                 //return b; 
                 
@@ -274,6 +275,8 @@ public final class Search
             // soft alfa-cut-off 
             if (s > a) 
             {
+                info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
+                dump(new_pv);
                 //pv[d].set(n.L, zero);
                 //log(SEARCH_LOG_UP, pv, 1,d,s);
                 //find.put(m,j,s);         
@@ -706,9 +709,8 @@ public final class Search
     //
     private void info(String event, String message)
     {
-    
-        print(rpad(event, 14)+" "+message);
-    
+        //
+        print(rpad(event, 16)+" "+message); 
     }
     
     

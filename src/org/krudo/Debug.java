@@ -49,6 +49,13 @@ public final class Debug
 		echo(l);
 	}
     */
+//
+	public final static void dump(PV pv) 
+    {		
+        //        
+        print(desc(pv));
+	}
+
     
 	//
 	public final static void dump(Line l) 

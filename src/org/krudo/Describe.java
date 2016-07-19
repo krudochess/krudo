@@ -126,6 +126,26 @@ public class Describe
 		//
 		return desc;
 	}
+    
+    //
+	public final static String desc(PV pv) 
+    {
+        //
+		String desc = "";
+		
+        //
+        String s = "";		
+		
+        //
+        for (int i=0; i<pv.i; i++)
+        {
+			desc += s + m2s(pv.s[i], pv.v[i], pv.k[i]); 
+			s = " ";
+		}
+        
+        //
+		return desc;		
+	}
 	
 	//
 	public final static String desc(Line line) 
