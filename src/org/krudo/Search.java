@@ -221,6 +221,9 @@ public final class Search
     private int abrun(int a, int b) 
     {    
         //
+        PV pv = new PV();
+        
+        //
         PV new_pv = new PV();
         
         // generate and sort legal-moves
@@ -276,7 +279,9 @@ public final class Search
             if (s > a) 
             {
                 info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
-                dump(new_pv);
+                //
+                pv.cat(new_pv, m, i);
+                //dump(pv);
                 //pv[d].set(n.L, zero);
                 //log(SEARCH_LOG_UP, pv, 1,d,s);
                 //find.put(m,j,s);         
@@ -327,6 +332,9 @@ public final class Search
         }
         
         //
+        pv.i = 0;
+        
+        //
         PV new_pv = new PV();
         
         // get legal-moves  
@@ -373,6 +381,10 @@ public final class Search
             {                         
                 // t.exact();
               
+                //
+                pv.cat(new_pv, m, i);
+                
+                //
                 a = s;             
             }
         }
@@ -407,6 +419,9 @@ public final class Search
         }
         
         //
+        pv.i = 0;
+        
+        //
         PV new_pv = new PV();
         
         // generate legal-moves 
@@ -423,9 +438,7 @@ public final class Search
             
         //
         for (int i = 0; i < m.i; i++)
-        {        
-        
-           
+        {                 
             // make move
             n.domove(m, i);
                     
@@ -452,9 +465,12 @@ public final class Search
                                                 
             // soft cut-off
             if (s < b) 
-            {                 
+            {     
+                
                 //
-                pv.copy(new_pv, m, i);
+                pv.cat(new_pv, m, i);
+                //dump(new_pv);
+                //dump(pv);
                 
                 //
                 b = s;                       
@@ -518,7 +534,7 @@ public final class Search
             if (s > a) 
             { 
                 //
-                pv.copy(new_pv, c, i);
+                pv.cat(new_pv, c, i);
                 
                 //
                 a = s; 
@@ -582,7 +598,7 @@ public final class Search
             if (s < b) 
             { 
                 //
-                pv.copy(new_pv, c, i);
+                pv.cat(new_pv, c, i);
                 
                 //
                 b = s; 

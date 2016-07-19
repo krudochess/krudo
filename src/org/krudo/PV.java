@@ -7,6 +7,10 @@
 package org.krudo;
 
 //
+import static org.krudo.Debug.*;
+import static org.krudo.Tool.*;
+
+//
 public class PV
 {
     //
@@ -39,12 +43,20 @@ public class PV
     }
     
     //
-    public final void copy(PV pv, Move m, int mi) 
-    {
+    public final void cat(PV pv, Move m, int mi) 
+    {  
         //
-        s[0] = m.s[mi];
-        v[0] = m.v[mi];
-        k[0] = m.k[mi];
+        s[i] = m.s[mi];
+        v[i] = m.v[mi];
+        k[i] = m.k[mi];
+        
+        //
+        i++;
+        
+        print("1:");
+        dump(pv);
+        print("2:");
+        dump(this);
         
         //
         System.arraycopy(pv.s, 1, s, 0, pv.i);
@@ -53,10 +65,13 @@ public class PV
         
         //
         i = pv.i + 1;
+        
+        print("=:");
+        dump(this);
     }  
    
     //
-    public final void copy(PV pv, Capture c, int ci) 
+    public final void cat(PV pv, Capture c, int ci) 
     {
         //
         s[0] = c.s[ci];
