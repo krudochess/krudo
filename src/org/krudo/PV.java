@@ -24,9 +24,9 @@ public class PV
     //
     public PV()
     {
-        s = new int[10];
-        v = new int[10];
-        k = new int[10];
+        s = new int[15];
+        v = new int[15];
+        k = new int[15];
         i = 0;
     }
 

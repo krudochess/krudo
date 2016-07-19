@@ -152,6 +152,12 @@ public final class Search
         
         // iterative deeping beta start value
         int beta = +oo;
+        
+        //
+        int score = alfa;
+        
+        //
+        PV pv = new PV();
               
         //
         info("id-run", ""+deepLimit);
@@ -180,7 +186,7 @@ public final class Search
             //find.empty();
 
             // launch alfa-beta for searcing candidates 
-            abrun(alfa, beta);        
+            score = abrun(alfa, beta, pv);        
             
             /*            
             // if found moves and search not are stopped put into candidates
@@ -208,7 +214,7 @@ public final class Search
         }    
         
         //
-        info("id-end", ""+deepLimit);
+        info("id-end", ""+deepLimit+" "+score+" "+desc(pv));
         
         // exit from iterative deep sort best moves        
         //move.sort();
@@ -218,10 +224,10 @@ public final class Search
     }
     
     // alfa-beta entry-point
-    private int abrun(int a, int b) 
+    private int abrun(int a, int b, PV pv) 
     {    
         //
-        PV pv = new PV();
+        pv.i = 0;
         
         //
         PV new_pv = new PV();
@@ -242,7 +248,7 @@ public final class Search
         for (int i = 0; i < m.i; i++) 
         {   
             //
-            info("ab-loop-run", m2s(m, i));
+            //info("ab-loop-run", m2s(m, i));
             
             // make
             n.domove(m, i);
@@ -281,7 +287,7 @@ public final class Search
                 info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
                 //
                 pv.cat(new_pv, m, i);
-                dump(pv);
+                //dump(pv);
                 //pv[d].set(n.L, zero);
                 //log(SEARCH_LOG_UP, pv, 1,d,s);
                 //find.put(m,j,s);         
