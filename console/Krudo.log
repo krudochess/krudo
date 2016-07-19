@@ -1,0 +1,21 @@
+
+$ Tue Jul 19 15:03:03 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? quit
+
+$ Tue Jul 19 15:05:32 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+? isready
+! readyok
+? ucinewgame
+? position startpos
+? go wtime 60000 btime 60000 movestogo 40
+? stop
+? quit

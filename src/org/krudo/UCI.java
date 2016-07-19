@@ -7,6 +7,7 @@
 package org.krudo;
 
 // required static class
+import static org.krudo.Tool.*;
 import static org.krudo.Constant.*;
 
 // protocol definition class
@@ -178,9 +179,7 @@ public final class UCI
         } 
             
         //
-        else if (s.startsWith("quit")) {
-            i.cmd = QUIT;        
-        }         
+        else if (s.equals("quit")) { i.cmd = QUIT; }         
         
         //
         return i;

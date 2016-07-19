@@ -324,7 +324,7 @@ public final class Constant {
     // logical concepts
     public final static int
     yes    = 1,
-    not    = 0;
+    not    = 0; 
         
     // 
     public final static int 
