@@ -8,7 +8,7 @@ rem prepare file
 %BUILDENV% %ENGINEDIR%\vs-fairymax.src %ENGINEDIR%\vs-fairymax.ini
 
 rem clean logs
-del %ENGINELOG%
+del %ENGINELOG% > nul 2> null
 rem del %ENGINEDIR%polyglot.log
 
 rem Piriton vs. Fairymax 
