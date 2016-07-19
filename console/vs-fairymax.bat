@@ -9,7 +9,7 @@ rem prepare file
 
 rem clean logs
 del %ENGINELOG% > nul 2> nul
-del %ENGINEDIR%polyglot.log
+del %ENGINEDIR%polyglot.log > nul 2> nul
 
 rem Piriton vs. Fairymax 
 %WINBOARD% @%ENGINEDIR%\vs-fairymax.ini
