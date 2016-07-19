@@ -68,6 +68,26 @@ public final class Search
   
     private final static int NT_NODE = 0;
   
+    
+    
+    //
+    public String info;
+    
+    //
+    public Runnable sendinfo = () -> 
+    {
+        print("INFO: "+info);
+    };
+    
+    //
+    public String bestmove;
+       
+    //
+    public Runnable sendbestmove = () -> 
+    {
+        print("BESTMOVE: "+bestmove);
+    };
+      
     //private Table t = Cache.table;
     
     // constructor with node-centric search
@@ -220,7 +240,10 @@ public final class Search
         //move.sort();
         
         // log best move is the firt of founded 
-        //log(SEARCH_LOG_BM, move, 0);        
+        //log(SEARCH_LOG_BM, move, 0);    
+        
+        //
+        //sendbestmove();
     }
     
     // alfa-beta entry-point

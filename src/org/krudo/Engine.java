@@ -29,14 +29,37 @@ public final class Engine
     public int depth = 3;
     
     //
+    public String info;
+    
+    //
     public String bestmove;
+    
+    //
+    public Runnable sendinfo = () -> 
+    {
+        print("INFO: "+info);
+    };
     
     //
     public Runnable sendbestmove = () -> 
     {
         print("BESTMOVE: "+bestmove);
     };
+    
+    //
+    public Engine()
+    {
+        //
+        SEARCH.sendinfo = () -> {
+            sendinfo(SEARCH.bestmove);
+        };
         
+        //
+        SEARCH.sendbestmove = () -> {
+            sendbestmove(SEARCH.bestmove);
+        };
+    }
+    
     //
     public final void init()
     {
@@ -104,18 +127,6 @@ public final class Engine
     }
     
     //
-    public final void setBestMoveCallback(Runnable callback)
-    {
-        //bmc = callback;
-    }    
-
-    //
-    public final void setSearchLogCallback(Runnable callback)
-    {
-        SEARCH.log = callback;
-    }    
-    
-    //
     public final boolean isReady()
     {
         //
@@ -126,10 +137,20 @@ public final class Engine
     }
     
     //
-    public final void sendbestmove(String move) 
+    public final void sendinfo(String i) 
     {
         //
-        bestmove = move;
+        info = i;
+        
+        //
+        sendinfo.run();
+    }
+    
+    //
+    public final void sendbestmove(String m) 
+    {
+        //
+        bestmove = m;
         
         //
         sendbestmove.run();

@@ -45,11 +45,8 @@ public final class UCI
     PV               = "pv",
     OPTION         = "option";
 
-    // event info and move callbacks of UCI interface
-    public final static Runnable    
-                
     // search log callback
-    SEARCH_INFO_CALLBACK = () -> 
+    public final static Runnable SENDINFO = () -> 
     {                    
         /*
         //
@@ -82,10 +79,10 @@ public final class UCI
                 //
                 break;        
         }    */        
-    },
+    };
         
     //        
-    BEST_MOVE_CALLBACK = () -> 
+    public final static Runnable SENDBESTMOVE = () -> 
     {        
         //
         Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bestmove);                                                

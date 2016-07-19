@@ -79,9 +79,9 @@ public final class Krudo
                     ENGINE.init();
 
                     // set search callback function in onDone-event search
-                    ENGINE.setBestMoveCallback(UCI.BEST_MOVE_CALLBACK);                                    
-                    ENGINE.setSearchLogCallback(UCI.SEARCH_INFO_CALLBACK);                                    
-
+                    ENGINE.sendinfo = UCI.SENDINFO;                                    
+                    ENGINE.sendbestmove = UCI.SENDBESTMOVE;                                    
+                   
                     // uci first message
                     CONSOLE.print(UCI.ID_NAME, "Krudo 0.16a");
                     CONSOLE.print(UCI.ID_AUTHOR, "Francesco Bianco");
