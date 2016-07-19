@@ -208,6 +208,8 @@ public final class Search
             // launch alfa-beta for searcing candidates 
             score = abrun(alfa, beta, pv);        
             
+            
+            
             /*            
             // if found moves and search not are stopped put into candidates
             if (find.i > 0 && stop == not) 
@@ -243,7 +245,7 @@ public final class Search
         //log(SEARCH_LOG_BM, move, 0);    
         
         //
-        //sendbestmove();
+        sendbestmove(desc(pv, 0));
     }
     
     // alfa-beta entry-point
@@ -764,6 +766,13 @@ public final class Search
         print(rpad(event, 16)+" "+message); 
     }
     
+    //
+    public void sendbestmove(String m)
+    {
+        bestmove = m;
+    
+        sendbestmove.run();
+    }
     
     //
     public final static void walk(final Node n, int deep, int width)

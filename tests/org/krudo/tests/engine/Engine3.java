@@ -29,7 +29,7 @@ public class Engine3
         e.startpos();
         
         //
-        e.depth = 3;
+        e.depth = 4;
     
         //
         e.go();

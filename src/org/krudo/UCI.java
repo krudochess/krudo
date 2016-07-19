@@ -116,7 +116,7 @@ public final class UCI
         } 
                 
         //
-        else if (s.startsWith("position startpos"))
+        else if (s.equals("position startpos"))
         {
             i.cmd = POSITION_STARTPOS;                
         }

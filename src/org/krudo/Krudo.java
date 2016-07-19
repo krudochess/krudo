@@ -7,6 +7,7 @@
 package org.krudo;
 
 // required static class
+import static org.krudo.Describe.*;
 import static org.krudo.Constant.*;
 import static org.krudo.Tool.*;
 
@@ -122,15 +123,8 @@ public final class Krudo
                     //
                     ENGINE.domove(i.arg);
 
-                    /*_* /
-                    int w = t.eval();
-                    if (w < 0) {
-                        c.put("exit-before-lose:", w);
-                        c.end();
-                        exit();
-                    }
-                    /*_*/
-
+                    CONSOLE.log(desc(ENGINE.NODE));
+                    
                     // break switch
                     break;
 

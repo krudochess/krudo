@@ -2776,3 +2776,1170 @@
 1468939214.543 POLYGLOT Closing engine.
 1468939214.543 Adapter->Engine: EOF
 1468939214.543 POLYGLOT Engine does not reply. Sleeping 100ms.
+1468943734.220 POLYGLOT *** LOGFILE OPENED ***
+1468943734.220 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943734.220 POLYGLOT *** SWITCHING LOGFILE ***
+1468943734.220 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943734.227 POLYGLOT *** LOGFILE OPENED ***
+1468943734.227 POLYGLOT *** LOGFILE OPENED ***
+1468943734.227 PolyGlot 2.0.2 by Fabien Letouzey.
+1468943734.227 POLYGLOT *** START ***
+1468943734.227 POLYGLOT INI file "C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468943734.231 affinity = ffffffff
+1468943734.231 Adapter->Engine: uci
+1468943734.580 Engine->Adapter: Krudo 0.16a by Francesco <bianco@javanile.org>
+1468943734.580 Adapter->GUI: # Krudo 0.16a by Francesco <bianco@javanile.org>
+
+1468943734.988 Engine->Adapter: id name Krudo 0.16a
+1468943734.988 Adapter->GUI: # id name Krudo 0.16a
+
+1468943734.988 Engine->Adapter: id author Francesco Bianco
+1468943734.988 Adapter->GUI: # id author Francesco Bianco
+
+1468943734.988 Engine->Adapter: uciok
+1468943734.988 Adapter->GUI: # uciok
+
+1468943734.988 POLYGLOG OPTIONS 
+1468943734.988 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1468943734.988 POLYGLOT [Polyglot] EngineDir="."
+1468943734.988 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468943734.988 POLYGLOT [Polyglot] Log="true"
+1468943734.988 POLYGLOT [Polyglot] LogFile="C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943734.988 POLYGLOT [Polyglot] Book="false"
+1468943734.988 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1468943734.988 POLYGLOT [Polyglot] BookRandom="false"
+1468943734.988 POLYGLOT [Polyglot] BookDepth="256"
+1468943734.988 POLYGLOT [Polyglot] BookLearn="false"
+1468943734.988 POLYGLOT [Polyglot] BookTreshold="5"
+1468943734.988 POLYGLOT [Polyglot] UCI="false"
+1468943734.988 POLYGLOT [Polyglot] UseNice="false"
+1468943734.988 POLYGLOT [Polyglot] NiceValue="5"
+1468943734.988 POLYGLOT [Polyglot] Resign="false"
+1468943734.988 POLYGLOT [Polyglot] ResignMoves="3"
+1468943734.988 POLYGLOT [Polyglot] ResignScore="600"
+1468943734.988 POLYGLOT [Polyglot] MateScore="10000"
+1468943734.988 POLYGLOT [Polyglot] KibitzMove="false"
+1468943734.988 POLYGLOT [Polyglot] KibitzPV="false"
+1468943734.989 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1468943734.989 POLYGLOT [Polyglot] KibitzDelay="5"
+1468943734.989 POLYGLOT [Polyglot] KibitzInterval="0"
+1468943734.989 POLYGLOT [Polyglot] ShowPonder="false"
+1468943734.989 POLYGLOT [Polyglot] ScoreWhite="false"
+1468943734.989 POLYGLOT [Polyglot] UCIVersion="2"
+1468943734.989 POLYGLOT [Polyglot] RepeatPV="true"
+1468943734.989 POLYGLOT [Polyglot] SyncStop="false"
+1468943734.989 POLYGLOT [Polyglot] CanPonder="false"
+1468943734.989 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1468943734.989 POLYGLOT [Polyglot] WbWorkArounds="false"
+1468943734.989 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1468943734.989 POLYGLOT [Engine] Hash="68"
+1468943734.989 POLYGLOT [Engine] Ponder="false"
+1468943734.989 POLYGLOT [Engine] OwnBook="false"
+1468943734.989 POLYGLOT [Engine] Book="false"
+1468943734.989 POLYGLOT [Engine] BookFile="book_small.bin"
+1468943734.989 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1468943734.989 POLYGLOT [Engine] NullMove Reduction="3"
+1468943734.989 POLYGLOT [Engine] Verification Search="Endgame"
+1468943734.989 POLYGLOT [Engine] Verification Reduction="5"
+1468943734.989 POLYGLOT [Engine] History Pruning="true"
+1468943734.989 POLYGLOT [Engine] History Threshold="60"
+1468943734.989 POLYGLOT [Engine] Futility Pruning="false"
+1468943734.989 POLYGLOT [Engine] Futility Margin="100"
+1468943734.989 POLYGLOT [Engine] Delta Pruning="false"
+1468943734.989 POLYGLOT [Engine] Delta Margin="50"
+1468943734.989 POLYGLOT [Engine] Quiescence Check Plies="1"
+1468943734.989 POLYGLOT [Engine] Material="100"
+1468943734.989 POLYGLOT [Engine] Piece Activity="100"
+1468943734.989 POLYGLOT [Engine] King Safety="100"
+1468943734.989 POLYGLOT [Engine] Pawn Structure="100"
+1468943734.989 POLYGLOT [Engine] Passed Pawns="100"
+1468943734.989 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1468943734.989 POLYGLOT Setting PolyGlot option "EngineDir=."
+1468943734.989 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468943734.989 POLYGLOT Setting PolyGlot option "Log=true"
+1468943734.989 POLYGLOT *** SWITCHING LOGFILE ***
+1468943734.989 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943734.990 POLYGLOT *** LOGFILE OPENED ***
+1468943734.990 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943734.990 POLYGLOT *** SWITCHING LOGFILE ***
+1468943734.990 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943734.994 POLYGLOT *** LOGFILE OPENED ***
+1468943734.995 POLYGLOT Setting PolyGlot option "Book=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1468943734.995 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1468943734.995 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1468943734.995 POLYGLOT Setting PolyGlot option "UCI=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "UseNice=false"
+1468943734.995 POLYGLOT Adjust Engine Piority
+1468943734.995 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1468943734.995 POLYGLOT Setting PolyGlot option "Resign=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1468943734.995 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1468943734.995 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1468943734.995 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1468943734.995 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1468943734.995 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1468943734.995 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1468943734.995 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1468943734.995 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1468943734.995 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1468943734.995 POLYGLOT *** Mainloop started ***
+1468943734.995 GUI->Adapter: xboard
+1468943735.022 GUI->Adapter: protover 2
+1468943735.022 Adapter->GUI: feature done=0
+1468943735.022 Adapter->GUI: feature analyze=1
+1468943735.022 Adapter->GUI: feature exclude=1
+1468943735.022 Adapter->GUI: feature colors=0
+1468943735.022 Adapter->GUI: feature draw=1
+1468943735.022 Adapter->GUI: feature ics=1
+1468943735.022 Adapter->GUI: feature myname="Krudo 0.15a"
+1468943735.022 Adapter->GUI: feature name=1
+1468943735.022 Adapter->GUI: feature pause=0
+1468943735.022 Adapter->GUI: feature ping=1
+1468943735.022 Adapter->GUI: feature playother=1
+1468943735.022 Adapter->GUI: feature sigint=1
+1468943735.022 Adapter->GUI: feature reuse=1
+1468943735.023 Adapter->GUI: feature san=0
+1468943735.023 Adapter->GUI: feature setboard=1
+1468943735.023 Adapter->GUI: feature sigint=0
+1468943735.023 Adapter->GUI: feature sigterm=0
+1468943735.023 Adapter->GUI: feature time=1
+1468943735.023 Adapter->GUI: feature usermove=1
+1468943735.023 Adapter->GUI: feature nps=1
+1468943735.023 Adapter->GUI: feature memory=0
+1468943735.023 Adapter->GUI: feature smp=0
+1468943735.023 Adapter->GUI: feature egt=""
+1468943735.023 Adapter->GUI: feature variants="normal"
+1468943735.023 Adapter->GUI: feature option="Polyglot exclude move -string "
+1468943735.023 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468943735.023 Adapter->GUI: feature option="Polyglot Log -check 1"
+1468943735.023 Adapter->GUI: feature option="Polyglot LogFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943735.023 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1468943735.023 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1468943735.023 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1468943735.023 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1468943735.023 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1468943735.023 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1468943735.023 Adapter->GUI: feature option="Polyglot Book -check 0"
+1468943735.023 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1468943735.024 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1468943735.024 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1468943735.024 Adapter->GUI: feature option="Polyglot ShowTbHits -check 0"
+1468943735.024 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1468943735.024 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1468943735.024 Adapter->GUI: feature option="Polyglot Save -save"
+1468943735.024 Adapter->GUI: feature done=1
+1468943735.024 GUI->Adapter: accepted done
+1468943735.024 GUI->Adapter: accepted analyze
+1468943735.024 GUI->Adapter: accepted exclude
+1468943735.024 GUI->Adapter: accepted colors
+1468943735.024 GUI->Adapter: accepted draw
+1468943735.024 GUI->Adapter: accepted ics
+1468943735.024 GUI->Adapter: accepted myname
+1468943735.024 GUI->Adapter: accepted name
+1468943735.024 GUI->Adapter: accepted pause
+1468943735.024 GUI->Adapter: accepted ping
+1468943735.024 GUI->Adapter: accepted playother
+1468943735.024 GUI->Adapter: accepted sigint
+1468943735.024 GUI->Adapter: accepted reuse
+1468943735.024 GUI->Adapter: accepted san
+1468943735.024 GUI->Adapter: accepted setboard
+1468943735.024 GUI->Adapter: accepted sigint
+1468943735.024 GUI->Adapter: accepted sigterm
+1468943735.024 GUI->Adapter: accepted time
+1468943735.024 GUI->Adapter: accepted usermove
+1468943735.024 GUI->Adapter: accepted nps
+1468943735.024 GUI->Adapter: accepted memory
+1468943735.024 GUI->Adapter: accepted smp
+1468943735.024 GUI->Adapter: accepted egt
+1468943735.024 GUI->Adapter: accepted variants
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted option
+1468943735.024 GUI->Adapter: accepted done
+1468943735.048 GUI->Adapter: new
+1468943735.048 Adapter->Engine: isready
+1468943735.202 Engine->Adapter: readyok
+1468943735.202 Adapter->GUI: # readyok
+
+1468943735.202 POLYGLOT NEW GAME
+1468943735.202 POLYGLOT WAIT
+1468943735.202 Adapter->Engine: ucinewgame
+1468943735.203 GUI->Adapter: random
+1468943735.203 GUI->Adapter: ics -
+1468943735.203 GUI->Adapter: level 40 1 0
+1468943735.203 GUI->Adapter: post
+1468943735.203 GUI->Adapter: hard
+1468943735.203 POLYGLOT WAIT
+1468943735.203 GUI->Adapter: ping 1
+1468943735.203 Adapter->GUI: pong 1
+1468943735.203 GUI->Adapter: force
+1468943735.203 POLYGLOT WAIT
+1468943735.203 GUI->Adapter: ping 2
+1468943735.203 Adapter->GUI: pong 2
+1468943735.203 GUI->Adapter: new
+1468943735.204 Adapter->Engine: isready
+1468943735.205 Engine->Adapter: id name Krudo 0.16a
+1468943735.206 Adapter->GUI: # id name Krudo 0.16a
+
+1468943735.206 Engine->Adapter: id author Francesco Bianco
+1468943735.206 Adapter->GUI: # id author Francesco Bianco
+
+1468943735.206 Engine->Adapter: uciok
+1468943735.206 Adapter->GUI: # uciok
+
+1468943735.206 Engine->Adapter: readyok
+1468943735.206 Adapter->GUI: # readyok
+
+1468943735.206 POLYGLOT NEW GAME
+1468943735.206 POLYGLOT WAIT
+1468943735.206 Adapter->Engine: ucinewgame
+1468943735.206 GUI->Adapter: random
+1468943735.206 GUI->Adapter: ics -
+1468943735.206 GUI->Adapter: level 40 1 0
+1468943735.206 GUI->Adapter: post
+1468943735.206 GUI->Adapter: hard
+1468943735.206 POLYGLOT WAIT
+1468943735.206 GUI->Adapter: ping 3
+1468943735.206 Adapter->GUI: pong 3
+1468943735.206 GUI->Adapter: force
+1468943735.206 POLYGLOT WAIT
+1468943735.206 Engine->Adapter: id name Krudo 0.16a
+1468943735.206 Adapter->GUI: # id name Krudo 0.16a
+
+1468943735.206 Engine->Adapter: id author Francesco Bianco
+1468943735.207 Adapter->GUI: # id author Francesco Bianco
+
+1468943735.207 Engine->Adapter: uciok
+1468943735.207 Adapter->GUI: # uciok
+
+1468943736.768 GUI->Adapter: computer
+1468943736.768 GUI->Adapter: name Fairy-Max 4.8V
+1468943736.768 GUI->Adapter: time 6000
+1468943736.768 GUI->Adapter: otim 6000
+1468943736.768 GUI->Adapter: go
+1468943736.768 POLYGLOT THINK
+1468943736.768 POLYGLOT START SEARCH
+1468943736.768 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1468943736.768 Adapter->Engine: position startpos
+1468943736.769 Adapter->Engine: go wtime 60000 btime 60000 movestogo 40
+1468943739.061 Engine->Adapter:           id-run 3
+1468943739.061 Adapter->GUI: #           id-run 3
+
+1468943739.061 Engine->Adapter:      id-loop-run 1/3
+1468943739.061 Adapter->GUI: #      id-loop-run 1/3
+
+1468943740.127 Engine->Adapter:  ab-soft-cut-off e2e4=27 [-100000;100000]
+1468943740.127 Adapter->GUI: #  ab-soft-cut-off e2e4=27 [-100000;100000]
+
+1468943740.128 Engine->Adapter:      id-loop-end 1/3 1067ms 20n 0knps
+1468943740.128 Adapter->GUI: #      id-loop-end 1/3 1067ms 20n 0knps
+
+1468943740.128 Engine->Adapter:      id-loop-run 2/3
+1468943740.128 Adapter->GUI: #      id-loop-run 2/3
+
+1468943740.130 Engine->Adapter:  ab-soft-cut-off e2e4=0 [-100000;100000]
+1468943740.130 Adapter->GUI: #  ab-soft-cut-off e2e4=0 [-100000;100000]
+
+1468943740.137 Engine->Adapter:      id-loop-end 2/3 9ms 40n 4knps
+1468943740.138 Adapter->GUI: #      id-loop-end 2/3 9ms 40n 4knps
+
+1468943740.138 Engine->Adapter:      id-loop-run 3/3
+1468943740.138 Adapter->GUI: #      id-loop-run 3/3
+
+1468943740.148 Engine->Adapter:  ab-soft-cut-off e2e4=1 [-100000;100000]
+1468943740.148 Adapter->GUI: #  ab-soft-cut-off e2e4=1 [-100000;100000]
+
+1468943740.157 Engine->Adapter:  ab-soft-cut-off d2d4=17 [1;100000]
+1468943740.157 Adapter->GUI: #  ab-soft-cut-off d2d4=17 [1;100000]
+
+1468943740.166 Engine->Adapter:      id-loop-end 3/3 23ms 590n 25knps
+1468943740.166 Adapter->GUI: #      id-loop-end 3/3 23ms 590n 25knps
+
+1468943740.424 Engine->Adapter:           id-end 3 17 d2d4 d7d5 e2e3
+1468943740.424 Adapter->GUI: #           id-end 3 17 d2d4 d7d5 e2e3
+
+1468943740.424 Engine->Adapter: bestmove d2d4
+1468943740.425 Adapter->GUI: # bestmove d2d4
+
+1468943740.425 Adapter->GUI: move d2d4
+1468943740.425 POLYGLOT MOVE d4
+1468943740.425 POLYGLOT THINK -> WAIT
+1468943742.646 GUI->Adapter: time 5616
+1468943742.647 GUI->Adapter: otim 5795
+1468943742.647 GUI->Adapter: usermove c7c6
+1468943742.647 POLYGLOT MOVE c6
+1468943742.647 POLYGLOT WAIT -> THINK
+1468943742.647 POLYGLOT START SEARCH
+1468943742.647 POLYGLOT FEN rnbqkbnr/pp1ppppp/2p5/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2
+1468943742.647 Adapter->Engine: position startpos moves d2d4 c7c6
+1468943742.647 Adapter->Engine: go wtime 56160 btime 57950 movestogo 39
+1468943742.647 Engine->Adapter:           id-run 3
+1468943742.647 Adapter->GUI: #           id-run 3
+
+1468943742.648 Engine->Adapter:      id-loop-run 1/3
+1468943742.648 Adapter->GUI: #      id-loop-run 1/3
+
+1468943742.648 Engine->Adapter:  ab-soft-cut-off e2e4=27 [-100000;100000]
+1468943742.648 Adapter->GUI: #  ab-soft-cut-off e2e4=27 [-100000;100000]
+
+1468943742.648 Engine->Adapter:      id-loop-end 1/3 1ms 20n 20knps
+1468943742.648 Adapter->GUI: #      id-loop-end 1/3 1ms 20n 20knps
+
+1468943742.648 Engine->Adapter:      id-loop-run 2/3
+1468943742.648 Adapter->GUI: #      id-loop-run 2/3
+
+1468943742.649 Engine->Adapter:  ab-soft-cut-off e2e4=0 [-100000;100000]
+1468943742.649 Adapter->GUI: #  ab-soft-cut-off e2e4=0 [-100000;100000]
+
+1468943742.649 Engine->Adapter:      id-loop-end 2/3 1ms 40n 40knps
+1468943742.649 Adapter->GUI: #      id-loop-end 2/3 1ms 40n 40knps
+
+1468943742.649 Engine->Adapter:      id-loop-run 3/3
+1468943742.650 Adapter->GUI: #      id-loop-run 3/3
+
+1468943742.651 Engine->Adapter:  ab-soft-cut-off e2e4=1 [-100000;100000]
+1468943742.651 Adapter->GUI: #  ab-soft-cut-off e2e4=1 [-100000;100000]
+
+1468943742.653 Engine->Adapter:  ab-soft-cut-off d2d4=17 [1;100000]
+1468943742.653 Adapter->GUI: #  ab-soft-cut-off d2d4=17 [1;100000]
+
+1468943742.653 Engine->Adapter:      id-loop-end 3/3 4ms 590n 147knps
+1468943742.653 Adapter->GUI: #      id-loop-end 3/3 4ms 590n 147knps
+
+1468943742.653 Engine->Adapter:           id-end 3 17 d2d4 d7d5 e2e3
+1468943742.653 Adapter->GUI: #           id-end 3 17 d2d4 d7d5 e2e3
+
+1468943742.653 Engine->Adapter: bestmove d2d4
+1468943742.653 Adapter->GUI: # bestmove d2d4
+
+1468943742.653 Adapter->GUI: 0-1 {polyglot: resign (illegal engine move by white: d2d4)}
+1468943742.653 POLYGLOT FEN rnbqkbnr/pp1ppppp/2p5/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2
+1468943742.653 POLYGLOT *** CURRENT BOARD ***
+1468943742.653 POLYGLOT rnbqkbnr
+1468943742.653 POLYGLOT pp-ppppp
+1468943742.653 POLYGLOT --p-----
+1468943742.653 POLYGLOT --------
+1468943742.653 POLYGLOT ---P----
+1468943742.653 POLYGLOT --------
+1468943742.654 POLYGLOT PPP-PPPP
+1468943742.654 POLYGLOT RNBQKBNR
+1468943742.654 POLYGLOT white to play
+1468943742.654 POLYGLOT
+1468943742.654 POLYGLOT WAIT
+1468943743.448 GUI->Adapter: result 0-1 {polyglot: resign (illegal engine move by white: d2d4)}
+1468943743.448 POLYGLOT GAME END
+1468943743.448 POLYGLOT WAIT
+1468943743.448 GUI->Adapter: force
+1468943743.448 POLYGLOT WAIT
+1468943743.448 GUI->Adapter: ping 4
+1468943743.449 Adapter->GUI: pong 4
+1468943747.769 GUI->Adapter: quit
+1468943747.769 POLYGLOT *** "quit" from GUI ***
+1468943747.769 POLYGLOT *** QUIT ***
+1468943747.769 Adapter->Engine: quit
+1468943747.770 POLYGLOT Closing engine.
+1468943747.770 Adapter->Engine: EOF
+1468943747.770 POLYGLOT Engine does not reply. Sleeping 100ms.
+1468943857.508 POLYGLOT *** LOGFILE OPENED ***
+1468943857.508 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943857.508 POLYGLOT *** SWITCHING LOGFILE ***
+1468943857.508 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943857.513 POLYGLOT *** LOGFILE OPENED ***
+1468943857.513 POLYGLOT *** LOGFILE OPENED ***
+1468943857.513 PolyGlot 2.0.2 by Fabien Letouzey.
+1468943857.513 POLYGLOT *** START ***
+1468943857.513 POLYGLOT INI file "C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468943857.517 affinity = ffffffff
+1468943857.517 Adapter->Engine: uci
+1468943857.826 Engine->Adapter: Krudo 0.16a by Francesco <bianco@javanile.org>
+1468943857.827 Adapter->GUI: # Krudo 0.16a by Francesco <bianco@javanile.org>
+
+1468943858.224 Engine->Adapter: id name Krudo 0.16a
+1468943858.224 Adapter->GUI: # id name Krudo 0.16a
+
+1468943858.224 Engine->Adapter: id author Francesco Bianco
+1468943858.224 Adapter->GUI: # id author Francesco Bianco
+
+1468943858.224 Engine->Adapter: uciok
+1468943858.224 Adapter->GUI: # uciok
+
+1468943858.224 POLYGLOG OPTIONS 
+1468943858.224 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1468943858.224 POLYGLOT [Polyglot] EngineDir="."
+1468943858.224 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468943858.224 POLYGLOT [Polyglot] Log="true"
+1468943858.224 POLYGLOT [Polyglot] LogFile="C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943858.224 POLYGLOT [Polyglot] Book="false"
+1468943858.224 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1468943858.224 POLYGLOT [Polyglot] BookRandom="false"
+1468943858.224 POLYGLOT [Polyglot] BookDepth="256"
+1468943858.224 POLYGLOT [Polyglot] BookLearn="false"
+1468943858.224 POLYGLOT [Polyglot] BookTreshold="5"
+1468943858.224 POLYGLOT [Polyglot] UCI="false"
+1468943858.224 POLYGLOT [Polyglot] UseNice="false"
+1468943858.224 POLYGLOT [Polyglot] NiceValue="5"
+1468943858.224 POLYGLOT [Polyglot] Resign="false"
+1468943858.224 POLYGLOT [Polyglot] ResignMoves="3"
+1468943858.224 POLYGLOT [Polyglot] ResignScore="600"
+1468943858.224 POLYGLOT [Polyglot] MateScore="10000"
+1468943858.224 POLYGLOT [Polyglot] KibitzMove="false"
+1468943858.224 POLYGLOT [Polyglot] KibitzPV="false"
+1468943858.224 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1468943858.224 POLYGLOT [Polyglot] KibitzDelay="5"
+1468943858.224 POLYGLOT [Polyglot] KibitzInterval="0"
+1468943858.224 POLYGLOT [Polyglot] ShowPonder="false"
+1468943858.224 POLYGLOT [Polyglot] ScoreWhite="false"
+1468943858.224 POLYGLOT [Polyglot] UCIVersion="2"
+1468943858.224 POLYGLOT [Polyglot] RepeatPV="true"
+1468943858.224 POLYGLOT [Polyglot] SyncStop="false"
+1468943858.224 POLYGLOT [Polyglot] CanPonder="false"
+1468943858.224 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1468943858.224 POLYGLOT [Polyglot] WbWorkArounds="false"
+1468943858.224 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1468943858.224 POLYGLOT [Engine] Hash="68"
+1468943858.224 POLYGLOT [Engine] Ponder="false"
+1468943858.224 POLYGLOT [Engine] OwnBook="false"
+1468943858.224 POLYGLOT [Engine] Book="false"
+1468943858.224 POLYGLOT [Engine] BookFile="book_small.bin"
+1468943858.224 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1468943858.224 POLYGLOT [Engine] NullMove Reduction="3"
+1468943858.224 POLYGLOT [Engine] Verification Search="Endgame"
+1468943858.224 POLYGLOT [Engine] Verification Reduction="5"
+1468943858.224 POLYGLOT [Engine] History Pruning="true"
+1468943858.224 POLYGLOT [Engine] History Threshold="60"
+1468943858.224 POLYGLOT [Engine] Futility Pruning="false"
+1468943858.224 POLYGLOT [Engine] Futility Margin="100"
+1468943858.224 POLYGLOT [Engine] Delta Pruning="false"
+1468943858.224 POLYGLOT [Engine] Delta Margin="50"
+1468943858.224 POLYGLOT [Engine] Quiescence Check Plies="1"
+1468943858.224 POLYGLOT [Engine] Material="100"
+1468943858.224 POLYGLOT [Engine] Piece Activity="100"
+1468943858.224 POLYGLOT [Engine] King Safety="100"
+1468943858.224 POLYGLOT [Engine] Pawn Structure="100"
+1468943858.224 POLYGLOT [Engine] Passed Pawns="100"
+1468943858.224 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1468943858.224 POLYGLOT Setting PolyGlot option "EngineDir=."
+1468943858.224 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468943858.224 POLYGLOT Setting PolyGlot option "Log=true"
+1468943858.224 POLYGLOT *** SWITCHING LOGFILE ***
+1468943858.225 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943858.225 POLYGLOT *** LOGFILE OPENED ***
+1468943858.225 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943858.225 POLYGLOT *** SWITCHING LOGFILE ***
+1468943858.225 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943858.255 POLYGLOT *** LOGFILE OPENED ***
+1468943858.255 POLYGLOT Setting PolyGlot option "Book=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1468943858.255 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1468943858.255 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1468943858.255 POLYGLOT Setting PolyGlot option "UCI=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "UseNice=false"
+1468943858.255 POLYGLOT Adjust Engine Piority
+1468943858.255 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1468943858.255 POLYGLOT Setting PolyGlot option "Resign=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1468943858.255 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1468943858.255 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1468943858.255 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1468943858.255 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1468943858.255 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1468943858.255 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1468943858.255 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1468943858.255 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1468943858.255 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1468943858.255 POLYGLOT *** Mainloop started ***
+1468943858.255 GUI->Adapter: xboard
+1468943858.255 GUI->Adapter: protover 2
+1468943858.255 Adapter->GUI: feature done=0
+1468943858.255 Adapter->GUI: feature analyze=1
+1468943858.256 Adapter->GUI: feature exclude=1
+1468943858.256 Adapter->GUI: feature colors=0
+1468943858.256 Adapter->GUI: feature draw=1
+1468943858.256 Adapter->GUI: feature ics=1
+1468943858.256 Adapter->GUI: feature myname="Krudo 0.15a"
+1468943858.256 Adapter->GUI: feature name=1
+1468943858.256 Adapter->GUI: feature pause=0
+1468943858.256 Adapter->GUI: feature ping=1
+1468943858.256 Adapter->GUI: feature playother=1
+1468943858.256 Adapter->GUI: feature sigint=1
+1468943858.256 Adapter->GUI: feature reuse=1
+1468943858.256 Adapter->GUI: feature san=0
+1468943858.256 Adapter->GUI: feature setboard=1
+1468943858.256 Adapter->GUI: feature sigint=0
+1468943858.256 Adapter->GUI: feature sigterm=0
+1468943858.256 Adapter->GUI: feature time=1
+1468943858.256 Adapter->GUI: feature usermove=1
+1468943858.256 Adapter->GUI: feature nps=1
+1468943858.256 Adapter->GUI: feature memory=0
+1468943858.256 Adapter->GUI: feature smp=0
+1468943858.256 Adapter->GUI: feature egt=""
+1468943858.256 Adapter->GUI: feature variants="normal"
+1468943858.256 Adapter->GUI: feature option="Polyglot exclude move -string "
+1468943858.256 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468943858.256 Adapter->GUI: feature option="Polyglot Log -check 1"
+1468943858.256 Adapter->GUI: feature option="Polyglot LogFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943858.256 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1468943858.256 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1468943858.256 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1468943858.256 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1468943858.257 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1468943858.257 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1468943858.257 Adapter->GUI: feature option="Polyglot Book -check 0"
+1468943858.257 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1468943858.257 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1468943858.257 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1468943858.257 Adapter->GUI: feature option="Polyglot ShowTbHits -check 0"
+1468943858.257 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1468943858.257 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1468943858.257 Adapter->GUI: feature option="Polyglot Save -save"
+1468943858.257 Adapter->GUI: feature done=1
+1468943858.257 GUI->Adapter: accepted done
+1468943858.257 GUI->Adapter: accepted analyze
+1468943858.257 GUI->Adapter: accepted exclude
+1468943858.257 GUI->Adapter: accepted colors
+1468943858.257 GUI->Adapter: accepted draw
+1468943858.257 GUI->Adapter: accepted ics
+1468943858.257 GUI->Adapter: accepted myname
+1468943858.257 GUI->Adapter: accepted name
+1468943858.257 GUI->Adapter: accepted pause
+1468943858.257 GUI->Adapter: accepted ping
+1468943858.257 GUI->Adapter: accepted playother
+1468943858.257 GUI->Adapter: accepted sigint
+1468943858.257 GUI->Adapter: accepted reuse
+1468943858.257 GUI->Adapter: accepted san
+1468943858.257 GUI->Adapter: accepted setboard
+1468943858.257 GUI->Adapter: accepted sigint
+1468943858.257 GUI->Adapter: accepted sigterm
+1468943858.257 GUI->Adapter: accepted time
+1468943858.257 GUI->Adapter: accepted usermove
+1468943858.257 GUI->Adapter: accepted nps
+1468943858.257 GUI->Adapter: accepted memory
+1468943858.257 GUI->Adapter: accepted smp
+1468943858.257 GUI->Adapter: accepted egt
+1468943858.257 GUI->Adapter: accepted variants
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted option
+1468943858.257 GUI->Adapter: accepted done
+1468943858.267 GUI->Adapter: new
+1468943858.267 Adapter->Engine: isready
+1468943858.280 Engine->Adapter: readyok
+1468943858.281 Adapter->GUI: # readyok
+
+1468943858.281 POLYGLOT NEW GAME
+1468943858.281 POLYGLOT WAIT
+1468943858.281 Adapter->Engine: ucinewgame
+1468943858.281 GUI->Adapter: random
+1468943858.281 GUI->Adapter: ics -
+1468943858.281 GUI->Adapter: level 40 1 0
+1468943858.281 GUI->Adapter: post
+1468943858.281 GUI->Adapter: hard
+1468943858.281 POLYGLOT WAIT
+1468943858.281 GUI->Adapter: ping 1
+1468943858.281 Adapter->GUI: pong 1
+1468943858.281 GUI->Adapter: force
+1468943858.281 POLYGLOT WAIT
+1468943858.281 GUI->Adapter: ping 2
+1468943858.281 Adapter->GUI: pong 2
+1468943858.281 GUI->Adapter: new
+1468943858.281 Adapter->Engine: isready
+1468943858.281 Engine->Adapter: id name Krudo 0.16a
+1468943858.281 Adapter->GUI: # id name Krudo 0.16a
+
+1468943858.281 Engine->Adapter: id author Francesco Bianco
+1468943858.281 Adapter->GUI: # id author Francesco Bianco
+
+1468943858.281 Engine->Adapter: uciok
+1468943858.281 Adapter->GUI: # uciok
+
+1468943858.281 Engine->Adapter: readyok
+1468943858.281 Adapter->GUI: # readyok
+
+1468943858.281 POLYGLOT NEW GAME
+1468943858.281 POLYGLOT WAIT
+1468943858.281 Adapter->Engine: ucinewgame
+1468943858.281 GUI->Adapter: random
+1468943858.282 GUI->Adapter: ics -
+1468943858.282 GUI->Adapter: level 40 1 0
+1468943858.282 GUI->Adapter: post
+1468943858.282 GUI->Adapter: hard
+1468943858.282 POLYGLOT WAIT
+1468943858.282 GUI->Adapter: ping 3
+1468943858.282 Adapter->GUI: pong 3
+1468943858.282 GUI->Adapter: force
+1468943858.282 POLYGLOT WAIT
+1468943858.282 Engine->Adapter: id name Krudo 0.16a
+1468943858.282 Adapter->GUI: # id name Krudo 0.16a
+
+1468943858.282 Engine->Adapter: id author Francesco Bianco
+1468943858.282 Adapter->GUI: # id author Francesco Bianco
+
+1468943858.282 Engine->Adapter: uciok
+1468943858.282 Adapter->GUI: # uciok
+
+1468943858.860 GUI->Adapter: computer
+1468943858.860 GUI->Adapter: name Fairy-Max 4.8V
+1468943858.860 GUI->Adapter: time 6000
+1468943858.860 GUI->Adapter: otim 6000
+1468943858.861 GUI->Adapter: go
+1468943858.861 POLYGLOT THINK
+1468943858.861 POLYGLOT START SEARCH
+1468943858.861 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1468943858.861 Adapter->Engine: position startpos
+1468943858.861 Adapter->Engine: go wtime 60000 btime 60000 movestogo 40
+1468943858.890 Engine->Adapter:           id-run 3
+1468943858.891 Adapter->GUI: #           id-run 3
+
+1468943858.891 Engine->Adapter:      id-loop-run 1/3
+1468943858.891 Adapter->GUI: #      id-loop-run 1/3
+
+1468943858.896 Engine->Adapter:  ab-soft-cut-off e2e4=27 [-100000;100000]
+1468943858.896 Adapter->GUI: #  ab-soft-cut-off e2e4=27 [-100000;100000]
+
+1468943858.897 Engine->Adapter:      id-loop-end 1/3 6ms 20n 3knps
+1468943858.897 Adapter->GUI: #      id-loop-end 1/3 6ms 20n 3knps
+
+1468943858.897 Engine->Adapter:      id-loop-run 2/3
+1468943858.897 Adapter->GUI: #      id-loop-run 2/3
+
+1468943858.897 Engine->Adapter:  ab-soft-cut-off e2e4=0 [-100000;100000]
+1468943858.897 Adapter->GUI: #  ab-soft-cut-off e2e4=0 [-100000;100000]
+
+1468943858.901 Engine->Adapter:      id-loop-end 2/3 3ms 40n 13knps
+1468943858.901 Adapter->GUI: #      id-loop-end 2/3 3ms 40n 13knps
+
+1468943858.901 Engine->Adapter:      id-loop-run 3/3
+1468943858.901 Adapter->GUI: #      id-loop-run 3/3
+
+1468943858.907 Engine->Adapter:  ab-soft-cut-off e2e4=1 [-100000;100000]
+1468943858.907 Adapter->GUI: #  ab-soft-cut-off e2e4=1 [-100000;100000]
+
+1468943858.911 Engine->Adapter:  ab-soft-cut-off d2d4=17 [1;100000]
+1468943858.911 Adapter->GUI: #  ab-soft-cut-off d2d4=17 [1;100000]
+
+1468943858.918 Engine->Adapter:      id-loop-end 3/3 14ms 590n 42knps
+1468943858.918 Adapter->GUI: #      id-loop-end 3/3 14ms 590n 42knps
+
+1468943858.918 Engine->Adapter:           id-end 3 17 d2d4 d7d5 e2e3
+1468943858.918 Adapter->GUI: #           id-end 3 17 d2d4 d7d5 e2e3
+
+1468943858.918 Engine->Adapter: bestmove d2d4
+1468943858.918 Adapter->GUI: # bestmove d2d4
+
+1468943858.918 Adapter->GUI: move d2d4
+1468943858.918 POLYGLOT MOVE d4
+1468943858.918 POLYGLOT THINK -> WAIT
+1468943861.276 GUI->Adapter: time 5994
+1468943861.276 GUI->Adapter: otim 5764
+1468943861.276 GUI->Adapter: usermove c7c6
+1468943861.276 POLYGLOT MOVE c6
+1468943861.276 POLYGLOT WAIT -> THINK
+1468943861.276 POLYGLOT START SEARCH
+1468943861.276 POLYGLOT FEN rnbqkbnr/pp1ppppp/2p5/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2
+1468943861.276 Adapter->Engine: position startpos moves d2d4 c7c6
+1468943861.276 Adapter->Engine: go wtime 59940 btime 57640 movestogo 39
+1468943861.277 Engine->Adapter:           id-run 3
+1468943861.277 Adapter->GUI: #           id-run 3
+
+1468943861.277 Engine->Adapter:      id-loop-run 1/3
+1468943861.277 Adapter->GUI: #      id-loop-run 1/3
+
+1468943861.278 Engine->Adapter:  ab-soft-cut-off e2e4=27 [-100000;100000]
+1468943861.278 Adapter->GUI: #  ab-soft-cut-off e2e4=27 [-100000;100000]
+
+1468943861.278 Engine->Adapter:      id-loop-end 1/3 1ms 20n 20knps
+1468943861.278 Adapter->GUI: #      id-loop-end 1/3 1ms 20n 20knps
+
+1468943861.278 Engine->Adapter:      id-loop-run 2/3
+1468943861.278 Adapter->GUI: #      id-loop-run 2/3
+
+1468943861.278 Engine->Adapter:  ab-soft-cut-off e2e4=0 [-100000;100000]
+1468943861.278 Adapter->GUI: #  ab-soft-cut-off e2e4=0 [-100000;100000]
+
+1468943861.279 Engine->Adapter:      id-loop-end 2/3 1ms 40n 40knps
+1468943861.279 Adapter->GUI: #      id-loop-end 2/3 1ms 40n 40knps
+
+1468943861.279 Engine->Adapter:      id-loop-run 3/3
+1468943861.279 Adapter->GUI: #      id-loop-run 3/3
+
+1468943861.281 Engine->Adapter:  ab-soft-cut-off e2e4=1 [-100000;100000]
+1468943861.281 Adapter->GUI: #  ab-soft-cut-off e2e4=1 [-100000;100000]
+
+1468943861.282 Engine->Adapter:  ab-soft-cut-off d2d4=17 [1;100000]
+1468943861.282 Adapter->GUI: #  ab-soft-cut-off d2d4=17 [1;100000]
+
+1468943861.283 Engine->Adapter:      id-loop-end 3/3 4ms 590n 147knps
+1468943861.283 Adapter->GUI: #      id-loop-end 3/3 4ms 590n 147knps
+
+1468943861.283 Engine->Adapter:           id-end 3 17 d2d4 d7d5 e2e3
+1468943861.283 Adapter->GUI: #           id-end 3 17 d2d4 d7d5 e2e3
+
+1468943861.283 Engine->Adapter: bestmove d2d4
+1468943861.283 Adapter->GUI: # bestmove d2d4
+
+1468943861.283 Adapter->GUI: 0-1 {polyglot: resign (illegal engine move by white: d2d4)}
+1468943861.283 POLYGLOT FEN rnbqkbnr/pp1ppppp/2p5/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2
+1468943861.283 POLYGLOT *** CURRENT BOARD ***
+1468943861.283 POLYGLOT rnbqkbnr
+1468943861.283 POLYGLOT pp-ppppp
+1468943861.283 POLYGLOT --p-----
+1468943861.283 POLYGLOT --------
+1468943861.283 POLYGLOT ---P----
+1468943861.283 POLYGLOT --------
+1468943861.283 POLYGLOT PPP-PPPP
+1468943861.283 POLYGLOT RNBQKBNR
+1468943861.283 POLYGLOT white to play
+1468943861.283 POLYGLOT
+1468943861.283 POLYGLOT WAIT
+1468943861.405 GUI->Adapter: result 0-1 {polyglot: resign (illegal engine move by white: d2d4)}
+1468943861.405 POLYGLOT GAME END
+1468943861.405 POLYGLOT WAIT
+1468943861.405 GUI->Adapter: force
+1468943861.405 POLYGLOT WAIT
+1468943861.405 GUI->Adapter: ping 4
+1468943861.405 Adapter->GUI: pong 4
+1468943862.945 GUI->Adapter: quit
+1468943862.945 POLYGLOT *** "quit" from GUI ***
+1468943862.945 POLYGLOT *** QUIT ***
+1468943862.946 Adapter->Engine: quit
+1468943862.946 POLYGLOT Closing engine.
+1468943862.946 Adapter->Engine: EOF
+1468943862.946 POLYGLOT Engine does not reply. Sleeping 100ms.
+1468943942.508 POLYGLOT *** LOGFILE OPENED ***
+1468943942.508 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943942.508 POLYGLOT *** SWITCHING LOGFILE ***
+1468943942.508 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943942.512 POLYGLOT *** LOGFILE OPENED ***
+1468943942.513 POLYGLOT *** LOGFILE OPENED ***
+1468943942.513 PolyGlot 2.0.2 by Fabien Letouzey.
+1468943942.513 POLYGLOT *** START ***
+1468943942.513 POLYGLOT INI file "C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468943942.516 affinity = ffffffff
+1468943942.516 Adapter->Engine: uci
+1468943942.755 Engine->Adapter: Krudo 0.16a by Francesco <bianco@javanile.org>
+1468943942.755 Adapter->GUI: # Krudo 0.16a by Francesco <bianco@javanile.org>
+
+1468943943.146 Engine->Adapter: id name Krudo 0.16a
+1468943943.146 Adapter->GUI: # id name Krudo 0.16a
+
+1468943943.146 Engine->Adapter: id author Francesco Bianco
+1468943943.146 Adapter->GUI: # id author Francesco Bianco
+
+1468943943.147 Engine->Adapter: uciok
+1468943943.147 Adapter->GUI: # uciok
+
+1468943943.147 POLYGLOG OPTIONS 
+1468943943.147 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1468943943.147 POLYGLOT [Polyglot] EngineDir="."
+1468943943.147 POLYGLOT [Polyglot] EngineCommand="java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468943943.147 POLYGLOT [Polyglot] Log="true"
+1468943943.147 POLYGLOT [Polyglot] LogFile="C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943943.147 POLYGLOT [Polyglot] Book="false"
+1468943943.147 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1468943943.147 POLYGLOT [Polyglot] BookRandom="false"
+1468943943.147 POLYGLOT [Polyglot] BookDepth="256"
+1468943943.147 POLYGLOT [Polyglot] BookLearn="false"
+1468943943.147 POLYGLOT [Polyglot] BookTreshold="5"
+1468943943.147 POLYGLOT [Polyglot] UCI="false"
+1468943943.147 POLYGLOT [Polyglot] UseNice="false"
+1468943943.147 POLYGLOT [Polyglot] NiceValue="5"
+1468943943.147 POLYGLOT [Polyglot] Resign="false"
+1468943943.147 POLYGLOT [Polyglot] ResignMoves="3"
+1468943943.147 POLYGLOT [Polyglot] ResignScore="600"
+1468943943.147 POLYGLOT [Polyglot] MateScore="10000"
+1468943943.147 POLYGLOT [Polyglot] KibitzMove="false"
+1468943943.147 POLYGLOT [Polyglot] KibitzPV="false"
+1468943943.147 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1468943943.147 POLYGLOT [Polyglot] KibitzDelay="5"
+1468943943.147 POLYGLOT [Polyglot] KibitzInterval="0"
+1468943943.147 POLYGLOT [Polyglot] ShowPonder="false"
+1468943943.147 POLYGLOT [Polyglot] ScoreWhite="false"
+1468943943.147 POLYGLOT [Polyglot] UCIVersion="2"
+1468943943.147 POLYGLOT [Polyglot] RepeatPV="true"
+1468943943.147 POLYGLOT [Polyglot] SyncStop="false"
+1468943943.147 POLYGLOT [Polyglot] CanPonder="false"
+1468943943.147 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1468943943.147 POLYGLOT [Polyglot] WbWorkArounds="false"
+1468943943.147 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1468943943.147 POLYGLOT [Engine] Hash="68"
+1468943943.147 POLYGLOT [Engine] Ponder="false"
+1468943943.147 POLYGLOT [Engine] OwnBook="false"
+1468943943.147 POLYGLOT [Engine] Book="false"
+1468943943.147 POLYGLOT [Engine] BookFile="book_small.bin"
+1468943943.147 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1468943943.147 POLYGLOT [Engine] NullMove Reduction="3"
+1468943943.147 POLYGLOT [Engine] Verification Search="Endgame"
+1468943943.147 POLYGLOT [Engine] Verification Reduction="5"
+1468943943.147 POLYGLOT [Engine] History Pruning="true"
+1468943943.147 POLYGLOT [Engine] History Threshold="60"
+1468943943.147 POLYGLOT [Engine] Futility Pruning="false"
+1468943943.147 POLYGLOT [Engine] Futility Margin="100"
+1468943943.147 POLYGLOT [Engine] Delta Pruning="false"
+1468943943.147 POLYGLOT [Engine] Delta Margin="50"
+1468943943.147 POLYGLOT [Engine] Quiescence Check Plies="1"
+1468943943.147 POLYGLOT [Engine] Material="100"
+1468943943.147 POLYGLOT [Engine] Piece Activity="100"
+1468943943.147 POLYGLOT [Engine] King Safety="100"
+1468943943.147 POLYGLOT [Engine] Pawn Structure="100"
+1468943943.147 POLYGLOT [Engine] Passed Pawns="100"
+1468943943.147 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1468943943.147 POLYGLOT Setting PolyGlot option "EngineDir=."
+1468943943.147 POLYGLOT Setting PolyGlot option "EngineCommand=java.exe -cp C:/Development/Github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1468943943.147 POLYGLOT Setting PolyGlot option "Log=true"
+1468943943.147 POLYGLOT *** SWITCHING LOGFILE ***
+1468943943.147 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943943.148 POLYGLOT *** LOGFILE OPENED ***
+1468943943.148 POLYGLOT Setting PolyGlot option "LogFile=C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943943.148 POLYGLOT *** SWITCHING LOGFILE ***
+1468943943.148 POLYGLOT NEW LOGFILE "C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943943.152 POLYGLOT *** LOGFILE OPENED ***
+1468943943.152 POLYGLOT Setting PolyGlot option "Book=false"
+1468943943.152 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1468943943.152 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1468943943.152 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1468943943.152 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1468943943.152 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1468943943.152 POLYGLOT Setting PolyGlot option "UCI=false"
+1468943943.152 POLYGLOT Setting PolyGlot option "UseNice=false"
+1468943943.152 POLYGLOT Adjust Engine Piority
+1468943943.152 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1468943943.152 POLYGLOT Setting PolyGlot option "Resign=false"
+1468943943.152 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1468943943.152 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1468943943.152 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1468943943.152 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1468943943.153 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1468943943.153 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1468943943.153 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1468943943.153 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1468943943.153 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1468943943.153 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1468943943.153 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1468943943.153 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1468943943.153 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1468943943.153 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1468943943.153 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1468943943.153 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1468943943.153 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1468943943.153 POLYGLOT *** Mainloop started ***
+1468943943.153 GUI->Adapter: xboard
+1468943943.153 GUI->Adapter: protover 2
+1468943943.153 Adapter->GUI: feature done=0
+1468943943.153 Adapter->GUI: feature analyze=1
+1468943943.153 Adapter->GUI: feature exclude=1
+1468943943.153 Adapter->GUI: feature colors=0
+1468943943.153 Adapter->GUI: feature draw=1
+1468943943.153 Adapter->GUI: feature ics=1
+1468943943.153 Adapter->GUI: feature myname="Krudo 0.15a"
+1468943943.153 Adapter->GUI: feature name=1
+1468943943.153 Adapter->GUI: feature pause=0
+1468943943.153 Adapter->GUI: feature ping=1
+1468943943.153 Adapter->GUI: feature playother=1
+1468943943.153 Adapter->GUI: feature sigint=1
+1468943943.153 Adapter->GUI: feature reuse=1
+1468943943.153 Adapter->GUI: feature san=0
+1468943943.153 Adapter->GUI: feature setboard=1
+1468943943.153 Adapter->GUI: feature sigint=0
+1468943943.153 Adapter->GUI: feature sigterm=0
+1468943943.153 Adapter->GUI: feature time=1
+1468943943.153 Adapter->GUI: feature usermove=1
+1468943943.153 Adapter->GUI: feature nps=1
+1468943943.153 Adapter->GUI: feature memory=0
+1468943943.154 Adapter->GUI: feature smp=0
+1468943943.154 Adapter->GUI: feature egt=""
+1468943943.154 Adapter->GUI: feature variants="normal"
+1468943943.154 Adapter->GUI: feature option="Polyglot exclude move -string "
+1468943943.154 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1468943943.154 Adapter->GUI: feature option="Polyglot Log -check 1"
+1468943943.154 Adapter->GUI: feature option="Polyglot LogFile -file C:/Development/Github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1468943943.154 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1468943943.154 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1468943943.154 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1468943943.154 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1468943943.154 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1468943943.154 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1468943943.154 Adapter->GUI: feature option="Polyglot Book -check 0"
+1468943943.154 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1468943943.154 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1468943943.154 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1468943943.154 Adapter->GUI: feature option="Polyglot ShowTbHits -check 0"
+1468943943.154 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1468943943.154 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1468943943.154 Adapter->GUI: feature option="Polyglot Save -save"
+1468943943.154 Adapter->GUI: feature done=1
+1468943943.154 GUI->Adapter: accepted done
+1468943943.154 GUI->Adapter: accepted analyze
+1468943943.154 GUI->Adapter: accepted exclude
+1468943943.154 GUI->Adapter: accepted colors
+1468943943.154 GUI->Adapter: accepted draw
+1468943943.154 GUI->Adapter: accepted ics
+1468943943.154 GUI->Adapter: accepted myname
+1468943943.154 GUI->Adapter: accepted name
+1468943943.154 GUI->Adapter: accepted pause
+1468943943.154 GUI->Adapter: accepted ping
+1468943943.154 GUI->Adapter: accepted playother
+1468943943.154 GUI->Adapter: accepted sigint
+1468943943.154 GUI->Adapter: accepted reuse
+1468943943.154 GUI->Adapter: accepted san
+1468943943.154 GUI->Adapter: accepted setboard
+1468943943.154 GUI->Adapter: accepted sigint
+1468943943.155 GUI->Adapter: accepted sigterm
+1468943943.155 GUI->Adapter: accepted time
+1468943943.155 GUI->Adapter: accepted usermove
+1468943943.155 GUI->Adapter: accepted nps
+1468943943.155 GUI->Adapter: accepted memory
+1468943943.155 GUI->Adapter: accepted smp
+1468943943.155 GUI->Adapter: accepted egt
+1468943943.155 GUI->Adapter: accepted variants
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted option
+1468943943.155 GUI->Adapter: accepted done
+1468943943.164 GUI->Adapter: new
+1468943943.164 Adapter->Engine: isready
+1468943943.175 Engine->Adapter: readyok
+1468943943.175 Adapter->GUI: # readyok
+
+1468943943.175 POLYGLOT NEW GAME
+1468943943.175 POLYGLOT WAIT
+1468943943.175 Adapter->Engine: ucinewgame
+1468943943.175 GUI->Adapter: random
+1468943943.175 GUI->Adapter: ics -
+1468943943.175 GUI->Adapter: level 40 1 0
+1468943943.175 GUI->Adapter: post
+1468943943.175 GUI->Adapter: hard
+1468943943.175 POLYGLOT WAIT
+1468943943.175 GUI->Adapter: ping 1
+1468943943.175 Adapter->GUI: pong 1
+1468943943.175 GUI->Adapter: force
+1468943943.175 POLYGLOT WAIT
+1468943943.175 GUI->Adapter: ping 2
+1468943943.175 Adapter->GUI: pong 2
+1468943943.175 GUI->Adapter: new
+1468943943.175 Adapter->Engine: isready
+1468943943.175 Engine->Adapter: id name Krudo 0.16a
+1468943943.175 Adapter->GUI: # id name Krudo 0.16a
+
+1468943943.175 Engine->Adapter: id author Francesco Bianco
+1468943943.175 Adapter->GUI: # id author Francesco Bianco
+
+1468943943.175 Engine->Adapter: uciok
+1468943943.175 Adapter->GUI: # uciok
+
+1468943943.175 Engine->Adapter: readyok
+1468943943.175 Adapter->GUI: # readyok
+
+1468943943.175 POLYGLOT NEW GAME
+1468943943.175 POLYGLOT WAIT
+1468943943.175 Adapter->Engine: ucinewgame
+1468943943.176 GUI->Adapter: random
+1468943943.176 GUI->Adapter: ics -
+1468943943.176 GUI->Adapter: level 40 1 0
+1468943943.176 GUI->Adapter: post
+1468943943.176 GUI->Adapter: hard
+1468943943.176 POLYGLOT WAIT
+1468943943.176 GUI->Adapter: ping 3
+1468943943.176 Adapter->GUI: pong 3
+1468943943.176 GUI->Adapter: force
+1468943943.176 POLYGLOT WAIT
+1468943943.176 Engine->Adapter: id name Krudo 0.16a
+1468943943.176 Adapter->GUI: # id name Krudo 0.16a
+
+1468943943.176 Engine->Adapter: id author Francesco Bianco
+1468943943.176 Adapter->GUI: # id author Francesco Bianco
+
+1468943943.176 Engine->Adapter: uciok
+1468943943.176 Adapter->GUI: # uciok
+
+1468943943.782 GUI->Adapter: computer
+1468943943.782 GUI->Adapter: name Fairy-Max 4.8V
+1468943943.782 GUI->Adapter: time 6000
+1468943943.782 GUI->Adapter: otim 6000
+1468943943.782 GUI->Adapter: go
+1468943943.782 POLYGLOT THINK
+1468943943.782 POLYGLOT START SEARCH
+1468943943.782 POLYGLOT FEN rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+1468943943.782 Adapter->Engine: position startpos
+1468943943.782 Adapter->Engine: go wtime 60000 btime 60000 movestogo 40
+1468943943.805 Engine->Adapter:           id-run 3
+1468943943.805 Adapter->GUI: #           id-run 3
+
+1468943943.805 Engine->Adapter:      id-loop-run 1/3
+1468943943.805 Adapter->GUI: #      id-loop-run 1/3
+
+1468943943.810 Engine->Adapter:  ab-soft-cut-off e2e4=27 [-100000;100000]
+1468943943.810 Adapter->GUI: #  ab-soft-cut-off e2e4=27 [-100000;100000]
+
+1468943943.810 Engine->Adapter:      id-loop-end 1/3 5ms 20n 4knps
+1468943943.810 Adapter->GUI: #      id-loop-end 1/3 5ms 20n 4knps
+
+1468943943.810 Engine->Adapter:      id-loop-run 2/3
+1468943943.810 Adapter->GUI: #      id-loop-run 2/3
+
+1468943943.811 Engine->Adapter:  ab-soft-cut-off e2e4=0 [-100000;100000]
+1468943943.811 Adapter->GUI: #  ab-soft-cut-off e2e4=0 [-100000;100000]
+
+1468943943.814 Engine->Adapter:      id-loop-end 2/3 4ms 40n 10knps
+1468943943.815 Adapter->GUI: #      id-loop-end 2/3 4ms 40n 10knps
+
+1468943943.815 Engine->Adapter:      id-loop-run 3/3
+1468943943.815 Adapter->GUI: #      id-loop-run 3/3
+
+1468943943.820 Engine->Adapter:  ab-soft-cut-off e2e4=1 [-100000;100000]
+1468943943.820 Adapter->GUI: #  ab-soft-cut-off e2e4=1 [-100000;100000]
+
+1468943943.823 Engine->Adapter:  ab-soft-cut-off d2d4=17 [1;100000]
+1468943943.823 Adapter->GUI: #  ab-soft-cut-off d2d4=17 [1;100000]
+
+1468943943.830 Engine->Adapter:      id-loop-end 3/3 14ms 590n 42knps
+1468943943.831 Adapter->GUI: #      id-loop-end 3/3 14ms 590n 42knps
+
+1468943943.831 Engine->Adapter:           id-end 3 17 d2d4 d7d5 e2e3
+1468943943.831 Adapter->GUI: #           id-end 3 17 d2d4 d7d5 e2e3
+
+1468943943.831 Engine->Adapter: bestmove d2d4
+1468943943.831 Adapter->GUI: # bestmove d2d4
+
+1468943943.831 Adapter->GUI: move d2d4
+1468943943.831 POLYGLOT MOVE d4
+1468943943.831 POLYGLOT THINK -> WAIT
+1468943945.736 GUI->Adapter: time 5995
+1468943945.736 GUI->Adapter: otim 5809
+1468943945.736 GUI->Adapter: usermove d7d5
+1468943945.736 POLYGLOT MOVE d5
+1468943945.736 POLYGLOT WAIT -> THINK
+1468943945.736 POLYGLOT START SEARCH
+1468943945.736 POLYGLOT FEN rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2
+1468943945.736 Adapter->Engine: position startpos moves d2d4 d7d5
+1468943945.736 Adapter->Engine: go wtime 59950 btime 58090 movestogo 39
+1468943945.737 Engine->Adapter:           id-run 3
+1468943945.737 Adapter->GUI: #           id-run 3
+
+1468943945.737 Engine->Adapter:      id-loop-run 1/3
+1468943945.737 Adapter->GUI: #      id-loop-run 1/3
+
+1468943945.738 Engine->Adapter:  ab-soft-cut-off e2e4=27 [-100000;100000]
+1468943945.738 Adapter->GUI: #  ab-soft-cut-off e2e4=27 [-100000;100000]
+
+1468943945.738 Engine->Adapter:      id-loop-end 1/3 1ms 20n 20knps
+1468943945.738 Adapter->GUI: #      id-loop-end 1/3 1ms 20n 20knps
+
+1468943945.738 Engine->Adapter:      id-loop-run 2/3
+1468943945.738 Adapter->GUI: #      id-loop-run 2/3
+
+1468943945.738 Engine->Adapter:  ab-soft-cut-off e2e4=0 [-100000;100000]
+1468943945.738 Adapter->GUI: #  ab-soft-cut-off e2e4=0 [-100000;100000]
+
+1468943945.739 Engine->Adapter:      id-loop-end 2/3 1ms 40n 40knps
+1468943945.739 Adapter->GUI: #      id-loop-end 2/3 1ms 40n 40knps
+
+1468943945.739 Engine->Adapter:      id-loop-run 3/3
+1468943945.739 Adapter->GUI: #      id-loop-run 3/3
+
+1468943945.740 Engine->Adapter:  ab-soft-cut-off e2e4=1 [-100000;100000]
+1468943945.740 Adapter->GUI: #  ab-soft-cut-off e2e4=1 [-100000;100000]
+
+1468943945.741 Engine->Adapter:  ab-soft-cut-off d2d4=17 [1;100000]
+1468943945.741 Adapter->GUI: #  ab-soft-cut-off d2d4=17 [1;100000]
+
+1468943945.741 Engine->Adapter:      id-loop-end 3/3 2ms 590n 295knps
+1468943945.741 Adapter->GUI: #      id-loop-end 3/3 2ms 590n 295knps
+
+1468943945.741 Engine->Adapter:           id-end 3 17 d2d4 d7d5 e2e3
+1468943945.741 Adapter->GUI: #           id-end 3 17 d2d4 d7d5 e2e3
+
+1468943945.741 Engine->Adapter: bestmove d2d4
+1468943945.741 Adapter->GUI: # bestmove d2d4
+
+1468943945.742 Adapter->GUI: 0-1 {polyglot: resign (illegal engine move by white: d2d4)}
+1468943945.742 POLYGLOT FEN rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2
+1468943945.742 POLYGLOT *** CURRENT BOARD ***
+1468943945.742 POLYGLOT rnbqkbnr
+1468943945.742 POLYGLOT ppp-pppp
+1468943945.742 POLYGLOT --------
+1468943945.742 POLYGLOT ---p----
+1468943945.742 POLYGLOT ---P----
+1468943945.742 POLYGLOT --------
+1468943945.742 POLYGLOT PPP-PPPP
+1468943945.742 POLYGLOT RNBQKBNR
+1468943945.742 POLYGLOT white to play
+1468943945.742 POLYGLOT
+1468943945.742 POLYGLOT WAIT
+1468943945.853 GUI->Adapter: result 0-1 {polyglot: resign (illegal engine move by white: d2d4)}
+1468943945.853 POLYGLOT GAME END
+1468943945.853 POLYGLOT WAIT
+1468943945.853 GUI->Adapter: force
+1468943945.853 POLYGLOT WAIT
+1468943945.853 GUI->Adapter: ping 4
+1468943945.853 Adapter->GUI: pong 4
+1468943947.217 GUI->Adapter: quit
+1468943947.217 POLYGLOT *** "quit" from GUI ***
+1468943947.217 POLYGLOT *** QUIT ***
+1468943947.217 Adapter->Engine: quit
+1468943947.218 POLYGLOT Closing engine.
+1468943947.218 Adapter->Engine: EOF
+1468943947.218 POLYGLOT Engine does not reply. Sleeping 100ms.

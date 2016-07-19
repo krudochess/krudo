@@ -29,6 +29,9 @@ public final class Engine
     public int depth = 3;
     
     //
+    public boolean book = false;
+    
+    //
     public String info;
     
     //
@@ -98,20 +101,24 @@ public final class Engine
     
     // start thinking process
     public final void go() 
-    {    
+    {   
         //
-        String m = Book.rand(NODE.h);
+        if (book) 
+        {
+            //
+            String m = Book.rand(NODE.h);
+
+            //
+            if (m != null)
+            {    
+                //
+                sendbestmove(m);
+
+                //
+                return;
+            }
+        } 
         
-        //
-        if (m != null)
-        {    
-            //
-            sendbestmove(m);
-            
-            //
-            return;
-        }
-                
         //
         long time = NODE.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
         

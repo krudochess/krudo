@@ -315,6 +315,15 @@ public class Describe
     
     //
 	public final static String desc(		
+		final PV pv, 
+		final int i
+	) {
+		//
+		return m2s(pv.s[i], pv.v[i], pv.k[i]);
+	}
+    
+    //
+	public final static String desc(		
 		final Capture c, 
 		final int i
 	) {

@@ -61,3 +61,81 @@ $ Tue Jul 19 16:40:09 CEST 2016
 ? go wtime 60000 btime 60000 movestogo 40
 ? stop
 ? quit
+
+$ Tue Jul 19 17:55:34 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? position startpos
+? go wtime 60000 btime 60000 movestogo 40
+! bestmove d2d4
+? position startpos moves d2d4 c7c6
+? go wtime 56160 btime 57950 movestogo 39
+! bestmove d2d4
+? quit
+
+$ Tue Jul 19 17:57:37 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? position startpos
+? go wtime 60000 btime 60000 movestogo 40
+! bestmove d2d4
+? position startpos moves d2d4 c7c6
+? go wtime 59940 btime 57640 movestogo 39
+! bestmove d2d4
+? quit
+
+$ Tue Jul 19 17:59:02 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? position startpos
+? go wtime 60000 btime 60000 movestogo 40
+! bestmove d2d4
+? position startpos moves d2d4 d7d5
+? go wtime 59950 btime 58090 movestogo 39
+! bestmove d2d4
+? quit
