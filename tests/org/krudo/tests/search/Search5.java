@@ -32,6 +32,6 @@ public class Search5
         Search s = new Search(n);
      
         //
-        s.start(2);       
+        s.start(3);       
     }    
 }
