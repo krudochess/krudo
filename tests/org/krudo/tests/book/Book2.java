@@ -13,6 +13,7 @@ import org.krudo.Book;
 // required static class
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
+import org.krudo.Moves;
 
 // 
 public class Book2 
@@ -20,14 +21,17 @@ public class Book2
     //
     public static void main(String[] args) 
     {       
+        //
+        Moves.init();
+        
         // 
         Node n = new Node();
         
         //
-        //n.domove("f2f4");
+        n.startpos();
         
         //
-        String m = Book.rand(n);
+        String m = Book.rand(n.h);
 
         //
         while(m != null) 
@@ -36,7 +40,7 @@ public class Book2
             n.domove(m);
 
             //
-            m = Book.rand(n);
+            m = Book.rand(n.h);
         }
         
         //

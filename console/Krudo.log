@@ -1,0 +1,63 @@
+
+$ Tue Jul 19 16:00:20 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+? isready
+! readyok
+? ucinewgame
+? position startpos
+? go wtime 60000 btime 60000 movestogo 40
+? stop
+? quit
+
+$ Tue Jul 19 16:39:50 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? position startpos
+? go wtime 60000 btime 60000 movestogo 40
+? stop
+? quit
+
+$ Tue Jul 19 16:40:09 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? position startpos
+? go wtime 60000 btime 60000 movestogo 40
+? stop
+? quit

@@ -71,6 +71,6 @@ public class Engine1 {
         long btime = 1000;
         
         //
-        engine.go(wtime, btime);
+        engine.go();
     }    
 }

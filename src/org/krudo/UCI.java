@@ -88,7 +88,7 @@ public final class UCI
     BEST_MOVE_CALLBACK = () -> 
     {        
         //
-        Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bm);                                                
+        Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bestmove);                                                
     };            
         
     // 

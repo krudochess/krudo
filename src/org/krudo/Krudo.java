@@ -96,7 +96,8 @@ public final class Krudo
                 case UCI.ISREADY:
 
                     // print out im ready
-                    if (ENGINE.isReady()) {
+                    if (ENGINE.isReady())
+                    {
                         CONSOLE.print(UCI.READYOK);
                     }
 
@@ -137,16 +138,19 @@ public final class Krudo
                 case UCI.GO:                        
 
                     // call go with black and white time attentions
-                    if (has(i.arg[UCI.WTIME]) && has(i.arg[UCI.BTIME])) 
+                    if (has(i.arg[UCI.WTIME]))
                     {
-                        ENGINE.go(i.arg[UCI.WTIME], i.arg[UCI.BTIME]);
+                        ENGINE.wtime = toLong(i.arg[UCI.WTIME]); 
+                    }
+                     
+                    //
+                    if (has(i.arg[UCI.BTIME])) 
+                    {
+                        ENGINE.btime = toLong(i.arg[UCI.BTIME]);
                     } 
 
-                    // call go wihout parameters use default
-                    else 
-                    {
-                        ENGINE.go();
-                    }
+                    //
+                    ENGINE.go();
 
                     // break switch                        
                     break;

@@ -29,6 +29,6 @@ public class Engine2 {
         dump(t.NODE);
         
         //
-        t.search.start(10, 10000);
+        t.SEARCH.start(10, 10000);
     }    
 }

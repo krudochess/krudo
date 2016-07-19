@@ -101,15 +101,11 @@ public final class Book
 	}
 		
 	// get first move into book based on node
-	public static final String best(
-		final Node n
-	) {
+	public static final String best(final long lookup) 
+    {
 		// open file
 		open();
-		
-		//
-		long lookup = hash(n);
-		
+
 		// loop throu records
 		while (read()) 
         {	
@@ -158,17 +154,13 @@ public final class Book
 	}
 	
 	//
-	public static final String rand(final Node n) 
+	public static final String rand(final long lookup) 
     {
 		// get moves stored in book
-		//Move a = Book.list(n);
-		
-		// re-give move to buffer
-		//Move.psh(a);
-		
-		// return a random move on the availables
-		//return a.l > 0 ? i2m(a, rand(0, a.l-1)) : null;
-		return null;
+		ArrayList<String> m = Book.list(lookup);
+	
+		//
+		return m.size() > 0 ? m.get(Tool.rand(0, m.size()-1)) : null;	
 	}
 	
 	// convert current move-record into move
