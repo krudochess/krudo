@@ -56,7 +56,8 @@ public final class Krudo
     //
     private static void init() 
     {
-        
+        // prepare move-stacks
+        Moves.init();
     }
     
     //
@@ -151,7 +152,7 @@ public final class Krudo
                     break;
 
                 // quit from main loop    
-                case CMD.QUIT: return;
+                case UCI.QUIT: return;
             }
         } 
     }

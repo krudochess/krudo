@@ -313,18 +313,6 @@ public final class Constant {
     // even
     public final static int oo = 100000;
     public final static int mate = 50000;
-        
-    // command (-100 to 200)
-    public final static class CMD {
-        public final static int 
-        QUIT    = 100,
-        NOPE    = 101,
-        DUMP    = 102,
-        DOGAME    = 200,
-        DOMOVE    = 201,
-        UNMOVE    = 202,
-        PERFT    = 280;
-    }
     
     // internals
     public final static int
