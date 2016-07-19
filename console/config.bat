@@ -3,7 +3,7 @@
 rem common tools
 set JAVA=java.exe
 set PYTHON=C:\Python27\python.exe
-set WINBOARD=c:\WinBoard-4.7.2\WinBoard\winboard.exe
+set WINBOARD=c:\WinBoard-4.8.0\WinBoard\winboard.exe
 
 rem check java exists
 where %JAVA% > nul 2> nul
@@ -28,7 +28,8 @@ set ENGINETAG=Krudo %ENGINEVER%
 set ENGINECMD=%JAVA% -cp %ENGINEDIR%..\build\classes org.krudo.Krudo 
 
 rem other tools
-set POLYGLOT=c:\WinBoard-4.7.2\WinBoard\polyglot.exe
+set POLYGLOT=%WINBOARD%\..\polyglot.exe
 set BUILDENV=%PYTHON% %ENGINEDIR%\tool\buildenv.py
 set POSTGAME=%PYTHON% %ENGINEDIR%\tool\postgame.py
 
+echo %POLYGLOT%
