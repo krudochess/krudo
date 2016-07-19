@@ -143,6 +143,29 @@ public final class Decode
         //
 		return s2s(s) + s2s(v) + piece;
 	}
+    
+    // move to string
+	public static final String m2s(Move m, int i)
+    {
+		// promote symbol
+        String piece = "";
+		
+        //
+        switch (m.k[i]) 
+        {
+			case wqpm:
+            case bqpm: piece = "q"; break;
+            case wrpm:
+            case brpm: piece = "r"; break;
+            case wbpm: 
+            case bbpm: piece = "b"; break;
+            case wnpm:
+            case bnpm: piece = "n"; break;
+		}		
+        
+        //
+		return s2s(m.s[i]) + s2s(m.v[i]) + piece;
+	}
 	
 	// move to string
 	public static final String m2s(int s, int v, int k, int w) 

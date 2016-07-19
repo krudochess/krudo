@@ -10,6 +10,7 @@ package org.krudo;
 import static org.krudo.Config.*;
 import static org.krudo.Constant.*;
 import static org.krudo.Decode.*;
+import static org.krudo.Describe.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
 import static org.krudo.Zobrist.hash;
@@ -219,6 +220,7 @@ public final class Search
     // alfa-beta entry-point
     private int abrun(int a, int b) 
     {    
+        //
         PV pv = new PV();
         
         // generate and sort legal-moves
@@ -235,7 +237,7 @@ public final class Search
         
         //
         for (int i = 0; i < m.i; i++) 
-        {            
+        {   
             // make
             n.domove(m, i);
             
@@ -251,7 +253,23 @@ public final class Search
             {
                 s = abmin(d-1, a, b);                
             }
-            */               
+            */ 
+            
+            //
+            info("ab-loop-run", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
+            
+            // hard cut-off
+            if (s >= b && !SEARCH_BRUTE_FORCE) 
+            {  
+                //t.store(d, a, t.BETA); 
+                //return b; 
+                
+                //
+                a = b;
+                
+                //
+                break;
+            }
             
             // soft alfa-cut-off 
             if (s > a) 
