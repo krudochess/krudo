@@ -17,7 +17,7 @@ public final class Capture
 {            
     // constants
     public final static int
-    MAX = 16; 
+    MAX = 18; 
     
     // counters 
     public int 

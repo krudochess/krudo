@@ -6,144 +6,18 @@
 //
 package org.krudo;
 
-// required static class
-import java.util.LinkedHashMap;
+//
 import java.util.Map;
+import java.util.LinkedHashMap;
+
+// required static class
 import static org.krudo.Config.*;
 import static org.krudo.Constant.*;
 import static org.krudo.Decode.*;
-import static org.krudo.Describe.desc;
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
 import static org.krudo.Zobrist.*;
 import static org.krudo.Describe.*;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
-import static org.krudo.Describe.desc;
 
 //
 public final class Eval 
@@ -348,12 +222,12 @@ public final class Eval
         },            
         // black king from a8 to h1
         {
-            +5,    +5,    +10,   +0,    +0,    +0,    +10,   +5,  
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,  
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,   
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
+            +5,    +5,    +10,   -12,   -10,   -15,   +10,   +5,  
+            +0,    +0,    -100,  -100,  -100,  -100,  +0,    +0,    
+            +0,    +0,    -150,  -150,  -150,  -150,  +0,    +0,  
+            +0,    +0,    -150,  -200,  -200,  -150,  +0,    +0,    
+            +0,    +0,    -150,  -200,  -200,  -150,  +0,    +0,   
+            +0,    +0,    -150,  -150,  -150,  -150,  +0,    +0,     
             +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,  
             +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
         },    
@@ -361,12 +235,12 @@ public final class Eval
         {
             +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
             +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,  
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,   
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,  
-            +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
-            +5,    +5,    +10,   +0,    +0,    +0,    +10,   +5,  
+            +0,    +0,    -150,  -150,  -150,  -150,  +0,    +0,  
+            +0,    +0,    -150,  -200,  -200,  -150,  +0,    +0,    
+            +0,    +0,    -150,  -200,  -200,  -150,  +0,    +0,   
+            +0,    +0,    -150,  -150,  -150,  -150,  +0,    +0,    
+            +0,    +0,    -100,  -100,  -100,  -100,  +0,    +0,    
+            +5,    +5,    +10,   -12,   -10,   -15,   +10,   +5,  
         }
     }; 
 
