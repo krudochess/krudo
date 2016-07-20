@@ -6308,3 +6308,39 @@ Qxe5 {-0.08/7 0.9} 13. Rd1 d4 {-0.09/7 1.4} 14. f4 Qe6 {+0.03/8 1.7} 15. f5
 Qe5 {+0.67/8 4} 16. Nb5 a6 {+0.59/7 1.0} 17. Nc3 Bd6 {+2.17/8 1.1}
 {Error: first chess program (polyglot C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
 
+[Event "Training"]
+[Site "DEVSTATION01"]
+[Date "2016.07.19"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8V"]
+[Result "0-1"]
+[TimeControl "40/60"]
+[Annotator "1... +0.20"]
+
+1. d4 c6 {+0.20/7 1.9} 2. e3 d5 {+0.21/7 1.6} 3. Nf3 Nf6 {+0.15/7 2.6} 4.
+Nc3 Ne4 {-0.02/6 1.0} 5. Nxe4 dxe4 {-0.10/8 1.1} 6. Ng1 Be6 {+0.13/7 1.6}
+7. Ne2 f5 {+0.00/7 1.5} 8. Nc3 Nd7 {-0.11/6 0.8} 9. Qh5+ g6 {-0.05/7 0.8}
+10. Qd1 Bg7 {-0.05/7 1.4} 11. Ne2 O-O {+0.10/8 1.6} 12. Qd2 Qb8
+{-0.10/7 1.5} 13. Qb4 Bf6 {-0.11/7 0.7} 14. Bd2 Nb6 {-0.09/7 0.8} 15. Kd1
+Bf7 {-0.03/7 2.2} 16. Nc3 Nd5 {+0.00/6 1.0}
+{Error: first chess program (polyglot C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+
+[Event "Training"]
+[Site "DEVSTATION01"]
+[Date "2016.07.20"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8V"]
+[Result "0-1"]
+[TimeControl "40/60"]
+[Annotator "1... +0.24"]
+
+1. d4 Nc6 {+0.24/7 0.9} 2. d5 Ne5 {+0.01/7 0.9} 3. f4 Ng4 {+0.01/8 2.0} 4.
+e4 d6 {+0.04/7 0.8} 5. Bb5+ Bd7 {-0.06/7 0.8} 6. Bxd7+ Qxd7 {-0.08/8 1.0}
+7. h3 N4f6 {-0.01/7 0.9} 8. Nc3 c6 {+0.13/7 2.0} 9. dxc6 Qxc6 {-0.03/8 1.0}
+10. Qd3 Nd7 {-0.04/8 2.3} 11. Nf3 O-O-O {+0.08/7 2.2} 12. Be3 Nc5
+{-0.08/8 2.7} 13. Bxc5 Qxc5 {+0.20/7 1.3} 14. Ng5 Nh6 {+0.25/7 1.0} 15. Rd1
+e5 {+0.42/7 1.7} 16. fxe5 Be7 {+0.13/8 2.1} 17. Nf3 dxe5 {+0.08/8 0.8}
+{Error: first chess program (polyglot C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+

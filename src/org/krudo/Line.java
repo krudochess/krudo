@@ -7,8 +7,8 @@
 package org.krudo;
 
 // class for contain move-hystory or move sequence in game
-public final class Line {    
-
+public final class Line 
+{    
     // internal constants
     private final static int 
     MAX = 500; // maximum number of half move into line
