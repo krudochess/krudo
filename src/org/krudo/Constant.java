@@ -7,8 +7,8 @@
 package org.krudo;
 
 // all constants
-public final class Constant {
-    
+public final class Constant
+{    
     // start position in fen
     public final static String
     STARTPOS = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
