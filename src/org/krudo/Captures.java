@@ -10,50 +10,50 @@ package org.krudo;
 import static org.krudo.Tool.*;
 
 //
-public class Moves 
+public class Captures 
 {
     //
-    public final static int MOVES_STACK_SIZE = 101000;
+    public final static int CAPTURES_STACK_SIZE = 50000;
     
     //
-    private static int count=0;
+    private static int count = 0;
     
     //
-    private final static Move[] STACK = new Move[MOVES_STACK_SIZE];
+    private final static Capture[] STACK = new Capture[CAPTURES_STACK_SIZE];
     
     //
     public static void init()
     {
         //
-        for (int i = 0; i < MOVES_STACK_SIZE; i++)
+        for (int i = 0; i < CAPTURES_STACK_SIZE; i++)
         {
-            STACK[i] = new Move(); 
+            STACK[i] = new Capture(); 
         }
         
         //
-        count = MOVES_STACK_SIZE;
+        count = CAPTURES_STACK_SIZE;
     }
     
     //
-    public static Move pick() 
+    public static Capture pick() 
     {
         //
         return STACK[--count];
     }
     
     //
-    public static void free(final Move move) 
+    public static void free(final Capture capture) 
     {
         //
-        move.i = 0;
+        capture.i = 0;
         
         //
-        STACK[count++] = move;
+        STACK[count++] = capture;
     }
     
     //
     public static void info()
     {
-        print("Moves free="+count);
+        print("Capture free="+count);
     }
 }

@@ -10,13 +10,6 @@
 package org.krudo;
 
 //
-import org.krudo.Node;
-import org.krudo.Move;
-import org.krudo.Krudo;
-import org.krudo.Moves;
-
-
-//
 import java.util.ArrayList;
 import java.io.IOException;
 import java.io.FileInputStream;
@@ -24,8 +17,6 @@ import java.io.FileNotFoundException;
 
 //
 import static org.krudo.Tool.*;
-import static org.krudo.Debug.*;
-import static org.krudo.Zobrist.*;
 
 // book access tool
 public final class Book 

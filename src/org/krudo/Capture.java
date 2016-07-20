@@ -17,7 +17,7 @@ public final class Capture
 {            
     // constants
     public final static int
-    MAX = 15; 
+    MAX = 16; 
     
     // counters 
     public int 
@@ -33,17 +33,18 @@ public final class Capture
     // empty constructor
     public Capture() {}
                         
-    // add pseudo-move into stack 
-    // used in Node.pseudo()
+    // add pseudo-capture into stack 
     public final void add(
-        final int s0, 
-        final int v0,
-        final int k0
+        final int s0, // starts square
+        final int v0, // versus square
+        final int k0  // kind-of-move
     ) {        
         //
         s[i] = s0;
         v[i] = v0;
         k[i] = k0;    
+        
+        //
         i++;
     }
     
@@ -80,7 +81,7 @@ public final class Capture
             z = 0;
             
             //
-            for (int j = 1; j < i; j++) if (w[j-1] < w[j]) 
+            for (int j = 1; j < i; j++) if (w[j - 1] < w[j]) 
             {
                 // swap move by index
                 swap(j - 1, j);

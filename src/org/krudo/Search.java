@@ -183,7 +183,7 @@ public final class Search
         info("id-run", ""+deepLimit);
         
         // iterative deeping loop
-        while (deep <= deepLimit && stop == not)
+        while (deep <= deepLimit && stop == NOT)
         {                            
             // reset nodes search counter
             ns = 0;

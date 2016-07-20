@@ -27,16 +27,14 @@ public final class Config
     /**
     * EVALUATION SETTINGS
     * 
-    * manage every evaluation activity
-    * 
-    * 
+    * manage every evaluation activity 
     */
 
     //    
     EVAL_NODE = true,
-
-    // of legal moves generated
-    EVAL_LEGALS = false,     
+        
+    // of legal moves generated    
+    EVAL_MOVE = true,
 
     // of legal moves generated        
     EVAL_MVV_LAA = false,
@@ -53,40 +51,42 @@ public final class Config
     // of legal moves generated
     EVAL_TAPERED_OPENING = false,        
 
+    /**
+     * SEARCHING SETTINGS
+     * 
+     * asdads
+     */
+    
     //
-    EVAL_REMAPS = false,
-
-        /**
-         * SEARCHING
-         * 
-         * 
-*/
-        SEARCH_BRUTE_FORCE = false,
+    SEARCH_BRUTE_FORCE = false,
             
-            SEARCH_QUIESCENCE = true,
-
+    //
+    SEARCH_QUIESCENCE = true,
         
-                
-    // enable/disable evaluation 
+    //
+    SEARCH_THREAD = false,
+
+    /**
+     * MOVE STACK SETTINGS
+     * 
+     * asdads
+     */
+        
     // of legal moves generated
     MOVE_LEGALS = true,
             
-    // enable/disable sorting function 
     // into move stack used for search        
     MOVE_SORT = true, 
     
+    /**
+     * REMAPS SETTINGS
+     * 
+     * asdads
+     */
+      
+    //
+    REMAPS_EVAL = false,
 
-            
-
-            
-   
-   
-    MOVE_EVAL        = true, // use threats in run-time
-    MOVE_CACHE        = false,    // use caching systems (TT, Zobrist, ecc...)
-    MOVE_BUFFER        = true,
-    SEARCH_CUT_OFF    = true,
-    PSEUDO_REMAPS    = false,
-    THREAD            = false, // use threats in run-time
-    TABLE            = false, // use threats in run-time
-    ASPIRATION        = false;
+    //
+    REMAPS_PSEUDO = false;
 }

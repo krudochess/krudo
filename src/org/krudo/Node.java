@@ -496,7 +496,7 @@ public final class Node
             if (t == w) { white_legals(); } else { black_legals(); }
             
             //
-            if (MOVE_EVAL) { Eval.move(this); }
+            if (EVAL_MOVE) { Eval.move(this); }
             
             //
             Legals.add(h, m);
@@ -645,7 +645,7 @@ public final class Node
             pi--;
             
             // remap square in wbm 
-            if (PSEUDO_REMAPS) { white_remaps(si, pi, s); }
+            if (REMAPS_PSEUDO) { white_remaps(si, pi, s); }
 
             // switch to specific piece 
             switch (p) 
@@ -693,7 +693,7 @@ public final class Node
             if ((p & b) != b) { continue; }    
                 
             // apply boars search square remaps
-            if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
+            if (REMAPS_PSEUDO) { black_remaps(si, pi, s); }
             
             // switch by piece
             switch (p) 

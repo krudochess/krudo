@@ -28,19 +28,22 @@ public final class Console
     {    
         //
         try 
-        {        
+        {       
+            //
             w = new FileWriter(log, true);
+            
+            //
             w.flush();
+            
+            //
             b = new BufferedReader(new InputStreamReader(System.in)); 
-            log("\n");
+            
+            //
             log("$ "+new java.util.Date().toString()+"\n");
         } 
         
         //
-        catch (IOException ex) 
-        {
-            write(trace(ex));
-        }
+        catch (IOException ex) { write(trace(ex)); }
     }
     
     // read input and log it into log-file
@@ -60,10 +63,7 @@ public final class Console
         } 
         
         //
-        catch (IOException ex) 
-        {
-            write(trace(ex));
-        }
+        catch (IOException ex) { write(trace(ex)); }
                 
         // return string
         return s;            
@@ -83,10 +83,7 @@ public final class Console
         } 
         
         // if fail send to out then output an error
-        catch (Exception ex) 
-        {            
-            write(trace(ex));
-        }        
+        catch (Exception ex) { write(trace(ex)); }        
     }
 
     // clear console like cls or clear command in bash
@@ -105,6 +102,9 @@ public final class Console
             if (w != null && b != null)
             {
                 //
+                log("\n");
+                
+                //
                 w.flush();
 
                 //
@@ -116,10 +116,7 @@ public final class Console
         } 
         
         //
-        catch (IOException ex)
-        {
-            write(trace(ex));
-        }        
+        catch (IOException ex) { write(trace(ex)); }        
     }
     
     // handler program generated errors
@@ -148,10 +145,7 @@ public final class Console
         } 
         
         //
-        catch (IOException ex) 
-        {
-            write(trace(ex));
-        }        
+        catch (IOException ex) { write(trace(ex)); }        
     }
 
     // send output to console and return compound string 

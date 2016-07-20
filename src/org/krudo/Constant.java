@@ -89,7 +89,7 @@ public final class Constant {
     // cardinals for span smapims 
     public final static int 
     nw = 7, nn = 1, ne = 6,
-    ww = 3,            ee = 2,
+    ww = 3,         ee = 2,
     sw = 4, ss = 0, se = 5;
                 
     // smapims for span
@@ -232,9 +232,7 @@ public final class Constant {
     public final static int[]
     wecs = new int[] {},
     becs = new int[] {};         
-    
-    
-    
+   
     //
     public final static int
     orto = 0b0000_000_000_000_111, 
@@ -316,15 +314,15 @@ public final class Constant {
     
     // internals
     public final static int
-    MOVE_CACHE_SIZE        = 100000,
-    MOVE_BUFFER_SIZE    = 105000,
-    EVAL_CACHE_SIZE        = 1000,
-    TABLE_MAX_SIZE        = 15;
+    MOVE_CACHE_SIZE  = 100000,
+    MOVE_BUFFER_SIZE = 105000,
+    EVAL_CACHE_SIZE  = 1000,
+    TABLE_MAX_SIZE   = 15;
     
     // logical concepts
     public final static int
-    yes    = 1,
-    not    = 0; 
+    YES = 1,
+    NOT = 0; 
         
     // 
     public final static int 
