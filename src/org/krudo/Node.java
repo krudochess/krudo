@@ -45,9 +45,9 @@ public final class Node
     // legals moves-stack internal
     public Move m;
     
-    // hasing
-    public long ph; // current zobrist position hash key
-    public long mh; // current matirial hash key (for draw matirial rule)
+    // hash keys
+    public long phk; // current zobrist position hash key
+    public long mhk; // current matirial hash key (for draw matirial rule)
     
     //
     public final static int[] wph = new int[]
@@ -132,7 +132,7 @@ public final class Node
         Fen.parse(this, STARTPOS); 
         
         //
-        ph = hash(this);
+        hash(this);
     }
     
     // restore node to position passed in FEN
@@ -142,7 +142,7 @@ public final class Node
         Fen.parse(this, fen); 
         
         //
-        ph = hash(this);
+        hash(this);
     }
     
     // do-play a moves sequence passed by array
@@ -238,7 +238,7 @@ public final class Node
         final int x = B[v];        
         
         // store status into history line
-        L.store(p, s, v, x, k, e, c, ph);
+        L.store(p, s, v, x, k, e, c, phk);
         
         //
         hash_step1(this);
@@ -250,7 +250,7 @@ public final class Node
         B[v] = p;
                 
         // set zero en-passant square
-        e = 0;
+        e = xx;
         
         // decrease piece counter
         if (x != O) 
@@ -385,7 +385,7 @@ public final class Node
         c = L.c[L.i];
         
         //
-        ph = L.h[L.i];
+        phk = L.h[L.i];
         
         // decrease piece counter
         if (x != O) 
@@ -475,9 +475,9 @@ public final class Node
     private void cache_legals() 
     {   
         //
-        if (Legals.has(ph)) 
+        if (Legals.has(phk)) 
         {
-            m = Legals.get(ph);
+            m = Legals.get(phk);
         } 
         
         //
@@ -493,7 +493,7 @@ public final class Node
             if (EVAL_MOVE) { Eval.move(this); }
             
             //
-            Legals.add(ph, m);
+            Legals.add(phk, m);
         }        
     }
     

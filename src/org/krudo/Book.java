@@ -179,7 +179,7 @@ public final class Book
     public static final void walk(final Node n, final int u)
     {
         //
-        ArrayList<String> m = list(n.ph);
+        ArrayList<String> m = list(n.phk);
         
         //
         if (m.isEmpty()) { return; }

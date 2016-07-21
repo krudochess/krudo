@@ -24,7 +24,7 @@ public final class Fen
 		// base status fields
 		n.t	= w; // color-side to play
 		n.c	= 0b1111; // castling status
-		n.e	= 0;
+		n.e	= xx;
 		n.cw = 0;
 		n.cb = 0;
         n.oe = 256;
