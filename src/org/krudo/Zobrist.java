@@ -307,6 +307,7 @@ public final class Zobrist
             //
             u = span[n.e][nw];
             
+            //
             if (u != xx && n.B[u] == bp) 
             {
 				return true;
@@ -333,10 +334,7 @@ public final class Zobrist
 		if ((n.c & bqc) == 0) { n.phk ^= hash_bqc; }
 
         //
-        if (enpassant(n)) 
-        {
-            n.phk ^= HASH[ENPASSANT + n.e % 8];											        
-        }
+        if (enpassant(n)) { n.phk ^= HASH[ENPASSANT + n.e % 8]; }
     }	
     
     // hashing function 
@@ -367,10 +365,7 @@ public final class Zobrist
 		if ((n.c & bqc) == 0) { n.phk ^= hash_bqc; }
 
         //
-        if (enpassant(n)) 
-        {
-            n.phk ^= HASH[ENPASSANT + n.e % 8];											        
-        }
+        if (enpassant(n)) { n.phk ^= HASH[ENPASSANT + n.e % 8]; }
         
         //
         if (k == ecap) 

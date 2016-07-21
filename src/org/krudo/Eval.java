@@ -23,89 +23,167 @@ import static org.krudo.Describe.*;
 public final class Eval 
 {    
     //
-    private static final int EVAL_CACHE_SIZE = 100000;
+    private static final int EVAL_POSITION_SIZE = 100000;
     
     //
-    private static int queries = 0;
-    private static int success = 0;
+    private static final int EVAL_MATERIAL_SIZE = 1000;
     
     //
-    private final static LinkedHashMap<Long, Integer> 
-    CACHE = new LinkedHashMap<Long, Integer> (EVAL_CACHE_SIZE, 0.95f, true) 
+    private final static POSITION_CACHE POSITION = new POSITION_CACHE();
+      
+    //
+    static class POSITION_CACHE extends LinkedHashMap<Long, Integer>    
     {
+        //
+        public int queries = 0;
+        
+        //
+        public int success = 0;
+        
+        //
+        public POSITION_CACHE()
+        {
+            super(EVAL_POSITION_SIZE, 0.95f, true);        
+        }
+        
+        //
         @Override
         protected boolean removeEldestEntry(Map.Entry<Long, Integer> e) 
         {
             //
-            return size() > EVAL_CACHE_SIZE; 
+            return size() > EVAL_POSITION_SIZE; 
+        }
+        
+        //
+        public final void add(long h, int m)
+        {           
+            //
+            if (CACHE_EVAL) 
+            { 
+                //
+                super.put(h, m);                
+            }        
+        }
+
+        //
+        public final boolean has(long h) 
+        {    
+            //
+            queries++;
+
+            //
+            if (CACHE_EVAL && super.containsKey(h)) 
+            {
+                //
+                success++;
+
+                //
+                return true;
+            }
+
+            //
+            return false; 
+        }
+
+        //
+        public final int get(long h)
+        {
+            //
+            if (CACHE_EVAL) 
+            {
+                //
+                return super.get(h);
+            }
+
+            //
+            return 0;
         }
     };
        
     //
-    private static void add(long h, int m)
-    {           
+    private final static MATERIAL_CACHE MATERIAL = new MATERIAL_CACHE(); 
+    
+    //
+    static class MATERIAL_CACHE extends LinkedHashMap<Long, Integer> 
+    {
         //
-        if (CACHE_EVAL) 
-        { 
+        public int queries = 0;
+        
+        //
+        public int success = 0;
+        
+        //
+        public MATERIAL_CACHE() 
+        {
             //
-            CACHE.put(h, m);                
-        }        
-    }
+            super(EVAL_MATERIAL_SIZE, 0.95f, true);
+            
+            //
+            
+        }
+        
+        //
+        @Override
+        protected boolean removeEldestEntry(Map.Entry<Long, Integer> e) 
+        {
+            //
+            return size() > EVAL_POSITION_SIZE; 
+        }
+        
+        //
+        public final void add(long h, int m)
+        {           
+            //
+            if (CACHE_EVAL) 
+            { 
+                //
+                super.put(h, m);                
+            }        
+        }
 
-    //
-    private static boolean has(long h) 
-    {    
         //
-        queries++;
-        
-        if (CACHE_EVAL && CACHE.containsKey(h)) 
-        {
+        public final boolean has(long h) 
+        {    
             //
-            success++;
-        
+            queries++;
+
             //
-            return true;
+            if (CACHE_EVAL && super.containsKey(h)) 
+            {
+                //
+                success++;
+
+                //
+                return true;
+            }
+
+            //
+            return false; 
         }
-        
+
         //
-        return false; 
-    }
-    
-    //
-    private static int get(long h)
-    {
-        //
-        if (CACHE_EVAL) 
+        public final int get(long h)
         {
             //
-            return CACHE.get(h);
+            if (CACHE_EVAL) 
+            {
+                //
+                return super.get(h);
+            }
+
+            //
+            return 0;
         }
-        
-        //
-        return 0;
-    }
-    
-    /*
-    //
-    public final static void dump()
-    {
-        //
-        print("Eval (size:"+CACHE.size()+")");
-        
-        //
-        for (Map.Entry<Long, Integer> i: CACHE.entrySet())
-        {
-            //
-            print(Long.toHexString(i.getKey())+" => "+i.getValue());      
-        }    
-    }
-    */
+    };
     
     //
     public final static void info()
     {
         //
-        print("Eval (size:"+CACHE.size()+" q:"+queries+" s:"+success+")");
+        print("Eval position (size:"+POSITION.size()+" q:"+POSITION.queries+" s:"+POSITION.success+")");
+        
+        //
+        print("Eval material (size:"+MATERIAL.size()+" q:"+MATERIAL.queries+" s:"+MATERIAL.success+")");
     }    
     
     // opening piece sqaure weight
@@ -473,26 +551,23 @@ public final class Eval
         /*11100*/+3,    /*11101*/-2,    /*11110*/+5,    /*11111*/+6,    
     };
 
+    //
     public final static int node(final Node n) 
     {
         //
-        if (has(n.phk)) 
-        {
-            return get(n.phk);
-        } 
+        if (MATERIAL.has(n.mhk)) { return MATERIAL.get(n.mhk); }
         
         //
-        else
-        {
-            //
-            int w = cache_node(n);
-            
-            //
-            add(n.phk, w);
-            
-            //
-            return w;
-        }     
+        if (POSITION.has(n.phk)) { return POSITION.get(n.phk); } 
+        
+        //
+        int w = cache_node(n);
+
+        //
+        POSITION.add(n.phk, w);
+
+        //
+        return w;
     }
     
     // eval 

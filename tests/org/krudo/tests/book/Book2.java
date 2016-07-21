@@ -31,7 +31,7 @@ public class Book2
         n.startpos();
         
         //
-        String m = Book.rand(n.h);
+        String m = Book.rand(n.phk);
 
         //
         while(m != null) 
@@ -40,7 +40,7 @@ public class Book2
             n.domove(m);
 
             //
-            m = Book.rand(n.h);
+            m = Book.rand(n.phk);
         }
         
         //

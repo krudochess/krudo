@@ -27,7 +27,7 @@ public class Book3
         Node n = new Node();
         
         //
-        ArrayList<String> m = Book.list(n.h);
+        ArrayList<String> m = Book.list(n.phk);
 
         //
         dump(n);
