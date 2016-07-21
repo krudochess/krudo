@@ -29,9 +29,12 @@ public class Eval6
         Node n = new Node();
 
         //
-        n.startpos("k7/8/8/8/8/8/8/7K w");
+        n.startpos("kb6/8/8/8/8/8/8/7K w");
         
         //
         dump(n);
+        
+        //
+        print("eval: "+Eval.node(n));
     }
 }
