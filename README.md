@@ -20,6 +20,7 @@
 | Unstoppable Pawns Draws        |             |
 | Free Passed Pawns              |             |
 | Bishop Pair                    |             |
+| Relative History Heuristic     |             |
 
 
 
