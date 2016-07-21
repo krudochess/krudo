@@ -389,7 +389,7 @@ public final class Debug
             n.unmove();
             dump(n);
             dump(n.legals());
-            print(Book.list(n.h));
+            print(Book.list(n.ph));
             exit();
         }
     }

@@ -27,7 +27,7 @@ public final class Fen
 		n.e	= 0;
 		n.cw = 0;
 		n.cb = 0;
-        n.ph = 256;
+        n.oe = 256;
 		n.wks = e1;
 		n.bks = e8;
 		n.hm = 0;
@@ -57,16 +57,16 @@ public final class Fen
 						switch(p[i].charAt(j)) 
                         {
 							case 'p': n.B[s] = bp; n.cb++; break;
-							case 'n': n.B[s] = bn; n.cb++; n.ph -= Node.wph[bn & lo]; break;
-							case 'b': n.B[s] = bb; n.cb++; n.ph -= Node.wph[bb & lo]; break;
-							case 'r': n.B[s] = br; n.cb++; n.ph -= Node.wph[br & lo]; break;
-							case 'q': n.B[s] = bq; n.cb++; n.ph -= Node.wph[bq & lo]; break;
+							case 'n': n.B[s] = bn; n.cb++; n.oe -= Node.wph[bn & lo]; break;
+							case 'b': n.B[s] = bb; n.cb++; n.oe -= Node.wph[bb & lo]; break;
+							case 'r': n.B[s] = br; n.cb++; n.oe -= Node.wph[br & lo]; break;
+							case 'q': n.B[s] = bq; n.cb++; n.oe -= Node.wph[bq & lo]; break;
 							case 'k': n.B[s] = bk; n.bks = s; n.cb++; break;
 							case 'P': n.B[s] = wp; n.cw++; break;
-							case 'N': n.B[s] = wn; n.cw++; n.ph -= Node.wph[wn & lo]; break;
-							case 'B': n.B[s] = wb; n.cw++; n.ph -= Node.wph[wb & lo]; break;
-							case 'R': n.B[s] = wr; n.cw++; n.ph -= Node.wph[wr & lo]; break;
-							case 'Q': n.B[s] = wq; n.cw++; n.ph -= Node.wph[wq & lo]; break;
+							case 'N': n.B[s] = wn; n.cw++; n.oe -= Node.wph[wn & lo]; break;
+							case 'B': n.B[s] = wb; n.cw++; n.oe -= Node.wph[wb & lo]; break;
+							case 'R': n.B[s] = wr; n.cw++; n.oe -= Node.wph[wr & lo]; break;
+							case 'Q': n.B[s] = wq; n.cw++; n.oe -= Node.wph[wq & lo]; break;
 							case 'K': n.B[s] = wk; n.wks = s; n.cw++; break;
 							case '/': s = s - 17; break;						
 							case '1': s = s + 0; break;

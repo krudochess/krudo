@@ -106,7 +106,7 @@ public final class Engine
         if (book) 
         {
             //
-            String m = Book.rand(NODE.h);
+            String m = Book.rand(NODE.ph);
 
             //
             if (m != null)

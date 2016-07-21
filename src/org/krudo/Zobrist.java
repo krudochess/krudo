@@ -331,21 +331,21 @@ public final class Zobrist {
 	public static final void hash_step1(Node n)  
     {        
         // hash white king-side castling
-		if ((n.c & wkc) == 0) { n.h ^= hash_wkc; }
+		if ((n.c & wkc) == 0) { n.ph ^= hash_wkc; }
 		
 		// hash white queen-side castling
-		if ((n.c & wqc) == 0) { n.h ^= hash_wqc; }
+		if ((n.c & wqc) == 0) { n.ph ^= hash_wqc; }
 		
 		// hash black king-side castling
-		if ((n.c & bkc) == 0) { n.h ^= hash_bkc; }
+		if ((n.c & bkc) == 0) { n.ph ^= hash_bkc; }
 		
 		// hash black queen-side castling 			
-		if ((n.c & bqc) == 0) { n.h ^= hash_bqc; }
+		if ((n.c & bqc) == 0) { n.ph ^= hash_bqc; }
 
         //
         if (enpassant(n)) 
         {
-            n.h ^= HASH[ENPASSANT + n.e % 8];											        
+            n.ph ^= HASH[ENPASSANT + n.e % 8];											        
         }
     }	
     
@@ -353,39 +353,39 @@ public final class Zobrist {
 	public static final void hash_step2(Node n, int p, int s, int v, int x, int k)  
     {                
         //
-        n.h ^= HASH[p & hi | s];
+        n.ph ^= HASH[p & hi | s];
 
         //
-        if (x != O) { n.h ^= HASH[x & hi | v]; }        
+        if (x != O) { n.ph ^= HASH[x & hi | v]; }        
 
         //
-        n.h ^= HASH[p & hi | v];
+        n.ph ^= HASH[p & hi | v];
         
         //
-        n.h ^= HASH_TURN;
+        n.ph ^= HASH_TURN;
 
         // hash white king-side castling
-		if ((n.c & wkc) == 0) { n.h ^= hash_wkc; }
+		if ((n.c & wkc) == 0) { n.ph ^= hash_wkc; }
 		
 		// hash white queen-side castling
-		if ((n.c & wqc) == 0) { n.h ^= hash_wqc; }
+		if ((n.c & wqc) == 0) { n.ph ^= hash_wqc; }
 		
 		// hash black king-side castling
-		if ((n.c & bkc) == 0) { n.h ^= hash_bkc; }
+		if ((n.c & bkc) == 0) { n.ph ^= hash_bkc; }
 		
 		// hash black queen-side castling 			
-		if ((n.c & bqc) == 0) { n.h ^= hash_bqc; }
+		if ((n.c & bqc) == 0) { n.ph ^= hash_bqc; }
 
         //
         if (enpassant(n)) 
         {
-            n.h ^= HASH[ENPASSANT + n.e % 8];											        
+            n.ph ^= HASH[ENPASSANT + n.e % 8];											        
         }
         
         //
         if (k == ecap) 
         {
-            n.h ^= HASH[n.t == w ? wp & hi | (v + 8) : v - 8];        
+            n.ph ^= HASH[n.t == w ? wp & hi | (v + 8) : v - 8];        
         }
     }	
 }

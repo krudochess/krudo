@@ -476,9 +476,9 @@ public final class Eval
     public final static int node(final Node n) 
     {
         //
-        if (has(n.h)) 
+        if (has(n.ph)) 
         {
-            return get(n.h);
+            return get(n.ph);
         } 
         
         //
@@ -488,7 +488,7 @@ public final class Eval
             int w = cache_node(n);
             
             //
-            add(n.h, w);
+            add(n.ph, w);
             
             //
             return w;

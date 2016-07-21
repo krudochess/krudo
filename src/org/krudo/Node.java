@@ -36,17 +36,18 @@ public final class Node
     // other node status
     public int cw;  // count white piece
     public int cb;  // count black piece
+    public int oe;  // game phases (opening to endig)
     public int wks; // white king square
     public int bks; // black king square
     public int hm;  // half-move after pawn move or calpture
     public int n;   // count moves from the begin
-    public int ph;  // game phases (opening to final)
                 
     // legals moves-stack internal
     public Move m;
     
-    // current zobrist hash key
-    public long h;
+    // hasing
+    public long ph; // current zobrist position hash key
+    public long mh; // current matirial hash key (for draw matirial rule)
     
     //
     public final static int[] wph = new int[]
@@ -131,7 +132,7 @@ public final class Node
         Fen.parse(this, STARTPOS); 
         
         //
-        h = hash(this);
+        ph = hash(this);
     }
     
     // restore node to position passed in FEN
@@ -141,7 +142,7 @@ public final class Node
         Fen.parse(this, fen); 
         
         //
-        h = hash(this);
+        ph = hash(this);
     }
     
     // do-play a moves sequence passed by array
@@ -162,7 +163,8 @@ public final class Node
         int k = k2i(move, B[s], s, v, B[v], t);  
         
         // fix book castling move
-        if (k == cast) switch (v) {
+        if (k == cast) switch (v)
+        {
             case a1: v = c1; break;  
             case a8: v = c8; break;  
             case h1: v = g1; break;  
@@ -236,7 +238,7 @@ public final class Node
         final int x = B[v];        
         
         // store status into history line
-        L.store(p, s, v, x, k, e, c, h);
+        L.store(p, s, v, x, k, e, c, ph);
         
         //
         hash_step1(this);
@@ -254,7 +256,7 @@ public final class Node
         if (x != O) 
         {
             //
-            ph += wph[x & lo];
+            oe += wph[x & lo];
             
             //
             if (t == w) { cb--; } else { cw--; }
@@ -284,8 +286,7 @@ public final class Node
         final int s,
         final int v,
         final int k
-    ) {                
-                           
+    ) {                                           
         // fix specific status
         switch (k) 
         {                   
@@ -317,7 +318,8 @@ public final class Node
         final int k
     ) {                                                        
         // fix specific status
-        switch (k) {      
+        switch (k) 
+        {      
             // set en-passant square
             case pdmo: e = s - 8; return;            
             // performe en-passant capture
@@ -348,8 +350,7 @@ public final class Node
     
     // undo last move 
     public final void unmove() 
-    {   
-     
+    {      
         // decrease half-move index
         L.i--;
         
@@ -384,13 +385,13 @@ public final class Node
         c = L.c[L.i];
         
         //
-        h = L.h[L.i];
+        ph = L.h[L.i];
         
         // decrease piece counter
         if (x != O) 
         {
             //
-            ph -= wph[x & lo];
+            oe -= wph[x & lo];
             
             //
             if (t == w) { cb++; } else { cw++; }
@@ -408,9 +409,8 @@ public final class Node
             black_unmove(p, s, v, k);        
         }
         
-                //
+        //
         //Debug.assertPieceCount(this);
-
     }
     
     //
@@ -455,16 +455,10 @@ public final class Node
         if (k == ecap) { cw++; B[v + 8] = wp; }
         
         //
-        if (k == cast) if (v == g8) 
-        {
-            B[h8] = br; B[f8] = O;
-        } 
+        if (k == cast) if (v == g8) { B[h8] = br; B[f8] = O; } 
         
         //
-        else 
-        {
-            B[a8] = br; B[d8] = O;        
-        }                
+        else { B[a8] = br; B[d8] = O; }                
     }
         
     // generate moves-stack with legal-moves
@@ -478,12 +472,12 @@ public final class Node
     }
     
     // generate moves-stack with legal-moves
-    private final void cache_legals() 
+    private void cache_legals() 
     {   
         //
-        if (Legals.has(h)) 
+        if (Legals.has(ph)) 
         {
-            m = Legals.get(h);
+            m = Legals.get(ph);
         } 
         
         //
@@ -499,7 +493,7 @@ public final class Node
             if (EVAL_MOVE) { Eval.move(this); }
             
             //
-            Legals.add(h, m);
+            Legals.add(ph, m);
         }        
     }
     
@@ -700,18 +694,24 @@ public final class Node
             {
                 // add black pawn moves
                 case bp: down(s); break;                                             
+                
                 // add sliding piece rook moves
                 case br: span(s, 0, 4, s == a8 || s == h8 ? rmov : move); break;
+                
                 // add kngiht moves
                 case bn: hope(s); break;                                
+                
                 // add sliding piece bishop moves
                 case bb: span(s, 4, 8, move); break;
+                
                 // add sliding piece queen moves     
                 case bq: span(s, 0, 8, move); break;
+                
                 // add kings moves and castling
                 case bk: kong(s); break;    
+                
                 // unrecognized piece fault stop
-                default: exit("BLACK PSEUDO FAULT");                        
+                default: exit("default: black_pseudo()");                        
             }
 
             // count founded piece
@@ -739,10 +739,10 @@ public final class Node
         if (v != xx && B[v] == wp) { return true; }
               
         // attacked from queen or bishop
-        for (int j = 4; j < 8; j++) 
+        for (int i = 4; i < 8; i++) 
         {        
             // versus square
-            v = span[s][j];
+            v = span[s][i];
         
             //
             while (v != xx) 
@@ -750,9 +750,11 @@ public final class Node
                 //
                 switch (B[v]) 
                 {
-                    case O: v = span[v][j]; continue;
-                    case wb:
-                    case wq: return true;
+                    //
+                    case O: v = span[v][i]; continue;
+                    
+                    //
+                    case wb: case wq: return true;
                 }
                 
                 //
@@ -761,20 +763,22 @@ public final class Node
         }
          
         // attacked from queen or rook
-        for (int j = 0; j < 4; j++) 
+        for (int i = 0; i < 4; i++) 
         {        
             // versus square
-            v = span[s][j];
+            v = span[s][i];
         
             //
             while (v != xx) 
-            {             
+            {     
+                //
                 switch (B[v]) 
                 {
-                    case O: v = span[v][j]; continue;
-                    case wr:
-                    case wq: return true;
+                    //
+                    case O: v = span[v][i]; continue;
                     
+                    //
+                    case wr: case wq: return true;              
                 }   
                 
                 //
@@ -783,10 +787,10 @@ public final class Node
         }
                           
         //
-        for (int j = 0; j < 8; j++) 
+        for (int i = 0; i < 8; i++) 
         {            
             // get versus square
-            v = span[s][j];            
+            v = span[s][i];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -796,10 +800,10 @@ public final class Node
         }
     
         //
-        for (int j = 0; j < 8; j++) 
+        for (int i = 0; i < 8; i++) 
         {            
             // get versus square
-            v = hope[s][j];            
+            v = hope[s][i];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -828,51 +832,58 @@ public final class Node
         if (v != xx && B[v] == bp) { return true; }
         
         // attacked from queen or bishop
-        for (int j = 4; j < 8; j++) 
+        for (int i = 4; i < 8; i++) 
         {        
             // versus square
-            v = span[a][j];
+            v = span[a][i];
         
             //
             while (v != xx) 
-            {             
+            {      
+                //
                 switch (B[v]) 
                 {
-                    case O: v = span[v][j]; continue;
-                    case bb:
-                    case bq: return true;                    
+                    //
+                    case O: v = span[v][i]; continue;
+                    
+                    //
+                    case bb: case bq: return true;                    
                 }            
                 
+                //
                 break;
             }
         }
 
         // attacked from queen or rook
-        for (int j = 0; j < 4; j++) 
+        for (int i = 0; i < 4; i++) 
         {        
             // versus square
-            v = span[a][j];
+            v = span[a][i];
         
             //
             while (v != xx) 
-            {             
+            {    
+                //
                 switch (B[v]) 
                 {
-                    case O: v = span[v][j]; continue;
-                    case br:
-                    case bq: return true;
-                   
+                    //
+                    case O: v = span[v][i]; continue;
+                    
+                    //
+                    case br: case bq: return true;
                 }   
                 
+                //
                 break;
             }
         }
                 
         //
-        for (int j = 0; j < 8; j++) 
+        for (int i = 0; i < 8; i++) 
         {            
             // get versus square
-            v = span[a][j];            
+            v = span[a][i];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -882,10 +893,10 @@ public final class Node
         }
         
         //
-        for (int j = 0; j < 8; j++) 
+        for (int i = 0; i < 8; i++) 
         {            
             // get versus square
-            v = hope[a][j];            
+            v = hope[a][i];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -978,6 +989,7 @@ public final class Node
             // apply boars search square remaps
             //if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
             
+            //
             int v;
             
             // switch by piece
@@ -985,23 +997,41 @@ public final class Node
             {
                 // add black pawn capture
                 case wp:
+                    
+                    //
+                    int r = s >> 3;
+                    
+                    //
                     v = span[s][ne]; 
                     if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    
+                    //
                     v = span[s][nw]; 
                     if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    
+                    //
+                    if (r == 1) 
+                    {
+                        v = span[s][nn]; 
+                        if (B[v] == O) 
+                        { 
+                            c.add(s, v, move); 
+                        }
+                    }
+                    
+                    //
                     break;
                                         
-                // add sliding piece rook moves
+                // add sliding piece rook captures
                 case wr: spac(c, s, 0, 4); break;
                 
-                // add sliding piece bishop moves
-                
+                // add sliding piece bishop captures             
                 case wb: spac(c, s, 4, 8); break;
-                // add sliding piece queen moves     
                 
+                // add sliding piece queen captures     
                 case wq: spac(c, s, 0, 8); break;
                 
-                // add kngiht moves
+                // add kngiht captures
                 case wn: 
                     for (int i = 0; i < 8; i++) 
                     {
@@ -1010,7 +1040,7 @@ public final class Node
                     }
                     break;
                 
-                // add kings moves and castling
+                // add kings captures
                 case wk: 
                     for (int i = 0; i < 8; i++) 
                     {

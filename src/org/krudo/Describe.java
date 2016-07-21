@@ -115,8 +115,8 @@ public class Describe
 				//case 4: keys("ph:",n.cw,"ew:",n.wks); break;
 				//case 5: keys("wpw:",n.wks,"bpw:",n.wks); break;
 				//case 6: keys("hm:",n.hm,"n:",n.n); break;
-				case 1: desc += "cw: "+n.cw+"  cb: "+n.cb+"  ph: "+n.ph; break;
-				case 0: desc += "h: " + Long.toHexString(n.h); break;					
+				case 1: desc += "cw: "+n.cw+"  cb: "+n.cb+"  ph: "+n.oe; break;
+				case 0: desc += "h: " + Long.toHexString(n.ph); break;					
 			}
 			
 			//
