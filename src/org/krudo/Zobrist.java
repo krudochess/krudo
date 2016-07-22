@@ -388,4 +388,23 @@ public final class Zobrist
             n.phk ^= HASH[n.t == w ? wp & hi | (v + 8) : v - 8];        
         }
     }	
+    
+    //
+    public static long hash_material(int[] material)
+    {
+        //
+        long mhk = 0;
+        
+        // hash board material
+		for (int p = 0; p < 12; p++) 
+        {
+			for (int i = 0; i < material[p]; i++) 
+            { 
+				mhk ^= HASH[p * 8 + i];
+			}
+		}
+    
+        //
+        return mhk;
+    }
 }

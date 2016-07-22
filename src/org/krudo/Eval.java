@@ -119,7 +119,7 @@ public final class Eval
             super(EVAL_MATERIAL_SIZE, 0.95f, true);
             
             //
-            
+               
         }
         
         //
@@ -515,7 +515,13 @@ public final class Eval
             }
         }
     }
-   
+
+    //
+    private final static int[][] MAW = {
+        //bp wp bn wn bb wb br wr bq wq bk wk score
+        { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1,  +0 }  
+    };
+    
     // capture piece weight
     private final static int[] PW = {
         -100,    +100,    -300,   +300,    -305,    +305,    
@@ -550,6 +556,15 @@ public final class Eval
         /*11000*/+2,    /*11001*/-4,    /*11010*/-9,    /*11011*/+2,    
         /*11100*/+3,    /*11101*/-2,    /*11110*/+5,    /*11111*/+6,    
     };
+    
+    public final static void init()
+    {
+        //
+        for (int[] material : MAW) {
+            MATERIAL.add(hash_material(material), material[12]);
+        }
+    }
+    
 
     //
     public final static int node(final Node n) 

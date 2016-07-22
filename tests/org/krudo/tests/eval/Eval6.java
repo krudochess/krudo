@@ -23,6 +23,9 @@ public class Eval6
         DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
+        Eval.init();
+        
+        //
         Moves.init();
 
         //
