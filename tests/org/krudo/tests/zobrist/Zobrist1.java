@@ -70,13 +70,13 @@ public class Zobrist1
             n.startpos(tests[i]);        
             
             //
-            long h = hash(n);
+            hash(n);
             
             //
             //dump(n);
             
             //
-            echo(hex(h),"==",tests[i+1],"->",tests[i+1].equals(hex(h))+"\n");        
+            echo(hex(n.phk),"==",tests[i+1],"->",tests[i+1].equals(hex(n.phk))+"\n");        
         }                        
     }    
 }
