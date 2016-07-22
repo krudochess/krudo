@@ -51,7 +51,7 @@ public final class Node
     // hash keys
     public long phk; // current zobrist position hash key
     public long mhk; // current matirial hash key (for draw matirial rule)
-    
+   
     //
     public final static int[] wph = new int[]
     {
