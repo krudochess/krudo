@@ -231,13 +231,15 @@ public final class Zobrist
 		//
 		long phk = 0;
 		
-		// hash piece in board
+		// hash board position
 		for (int s = 0; s < 64; s++) 
         {
 			if (n.B[s] != O) { 
 				phk ^= HASH[n.B[s] & hi | s];
 			}
 		}
+        
+       
 				
 		// hash white king-side castling
 		if ((n.c & wkc) == 0) { phk ^= HASH_WKC; }
@@ -259,6 +261,21 @@ public final class Zobrist
 			
 		//
         n.phk = phk;
+        
+        //
+		long mhk = 0;
+        
+        // hash board material
+		for (int p = 0; p < 12; p++) 
+        {
+			for (int i = 0; i < n.M[p]; i++) 
+            { 
+				mhk ^= HASH[p * 8 + i];
+			}
+		}
+		
+        //
+        n.mhk = mhk;
 	}	
     
     //

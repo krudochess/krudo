@@ -22,8 +22,11 @@ import static org.krudo.Describe.*;
 // Spizzy XBoard version of Krudo 
 public final class Node 
 {    
-    // board internal status
+    // board position internal status
     public final int B[] = new int[64]; 
+    
+    // board material internal status
+    public final int M[] = new int[12]; 
     
     // node status  
     public int t; // turn (side to move)
@@ -256,6 +259,9 @@ public final class Node
         if (x != O) 
         {
             //
+            M[x & lo]--;
+            
+            //
             oe += wph[x & lo];
             
             //
@@ -390,6 +396,9 @@ public final class Node
         // decrease piece counter
         if (x != O) 
         {
+            //
+            M[x & lo]++;
+            
             //
             oe -= wph[x & lo];
             

@@ -139,14 +139,32 @@ public final class Debug
 		final int[] s
 	) {	
         //
-		for (int i = 0; i < s.length; i++) 
+        if (s.length == 64)
+        {     
+            //
+            for (int i = 0; i < s.length; i++) 
+            {
+                //
+                String sep = i%8==7 ? "\n" : " ";
+
+                //
+                System.out.print(s2s(s[i])+sep);     
+            }		
+        } 
+        
+        //
+        else 
         {
             //
-			String sep = i%8==7 ? "\n" : " ";
-            
-            //
-            System.out.print(s2s(s[i])+sep);     
-		}				
+            for (int i = 0; i < s.length; i++) 
+            {
+                //
+                String sep =  " ";
+
+                //
+                System.out.print(s[i]+sep);     
+            }
+        }
 	}
 	
 	//
