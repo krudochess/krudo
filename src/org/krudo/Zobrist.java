@@ -237,9 +237,7 @@ public final class Zobrist
 			if (n.B[s] != O) { 
 				phk ^= HASH[n.B[s] & hi | s];
 			}
-		}
-        
-       
+		}     
 				
 		// hash white king-side castling
 		if ((n.c & wkc) == 0) { phk ^= HASH_WKC; }
