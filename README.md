@@ -2,9 +2,9 @@
 
 | Ability                        | Implemented |
 | ------------------------------ |:-----------:|
-| Tapered Evaluation             |             |
-| Draw By Insufficient Material  |             |
-| MVV / LVA Move Order           |             |
+| Tapered Evaluation             | 10%         |
+| Draw By Insufficient Material  | 10%         |
+| MVV / LVA Move Order           | 10%         |
 | Aspiration Windows             |             |
 | Delay Move Generation          |             |
 | Time Management                |             |
