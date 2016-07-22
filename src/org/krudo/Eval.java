@@ -565,7 +565,6 @@ public final class Eval
         }
     }
     
-
     //
     public final static int node(final Node n) 
     {
