@@ -1,26 +1,28 @@
 ;
 ; parameters for playing against an UCI engine
 ;
+/mode=Analysis
 /cp
-/mg=1
 /tc=1
 /pgnEventHeader="Training"
+/lpf="%ENGINEDIR%/analize.fen"
 ;
 ; Method 1: explicitly invoke Polyglot, and supply ini file with all UCI option settings
 ; Directory is . (= same as WB), because that is where polyglot.exe is.
 ; Note we use Polyglot 1.4.38x here. (You could change that to 1.4.46b by dropping the "38".)
 ; This means WB will not be able to find logo file, so give it explicitly
 ; 
-/firstChessProgram="polyglot %ENGINEDIR%\%ENGINEINI%"
-/firstDirectory="%ENGINEDIR%"
-/firstLogo="%ENGINEIMG%"
+/firstChessProgram="polyglot _PG\fruit.ini"
+/firstDirectory="."
+/firstLogo="..\Fruit\logo.bmp"
 ;
 ; Method 2: let WB invoke Polyglot by telling it the engine is UCI. 
 ; In the install as it came this would use polyglot.exe, i.e. 1.4.46b.
 ; PG/fruit.ini will not be used, so only the most basic options will be set.
 ;
-/secondChessProgram="Frittle"
-/secondDirectory="../Frittle"
+/secondChessProgram="polyglot _PG\fruit.ini"
+/secondDirectory="."
+/secondLogo="..\Fruit\logo.bmp"
 ;
 ; Opening book
 ;
@@ -53,7 +55,7 @@
 ;
 ; save games
 ;
-/saveGameFile="%ENGINEDIR%\vs-frittle.pgn"
+/saveGameFile="%ENGINEDIR%\vs-fairymax.pgn"
 ;
 ; prevent these settings from becoming default
 ; 
