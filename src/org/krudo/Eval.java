@@ -524,7 +524,7 @@ public final class Eval
     
     // capture piece weight
     private final static int[] PW = {
-        -100,    +100,    -300,   +300,    -305,    +305,    
+        -100,    +100,    -285,   +285,    -305,    +305,    
         -500,    +500,    -900,   +900,    -6090,   +6090
     };
     
@@ -794,7 +794,7 @@ public final class Eval
         int biw = QPPW[bis >> 3] + KPPW[bis & 0b11111];
         
         // used for tuning
-        if (true) 
+        if (false) 
         {
             //
             print("black struct:", bin(bps, 8), bsw);

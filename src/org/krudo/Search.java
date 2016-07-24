@@ -20,16 +20,7 @@ public final class Search
 {    
     // node-centric search
     public Node n = null; 
-    
-    // best moves of a positions after idrun call
-    private final Move find = null; // founded moves after abrun
-    
-    // candidate move after idrun
-    private final Move move = null;    
-    
-    // collect principal variation
-    public Move[] pv;
-            
+                    
     // searching controls and related         
     public int stop = 0;
     public int lineStart = 0;
@@ -65,11 +56,10 @@ public final class Search
     public String logMove;    // log move observed
     public String logLine;    // log variation observed 
     public boolean logEnabled; // log node per seconds        
-  
+
+    //
     private final static int NT_NODE = 0;
-  
-    
-    
+ 
     //
     public String info;
     
@@ -87,41 +77,14 @@ public final class Search
     {
         print("BESTMOVE: "+bestmove);
     };
-      
-    //private Table t = Cache.table;
-    
+     
     // constructor with node-centric search
     public Search(Node node) 
     {   
         // fill internal node use in node-centric search
         n = node;
-        
-        /*
-        //
-        //find = new Move();
-        
-        //
-        //move = new Move();
-        
-        //
-        logEnabled = true;*/
     }
-        
-    /*
-    // launch alfabeta search to evaluate a position
-    public final int eval(int d)
-    { 
-        //
-        //find.empty();
-    
-        // set time limit for the searcing engine
-        timeLimit = time() + TIME_5_MINUTES;
-    
-        // run alpha-beta routine to evaluate
-        return abrun(d,-oo,+oo);        
-    }
-    */
-    
+            
     // public method to start search with large time-limit
     public final void start(int deep) 
     {    
@@ -132,12 +95,8 @@ public final class Search
     // public method to start search custom time-limit
     public final void start(int deep, long time) 
     {            
-        
-        //
-        //pv = new Move[20];
-        
         // reset stop flag
-        //stop = not;    
+        stop = NOT;    
         
         // place offset for search variation
         lineStart = n.L.i;
@@ -178,7 +137,11 @@ public final class Search
         
         //
         PV pv = new PV();
-              
+        
+        //
+        PV best_pv = new PV();
+        
+        
         //
         info("id-run", ""+deepLimit);
         
@@ -201,27 +164,20 @@ public final class Search
             
             //
             info("id-loop-run", deep+"/"+deepLimit);
-
-            // empty founded moves
-            //find.empty();
-
+           
             // launch alfa-beta for searcing candidates 
             score = abrun(alfa, beta, pv);        
-            
-            
-            
-            /*            
-            // if found moves and search not are stopped put into candidates
-            if (find.i > 0 && stop == not) 
-            {    
-                // log best move is the firt of founded 
-                //log(SEARCH_LOG_PV, pv, 1, deep, eval);        
-                                
+
+            //
+            if (stop == YES) 
+            {                 
                 //
-                //move.set(find); 
-            }
-            */
+                info("id-loop-break", deep+"/"+deepLimit+" "+t+"ms "+ns+"n "+"knps");
             
+                //
+                break; 
+            }
+                                  
             //
             t = time() - t;
             
@@ -237,13 +193,7 @@ public final class Search
         
         //
         info("id-end", ""+deepLimit+" "+score+" "+desc(pv));
-        
-        // exit from iterative deep sort best moves        
-        //move.sort();
-        
-        // log best move is the firt of founded 
-        //log(SEARCH_LOG_BM, move, 0);    
-        
+                
         //
         sendbestmove(desc(pv, 0));
     }
@@ -317,6 +267,7 @@ public final class Search
                 //log(SEARCH_LOG_UP, pv, 1,d,s);
                 //find.put(m,j,s);         
                 //m.w[i] = s;
+                               
                 a = s;                
             }   
             
@@ -648,28 +599,25 @@ public final class Search
     
     //
     private void abcontrol()
-    {
+    {        
+        //
+        if (ns < nsnext) { return; } 
+    
         // 
-        if (time() > timeLimit) 
-        { 
-        //    stop = yes;
-        }
-        
-        if (ns >= nsnext) 
-        {
-            //print("- "+ns);
-            nsnext = ns + nspoll;
+        if (time() > timeLimit) { stop = YES; }
 
-            long t = time() - nstime;
+        //print("- "+ns);
+        nsnext = ns + nspoll;
 
-            long r = nspoll / t;
+        long t = time() - nstime;
 
-            nstime = time();
+        long r = nspoll / t;
 
-            info("ab-speed", deep+"/"+deepLimit+" "+t+"ms "+ns+"n "+r+"knps");
-            
-            //print(Runtime.getRuntime().freeMemory());
-        }
+        nstime = time();
+
+        info("ab-speed", deep+"/"+deepLimit+" "+t+"ms "+ns+"n "+r+"knps");
+
+        //print(Runtime.getRuntime().freeMemory());
     } 
     
     // default log callback
@@ -769,18 +717,31 @@ public final class Search
     //
     public void sendbestmove(String m)
     {
+        //
         bestmove = m;
     
+        //
         sendbestmove.run();
+    }
+    
+    // launch alfabeta search to evaluate a position
+    public final int eval(int d)
+    {     
+        /*
+        // set time limit for the searcing engine
+        timeLimit = time() + TIME_5_MINUTES;
+    
+        // run alpha-beta routine to evaluate
+        return start(d); 
+        */
+        return 0;
     }
     
     //
     public final static void walk(final Node n, int deep, int width)
     {
-        if (deep == 0) {
-            //dump(n.L);
-            return;
-        }
+        //
+        if (deep == 0) { return; }
         
         //
         Move m = n.legals().sort();
@@ -791,13 +752,17 @@ public final class Search
         //
         for (int i = 0; i < w; i++) 
         {
+            //
             n.domove(m, i);
             
+            //
             walk(n, deep - 1, width);
             
+            //
             n.unmove();
         }
         
+        //
         Moves.free(m);
     }
 }

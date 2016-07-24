@@ -408,6 +408,8 @@ public final class Debug
             dump(n);
             dump(n.legals());
             print(Book.list(n.phk));
+
+              java.lang.Thread.dumpStack();
             exit();
         }
     }

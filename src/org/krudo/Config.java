@@ -34,7 +34,7 @@ public final class Config
     EVAL_NODE = true,
         
     // of legal moves generated    
-    EVAL_MOVE = true,
+    EVAL_MOVE = false,
 
     // of legal moves generated        
     EVAL_MVV_LAA = false,
@@ -73,7 +73,7 @@ public final class Config
      */
         
     // of legal moves generated
-    MOVE_LEGALS = true,
+    MOVE_LEGALS = false,
             
     // into move stack used for search        
     MOVE_SORT = true, 

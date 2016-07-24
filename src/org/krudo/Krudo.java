@@ -106,6 +106,15 @@ public final class Krudo
                     break;
 
                 // set thinker to start position
+                case UCI.UCINEWGAME:
+
+                    // set to start position
+                    ENGINE.startpos();
+
+                    // break switch
+                    break;
+
+                // set thinker to start position
                 case UCI.POSITION_STARTPOS:
 
                     // set to start position

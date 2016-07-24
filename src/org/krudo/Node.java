@@ -234,6 +234,9 @@ public final class Node
         final int v,
         final int k
     ) {  
+        //
+        Debug.assertPieceCount(this);
+
         // get moved piece
         final int p = B[s];
                 
@@ -285,6 +288,9 @@ public final class Node
         
         //
         hash_step2(this, p, s, v, x, k);
+        
+        //
+        Debug.assertPieceCount(this);
     }
     
     // domove and change node internal status
@@ -419,7 +425,7 @@ public final class Node
         }
         
         //
-        //Debug.assertPieceCount(this);
+        Debug.assertPieceCount(this);
     }
     
     //
@@ -1012,16 +1018,19 @@ public final class Node
                     
                     //
                     v = span[s][ne]; 
-                    if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    if (v != xx && (B[v] & b) == b) { c.add(s, v, move); }                    
                     
                     //
                     v = span[s][nw]; 
-                    if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    if (v != xx && (B[v] & b) == b) { c.add(s, v, move); }                    
                     
                     //
                     if (r == 1) 
                     {
+                        //
                         v = span[s][nn]; 
+                        
+                        //
                         if (B[v] == O) 
                         { 
                             c.add(s, v, move); 
@@ -1110,23 +1119,36 @@ public final class Node
 
                 // add black pawn capture
                 case bp:
+                    
+                    //
+                    int r = s >> 3;
+                    
+                    //
                     v = span[s][se]; 
                     if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    
+                    //
                     v = span[s][sw]; 
                     if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    
+                    //
                     break;
                 
                 // add kngiht moves
                 case bn: 
                     for (int i = 0; i < 8; i++) 
                     {
+                        //
                         v = hope[s][i];            
                         if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }
                     }
+                    
+                    //
                     break;
                 
                 // add kings moves and castling
-                case bk: 
+                case bk:
+                    
                     for (int i = 0; i < 8; i++) 
                     {
                         v = span[s][i];            
@@ -1272,31 +1294,27 @@ public final class Node
             v = span[s][ne]; 
             
             //
-            if (v != xx) if ((B[v] & b) == b)
+            if (v != xx)
             {
-                m.add(s, v, move);                
-            }
-            
-            //
-            else if (r == 4 && v == e) 
-            {
-                m.add(s, v, ecap);
-            }    
+                //
+                if ((B[v] & b) == b) { m.add(s, v, move); }
+
+                //
+                if (r == 4 && v == e) { m.add(s, v, ecap); }                    
+            }            
             
             //
             v = span[s][nw];
             
             // 
-            if (v != xx) if ((B[v] & b) == b) 
+            if (v != xx)  
             {
-                m.add(s, v, move);
-            } 
-            
-            //
-            else if (r == 4 && v == e)
-            {
-                m.add(s, v, ecap);            
-            }                            
+                //
+                if ((B[v] & b) == b) { m.add(s, v, move); }
+                
+                //
+                if (r == 4 && v == e) { m.add(s, v, ecap); }    
+            }                                    
         } 
         
         // yes is in promotion rank
@@ -1369,31 +1387,27 @@ public final class Node
             v = span[s][se]; 
             
             //
-            if (v != xx && mask(B[v],w)) 
-            {
-                m.add(s, v, move);                
+            if (v != xx) 
+            { 
+                //
+                if ((B[v] & w) == w) { m.add(s, v, move); }
+
+                //
+                if (r == 3 && v == e) { m.add(s, v, ecap); }    
             } 
-            
-            //
-            else if (r == 3 && v == e) 
-            {
-                m.add(s, v, ecap);
-            }    
-            
+                        
             //
             v = span[s][sw];
             
             //
-            if (v != xx && (B[v] & w) == w)
+            if (v != xx)
             {
-                m.add(s, v, move);
-            } 
-            
-            //
-            else if (r == 3 && v == e) 
-            {
-                m.add(s, v, ecap);            
-            }            
+                //
+                if ((B[v] & w) == w) { m.add(s, v, move); }
+                
+                //
+                if (r == 3 && v == e) { m.add(s, v, ecap); }    
+            }                    
         } 
         
         // else pawn is in promotion rank

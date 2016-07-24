@@ -101,13 +101,13 @@ public final class UCI
         UCI i = new UCI();
         
         //
-        if (s.startsWith("uci")) { i.cmd = UCI; } 
+        if (s.equals("uci")) { i.cmd = UCI; } 
               
         //
-        else if (s.startsWith("ucinewgame")) { i.cmd = UCINEWGAME; } 
+        else if (s.equals("ucinewgame")) { i.cmd = UCINEWGAME; } 
                 
         //
-        else if (s.startsWith("isready")) { i.cmd = ISREADY; } 
+        else if (s.equals("isready")) { i.cmd = ISREADY; } 
         
         //
         else if (s.startsWith("position fen "))
