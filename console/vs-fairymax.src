@@ -1,8 +1,9 @@
 ;
 ; parameters for playing against an UCI engine
 ;
+/mode=Analysis
 /cp
-/mg=1
+;/mg=1
 /tc=1
 /pgnEventHeader="Training"
 ;

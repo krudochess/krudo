@@ -1,109 +1,527 @@
 [Event "Training"]
-[Site "DEVSTATION01"]
-[Date "2016.07.20"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
 [Round "1"]
 [White "Krudo 0.15a"]
-[Black "Fairy-Max 4.8V"]
+[Black "Fairy-Max 4.8S"]
+[Result "*"]
+[TimeControl "60"]
+[Annotator "1... +0.26"]
+
+1. g3 c5 {+0.26/7 1.7} 2. Bg2 Nc6 {+0.16/7 1.5} 3. c4 h5 {-0.01/6 0.9} 4.
+Bxc6 dxc6 {+0.35/7 0.8} 5. e4 Be6 {+0.42/6 1.2} 6. Qb3 b5 {+0.35/7 1.6} 7.
+Qe3 Bxc4 {+0.36/7 0.8} 8. Qxc5 Qb6 {+0.47/7 1.3} 9. Qxb6 axb6 {+0.62/9 1.0}
+10. Nc3 b4 {+0.87/8 1.2} 11. Nd1 Rxa2 {+1.16/9 3} 12. Rxa2 Bxa2
+{+1.13/9 1.5} 13. Nf3 Bb1 {+1.74/9 1.3} 14. Ng5 f6 {+1.71/9 0.7} 15. Nf3
+Bxe4 {+2.37/10 1.5} 16. Ke2 g5 {+2.05/9 1.3} 17. d4 g4 {+5.33/10 1.7} 18.
+Ke1 gxf3 {+5.35/9 0.7} 19. Bf4 b3 {+5.50/9 0.5} 20. Bc7 b5 {+5.57/9 0.5}
+21. Nc3 Bd3 {+5.68/9 0.5} 22. Bf4 Bg7 {+5.78/8 0.8} 23. Rg1 f5
+{+5.97/8 0.5} 24. Be3 Nf6 {+6.06/9 1.1} 25. Bf4 O-O {+5.97/8 0.9} 26. Rh1
+Ra8 {+5.95/8 1.7} 27. Rg1 Ra1+ {+8.18/8 0.4} 28. Nd1 Ne4 {+11.43/9 1.1}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
 [Result "0-1"]
-[TimeControl "40/60"]
+[TimeControl "60"]
+[Annotator "1... +0.24"]
+
+1. d4 Nf6 {+0.24/7 2.4} 2. Bf4 Nc6 {+0.12/6 0.9} 3. Nf3 h5 {+0.16/6 0.8} 4.
+Nc3 d6 {+0.02/6 1.8} 5. e4 e6 {-0.05/6 2.2}
+{Black wins on time} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
 [Annotator "1... +0.21"]
 
-1. d4 c5 {+0.21/7 2.0} 2. d5 h5 {+0.18/7 1.4} 3. e4 d6 {+0.08/7 2.7} 4.
-Bb5+ Bd7 {-0.01/7 1.0} 5. Bxd7+ Nxd7 {-0.06/8 1.1} 6. Bf4 Qb6 {+0.18/7 1.0}
-7. Qc1 Ngf6 {+0.15/7 0.9} 8. Nc3 O-O-O {+0.01/6 0.8} 9. Ke2 Qa6+
-{+0.25/7 1.4} 10. Ke3 Ng4+ {+0.92/9 2.3} 11. Kf3 Nde5+ {+0.75/9 3} 12. Bxe5
-Nxe5+ {+0.72/8 1.4} 13. Kf4 g6 {+0.72/7 1.1} 14. Nf3 Bh6+ {+3.05/9 1.0} 15.
-Ng5 h4 {+3.35/10 2.4} 16. Qe3 f6 {+3.90/8 1.1} 17. Qh3+ Rd7 {+4.24/8 0.9}
-18. Ke3 fxg5 {+4.06/8 0.7} 19. Qe6 Nc4+ {+4.59/7 1.0} 20. Kf3 Nxb2
-{+4.53/8 1.5} 21. Rae1 Qa3 {+5.59/8 1.5} 22. Rhg1 Qxc3+ {+8.27/8 0.9} 23.
-Ke2 Qxc2+ {+14.05/9 1.2} 24. Kf1 Nd3 {+79.95/12 1.1} 25. Qf7 Rf8
-{+79.96/13 0.7} 26. Qxf8+ Bxf8 {+79.97/28 0.1} 27. Re2 Qc1+ {+79.98/28 0.2}
-28. Re1 Qxe1# {+79.99/28 0.1}
+1. f4 c6 {+0.21/7 1.0} 2. e4 Nf6 {+0.17/7 3} 3. e5 Nd5 {+0.04/7 0.8} 4. d4
+d6 {-0.02/7 1.1} 5. Nf3 dxe5 {-0.07/6 1.2} 6. Nxe5 Qa5+ {+0.03/6 1.4} 7.
+Bd2 Qb6 {+0.09/8 1.8} 8. Bc1 Bf5 {+0.10/7 1.8} 9. Qh5 g6 {+0.13/7 2.4} 10.
+Qd1 Bh6 {+0.27/7 1.7} 11. g4 Be4 {+0.54/7 1.2} 12. Nc4 Qc7 {+0.78/8 0.9}
+13. Rg1 Bxf4 {+1.00/8 0.9} 14. Bxf4 Qxf4 {+1.07/8 1.0} 15. Rg3 b5
+{+1.24/7 0.5} 16. Ne5 Ne3 {+3.34/8 0.6} 17. Qe2 Nxc2+ {+5.61/7 0.7} 18. Kd1
+Nxa1 {+5.63/7 1.0} 19. Nc3 Bc2+ {+7.50/7 0.6} 20. Ke1 Qc1+ {+6.99/8 2.3}
+21. Nd1 Bxd1 {+7.64/8 1.2} 22. Qxd1 Nc2+ {+7.74/8 0.7} 23. Ke2 Qxb2
+{+7.63/8 1.2} 24. Nxf7 Nxd4+ {+8.87/7 1.7} 25. Ke3 Nc2+ {+8.67/7 0.5} 26.
+Kd2 Nb4+ {+9.11/7 0.9} 27. Ke1 Kxf7 {+8.86/7 0.5} 28. Qb3+ Qxb3
+{+9.11/9 0.5} 29. Rxb3 Nxa2 {+9.29/8 0.4} 30. Rb2 Nc3 {+9.57/8 0.3} 31. Rb3
+Nd5 {+9.56/9 0.6} 32. Bg2 e6 {+9.64/8 0.5} 33. Bxd5 exd5 {+10.22/9 0.5} 34.
+Re3 Nd7 {+10.11/8 0.4} 35. Rc3 Ne5 {+10.56/8 0.6} 36. Re3 Nxg4
+{+10.93/9 0.5} 37. Rg3 Nxh2 {+11.55/8 0.4} 38. Rc3 Rae8+ {+11.77/9 0.5} 39.
+Kd1 Rc8 {+11.63/10 0.5} 40. Ra3 Rc7 {+11.68/11 0.3} 41. Ra2 Ng4
+{+11.80/10 0.4} 42. Rg2 Ne3+ {+16.86/11 0.4} 43. Kc1 Nxg2 {+17.15/11 0.3}
+44. Kb1 Ne3 {+16.67/12 0.7} 45. Kc1 b4 {+18.54/13 0.3} 46. Kb1 d4
+{+22.02/13 0.4} 47. Kc1 b3 {+22.97/13 0.3} 48. Kb2 Rb7 {+79.95/13 0.3} 49.
+Kc1 b2+ {+79.96/15 0.3} 50. Kb1 d3 {+79.97/28 0.2} 51. Ka2 b1=Q+
+{+79.98/28 0.2} 52. Ka3 Qa1# {+79.99/28 0.2}
 {Xboard adjudication: Checkmate} 0-1
 
 [Event "Training"]
-[Site "DEVSTATION01"]
-[Date "2016.07.20"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
 [Round "1"]
 [White "Krudo 0.15a"]
-[Black "Fairy-Max 4.8V"]
+[Black "Fairy-Max 4.8S"]
 [Result "0-1"]
-[TimeControl "40/60"]
-[Annotator "1... +0.29"]
+[TimeControl "60"]
+[Annotator "1... +0.15"]
 
-1. d4 d5 {+0.29/7 1.0} 2. Bf4 Bf5 {+0.27/7 2.9} 3. e3 Nd7 {+0.07/6 2.6} 4.
-g4 Be6 {-0.01/7 1.5} 5. Kd2 c5 {+0.23/7 1.1} 6. dxc5 Qa5+ {+0.00/6 0.9} 7.
-Nc3 O-O-O {+0.18/6 0.7} 8. Qe2 Nxc5 {+0.42/7 1.3} 9. b4 Qxb4 {+3.30/8 0.8}
-10. Bg2 d4 {+6.20/8 1.2} 11. exd4 Rxd4+ {+8.99/8 1.7} 12. Kc1 Qa3+
-{+79.98/28 0.1} 13. Kb1 Rb4# {+79.99/28 0.1}
+1. d4 Nc6 {+0.15/6 0.8} 2. d5 Na5 {-0.17/8 4} 3. Nf3 Nf6 {+0.28/7 1.3} 4.
+Nc3 c5 {+0.11/7 1.9} 5. e4 d6 {-0.13/6 1.0} 6. Bb5+ Bd7 {+0.03/6 1.0} 7.
+Bxd7+ Qxd7 {-0.06/8 1.5} 8. O-O O-O-O {+0.26/7 1.8} 9. e5 Ng4 {-0.02/7 1.2}
+10. Bf4 Qf5 {+0.63/8 1.5} 11. Qd2 Nc4 {+0.85/8 2.3} 12. Qc1 Ngxe5
+{+0.77/8 2.7} 13. b3 Nxf3+ {+1.38/8 0.8} 14. gxf3 Ne5 {+1.38/8 1.2} 15. Qe3
+Ng6 {+1.44/8 1.2} 16. Bg3 Qxc2 {+1.46/8 1.9} 17. Rac1 Qf5 {+1.52/7 0.8} 18.
+Qe4 e6 {+1.54/8 1.4} 19. Rfe1 Qxe4 {+1.49/8 0.5} 20. fxe4 h5 {+1.59/8 0.4}
+21. dxe6 fxe6 {+1.44/8 0.5} 22. Rcd1 h4 {+3.51/10 2.0} 23. Bxd6 Bxd6
+{+3.64/9 0.4} 24. Re3 h3 {+4.18/7 0.6} 25. Red3 Be7 {+4.23/9 0.5} 26. R3d2
+Rxd2 {+4.63/10 1.2} 27. Rxd2 Ne5 {+4.65/9 0.4} 28. f4 Nf3+ {+9.11/10 0.6}
+29. Kh1 Nxd2 {+9.02/11 0.5} 30. Kg1 Rf8 {+9.38/8 0.3} 31. Nb5 Rxf4
+{+79.97/28 0.2} 32. Nxa7+ Kd7 {+79.98/28 0.2} 33. Nb5 Rf1# {+79.99/28 0.2}
 {Xboard adjudication: Checkmate} 0-1
 
 [Event "Training"]
-[Site "DEVSTATION01"]
-[Date "2016.07.20"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
 [Round "1"]
 [White "Krudo 0.15a"]
-[Black "Fairy-Max 4.8V"]
+[Black "Fairy-Max 4.8S"]
 [Result "0-1"]
-[TimeControl "40/60"]
-[Annotator "1... +0.18"]
+[TimeControl "60"]
+[Annotator "1... +0.28"]
 
-1. Nf3 Nc6 {+0.18/7 1.5} 2. d4 d6 {+0.10/7 1.7} 3. Bf4 Bg4 {-0.01/6 1.3} 4.
-h3 Bd7 {-0.11/7 1.8} 5. e3 Nf6 {+0.00/6 1.6} 6. Nc3 Nh5 {+0.08/7 0.8} 7.
-Bg5 h6 {+0.36/8 1.0}
-{Error: first chess program (polyglot C:/Development/Github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+1. c4 c6 {+0.28/7 1.1} 2. Nf3 d5 {+0.15/7 2.5} 3. d4 dxc4 {+0.68/7 1.1} 4.
+e3 Be6 {+0.66/7 0.9} 5. Qc2 b5 {+0.43/7 1.1} 6. Nc3 Nh6 {+0.82/7 1.8} 7. e4
+f6 {+0.74/6 2.6} 8. Bf4 g5 {+1.05/7 1.4} 9. Be3 Bg7 {+0.79/7 5} 10. O-O-O
+Ng4 {+1.15/8 1.5} 11. h4 gxh4 {+1.17/7 0.6} 12. Rxh4 Nxe3 {+1.25/7 4}
+{Black wins on time} 0-1
 
 [Event "Training"]
-[Site "DEVSTATION01"]
-[Date "2016.07.20"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
 [Round "1"]
 [White "Krudo 0.15a"]
-[Black "Fairy-Max 4.8V"]
+[Black "Fairy-Max 4.8S"]
 [Result "0-1"]
-[TimeControl "40/60"]
+[TimeControl "60"]
+[Annotator "1... +0.12"]
+
+1. Nf3 g6 {+0.12/7 2.1} 2. g3 c6 {+0.23/7 1.9} 3. e4 Nf6 {+0.23/7 1.1} 4.
+e5 Ng4 {-0.11/7 1.4} 5. h3 Nh6 {-0.20/8 1.7} 6. Nc3 f6 {-0.07/6 0.7} 7.
+exf6 exf6 {-0.30/7 0.9} 8. Qe2+ Be7 {-0.12/7 0.7} 9. d4 Nf5 {+0.07/7 0.9}
+10. g4 Ng7 {-0.15/7 0.7} 11. Bf4 O-O {+0.08/6 0.9} 12. O-O-O d5
+{+0.15/6 0.9} 13. Qd3 f5 {+0.23/8 1.6} 14. g5 Ne6 {+0.51/8 0.9} 15. Bxb8
+Rxb8 {+0.43/7 0.6} 16. h4 Bd6 {+0.40/7 1.0} 17. Rd2 Bf4 {+1.73/8 1.4} 18.
+Ne5 Re8 {+1.81/7 1.2} 19. Qe2 Nxd4 {+3.55/6 0.7} 20. Qd3 Bxe5 {+3.64/7 0.6}
+21. Ne2 Nxe2+ {+3.87/8 1.8} 22. Bxe2 Qb6 {+5.28/8 1.1} 23. c4 Bf4
+{+6.00/8 1.5} 24. cxd5 Qxf2 {+6.00/8 1.0} 25. Kd1 Bxd2 {+5.87/8 1.2} 26.
+Qxd2 cxd5 {+6.06/8 1.0} 27. Re1 Qxh4 {+6.77/7 0.4} 28. Qxd5+ Be6
+{+7.40/7 0.6} 29. Qc5 Rbd8+ {+13.31/7 0.6} 30. Bd3 Rxd3+ {+19.12/8 1.1} 31.
+Ke2 Bc4+ {+79.96/8 0.6} 32. Kf1 Rxe1+ {+79.98/28 0.2} 33. Kg2 Qg3#
+{+79.99/28 0.2}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1... +0.22"]
+
+1. Nf3 c6 {+0.22/7 1.2} 2. e4 Nh6 {+0.12/7 1.6} 3. Nc3 d5 {+0.17/7 1.3} 4.
+d4 dxe4 {-0.05/6 1.0} 5. Nxe4 f5 {+0.08/6 1.4} 6. Nc3 Be6 {-0.13/6 1.1} 7.
+Bf4 Qb6 {-0.01/6 0.7} 8. Rb1 Na6 {+0.03/5 0.8} 9. Qe2 Bd7 {-0.08/7 2.3} 10.
+Qe5 Nf7 {+0.30/8 1.3} 11. Qe3 O-O-O {+0.21/7 1.7} 12. Bc4 Nb4 {+0.00/8 2.3}
+13. Bxf7 Nxc2+ {+4.17/8 1.2}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "*"]
+[TimeControl "60"]
+[Annotator "1... +0.28"]
+
+1. Nc3 Nf6 {+0.28/7 1.2} 2. d4 c6 {+0.28/7 4} 3. Nf3 d6 {+0.12/6 1.1} 4.
+Bf4 Qb6 {+0.14/6 0.8} 5. Rb1 Bf5 {+0.11/6 0.9} 6. Qd2 Nbd7 {+0.23/7 1.3} 7.
+Nh4 Be6 {+0.09/7 1.1} 8. Nf3 h6 {+0.17/7 2.1} 9. e4 O-O-O {+0.16/6 0.9} 10.
+Qd3 g5 {+0.06/6 0.6}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1... +0.24"]
+
+1. e4 Nf6 {+0.24/7 1.3} 2. e5 Ng8 {-0.11/8 2.6} 3. Nf3 Nc6 {+0.23/7 1.7} 4.
+Nc3 d6 {+0.05/7 1.6} 5. exd6 cxd6 {-0.02/8 1.9} 6. Bc4 Be6 {-0.04/7 1.0} 7.
+Be2 Qd7 {-0.18/7 1.5} 8. O-O O-O-O {+0.02/7 1.2} 9. d4 Bg4 {-0.27/7 1.6}
+10. Bf4 Nf6 {+0.08/6 1.1} 11. Re1 Qf5 {+0.06/6 0.8} 12. Qd2 e5
+{+0.65/7 0.7} 13. dxe5 dxe5 {+2.69/8 1.4}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1... +0.27"]
+
+1. g3 c5 {+0.27/7 4} 2. Bg2 Nf6 {+0.05/6 0.9} 3. e4 Nc6 {+0.11/6 0.9} 4.
+Nc3 h5 {-0.16/6 1.7} 5. Nf3 d5 {-0.04/6 0.7} 6. exd5 Nxd5 {-0.22/7 0.9} 7.
+O-O Nxc3 {-0.05/7 3} 8. bxc3 Qa5 {+0.09/7 0.9} 9. Qe1 Bf5 {+0.15/7 2.3} 10.
+Ne5 Qc7 {-0.01/6 1.1} 11. Nxc6 bxc6 {-0.01/8 1.0} 12. Be4 Bh3 {+0.30/9 0.9}
+13. Bg2 Bxg2 {+0.30/9 0.8} 14. Kxg2 O-O-O {+0.11/8 1.2} 15. Kg1 h4
+{-0.01/7 0.7} 16. Qe4 h3 {+0.43/6 0.5} 17. d4 cxd4 {+0.57/7 0.9} 18. cxd4
+e6 {+0.57/7 0.6} 19. Bf4 Bd6 {+0.67/7 0.6} 20. Rad1 Bxf4 {+0.76/8 0.6} 21.
+Qxf4 Qxf4 {+0.89/10 1.5} 22. gxf4 Rh4 {+0.85/9 1.1}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
 [Annotator "1... +0.11"]
 
-1. d4 d5 {+0.11/6 0.8} 2. Nc3 Nf6 {+0.23/7 1.6} 3. Bg5 e6 {+0.12/6 0.9} 4.
-Bxf6 Qxf6 {+0.34/6 1.0} 5. e3 c5 {+0.40/6 4} 6. Bb5+ Nc6 {+0.42/5 1.5} 7.
-Nf3 Bd7 {+0.44/6 1.8} 8. O-O O-O-O {+0.65/5 1.1} 9. Qd3 a6 {+0.57/6 2.8}
-10. Bxc6 Bxc6 {+0.67/8 0.7} 11. Qe2 Bd6 {+0.76/7 1.1} 12. Rad1 h5
-{+0.68/7 1.9} 13. Rfe1 Bd7 {+0.60/6 0.8} 14. e4 cxd4 {+0.24/7 1.1} 15. Rxd4
-Bc5 {+0.66/7 0.8} 16. Rd3 Rhe8 {+0.45/7 1.6} 17. h4 Bc6 {+0.72/6 0.9} 18.
-exd5 exd5 {+0.68/9 1.3} 19. Qd2 Rxe1+ {+0.69/8 1.2} 20. Qxe1 b5
-{+0.65/7 2.9} 21. Qd1 d4 {+0.90/9 1.1} 22. Nb1 Be4 {+0.73/7 0.8} 23. Rb3
-Qf5 {+1.37/8 0.7} 24. Ne1 d3 {+6.64/9 1.0} 25. cxd3 Qxf2+ {+79.98/28 0.1}
-26. Kh1 Qxh4# {+79.99/28 0.1}
-{Xboard adjudication: Checkmate} 0-1
+1. e4 c6 {+0.11/6 1.4} 2. d4 d5 {+0.15/6 1.0} 3. Nd2 Nf6 {+0.24/7 2.4} 4.
+f3 Be6 {+0.12/7 1.2} 5. Ne2 g5 {+0.06/7 1.1} 6. Nc3 Bh6 {-0.02/6 2.3} 7. e5
+Nh5 {+0.11/7 1.8} 8. h4 Ng3 {+0.50/8 0.7} 9. Rh2 Qb6 {+0.46/7 0.9} 10. hxg5
+Bxg5 {+0.73/7 0.7} 11. Nb3 Nxf1 {+0.57/8 0.8} 12. Kxf1 Bxc1 {+0.42/7 0.6}
+13. Rxc1 Nd7 {+0.57/6 0.6} 14. Qd3 h5 {+0.40/6 1.1} 15. g4 h4 {+0.39/7 1.4}
+16. Kg2 Nf8 {+0.30/6 1.3} 17. Rch1 Ng6 {+0.61/7 0.7} 18. Na4 Qb4
+{+2.33/7 0.6} 19. Nac5 Nf4+ {+5.54/8 1.0}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
 
 [Event "Training"]
-[Site "DEVSTATION01"]
-[Date "2016.07.20"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
 [Round "1"]
 [White "Krudo 0.15a"]
-[Black "Fairy-Max 4.8V"]
+[Black "Fairy-Max 4.8S"]
 [Result "0-1"]
-[TimeControl "40/60"]
-[Annotator "1... +0.19"]
+[TimeControl "60"]
+[Annotator "4. +0.34   1... +0.23"]
 
-1. Nf3 Nc6 {+0.19/7 1.4} 2. d4 Nf6 {+0.08/7 1.7} 3. e3 d5 {+0.14/7 1.6} 4.
-Nc3 Be6 {-0.01/6 1.1} 5. Be2 Bf5 {-0.17/7 1.3} 6. O-O Nb4 {+0.05/7 3} 7.
-Bd3 Nxd3 {+0.47/9 1.4} 8. cxd3 c6 {+0.47/8 1.2} 9. Re1 Qb6 {+0.38/6 0.8}
-10. e4 Bg4 {+0.37/7 1.0} 11. exd5 cxd5 {+0.32/7 0.8} 12. Qa4+ Bd7
-{+0.29/7 1.2} 13. Qc2 Bf5 {+0.31/7 2.6} 14. Bf4 h5 {+0.38/7 1.8} 15. Qa4+
-Bd7 {+0.34/7 1.3} 16. Qc2 Bc6 {+0.37/7 2.6} 17. Na4 Qb5 {+0.20/8 5} 18. Nc3
-Qb4 {+0.36/7 1.4} 19. a3 Qb6 {+0.37/7 0.6} 20. Na4 Qa5 {+0.20/8 1.5} 21.
-Nc3 Nd7 {+0.33/7 1.0} 22. b4 Qa6 {-1.46/7 1.1} 23. Re3 b5 {+0.35/7 2.0} 24.
-Qa2 Qb7 {+0.40/7 0.6} 25. Rc1 g6 {+0.41/7 0.9} 26. Qb2 Qb6 {+0.35/6 0.8}
-27. Qb3 Nf6 {+0.34/7 1.0} 28. Bg5 Ng4 {+0.20/8 0.9} 29. Nxd5 Bxd5
-{+1.11/9 0.6} 30. Qxd5 Rd8 {+1.04/9 0.8} 31. Qb3 Nxe3 {+1.07/8 1.1} 32.
-fxe3 Bg7 {+1.09/8 1.2} 33. Ne5 Rf8 {+1.09/8 1.6} 34. Nc6 Rc8 {+1.08/8 0.7}
-35. Bxe7 Rxc6 {+1.81/10 0.9} 36. Rxc6 Qxc6 {+2.32/12 1.5} 37. Bc5 Rg8
-{+2.45/10 0.9} 38. Qb2 Bh6 {+3.12/9 0.6} 39. Qd2 Qe6 {+3.55/9 0.8} 40. d5
-Qxd5 {+3.66/10 1.3} 41. Bxa7 Qa8 {+3.48/10 1.7} 42. Bb6 Qxa3 {+3.72/11 1.3}
-43. Bd4 Bf8 {+3.84/11 1.8} 44. Bc3 f5 {+3.85/11 5} 45. d4 Rg7
-{+4.51/11 1.2} 46. Qe1 Rc7 {+5.26/11 0.8} 47. Bd2 Qd3 {+5.26/10 1.0} 48.
-Qg3 Qxd2 {+6.55/9 0.9} 49. Qxg6+ Kd8 {+7.20/9 1.6} 50. Qf6+ Be7
-{+79.94/12 0.9} 51. Qh8+ Kd7 {+79.95/14 1.0} 52. h4 Qe1+ {+79.97/28 0.2}
-53. Kh2 Qxh4+ {+79.98/28 0.1} 54. Kg1 Rc1# {+79.99/28 0.1}
-{Xboard adjudication: Checkmate} 0-1
+1. d4 c5 {+0.23/7 2.6} 2. d5 g6 {+0.09/7 2.2} 3. e4 Nh6 {-0.05/6 1.6} 4.
+Nf3 {+0.34/3 0.2} f5 {-0.06/6 0.9} 5. Nc3 {+0.26/3 0.7} Bg7 {-0.10/6 1.0}
+6. Qd3 {+0.37/3 0.4} O-O {+0.07/6 1.2} 7. Bf4 {+0.28/3 2.8} d6
+{-0.02/5 0.8} 8. O-O-O {+0.41/3 1.6} Ng4 {+0.20/6 1.5} 9. Rd2 {+0.34/3 3}
+Nd7 {+0.14/6 1.7} 10. exf5 {+0.41/3 5} Rxf5 {+0.03/6 0.6} 11. Bg5
+{+0.20/3 0.9} Nde5 {+0.53/6 0.7} 12. Nxe5 {+0.08/3 7} Bxe5 {+0.63/6 1.2}
+13. f4 {-0.81/3 2.3} Rxf4 {+0.83/6 0.7} 14. Bxf4 {+1.14/3 0.5} Bxf4
+{+0.91/8 0.9} 15. Be2 {-0.99/3 0.2} Nf2 {+2.76/8 0.6}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "2. +0.17   1... +0.27"]
+
+1. b3 c6 {+0.27/7 1.6} 2. d4 {+0.17/3 0.2} d5 {+0.18/7 1.5} 3. Nf3
+{+0.12/3 0.2} Bf5 {+0.07/6 0.8} 4. Nc3 {+0.13/3 0.2} Nd7 {+0.06/6 0.8} 5.
+Bf4 {+0.23/3 0.7} Qa5 {+0.05/6 1.3} 6. Qd2 {+0.11/3 0.7} O-O-O
+{+0.06/6 1.4} 7. Rd1 {+0.03/3 2.6} e5 {+0.72/6 1.4} 8. Nxe5 {+0.79/3 13}
+Nxe5 {+1.97/8 2.2} 9. Bxe5 {+0.79/3 2.4} Bb4 {+3.80/9 2.0}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "3. +0.24   1... +0.25"]
+
+1. d4 Nf6 {+0.25/7 2.1} 2. Nc3 Nc6 {+0.26/7 1.5} 3. e4 {+0.24/3 0.2} d5
+{+0.20/7 1.5} 4. exd5 {+0.25/3 1.0} Nxd5 {-0.12/8 3} 5. Nf3 {+0.20/3 0.2}
+Be6 {+0.02/7 1.8} 6. Qd3 {+0.34/3 0.2} Ncb4 {+0.35/7 1.3} 7. Qb5+
+{+0.49/3 0.7} c6 {+0.59/7 1.1} 8. Qxb7 {+0.48/3 0.6} Rb8 {+3.55/6 0.6} 9.
+Qxa7 {+1.36/3 0.4} Nxc2+ {+3.57/7 0.8}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1... +0.25"]
+
+1. g3 Nf6 {+0.25/7 1.2} 2. Bg2 Nc6 {+0.07/7 1.5} 3. d4 {-0.06/2 0.2} e5
+{-0.09/6 0.9} 4. Bxc6 {+0.65/2 0.2} dxc6 {+0.27/8 1.0} 5. dxe5
+{+0.65/2 0.2} Qxd1+ {+0.35/9 0.9} 6. Kxd1 {+0.76/2 0.2} Ng4 {+0.25/10 2.4}
+7. f4 {+0.65/2 0.2} Nf2+ {+4.07/8 1.0}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1... +0.25"]
+
+1. e4 Nf6 {+0.25/7 1.0} 2. e5 Ng8 {-0.10/8 4} 3. Nf3 {+0.04/2 0.2} d6
+{+0.24/7 2.2} 4. exd6 {+0.12/2 0.2} cxd6 {+0.08/7 0.8} 5. d4 {+0.07/2 0.1}
+Nc6 {+0.03/6 1.6} 6. Bc4 {+0.06/2 0.2} d5 {-0.06/6 0.8} 7. Bb3
+{-0.15/2 0.6} Na5 {-0.08/6 0.6} 8. O-O {+0.13/2 0.2} Nxb3 {+0.30/8 1.5} 9.
+cxb3 {-0.04/2 0.2} Bf5 {+0.41/7 0.9} 10. Nc3 {-0.03/2 0.2} Nf6
+{+0.41/7 1.1} 11. Bf4 {-0.04/2 0.2} Rc8 {+0.37/6 1.2} 12. Re1 {+0.02/2 0.2}
+h6 {+0.39/6 0.9} 13. Nb5 {+0.08/2 0.2} Rc6 {-0.25/7 1.0} 14. Nxa7
+{+0.78/2 0.2} Rb6 {-0.34/6 0.9} 15. Nh4 {+0.76/2 0.2} Bd7 {+0.76/7 1.3} 16.
+Nf3 {+0.81/2 0.2} Qa8 {+1.92/7 0.6} 17. Bc7 {+0.18/2 0.2} Ra6 {+2.01/8 0.6}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "2. +0.27   1... +0.27"]
+
+1. Nc3 c5 {+0.27/7 1.7} 2. e4 {+0.27/3 0.2} Nf6 {+0.09/6 1.0} 3. Nf3
+{+0.29/3 0.3} Nc6 {+0.16/6 1.1} 4. Bb5 d5 {-0.04/6 1.0} 5. exd5
+{+0.21/3 14} Nxd5 {-0.21/7 0.7} 6. Nxd5 {+0.19/3 0.7} Qxd5 {-0.12/7 1.5} 7.
+Bxc6+ {+0.11/3 0.3} bxc6 {+0.23/8 2.0} 8. O-O {+0.00/3 0.2} Bg4
+{+0.48/7 1.4} 9. h3 {+0.17/3 0.5} Bf5 {+0.40/8 1.8} 10. Nh4 {+0.06/3 1.1}
+Be6 {+0.35/8 1.0} 11. Nf3 {-0.02/3 0.6} O-O-O {+0.46/7 0.9} 12. d3
+{-0.02/3 0.6} h6 {+0.36/7 2.0} 13. Re1 {+0.01/3 5} g5 {+0.34/7 1.1} 14. Re3
+{+0.01/3 25} Bg7 {+0.36/6 0.8}
+{Black wins on time} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1. +0.17   1... +0.26"]
+
+1. e4 {+0.17/3} c5 {+0.26/7 2.3} 2. Nf3 {+0.29/3 0.1} Nc6 {+0.17/7 0.9} 3.
+Bc4 {+0.30/3 0.2} Nf6 {+0.06/7 2.0} 4. Nc3 {+0.30/3 0.8} Nxe4 {+0.00/7 1.6}
+5. Bxf7+ {+0.72/3 0.6} Kxf7 {-0.16/8 2.2} 6. Nxe4 {+0.62/3 0.5} e5
+{+0.07/8 7} 7. O-O {-0.30/3 0.1} h6 {+0.28/7 1.6} 8. d3 {-0.19/3 0.2} d5
+{+0.57/7 0.9} 9. Nc3 {-0.37/3 0.6} Be6 {+0.44/6 0.7} 10. Re1 {+0.68/3 1.0}
+Bd6 {+0.28/7 2.3} 11. Rb1 {-0.25/3 6} d4 {+0.62/7 0.5} 12. Nb5 {-0.10/3 9}
+Bxa2 {+0.60/7 0.5} 13. Nxd6+ {-0.02/3 9} Qxd6 {+0.73/8 1.1} 14. Ra1
+{+0.00/3 1.4} Bd5 {+0.71/8 1.0} 15. c4 {-0.02/3 1.5} dxc3 {+0.45/8 1.7} 16.
+Qe2 {-1.02/3 2.4} Nd4 {+1.64/7 0.7} 17. Qxe5 {+0.23/3 1.7} Nxf3+
+{+1.71/7 0.8} 18. gxf3 {-0.83/3 0.3} Qg6+ {+1.00/8 1.3} 19. Qg3
+{-0.80/3 1.4} Qxd3 {+0.76/9 6} 20. f4 {-0.83/3 0.4} Rhe8 {+2.47/8 0.6} 21.
+Re7+ {+3.11/3 0.9} Rxe7 {+2.77/10 0.4} 22. Qxd3 {-1.15/3 0.1} Re1+
+{+2.75/10 1.1}
+{Black wins on time} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "*"]
+[TimeControl "60"]
+[Annotator "1. +0.17   1... +0.08"]
+
+1. e4 {+0.17/3} d6 {+0.08/6 1.2} 2. d4 {+0.22/3 0.1} c6 {+0.06/6 1.5} 3.
+Bf4 {+0.37/3 0.1} Be6 {+0.13/6 1.1}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "*"]
+[TimeControl "60"]
+[Annotator "1. +0.17   1... +0.18"]
+
+1. e4 {+0.17/3} Nf6 {+0.18/7 3} 2. e5 {+0.28/3 0.2}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "*"]
+[TimeControl "60"]
+[Annotator "1. +0.15   1... +0.25"]
+
+1. e4 {+0.15/5} Nf6 {+0.25/7 2.8} 2. Nc3 {+0.21/5 12} d5 {+0.21/7 2.3}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1. +0.15   1... +0.27"]
+
+1. e4 {+0.15/5} c6 {+0.27/7 3} 2. d3 {+0.22/5 3} Na6 {+0.15/7 2.5} 3. Nf3
+{+0.33/4 2.0} Qa5+ {+0.13/6 1.8} 4. Bd2 {+0.65/3 2.0} Qb6 {+0.11/8 2.6} 5.
+Qc1 {+0.50/3 2.3} d5 {+0.08/6 0.7} 6. Nc3 {+0.43/3 10} Nf6 {+0.15/7 1.2} 7.
+Bf4 {+0.49/1 2.6} Nc5 {+0.14/6 0.7} 8. Be3 {+0.29/1 5} dxe4 {+0.08/6 2.4}
+9. dxe4 {+0.22/2 4} Qa5 {+0.10/7 1.7} 10. e5 {+0.25/2 2.0} Ng4
+{+0.42/6 1.0} 11. Rb1 {+0.20/3 2.7} Nd7 {+0.58/6 0.6} 12. b4 {+0.27/2 2.2}
+Qc7 {+0.65/8 1.3} 13. Bc4 {-0.62/2 3} Ndxe5 {+0.82/6 0.9} 14. Bf4
+{-0.69/2 2.0} Nxf3+ {+0.93/7 0.7} 15. gxf3 {-0.96/4 2.1} Ne5 {+0.94/7 0.6}
+16. Be2 {-0.73/3 2.3} Bf5 {+0.82/6 0.8} 17. Qe3 {-0.81/3 2.2} f6
+{+0.75/6 0.6} 18. Kd1 {-0.93/3 2.3} O-O-O+ {+1.26/7 1.8} 19. Kc1
+{-1.00/3 2.3} g5 {+0.78/7 1.6} 20. Bg3 {-1.00/1 2.6} Qb6 {+0.63/6 0.5}
+{Black wins on time} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1. +0.15   1... +0.23"]
+
+1. e4 {+0.15/5} c6 {+0.23/7 1.8} 2. d4 {+0.21/4 1.2} d5 {+0.23/7 0.8} 3.
+Nc3 {+0.21/3 1.9} Nf6 {+0.07/6 1.0} 4. Qd3 {+0.18/2 1.1} Na6 {+0.03/6 2.3}
+5. Nf3 {+0.45/1 1.6} Nb4 {+0.15/6 0.8} 6. Qe2 {+0.27/1 1.1} dxe4
+{+0.04/6 0.7} 7. Nxe4 {+0.21/2 1.0} Bf5 {+0.57/8 1.9} 8. Nxf6+
+{+0.28/2 1.4} gxf6 {+4.07/9 1.5} 9. c3 {+0.28/2 1.0} Nc2+ {+4.57/8 1.4}
+{Black wins on time} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1. +0.15   1... +0.13"]
+
+1. e4 {+0.15/5} d5 {+0.13/7 1.1} 2. exd5 {+0.26/3 1.1} Qxd5 {-0.14/7 2.4}
+3. Nc3 {+0.11/4 1.1} Qd6 {+0.00/7 5} 4. Bb5+ {+0.14/3 1.0} c6 {+0.12/5 0.7}
+5. Bc4 {+0.03/3 1.0} Qg6 {+0.10/6 0.8} 6. Qf3 {+0.11/3 1.1} Nf6
+{+0.11/6 0.8} 7. d3 {+0.04/3 1.7} Nbd7 {+0.15/7 2.6} 8. Qg3 {+0.12/3 1.4}
+b5 {+0.09/6 0.8} 9. Qxg6 {+0.27/2 1.1} hxg6 {+0.28/9 1.4} 10. Bb3
+{-0.11/2 1.0} Nc5 {-0.09/8 6} 11. d4 {+0.06/3 1.9} Nxb3 {+0.30/8 0.7} 12.
+cxb3 {-0.05/3 1.4} Bf5 {+0.39/7 1.9} 13. Nf3 {-0.11/3 2.0} b4 {+0.19/6 1.1}
+14. Nb1 {-0.32/2 1.0} O-O-O {+0.35/6 0.5} 15. Kf1 {-0.29/3 1.4} Bd3+
+{+0.49/6 2.4} 16. Kg1 {-0.19/4 1.0} a6 {+0.24/6 0.8} 17. Bf4 {-0.09/3 1.2}
+Nd5 {+0.34/7 1.6} 18. Bg5 {+0.01/3 1.3} f6 {+0.49/8 0.5} 19. Be3
+{-0.08/3 1.5} Nxe3 {+0.71/8 0.4} 20. fxe3 {-0.23/4 1.0} e6 {+0.84/7 0.4}
+21. Nbd2 {-0.13/3 1.0} g5 {+0.81/7 1.0} 22. Rc1 {-0.01/3 1.2} g4
+{+0.66/7 0.5} 23. Rxc6+ {+0.42/3 1.1} Kb7 {+1.56/7 0.4} 24. Ne1
+{+0.42/2 1.0} Kxc6 {+1.99/9 0.6}
+{Black wins on time} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "60"]
+[Annotator "1. +0.15   1... +0.07"]
+
+1. e4 {+0.15/5} d6 {+0.07/6 0.9} 2. d3 {+0.11/5 1.3} Be6 {+0.14/6 0.8} 3.
+Nc3 {+0.38/3 1.0} a5 {+0.04/6 1.1} 4. Bf4 {+0.48/3 1.0} Nf6 {+0.04/6 1.4}
+5. Nf3 {+0.37/2 1.2} Nc6 {+0.03/6 0.8} 6. d4 {+0.47/1 1.2} d5 {-0.07/6 0.8}
+7. exd5 {+0.47/1 25} Nxd5 {-0.20/8 0.8} 8. Nxd5 {+0.36/2 1.3} Bxd5
+{-0.12/7 0.8} 9. Ne5 {+0.21/2 1.5} Nxe5 {+0.13/7 0.8} 10. Bxe5
+{+0.09/2 1.0} e6 {+0.02/6 1.5} 11. Bf4 {+0.19/3 2.0} Bd6 {+0.16/6 1.0} 12.
+Bb5+ {+0.19/2 1.0} c6 {+0.73/7 0.8} 13. Bxd6 {+0.01/2 1.0} Qxd6
+{+1.11/9 1.3} 14. Bf1 {-0.28/2 1.0} Qb4+ {+1.19/8 0.7} 15. c3 {-0.91/4 1.0}
+Qxb2 {+1.36/9 0.8}
+{Black wins on time} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "*"]
+[TimeControl "60"]
+[Annotator "1. +0.15   1... +0.19"]
+
+1. e4 {+0.15/5} c5 {+0.19/7 3} 2. Bc4 {+0.24/4 1.2} d6 {+0.13/6 0.9} 3. Nf3
+{+0.23/4 1.1} Be6 {+0.02/6 0.7} 4. Bb5+ {+0.30/3 1.1} Nc6 {-0.10/6 0.7} 5.
+O-O {+0.30/2 1.2} Qb6 {-0.11/6 0.9} 6. Bxc6+ {+0.38/2 1.7} bxc6
+{+0.33/8 1.6} 7. Nc3 {+0.20/2 1.2} h6 {+0.54/7 0.8}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "*"]
+[TimeControl "60"]
+[Annotator "1. +0.15   1... +0.05"]
+
+1. e4 {+0.15/5} d5 {+0.05/6 0.8} 2. exd5 {+0.26/3 1.1}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.24"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "*"]
+[TimeControl "60"]
+[Annotator "1. +0.15"]
+
+1. e4 {+0.15/5}
+{xboard exit} *
 

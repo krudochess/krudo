@@ -1,9 +1,10 @@
 @echo off
 
 rem common tools
-set JAVA=java.exe
+set JAVA=C:\ProgramData\Oracle\Java\javapath\java.exe
 set PYTHON=C:\Python27\python.exe
-set WINBOARD=c:\WinBoard-4.8.0\WinBoard\winboard.exe
+rem set WINBOARD=c:\WinBoard-4.8.0\WinBoard\winboard.exe
+set WINBOARD=c:\WinBoard-4.7.2\WinBoard\winboard.exe
 
 rem check java exists
 where %JAVA% > nul 2> nul
