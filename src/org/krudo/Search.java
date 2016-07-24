@@ -18,64 +18,78 @@ import static org.krudo.Zobrist.hash;
 // search main class
 public final class Search 
 {    
+    //
+    private final static long INFO_MILLISECONDS_POLLING = 2000;
+    
     // node-centric search
     public Node n = null; 
                     
     // searching controls and related         
-    public int stop = 0;
-    public int lineStart = 0;
-    public int beep = 0;
+    private int stop = 0;
     
-    // iterative deepiing deep cursor and limit
+    //
+    public int lineStart = 0;
+    
+    //
     public int score;
-    public int deep;
-    public int deepStart;
-    public int deepLimit;
+        
+    // iterative deepiing deep cursor and limit
+    public int deep_index; // current depth in iterative dee 
+    public int deep_start; // start value of depth by default 1
+    public int deep_limit; // depth limit stop iterative deeping
     
     // iterative deeping time values
-    public long time;
-    public long timeStart;
-    public long timeLimit;
+    public long time_index;
+    public long time_start;
+    public long time_limit;
         
+    //
+    private final Timer id_timer = new Timer();
+    private final Timer ab_timer = new Timer();
+    
     // count nodes for ab search
     public long ns;
-    public long nsnext;
-    public long nstime;
-    public long nspoll = 500000;
+    public long nt;
+    public long node_bound;
+    
+    //
+    public long nps;
     
     // count nodes for quiesce search
     public int nq;
-        
-    // logged info 
-    public int logAction;    // log action (used for debug)
-    public int logWeight;    // log weight of move founded
-    public int logNodes;    // log weight of move founded
-    public int logDeep;        // log weight of move founded
-    public long logTime;    // log weight of move founded
-    public long logNPS;        // log node per seconds        
-    public String logMove;    // log move observed
-    public String logLine;    // log variation observed 
-    public boolean logEnabled; // log node per seconds        
-
+            
     //
     private final static int NT_NODE = 0;
  
     //
-    public String info;
+    public String best_move;
+       
+    //
+    public int best_score;
+
+    //
+    public PV best_pv = new PV(); 
+      
+    //
+    public String info_event;
+    
+    //
+    public String info_message;
     
     //
     public Runnable sendinfo = () -> 
-    {
-        print("INFO: "+info);
+    {        
+        //
+        //if (info_event.equals(becs))
+        
+        //
+        print("INFO: " + info_event + " " + info_message);
     };
     
     //
-    public String bestmove;
-       
-    //
     public Runnable sendbestmove = () -> 
     {
-        print("BESTMOVE: "+bestmove);
+        print("BESTMOVE: " + best_move);
     };
      
     // constructor with node-centric search
@@ -102,16 +116,16 @@ public final class Search
         lineStart = n.L.i;
         
         // deep start value for iterative deeping
-        deepStart = 1;
+        deep_start = 1;
         
         // set deep limit for iterative deeping
-        deepLimit = deep;
+        deep_limit = deep;
                     
         // set time start for required log or other
-        timeStart = time();
+        time_start = time();
         
         // set time limit for the searcing engine routine
-        timeLimit = timeStart + time;
+        time_limit = time_start + time;
 
         // start iterative deeping search
         idrun();
@@ -119,9 +133,12 @@ public final class Search
          
     // iterative deeping entry-point
     private void idrun() 
-    {                                                                                
+    {                           
+        //
+        id_timer.start();
+                
         // iterative deeping deep start value
-        deep = deepStart;
+        deep_index = deep_start;
         
         // empity moves stack
         //move.empty();
@@ -137,33 +154,18 @@ public final class Search
         
         //
         PV pv = new PV();
-        
+                        
         //
-        PV best_pv = new PV();
-        
-        
-        //
-        info("id-run", ""+deepLimit);
+        sendinfo("id-run", ""+deep_limit);
         
         // iterative deeping loop
-        while (deep <= deepLimit && stop == NOT)
-        {                            
-            // reset nodes search counter
-            ns = 0;
-
-            // reset nodes quiesce counter
-            nq = 0;
-            
-            //
-            nstime = time();
-            
-            nsnext = nspoll;
-            
+        while (deep_index <= deep_limit && stop == NOT)
+        {                                        
             //
             long t = time();
             
             //
-            info("id-loop-run", deep+"/"+deepLimit);
+            sendinfo("id-loop-run", deep_index+"/"+deep_limit);
            
             // launch alfa-beta for searcing candidates 
             score = abrun(alfa, beta, pv);        
@@ -172,35 +174,56 @@ public final class Search
             if (stop == YES) 
             {                 
                 //
-                info("id-loop-break", deep+"/"+deepLimit+" "+t+"ms "+ns+"n "+"knps");
+                sendinfo("id-loop-break", "");
             
                 //
                 break; 
             }
-                                  
-            //
-            t = time() - t;
-            
-            //
-            long r = t > 0 ? ns / t : 0;
                 
             //
-            info("id-loop-end", deep+"/"+deepLimit+" "+t+"ms "+ns+"n "+r+"knps");
+            best_pv.copy(pv);
+            
+            //
+            best_move = desc(best_pv, 0);
+            
+            //
+            best_score = score;                    
+                                        
+            //
+            nps = ab_timer.time > 0 ? ns / ab_timer.time : 0;
+            
+            //
+            sendinfo("id-loop-end", deep_index+"/"+deep_limit+" "+desc(pv)+" "+ab_timer.time+"ms "+ns+"n "+nps+"knps");
               
             // increade depth of search
-            deep++;                        
+            deep_index++;                        
         }    
         
         //
-        info("id-end", ""+deepLimit+" "+score+" "+desc(pv));
+        id_timer.pause();
+        
+        //
+        sendinfo("id-end", id_timer.time+"ms "+score+" "+desc(best_pv));
                 
         //
-        sendbestmove(desc(pv, 0));
+        sendbestmove();
     }
     
     // alfa-beta entry-point
     private int abrun(int a, int b, PV pv) 
     {    
+        // reset nodes search counter
+        ns = 0;
+
+        // reset nodes quiesce counter
+        nq = 0;
+            
+        //
+        nt = time() + 4000;
+        
+        //
+        ab_timer.start();
+                       
         //
         pv.i = 0;
         
@@ -229,11 +252,11 @@ public final class Search
             n.domove(m, i);
             
             // recursive evaluation search                    
-            int s = abmin(deep - 1, a, b, new_pv, NT_NODE);
+            int s = abmin(deep_index - 1, a, b, new_pv, NT_NODE);
 
             // undo
             n.unmove();            
-
+            
             /*
             // use null window for correction
             if (s > a) 
@@ -245,7 +268,7 @@ public final class Search
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 
             {  
-                info("ab-hard-cut-off","");
+                sendinfo("ab-hard-cut-off","");
                 //t.store(d, a, t.BETA); 
                 //return b; 
                 
@@ -259,7 +282,7 @@ public final class Search
             // soft alfa-cut-off 
             if (s > a) 
             {
-                info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
+                sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
                 //
                 pv.cat(new_pv, m, i);
                 //dump(pv);
@@ -278,6 +301,9 @@ public final class Search
         //
         Moves.free(m);
        
+        //
+        ab_timer.pause();
+        
         //
         return a; 
     }
@@ -344,7 +370,10 @@ public final class Search
 
             //
             n.unmove();                
-            
+
+            //
+            if (stop == YES) { break; }
+                        
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 
             {  
@@ -599,127 +628,42 @@ public final class Search
     
     //
     private void abcontrol()
-    {        
+    {       
         //
-        if (ns < nsnext) { return; } 
-    
+        long time = time();
+        
         // 
-        if (time() > timeLimit) { stop = YES; }
+        if (time > time_limit) { stop = YES; return; }
 
-        //print("- "+ns);
-        nsnext = ns + nspoll;
-
-        long t = time() - nstime;
-
-        long r = nspoll / t;
-
-        nstime = time();
-
-        info("ab-speed", deep+"/"+deepLimit+" "+t+"ms "+ns+"n "+r+"knps");
-
-        //print(Runtime.getRuntime().freeMemory());
-    } 
-    
-    // default log callback
-    public Runnable log = new Runnable() {
+        //
+        if (time < nt) { return; } 
+                                  
+        //
+        nt = time + INFO_MILLISECONDS_POLLING;
         
         //
-        @Override 
-        public void run(){
-            
-            // switch output by logAction
-            switch(logAction) {
-                
-                /**/ 
-                case SEARCH_LOG_ID: 
-                    echo("id:", logDeep); 
-                    break; /**/
-                
-                /**/    
-                case SEARCH_LOG_MW: 
-                    echo("mw:", logMove, "("+logWeight+")"); 
-                    break; /**/
-                
-                /**/
-                case SEARCH_LOG_BM: 
-                    echo("------------------");
-                    echo("bm:", logMove, "("+logWeight+")", "\n"); 
-                    break; /**/
-                    
-                case SEARCH_LOG_PV: 
-                    echo("pv:",logDeep,"("+logWeight+")",logLine); 
-                    break;
-                
-                case SEARCH_LOG_UP: 
-                    echo("up:",logDeep,"("+logWeight+")",logLine); 
-                    break;
-                    
-                //case _LOG_BB_: echo("bb",lw,lv,lm); break;
-                //case _LOG_EX_: echo("ex"); break;
-            }
-        }
-    };
-    
-    // log a single move into move-stack with weight
-    private void log(int a, Move m, int i, int w) {
-        logMove        = i2m(m,i);
-        logWeight    = w;
-        log(a);
-    }
-    
-    // log a 
-    private void log(int a, Move m, int i) {
-        logMove        = i2m(m,i);
-        logWeight    = m.w[i];
-        log(a);
-    }
-
-    // log a 
-    private void log(int a, Move[] pv, int i, int d, int w) {
-        logLine        = i2m(pv[i]);
-        logDeep        = d;
-        logWeight    = w;
-        log(a);
-    }
-
-    //
-    private void log(int a, int d1, int d2) {
-        logAction    = a;
-        logDeep        = d1;
-        log.run();
-    }
+        nps = ns / (time - time_start);
+        
+        //        
+        sendinfo("ab-speed", "nps "+ns);
+    } 
     
     //
-    private void log(int a, int w) {
-        logLine        = i2m(n.L,lineStart);
-        logWeight    = w;
-        log(a);
-    }
-
-    //
-    private void log(int a) {
-        logAction    = a;
-        logTime        = time() - timeStart;
-        //logNodes    = ns;
-        logNPS        = logTime > 0 ? ns / logTime : 0; 
-        if (logEnabled) {
-            log.run();
-        }
-    }
-    
-    //
-    private void info(String event, String message)
+    private void sendinfo(String event, String message)
     {
         //
-        print(rpad(event, 16)+" "+message); 
+        info_event = event;
+        
+        //
+        info_message = message;
+
+        //
+        sendinfo.run();
     }
     
     //
-    public void sendbestmove(String m)
+    public void sendbestmove()
     {
-        //
-        bestmove = m;
-    
         //
         sendbestmove.run();
     }

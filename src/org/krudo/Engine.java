@@ -26,16 +26,22 @@ public final class Engine
     public long btime = 60000;
     
     //
-    public int depth = 2;
+    public int depth = 10;
     
     //
-    public boolean book = true;
+    public boolean book = false;
     
     //
     public String info;
     
     //
     public String bestmove;
+
+    //
+    public int bestscore;
+
+    //
+    public int lastscore;
     
     //
     public Runnable sendinfo = () -> 
@@ -54,12 +60,12 @@ public final class Engine
     {
         //
         SEARCH.sendinfo = () -> {
-            sendinfo(SEARCH.bestmove);
+            sendinfo(SEARCH.best_move);
         };
         
         //
         SEARCH.sendbestmove = () -> {
-            sendbestmove(SEARCH.bestmove);
+            sendbestmove(SEARCH.best_move, SEARCH.best_score);
         };
     }
     
@@ -112,7 +118,7 @@ public final class Engine
             if (m != null)
             {    
                 //
-                sendbestmove(m);
+                sendbestmove(m, 0);
 
                 //
                 return;
@@ -123,7 +129,7 @@ public final class Engine
         long time = NODE.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
         
         // call iterative deeping (wait here)
-        SEARCH.start(depth);
+        SEARCH.start(depth, 100000);
     }
     
     //
@@ -154,10 +160,23 @@ public final class Engine
     }
     
     //
-    public final void sendbestmove(String m) 
-    {
+    public final void sendbestmove(String move, int score) 
+    {       
         //
-        bestmove = m;
+        if (lastscore - score > 150) {
+            Krudo.CONSOLE.error("Engine score stop: "+(lastscore - score)+" "+lastscore+" "+score);
+            Krudo.CONSOLE.close();
+            exit();
+        }
+        
+        //
+        bestmove = move;
+                    
+        //
+        lastscore = bestscore;
+         
+        //
+        bestscore = score;
         
         //
         sendbestmove.run();

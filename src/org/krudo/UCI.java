@@ -6,26 +6,29 @@
 // root package
 package org.krudo;
 
+//
+import static org.krudo.Describe.*;
+
 // protocol definition class
 public final class UCI 
 {    
     // gui to engine (700-900)    
     public final static int 
-    UCI                        = 701,    
-    ISREADY                    = 704,
-    SETOPTION                = 705,
+    UCI                     = 701,    
+    ISREADY                 = 704,
+    SETOPTION               = 705,
     REGISTER                = 706,
-    UCINEWGAME                = 707,
+    UCINEWGAME              = 707,
     POSITION                = 750,
     POSITION_FEN            = 751,
-    POSITION_STARTPOS        = 752,
-    POSITION_STARTPOS_MOVES    = 753,
-    GO                        = 800,
-    WTIME                    =   0,
-    BTIME                    =   1,
-    MOVESTOGO                =   2,
-       STOP                    = 710,
-    PONDERHIT                = 711,
+    POSITION_STARTPOS       = 752,
+    POSITION_STARTPOS_MOVES = 753,
+    GO                      = 800,
+    WTIME                   = 800,
+    BTIME                   = 799,
+    MOVESTOGO               = 798,
+    STOP                    = 710,
+    PONDERHIT               = 711,
     QUIT                    = 910;
     
     // engine to gui
@@ -41,44 +44,30 @@ public final class UCI
     DEPTH          = "depth",
     SCORE_CP       = "score cp",
     TIME           = "time",
-    NODES           = "nodes",
-    PV               = "pv",
+    NODES          = "nodes",
+    NPS            = "nps",
+    PV             = "pv",
     OPTION         = "option";
 
     // search log callback
     public final static Runnable SENDINFO = () -> 
-    {                    
-        /*
+    {                      
         //
-        switch (Krudo.ENGINE.search.logAction) 
-        {
-            //
-            case SEARCH_LOG_UP:
-
-                //
-                Krudo.CONSOLE.print(INFO, 
-                    DEPTH,        Krudo.ENGINE.search.logDeep, 
-                    SCORE_CP,    Krudo.ENGINE.search.logWeight,
-                    TIME,        Krudo.ENGINE.search.logTime,
-                    NODES,        Krudo.ENGINE.search.logNodes,
-                    PV,            Krudo.ENGINE.search.logLine
-                );
-
-                //
-                break;
-
-            //    
-            case SEARCH_LOG_BM:
-
-                //
-                Krudo.ENGINE.bm = Krudo.ENGINE.search.logMove;
-
-                //
-                Krudo.ENGINE.bmc.run();
-
-                //
-                break;        
-        }    */        
+        final Search s = Krudo.ENGINE.SEARCH;
+        
+        //
+        if (!s.info_event.equals("id-loop-end")) { return; }
+        
+        //
+        Krudo.CONSOLE.print(INFO, 
+            DEPTH,    s.deep_index, 
+            SCORE_CP, s.best_score,
+            //TIME,   Krudo.ENGINE.search.logTime,
+            //NODES,  Krudo.ENGINE.search.logNodes,
+            NPS,      s.nps,
+            PV,       desc(s.best_pv),
+            "event",  s.info_event
+        );        
     };
         
     //        
@@ -112,7 +101,8 @@ public final class UCI
         //
         else if (s.startsWith("position fen "))
         {
-            i.cmd = POSITION_FEN;        
+            i.cmd = POSITION_FEN;
+            i.arg = new String[] { s.substring(13) };                    
         } 
                 
         //
@@ -154,13 +144,13 @@ public final class UCI
                     switch (args[j]) 
                     {
                         case "wtime":
-                            i.arg[WTIME] = args[j+1];
+                            i.arg[GO - WTIME] = args[j+1];
                             break;
                         case "btime":
-                            i.arg[BTIME] = args[j+1];
+                            i.arg[GO - BTIME] = args[j+1];
                             break;                
                         case "movestogo":
-                            i.arg[MOVESTOGO] = args[j+1];
+                            i.arg[GO - MOVESTOGO] = args[j+1];
                             break;
                     }
                 }                    

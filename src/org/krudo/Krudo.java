@@ -58,6 +58,9 @@ public final class Krudo
     private static void init() 
     {
         // prepare move-stacks
+        Eval.init();
+
+        // prepare move-stacks
         Moves.init();
     }
     
@@ -115,6 +118,15 @@ public final class Krudo
                     break;
 
                 // set thinker to start position
+                case UCI.POSITION_FEN:
+
+                    // set to start position
+                    ENGINE.startpos(i.arg[0]);
+
+                    // break switch
+                    break;
+
+                // set thinker to start position
                 case UCI.POSITION_STARTPOS:
 
                     // set to start position
@@ -141,15 +153,15 @@ public final class Krudo
                 case UCI.GO:                        
 
                     // call go with black and white time attentions
-                    if (has(i.arg[UCI.WTIME]))
+                    if (has(i.arg[UCI.GO - UCI.WTIME]))
                     {
-                        ENGINE.wtime = toLong(i.arg[UCI.WTIME]); 
+                        ENGINE.wtime = toLong(i.arg[UCI.GO - UCI.WTIME]); 
                     }
                      
                     //
-                    if (has(i.arg[UCI.BTIME])) 
+                    if (has(i.arg[UCI.GO - UCI.BTIME])) 
                     {
-                        ENGINE.btime = toLong(i.arg[UCI.BTIME]);
+                        ENGINE.btime = toLong(i.arg[UCI.GO - UCI.BTIME]);
                     } 
 
                     //

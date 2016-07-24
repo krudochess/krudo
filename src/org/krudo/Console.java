@@ -120,6 +120,16 @@ public final class Console
     }
     
     // handler program generated errors
+    public final void error(String e) 
+    {    
+        //
+        log("& "+e);
+        
+        //
+        write(e);
+    }
+    
+    // handler program generated errors
     public final void error(Throwable e) 
     {    
         //
