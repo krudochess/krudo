@@ -304,7 +304,7 @@ public final class Search
         int s;
                         
         // trasposition table probe
-        if (TT.probemax(n.phk, d, a, b)) {  }
+        if (TT.probemax(n.phk, d, a, b)) { return TT.score; }
         
         // return quiescence value-search, 
         if (d == 0) 
@@ -394,7 +394,10 @@ public final class Search
         
         //
         PVs.free(new_pv);
-                        
+          
+        //
+        TT.storemax(d, a); 
+        
         //
         return a;        
     }
@@ -406,7 +409,7 @@ public final class Search
         int s; 
 
         // trasposition table probe
-        if (TT.probemin(n.phk, d, a, b)) {  }
+        if (TT.probemin(n.phk, d, a, b)) { return TT.score; }
         
         // at-end quiescence search and 
         if (d == 0) 
@@ -489,6 +492,9 @@ public final class Search
         //
         PVs.free(new_pv);
    
+        //
+        TT.storemin(d, b); 
+        
         //
         return b;    
     }

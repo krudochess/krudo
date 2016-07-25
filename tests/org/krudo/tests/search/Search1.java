@@ -33,7 +33,7 @@ public class Search1
         SEARCH_QUIESCENCE = false;
         
         //
-        SEARCH_BRUTE_FORCE = true;
+        SEARCH_BRUTE_FORCE = false;
        
         //
         TT.init();
@@ -54,10 +54,12 @@ public class Search1
         Search s = new Search(n);
                                
         //
-        s.start(5, 500000);
-        
+        s.start(7, 500000);
+                      
         //
         //s.start(5, 500000);
+        
+        TT.info();
         
         //
         PVs.info();

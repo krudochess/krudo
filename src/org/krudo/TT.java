@@ -17,7 +17,7 @@ public final class TT
     public final static int MIN_EMPTY = +99999;
         
     //
-    public final static int TT_SIZE = 10000;
+    public final static int TT_SIZE = 200000;
     
     //
     public final static int TT_DEEP = 10;
@@ -39,7 +39,13 @@ public final class TT
     
     //
     public static int score;
-       
+    
+    //
+    public static int queries = 0;
+        
+    //
+    public static int success = 0;
+               
     //
     public static class TT_SHEET 
     {
@@ -69,13 +75,7 @@ public final class TT
     
     //
     public static class TT_CACHE extends LinkedHashMap<Long,TT_SHEET>
-    {
-        //
-        public int queries = 0;
-        
-        //
-        public int success = 0;
-        
+    {       
         //
         public TT_CACHE()
         {
@@ -90,7 +90,7 @@ public final class TT
             if (size() > TT_SIZE) 
             {
                 //
-                e.getValue().clear();
+                //e.getValue().clear();
                 
                 //
                 STACK[count++] = e.getValue();
@@ -112,22 +112,9 @@ public final class TT
 
         //
         public final boolean has(long h) 
-        {    
+        {   
             //
-            queries++;
-
-            //
-            if (super.containsKey(h)) 
-            {
-                //
-                success++;
-
-                //
-                return true;
-            }
-
-            //
-            return false; 
+            return super.containsKey(h);             
         }
 
         //
@@ -161,10 +148,18 @@ public final class TT
         if (!SEARCH_TT) { return false; }
         
         //
+        queries++;
+        
+        //
         if (probeset(h) && probe.max[d] != MAX_EMPTY) 
-        {
-            score = probe.max[d];
+        {            
+            if (probe.max[d] >= b) {
+                score = b;
+            } else {            
+                score = probe.max[d];
+            }
             
+            success++;
             
             return true;
             //print("probemax", hex(h), "load", probe.max[d]);
@@ -184,12 +179,24 @@ public final class TT
         if (!SEARCH_TT) { return false; }
         
         //
+        queries++;
+        
+        //
         if (probeset(h) && probe.min[d] != MIN_EMPTY) 
         {
+            if (probe.max[d] <= a) {
+                score = a;
+            } else {            
+                score = probe.max[d];
+            }
+            
+            success++;
+            
+            
             //print("probemin", hex(h), "load", probe.min[d]);
             
             //exit();
-            
+            return true;
         }
         
         //
@@ -262,5 +269,16 @@ public final class TT
         
         //
         //print("storemin:", d, hex(index), s);        
+    }
+    
+    //
+    public final static void info()
+    {
+    
+        
+        print("TT info: (free:"+count+" q:"+queries+" s:"+success+")");
+    
+    
+    
     }
 }
