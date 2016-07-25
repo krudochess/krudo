@@ -101,20 +101,40 @@ public final class UCI
         //
         else if (s.startsWith("position fen "))
         {
+            //
             i.cmd = POSITION_FEN;
-            i.arg = new String[] { s.substring(13) };                    
+            
+            //
+            if (s.contains("moves")) 
+            {
+                String[] a = s.split(" moves ");
+                String[] m = a[1].split("\\s");
+                i.arg = new String[m.length + 1];
+                i.arg[0] = a[0].substring(13);
+                for(int j=1; j<i.arg.length; j++) {
+                    i.arg[j] = m[j-1];
+                }
+                Krudo.CONSOLE.print(i.arg[1]);
+                
+            } 
+            
+            //
+            else 
+            {
+                i.arg = new String[] { s.substring(13) };                                    
+            }
         } 
                 
-        //
-        else if (s.equals("position startpos"))
-        {
-            i.cmd = POSITION_STARTPOS;                
-        }
+        // 
+        else if (s.equals("position startpos")) { i.cmd = POSITION_STARTPOS; }
         
         //
         else if (s.startsWith("position startpos moves ")) 
         {
+            //
             i.cmd = POSITION_STARTPOS_MOVES;
+            
+            //
             i.arg = s.substring(24).split("\\s");        
         } 
         

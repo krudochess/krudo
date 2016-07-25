@@ -625,6 +625,16 @@ public final class Eval
     private static int cache_node(final Node n) 
     {
         // if node eval is enabled pass-throu else return zero forever
+        if (EVAL_MOBILITY) 
+        { 
+            //
+            n.legals();
+            
+            //
+            return n.m.i; 
+        }
+        
+        // if node eval is enabled pass-throu else return zero forever
         if (!EVAL_NODE) { return 0; }
         
         //

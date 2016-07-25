@@ -10,10 +10,7 @@ import org.krudo.Legals;
 import static org.krudo.Tool.*;
 
 //
-import org.krudo.Node;
-import org.krudo.Move;
-import org.krudo.Moves;
-import org.krudo.Search;
+import org.krudo.*;
 
 // 
 public class Search2 
@@ -21,6 +18,9 @@ public class Search2
     //
     public static void main(String[] args) 
     {
+        //
+        PVs.init();
+        
         //
         Moves.init();
         
@@ -34,7 +34,7 @@ public class Search2
         Search s = new Search(n);
         
         //
-        s.start(5);
+        s.start(15, 1000);
         
         //
         Legals.info();

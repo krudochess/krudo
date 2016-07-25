@@ -14,7 +14,7 @@ import static org.krudo.Debug.*;
 public class PV
 {
     //
-    private final static int PV_SIZE = 15;
+    private final static int PV_SIZE = 18;
     
     //
     public final int[] s;

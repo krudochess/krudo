@@ -65,7 +65,7 @@ public final class Search
     public int best_score;
 
     //
-    public PV best_pv = PVs.pick(); 
+    public PV best_pv = new PV(); 
       
     //
     public String info_event;
@@ -92,6 +92,11 @@ public final class Search
                 print("INFO: "+ rpad(info_event, pad) + " step " + deep_index + "/" + deep_limit);
                 break;
             
+            //
+            case "id-loop-break":
+                print("INFO: "+ rpad(info_event, pad) + " event break");
+                break;
+                
             //    
             default:
                 print("INFO: "+ rpad(info_event, pad) + " " + info_message);
@@ -237,7 +242,7 @@ public final class Search
         n.legals();
               
         // no legal moves check-mate or stale-mate
-        if (n.m.i == 0) { return -mate; }
+        if (n.m.i == 0) { return n.incheck() ? -mate : 0; } 
                 
         // 
         Move m = n.m.sort().clone();
@@ -343,7 +348,7 @@ public final class Search
         n.legals();
                         
         // no legal moves check-mate or stale-mate
-        if (n.m.i == 0) { return -mate; }
+        if (n.m.i == 0) { return n.incheck() ? -mate + d : 0; }
                 
         // sort and clone       
         Move m  = n.m.sort().clone();
@@ -454,7 +459,7 @@ public final class Search
         n.legals();
 
         // no-legals-move exit checkmate
-        if (n.m.i == 0) { return +mate - d; }
+        if (n.m.i == 0) { return n.incheck() ? +mate - d : 0; }
         
         // and sort
         Move m = n.m.sort().clone();        

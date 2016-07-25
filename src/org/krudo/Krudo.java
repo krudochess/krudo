@@ -13,7 +13,7 @@ import static org.krudo.Tool.*;
 
 // main class entry point for java application
 public final class Krudo 
-{   
+{      
     // engine store chess game status is chess brain interface         
     public final static Engine ENGINE = new Engine();
     
@@ -31,7 +31,7 @@ public final class Krudo
 
             // credits message
             CONSOLE.print("Krudo 0.16a by Francesco <bianco@javanile.org>");
-
+                  
             //
             init();
             
@@ -57,6 +57,9 @@ public final class Krudo
     //
     private static void init() 
     {
+        // prepare move-stacks
+        PVs.init();
+        
         // prepare move-stacks
         Eval.init();
 
@@ -122,6 +125,13 @@ public final class Krudo
 
                     // set to start position
                     ENGINE.startpos(i.arg[0]);
+                    
+                    //
+                    if (i.arg.length > 1)
+                    {
+                        //
+                        ENGINE.domove(i.arg, 1);
+                    }
 
                     // break switch
                     break;

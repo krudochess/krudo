@@ -152,8 +152,19 @@ public final class Node
     public final void domove(
         final String[] moves
     ) {        
+        domove(moves, 0);
+    }
+    
+    // do-play a moves sequence passed by array
+    public final void domove(
+        final String[] moves,
+        final int offset
+    ) {        
         // loop throu moves
-        for (String move: moves) { domove(move); }
+        for (int i = offset; i < moves.length; i++) 
+        { 
+            domove(moves[i]); 
+        }
     }
     
     // do-play a move represented as coordinates (es. "e2e4")
@@ -912,6 +923,13 @@ public final class Node
                 
         //
         return false;
+    }
+    
+    //
+    public final boolean incheck()
+    {
+        //
+        return t == w ? black_attack(wks) : white_attack(bks);        
     }
     
     //

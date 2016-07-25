@@ -100,6 +100,14 @@ public final class Engine
     }
     
     //
+    public final void domove(String[] moves, int offset) 
+    {
+        //
+        NODE.domove(moves, offset);
+    }
+    
+    
+    //
     public final void unmove() 
     {
         NODE.unmove();
@@ -129,7 +137,7 @@ public final class Engine
         long time = NODE.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
         
         // call iterative deeping (wait here)
-        SEARCH.start(depth, 100000);
+        SEARCH.start(depth, 1000);
     }
     
     //
@@ -163,7 +171,7 @@ public final class Engine
     public final void sendbestmove(String move, int score) 
     {       
         //
-        if (lastscore - score > 150) {
+        if (lastscore - score > 500) {
             Krudo.CONSOLE.error("Engine score stop: "+(lastscore - score)+" "+lastscore+" "+score);
             Krudo.CONSOLE.close();
             exit();

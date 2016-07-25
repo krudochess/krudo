@@ -3,8 +3,9 @@
 ;
 /cp
 /mg=1
-/tc=3
+/tc=1
 /pgnEventHeader="Training"
+/lpf="%ENGINEDIR%/handicap.fen"
 ;
 ; Method 1: explicitly invoke Polyglot, and supply ini file with all UCI option settings
 ; Directory is . (= same as WB), because that is where polyglot.exe is.
@@ -19,8 +20,9 @@
 ; In the install as it came this would use polyglot.exe, i.e. 1.4.46b.
 ; PG/fruit.ini will not be used, so only the most basic options will be set.
 ;
-/secondChessProgram="fmax"
-/secondDirectory="../Fairy-Max"
+/secondChessProgram="polyglot _PG\fruit.ini"
+/secondDirectory="."
+/secondLogo="..\Fruit\logo.bmp"
 ;
 ; Opening book
 ;
@@ -53,7 +55,7 @@
 ;
 ; save games
 ;
-/saveGameFile="%ENGINEDIR%\vs-fairymax.pgn"
+/saveGameFile="%ENGINEDIR%\vs-fruit.pgn"
 ;
 ; prevent these settings from becoming default
 ; 

@@ -34,7 +34,7 @@ public final class Config
     EVAL_NODE = true,
         
     // of legal moves generated    
-    EVAL_MOVE = true,
+    EVAL_MOVE = false,
 
     // of legal moves generated        
     EVAL_MVV_LAA = false,
@@ -51,6 +51,9 @@ public final class Config
     // of legal moves generated
     EVAL_TAPERED_OPENING = false,        
 
+    // of legal moves generated
+    EVAL_MOBILITY = true,        
+
     /**
      * SEARCHING SETTINGS
      * 
@@ -58,10 +61,10 @@ public final class Config
      */
     
     //
-    SEARCH_BRUTE_FORCE = true,
+    SEARCH_BRUTE_FORCE = false,
             
     //
-    SEARCH_QUIESCENCE = false,
+    SEARCH_QUIESCENCE = true,
     
     //
     SEARCH_CONTROL = true,        
@@ -73,7 +76,7 @@ public final class Config
     SEARCH_UPDATE = true,
             
     //
-    SEARCH_TT = true,
+    SEARCH_TT = false,
 
     /**
      * MOVE STACK SETTINGS
