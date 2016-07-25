@@ -190,10 +190,10 @@ public final class Search
             best_score = score;                    
                                         
             //
-            nps = ab_timer.time > 0 ? ns / ab_timer.time : 0;
+            nps = ab_timer.delta > 0 ? ns / ab_timer.delta : 0;
             
             //
-            sendinfo("id-loop-end", deep_index+"/"+deep_limit+" "+desc(pv)+" "+ab_timer.time+"ms "+ns+"n "+nps+"knps");
+            sendinfo("id-loop-end", deep_index+"/"+deep_limit+" "+desc(pv)+" "+ab_timer.delta+"ms "+ns+"n "+nps+"knps");
               
             // increade depth of search
             deep_index++;                        
@@ -203,7 +203,7 @@ public final class Search
         id_timer.pause();
         
         //
-        sendinfo("id-end", id_timer.time+"ms "+score+" "+desc(best_pv));
+        sendinfo("id-end", id_timer.delta+"ms "+score+" "+desc(best_pv));
                 
         //
         sendbestmove();
@@ -439,10 +439,7 @@ public final class Search
         Move m = n.legals();
 
         // no-legals-move exit checkmate
-        if (m.i == 0) 
-        {
-            return +mate + d; 
-        }
+        if (m.i == 0) { return +mate - d; }
         
         // and sort
         m.sort();        
@@ -642,10 +639,10 @@ public final class Search
         nt = time + INFO_MILLISECONDS_POLLING;
         
         //
-        nps = ns / (time - time_start);
+        nps = ns / (time - ab_timer.start);
         
         //        
-        sendinfo("ab-speed", "nps "+ns);
+        sendinfo("ab-speed", "nps "+nps);
     } 
     
     //

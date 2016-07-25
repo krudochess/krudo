@@ -8,14 +8,17 @@ package org.krudo;
 
 //
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Random;
 
 //
-public final class Tool {
-
+public final class Tool 
+{
 	// random int between min and max with min and max included
-	public static final int rand(int min, int max) {
-		
+	public static final int rand(int min, int max) 
+    {		
 		//
 		return new Random().nextInt((max - min) + 1) + min;
 	}
@@ -42,15 +45,15 @@ public final class Tool {
 	}
 	
 	//
-	public static final void echo(Object arg) {
-		
+	public static final void echo(Object arg) 
+    {		
 		//
 		System.out.print(arg);				
 	}
 	
 	//
-	public static final void echo(Object... args) {
-		
+	public static final void echo(Object... args) 
+    {		
 		//
 		String sep = "";
 		
@@ -101,6 +104,22 @@ public final class Tool {
 		System.out.print("\n");
 	}
 	
+    //
+    public static final String readfile(String filename)
+    {
+        String content = null;
+        
+        try 
+        {
+            content = new String(Files.readAllBytes(Paths.get(filename)));
+    
+        } catch (IOException e) {
+        
+        }
+        
+        return content;
+    }
+    
 	//
 	public static final void keys(Object... args) {
 		String sep = "";

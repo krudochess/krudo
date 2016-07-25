@@ -13,21 +13,21 @@ import static org.krudo.Tool.*;
 public class Timer 
 {
     //
-    public long time;
+    public long delta;
     
     //
-    public long temp;
+    public long start;
     
     //
     public final void start()
     {
-        time = 0;
-        temp = time();    
+        delta = 0;
+        start = time();    
     }
     
     //
     public final void pause()
     {
-        time = time() - temp;
+        delta = time() - start;
     }   
 }

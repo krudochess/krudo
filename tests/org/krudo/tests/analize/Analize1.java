@@ -4,10 +4,11 @@
  */
 
 //
-package org.krudo.tests.search;
+package org.krudo.tests.analize;
 
 import org.krudo.Legals;
 import static org.krudo.Tool.*;
+import static org.krudo.Debug.*;
 
 //
 import org.krudo.Node;
@@ -16,33 +17,36 @@ import org.krudo.Moves;
 import org.krudo.Search;
 
 // 
-public class Search2 
+public class Analize1 
 {
     //
     public static void main(String[] args) 
     {
         //
+        DEBUG_SHOW_MOVE_WEIGHT = true;
+        
+        //
         Moves.init();
         
         // create a node to service the search
         Node n = new Node();
+
+        //
+        String fen = readfile("./console/analize.fen");
+                
+        //
+        n.startpos(fen);
         
         //
-        n.startpos();
+        dump(n);
         
+        //
+        dump(n.legals().sort());
+                
         // create a serach engine based-on the node
         Search s = new Search(n);
         
         //
-        s.start(5);
-        
-        //
-        Legals.info();
-        
-        //
-        //echo(s.eval(7), s.ns, time()-s.timeStart);        
-        
-        //
-        // echo(Move.b.size(),Cache.legals.size());
+        s.start(20, 100000);                
     }    
 }
