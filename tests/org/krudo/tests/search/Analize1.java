@@ -6,15 +6,17 @@
 //
 package org.krudo.tests.search;
 
-//
-import org.krudo.*;
+import org.krudo.Legals;
+import static org.krudo.Tool.*;
 
 //
-import static org.krudo.Tool.*;
-import static org.krudo.Debug.*;
+import org.krudo.Node;
+import org.krudo.Move;
+import org.krudo.Moves;
+import org.krudo.Search;
 
 // 
-public class Search5 
+public class Search2 
 {
     //
     public static void main(String[] args) 
@@ -30,15 +32,17 @@ public class Search5
         
         // create a serach engine based-on the node
         Search s = new Search(n);
-     
+        
         //
-        try {
-            s.start(10, 5000);
-        } catch (Exception e) {
-            dump(n);        
-            dump(n.L);     
-            dump(n.legals());     
-            e.printStackTrace();            
-        }
+        s.start(5);
+        
+        //
+        Legals.info();
+        
+        //
+        //echo(s.eval(7), s.ns, time()-s.timeStart);        
+        
+        //
+        // echo(Move.b.size(),Cache.legals.size());
     }    
 }

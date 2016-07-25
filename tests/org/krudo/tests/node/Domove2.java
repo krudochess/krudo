@@ -7,17 +7,20 @@
 package org.krudo.tests.node;
 
 //
-import org.krudo.Node;
+import org.krudo.*;
 
 //
 import static org.krudo.Debug.*;
 
 //
-public class Domove2 {
-
+public class Domove2
+{
     //
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
+        //
+        Moves.init();
+        
         //
         Node n = new Node();
         
@@ -25,20 +28,12 @@ public class Domove2 {
         n.startpos();
          
         //
-        String[] moves = new String[] {
-            "e2e4","b8c6","e4e5","f7f5","e5f6"
-        }; 
-        
-        //
-        n.domove(moves);
+        n.domove("e2e4 a7a5 d2d4 a5a4 g1f3".split("\\s"));
 
         //
         dump(n);
         
         //
-        n.unmove(moves.length);
-        
-        //
-        dump(n);        
+        dump(n.legals());        
     }    
 }
