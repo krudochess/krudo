@@ -7,29 +7,52 @@
 package org.krudo;
 
 //
-import static org.krudo.Debug.*;
 import static org.krudo.Tool.*;
+import static org.krudo.Debug.*;
 
 //
 public class PV
 {
     //
+    private final static int PV_SIZE = 15;
+        
+    //
+    private final static int PV_STACK_SIZE = 1000;
+    
+    //
+    private final static PV[] STACK = new PV[PV_STACK_SIZE];;
+    
+    //
+    private static int count;
+    
+    //
     public final int[] s;
+    
+    //
     public final int[] v;
+    
+    //
     public final int[] k;
     
     //
     public int i;
 
     //
-    public PV()
+    private PV()
     {
-        s = new int[15];
-        v = new int[15];
-        k = new int[15];
+        //
+        s = new int[PV_SIZE];
+        
+        //
+        v = new int[PV_SIZE];
+        
+        //
+        k = new int[PV_SIZE];
+        
+        //
         i = 0;
     }
-
+    
     //
     public final void copy(PV pv) 
     {
@@ -89,4 +112,46 @@ public class PV
         //
         i = pv.i + 1;       
     }     
+    
+    //
+    public final void clear()
+    {
+        i = 0;
+    }
+
+    //
+    public final static void init()
+    {          
+        //
+        for(int i = 0; i < PV_STACK_SIZE; i++)
+        {
+            STACK[i] = new PV();        
+        }
+        
+        //
+        count = PV_STACK_SIZE;
+    }
+    
+    //
+    public static final PV pick()
+    {
+        //
+        return STACK[--count];    
+    }
+    
+    //
+    public static void free(final PV pv) 
+    {
+        //
+        pv.i = 0;
+        
+        //
+        STACK[count++] = pv;
+    }
+    
+    //
+    public static void info()
+    {
+        print("PV free="+count);
+    }
 }

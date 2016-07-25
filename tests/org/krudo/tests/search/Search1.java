@@ -6,38 +6,54 @@
 //
 package org.krudo.tests.search;
 
-import static org.krudo.Tool.*;
+//
+import org.krudo.*;
 
 //
-import org.krudo.Node;
-import org.krudo.Search;
+import static org.krudo.Tool.*;
+import static org.krudo.Debug.*;
+import static org.krudo.Config.*;
 
 // 
-public class Search1 {
-
+public class Search1 
+{
     //
-    public static void main(String[] args) {
-                
+    public static void main(String[] args)
+    {
+        // dobbiamo migliorare il tempo di questo BRUTE_FORCE senza quiescenza
+        // id-loop-end 5/5 e2e4 e7e6 f1c4 e6e5 c4f7 11185ms 4865609n 435knps
+        
+        //
+        SEARCH_CONTROL = false;
+        
+        //
+        SEARCH_QUIESCENCE = false;
+        
+        //
+        SEARCH_BRUTE_FORCE = true;
+       
+        //
+        PV.init();
+        
+        //
+        Moves.init();
+        
         // create a node to service the search
         Node n = new Node();
         
+        //
+        n.startpos();
+        
         // create a serach engine based-on the node
         Search s = new Search(n);
-        
-        //n.domove("e2e4");
-        //n.domove("e7e5");
-        
-        // deep limit of iterative deeping
-        int deep = 5; 
-        
-        // time limit of iterative deeping
-        long time = 3000;
-        
-        long d = time(); 
+                               
+        //
+        s.start(5, 500000);
         
         //
-        s.start(deep);
+        //s.start(5, 500000);
         
-        echo(time()-d);
+        //
+        PV.info();
     }    
 }

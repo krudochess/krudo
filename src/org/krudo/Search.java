@@ -28,11 +28,8 @@ public final class Search
     private int stop = 0;
     
     //
-    public int lineStart = 0;
-    
-    //
-    public int score;
-        
+    public int line_start = 0;
+      
     // iterative deepiing deep cursor and limit
     public int deep_index; // current depth in iterative dee 
     public int deep_start; // start value of depth by default 1
@@ -68,7 +65,7 @@ public final class Search
     public int best_score;
 
     //
-    public PV best_pv = new PV(); 
+    public PV best_pv = PV.pick(); 
       
     //
     public String info_event;
@@ -80,10 +77,25 @@ public final class Search
     public Runnable sendinfo = () -> 
     {        
         //
-        //if (info_event.equals(becs))
+        int pad = 18;
         
         //
-        print("INFO: " + info_event + " " + info_message);
+        if (info_event.equals("id-run")) 
+        {
+            print("INFO: "+ rpad(info_event, pad) + " deep " + deep_limit);
+        }
+        
+        //
+        else if (info_event.equals("id-loop-run")) 
+        {
+            print("INFO: "+ rpad(info_event, pad) + " step " + deep_index + "/" + deep_limit);
+        }
+                
+        //
+        else 
+        {
+            print("INFO: "+ rpad(info_event, pad) + " " + info_message);
+        }
     };
     
     //
@@ -113,14 +125,8 @@ public final class Search
         stop = NOT;    
         
         // place offset for search variation
-        lineStart = n.L.i;
-        
-        // deep start value for iterative deeping
-        deep_start = 1;
-        
-        // set deep limit for iterative deeping
-        deep_limit = deep;
-                    
+        line_start = n.L.i;
+                            
         // set time start for required log or other
         time_start = time();
         
@@ -128,21 +134,24 @@ public final class Search
         time_limit = time_start + time;
 
         // start iterative deeping search
-        idrun();
+        idrun(deep);
     }
          
     // iterative deeping entry-point
-    private void idrun() 
+    private void idrun(int deep) 
     {                           
         //
         id_timer.start();
+        
+        // deep start value for iterative deeping
+        deep_start = 1;
                 
         // iterative deeping deep start value
         deep_index = deep_start;
-        
-        // empity moves stack
-        //move.empty();
-            
+                
+        // set deep limit for iterative deeping
+        deep_limit = deep;
+                    
         // iterative deeping alpha start value
         int alfa = -oo;
         
@@ -153,32 +162,22 @@ public final class Search
         int score = alfa;
         
         //
-        PV pv = new PV();
+        PV pv = PV.pick();
                         
         //
-        sendinfo("id-run", ""+deep_limit);
+        sendinfo("id-run");
         
         // iterative deeping loop
         while (deep_index <= deep_limit && stop == NOT)
         {                                        
             //
-            long t = time();
-            
-            //
-            sendinfo("id-loop-run", deep_index+"/"+deep_limit);
+            sendinfo("id-loop-run");
            
             // launch alfa-beta for searcing candidates 
             score = abrun(alfa, beta, pv);        
 
-            //
-            if (stop == YES) 
-            {                 
-                //
-                sendinfo("id-loop-break", "");
-            
-                //
-                break; 
-            }
+            // if search stopped 
+            if (stop == YES) { sendinfo("id-loop-break"); break; }
                 
             //
             best_pv.copy(pv);
@@ -198,6 +197,9 @@ public final class Search
             // increade depth of search
             deep_index++;                        
         }    
+        
+        //
+        PV.free(pv);
         
         //
         id_timer.pause();
@@ -225,19 +227,16 @@ public final class Search
         ab_timer.start();
                        
         //
-        pv.i = 0;
+        pv.clear();
         
         //
-        PV new_pv = new PV();
+        PV new_pv = PV.pick();
         
         // generate and sort legal-moves
         Move m = n.legals();
               
         // no legal moves check-mate or stale-mate
-        if (m.i == 0) 
-        { 
-            return -mate; 
-        }
+        if (m.i == 0) { return -mate; }
                 
         // 
         m.sort();
@@ -246,7 +245,7 @@ public final class Search
         for (int i = 0; i < m.i; i++) 
         {   
             //
-            //info("ab-loop-run", m2s(m, i));
+            //sendinfo("ab-loop-run", "move " + m2s(m, i));
             
             // make
             n.domove(m, i);
@@ -256,21 +255,12 @@ public final class Search
 
             // undo
             n.unmove();            
-            
-            /*
-            // use null window for correction
-            if (s > a) 
-            {
-                s = abmin(d-1, a, b);                
-            }
-            */ 
-                
+                            
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 
             {  
-                sendinfo("ab-hard-cut-off","");
-                //t.store(d, a, t.BETA); 
-                //return b; 
+                //
+                sendinfo("ab-hard-cut-off");
                 
                 //
                 a = b;
@@ -282,24 +272,22 @@ public final class Search
             // soft alfa-cut-off 
             if (s > a) 
             {
+                //
                 sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
+                
                 //
                 pv.cat(new_pv, m, i);
-                //dump(pv);
-                //pv[d].set(n.L, zero);
-                //log(SEARCH_LOG_UP, pv, 1,d,s);
-                //find.put(m,j,s);         
-                //m.w[i] = s;
-                               
+                
+                //
                 a = s;                
             }   
-            
-            // log move wight
-            //log(SEARCH_LOG_MW, m, i, w);            
         } 
         
         //
         Moves.free(m);
+        
+        //
+        PV.free(new_pv);
        
         //
         ab_timer.pause();
@@ -328,7 +316,7 @@ public final class Search
             ns++;
              
             //
-            abcontrol();
+            control();
             
             //
             s = qmax(a, b, pv);
@@ -340,10 +328,10 @@ public final class Search
         }
         
         //
-        pv.i = 0;
+        pv.clear();
         
         //
-        PV new_pv = new PV();
+        PV new_pv = PV.pick();
         
         // get legal-moves  
         Move m = n.legals();
@@ -407,6 +395,9 @@ public final class Search
         Moves.free(m);
         
         //
+        PV.free(new_pv);
+                        
+        //
         return a;        
     }
 
@@ -423,17 +414,17 @@ public final class Search
             ns++;
             
             //
-            abcontrol();
+            control();
             
             // return quesence values
             return qmin(a, b, pv); 
         }
         
         //
-        pv.i = 0;
+        pv.clear();
         
         //
-        PV new_pv = new PV();
+        PV new_pv = PV.pick();
         
         // generate legal-moves 
         Move m = n.legals();
@@ -487,6 +478,9 @@ public final class Search
         
         //
         Moves.free(m);
+        
+        //
+        PV.free(new_pv);
    
         //
         return b;    
@@ -508,10 +502,10 @@ public final class Search
         if (s > a) { a = s; }
         
         //
-        pv.i = 0;
+        pv.clear();
         
         //
-        PV new_pv = new PV();
+        PV new_pv = PV.pick();
                 
         // quiescence need sort moves
         Capture c = n.capture();
@@ -553,6 +547,9 @@ public final class Search
         }
         
         //
+        PV.free(new_pv);
+        
+        //
         return a;
     }
  
@@ -575,10 +572,10 @@ public final class Search
         if (s < b) { b = s; }
               
         //
-        pv.i = 0;
+        pv.clear();
         
         //
-        PV new_pv = new PV();
+        PV new_pv = PV.pick();
         
         // quiescenze need sort moves
         Capture c = n.capture();
@@ -619,13 +616,18 @@ public final class Search
             }
         }
 
+        
+        
         // 
         return b;
     }
     
     //
-    private void abcontrol()
+    private void control()
     {       
+        //
+        if (!SEARCH_CONTROL) { return; }
+        
         //
         long time = time();
         
@@ -644,6 +646,19 @@ public final class Search
         //        
         sendinfo("ab-speed", "nps "+nps);
     } 
+    
+    //
+    private void sendinfo(String event)
+    {
+        //
+        info_event = event;
+        
+        //
+        info_message = null;
+
+        //
+        sendinfo.run();    
+    }
     
     //
     private void sendinfo(String event, String message)

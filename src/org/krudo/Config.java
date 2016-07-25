@@ -10,7 +10,7 @@ package org.krudo;
 public final class Config 
 {    
     // config flags
-    public final static boolean 
+    public static boolean 
 
     /**
      * CACHING SETTINGS
@@ -58,11 +58,14 @@ public final class Config
      */
     
     //
-    SEARCH_BRUTE_FORCE = false,
+    SEARCH_BRUTE_FORCE = true,
             
     //
-    SEARCH_QUIESCENCE = true,
-        
+    SEARCH_QUIESCENCE = false,
+    
+    //
+    SEARCH_CONTROL = true,        
+            
     //
     SEARCH_THREAD = false,
 

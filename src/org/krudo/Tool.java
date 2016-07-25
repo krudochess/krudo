@@ -58,8 +58,8 @@ public final class Tool
 		String sep = "";
 		
 		//
-		for(Object arg: args) {			
-			
+		for(Object arg: args) 
+        {						
 			//
 			System.out.print(sep);
 			
@@ -72,8 +72,8 @@ public final class Tool
 	}
 	
 	//
-	public static final void print(Object arg) {
-		
+	public static final void print(Object arg) 
+    {		
 		//
 		System.out.print(arg);		
 		
@@ -82,14 +82,14 @@ public final class Tool
 	}
 	
 	//
-	public static final void print(Object... args) {
-		
+	public static final void print(Object... args) 
+    {		
 		//
 		String sep = "";
 		
 		//
-		for (Object arg: args) {
-			
+		for (Object arg: args) 
+        {			
 			//
 			System.out.print(sep);
 			
@@ -107,89 +107,141 @@ public final class Tool
     //
     public static final String readfile(String filename)
     {
+        //
         String content = null;
         
+        //
         try 
         {
-            content = new String(Files.readAllBytes(Paths.get(filename)));
-    
-        } catch (IOException e) {
+            content = new String(Files.readAllBytes(Paths.get(filename)));    
+        } 
+        
+        //
+        catch (IOException e) 
+        {
         
         }
         
+        //
         return content;
     }
     
 	//
-	public static final void keys(Object... args) {
+	public static final void keys(Object... args) 
+    {
+        //
 		String sep = "";
-		boolean k = true;
-		for(Object arg: args) {		
-			if (k) {
+		
+        //
+        boolean k = true;
+		
+        //
+        for(Object arg: args) 
+        {		
+			if (k) 
+            {
 				System.out.print(sep+rpad(arg,6));
-			} else {
+			} 
+            
+            //
+            else 
+            {
 				System.out.print(sep+lpad(arg,4));
 			}
+            
+            //
 			sep = " ";			
 			k=!k;
 		}
+        
+        //
 		System.out.print("\n");
 	}
 	
 	//
-	public static final String path(String f) {
-		return (System.getenv().containsKey("ENGINEDIR") ? System.getenv().get("ENGINEDIR") : System.getProperty("user.dir"))+File.separator+f;	
+	public static final String path(String f) 
+    {
+        //
+		return (System.getenv().containsKey("ENGINEDIR") 
+             ?  System.getenv().get("ENGINEDIR") 
+             :  System.getProperty("user.dir")) + File.separator + f;	
 	}
 	
 	//
 	public static final long byte2long(byte[] b, int o, int l) 
     {
+        //
 		long v = 0L;
-		for (int i = o; i < o + l; i++) {
-		   v = (v << 8L) | (b[i] & 0xffL);
+		
+        //
+        for (int i = o; i < o + l; i++) 
+        {
+            v = (v << 8L) | (b[i] & 0xffL);
 		}
+        
+        //
 		return v;
 	}
 	
 	//
 	public static final int byte2int(byte[] b, int o, int l) 
     {
+        //
 		int v = 0;
-		for (int i = o; i < o + l; i++) {
-		   v = (v << 8) + (b[i] & 0xff);
+		
+        //
+        for (int i = o; i < o + l; i++)
+        {
+            v = (v << 8) + (b[i] & 0xff);
 		}
+        
+        //
 		return v;
 	}
 	
 	//
-	public static final String hex(long l) {
-		return String.format("%016X",l).toLowerCase();
+	public static final String hex(long l) 
+    {
+        //
+		return String.format("%016X", l).toLowerCase();
 	} 
 	
 	//
-	public static final String bin(int i) {
-		return String.format("%1$5s",Integer.toBinaryString(i));
+	public static final String bin(int i) 
+    {
+        //
+		return String.format("%1$5s", Integer.toBinaryString(i));
 	} 
 	
 	//
-	public static final String bin(int i, int l) {
-		return String.format("%1$"+l+"s",Integer.toBinaryString(i)).replace(' ', '0');
+	public static final String bin(int i, int l) 
+    {
+		return String.format("%1$" + l + "s", Integer.toBinaryString(i)).replace(' ', '0');
 	} 
 	
 	//
-	public static final String pad(Object o, int w) {
-		String t = ""+o;
+	public static final String pad(Object o, int w) 
+    {
+        //
+		String t = "" + o;
+        
+        //
 		return String.format("%1$" + w + "s", t);		
 	}
 	
 	//
-	public static final String rpad(Object o, int w) {
-		String t = ""+o;
+	public static final String rpad(Object o, int w) 
+    {
+        //
+		String t = "" + o;
+        
+        //
 		return String.format("%1$" + w + "s", t);		
 	}
 	
 	//
-	public static final String lpad(Object o, int w) {
+	public static final String lpad(Object o, int w) 
+    {
 		String t = ""+o;
 		return String.format("%1$-" + w + "s", t);		
 	}
