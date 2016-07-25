@@ -234,15 +234,15 @@ public final class Search
                        
         //
         pv.clear();
+                
+        // generate legal-moves
+        n.legals();
+                        
+        // no legal moves check-mate or stale-mate
+        if (n.m.i == 0) { return n.incheck() ? -mate : 0; } 
         
         //
         PV new_pv = PVs.pick();
-        
-        // generate legal-moves
-        n.legals();
-              
-        // no legal moves check-mate or stale-mate
-        if (n.m.i == 0) { return n.incheck() ? -mate : 0; } 
                 
         // 
         Move m = n.m.sort().clone();
@@ -314,8 +314,8 @@ public final class Search
     private int abmax(final int d, int a, int b, final PV pv, final int nt) 
     {   
         // score
-        int s;
-                        
+        int s;        
+                
         // trasposition table probe
         if (TT.probemax(n.phk, d, a, b)) { return TT.score; }
         
@@ -340,15 +340,18 @@ public final class Search
         
         //
         pv.clear();
+                
+        // get legal-moves  
+        n.legals();
+        
+        // threefold repetition
+        if (n.threefold()) { return 0; }
+                
+        // no legal moves check-mate or stale-mate
+        if (n.m.i == 0) { return n.incheck() ? -mate + d : 0; }
         
         //
         PV new_pv = PVs.pick();
-        
-        // get legal-moves  
-        n.legals();
-                        
-        // no legal moves check-mate or stale-mate
-        if (n.m.i == 0) { return n.incheck() ? -mate + d : 0; }
                 
         // sort and clone       
         Move m  = n.m.sort().clone();
@@ -406,9 +409,6 @@ public final class Search
         }
         
         //
-        // t.store(d, a);
-        
-        //
         Moves.free(m);
         
         //
@@ -426,7 +426,7 @@ public final class Search
     {                        
         //
         int s; 
-
+        
         // trasposition table probe
         if (TT.probemin(n.phk, d, a, b)) { return TT.score; }
         
@@ -451,15 +451,18 @@ public final class Search
         
         //
         pv.clear();
-        
-        //
-        PV new_pv = PVs.pick();
-        
+                
         // generate legal-moves 
         n.legals();
 
+        // threefold repetition
+        if (n.threefold()) { return 0; }
+        
         // no-legals-move exit checkmate
         if (n.m.i == 0) { return n.incheck() ? +mate - d : 0; }
+        
+        //
+        PV new_pv = PVs.pick();
         
         // and sort
         Move m = n.m.sort().clone();        

@@ -72,7 +72,16 @@ public final class UCI
         
     //        
     public final static Runnable SENDBESTMOVE = () -> 
-    {        
+    {                
+        //
+        Krudo.CONSOLE.print(desc(Krudo.ENGINE.NODE));
+        
+        //
+        Krudo.ENGINE.NODE.legals();
+        
+        //
+        Krudo.CONSOLE.print(desc(Krudo.ENGINE.NODE.m));
+        
         //
         Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bestmove);                                                
     };            

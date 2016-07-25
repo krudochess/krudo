@@ -933,6 +933,21 @@ public final class Node
     }
     
     //
+    public final boolean threefold()
+    {     
+        //
+        for (int i = 0; i < L.i; i++) 
+        {
+            if (phk == L.h[i]) 
+            {
+            }
+        }
+        
+        //
+        return false;
+    }
+    
+    //
     public final Capture capture()
     {
         // new empty capture-stack
