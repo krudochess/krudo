@@ -24,6 +24,9 @@ public class Search1
         // id-loop-end 5/5 e2e4 e7e6 f1c4 e6e5 c4f7 11185ms 4865609n 435knps
         
         //
+        SEARCH_TT = false;
+        
+        //
         SEARCH_CONTROL = false;
         
         //
@@ -32,6 +35,9 @@ public class Search1
         //
         SEARCH_BRUTE_FORCE = true;
        
+        //
+        TT.init();
+        
         //
         PVs.init();
         

@@ -302,13 +302,9 @@ public final class Search
     {   
         // score
         int s;
-        
-        // prepare traspoisiont table for current hash
-        //t.begin(hash(n));
-                
+                        
         // trasposition table probe
-        //if (Tables.probe(n.h, d, a, b)) {         
-        //}
+        if (TT.probemax(n.phk, d, a, b)) {  }
         
         // return quiescence value-search, 
         if (d == 0) 
@@ -322,7 +318,8 @@ public final class Search
             //
             s = qmax(a, b, pv);
             
-            //t.store(d, w, t.EXACT); 
+            //
+            TT.storemax(d, s); 
             
             //
             return s; 
@@ -408,6 +405,9 @@ public final class Search
         //
         int s; 
 
+        // trasposition table probe
+        if (TT.probemin(n.phk, d, a, b)) {  }
+        
         // at-end quiescence search and 
         if (d == 0) 
         {
@@ -417,8 +417,14 @@ public final class Search
             //
             control();
             
+            //
+            s = qmin(a, b, pv); 
+            
+            //
+            TT.storemin(d, s); 
+            
             // return quesence values
-            return qmin(a, b, pv); 
+            return s;
         }
         
         //

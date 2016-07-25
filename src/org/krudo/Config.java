@@ -68,6 +68,9 @@ public final class Config
             
     //
     SEARCH_THREAD = false,
+            
+    //
+    SEARCH_TT = true,
 
     /**
      * MOVE STACK SETTINGS
