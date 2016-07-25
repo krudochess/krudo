@@ -30,10 +30,13 @@ public class Search1
         SEARCH_CONTROL = false;
         
         //
-        SEARCH_QUIESCENCE = false;
+        SEARCH_QUIESCENCE = true;
         
         //
         SEARCH_BRUTE_FORCE = false;
+        
+        //
+        SEARCH_UPDATE = true;
        
         //
         TT.init();

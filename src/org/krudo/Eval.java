@@ -747,9 +747,12 @@ public final class Eval
             dump(n);
             return;
         }
+       
+        //
+        n.legals();
         
         //
-        Move m = n.legals().sort();
+        Move m = n.m.sort().clone();
     
         //
         int w = m.i > width ? width : m.i;

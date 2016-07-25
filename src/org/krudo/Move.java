@@ -130,7 +130,7 @@ public final class Move
     }
     
     // duplicate a move-stack instance
-    public final Move duplicate()
+    public final Move clone()
     {
         //
         Move m = Moves.pick();

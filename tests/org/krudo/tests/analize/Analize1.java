@@ -41,7 +41,10 @@ public class Analize1
         dump(n);
         
         //
-        dump(n.legals().sort());
+        n.legals();
+        
+        //
+        dump(n.m.sort());
                 
         // create a serach engine based-on the node
         Search s = new Search(n);

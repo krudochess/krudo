@@ -475,19 +475,9 @@ public final class Node
         //
         else { B[a8] = br; B[d8] = O; }                
     }
-        
+            
     // generate moves-stack with legal-moves
-    public final Move legals() 
-    {   
-        //
-        cache_legals();
-                
-        //
-        return m.duplicate();
-    }
-    
-    // generate moves-stack with legal-moves
-    private void cache_legals() 
+    public void legals() 
     {   
         //
         if (Legals.has(phk)) 

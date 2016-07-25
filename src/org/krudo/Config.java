@@ -70,6 +70,9 @@ public final class Config
     SEARCH_THREAD = false,
             
     //
+    SEARCH_UPDATE = true,
+            
+    //
     SEARCH_TT = true,
 
     /**

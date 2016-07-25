@@ -233,14 +233,14 @@ public final class Search
         //
         PV new_pv = PVs.pick();
         
-        // generate and sort legal-moves
-        Move m = n.legals();
+        // generate legal-moves
+        n.legals();
               
         // no legal moves check-mate or stale-mate
-        if (m.i == 0) { return -mate; }
+        if (n.m.i == 0) { return -mate; }
                 
         // 
-        m.sort();
+        Move m = n.m.sort().clone();
         
         //
         for (int i = 0; i < m.i; i++) 
@@ -264,6 +264,9 @@ public final class Search
                 sendinfo("ab-hard-cut-off");
                 
                 //
+                if (SEARCH_UPDATE) { n.m.w[i] = b; }
+                
+                //
                 a = b;
                 
                 //
@@ -273,6 +276,11 @@ public final class Search
             // soft alfa-cut-off 
             if (s > a) 
             {
+                print(s, a, m.w[i]);
+                
+                //
+                if (SEARCH_UPDATE) { n.m.w[i] = s; }
+                
                 //
                 sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
                 
@@ -332,14 +340,14 @@ public final class Search
         PV new_pv = PVs.pick();
         
         // get legal-moves  
-        Move m = n.legals();
-                
-        // and sort       
-        m.sort();
-        
+        n.legals();
+                        
         // no legal moves check-mate or stale-mate
-        //if (m.l == 0) { return -mate; }
-                                  
+        if (n.m.i == 0) { return -mate; }
+                
+        // sort and clone       
+        Move m  = n.m.sort().clone();
+                
         //
         for (int i = 0; i < m.i; i++) 
         {            
@@ -365,6 +373,8 @@ public final class Search
             {  
                 //t.store(d, a, t.BETA); 
                 //return b; 
+                //
+                if (SEARCH_UPDATE) { n.m.w[i] = b; }
                 
                 //
                 a = b;
@@ -376,11 +386,15 @@ public final class Search
             // soft cut-off
             if (s > a) 
             {                         
-                // t.exact();
-              
                 //
                 pv.cat(new_pv, m, i);
                 
+                //
+                if (SEARCH_UPDATE) { n.m.w[i] = s; }
+                
+                //
+                //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
+                     
                 //
                 a = s;             
             }
@@ -437,13 +451,13 @@ public final class Search
         PV new_pv = PVs.pick();
         
         // generate legal-moves 
-        Move m = n.legals();
+        n.legals();
 
         // no-legals-move exit checkmate
-        if (m.i == 0) { return +mate - d; }
+        if (n.m.i == 0) { return +mate - d; }
         
         // and sort
-        m.sort();        
+        Move m = n.m.sort().clone();        
             
         //
         for (int i = 0; i < m.i; i++)
@@ -474,12 +488,15 @@ public final class Search
                                                 
             // soft cut-off
             if (s < b) 
-            {     
-                
+            {                     
                 //
                 pv.cat(new_pv, m, i);
-                //dump(new_pv);
-                //dump(pv);
+                
+                //
+                if (SEARCH_UPDATE) { n.m.w[i] = s; }
+                
+                //
+                //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
                 
                 //
                 b = s;                       
@@ -629,6 +646,9 @@ public final class Search
             }
         }
         
+        //
+        PVs.free(new_pv);
+        
         // 
         return b;
     }
@@ -711,7 +731,10 @@ public final class Search
         if (deep == 0) { return; }
         
         //
-        Move m = n.legals().sort();
+        n.legals();
+        
+        //
+        Move m = n.m.sort();
     
         //
         int w = m.i > width ? width : m.i;

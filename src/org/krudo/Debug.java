@@ -179,12 +179,12 @@ public final class Debug
     {	
 		dump(n);
 		echo("-------------");
-		Move m = n.legals();
+		n.legals();
 		
-		for(int l=0; l<m.i; l++) {
+		for(int l=0; l<n.m.i; l++) {
 			echo(
-				pad(i2m(m.s[l],m.v[l],m.k[l],n.B[m.s[l]]),5),
-				pad(m.w[l],5)
+				//pad(i2m(n.m.s[l],n.m.v[l],n.m.k[l],n.n.B[n.m.s[l]]),5),
+				pad(n.m.w[l],5)
 			);
 		}
 	}
@@ -220,7 +220,8 @@ public final class Debug
 
 		//
 		public final static void doing(Node n, int d, Perft p, int s, int v, int k) 
-        {		
+        {	
+            /*
 			if (d>0) {			
 				Move m = n.legals();
 				for(int l=0; l<m.i; l++) {								
@@ -239,7 +240,7 @@ public final class Debug
 				//	p.h++;
 				//}
 				//n.T ^= t;			
-			}
+			}*/
 		}
 
 		//
@@ -300,7 +301,10 @@ public final class Debug
         int c = 0;
         
         //
-        Move m = n.legals();
+        n.legals();
+        
+        //
+        Move m = n.m.sort().clone();
         
         /*
         //
@@ -406,7 +410,8 @@ public final class Debug
             dump(n.L);
             n.unmove();
             dump(n);
-            dump(n.legals());
+            n.legals();
+            dump(n.m);
             print(Book.list(n.phk));
 
               java.lang.Thread.dumpStack();
