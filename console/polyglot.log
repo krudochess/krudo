@@ -2067,3 +2067,1702 @@
 1469482606.538 POLYGLOT Engine does not reply. Sleeping 100ms.
 1469482606.639 POLYGLOT Waiting for child process to exit.
 1469482606.839 POLYGLOT Calling exit
+1469482740.528 POLYGLOT *** LOGFILE OPENED ***
+1469482740.528 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482740.528 POLYGLOT *** SWITCHING LOGFILE ***
+1469482740.528 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482740.537 POLYGLOT *** LOGFILE OPENED ***
+1469482740.537 POLYGLOT *** LOGFILE OPENED ***
+1469482740.537 PolyGlot 2.0.1 by Fabien Letouzey.
+1469482740.537 POLYGLOT *** START ***
+1469482740.538 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1469482740.547 Adapter->Engine: uci
+1469482741.229 Engine->Adapter: Krudo 0.16a by Francesco <bianco@javanile.org>
+1469482741.849 Engine->Adapter: id name Krudo 0.16a
+1469482741.849 Engine->Adapter: id author Francesco Bianco
+1469482741.849 Engine->Adapter: uciok
+1469482741.849 POLYGLOG OPTIONS 
+1469482741.849 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1469482741.849 POLYGLOT [Polyglot] EngineDir="."
+1469482741.849 POLYGLOT [Polyglot] EngineCommand="C:/ProgramData/Oracle/Java/javapath/java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1469482741.849 POLYGLOT [Polyglot] Log="true"
+1469482741.849 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482741.849 POLYGLOT [Polyglot] Book="false"
+1469482741.849 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1469482741.849 POLYGLOT [Polyglot] BookRandom="false"
+1469482741.849 POLYGLOT [Polyglot] BookDepth="256"
+1469482741.849 POLYGLOT [Polyglot] BookLearn="false"
+1469482741.849 POLYGLOT [Polyglot] BookTreshold="5"
+1469482741.849 POLYGLOT [Polyglot] UCI="false"
+1469482741.849 POLYGLOT [Polyglot] UseNice="false"
+1469482741.849 POLYGLOT [Polyglot] NiceValue="5"
+1469482741.849 POLYGLOT [Polyglot] Resign="false"
+1469482741.850 POLYGLOT [Polyglot] ResignMoves="3"
+1469482741.850 POLYGLOT [Polyglot] ResignScore="600"
+1469482741.850 POLYGLOT [Polyglot] MateScore="10000"
+1469482741.850 POLYGLOT [Polyglot] KibitzMove="false"
+1469482741.850 POLYGLOT [Polyglot] KibitzPV="false"
+1469482741.850 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1469482741.850 POLYGLOT [Polyglot] KibitzDelay="5"
+1469482741.850 POLYGLOT [Polyglot] KibitzInterval="0"
+1469482741.850 POLYGLOT [Polyglot] ShowPonder="false"
+1469482741.850 POLYGLOT [Polyglot] ScoreWhite="false"
+1469482741.850 POLYGLOT [Polyglot] UCIVersion="2"
+1469482741.850 POLYGLOT [Polyglot] RepeatPV="true"
+1469482741.850 POLYGLOT [Polyglot] SyncStop="false"
+1469482741.850 POLYGLOT [Polyglot] CanPonder="false"
+1469482741.850 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1469482741.850 POLYGLOT [Polyglot] WbWorkArounds="false"
+1469482741.850 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1469482741.850 POLYGLOT [Engine] Hash="68"
+1469482741.850 POLYGLOT [Engine] Ponder="false"
+1469482741.850 POLYGLOT [Engine] OwnBook="false"
+1469482741.850 POLYGLOT [Engine] Book="false"
+1469482741.850 POLYGLOT [Engine] BookFile="book_small.bin"
+1469482741.850 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1469482741.850 POLYGLOT [Engine] NullMove Reduction="3"
+1469482741.850 POLYGLOT [Engine] Verification Search="Endgame"
+1469482741.850 POLYGLOT [Engine] Verification Reduction="5"
+1469482741.850 POLYGLOT [Engine] History Pruning="true"
+1469482741.850 POLYGLOT [Engine] History Threshold="60"
+1469482741.850 POLYGLOT [Engine] Futility Pruning="false"
+1469482741.850 POLYGLOT [Engine] Futility Margin="100"
+1469482741.850 POLYGLOT [Engine] Delta Pruning="false"
+1469482741.850 POLYGLOT [Engine] Delta Margin="50"
+1469482741.850 POLYGLOT [Engine] Quiescence Check Plies="1"
+1469482741.850 POLYGLOT [Engine] Material="100"
+1469482741.851 POLYGLOT [Engine] Piece Activity="100"
+1469482741.851 POLYGLOT [Engine] King Safety="100"
+1469482741.851 POLYGLOT [Engine] Pawn Structure="100"
+1469482741.851 POLYGLOT [Engine] Passed Pawns="100"
+1469482741.851 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1469482741.851 POLYGLOT Setting PolyGlot option "EngineDir=."
+1469482741.851 POLYGLOT Setting PolyGlot option "EngineCommand=C:/ProgramData/Oracle/Java/javapath/java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1469482741.851 POLYGLOT Setting PolyGlot option "Log=true"
+1469482741.851 POLYGLOT *** SWITCHING LOGFILE ***
+1469482741.851 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482741.851 POLYGLOT *** LOGFILE OPENED ***
+1469482741.851 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482741.851 POLYGLOT *** SWITCHING LOGFILE ***
+1469482741.851 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482741.858 POLYGLOT *** LOGFILE OPENED ***
+1469482741.858 POLYGLOT Setting PolyGlot option "Book=false"
+1469482741.858 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1469482741.858 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1469482741.858 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1469482741.858 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1469482741.858 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1469482741.858 POLYGLOT Setting PolyGlot option "UCI=false"
+1469482741.858 POLYGLOT Setting PolyGlot option "UseNice=false"
+1469482741.858 POLYGLOT Adjust Engine Piority
+1469482741.858 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1469482741.858 POLYGLOT Setting PolyGlot option "Resign=false"
+1469482741.858 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1469482741.858 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1469482741.859 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1469482741.859 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1469482741.859 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1469482741.859 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1469482741.859 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1469482741.859 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1469482741.859 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1469482741.859 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1469482741.859 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1469482741.859 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1469482741.859 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1469482741.859 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1469482741.859 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1469482741.859 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1469482741.859 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1469482741.859 POLYGLOT *** Mainloop started ***
+1469482741.859 GUI->Adapter: xboard
+1469482741.859 GUI->Adapter: protover 2
+1469482741.859 Adapter->GUI: feature done=0
+1469482741.859 Adapter->GUI: feature analyze=1
+1469482741.859 Adapter->GUI: feature exclude=1
+1469482741.860 Adapter->GUI: feature colors=0
+1469482741.860 Adapter->GUI: feature draw=1
+1469482741.860 Adapter->GUI: feature ics=1
+1469482741.860 Adapter->GUI: feature myname="Krudo 0.15a"
+1469482741.860 Adapter->GUI: feature name=1
+1469482741.860 Adapter->GUI: feature pause=0
+1469482741.860 Adapter->GUI: feature ping=1
+1469482741.860 Adapter->GUI: feature playother=1
+1469482741.860 Adapter->GUI: feature sigint=1
+1469482741.860 Adapter->GUI: feature reuse=1
+1469482741.860 Adapter->GUI: feature san=0
+1469482741.860 Adapter->GUI: feature setboard=1
+1469482741.860 Adapter->GUI: feature sigint=0
+1469482741.860 Adapter->GUI: feature sigterm=0
+1469482741.860 Adapter->GUI: feature time=1
+1469482741.861 Adapter->GUI: feature usermove=1
+1469482741.861 Adapter->GUI: feature nps=1
+1469482741.861 Adapter->GUI: feature memory=0
+1469482741.861 Adapter->GUI: feature smp=0
+1469482741.861 Adapter->GUI: feature egt=""
+1469482741.861 Adapter->GUI: feature variants="normal"
+1469482741.861 Adapter->GUI: feature option="Polyglot exclude move -string "
+1469482741.861 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1469482741.861 Adapter->GUI: feature option="Polyglot Log -check 1"
+1469482741.861 Adapter->GUI: feature option="Polyglot LogFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482741.861 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1469482741.861 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1469482741.861 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1469482741.861 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1469482741.861 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1469482741.861 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1469482741.861 Adapter->GUI: feature option="Polyglot Book -check 0"
+1469482741.861 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1469482741.861 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1469482741.861 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1469482741.862 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1469482741.862 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1469482741.862 Adapter->GUI: feature option="Polyglot Save -save"
+1469482741.862 Adapter->GUI: feature done=1
+1469482741.862 GUI->Adapter: accepted done
+1469482741.862 GUI->Adapter: accepted analyze
+1469482741.862 GUI->Adapter: accepted exclude
+1469482741.862 GUI->Adapter: accepted colors
+1469482741.862 GUI->Adapter: accepted draw
+1469482741.862 GUI->Adapter: accepted ics
+1469482741.862 GUI->Adapter: accepted myname
+1469482741.862 GUI->Adapter: accepted name
+1469482741.862 GUI->Adapter: accepted pause
+1469482741.862 GUI->Adapter: accepted ping
+1469482741.862 GUI->Adapter: accepted playother
+1469482741.862 GUI->Adapter: accepted sigint
+1469482741.862 GUI->Adapter: accepted reuse
+1469482741.862 GUI->Adapter: accepted san
+1469482741.862 GUI->Adapter: accepted setboard
+1469482741.862 GUI->Adapter: accepted sigint
+1469482741.862 GUI->Adapter: accepted sigterm
+1469482741.862 GUI->Adapter: accepted time
+1469482741.862 GUI->Adapter: accepted usermove
+1469482741.862 GUI->Adapter: accepted nps
+1469482741.862 GUI->Adapter: accepted memory
+1469482741.862 GUI->Adapter: accepted smp
+1469482741.862 GUI->Adapter: accepted egt
+1469482741.862 GUI->Adapter: accepted variants
+1469482741.862 GUI->Adapter: accepted option
+1469482741.862 GUI->Adapter: accepted option
+1469482741.862 GUI->Adapter: accepted option
+1469482741.862 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted option
+1469482741.863 GUI->Adapter: accepted done
+1469482741.884 GUI->Adapter: new
+1469482741.884 Adapter->Engine: isready
+1469482741.896 Engine->Adapter: readyok
+1469482741.896 POLYGLOT NEW GAME
+1469482741.896 POLYGLOT WAIT
+1469482741.896 Adapter->Engine: ucinewgame
+1469482741.896 GUI->Adapter: random
+1469482741.896 GUI->Adapter: ics -
+1469482741.896 GUI->Adapter: level 0 1 0
+1469482741.896 GUI->Adapter: post
+1469482741.896 GUI->Adapter: hard
+1469482741.896 POLYGLOT WAIT
+1469482741.896 GUI->Adapter: ping 1
+1469482741.897 Adapter->GUI: pong 1
+1469482741.897 GUI->Adapter: force
+1469482741.897 POLYGLOT WAIT
+1469482741.897 GUI->Adapter: ping 2
+1469482741.897 Adapter->GUI: pong 2
+1469482741.897 GUI->Adapter: new
+1469482741.897 Adapter->Engine: isready
+1469482741.927 Engine->Adapter: readyok
+1469482741.927 POLYGLOT NEW GAME
+1469482741.927 POLYGLOT WAIT
+1469482741.927 Adapter->Engine: ucinewgame
+1469482741.927 GUI->Adapter: random
+1469482741.927 GUI->Adapter: ics -
+1469482741.927 GUI->Adapter: level 0 1 0
+1469482741.927 GUI->Adapter: post
+1469482741.927 GUI->Adapter: hard
+1469482741.927 POLYGLOT WAIT
+1469482741.927 GUI->Adapter: ping 3
+1469482741.927 Adapter->GUI: pong 3
+1469482741.927 GUI->Adapter: force
+1469482741.927 POLYGLOT WAIT
+1469482741.927 GUI->Adapter: setboard 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
+1469482741.927 POLYGLOT FEN 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
+1469482741.927 POLYGLOT WAIT
+1469482742.552 GUI->Adapter: computer
+1469482742.552 GUI->Adapter: name Fruit 2.1
+1469482742.552 GUI->Adapter: time 6000
+1469482742.552 GUI->Adapter: otim 6000
+1469482742.552 GUI->Adapter: go
+1469482742.552 POLYGLOT THINK
+1469482742.553 POLYGLOT START SEARCH
+1469482742.553 POLYGLOT FEN 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
+1469482742.553 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
+1469482742.553 Adapter->Engine: go wtime 60000 btime 60000
+1469482742.564 Engine->Adapter: -5 -100000 0
+1469482742.570 Engine->Adapter: info depth 1 score cp -5 nps 1 pv b1a3 event id-loop-end
+1469482742.570 parse info 0 0
+1469482742.570 Adapter->GUI: 1 -5 0 1 Na3
+1469482742.574 Engine->Adapter: 20 -100000 0
+1469482742.575 Engine->Adapter: 22 20 0
+1469482742.578 Engine->Adapter: 30 22 0
+1469482742.588 Engine->Adapter: info depth 2 score cp 30 nps 1 pv e2e4 e8e7 event id-loop-end
+1469482742.588 parse info 1 1
+1469482742.588 Adapter->GUI: 2 +30 0 1 e4 Ke7
+1469482742.593 Engine->Adapter: -8 -100000 0
+1469482742.593 Engine->Adapter: -6 -8 0
+1469482742.598 Engine->Adapter: info depth 3 score cp -6 nps 56 pv b1c3 e8e7 c3e4 event id-loop-end
+1469482742.598 parse info 2 2
+1469482742.598 Adapter->GUI: 3 -6 0 1 Nc3 Ke7 Ne4
+1469482742.607 Engine->Adapter: 30 -100000 0
+1469482742.616 Engine->Adapter: 33 30 0
+1469482742.629 Engine->Adapter: 46 33 0
+1469482742.635 Engine->Adapter: 47 46 0
+1469482742.647 Engine->Adapter: info depth 4 score cp 47 nps 15 pv e2e3 e8e7 d1g4 e7e8 event id-loop-end
+1469482742.647 parse info 3 3
+1469482742.647 Adapter->GUI: 4 +47 0 1 e3 Ke7 Qg4 Ke8
+1469482742.657 Engine->Adapter: -6 -100000 0
+1469482742.678 Engine->Adapter: -3 -6 0
+1469482742.688 Engine->Adapter: info depth 5 score cp -3 nps 368 pv e2e4 e8e7 d1f3 e7d7 f3f6 event id-loop-end
+1469482742.688 parse info 4 4
+1469482742.689 Adapter->GUI: 5 -3 0 1 e4 Ke7 Qf3 Kd7 Qf6
+1469482742.730 Engine->Adapter: 47 -100000 0
+1469482742.784 Engine->Adapter: 51 47 0
+1469482742.863 Engine->Adapter: 52 51 0
+1469482743.403 Engine->Adapter: info depth 6 score cp 52 nps 23 pv e2e4 e8e7 d1h5 e7e6 d2d4 e6e7 event id-loop-end
+1469482743.404 parse info 5 5
+1469482743.404 Adapter->GUI: 6 +52 0 1 e4 Ke7 Qh5 Ke6 d4 Ke7
+1469482743.519 Engine->Adapter: -3 -100000 0
+1469482743.573 Engine->Adapter: . . . . k . . .    
+1469482743.573 Engine->Adapter: . . . . . . . .    
+1469482743.573 Engine->Adapter: . . . . . . . .    
+1469482743.573 Engine->Adapter: . . . . . . . .    
+1469482743.573 Engine->Adapter: . . . . . . . .    
+1469482743.573 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482743.573 Engine->Adapter: P P P P P P P P    phk: 537740d374760275
+1469482743.573 Engine->Adapter: R N B Q K B N R <  mhk: 84e3941a5aad8092
+1469482743.573 Engine->Adapter: 
+1469482743.621 Engine->Adapter: b1a3   b1c3   g1f3   g1h3   e2e4   e2e3  
+1469482743.621 Engine->Adapter: d2d4   d2d3   c2c4   c2c3   f2f4   f2f3  
+1469482743.621 Engine->Adapter: h2h4   h2h3   b2b4   b2b3   g2g4   g2g3  
+1469482743.621 Engine->Adapter: a2a4   a2a3  
+1469482743.621 Engine->Adapter: bestmove e2e4
+1469482743.621 Adapter->GUI: 6 +52 0 1 e4 Ke7 Qh5 Ke6 d4 Ke7
+1469482743.621 Adapter->GUI: move e2e4
+1469482743.621 POLYGLOT MOVE e4
+1469482743.621 POLYGLOT THINK -> WAIT
+1469482745.585 GUI->Adapter: time 5892
+1469482745.586 GUI->Adapter: otim 5804
+1469482745.586 GUI->Adapter: usermove e8e7
+1469482745.586 POLYGLOT MOVE Ke7
+1469482745.586 POLYGLOT WAIT -> THINK
+1469482745.586 POLYGLOT START SEARCH
+1469482745.586 POLYGLOT FEN 8/4k3/8/8/4P3/8/PPPP1PPP/RNBQKBNR w KQ - 1 2
+1469482745.586 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7
+1469482745.586 Adapter->Engine: go wtime 58920 btime 58040
+1469482745.588 Engine->Adapter: e2e4
+1469482745.588 Engine->Adapter: -6 -100000 0
+1469482745.589 Engine->Adapter: -5 -6 0
+1469482745.589 Engine->Adapter: info depth 1 score cp -5 nps 30 pv d1f3 event id-loop-end
+1469482745.589 parse info 0 0
+1469482745.589 Adapter->GUI: 1 -5 0 1 Qf3
+1469482745.589 Engine->Adapter: 30 -100000 0
+1469482745.589 Engine->Adapter: 32 30 0
+1469482745.590 Engine->Adapter: 42 32 0
+1469482745.590 Engine->Adapter: 46 42 0
+1469482745.591 Engine->Adapter: info depth 2 score cp 46 nps 54 pv d1h5 e7e6 event id-loop-end
+1469482745.591 parse info 1 1
+1469482745.591 Adapter->GUI: 2 +46 0 1 Qh5 Ke6
+1469482745.591 Engine->Adapter: -6 -100000 0
+1469482745.592 Engine->Adapter: -4 -6 0
+1469482745.592 Engine->Adapter: -3 -4 0
+1469482745.593 Engine->Adapter: info depth 3 score cp -3 nps 698 pv d1g4 e7f7 e4e5 event id-loop-end
+1469482745.593 parse info 2 2
+1469482745.594 Adapter->GUI: 3 -3 0 1 Qg4 Kf7 e5
+1469482745.598 Engine->Adapter: 46 -100000 0
+1469482745.598 Engine->Adapter: 49 46 0
+1469482745.602 Engine->Adapter: 52 49 0
+1469482745.612 Engine->Adapter: info depth 4 score cp 52 nps 81 pv d1h5 e7e6 d2d4 e6e7 event id-loop-end
+1469482745.612 parse info 3 3
+1469482745.612 Adapter->GUI: 4 +52 0 1 Qh5 Ke6 d4 Ke7
+1469482745.618 Engine->Adapter: -3 -100000 0
+1469482745.660 Engine->Adapter: -2 -3 0
+1469482745.763 Engine->Adapter: info depth 5 score cp -2 nps 364 pv d1g4 e7f6 e4e5 f6e5 f1c4 event id-loop-end
+1469482745.763 parse info 4 4
+1469482745.763 Adapter->GUI: 5 -2 0 1 Qg4 Kf6 e5+ Kxe5 Bc4
+1469482745.952 Engine->Adapter: 51 -100000 0
+1469482746.109 Engine->Adapter: 55 51 0
+1469482746.479 Engine->Adapter: 57 55 0
+1469482746.590 Engine->Adapter: . . . . . . . .    
+1469482746.590 Engine->Adapter: . . . . k . . .    
+1469482746.590 Engine->Adapter: . . . . . . . .    
+1469482746.590 Engine->Adapter: . . . . . . . .    
+1469482746.590 Engine->Adapter: . . . . P . . .    
+1469482746.590 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482746.590 Engine->Adapter: P P P P . P P P    phk: bbfe5691dcb58540
+1469482746.590 Engine->Adapter: R N B Q K B N R <  mhk: d90a4470c4d4154c
+1469482746.591 Engine->Adapter: 
+1469482746.594 Engine->Adapter: b1a3   b1c3   g1e2   g1f3   g1h3   d1e2  
+1469482746.594 Engine->Adapter: d1g4   d1h5   f1e2   f1d3   f1c4   f1b5  
+1469482746.594 Engine->Adapter: f1a6   e1e2   d2d4   d2d3   c2c4   c2c3  
+1469482746.594 Engine->Adapter: f2f4   f2f3   h2h4   h2h3   b2b4   b2b3  
+1469482746.594 Engine->Adapter: g2g4   g2g3   a2a4   a2a3   d1f3   e4e5  
+1469482746.594 Engine->Adapter: bestmove d1g4
+1469482746.595 Adapter->GUI: 5 -2 0 1 Qg4 Kf6 e5+ Kxe5 Bc4
+1469482746.595 Adapter->GUI: move d1g4
+1469482746.595 POLYGLOT MOVE Qg4
+1469482746.595 POLYGLOT THINK -> WAIT
+1469482746.998 GUI->Adapter: time 5791
+1469482746.998 GUI->Adapter: otim 5764
+1469482746.999 GUI->Adapter: usermove e7f6
+1469482746.999 POLYGLOT MOVE Kf6
+1469482746.999 POLYGLOT WAIT -> THINK
+1469482746.999 POLYGLOT START SEARCH
+1469482746.999 POLYGLOT FEN 8/8/5k2/8/4P1Q1/8/PPPP1PPP/RNB1KBNR w KQ - 3 3
+1469482746.999 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6
+1469482747.000 Adapter->Engine: go wtime 57910 btime 57640
+1469482747.000 Engine->Adapter: e2e4
+1469482747.000 Engine->Adapter: -3 -100000 0
+1469482747.001 Engine->Adapter: -2 -3 0
+1469482747.001 Engine->Adapter: info depth 1 score cp -2 nps 42 pv g1f3 event id-loop-end
+1469482747.001 parse info 0 0
+1469482747.001 Adapter->GUI: 1 -2 0 1 Nf3
+1469482747.001 Engine->Adapter: 41 -100000 0
+1469482747.001 Engine->Adapter: 44 41 0
+1469482747.002 Engine->Adapter: 46 44 0
+1469482747.002 Engine->Adapter: 48 46 0
+1469482747.002 Engine->Adapter: info depth 2 score cp 48 nps 49 pv d2d4 f6f7 event id-loop-end
+1469482747.003 parse info 1 1
+1469482747.003 Adapter->GUI: 2 +48 0 1 d4 Kf7
+1469482747.003 Engine->Adapter: -3 -100000 0
+1469482747.003 Engine->Adapter: -2 -3 0
+1469482747.005 Engine->Adapter: info depth 3 score cp -2 nps 627 pv f1c4 f6e5 g1e2 event id-loop-end
+1469482747.005 parse info 2 2
+1469482747.005 Adapter->GUI: 3 -2 0 1 Bc4 Ke5 Ne2
+1469482747.007 Engine->Adapter: 47 -100000 0
+1469482747.009 Engine->Adapter: 50 47 0
+1469482747.024 Engine->Adapter: 52 50 0
+1469482747.038 Engine->Adapter: 53 52 0
+1469482747.085 Engine->Adapter: info depth 4 score cp 53 nps 25 pv d2d4 f6f7 f1c4 f7f6 event id-loop-end
+1469482747.085 parse info 3 3
+1469482747.085 Adapter->GUI: 4 +53 0 1 d4 Kf7 Bc4+ Kf6
+1469482747.109 Engine->Adapter: -2 -100000 0
+1469482747.122 Engine->Adapter: -1 -2 0
+1469482747.375 Engine->Adapter: info depth 5 score cp -1 nps 354 pv b1c3 f6f7 e4e5 f7f8 g4g6 event id-loop-end
+1469482747.375 parse info 4 4
+1469482747.375 Adapter->GUI: 5 -1 0 1 Nc3 Kf7 e5 Kf8 Qg6
+1469482747.484 Engine->Adapter: 53 -100000 0
+1469482747.612 Engine->Adapter: 56 53 0
+1469482748.005 Engine->Adapter: . . . . . . . .    
+1469482748.005 Engine->Adapter: . . . . . . . .    
+1469482748.005 Engine->Adapter: . . . . . k . .    
+1469482748.005 Engine->Adapter: . . . . . . . .    
+1469482748.005 Engine->Adapter: . . . . P . Q .    
+1469482748.005 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482748.005 Engine->Adapter: P P P P . P P P    phk: 9ff9809f75b074b7
+1469482748.005 Engine->Adapter: R N B . K B N R <  mhk: bc25e9f521b2e077
+1469482748.005 Engine->Adapter: 
+1469482748.012 Engine->Adapter: b1a3   b1c3   g1e2   g1f3   g1h3   f1e2  
+1469482748.012 Engine->Adapter: f1d3   f1c4   f1b5   f1a6   e1e2   e1d1  
+1469482748.013 Engine->Adapter: d2d4   d2d3   c2c4   c2c3   f2f4   f2f3  
+1469482748.013 Engine->Adapter: h2h4   h2h3   b2b4   b2b3   g2g3   a2a4  
+1469482748.013 Engine->Adapter: a2a3   g4g3   g4g5   g4g6   g4g7   g4g8  
+1469482748.013 Engine->Adapter: g4h4   g4f4   g4f3   g4e2   g4d1   g4h3  
+1469482748.013 Engine->Adapter: g4h5   g4f5   g4e6   g4d7   g4c8   e4e5  
+1469482748.013 Engine->Adapter: bestmove b1c3
+1469482748.013 Adapter->GUI: 5 -1 0 1 Nc3 Kf7 e5 Kf8 Qg6
+1469482748.013 Adapter->GUI: move b1c3
+1469482748.013 POLYGLOT MOVE Nc3
+1469482748.013 POLYGLOT THINK -> WAIT
+1469482749.448 GUI->Adapter: time 5689
+1469482749.448 GUI->Adapter: otim 5621
+1469482749.448 GUI->Adapter: usermove f6f7
+1469482749.449 POLYGLOT MOVE Kf7
+1469482749.449 POLYGLOT WAIT -> THINK
+1469482749.449 POLYGLOT START SEARCH
+1469482749.449 POLYGLOT FEN 8/5k2/8/8/4P1Q1/2N5/PPPP1PPP/R1B1KBNR w KQ - 5 4
+1469482749.449 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7
+1469482749.449 Adapter->Engine: go wtime 56890 btime 56210
+1469482749.450 Engine->Adapter: e2e4
+1469482749.451 Engine->Adapter: -4 -100000 0
+1469482749.451 Engine->Adapter: -3 -4 0
+1469482749.452 Engine->Adapter: -2 -3 -2
+1469482749.452 Engine->Adapter: info depth 1 score cp -2 nps 45 pv c3d5 event id-loop-end
+1469482749.452 parse info 0 0
+1469482749.452 Adapter->GUI: 1 -2 0 1 Nd5
+1469482749.453 Engine->Adapter: 45 -100000 0
+1469482749.453 Engine->Adapter: 51 45 0
+1469482749.455 Engine->Adapter: info depth 2 score cp 51 nps 17 pv f1c4 f7f6 event id-loop-end
+1469482749.456 parse info 1 1
+1469482749.456 Adapter->GUI: 2 +51 0 1 Bc4+ Kf6
+1469482749.457 Engine->Adapter: -2 -100000 0
+1469482749.465 Engine->Adapter: -1 -2 0
+1469482749.467 Engine->Adapter: info depth 3 score cp -1 nps 217 pv g4g5 f7f8 f1c4 event id-loop-end
+1469482749.467 parse info 2 2
+1469482749.468 Adapter->GUI: 3 -1 0 1 Qg5 Kf8 Bc4
+1469482749.470 Engine->Adapter: 49 -100000 0
+1469482749.480 Engine->Adapter: 51 49 0
+1469482749.490 Engine->Adapter: 53 51 0
+1469482749.493 Engine->Adapter: 56 53 0
+1469482749.546 Engine->Adapter: info depth 4 score cp 56 nps 29 pv f1c4 f7f6 d2d4 f6e7 event id-loop-end
+1469482749.546 parse info 3 3
+1469482749.546 Adapter->GUI: 4 +56 0 1 Bc4+ Kf6 d4 Ke7
+1469482749.585 Engine->Adapter: -1 -100000 0
+1469482750.088 Engine->Adapter: 0 -1 -2
+1469482750.092 Engine->Adapter: info depth 5 score cp 0 nps 177 pv c3d5 f7f8 g4g6 event id-loop-end
+1469482750.092 parse info 4 4
+1469482750.092 Adapter->GUI: 5 +0 0 1 Nd5 Kf8 Qg6
+1469482750.220 Engine->Adapter: 55 -100000 0
+1469482750.461 Engine->Adapter: . . . . . . . .    
+1469482750.461 Engine->Adapter: . . . . . k . .    
+1469482750.461 Engine->Adapter: . . . . . . . .    
+1469482750.462 Engine->Adapter: . . . . . . . .    
+1469482750.462 Engine->Adapter: . . . . P . Q .    
+1469482750.462 Engine->Adapter: . . N . . . . .    cw: 16  cb: 1  ph: 128
+1469482750.462 Engine->Adapter: P P P P . P P P    phk: e702110a8dfd75da
+1469482750.462 Engine->Adapter: R . B . K B N R <  mhk: bdc732adac47d3da
+1469482750.462 Engine->Adapter: 
+1469482750.462 Engine->Adapter: c3b5   c3d1   c3e2   g1e2   g1f3   g1h3  
+1469482750.462 Engine->Adapter: f1e2   f1d3   f1c4   f1b5   f1a6   e1e2  
+1469482750.462 Engine->Adapter: e1d1   a1b1   d2d4   d2d3   f2f4   f2f3  
+1469482750.462 Engine->Adapter: h2h4   h2h3   b2b4   b2b3   g2g3   a2a4  
+1469482750.462 Engine->Adapter: a2a3   g4g3   g4g5   g4g6   g4g7   g4g8  
+1469482750.462 Engine->Adapter: g4h4   g4f4   g4f3   g4e2   g4d1   g4h3  
+1469482750.462 Engine->Adapter: g4h5   g4f5   g4e6   g4d7   g4c8   c3a4  
+1469482750.462 Engine->Adapter: c3d5   e4e5   c3b1  
+1469482750.462 Engine->Adapter: bestmove c3d5
+1469482750.462 Adapter->GUI: 5 +0 0 1 Nd5 Kf8 Qg6
+1469482750.462 Adapter->GUI: move c3d5
+1469482750.463 POLYGLOT MOVE Nd5
+1469482750.463 POLYGLOT THINK -> WAIT
+1469482751.860 GUI->Adapter: time 5587
+1469482751.860 GUI->Adapter: otim 5481
+1469482751.860 GUI->Adapter: usermove f7f8
+1469482751.860 POLYGLOT MOVE Kf8
+1469482751.861 POLYGLOT WAIT -> THINK
+1469482751.861 POLYGLOT START SEARCH
+1469482751.861 POLYGLOT FEN 5k2/8/8/3N4/4P1Q1/8/PPPP1PPP/R1B1KBNR w KQ - 7 5
+1469482751.861 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8
+1469482751.861 Adapter->Engine: go wtime 55870 btime 54810
+1469482751.863 Engine->Adapter: e2e4
+1469482751.864 Engine->Adapter: -2 -100000 0
+1469482751.864 Engine->Adapter: 0 -2 0
+1469482751.864 Engine->Adapter: info depth 1 score cp 0 nps 49 pv g4g6 event id-loop-end
+1469482751.864 parse info 0 0
+1469482751.864 Adapter->GUI: 1 +0 0 1 Qg6
+1469482751.864 Engine->Adapter: 44 -100000 0
+1469482751.864 Engine->Adapter: 47 44 0
+1469482751.864 Engine->Adapter: 48 47 0
+1469482751.865 Engine->Adapter: 50 48 0
+1469482751.865 Engine->Adapter: 52 50 0
+1469482751.865 Engine->Adapter: 53 52 0
+1469482751.866 Engine->Adapter: 54 53 -1
+1469482751.866 Engine->Adapter: info depth 2 score cp 54 nps 28 pv f1b5 f8f7 event id-loop-end
+1469482751.866 parse info 1 1
+1469482751.867 Adapter->GUI: 2 +54 0 1 Bb5 Kf7
+1469482751.867 Engine->Adapter: -3 -100000 0
+1469482751.867 Engine->Adapter: -2 -3 0
+1469482751.868 Engine->Adapter: -1 -2 0
+1469482751.869 Engine->Adapter: 0 -1 0
+1469482751.869 Engine->Adapter: info depth 3 score cp 0 nps 622 pv g4g6 event id-loop-end
+1469482751.869 parse info 2 2
+1469482751.870 Adapter->GUI: 3 +0 0 1 Qg6
+1469482751.877 Engine->Adapter: 49 -100000 0
+1469482751.879 Engine->Adapter: 52 49 0
+1469482751.890 Engine->Adapter: 53 52 0
+1469482751.892 Engine->Adapter: 54 53 0
+1469482751.896 Engine->Adapter: 56 54 0
+1469482751.898 Engine->Adapter: 57 56 0
+1469482751.910 Engine->Adapter: 58 57 0
+1469482751.928 Engine->Adapter: 59 58 0
+1469482751.980 Engine->Adapter: info depth 4 score cp 59 nps 27 pv b2b3 f8f7 c1b2 f7f8 event id-loop-end
+1469482751.980 parse info 3 3
+1469482751.980 Adapter->GUI: 4 +59 0 1 b3 Kf7 Bb2 Kf8
+1469482751.986 Engine->Adapter: -1 -100000 0
+1469482752.010 Engine->Adapter: 0 -1 0
+1469482752.167 Engine->Adapter: info depth 5 score cp 0 nps 562 pv d5c7 f8f7 g4g5 f7f8 f1c4 event id-loop-end
+1469482752.167 parse info 4 4
+1469482752.167 Adapter->GUI: 5 +0 0 1 Nc7 Kf7 Qg5 Kf8 Bc4
+1469482752.285 Engine->Adapter: 55 -100000 0
+1469482752.467 Engine->Adapter: 58 55 0
+1469482752.867 Engine->Adapter: . . . . . k . .    
+1469482752.867 Engine->Adapter: . . . . . . . .    
+1469482752.868 Engine->Adapter: . . . . . . . .    
+1469482752.868 Engine->Adapter: . . . N . . . .    
+1469482752.868 Engine->Adapter: . . . . P . Q .    
+1469482752.868 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482752.868 Engine->Adapter: P P P P . P P P    phk: 99e287990a590456
+1469482752.868 Engine->Adapter: R . B . K B N R <  mhk: e5d8cd702612537a
+1469482752.868 Engine->Adapter: 
+1469482752.875 Engine->Adapter: d5b4   d5b6   d5c3   d5c7   d5e3   d5e7  
+1469482752.876 Engine->Adapter: d5f4   d5f6   g1e2   g1f3   g1h3   f1e2  
+1469482752.876 Engine->Adapter: f1d3   f1c4   f1a6   e1e2   e1d1   a1b1  
+1469482752.876 Engine->Adapter: d2d4   d2d3   c2c4   c2c3   f2f4   f2f3  
+1469482752.876 Engine->Adapter: h2h4   h2h3   b2b4   b2b3   g2g3   a2a4  
+1469482752.876 Engine->Adapter: a2a3   g4g3   g4g5   g4g6   g4g7   g4g8  
+1469482752.876 Engine->Adapter: g4h4   g4f4   g4f3   g4e2   g4d1   g4h3  
+1469482752.876 Engine->Adapter: g4h5   g4f5   g4e6   g4d7   g4c8   f1b5  
+1469482752.876 Engine->Adapter: e4e5  
+1469482752.876 Engine->Adapter: bestmove d5c7
+1469482752.876 Adapter->GUI: 5 +0 0 1 Nc7 Kf7 Qg5 Kf8 Bc4
+1469482752.876 Adapter->GUI: move d5c7
+1469482752.876 POLYGLOT MOVE Nc7
+1469482752.876 POLYGLOT THINK -> WAIT
+1469482754.315 GUI->Adapter: time 5485
+1469482754.315 GUI->Adapter: otim 5337
+1469482754.315 GUI->Adapter: usermove f8f7
+1469482754.315 POLYGLOT MOVE Kf7
+1469482754.315 POLYGLOT WAIT -> THINK
+1469482754.315 POLYGLOT START SEARCH
+1469482754.315 POLYGLOT FEN 8/2N2k2/8/8/4P1Q1/8/PPPP1PPP/R1B1KBNR w KQ - 9 6
+1469482754.315 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 d5c7 f8f7
+1469482754.317 Adapter->Engine: go wtime 54850 btime 53370
+1469482754.317 Engine->Adapter: e2e4
+1469482754.317 Engine->Adapter: -3 -100000 0
+1469482754.318 Engine->Adapter: -1 -3 0
+1469482754.319 Engine->Adapter: info depth 1 score cp -1 nps 47 pv g4g7 event id-loop-end
+1469482754.319 parse info 0 0
+1469482754.319 Adapter->GUI: 1 -1 0 1 Qg7+
+1469482754.319 Engine->Adapter: 42 -100000 0
+1469482754.319 Engine->Adapter: 45 42 0
+1469482754.319 Engine->Adapter: 46 45 0
+1469482754.320 Engine->Adapter: 52 46 0
+1469482754.322 Engine->Adapter: info depth 2 score cp 52 nps 18 pv f1c4 f7f6 event id-loop-end
+1469482754.322 parse info 1 1
+1469482754.322 Adapter->GUI: 2 +52 0 1 Bc4+ Kf6
+1469482754.323 Engine->Adapter: -2 -100000 0
+1469482754.331 Engine->Adapter: -1 -2 0
+1469482754.336 Engine->Adapter: 0 -1 -1
+1469482754.337 Engine->Adapter: info depth 3 score cp 0 nps 197 pv g4g5 f7f8 f1c4 event id-loop-end
+1469482754.337 parse info 2 2
+1469482754.337 Adapter->GUI: 3 +0 0 1 Qg5 Kf8 Bc4
+1469482754.344 Engine->Adapter: 50 -100000 0
+1469482754.346 Engine->Adapter: 52 50 0
+1469482754.388 Engine->Adapter: 54 52 0
+1469482754.389 Engine->Adapter: 57 54 0
+1469482754.452 Engine->Adapter: info depth 4 score cp 57 nps 20 pv f1c4 f7f6 d2d4 f6e7 event id-loop-end
+1469482754.453 parse info 3 3
+1469482754.453 Adapter->GUI: 4 +57 0 1 Bc4+ Kf6 d4 Ke7
+1469482754.479 Engine->Adapter: -1 -100000 0
+1469482754.573 Engine->Adapter: 0 -1 0
+1469482755.086 Engine->Adapter: info depth 5 score cp 0 nps 161 pv f1c4 f7f6 e4e5 f6e5 c7e8 event id-loop-end
+1469482755.086 parse info 4 4
+1469482755.086 Adapter->GUI: 5 +0 0 1 Bc4+ Kf6 e5+ Kxe5 Ne8
+1469482755.249 Engine->Adapter: 56 -100000 0
+1469482755.321 Engine->Adapter: . . . . . . . .    
+1469482755.321 Engine->Adapter: . . N . . k . .    
+1469482755.321 Engine->Adapter: . . . . . . . .    
+1469482755.321 Engine->Adapter: . . . . . . . .    
+1469482755.321 Engine->Adapter: . . . . P . Q .    
+1469482755.322 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482755.322 Engine->Adapter: P P P P . P P P    phk: 6366ba05ef60da8
+1469482755.322 Engine->Adapter: R . B . K B N R <  mhk: e0789defe8c93cd8
+1469482755.322 Engine->Adapter: 
+1469482755.326 Engine->Adapter: g1f3   g1h3   f1e2   f1d3   f1c4   f1b5  
+1469482755.326 Engine->Adapter: f1a6   e1e2   e1d1   a1b1   d2d4   d2d3  
+1469482755.326 Engine->Adapter: c2c4   c2c3   f2f4   f2f3   h2h4   h2h3  
+1469482755.326 Engine->Adapter: b2b4   b2b3   g2g3   a2a4   a2a3   g4g3  
+1469482755.326 Engine->Adapter: g4g6   g4g8   g4h4   g4f4   g4f3   g4e2  
+1469482755.326 Engine->Adapter: g4d1   g4h3   g4h5   g4f5   g4e6   g4d7  
+1469482755.326 Engine->Adapter: g4c8   c7a6   c7a8   c7b5   c7d5   c7e6  
+1469482755.326 Engine->Adapter: c7e8   g1e2   g4g7   e4e5   g4g5  
+1469482755.326 Engine->Adapter: bestmove f1c4
+1469482755.326 Adapter->GUI: 5 +0 0 1 Bc4+ Kf6 e5+ Kxe5 Ne8
+1469482755.326 Adapter->GUI: move f1c4
+1469482755.327 POLYGLOT MOVE Bc4+
+1469482755.327 POLYGLOT THINK -> WAIT
+1469482756.898 GUI->Adapter: time 5384
+1469482756.898 GUI->Adapter: otim 5181
+1469482756.898 GUI->Adapter: usermove f7f8
+1469482756.898 POLYGLOT MOVE Kf8
+1469482756.898 POLYGLOT WAIT -> THINK
+1469482756.898 POLYGLOT START SEARCH
+1469482756.898 POLYGLOT FEN 5k2/2N5/8/8/2B1P1Q1/8/PPPP1PPP/R1B1K1NR w KQ - 11 7
+1469482756.898 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 d5c7 f8f7 f1c4 f7f8
+1469482756.898 Adapter->Engine: go wtime 53840 btime 51810
+1469482756.899 Engine->Adapter: e2e4
+1469482756.899 Engine->Adapter: -2 -100000 0
+1469482756.900 Engine->Adapter: -1 -2 0
+1469482756.900 Engine->Adapter: 0 -1 0
+1469482756.900 Engine->Adapter: info depth 1 score cp 0 nps 52 pv g4g5 event id-loop-end
+1469482756.900 parse info 0 0
+1469482756.901 Adapter->GUI: 1 +0 0 1 Qg5
+1469482756.901 Engine->Adapter: 46 -100000 0
+1469482756.901 Engine->Adapter: 47 46 0
+1469482756.901 Engine->Adapter: 50 47 0
+1469482756.901 Engine->Adapter: 51 50 0
+1469482756.902 Engine->Adapter: 54 51 0
+1469482756.902 Engine->Adapter: 57 54 0
+1469482756.904 Engine->Adapter: info depth 2 score cp 57 nps 17 pv d2d4 f8e7 event id-loop-end
+1469482756.904 parse info 1 1
+1469482756.904 Adapter->GUI: 2 +57 0 1 d4 Ke7
+1469482756.904 Engine->Adapter: -2 -100000 0
+1469482756.904 Engine->Adapter: -1 -2 0
+1469482756.905 Engine->Adapter: 0 -1 0
+1469482756.912 Engine->Adapter: info depth 3 score cp 0 nps 368 pv e4e5 f8e7 g4c8 event id-loop-end
+1469482756.912 parse info 2 2
+1469482756.912 Adapter->GUI: 3 +0 0 1 e5 Ke7 Qc8
+1469482756.915 Engine->Adapter: 54 -100000 0
+1469482756.919 Engine->Adapter: 57 54 0
+1469482756.940 Engine->Adapter: 58 57 0
+1469482756.959 Engine->Adapter: 62 58 0
+1469482757.034 Engine->Adapter: info depth 4 score cp 62 nps 20 pv d2d4 f8e7 c1d2 e7d6 event id-loop-end
+1469482757.034 parse info 3 3
+1469482757.035 Adapter->GUI: 4 +62 0 1 d4 Ke7 Bd2 Kd6
+1469482757.052 Engine->Adapter: 0 -100000 0
+1469482757.357 Engine->Adapter: info depth 5 score cp 0 nps 394 pv c4e2 f8f7 g4g5 f7f8 e2h5 event id-loop-end
+1469482757.357 parse info 4 4
+1469482757.357 Adapter->GUI: 5 +0 0 1 Be2 Kf7 Qg5 Kf8 Bh5
+1469482757.546 Engine->Adapter: 56 -100000 0
+1469482757.764 Engine->Adapter: 49999 56 0
+1469482757.902 Engine->Adapter: . . . . . k . .    
+1469482757.902 Engine->Adapter: . . N . . . . .    
+1469482757.902 Engine->Adapter: . . . . . . . .    
+1469482757.902 Engine->Adapter: . . . . . . . .    
+1469482757.902 Engine->Adapter: . . B . P . Q .    
+1469482757.902 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482757.902 Engine->Adapter: P P P P . P P P    phk: db70e737eb50d5d7
+1469482757.902 Engine->Adapter: R . B . K . N R <  mhk: f0bab0025fede6b9
+1469482757.902 Engine->Adapter: 
+1469482757.907 Engine->Adapter: c4e2   c4f1   c4e6   c4f7   c4g8   c4b5  
+1469482757.907 Engine->Adapter: c4a6   e4e5   g1e2   g1f3   g1h3   e1e2  
+1469482757.907 Engine->Adapter: e1f1   e1d1   a1b1   d2d4   d2d3   c2c3  
+1469482757.907 Engine->Adapter: f2f4   f2f3   h2h4   h2h3   b2b4   b2b3  
+1469482757.907 Engine->Adapter: g2g3   a2a4   a2a3   g4g3   g4g5   g4g6  
+1469482757.907 Engine->Adapter: g4g7   g4g8   g4h4   g4f4   g4f3   g4e2  
+1469482757.907 Engine->Adapter: g4d1   g4h3   g4h5   g4f5   g4e6   g4d7  
+1469482757.907 Engine->Adapter: g4c8   c7a6   c7a8   c7b5   c7d5   c7e6  
+1469482757.907 Engine->Adapter: c7e8   c4d5   c4b3   c4d3  
+1469482757.907 Engine->Adapter: bestmove c4e2
+1469482757.907 Adapter->GUI: 5 +0 0 1 Be2 Kf7 Qg5 Kf8 Bh5
+1469482757.908 Adapter->GUI: move c4e2
+1469482757.908 POLYGLOT MOVE Be2
+1469482757.908 POLYGLOT THINK -> WAIT
+1469482759.152 GUI->Adapter: time 5283
+1469482759.152 GUI->Adapter: otim 5056
+1469482759.153 GUI->Adapter: usermove f8f7
+1469482759.153 POLYGLOT MOVE Kf7
+1469482759.153 POLYGLOT WAIT -> THINK
+1469482759.153 POLYGLOT START SEARCH
+1469482759.153 POLYGLOT FEN 8/2N2k2/8/8/4P1Q1/8/PPPPBPPP/R1B1K1NR w KQ - 13 8
+1469482759.153 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 d5c7 f8f7 f1c4 f7f8 c4e2 f8f7
+1469482759.153 Adapter->Engine: go wtime 52830 btime 50560
+1469482759.155 Engine->Adapter: e2e4
+1469482759.155 Engine->Adapter: -3 -100000 0
+1469482759.156 Engine->Adapter: -1 -3 0
+1469482759.156 Engine->Adapter: info depth 1 score cp -1 nps 0 pv g4g7 event id-loop-end
+1469482759.156 parse info 0 0
+1469482759.156 Adapter->GUI: 1 -1 0 1 Qg7+
+1469482759.156 Engine->Adapter: 48 -100000 0
+1469482759.156 Engine->Adapter: 52 48 0
+1469482759.157 Engine->Adapter: 54 52 0
+1469482759.157 Engine->Adapter: info depth 2 score cp 54 nps 27 pv g4f5 f7g7 event id-loop-end
+1469482759.157 parse info 1 1
+1469482759.157 Adapter->GUI: 2 +54 0 1 Qf5+ Kg7
+1469482759.157 Engine->Adapter: -2 -100000 0
+1469482759.161 Engine->Adapter: -1 -2 0
+1469482759.164 Engine->Adapter: 0 -1 -1
+1469482759.164 Engine->Adapter: info depth 3 score cp 0 nps 430 pv g4g5 f7f8 e2h5 event id-loop-end
+1469482759.164 parse info 2 2
+1469482759.164 Adapter->GUI: 3 +0 0 1 Qg5 Kf8 Bh5
+1469482759.166 Engine->Adapter: 55 -100000 0
+1469482759.172 Engine->Adapter: 57 55 0
+1469482759.175 Engine->Adapter: 59 57 0
+1469482759.193 Engine->Adapter: info depth 4 score cp 59 nps 84 pv d2d4 f7f6 g4f5 f6g7 event id-loop-end
+1469482759.193 parse info 3 3
+1469482759.193 Adapter->GUI: 4 +59 0 1 d4 Kf6 Qf5+ Kg7
+1469482759.206 Engine->Adapter: -1 -100000 0
+1469482759.277 Engine->Adapter: 0 -1 0
+1469482759.654 Engine->Adapter: info depth 5 score cp 0 nps 226 pv e2c4 f7f6 e4e5 f6e5 c7e8 event id-loop-end
+1469482759.654 parse info 4 4
+1469482759.655 Adapter->GUI: 5 +0 0 1 Bc4+ Kf6 e5+ Kxe5 Ne8
+1469482760.156 Engine->Adapter: 54 -100000 0
+1469482760.159 Engine->Adapter: . . . . . . . .    
+1469482760.159 Engine->Adapter: . . N . . k . .    
+1469482760.159 Engine->Adapter: . . . . . . . .    
+1469482760.159 Engine->Adapter: . . . . . . . .    
+1469482760.159 Engine->Adapter: . . . . P . Q .    
+1469482760.159 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482760.159 Engine->Adapter: P P P P B P P P    phk: 8d60cef3f0f4c202
+1469482760.159 Engine->Adapter: R . B . K . N R <  mhk: 93bd068182e0faa6
+1469482760.159 Engine->Adapter: 
+1469482760.163 Engine->Adapter: g1h3   e1f1   e1d1   a1b1   e2d1   e2f1  
+1469482760.163 Engine->Adapter: e2f3   e2d3   e2c4   e2b5   e2a6   d2d4  
+1469482760.163 Engine->Adapter: d2d3   c2c4   c2c3   f2f4   f2f3   h2h4  
+1469482760.163 Engine->Adapter: h2h3   b2b4   b2b3   g2g3   a2a4   a2a3  
+1469482760.163 Engine->Adapter: g4g3   g4g6   g4g8   g4h4   g4f4   g4f3  
+1469482760.164 Engine->Adapter: g4h3   g4h5   g4f5   g4e6   g4d7   g4c8  
+1469482760.164 Engine->Adapter: c7a6   c7a8   c7b5   c7d5   c7e6   c7e8  
+1469482760.164 Engine->Adapter: g1f3   g4g7   e4e5   g4g5  
+1469482760.164 Engine->Adapter: bestmove e2c4
+1469482760.164 Adapter->GUI: 5 +0 0 1 Bc4+ Kf6 e5+ Kxe5 Ne8
+1469482760.164 Adapter->GUI: move e2c4
+1469482760.164 POLYGLOT MOVE Bc4+
+1469482760.164 POLYGLOT THINK -> WAIT
+1469482760.419 GUI->Adapter: time 5181
+1469482760.419 GUI->Adapter: otim 5031
+1469482760.419 GUI->Adapter: usermove f7f8
+1469482760.419 POLYGLOT MOVE Kf8
+1469482760.419 POLYGLOT WAIT -> THINK
+1469482760.419 POLYGLOT START SEARCH
+1469482760.419 POLYGLOT FEN 5k2/2N5/8/8/2B1P1Q1/8/PPPP1PPP/R1B1K1NR w KQ - 15 9
+1469482760.419 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 d5c7 f8f7 f1c4 f7f8 c4e2 f8f7 e2c4 f7f8
+1469482760.419 Adapter->Engine: go wtime 51810 btime 50310
+1469482760.420 Engine->Adapter: e2e4
+1469482760.421 Engine->Adapter: -2 -100000 0
+1469482760.421 Engine->Adapter: -1 -2 0
+1469482760.421 Engine->Adapter: 0 -1 0
+1469482760.421 Engine->Adapter: info depth 1 score cp 0 nps 52 pv g4g5 event id-loop-end
+1469482760.421 parse info 0 0
+1469482760.421 Adapter->GUI: 1 +0 0 1 Qg5
+1469482760.422 Engine->Adapter: 47 -100000 0
+1469482760.422 Engine->Adapter: 48 47 0
+1469482760.422 Engine->Adapter: 51 48 0
+1469482760.422 Engine->Adapter: 54 51 0
+1469482760.422 Engine->Adapter: 57 54 0
+1469482760.423 Engine->Adapter: info depth 2 score cp 57 nps 26 pv d2d4 f8e7 event id-loop-end
+1469482760.423 parse info 1 1
+1469482760.423 Adapter->GUI: 2 +57 0 1 d4 Ke7
+1469482760.423 Engine->Adapter: -2 -100000 0
+1469482760.424 Engine->Adapter: -1 -2 0
+1469482760.424 Engine->Adapter: 0 -1 0
+1469482760.427 Engine->Adapter: info depth 3 score cp 0 nps 653 pv e4e5 f8e7 g4c8 event id-loop-end
+1469482760.427 parse info 2 2
+1469482760.427 Adapter->GUI: 3 +0 0 1 e5 Ke7 Qc8
+1469482760.428 Engine->Adapter: 52 -100000 0
+1469482760.429 Engine->Adapter: 53 52 0
+1469482760.430 Engine->Adapter: 56 53 0
+1469482760.432 Engine->Adapter: 58 56 0
+1469482760.448 Engine->Adapter: 62 58 0
+1469482760.494 Engine->Adapter: info depth 4 score cp 62 nps 37 pv d2d4 f8e7 c1d2 e7d6 event id-loop-end
+1469482760.494 parse info 3 3
+1469482760.495 Adapter->GUI: 4 +62 0 1 d4 Ke7 Bd2 Kd6
+1469482760.499 Engine->Adapter: 0 -100000 0
+1469482760.694 Engine->Adapter: info depth 5 score cp 0 nps 619 pv c4f1 f8f7 g4g5 f7f8 f1c4 event id-loop-end
+1469482760.694 parse info 4 4
+1469482760.694 Adapter->GUI: 5 +0 0 1 Bf1 Kf7 Qg5 Kf8 Bc4
+1469482760.828 Engine->Adapter: 56 -100000 0
+1469482760.980 Engine->Adapter: 61 56 0
+1469482761.421 Engine->Adapter: 62 61 0
+1469482761.423 Engine->Adapter: . . . . . k . .    
+1469482761.423 Engine->Adapter: . . N . . . . .    
+1469482761.423 Engine->Adapter: . . . . . . . .    
+1469482761.423 Engine->Adapter: . . . . . . . .    
+1469482761.423 Engine->Adapter: . . B . P . Q .    
+1469482761.423 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482761.423 Engine->Adapter: P P P P . P P P    phk: db70e737eb50d5d7
+1469482761.424 Engine->Adapter: R . B . K . N R <  mhk: eca9182e9a80dc25
+1469482761.424 Engine->Adapter: 
+1469482761.428 Engine->Adapter: c4f1   c4f7   c4b5   c4a6   e4e5   g1e2  
+1469482761.428 Engine->Adapter: g1f3   g1h3   e1e2   e1f1   e1d1   a1b1  
+1469482761.428 Engine->Adapter: d2d4   d2d3   c2c3   f2f4   f2f3   h2h4  
+1469482761.428 Engine->Adapter: h2h3   b2b4   b2b3   g2g3   a2a4   a2a3  
+1469482761.428 Engine->Adapter: g4g3   g4g5   g4g6   g4g7   g4g8   g4h4  
+1469482761.428 Engine->Adapter: g4f4   g4f3   g4e2   g4d1   g4h3   g4h5  
+1469482761.428 Engine->Adapter: g4f5   g4e6   g4d7   g4c8   c7a6   c7a8  
+1469482761.428 Engine->Adapter: c7b5   c7d5   c7e6   c7e8   c4g8   c4e6  
+1469482761.428 Engine->Adapter: c4d5   c4b3   c4e2   c4d3  
+1469482761.428 Engine->Adapter: bestmove c4f1
+1469482761.428 Adapter->GUI: 5 +0 0 1 Bf1 Kf7 Qg5 Kf8 Bc4
+1469482761.428 Adapter->GUI: move c4f1
+1469482761.428 POLYGLOT MOVE Bf1
+1469482761.428 POLYGLOT THINK -> WAIT
+1469482761.699 GUI->Adapter: time 5080
+1469482761.699 GUI->Adapter: otim 5004
+1469482761.699 GUI->Adapter: usermove f8f7
+1469482761.699 POLYGLOT MOVE Kf7
+1469482761.699 POLYGLOT WAIT -> THINK
+1469482761.699 POLYGLOT START SEARCH
+1469482761.699 POLYGLOT FEN 8/2N2k2/8/8/4P1Q1/8/PPPP1PPP/R1B1KBNR w KQ - 17 10
+1469482761.699 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 d5c7 f8f7 f1c4 f7f8 c4e2 f8f7 e2c4 f7f8 c4f1 f8f7
+1469482761.699 Adapter->Engine: go wtime 50800 btime 50040
+1469482761.700 Engine->Adapter: e2e4
+1469482761.700 Engine->Adapter: -3 -100000 0
+1469482761.701 Engine->Adapter: -2 -3 0
+1469482761.701 Engine->Adapter: -1 -2 -1
+1469482761.701 Engine->Adapter: info depth 1 score cp -1 nps 47 pv g4g7 event id-loop-end
+1469482761.701 parse info 0 0
+1469482761.701 Adapter->GUI: 1 -1 0 1 Qg7+
+1469482761.701 Engine->Adapter: 52 -100000 0
+1469482761.702 Engine->Adapter: info depth 2 score cp 52 nps 49 pv f1c4 f7f6 event id-loop-end
+1469482761.702 parse info 1 1
+1469482761.702 Adapter->GUI: 2 +52 0 1 Bc4+ Kf6
+1469482761.702 Engine->Adapter: -2 -100000 0
+1469482761.702 Engine->Adapter: -1 -2 0
+1469482761.705 Engine->Adapter: 0 -1 -1
+1469482761.705 Engine->Adapter: info depth 3 score cp 0 nps 827 pv g4g5 f7f8 f1c4 event id-loop-end
+1469482761.705 parse info 2 2
+1469482761.705 Adapter->GUI: 3 +0 0 1 Qg5 Kf8 Bc4
+1469482761.706 Engine->Adapter: 57 -100000 0
+1469482761.722 Engine->Adapter: info depth 4 score cp 57 nps 130 pv f1c4 f7f6 d2d4 f6e7 event id-loop-end
+1469482761.722 parse info 3 3
+1469482761.722 Adapter->GUI: 4 +57 0 1 Bc4+ Kf6 d4 Ke7
+1469482761.736 Engine->Adapter: 0 -100000 0
+1469482761.887 Engine->Adapter: info depth 5 score cp 0 nps 613 pv f1c4 f7f6 e4e5 f6e5 c7e8 event id-loop-end
+1469482761.887 parse info 4 4
+1469482761.888 Adapter->GUI: 5 +0 0 1 Bc4+ Kf6 e5+ Kxe5 Ne8
+1469482761.999 Engine->Adapter: 61 -100000 0
+1469482762.703 Engine->Adapter: . . . . . . . .    
+1469482762.703 Engine->Adapter: . . N . . k . .    
+1469482762.703 Engine->Adapter: . . . . . . . .    
+1469482762.703 Engine->Adapter: . . . . . . . .    
+1469482762.703 Engine->Adapter: . . . . P . Q .    
+1469482762.703 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482762.703 Engine->Adapter: P P P P . P P P    phk: 6366ba05ef60da8
+1469482762.703 Engine->Adapter: R . B . K B N R <  mhk: 5b8c7e6c4240cd23
+1469482762.703 Engine->Adapter: 
+1469482762.705 Engine->Adapter: f1b5   f1a6   e1e2   e1d1   a1b1   d2d4  
+1469482762.706 Engine->Adapter: d2d3   c2c4   c2c3   f2f4   f2f3   h2h4  
+1469482762.706 Engine->Adapter: h2h3   b2b4   b2b3   g2g3   a2a4   a2a3  
+1469482762.706 Engine->Adapter: g4g3   g4g6   g4g8   g4h4   g4f4   g4f3  
+1469482762.706 Engine->Adapter: g4e2   g4d1   g4h3   g4h5   g4f5   g4d7  
+1469482762.706 Engine->Adapter: g4c8   c7a6   c7a8   c7b5   c7d5   c7e6  
+1469482762.706 Engine->Adapter: c7e8   f1c4   f1e2   g1h3   g1f3   g1e2  
+1469482762.706 Engine->Adapter: g4g7   e4e5   g4g5   g4e6   f1d3  
+1469482762.706 Engine->Adapter: bestmove f1c4
+1469482762.706 Adapter->GUI: 5 +0 0 1 Bc4+ Kf6 e5+ Kxe5 Ne8
+1469482762.706 Adapter->GUI: move f1c4
+1469482762.706 POLYGLOT MOVE Bc4+
+1469482762.706 Adapter->GUI: 1/2-1/2 {Draw by repetition}
+1469482762.706 POLYGLOT WAIT
+1469482762.719 GUI->Adapter: result 1/2-1/2 {XBoard adjudication: repetition draw}
+1469482762.719 POLYGLOT GAME END
+1469482762.719 POLYGLOT WAIT
+1469482762.719 GUI->Adapter: force
+1469482762.720 POLYGLOT WAIT
+1469482762.720 GUI->Adapter: ping 4
+1469482762.720 Adapter->GUI: pong 4
+1469482827.217 GUI->Adapter: quit
+1469482827.217 POLYGLOT *** "quit" from GUI ***
+1469482827.217 POLYGLOT *** QUIT ***
+1469482827.217 Adapter->Engine: quit
+1469482827.217 POLYGLOT Closing engine.
+1469482827.217 Adapter->Engine: EOF
+1469482827.217 POLYGLOT Engine does not reply. Sleeping 100ms.
+1469482827.318 POLYGLOT Waiting for child process to exit.
+1469482827.519 POLYGLOT Calling exit
+1469482830.982 POLYGLOT *** LOGFILE OPENED ***
+1469482830.983 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482830.983 POLYGLOT *** SWITCHING LOGFILE ***
+1469482830.983 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482830.992 POLYGLOT *** LOGFILE OPENED ***
+1469482830.993 POLYGLOT *** LOGFILE OPENED ***
+1469482830.993 PolyGlot 2.0.1 by Fabien Letouzey.
+1469482830.993 POLYGLOT *** START ***
+1469482830.994 POLYGLOT INI file "C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1469482831.005 Adapter->Engine: uci
+1469482831.308 Engine->Adapter: Krudo 0.16a by Francesco <bianco@javanile.org>
+1469482831.827 Engine->Adapter: id name Krudo 0.16a
+1469482831.828 Engine->Adapter: id author Francesco Bianco
+1469482831.828 Engine->Adapter: uciok
+1469482831.828 POLYGLOG OPTIONS 
+1469482831.828 POLYGLOT [Polyglot] EngineName="Krudo 0.15a"
+1469482831.828 POLYGLOT [Polyglot] EngineDir="."
+1469482831.828 POLYGLOT [Polyglot] EngineCommand="C:/ProgramData/Oracle/Java/javapath/java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1469482831.828 POLYGLOT [Polyglot] Log="true"
+1469482831.828 POLYGLOT [Polyglot] LogFile="C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482831.828 POLYGLOT [Polyglot] Book="false"
+1469482831.828 POLYGLOT [Polyglot] BookFile="default_book.bin"
+1469482831.828 POLYGLOT [Polyglot] BookRandom="false"
+1469482831.828 POLYGLOT [Polyglot] BookDepth="256"
+1469482831.828 POLYGLOT [Polyglot] BookLearn="false"
+1469482831.828 POLYGLOT [Polyglot] BookTreshold="5"
+1469482831.828 POLYGLOT [Polyglot] UCI="false"
+1469482831.828 POLYGLOT [Polyglot] UseNice="false"
+1469482831.828 POLYGLOT [Polyglot] NiceValue="5"
+1469482831.828 POLYGLOT [Polyglot] Resign="false"
+1469482831.828 POLYGLOT [Polyglot] ResignMoves="3"
+1469482831.828 POLYGLOT [Polyglot] ResignScore="600"
+1469482831.828 POLYGLOT [Polyglot] MateScore="10000"
+1469482831.828 POLYGLOT [Polyglot] KibitzMove="false"
+1469482831.828 POLYGLOT [Polyglot] KibitzPV="false"
+1469482831.828 POLYGLOT [Polyglot] KibitzCommand="tellall"
+1469482831.828 POLYGLOT [Polyglot] KibitzDelay="5"
+1469482831.828 POLYGLOT [Polyglot] KibitzInterval="0"
+1469482831.828 POLYGLOT [Polyglot] ShowPonder="false"
+1469482831.828 POLYGLOT [Polyglot] ScoreWhite="false"
+1469482831.828 POLYGLOT [Polyglot] UCIVersion="2"
+1469482831.828 POLYGLOT [Polyglot] RepeatPV="true"
+1469482831.829 POLYGLOT [Polyglot] SyncStop="false"
+1469482831.829 POLYGLOT [Polyglot] CanPonder="false"
+1469482831.829 POLYGLOT [Polyglot] PromoteWorkAround="false"
+1469482831.829 POLYGLOT [Polyglot] WbWorkArounds="false"
+1469482831.829 POLYGLOT [Polyglot] WbWorkArounds2="false"
+1469482831.829 POLYGLOT [Engine] Hash="68"
+1469482831.829 POLYGLOT [Engine] Ponder="false"
+1469482831.829 POLYGLOT [Engine] OwnBook="false"
+1469482831.829 POLYGLOT [Engine] Book="false"
+1469482831.829 POLYGLOT [Engine] BookFile="book_small.bin"
+1469482831.829 POLYGLOT [Engine] NullMove Pruning="Fail High"
+1469482831.829 POLYGLOT [Engine] NullMove Reduction="3"
+1469482831.829 POLYGLOT [Engine] Verification Search="Endgame"
+1469482831.829 POLYGLOT [Engine] Verification Reduction="5"
+1469482831.829 POLYGLOT [Engine] History Pruning="true"
+1469482831.829 POLYGLOT [Engine] History Threshold="60"
+1469482831.829 POLYGLOT [Engine] Futility Pruning="false"
+1469482831.829 POLYGLOT [Engine] Futility Margin="100"
+1469482831.829 POLYGLOT [Engine] Delta Pruning="false"
+1469482831.829 POLYGLOT [Engine] Delta Margin="50"
+1469482831.829 POLYGLOT [Engine] Quiescence Check Plies="1"
+1469482831.829 POLYGLOT [Engine] Material="100"
+1469482831.829 POLYGLOT [Engine] Piece Activity="100"
+1469482831.829 POLYGLOT [Engine] King Safety="100"
+1469482831.829 POLYGLOT [Engine] Pawn Structure="100"
+1469482831.829 POLYGLOT [Engine] Passed Pawns="100"
+1469482831.829 POLYGLOT Setting PolyGlot option "EngineName=Krudo 0.15a"
+1469482831.829 POLYGLOT Setting PolyGlot option "EngineDir=."
+1469482831.829 POLYGLOT Setting PolyGlot option "EngineCommand=C:/ProgramData/Oracle/Java/javapath/java.exe -cp C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/../build/classes org.krudo.Krudo"
+1469482831.829 POLYGLOT Setting PolyGlot option "Log=true"
+1469482831.829 POLYGLOT *** SWITCHING LOGFILE ***
+1469482831.829 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482831.830 POLYGLOT *** LOGFILE OPENED ***
+1469482831.830 POLYGLOT Setting PolyGlot option "LogFile=C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482831.830 POLYGLOT *** SWITCHING LOGFILE ***
+1469482831.830 POLYGLOT NEW LOGFILE "C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482831.837 POLYGLOT *** LOGFILE OPENED ***
+1469482831.837 POLYGLOT Setting PolyGlot option "Book=false"
+1469482831.837 POLYGLOT Setting PolyGlot option "BookFile=default_book.bin"
+1469482831.837 POLYGLOT Setting PolyGlot option "BookRandom=false"
+1469482831.837 POLYGLOT Setting PolyGlot option "BookDepth=256"
+1469482831.837 POLYGLOT Setting PolyGlot option "BookLearn=false"
+1469482831.837 POLYGLOT Setting PolyGlot option "BookTreshold=5"
+1469482831.837 POLYGLOT Setting PolyGlot option "UCI=false"
+1469482831.837 POLYGLOT Setting PolyGlot option "UseNice=false"
+1469482831.837 POLYGLOT Adjust Engine Piority
+1469482831.838 POLYGLOT Setting PolyGlot option "NiceValue=5"
+1469482831.838 POLYGLOT Setting PolyGlot option "Resign=false"
+1469482831.838 POLYGLOT Setting PolyGlot option "ResignMoves=3"
+1469482831.838 POLYGLOT Setting PolyGlot option "ResignScore=600"
+1469482831.838 POLYGLOT Setting PolyGlot option "MateScore=10000"
+1469482831.838 POLYGLOT Setting PolyGlot option "KibitzMove=false"
+1469482831.838 POLYGLOT Setting PolyGlot option "KibitzPV=false"
+1469482831.838 POLYGLOT Setting PolyGlot option "KibitzCommand=tellall"
+1469482831.838 POLYGLOT Setting PolyGlot option "KibitzDelay=5"
+1469482831.838 POLYGLOT Setting PolyGlot option "KibitzInterval=0"
+1469482831.838 POLYGLOT Setting PolyGlot option "ShowPonder=false"
+1469482831.838 POLYGLOT Setting PolyGlot option "ScoreWhite=false"
+1469482831.838 POLYGLOT Setting PolyGlot option "UCIVersion=2"
+1469482831.838 POLYGLOT Setting PolyGlot option "RepeatPV=true"
+1469482831.838 POLYGLOT Setting PolyGlot option "SyncStop=false"
+1469482831.838 POLYGLOT Setting PolyGlot option "CanPonder=false"
+1469482831.838 POLYGLOT Setting PolyGlot option "PromoteWorkAround=false"
+1469482831.838 POLYGLOT Setting PolyGlot option "WbWorkArounds=false"
+1469482831.838 POLYGLOT Setting PolyGlot option "WbWorkArounds2=false"
+1469482831.838 POLYGLOT *** Mainloop started ***
+1469482831.838 GUI->Adapter: xboard
+1469482831.838 GUI->Adapter: protover 2
+1469482831.838 Adapter->GUI: feature done=0
+1469482831.838 Adapter->GUI: feature analyze=1
+1469482831.839 Adapter->GUI: feature exclude=1
+1469482831.839 Adapter->GUI: feature colors=0
+1469482831.839 Adapter->GUI: feature draw=1
+1469482831.839 Adapter->GUI: feature ics=1
+1469482831.839 Adapter->GUI: feature myname="Krudo 0.15a"
+1469482831.839 Adapter->GUI: feature name=1
+1469482831.839 Adapter->GUI: feature pause=0
+1469482831.839 Adapter->GUI: feature ping=1
+1469482831.839 Adapter->GUI: feature playother=1
+1469482831.839 Adapter->GUI: feature sigint=1
+1469482831.839 Adapter->GUI: feature reuse=1
+1469482831.839 Adapter->GUI: feature san=0
+1469482831.839 Adapter->GUI: feature setboard=1
+1469482831.839 Adapter->GUI: feature sigint=0
+1469482831.840 Adapter->GUI: feature sigterm=0
+1469482831.840 Adapter->GUI: feature time=1
+1469482831.840 Adapter->GUI: feature usermove=1
+1469482831.840 Adapter->GUI: feature nps=1
+1469482831.840 Adapter->GUI: feature memory=0
+1469482831.840 Adapter->GUI: feature smp=0
+1469482831.840 Adapter->GUI: feature egt=""
+1469482831.840 Adapter->GUI: feature variants="normal"
+1469482831.840 Adapter->GUI: feature option="Polyglot exclude move -string "
+1469482831.840 Adapter->GUI: feature option="Polyglot SettingsFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini"
+1469482831.840 Adapter->GUI: feature option="Polyglot Log -check 1"
+1469482831.840 Adapter->GUI: feature option="Polyglot LogFile -file C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\polyglot.log"
+1469482831.840 Adapter->GUI: feature option="Polyglot Resign -check 0"
+1469482831.840 Adapter->GUI: feature option="Polyglot ResignMoves -spin 3 0 10000"
+1469482831.840 Adapter->GUI: feature option="Polyglot QueenNeverResigns -check 1"
+1469482831.840 Adapter->GUI: feature option="Polyglot ResignScore -spin 600 0 10000"
+1469482831.840 Adapter->GUI: feature option="Polyglot HandleDraws -check 0"
+1469482831.840 Adapter->GUI: feature option="Polyglot ContemptScore -spin 30 0 10000"
+1469482831.840 Adapter->GUI: feature option="Polyglot Book -check 0"
+1469482831.841 Adapter->GUI: feature option="Polyglot BookFile -file default_book.bin"
+1469482831.841 Adapter->GUI: feature option="Polyglot BookRandom -check 0"
+1469482831.841 Adapter->GUI: feature option="Polyglot BookDepth -spin 256 0 256"
+1469482831.841 Adapter->GUI: feature option="Polyglot STFudge -spin 20 0 1000"
+1469482831.841 Adapter->GUI: feature option="Polyglot SyncStop -check 0"
+1469482831.841 Adapter->GUI: feature option="Polyglot Save -save"
+1469482831.841 Adapter->GUI: feature done=1
+1469482831.841 GUI->Adapter: accepted done
+1469482831.841 GUI->Adapter: accepted analyze
+1469482831.841 GUI->Adapter: accepted exclude
+1469482831.841 GUI->Adapter: accepted colors
+1469482831.841 GUI->Adapter: accepted draw
+1469482831.841 GUI->Adapter: accepted ics
+1469482831.841 GUI->Adapter: accepted myname
+1469482831.841 GUI->Adapter: accepted name
+1469482831.841 GUI->Adapter: accepted pause
+1469482831.841 GUI->Adapter: accepted ping
+1469482831.841 GUI->Adapter: accepted playother
+1469482831.841 GUI->Adapter: accepted sigint
+1469482831.841 GUI->Adapter: accepted reuse
+1469482831.841 GUI->Adapter: accepted san
+1469482831.841 GUI->Adapter: accepted setboard
+1469482831.841 GUI->Adapter: accepted sigint
+1469482831.841 GUI->Adapter: accepted sigterm
+1469482831.841 GUI->Adapter: accepted time
+1469482831.841 GUI->Adapter: accepted usermove
+1469482831.841 GUI->Adapter: accepted nps
+1469482831.841 GUI->Adapter: accepted memory
+1469482831.841 GUI->Adapter: accepted smp
+1469482831.841 GUI->Adapter: accepted egt
+1469482831.842 GUI->Adapter: accepted variants
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted option
+1469482831.842 GUI->Adapter: accepted done
+1469482831.850 GUI->Adapter: new
+1469482831.850 Adapter->Engine: isready
+1469482831.856 Engine->Adapter: readyok
+1469482831.856 POLYGLOT NEW GAME
+1469482831.856 POLYGLOT WAIT
+1469482831.856 Adapter->Engine: ucinewgame
+1469482831.864 GUI->Adapter: random
+1469482831.864 GUI->Adapter: ics -
+1469482831.865 GUI->Adapter: level 0 1 0
+1469482831.865 GUI->Adapter: post
+1469482831.865 GUI->Adapter: hard
+1469482831.865 POLYGLOT WAIT
+1469482831.865 GUI->Adapter: ping 1
+1469482831.865 Adapter->GUI: pong 1
+1469482831.866 GUI->Adapter: force
+1469482831.866 POLYGLOT WAIT
+1469482831.866 GUI->Adapter: ping 2
+1469482831.866 Adapter->GUI: pong 2
+1469482831.866 GUI->Adapter: new
+1469482831.866 Adapter->Engine: isready
+1469482831.874 Engine->Adapter: readyok
+1469482831.874 POLYGLOT NEW GAME
+1469482831.874 POLYGLOT WAIT
+1469482831.875 Adapter->Engine: ucinewgame
+1469482831.875 GUI->Adapter: random
+1469482831.875 GUI->Adapter: ics -
+1469482831.875 GUI->Adapter: level 0 1 0
+1469482831.875 GUI->Adapter: post
+1469482831.875 GUI->Adapter: hard
+1469482831.875 POLYGLOT WAIT
+1469482831.875 GUI->Adapter: ping 3
+1469482831.875 Adapter->GUI: pong 3
+1469482831.875 GUI->Adapter: force
+1469482831.875 POLYGLOT WAIT
+1469482831.875 GUI->Adapter: setboard 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
+1469482831.875 POLYGLOT FEN 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
+1469482831.876 POLYGLOT WAIT
+1469482832.459 GUI->Adapter: computer
+1469482832.459 GUI->Adapter: name Fruit 2.1
+1469482832.460 GUI->Adapter: time 6000
+1469482832.460 GUI->Adapter: otim 6000
+1469482832.460 GUI->Adapter: go
+1469482832.460 POLYGLOT THINK
+1469482832.460 POLYGLOT START SEARCH
+1469482832.460 POLYGLOT FEN 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
+1469482832.460 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
+1469482832.460 Adapter->Engine: go wtime 60000 btime 60000
+1469482832.468 Engine->Adapter: -5 -100000 0
+1469482832.475 Engine->Adapter: info depth 1 score cp -5 nps 1 pv b1a3 event id-loop-end
+1469482832.475 parse info 0 0
+1469482832.475 Adapter->GUI: 1 -5 0 1 Na3
+1469482832.478 Engine->Adapter: 20 -100000 0
+1469482832.480 Engine->Adapter: 22 20 0
+1469482832.483 Engine->Adapter: 30 22 0
+1469482832.495 Engine->Adapter: info depth 2 score cp 30 nps 1 pv e2e4 e8e7 event id-loop-end
+1469482832.495 parse info 1 1
+1469482832.495 Adapter->GUI: 2 +30 0 1 e4 Ke7
+1469482832.498 Engine->Adapter: -8 -100000 0
+1469482832.499 Engine->Adapter: -6 -8 0
+1469482832.508 Engine->Adapter: info depth 3 score cp -6 nps 46 pv b1c3 e8e7 c3e4 event id-loop-end
+1469482832.508 parse info 2 2
+1469482832.508 Adapter->GUI: 3 -6 0 1 Nc3 Ke7 Ne4
+1469482832.516 Engine->Adapter: 30 -100000 0
+1469482832.527 Engine->Adapter: 33 30 0
+1469482832.541 Engine->Adapter: 46 33 0
+1469482832.548 Engine->Adapter: 47 46 0
+1469482832.560 Engine->Adapter: info depth 4 score cp 47 nps 14 pv e2e3 e8e7 d1g4 e7e8 event id-loop-end
+1469482832.560 parse info 3 3
+1469482832.560 Adapter->GUI: 4 +47 0 1 e3 Ke7 Qg4 Ke8
+1469482832.572 Engine->Adapter: -6 -100000 0
+1469482832.590 Engine->Adapter: -3 -6 0
+1469482832.602 Engine->Adapter: info depth 5 score cp -3 nps 359 pv e2e4 e8e7 d1f3 e7d7 f3f6 event id-loop-end
+1469482832.602 parse info 4 4
+1469482832.602 Adapter->GUI: 5 -3 0 1 e4 Ke7 Qf3 Kd7 Qf6
+1469482832.645 Engine->Adapter: 47 -100000 0
+1469482832.698 Engine->Adapter: 51 47 0
+1469482832.773 Engine->Adapter: 52 51 0
+1469482833.184 Engine->Adapter: info depth 6 score cp 52 nps 29 pv e2e4 e8e7 d1h5 e7e6 d2d4 e6e7 event id-loop-end
+1469482833.184 parse info 5 5
+1469482833.184 Adapter->GUI: 6 +52 0 1 e4 Ke7 Qh5 Ke6 d4 Ke7
+1469482833.247 Engine->Adapter: -3 -100000 0
+1469482833.398 Engine->Adapter: -2 -3 0
+1469482833.463 Engine->Adapter: . . . . k . . .    
+1469482833.463 Engine->Adapter: . . . . . . . .    
+1469482833.463 Engine->Adapter: . . . . . . . .    
+1469482833.463 Engine->Adapter: . . . . . . . .    
+1469482833.463 Engine->Adapter: . . . . . . . .    
+1469482833.463 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482833.464 Engine->Adapter: P P P P P P P P    phk: 537740d374760275
+1469482833.464 Engine->Adapter: R N B Q K B N R <  mhk: 84e3941a5aad8092
+1469482833.464 Engine->Adapter: 
+1469482833.483 Engine->Adapter: b1a3   b1c3   g1f3   g1h3   e2e4   e2e3  
+1469482833.483 Engine->Adapter: d2d4   d2d3   c2c4   c2c3   f2f4   f2f3  
+1469482833.483 Engine->Adapter: h2h4   h2h3   b2b4   b2b3   g2g4   g2g3  
+1469482833.483 Engine->Adapter: a2a4   a2a3  
+1469482833.483 Engine->Adapter: bestmove e2e4
+1469482833.483 Adapter->GUI: 6 +52 0 1 e4 Ke7 Qh5 Ke6 d4 Ke7
+1469482833.483 Adapter->GUI: move e2e4
+1469482833.483 POLYGLOT MOVE e4
+1469482833.483 POLYGLOT THINK -> WAIT
+1469482835.095 GUI->Adapter: time 5897
+1469482835.095 GUI->Adapter: otim 5839
+1469482835.095 GUI->Adapter: usermove e8e7
+1469482835.095 POLYGLOT MOVE Ke7
+1469482835.095 POLYGLOT WAIT -> THINK
+1469482835.095 POLYGLOT START SEARCH
+1469482835.095 POLYGLOT FEN 8/4k3/8/8/4P3/8/PPPP1PPP/RNBQKBNR w KQ - 1 2
+1469482835.095 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7
+1469482835.097 Adapter->Engine: go wtime 58970 btime 58390
+1469482835.098 Engine->Adapter: e2e4
+1469482835.098 Engine->Adapter: -6 -100000 0
+1469482835.098 Engine->Adapter: -5 -6 0
+1469482835.099 Engine->Adapter: info depth 1 score cp -5 nps 0 pv d1f3 event id-loop-end
+1469482835.099 parse info 0 0
+1469482835.099 Adapter->GUI: 1 -5 0 1 Qf3
+1469482835.099 Engine->Adapter: 30 -100000 0
+1469482835.099 Engine->Adapter: 32 30 0
+1469482835.099 Engine->Adapter: 42 32 0
+1469482835.100 Engine->Adapter: 46 42 0
+1469482835.100 Engine->Adapter: info depth 2 score cp 46 nps 27 pv d1h5 e7e6 event id-loop-end
+1469482835.100 parse info 1 1
+1469482835.100 Adapter->GUI: 2 +46 0 1 Qh5 Ke6
+1469482835.100 Engine->Adapter: -6 -100000 0
+1469482835.101 Engine->Adapter: -4 -6 0
+1469482835.101 Engine->Adapter: -3 -4 0
+1469482835.103 Engine->Adapter: info depth 3 score cp -3 nps 698 pv d1g4 e7f7 e4e5 event id-loop-end
+1469482835.103 parse info 2 2
+1469482835.103 Adapter->GUI: 3 -3 0 1 Qg4 Kf7 e5
+1469482835.106 Engine->Adapter: 46 -100000 0
+1469482835.106 Engine->Adapter: 49 46 0
+1469482835.110 Engine->Adapter: 52 49 0
+1469482835.117 Engine->Adapter: info depth 4 score cp 52 nps 98 pv d1h5 e7e6 d2d4 e6e7 event id-loop-end
+1469482835.117 parse info 3 3
+1469482835.118 Adapter->GUI: 4 +52 0 1 Qh5 Ke6 d4 Ke7
+1469482835.123 Engine->Adapter: -3 -100000 0
+1469482835.139 Engine->Adapter: -2 -3 0
+1469482835.163 Engine->Adapter: info depth 5 score cp -2 nps 977 pv d1g4 e7f6 f1c4 f6e5 g1e2 event id-loop-end
+1469482835.163 parse info 4 4
+1469482835.164 Adapter->GUI: 5 -2 0 1 Qg4 Kf6 Bc4 Ke5 Ne2
+1469482835.315 Engine->Adapter: 51 -100000 0
+1469482835.429 Engine->Adapter: 55 51 0
+1469482835.687 Engine->Adapter: 57 55 0
+1469482836.099 Engine->Adapter: . . . . . . . .    
+1469482836.099 Engine->Adapter: . . . . k . . .    
+1469482836.100 Engine->Adapter: . . . . . . . .    
+1469482836.100 Engine->Adapter: . . . . . . . .    
+1469482836.100 Engine->Adapter: . . . . P . . .    
+1469482836.100 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482836.100 Engine->Adapter: P P P P . P P P    phk: bbfe5691dcb58540
+1469482836.100 Engine->Adapter: R N B Q K B N R <  mhk: d90a4470c4d4154c
+1469482836.100 Engine->Adapter: 
+1469482836.104 Engine->Adapter: b1a3   b1c3   g1e2   g1f3   g1h3   d1e2  
+1469482836.104 Engine->Adapter: d1g4   d1h5   f1e2   f1d3   f1c4   f1b5  
+1469482836.104 Engine->Adapter: f1a6   e1e2   d2d4   d2d3   c2c4   c2c3  
+1469482836.104 Engine->Adapter: f2f4   f2f3   h2h4   h2h3   b2b4   b2b3  
+1469482836.104 Engine->Adapter: g2g4   g2g3   a2a4   a2a3   d1f3   e4e5  
+1469482836.104 Engine->Adapter: bestmove d1g4
+1469482836.104 Adapter->GUI: 5 -2 0 1 Qg4 Kf6 Bc4 Ke5 Ne2
+1469482836.104 Adapter->GUI: move d1g4
+1469482836.105 POLYGLOT MOVE Qg4
+1469482836.105 POLYGLOT THINK -> WAIT
+1469482836.630 GUI->Adapter: time 5796
+1469482836.630 GUI->Adapter: otim 5786
+1469482836.630 GUI->Adapter: usermove e7f6
+1469482836.630 POLYGLOT MOVE Kf6
+1469482836.630 POLYGLOT WAIT -> THINK
+1469482836.630 POLYGLOT START SEARCH
+1469482836.630 POLYGLOT FEN 8/8/5k2/8/4P1Q1/8/PPPP1PPP/RNB1KBNR w KQ - 3 3
+1469482836.630 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6
+1469482836.631 Adapter->Engine: go wtime 57960 btime 57860
+1469482836.631 Engine->Adapter: e2e4
+1469482836.632 Engine->Adapter: -3 -100000 0
+1469482836.632 Engine->Adapter: -2 -3 0
+1469482836.633 Engine->Adapter: info depth 1 score cp -2 nps 0 pv g1f3 event id-loop-end
+1469482836.633 parse info 0 0
+1469482836.633 Adapter->GUI: 1 -2 0 1 Nf3
+1469482836.633 Engine->Adapter: 41 -100000 0
+1469482836.633 Engine->Adapter: 44 41 0
+1469482836.634 Engine->Adapter: 46 44 0
+1469482836.634 Engine->Adapter: 48 46 0
+1469482836.636 Engine->Adapter: info depth 2 score cp 48 nps 16 pv d2d4 f6f7 event id-loop-end
+1469482836.636 parse info 1 1
+1469482836.636 Adapter->GUI: 2 +48 0 1 d4 Kf7
+1469482836.637 Engine->Adapter: -3 -100000 0
+1469482836.638 Engine->Adapter: -2 -3 0
+1469482836.645 Engine->Adapter: info depth 3 score cp -2 nps 239 pv f1c4 f6e5 g1f3 event id-loop-end
+1469482836.645 parse info 2 2
+1469482836.646 Adapter->GUI: 3 -2 0 1 Bc4 Ke5 Nf3+
+1469482836.647 Engine->Adapter: 47 -100000 0
+1469482836.650 Engine->Adapter: 50 47 0
+1469482836.670 Engine->Adapter: 52 50 0
+1469482836.690 Engine->Adapter: 53 52 0
+1469482836.762 Engine->Adapter: info depth 4 score cp 53 nps 16 pv d2d4 f6f7 f1c4 f7f6 event id-loop-end
+1469482836.762 parse info 3 3
+1469482836.763 Adapter->GUI: 4 +53 0 1 d4 Kf7 Bc4+ Kf6
+1469482836.804 Engine->Adapter: -2 -100000 0
+1469482836.820 Engine->Adapter: -1 -2 0
+1469482837.308 Engine->Adapter: info depth 5 score cp -1 nps 159 pv b1c3 f6f7 e4e5 f7f8 g4g6 event id-loop-end
+1469482837.308 parse info 4 4
+1469482837.309 Adapter->GUI: 5 -1 0 1 Nc3 Kf7 e5 Kf8 Qg6
+1469482837.389 Engine->Adapter: 53 -100000 0
+1469482837.500 Engine->Adapter: 56 53 0
+1469482837.635 Engine->Adapter: . . . . . . . .    
+1469482837.635 Engine->Adapter: . . . . . . . .    
+1469482837.635 Engine->Adapter: . . . . . k . .    
+1469482837.635 Engine->Adapter: . . . . . . . .    
+1469482837.635 Engine->Adapter: . . . . P . Q .    
+1469482837.635 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482837.635 Engine->Adapter: P P P P . P P P    phk: 9ff9809f75b074b7
+1469482837.635 Engine->Adapter: R N B . K B N R <  mhk: bc25e9f521b2e077
+1469482837.635 Engine->Adapter: 
+1469482837.638 Engine->Adapter: b1a3   b1c3   g1e2   g1f3   g1h3   f1e2  
+1469482837.638 Engine->Adapter: f1d3   f1c4   f1b5   f1a6   e1e2   e1d1  
+1469482837.638 Engine->Adapter: d2d4   d2d3   c2c4   c2c3   f2f4   f2f3  
+1469482837.638 Engine->Adapter: h2h4   h2h3   b2b4   b2b3   g2g3   a2a4  
+1469482837.639 Engine->Adapter: a2a3   g4g3   g4g5   g4g6   g4g7   g4g8  
+1469482837.639 Engine->Adapter: g4h4   g4f4   g4f3   g4e2   g4d1   g4h3  
+1469482837.639 Engine->Adapter: g4h5   g4f5   g4e6   g4d7   g4c8   e4e5  
+1469482837.639 Engine->Adapter: bestmove b1c3
+1469482837.639 Adapter->GUI: 5 -1 0 1 Nc3 Kf7 e5 Kf8 Qg6
+1469482837.639 Adapter->GUI: move b1c3
+1469482837.639 POLYGLOT MOVE Nc3
+1469482837.639 POLYGLOT THINK -> WAIT
+1469482839.037 GUI->Adapter: time 5695
+1469482839.037 GUI->Adapter: otim 5647
+1469482839.037 GUI->Adapter: usermove f6f7
+1469482839.037 POLYGLOT MOVE Kf7
+1469482839.037 POLYGLOT WAIT -> THINK
+1469482839.037 POLYGLOT START SEARCH
+1469482839.037 POLYGLOT FEN 8/5k2/8/8/4P1Q1/2N5/PPPP1PPP/R1B1KBNR w KQ - 5 4
+1469482839.038 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7
+1469482839.038 Adapter->Engine: go wtime 56950 btime 56470
+1469482839.038 Engine->Adapter: e2e4
+1469482839.039 Engine->Adapter: -4 -100000 0
+1469482839.039 Engine->Adapter: -3 -4 0
+1469482839.039 Engine->Adapter: -2 -3 -2
+1469482839.039 Engine->Adapter: info depth 1 score cp -2 nps 0 pv c3d5 event id-loop-end
+1469482839.039 parse info 0 0
+1469482839.040 Adapter->GUI: 1 -2 0 1 Nd5
+1469482839.040 Engine->Adapter: 41 -100000 0
+1469482839.040 Engine->Adapter: 43 41 0
+1469482839.040 Engine->Adapter: 44 43 0
+1469482839.041 Engine->Adapter: 51 44 0
+1469482839.041 Engine->Adapter: info depth 2 score cp 51 nps 28 pv f1c4 f7f6 event id-loop-end
+1469482839.041 parse info 1 1
+1469482839.041 Adapter->GUI: 2 +51 0 1 Bc4+ Kf6
+1469482839.041 Engine->Adapter: -3 -100000 0
+1469482839.043 Engine->Adapter: -2 -3 0
+1469482839.045 Engine->Adapter: -1 -2 0
+1469482839.046 Engine->Adapter: info depth 3 score cp -1 nps 578 pv g4g5 f7f8 f1c4 event id-loop-end
+1469482839.046 parse info 2 2
+1469482839.046 Adapter->GUI: 3 -1 0 1 Qg5 Kf8 Bc4
+1469482839.049 Engine->Adapter: 46 -100000 0
+1469482839.052 Engine->Adapter: 48 46 0
+1469482839.055 Engine->Adapter: 51 48 0
+1469482839.059 Engine->Adapter: 53 51 0
+1469482839.061 Engine->Adapter: 56 53 0
+1469482839.079 Engine->Adapter: info depth 4 score cp 56 nps 75 pv f1c4 f7f6 g4d7 f6e5 event id-loop-end
+1469482839.079 parse info 3 3
+1469482839.079 Adapter->GUI: 4 +56 0 1 Bc4+ Kf6 Qd7 Ke5
+1469482839.087 Engine->Adapter: -2 -100000 0
+1469482839.101 Engine->Adapter: -1 -2 0
+1469482839.264 Engine->Adapter: 0 -1 -2
+1469482839.269 Engine->Adapter: info depth 5 score cp 0 nps 522 pv c3d5 f7f8 g4g6 event id-loop-end
+1469482839.269 parse info 4 4
+1469482839.269 Adapter->GUI: 5 +0 0 1 Nd5 Kf8 Qg6
+1469482839.417 Engine->Adapter: 51 -100000 0
+1469482839.559 Engine->Adapter: 55 51 0
+1469482839.703 Engine->Adapter: 57 55 0
+1469482840.044 Engine->Adapter: . . . . . . . .    
+1469482840.044 Engine->Adapter: . . . . . k . .    
+1469482840.044 Engine->Adapter: . . . . . . . .    
+1469482840.044 Engine->Adapter: . . . . . . . .    
+1469482840.044 Engine->Adapter: . . . . P . Q .    
+1469482840.044 Engine->Adapter: . . N . . . . .    cw: 16  cb: 1  ph: 128
+1469482840.044 Engine->Adapter: P P P P . P P P    phk: e702110a8dfd75da
+1469482840.044 Engine->Adapter: R . B . K B N R <  mhk: bdc732adac47d3da
+1469482840.044 Engine->Adapter: 
+1469482840.051 Engine->Adapter: c3d1   c3e2   g1e2   g1f3   g1h3   f1e2  
+1469482840.051 Engine->Adapter: f1d3   f1c4   f1b5   f1a6   e1e2   e1d1  
+1469482840.051 Engine->Adapter: a1b1   d2d4   d2d3   f2f4   f2f3   h2h4  
+1469482840.051 Engine->Adapter: h2h3   b2b4   b2b3   g2g3   a2a4   a2a3  
+1469482840.051 Engine->Adapter: g4g3   g4g5   g4g6   g4g7   g4g8   g4h4  
+1469482840.051 Engine->Adapter: g4f4   g4f3   g4e2   g4d1   g4h3   g4h5  
+1469482840.051 Engine->Adapter: g4f5   g4e6   g4d7   g4c8   c3b1   c3a4  
+1469482840.051 Engine->Adapter: c3d5   e4e5   c3b5  
+1469482840.051 Engine->Adapter: bestmove c3d5
+1469482840.051 Adapter->GUI: 5 +0 0 1 Nd5 Kf8 Qg6
+1469482840.051 Adapter->GUI: move c3d5
+1469482840.051 POLYGLOT MOVE Nd5
+1469482840.052 POLYGLOT THINK -> WAIT
+1469482841.439 GUI->Adapter: time 5593
+1469482841.439 GUI->Adapter: otim 5508
+1469482841.439 GUI->Adapter: usermove f7f8
+1469482841.439 POLYGLOT MOVE Kf8
+1469482841.439 POLYGLOT WAIT -> THINK
+1469482841.439 POLYGLOT START SEARCH
+1469482841.439 POLYGLOT FEN 5k2/8/8/3N4/4P1Q1/8/PPPP1PPP/R1B1KBNR w KQ - 7 5
+1469482841.439 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8
+1469482841.439 Adapter->Engine: go wtime 55930 btime 55080
+1469482841.443 Engine->Adapter: e2e4
+1469482841.443 Engine->Adapter: -2 -100000 0
+1469482841.443 Engine->Adapter: 0 -2 0
+1469482841.443 Engine->Adapter: info depth 1 score cp 0 nps 0 pv g4g6 event id-loop-end
+1469482841.443 parse info 0 0
+1469482841.444 Adapter->GUI: 1 +0 0 1 Qg6
+1469482841.444 Engine->Adapter: 54 -100000 0
+1469482841.445 Engine->Adapter: info depth 2 score cp 54 nps 24 pv e4e5 f8e8 event id-loop-end
+1469482841.445 parse info 1 1
+1469482841.445 Adapter->GUI: 2 +54 0 1 e5 Ke8
+1469482841.446 Engine->Adapter: -1 -100000 0
+1469482841.454 Engine->Adapter: 0 -1 0
+1469482841.456 Engine->Adapter: info depth 3 score cp 0 nps 229 pv g4g6 event id-loop-end
+1469482841.456 parse info 2 2
+1469482841.456 Adapter->GUI: 3 +0 0 1 Qg6
+1469482841.467 Engine->Adapter: 59 -100000 0
+1469482841.593 Engine->Adapter: info depth 4 score cp 59 nps 17 pv e4e5 f8e8 f1b5 e8f8 event id-loop-end
+1469482841.593 parse info 3 3
+1469482841.593 Adapter->GUI: 4 +59 0 1 e5 Ke8 Bb5+ Kf8
+1469482841.616 Engine->Adapter: 0 -100000 0
+1469482842.110 Engine->Adapter: info depth 5 score cp 0 nps 209 pv e4e5 f8e8 e5e6 e8f8 f1b5 event id-loop-end
+1469482842.110 parse info 4 4
+1469482842.110 Adapter->GUI: 5 +0 0 1 e5 Ke8 e6 Kf8 Bb5
+1469482842.257 Engine->Adapter: 61 -100000 0
+1469482842.444 Engine->Adapter: . . . . . k . .    
+1469482842.444 Engine->Adapter: . . . . . . . .    
+1469482842.444 Engine->Adapter: . . . . . . . .    
+1469482842.444 Engine->Adapter: . . . N . . . .    
+1469482842.444 Engine->Adapter: . . . . P . Q .    
+1469482842.444 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482842.444 Engine->Adapter: P P P P . P P P    phk: 99e287990a590456
+1469482842.444 Engine->Adapter: R . B . K B N R <  mhk: e5d8cd702612537a
+1469482842.444 Engine->Adapter: 
+1469482842.448 Engine->Adapter: e4e5   d5b4   d5b6   d5c3   d5c7   d5e3  
+1469482842.448 Engine->Adapter: d5e7   d5f4   d5f6   g1e2   g1f3   g1h3  
+1469482842.448 Engine->Adapter: f1e2   f1d3   f1c4   f1a6   e1e2   e1d1  
+1469482842.448 Engine->Adapter: a1b1   d2d4   d2d3   c2c4   c2c3   f2f4  
+1469482842.448 Engine->Adapter: f2f3   h2h4   h2h3   b2b4   b2b3   g2g3  
+1469482842.448 Engine->Adapter: a2a4   a2a3   g4g3   g4g5   g4g6   g4g7  
+1469482842.448 Engine->Adapter: g4g8   g4h4   g4f4   g4f3   g4e2   g4d1  
+1469482842.448 Engine->Adapter: g4h3   g4h5   g4f5   g4e6   g4d7   g4c8  
+1469482842.448 Engine->Adapter: f1b5  
+1469482842.448 Engine->Adapter: bestmove e4e5
+1469482842.449 Adapter->GUI: 5 +0 0 1 e5 Ke8 e6 Kf8 Bb5
+1469482842.449 Adapter->GUI: move e4e5
+1469482842.449 POLYGLOT MOVE e5
+1469482842.449 POLYGLOT THINK -> WAIT
+1469482843.933 GUI->Adapter: time 5492
+1469482843.933 GUI->Adapter: otim 5360
+1469482843.933 GUI->Adapter: usermove f8f7
+1469482843.934 POLYGLOT MOVE Kf7
+1469482843.934 POLYGLOT WAIT -> THINK
+1469482843.934 POLYGLOT START SEARCH
+1469482843.934 POLYGLOT FEN 8/5k2/8/3NP3/6Q1/8/PPPP1PPP/R1B1KBNR w KQ - 1 6
+1469482843.934 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 e4e5 f8f7
+1469482843.934 Adapter->Engine: go wtime 54920 btime 53600
+1469482843.934 Engine->Adapter: e2e4
+1469482843.935 Engine->Adapter: -3 -100000 0
+1469482843.935 Engine->Adapter: -2 -3 0
+1469482843.936 Engine->Adapter: -1 -2 0
+1469482843.936 Engine->Adapter: info depth 1 score cp -1 nps 54 pv g4g8 event id-loop-end
+1469482843.936 parse info 0 0
+1469482843.936 Adapter->GUI: 1 -1 0 1 Qg8+
+1469482843.936 Engine->Adapter: 51 -100000 0
+1469482843.936 Engine->Adapter: 52 51 0
+1469482843.936 Engine->Adapter: 53 52 0
+1469482843.937 Engine->Adapter: 57 53 0
+1469482843.937 Engine->Adapter: 59 57 -1
+1469482843.937 Engine->Adapter: info depth 2 score cp 59 nps 60 pv f1b5 f7f8 event id-loop-end
+1469482843.937 parse info 1 1
+1469482843.937 Adapter->GUI: 2 +59 0 1 Bb5 Kf8
+1469482843.938 Engine->Adapter: -1 -100000 0
+1469482843.938 Engine->Adapter: 0 -1 0
+1469482843.940 Engine->Adapter: info depth 3 score cp 0 nps 934 pv e5e6 f7f8 f1b5 event id-loop-end
+1469482843.940 parse info 2 2
+1469482843.941 Adapter->GUI: 3 +0 0 1 e6+ Kf8 Bb5
+1469482843.942 Engine->Adapter: 55 -100000 0
+1469482843.943 Engine->Adapter: 56 55 0
+1469482843.946 Engine->Adapter: 58 56 0
+1469482843.947 Engine->Adapter: 59 58 0
+1469482843.951 Engine->Adapter: 61 59 0
+1469482843.969 Engine->Adapter: info depth 4 score cp 61 nps 95 pv d2d3 f7f8 c1e3 f8f7 event id-loop-end
+1469482843.970 parse info 3 3
+1469482843.970 Adapter->GUI: 4 +61 0 1 d3 Kf8 Be3 Kf7
+1469482843.979 Engine->Adapter: -1 -100000 0
+1469482844.019 Engine->Adapter: 0 -1 0
+1469482844.197 Engine->Adapter: info depth 5 score cp 0 nps 592 pv d5f4 f7f8 g4d7 f8g8 f4g6 event id-loop-end
+1469482844.197 parse info 4 4
+1469482844.197 Adapter->GUI: 5 +0 0 1 Nf4 Kf8 Qd7 Kg8 Ng6
+1469482844.317 Engine->Adapter: 59 -100000 0
+1469482844.584 Engine->Adapter: 61 59 0
+1469482844.792 Engine->Adapter: 49999 61 0
+1469482844.943 Engine->Adapter: . . . . . . . .    
+1469482844.943 Engine->Adapter: . . . . . k . .    
+1469482844.943 Engine->Adapter: . . . . . . . .    
+1469482844.943 Engine->Adapter: . . . N P . . .    
+1469482844.943 Engine->Adapter: . . . . . . Q .    
+1469482844.943 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482844.943 Engine->Adapter: P P P P . P P P    phk: 466ea9db93a22ceb
+1469482844.944 Engine->Adapter: R . B . K B N R <  mhk: e0789defe8c93cd8
+1469482844.944 Engine->Adapter: 
+1469482844.952 Engine->Adapter: d5e3   d5e7   d5f4   g1e2   g1f3   g1h3  
+1469482844.952 Engine->Adapter: f1e2   f1d3   f1c4   f1a6   e1e2   e1d1  
+1469482844.952 Engine->Adapter: a1b1   d2d4   d2d3   c2c4   c2c3   f2f4  
+1469482844.952 Engine->Adapter: f2f3   h2h4   h2h3   b2b4   b2b3   g2g3  
+1469482844.952 Engine->Adapter: a2a4   a2a3   g4g3   g4g5   g4g6   g4g7  
+1469482844.952 Engine->Adapter: g4h4   g4f4   g4e4   g4d4   g4c4   g4b4  
+1469482844.952 Engine->Adapter: g4a4   g4f3   g4e2   g4d1   g4h3   g4h5  
+1469482844.952 Engine->Adapter: g4f5   g4e6   g4d7   g4c8   d5c3   e5e6  
+1469482844.952 Engine->Adapter: g4g8   d5b4   f1b5   d5f6   d5c7   d5b6  
+1469482844.952 Engine->Adapter: bestmove d5f4
+1469482844.953 Adapter->GUI: 5 +0 0 1 Nf4 Kf8 Qd7 Kg8 Ng6
+1469482844.953 Adapter->GUI: move d5f4
+1469482844.953 POLYGLOT MOVE Nf4
+1469482844.953 POLYGLOT THINK -> WAIT
+1469482846.326 GUI->Adapter: time 5390
+1469482846.326 GUI->Adapter: otim 5223
+1469482846.326 GUI->Adapter: usermove f7f8
+1469482846.326 POLYGLOT MOVE Kf8
+1469482846.326 POLYGLOT WAIT -> THINK
+1469482846.326 POLYGLOT START SEARCH
+1469482846.326 POLYGLOT FEN 5k2/8/8/4P3/5NQ1/8/PPPP1PPP/R1B1KBNR w KQ - 3 7
+1469482846.327 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 e4e5 f8f7 d5f4 f7f8
+1469482846.327 Adapter->Engine: go wtime 53900 btime 52230
+1469482846.330 Engine->Adapter: e2e4
+1469482846.330 Engine->Adapter: -3 -100000 0
+1469482846.330 Engine->Adapter: -2 -3 0
+1469482846.331 Engine->Adapter: -1 -2 0
+1469482846.331 Engine->Adapter: info depth 1 score cp -1 nps 46 pv g4g6 event id-loop-end
+1469482846.331 parse info 0 0
+1469482846.331 Adapter->GUI: 1 -1 0 1 Qg6
+1469482846.331 Engine->Adapter: 43 -100000 0
+1469482846.331 Engine->Adapter: 54 43 0
+1469482846.333 Engine->Adapter: info depth 2 score cp 54 nps 16 pv f4d5 f8e8 event id-loop-end
+1469482846.333 parse info 1 1
+1469482846.333 Adapter->GUI: 2 +54 0 1 Nd5 Ke8
+1469482846.336 Engine->Adapter: -2 -100000 0
+1469482846.336 Engine->Adapter: -1 -2 0
+1469482846.344 Engine->Adapter: 0 -1 0
+1469482846.344 Engine->Adapter: info depth 3 score cp 0 nps 206 pv g4d7 f8g8 f4g6 event id-loop-end
+1469482846.345 parse info 2 2
+1469482846.345 Adapter->GUI: 3 +0 0 1 Qd7 Kg8 Ng6
+1469482846.348 Engine->Adapter: 54 -100000 0
+1469482846.351 Engine->Adapter: 59 54 0
+1469482846.418 Engine->Adapter: info depth 4 score cp 59 nps 28 pv f4d5 f8e8 f1b5 e8f8 event id-loop-end
+1469482846.418 parse info 3 3
+1469482846.418 Adapter->GUI: 4 +59 0 1 Nd5 Ke8 Bb5+ Kf8
+1469482846.461 Engine->Adapter: -1 -100000 0
+1469482846.489 Engine->Adapter: 0 -1 0
+1469482846.928 Engine->Adapter: info depth 5 score cp 0 nps 195 pv f4d5 f8e8 e5e6 e8f8 f1b5 event id-loop-end
+1469482846.928 parse info 4 4
+1469482846.929 Adapter->GUI: 5 +0 0 1 Nd5 Ke8 e6 Kf8 Bb5
+1469482846.982 Engine->Adapter: 59 -100000 0
+1469482847.101 Engine->Adapter: 61 59 0
+1469482847.330 Engine->Adapter: . . . . . k . .    
+1469482847.330 Engine->Adapter: . . . . . . . .    
+1469482847.330 Engine->Adapter: . . . . . . . .    
+1469482847.330 Engine->Adapter: . . . . P . . .    
+1469482847.330 Engine->Adapter: . . . . . N Q .    
+1469482847.330 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482847.330 Engine->Adapter: P P P P . P P P    phk: 7b3c949d28ffd38b
+1469482847.330 Engine->Adapter: R . B . K B N R <  mhk: f0bab0025fede6b9
+1469482847.330 Engine->Adapter: 
+1469482847.333 Engine->Adapter: f4d3   f4d5   f4e2   f4e6   f4g6   f4h3  
+1469482847.333 Engine->Adapter: f4h5   e5e6   g1e2   g1f3   g1h3   f1e2  
+1469482847.333 Engine->Adapter: f1d3   f1c4   f1b5   f1a6   e1e2   e1d1  
+1469482847.333 Engine->Adapter: a1b1   d2d4   d2d3   c2c4   c2c3   f2f3  
+1469482847.333 Engine->Adapter: h2h4   h2h3   b2b4   b2b3   g2g3   a2a4  
+1469482847.334 Engine->Adapter: a2a3   g4g3   g4g5   g4g7   g4g8   g4h4  
+1469482847.334 Engine->Adapter: g4f3   g4e2   g4d1   g4h3   g4h5   g4f5  
+1469482847.334 Engine->Adapter: g4e6   g4d7   g4c8   g4g6  
+1469482847.334 Engine->Adapter: bestmove f4d5
+1469482847.334 Adapter->GUI: 5 +0 0 1 Nd5 Ke8 e6 Kf8 Bb5
+1469482847.335 Adapter->GUI: move f4d5
+1469482847.335 POLYGLOT MOVE Nd5
+1469482847.335 POLYGLOT THINK -> WAIT
+1469482847.582 GUI->Adapter: time 5289
+1469482847.582 GUI->Adapter: otim 5198
+1469482847.582 GUI->Adapter: usermove f8f7
+1469482847.582 POLYGLOT MOVE Kf7
+1469482847.582 POLYGLOT WAIT -> THINK
+1469482847.582 POLYGLOT START SEARCH
+1469482847.582 POLYGLOT FEN 8/5k2/8/3NP3/6Q1/8/PPPP1PPP/R1B1KBNR w KQ - 5 8
+1469482847.583 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 e4e5 f8f7 d5f4 f7f8 f4d5 f8f7
+1469482847.583 Adapter->Engine: go wtime 52890 btime 51980
+1469482847.583 Engine->Adapter: e2e4
+1469482847.584 Engine->Adapter: -3 -100000 54
+1469482847.584 Engine->Adapter: -2 -3 0
+1469482847.584 Engine->Adapter: -1 -2 -1
+1469482847.584 Engine->Adapter: info depth 1 score cp -1 nps 0 pv g4g8 event id-loop-end
+1469482847.584 parse info 0 0
+1469482847.585 Adapter->GUI: 1 -1 0 1 Qg8+
+1469482847.585 Engine->Adapter: 50 -100000 0
+1469482847.585 Engine->Adapter: 51 50 0
+1469482847.585 Engine->Adapter: 52 51 0
+1469482847.585 Engine->Adapter: 53 52 0
+1469482847.585 Engine->Adapter: 57 53 0
+1469482847.586 Engine->Adapter: 59 57 -1
+1469482847.586 Engine->Adapter: info depth 2 score cp 59 nps 30 pv f1b5 f7f8 event id-loop-end
+1469482847.586 parse info 1 1
+1469482847.586 Adapter->GUI: 2 +59 0 1 Bb5 Kf8
+1469482847.586 Engine->Adapter: -1 -100000 0
+1469482847.588 Engine->Adapter: 0 -1 -1
+1469482847.588 Engine->Adapter: info depth 3 score cp 0 nps 2141 pv e5e6 f7f8 f1b5 event id-loop-end
+1469482847.589 parse info 2 2
+1469482847.589 Adapter->GUI: 3 +0 0 1 e6+ Kf8 Bb5
+1469482847.590 Engine->Adapter: 56 -100000 0
+1469482847.591 Engine->Adapter: 58 56 0
+1469482847.592 Engine->Adapter: 59 58 0
+1469482847.596 Engine->Adapter: 61 59 0
+1469482847.612 Engine->Adapter: info depth 4 score cp 61 nps 114 pv d2d3 f7f8 c1e3 f8f7 event id-loop-end
+1469482847.612 parse info 3 3
+1469482847.613 Adapter->GUI: 4 +61 0 1 d3 Kf8 Be3 Kf7
+1469482847.619 Engine->Adapter: -1 -100000 0
+1469482847.627 Engine->Adapter: 0 -1 0
+1469482847.784 Engine->Adapter: info depth 5 score cp 0 nps 766 pv d5f4 f7f8 g4d7 f8g8 f4g6 event id-loop-end
+1469482847.784 parse info 4 4
+1469482847.785 Adapter->GUI: 5 +0 0 1 Nf4 Kf8 Qd7 Kg8 Ng6
+1469482847.889 Engine->Adapter: 59 -100000 0
+1469482848.061 Engine->Adapter: 49999 59 0
+1469482848.758 Engine->Adapter: . . . . . . . .    
+1469482848.758 Engine->Adapter: . . . . . k . .    
+1469482848.758 Engine->Adapter: . . . . . . . .    
+1469482848.758 Engine->Adapter: . . . N P . . .    
+1469482848.758 Engine->Adapter: . . . . . . Q .    
+1469482848.758 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482848.759 Engine->Adapter: P P P P . P P P    phk: 466ea9db93a22ceb
+1469482848.759 Engine->Adapter: R . B . K B N R <  mhk: 93bd068182e0faa6
+1469482848.759 Engine->Adapter: 
+1469482848.762 Engine->Adapter: d5e3   d5f4   g1f3   g1h3   f1e2   f1d3  
+1469482848.762 Engine->Adapter: f1c4   f1a6   e1e2   e1d1   a1b1   d2d4  
+1469482848.762 Engine->Adapter: d2d3   c2c4   c2c3   f2f4   f2f3   h2h4  
+1469482848.762 Engine->Adapter: h2h3   b2b4   b2b3   g2g3   a2a4   a2a3  
+1469482848.762 Engine->Adapter: g4g3   g4g5   g4g6   g4g7   g4h4   g4f4  
+1469482848.762 Engine->Adapter: g4e4   g4d4   g4c4   g4b4   g4a4   g4f3  
+1469482848.762 Engine->Adapter: g4e2   g4d1   g4h3   g4h5   g4f5   g4e6  
+1469482848.762 Engine->Adapter: g4d7   g4c8   d5c3   e5e6   g4g8   d5b4  
+1469482848.762 Engine->Adapter: f1b5   g1e2   d5f6   d5c7   d5e7   d5b6  
+1469482848.762 Engine->Adapter: bestmove d5f4
+1469482848.763 Adapter->GUI: 5 +0 0 1 Nf4 Kf8 Qd7 Kg8 Ng6
+1469482848.763 Adapter->GUI: move d5f4
+1469482848.763 POLYGLOT MOVE Nf4
+1469482848.763 POLYGLOT THINK -> WAIT
+1469482849.015 GUI->Adapter: time 5170
+1469482849.015 GUI->Adapter: otim 5173
+1469482849.015 GUI->Adapter: usermove f7f8
+1469482849.015 POLYGLOT MOVE Kf8
+1469482849.015 POLYGLOT WAIT -> THINK
+1469482849.015 POLYGLOT START SEARCH
+1469482849.015 POLYGLOT FEN 5k2/8/8/4P3/5NQ1/8/PPPP1PPP/R1B1KBNR w KQ - 7 9
+1469482849.015 Adapter->Engine: position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 e4e5 f8f7 d5f4 f7f8 f4d5 f8f7 d5f4 f7f8
+1469482849.015 Adapter->Engine: go wtime 51700 btime 51730
+1469482849.016 Engine->Adapter: e2e4
+1469482849.016 Engine->Adapter: -3 -100000 0
+1469482849.016 Engine->Adapter: -2 -3 0
+1469482849.017 Engine->Adapter: -1 -2 0
+1469482849.017 Engine->Adapter: info depth 1 score cp -1 nps 46 pv g4e6 event id-loop-end
+1469482849.017 parse info 0 0
+1469482849.017 Adapter->GUI: 1 -1 0 1 Qe6
+1469482849.017 Engine->Adapter: 43 -100000 0
+1469482849.017 Engine->Adapter: 54 43 0
+1469482849.018 Engine->Adapter: info depth 2 score cp 54 nps 49 pv f4d5 f8e8 event id-loop-end
+1469482849.018 parse info 1 1
+1469482849.018 Adapter->GUI: 2 +54 0 1 Nd5 Ke8
+1469482849.018 Engine->Adapter: -2 -100000 0
+1469482849.018 Engine->Adapter: -1 -2 0
+1469482849.020 Engine->Adapter: 0 -1 0
+1469482849.020 Engine->Adapter: info depth 3 score cp 0 nps 1134 pv g4d7 f8g8 f4g6 event id-loop-end
+1469482849.020 parse info 2 2
+1469482849.020 Adapter->GUI: 3 +0 0 1 Qd7 Kg8 Ng6
+1469482849.022 Engine->Adapter: 54 -100000 0
+1469482849.023 Engine->Adapter: 59 54 0
+1469482849.038 Engine->Adapter: info depth 4 score cp 59 nps 121 pv f4d5 f8e8 f1b5 e8f8 event id-loop-end
+1469482849.038 parse info 3 3
+1469482849.039 Adapter->GUI: 4 +59 0 1 Nd5 Ke8 Bb5+ Kf8
+1469482849.052 Engine->Adapter: -1 -100000 0
+1469482849.061 Engine->Adapter: 0 -1 0
+1469482849.188 Engine->Adapter: info depth 5 score cp 0 nps 661 pv f4d5 f8e8 e5e6 e8f8 f1b5 event id-loop-end
+1469482849.188 parse info 4 4
+1469482849.188 Adapter->GUI: 5 +0 0 1 Nd5 Ke8 e6 Kf8 Bb5
+1469482849.254 Engine->Adapter: 55 -100000 0
+1469482849.340 Engine->Adapter: 59 55 0
+1469482849.967 Engine->Adapter: 61 59 0
+1469482850.019 Engine->Adapter: . . . . . k . .    
+1469482850.019 Engine->Adapter: . . . . . . . .    
+1469482850.019 Engine->Adapter: . . . . . . . .    
+1469482850.019 Engine->Adapter: . . . . P . . .    
+1469482850.020 Engine->Adapter: . . . . . N Q .    
+1469482850.020 Engine->Adapter: . . . . . . . .    cw: 16  cb: 1  ph: 128
+1469482850.020 Engine->Adapter: P P P P . P P P    phk: 7b3c949d28ffd38b
+1469482850.020 Engine->Adapter: R . B . K B N R <  mhk: eca9182e9a80dc25
+1469482850.020 Engine->Adapter: 
+1469482850.022 Engine->Adapter: f4e2   f4e6   f4g6   f4h3   f4h5   e5e6  
+1469482850.022 Engine->Adapter: g1e2   g1f3   g1h3   f1e2   f1d3   f1c4  
+1469482850.022 Engine->Adapter: f1b5   f1a6   e1e2   e1d1   a1b1   d2d4  
+1469482850.023 Engine->Adapter: d2d3   c2c4   c2c3   f2f3   h2h4   h2h3  
+1469482850.023 Engine->Adapter: b2b4   b2b3   g2g3   a2a4   a2a3   g4g3  
+1469482850.023 Engine->Adapter: g4g5   g4g7   g4g8   g4h4   g4f3   g4e2  
+1469482850.023 Engine->Adapter: g4d1   g4h3   g4h5   g4f5   g4d7   g4c8  
+1469482850.023 Engine->Adapter: g4e6   g4g6   f4d5   f4d3  
+1469482850.023 Engine->Adapter: bestmove f4d5
+1469482850.023 Adapter->GUI: 5 +0 0 1 Nd5 Ke8 e6 Kf8 Bb5
+1469482850.023 Adapter->GUI: move f4d5
+1469482850.023 POLYGLOT MOVE Nd5
+1469482850.023 Adapter->GUI: 1/2-1/2 {Draw by repetition}
+1469482850.023 POLYGLOT WAIT
+1469482850.035 GUI->Adapter: result 1/2-1/2 {XBoard adjudication: repetition draw}
+1469482850.035 POLYGLOT GAME END
+1469482850.035 POLYGLOT WAIT
+1469482850.035 GUI->Adapter: force
+1469482850.035 POLYGLOT WAIT
+1469482850.035 GUI->Adapter: ping 4
+1469482850.035 Adapter->GUI: pong 4
+1469482862.351 GUI->Adapter: quit
+1469482862.351 POLYGLOT *** "quit" from GUI ***
+1469482862.351 POLYGLOT *** QUIT ***
+1469482862.352 Adapter->Engine: quit
+1469482862.352 POLYGLOT Closing engine.
+1469482862.352 Adapter->Engine: EOF
+1469482862.352 POLYGLOT Engine does not reply. Sleeping 100ms.
+1469482862.452 POLYGLOT Waiting for child process to exit.
+1469482862.653 POLYGLOT Calling exit
