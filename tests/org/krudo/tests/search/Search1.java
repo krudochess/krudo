@@ -33,7 +33,7 @@ public class Search1
         SEARCH_BRUTE_FORCE = true;
        
         //
-        PV.init();
+        PVs.init();
         
         //
         Moves.init();
@@ -54,6 +54,6 @@ public class Search1
         //s.start(5, 500000);
         
         //
-        PV.info();
+        PVs.info();
     }    
 }

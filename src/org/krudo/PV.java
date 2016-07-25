@@ -15,15 +15,6 @@ public class PV
 {
     //
     private final static int PV_SIZE = 15;
-        
-    //
-    private final static int PV_STACK_SIZE = 1000;
-    
-    //
-    private final static PV[] STACK = new PV[PV_STACK_SIZE];;
-    
-    //
-    private static int count;
     
     //
     public final int[] s;
@@ -38,7 +29,7 @@ public class PV
     public int i;
 
     //
-    private PV()
+    public PV()
     {
         //
         s = new int[PV_SIZE];
@@ -117,41 +108,5 @@ public class PV
     public final void clear()
     {
         i = 0;
-    }
-
-    //
-    public final static void init()
-    {          
-        //
-        for(int i = 0; i < PV_STACK_SIZE; i++)
-        {
-            STACK[i] = new PV();        
-        }
-        
-        //
-        count = PV_STACK_SIZE;
-    }
-    
-    //
-    public static final PV pick()
-    {
-        //
-        return STACK[--count];    
-    }
-    
-    //
-    public static void free(final PV pv) 
-    {
-        //
-        pv.i = 0;
-        
-        //
-        STACK[count++] = pv;
-    }
-    
-    //
-    public static void info()
-    {
-        print("PV free="+count);
     }
 }

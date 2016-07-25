@@ -65,7 +65,7 @@ public final class Search
     public int best_score;
 
     //
-    public PV best_pv = PV.pick(); 
+    public PV best_pv = PVs.pick(); 
       
     //
     public String info_event;
@@ -80,21 +80,22 @@ public final class Search
         int pad = 18;
         
         //
-        if (info_event.equals("id-run")) 
+        switch (info_event)
         {
-            print("INFO: "+ rpad(info_event, pad) + " deep " + deep_limit);
-        }
-        
-        //
-        else if (info_event.equals("id-loop-run")) 
-        {
-            print("INFO: "+ rpad(info_event, pad) + " step " + deep_index + "/" + deep_limit);
-        }
-                
-        //
-        else 
-        {
-            print("INFO: "+ rpad(info_event, pad) + " " + info_message);
+            //
+            case "id-run":
+                print("INFO: "+ rpad(info_event, pad) + " deep " + deep_limit);
+                break;
+            
+            //
+            case "id-loop-run":
+                print("INFO: "+ rpad(info_event, pad) + " step " + deep_index + "/" + deep_limit);
+                break;
+            
+            //    
+            default:
+                print("INFO: "+ rpad(info_event, pad) + " " + info_message);
+                break;
         }
     };
     
@@ -162,7 +163,7 @@ public final class Search
         int score = alfa;
         
         //
-        PV pv = PV.pick();
+        PV pv = PVs.pick();
                         
         //
         sendinfo("id-run");
@@ -199,7 +200,7 @@ public final class Search
         }    
         
         //
-        PV.free(pv);
+        PVs.free(pv);
         
         //
         id_timer.pause();
@@ -230,7 +231,7 @@ public final class Search
         pv.clear();
         
         //
-        PV new_pv = PV.pick();
+        PV new_pv = PVs.pick();
         
         // generate and sort legal-moves
         Move m = n.legals();
@@ -287,7 +288,7 @@ public final class Search
         Moves.free(m);
         
         //
-        PV.free(new_pv);
+        PVs.free(new_pv);
        
         //
         ab_timer.pause();
@@ -331,7 +332,7 @@ public final class Search
         pv.clear();
         
         //
-        PV new_pv = PV.pick();
+        PV new_pv = PVs.pick();
         
         // get legal-moves  
         Move m = n.legals();
@@ -395,7 +396,7 @@ public final class Search
         Moves.free(m);
         
         //
-        PV.free(new_pv);
+        PVs.free(new_pv);
                         
         //
         return a;        
@@ -424,7 +425,7 @@ public final class Search
         pv.clear();
         
         //
-        PV new_pv = PV.pick();
+        PV new_pv = PVs.pick();
         
         // generate legal-moves 
         Move m = n.legals();
@@ -480,7 +481,7 @@ public final class Search
         Moves.free(m);
         
         //
-        PV.free(new_pv);
+        PVs.free(new_pv);
    
         //
         return b;    
@@ -505,7 +506,7 @@ public final class Search
         pv.clear();
         
         //
-        PV new_pv = PV.pick();
+        PV new_pv = PVs.pick();
                 
         // quiescence need sort moves
         Capture c = n.capture();
@@ -547,7 +548,7 @@ public final class Search
         }
         
         //
-        PV.free(new_pv);
+        PVs.free(new_pv);
         
         //
         return a;
@@ -575,7 +576,7 @@ public final class Search
         pv.clear();
         
         //
-        PV new_pv = PV.pick();
+        PV new_pv = PVs.pick();
         
         // quiescenze need sort moves
         Capture c = n.capture();
@@ -615,8 +616,6 @@ public final class Search
                 b = s; 
             }
         }
-
-        
         
         // 
         return b;
