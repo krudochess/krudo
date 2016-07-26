@@ -43,7 +43,11 @@ public final class Krudo
         catch (Throwable e) 
         {            
             //
-            CONSOLE.error(e);            
+            CONSOLE.error(e);    
+            CONSOLE.print(desc(ENGINE.NODE));
+            ENGINE.NODE.legals();
+            CONSOLE.print(desc(ENGINE.NODE.m));
+            
         } 
                 
         // exit and close console

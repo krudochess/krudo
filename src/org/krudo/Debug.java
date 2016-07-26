@@ -405,16 +405,16 @@ public final class Debug
         }
         
         if (n.cw != cw || n.cb != cb) {
-            print("assertPieceCount fails");
-            dump(n);
-            dump(n.L);
+            Krudo.CONSOLE.print("assertPieceCount fails");
+            Krudo.CONSOLE.print(desc(n));
+            Krudo.CONSOLE.print(desc(n.L));
             n.unmove();
-            dump(n);
+            Krudo.CONSOLE.print(desc(n));
             n.legals();
-            dump(n.m);
-            print(Book.list(n.phk));
-
-              java.lang.Thread.dumpStack();
+            Krudo.CONSOLE.print(desc(n.m));
+            //print(Book.list(n.phk));
+            java.lang.Thread.dumpStack();
+            Krudo.CONSOLE.close();
             exit();
         }
     }

@@ -246,7 +246,7 @@ public final class Node
         final int k
     ) {  
         //
-        //Debug.assertPieceCount(this);
+        Debug.assertPieceCount(this);
 
         // get moved piece
         final int p = B[s];
@@ -301,7 +301,7 @@ public final class Node
         hash_step2(this, p, s, v, x, k);
         
         //
-        //Debug.assertPieceCount(this);
+        Debug.assertPieceCount(this);
     }
     
     // domove and change node internal status
@@ -374,6 +374,9 @@ public final class Node
     // undo last move 
     public final void unmove() 
     {      
+        //
+        //Debug.assertPieceCount(this);
+        
         // decrease half-move index
         L.i--;
         
@@ -424,7 +427,7 @@ public final class Node
         }
         
         //
-        if (k != move) if (t == w) 
+        if (k != move && k != rmov) if (t == w) 
         {
             white_unmove(p, s, v, k);
         } 
