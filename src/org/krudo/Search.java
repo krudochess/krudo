@@ -239,7 +239,7 @@ public final class Search
         n.legals();
                         
         // no legal moves check-mate or stale-mate
-        if (n.m.i == 0) { return n.incheck() ? -mate : 0; } 
+        if (n.m.i == 0) { return n.incheck() ? -mate + n.L.i : 0; } 
         
         //
         PV new_pv = PVs.pick();
@@ -348,7 +348,7 @@ public final class Search
         if (n.threefold()) { return 0; }
                 
         // no legal moves check-mate or stale-mate
-        if (n.m.i == 0) { return n.incheck() ? -mate + d : 0; }
+        if (n.m.i == 0) { return n.incheck() ? -mate + n.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
@@ -459,7 +459,7 @@ public final class Search
         if (n.threefold()) { return 0; }
         
         // no-legals-move exit checkmate
-        if (n.m.i == 0) { return n.incheck() ? +mate - d : 0; }
+        if (n.m.i == 0) { return n.incheck() ? +mate - n.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();

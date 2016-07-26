@@ -1,4 +1,4 @@
-$ Mon Jul 25 23:40:31 CEST 2016
+$ Tue Jul 26 02:58:48 CEST 2016
 ! Krudo 0.16a by Francesco <bianco@javanile.org>
 ? uci
 ! id name Krudo 0.16a
@@ -10,234 +10,352 @@ $ Mon Jul 25 23:40:31 CEST 2016
 ? isready
 ! readyok
 ? ucinewgame
-? position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
-? go wtime 60000 btime 60000
-! info depth 1 score cp -5 nps 1 pv b1a3 event id-loop-end
-! info depth 2 score cp 30 nps 1 pv e2e4 e8e7 event id-loop-end
-! info depth 3 score cp -6 nps 46 pv b1c3 e8e7 c3e4 event id-loop-end
-! info depth 4 score cp 47 nps 14 pv e2e3 e8e7 d1g4 e7e8 event id-loop-end
-! info depth 5 score cp -3 nps 359 pv e2e4 e8e7 d1f3 e7d7 f3f6 event id-loop-end
-! info depth 6 score cp 52 nps 29 pv e2e4 e8e7 d1h5 e7e6 d2d4 e6e7 event id-loop-end
-! . . . . k . . .    
-. . . . . . . .    
-. . . . . . . .    
-. . . . . . . .    
-. . . . . . . .    
-. . . . . . . .    cw: 16  cb: 1  ph: 128
-P P P P P P P P    phk: 537740d374760275
-R N B Q K B N R <  mhk: 84e3941a5aad8092
-
-! b1a3   b1c3   g1f3   g1h3   e2e4   e2e3  
-d2d4   d2d3   c2c4   c2c3   f2f4   f2f3  
-h2h4   h2h3   b2b4   b2b3   g2g4   g2g3  
-a2a4   a2a3  
-! bestmove e2e4
-? position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7
-! e2e4
-? go wtime 58970 btime 58390
-! info depth 1 score cp -5 nps 0 pv d1f3 event id-loop-end
-! info depth 2 score cp 46 nps 27 pv d1h5 e7e6 event id-loop-end
-! info depth 3 score cp -3 nps 698 pv d1g4 e7f7 e4e5 event id-loop-end
-! info depth 4 score cp 52 nps 98 pv d1h5 e7e6 d2d4 e6e7 event id-loop-end
-! info depth 5 score cp -2 nps 977 pv d1g4 e7f6 f1c4 f6e5 g1e2 event id-loop-end
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1
+? go wtime 120000 btime 120000
+! info depth 1 score cp 327 nps 0 pv e2e4 event id-loop-end
+! info depth 2 score cp 311 nps 0 pv e2e4 e6e5 event id-loop-end
+! info depth 3 score cp 378 nps 0 pv e1f2 e6e5 f2e3 event id-loop-end
+! info depth 4 score cp 379 nps 10 pv e1d2 e6e5 d2d3 e5d5 e2e3 event id-loop-end
+! info depth 5 score cp 418 nps 111 pv e1d2 e6e5 d2d3 e5d5 e2e4 event id-loop-end
+! info depth 6 score cp 418 nps 128 pv e1d2 e6e5 d2d3 e5d5 e2e4 d5e5 event id-loop-end
+! info depth 7 score cp 430 nps 677 pv e2e4 e6d6 e1e2 d6e6 e2d3 e6e5 d1f3 event id-loop-end
+! info depth 8 score cp 446 nps 123 pv e1d2 e6e5 d2d3 e5d5 e2e4 d5e5 d1f3 e5e6 event id-loop-end
+! info depth 9 score cp 462 nps 822 pv e1d2 e6e5 d2d3 e5d5 e2e4 d5e5 d1f3 e5e6 d3d4 event id-loop-end
+! info depth 10 score cp 469 nps 204 pv e1d2 e6e5 d2d3 e5d5 e2e4 d5c5 d1b3 c5b4 b3d5 b4c5 event id-loop-end
 ! . . . . . . . .    
+. . . . . . . .    
 . . . . k . . .    
 . . . . . . . .    
 . . . . . . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . . . P . . .    phk: 927e1d7a6d306ad7
+. . . B K . . . <  mhk: 5bf95fd99e9534f8
+
+! e2e4   d1c2   d1b3   e2e3   d1a4   e1f1  
+e1f2   e1d2  
+! bestmove e1d2
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6
+! e1d2
+? go wtime 115540 btime 115510
+! info depth 1 score cp 394 nps 0 pv d2d3 event id-loop-end
+! info depth 2 score cp 379 nps 0 pv d2d3 d6e5 e2e3 event id-loop-end
+! info depth 3 score cp 418 nps 0 pv d2d3 d6e5 e2e4 event id-loop-end
+! info depth 4 score cp 418 nps 0 pv d2d3 d6e6 e2e4 e6e5 event id-loop-end
+! info depth 5 score cp 443 nps 0 pv d1b3 d6e5 d2d3 e5d6 e2e4 event id-loop-end
+! info depth 6 score cp 446 nps 77 pv d2d3 d6d5 e2e4 d5e5 d1f3 e5e6 event id-loop-end
+! info depth 7 score cp 462 nps 209 pv d2d3 d6d5 e2e4 d5e5 d1f3 e5e6 d3d4 event id-loop-end
+! info depth 8 score cp 469 nps 141 pv d2d3 d6d5 e2e4 d5c5 d1b3 c5b4 b3d5 b4c5 event id-loop-end
+! info depth 9 score cp 486 nps 560 pv d2d3 d6d5 e2e4 d5c5 d1b3 c5b4 b3c4 b4c5 e4e5 event id-loop-end
+! . . . . . . . .    
+. . . . . . . .    
+. . . k . . . .    
+. . . . . . . .    
+. . . . . . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . . K P . . .    phk: 54529ccf6ce7ea54
+. . . B . . . . <  mhk: ec3ef74f20d94650
+
+! d2d3   d2e3   d2c3   e2e4   d1c2   d1b3  
+d2c1   d2e1   e2e3   d1a4   d2c2  
+! bestmove d2d3
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5
+! e1d2
+? go wtime 110540 btime 112750
+! info depth 1 score cp 418 nps 0 pv e2e4 event id-loop-end
+! info depth 2 score cp 418 nps 0 pv e2e4 d5e5 event id-loop-end
+! info depth 3 score cp 430 nps 0 pv e2e4 d5e5 d1f3 event id-loop-end
+! info depth 4 score cp 446 nps 0 pv e2e4 d5e5 d1f3 e5e6 event id-loop-end
+! info depth 5 score cp 462 nps 0 pv e2e4 d5e5 d1f3 e5e6 d3d4 event id-loop-end
+! info depth 6 score cp 469 nps 0 pv e2e4 d5c5 d1b3 c5b4 b3d5 b4c5 event id-loop-end
+! info depth 7 score cp 486 nps 921 pv e2e4 d5c5 d1b3 c5b4 b3c4 b4c5 e4e5 event id-loop-end
+! info depth 8 score cp 498 nps 197 pv e2e4 d5e5 d1b3 e5f4 d3d4 f4f3 e4e5 f3f4 event id-loop-end
+! info depth 9 score cp 518 nps 526 pv e2e4 d5e5 d1b3 e5f4 d3d4 f4f3 e4e5 f3f4 e5e6 event id-loop-end
+! info depth 10 score cp 533 nps 194 pv e2e4 d5e5 d1e2 e5e6 d3d4 e6f6 e2c4 f6g5 d4e5 g5g4 event id-loop-end
+! . . . . . . . .    
+. . . . . . . .    
+. . . . . . . .    
+. . . k . . . .    
+. . . . . . . .    
+. . . K . . . .    cw: 3  cb: 1  ph: 244
+. . . . P . . .    phk: 337342bb973e53dc
+. . . B . . . . <  mhk: 5e447afbb54b5113
+
+! e2e4   d1c2   d1b3   e2e3   d3e3   d1a4  
+d3c3   d3d2   d3c2  
+! bestmove e2e4
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5
+! e1d2
+? go wtime 107890 btime 112610
+! info depth 1 score cp 430 nps 0 pv d1f3 event id-loop-end
+! info depth 2 score cp 446 nps 0 pv d1f3 e5e6 event id-loop-end
+! info depth 3 score cp 462 nps 0 pv d1f3 e5e6 d3d4 event id-loop-end
+! info depth 4 score cp 478 nps 0 pv d1b3 e5d6 d3d4 d6c6 event id-loop-end
+! info depth 5 score cp 498 nps 0 pv d1b3 e5d6 d3d4 d6c6 e4e5 event id-loop-end
+! info depth 6 score cp 498 nps 298 pv d1b3 e5f4 d3d4 f4f3 e4e5 f3f4 event id-loop-end
+! info depth 7 score cp 518 nps 966 pv d1b3 e5f4 d3d4 f4f3 e4e5 f3f4 e5e6 event id-loop-end
+! info depth 8 score cp 533 nps 424 pv d1e2 e5e6 d3d4 e6f6 e2d3 f6g5 d4e5 g5g4 event id-loop-end
+! info depth 9 score cp 553 nps 656 pv d1c2 e5f4 d3d4 f4g4 d4e3 g4g5 e4e5 g5g4 e5e6 event id-loop-end
+! . . . . . . . .    
+. . . . . . . .    
+. . . . . . . .    
+. . . . k . . .    
 . . . . P . . .    
-. . . . . . . .    cw: 16  cb: 1  ph: 128
-P P P P . P P P    phk: bbfe5691dcb58540
-R N B Q K B N R <  mhk: d90a4470c4d4154c
+. . . K . . . .    cw: 3  cb: 1  ph: 244
+. . . . . . . .    phk: 82334d82a843f929
+. . . B . . . . <  mhk: 28e7d81cebc91b4b
 
-! b1a3   b1c3   g1e2   g1f3   g1h3   d1e2  
-d1g4   d1h5   f1e2   f1d3   f1c4   f1b5  
-f1a6   e1e2   d2d4   d2d3   c2c4   c2c3  
-f2f4   f2f3   h2h4   h2h3   b2b4   b2b3  
-g2g4   g2g3   a2a4   a2a3   d1f3   e4e5  
-! bestmove d1g4
-? position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6
-! e2e4
-? go wtime 57960 btime 57860
-! info depth 1 score cp -2 nps 0 pv g1f3 event id-loop-end
-! info depth 2 score cp 48 nps 16 pv d2d4 f6f7 event id-loop-end
-! info depth 3 score cp -2 nps 239 pv f1c4 f6e5 g1f3 event id-loop-end
-! info depth 4 score cp 53 nps 16 pv d2d4 f6f7 f1c4 f7f6 event id-loop-end
-! info depth 5 score cp -1 nps 159 pv b1c3 f6f7 e4e5 f7f8 g4g6 event id-loop-end
+! d1f3   d1e2   d1g4   d1c2   d1b3   d3e3  
+d1h5   d1a4   d3c3   d3c4   d3d2   d3c2  
+d3e2  
+! bestmove d1c2
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6
+! e1d2
+? go wtime 102880 btime 109400
+! info depth 1 score cp 459 nps 0 pv d3d4 event id-loop-end
+! info depth 2 score cp 459 nps 0 pv d3d4 d6e6 event id-loop-end
+! info depth 3 score cp 479 nps 0 pv d3d4 d6e6 e4e5 event id-loop-end
+! info depth 4 score cp 530 nps 0 pv d3d4 d6c7 d4c5 c7c8 event id-loop-end
+! info depth 5 score cp 565 nps 136 pv d3d4 d6c7 d4c5 c7c8 c5d5 event id-loop-end
+! info depth 6 score cp 556 nps 127 pv d3d4 d6d7 e4e5 d7c6 c2e4 c6b5 event id-loop-end
+! info depth 7 score cp 576 nps 239 pv d3d4 d6d7 e4e5 d7c6 c2e4 c6b5 e5e6 event id-loop-end
+! info depth 8 score cp 569 nps 120 pv d3d4 d6d7 d4d5 d7c8 e4e5 c8c7 e5e6 c7b6 event id-loop-end
+! info depth 9 score cp 592 nps 556 pv d3d4 d6d7 e4e5 d7c6 c2e4 c6c7 d4c5 c7c8 c5d5 event id-loop-end
+! info depth 10 score cp 577 nps 226 pv d3d4 d6e7 e4e5 e7e6 c2e4 e6d7 d4c5 d7c7 e5e6 c7c8 event id-loop-end
 ! . . . . . . . .    
 . . . . . . . .    
-. . . . . k . .    
+. . . k . . . .    
 . . . . . . . .    
-. . . . P . Q .    
-. . . . . . . .    cw: 16  cb: 1  ph: 128
-P P P P . P P P    phk: 9ff9809f75b074b7
-R N B . K B N R <  mhk: bc25e9f521b2e077
+. . . . P . . .    
+. . . K . . . .    cw: 3  cb: 1  ph: 244
+. . B . . . . .    phk: 7cab33951ff1cc7c
+. . . . . . . . <  mhk: 21b4f5523860890f
 
-! b1a3   b1c3   g1e2   g1f3   g1h3   f1e2  
-f1d3   f1c4   f1b5   f1a6   e1e2   e1d1  
-d2d4   d2d3   c2c4   c2c3   f2f4   f2f3  
-h2h4   h2h3   b2b4   b2b3   g2g3   a2a4  
-a2a3   g4g3   g4g5   g4g6   g4g7   g4g8  
-g4h4   g4f4   g4f3   g4e2   g4d1   g4h3  
-g4h5   g4f5   g4e6   g4d7   g4c8   e4e5  
-! bestmove b1c3
-? position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7
-! e2e4
-? go wtime 56950 btime 56470
-! info depth 1 score cp -2 nps 0 pv c3d5 event id-loop-end
-! info depth 2 score cp 51 nps 28 pv f1c4 f7f6 event id-loop-end
-! info depth 3 score cp -1 nps 578 pv g4g5 f7f8 f1c4 event id-loop-end
-! info depth 4 score cp 56 nps 75 pv f1c4 f7f6 g4d7 f6e5 event id-loop-end
-! info depth 5 score cp 0 nps 522 pv c3d5 f7f8 g4g6 event id-loop-end
+! c2b3   d3e3   d3d4   c2d1   c2a4   e4e5  
+c2b1   d3c3   d3c4   d3d2   d3e2  
+! bestmove d3d4
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6 d3d4 d6c6
+! e1d2
+? go wtime 98220 btime 109290
+! info depth 1 score cp 498 nps 0 pv e4e5 event id-loop-end
+! info depth 2 score cp 549 nps 1 pv e4e5 c6b6 event id-loop-end
+! info depth 3 score cp 569 nps 0 pv e4e5 c6b6 e5e6 event id-loop-end
+! info depth 4 score cp 556 nps 0 pv e4e5 c6b5 c2e4 b5b4 event id-loop-end
+! info depth 5 score cp 576 nps 209 pv e4e5 c6b5 c2e4 b5b4 e5e6 event id-loop-end
+! info depth 6 score cp 569 nps 124 pv e4e5 c6b6 d4d5 b6b7 e5e6 b7b6 event id-loop-end
+! info depth 7 score cp 592 nps 271 pv e4e5 c6b6 c2e4 b6c7 d4c5 c7c8 c5d5 event id-loop-end
+! info depth 8 score cp 577 nps 140 pv e4e5 c6b5 e5e6 b5c6 c2e4 c6c7 d4c5 c7c8 event id-loop-end
+! info depth 9 score cp 609 nps 550 pv e4e5 c6c7 c2a4 c7d8 e5e6 d8e7 d4e5 e7f8 a4c6 event id-loop-end
 ! . . . . . . . .    
-. . . . . k . .    
 . . . . . . . .    
+. . k . . . . .    
 . . . . . . . .    
-. . . . P . Q .    
-. . N . . . . .    cw: 16  cb: 1  ph: 128
-P P P P . P P P    phk: e702110a8dfd75da
-R . B . K B N R <  mhk: bdc732adac47d3da
+. . . K P . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . B . . . . .    phk: 1b39af8e725553c
+. . . . . . . . <  mhk: a29577011be37332
 
-! c3d1   c3e2   g1e2   g1f3   g1h3   f1e2  
-f1d3   f1c4   f1b5   f1a6   e1e2   e1d1  
-a1b1   d2d4   d2d3   f2f4   f2f3   h2h4  
-h2h3   b2b4   b2b3   g2g3   a2a4   a2a3  
-g4g3   g4g5   g4g6   g4g7   g4g8   g4h4  
-g4f4   g4f3   g4e2   g4d1   g4h3   g4h5  
-g4f5   g4e6   g4d7   g4c8   c3b1   c3a4  
-c3d5   e4e5   c3b5  
-! bestmove c3d5
-? position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8
-! e2e4
-? go wtime 55930 btime 55080
-! info depth 1 score cp 0 nps 0 pv g4g6 event id-loop-end
-! info depth 2 score cp 54 nps 24 pv e4e5 f8e8 event id-loop-end
-! info depth 3 score cp 0 nps 229 pv g4g6 event id-loop-end
-! info depth 4 score cp 59 nps 17 pv e4e5 f8e8 f1b5 e8f8 event id-loop-end
-! info depth 5 score cp 0 nps 209 pv e4e5 f8e8 e5e6 e8f8 f1b5 event id-loop-end
-! . . . . . k . .    
-. . . . . . . .    
-. . . . . . . .    
-. . . N . . . .    
-. . . . P . Q .    
-. . . . . . . .    cw: 16  cb: 1  ph: 128
-P P P P . P P P    phk: 99e287990a590456
-R . B . K B N R <  mhk: e5d8cd702612537a
-
-! e4e5   d5b4   d5b6   d5c3   d5c7   d5e3  
-d5e7   d5f4   d5f6   g1e2   g1f3   g1h3  
-f1e2   f1d3   f1c4   f1a6   e1e2   e1d1  
-a1b1   d2d4   d2d3   c2c4   c2c3   f2f4  
-f2f3   h2h4   h2h3   b2b4   b2b3   g2g3  
-a2a4   a2a3   g4g3   g4g5   g4g6   g4g7  
-g4g8   g4h4   g4f4   g4f3   g4e2   g4d1  
-g4h3   g4h5   g4f5   g4e6   g4d7   g4c8  
-f1b5  
+! e4e5   d4e5   d4c4   d4d3   c2b3   c2b1  
+c2d1   c2a4   d4e3   c2d3   d4c3  
 ! bestmove e4e5
-? position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 e4e5 f8f7
-! e2e4
-? go wtime 54920 btime 53600
-! info depth 1 score cp -1 nps 54 pv g4g8 event id-loop-end
-! info depth 2 score cp 59 nps 60 pv f1b5 f7f8 event id-loop-end
-! info depth 3 score cp 0 nps 934 pv e5e6 f7f8 f1b5 event id-loop-end
-! info depth 4 score cp 61 nps 95 pv d2d3 f7f8 c1e3 f8f7 event id-loop-end
-! info depth 5 score cp 0 nps 592 pv d5f4 f7f8 g4d7 f8g8 f4g6 event id-loop-end
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6 d3d4 d6c6 e4e5 c6d7
+! e1d2
+? go wtime 93220 btime 106700
+! info depth 1 score cp 597 nps 17 pv c2e4 event id-loop-end
+! info depth 2 score cp 585 nps 0 pv d4d5 d7c8 event id-loop-end
+! info depth 3 score cp 605 nps 484 pv d4d5 d7c8 e5e6 event id-loop-end
+! info depth 4 score cp 570 nps 0 pv d4c5 d7c7 e5e6 c7c8 event id-loop-end
+! info depth 5 score cp 597 nps 0 pv d4c5 d7e6 c5d4 e6d7 c2e4 event id-loop-end
+! info depth 6 score cp 589 nps 355 pv d4d5 d7c8 e5e6 c8c7 e6e7 c7b6 event id-loop-end
+! info depth 7 score cp 609 nps 783 pv c2e4 d7e6 e4d3 e6d7 d4d5 d7c8 e5e6 event id-loop-end
+! info depth 8 score cp 593 nps 242 pv d4d5 d7e7 c2f5 e7d8 d5d6 d8e8 e5e6 e8f8 event id-loop-end
+! info depth 9 score cp 617 nps 650 pv d4d5 d7d8 d5d6 d8c8 e5e6 c8d8 e6e7 d8e8 c2e4 event id-loop-end
 ! . . . . . . . .    
-. . . . . k . .    
-. . . . . . . .    
-. . . N P . . .    
-. . . . . . Q .    
-. . . . . . . .    cw: 16  cb: 1  ph: 128
-P P P P . P P P    phk: 466ea9db93a22ceb
-R . B . K B N R <  mhk: e0789defe8c93cd8
-
-! d5e3   d5e7   d5f4   g1e2   g1f3   g1h3  
-f1e2   f1d3   f1c4   f1a6   e1e2   e1d1  
-a1b1   d2d4   d2d3   c2c4   c2c3   f2f4  
-f2f3   h2h4   h2h3   b2b4   b2b3   g2g3  
-a2a4   a2a3   g4g3   g4g5   g4g6   g4g7  
-g4h4   g4f4   g4e4   g4d4   g4c4   g4b4  
-g4a4   g4f3   g4e2   g4d1   g4h3   g4h5  
-g4f5   g4e6   g4d7   g4c8   d5c3   e5e6  
-g4g8   d5b4   f1b5   d5f6   d5c7   d5b6  
-! bestmove d5f4
-? position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 e4e5 f8f7 d5f4 f7f8
-! e2e4
-? go wtime 53900 btime 52230
-! info depth 1 score cp -1 nps 46 pv g4g6 event id-loop-end
-! info depth 2 score cp 54 nps 16 pv f4d5 f8e8 event id-loop-end
-! info depth 3 score cp 0 nps 206 pv g4d7 f8g8 f4g6 event id-loop-end
-! info depth 4 score cp 59 nps 28 pv f4d5 f8e8 f1b5 e8f8 event id-loop-end
-! info depth 5 score cp 0 nps 195 pv f4d5 f8e8 e5e6 e8f8 f1b5 event id-loop-end
-! . . . . . k . .    
-. . . . . . . .    
+. . . k . . . .    
 . . . . . . . .    
 . . . . P . . .    
-. . . . . N Q .    
-. . . . . . . .    cw: 16  cb: 1  ph: 128
-P P P P . P P P    phk: 7b3c949d28ffd38b
-R . B . K B N R <  mhk: f0bab0025fede6b9
+. . . K . . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . B . . . . .    phk: 1648ec649ba86566
+. . . . . . . . <  mhk: c9c9e6baefeb03b0
 
-! f4d3   f4d5   f4e2   f4e6   f4g6   f4h3  
-f4h5   e5e6   g1e2   g1f3   g1h3   f1e2  
-f1d3   f1c4   f1b5   f1a6   e1e2   e1d1  
-a1b1   d2d4   d2d3   c2c4   c2c3   f2f3  
-h2h4   h2h3   b2b4   b2b3   g2g3   a2a4  
-a2a3   g4g3   g4g5   g4g7   g4g8   g4h4  
-g4f3   g4e2   g4d1   g4h3   g4h5   g4f5  
-g4e6   g4d7   g4c8   g4g6  
-! bestmove f4d5
-? position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 e4e5 f8f7 d5f4 f7f8 f4d5 f8f7
-! e2e4
-? go wtime 52890 btime 51980
-! info depth 1 score cp -1 nps 0 pv g4g8 event id-loop-end
-! info depth 2 score cp 59 nps 30 pv f1b5 f7f8 event id-loop-end
-! info depth 3 score cp 0 nps 2141 pv e5e6 f7f8 f1b5 event id-loop-end
-! info depth 4 score cp 61 nps 114 pv d2d3 f7f8 c1e3 f8f7 event id-loop-end
-! info depth 5 score cp 0 nps 766 pv d5f4 f7f8 g4d7 f8g8 f4g6 event id-loop-end
+! c2e4   c2d3   d4d3   d4c3   d4e3   c2a4  
+c2g6   d4e4   d4d5   c2f5   d4c5   e5e6  
+c2h7   c2d1   c2b3   d4c4   c2b1  
+! bestmove d4d5
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6 d3d4 d6c6 e4e5 c6d7 d4d5 d7e7
+! e1d2
+? go wtime 88210 btime 106580
+! info depth 1 score cp 610 nps 0 pv e5e6 event id-loop-end
+! info depth 2 score cp 593 nps 0 pv c2e4 e7d8 event id-loop-end
+! info depth 3 score cp 613 nps 0 pv c2e4 e7d8 e5e6 event id-loop-end
+! info depth 4 score cp 605 nps 0 pv c2g6 e7d8 e5e6 d8c8 event id-loop-end
+! info depth 5 score cp 613 nps 0 pv c2f5 e7d8 e5e6 d8e8 f5e4 event id-loop-end
+! info depth 6 score cp 593 nps 524 pv c2f5 e7d8 d5d6 d8e8 e5e6 e8f8 event id-loop-end
+! info depth 7 score cp 617 nps 888 pv e5e6 e7e8 d5d6 e8f8 e6e7 f8e8 c2e4 event id-loop-end
+! info depth 8 score cp 610 nps 164 pv c2g6 e7d7 e5e6 d7d8 d5d6 d8c8 e6e7 c8b7 event id-loop-end
+! info depth 9 score cp 1208 nps 723 pv e5e6 e7f6 d5d6 f6g5 e6e7 g5f4 e7e8q f4e3 e8c6 event id-loop-end
 ! . . . . . . . .    
-. . . . . k . .    
+. . . . k . . .    
 . . . . . . . .    
-. . . N P . . .    
-. . . . . . Q .    
-. . . . . . . .    cw: 16  cb: 1  ph: 128
-P P P P . P P P    phk: 466ea9db93a22ceb
-R . B . K B N R <  mhk: 93bd068182e0faa6
+. . . K P . . .    
+. . . . . . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . B . . . . .    phk: e1810201d0fcb0ea
+. . . . . . . . <  mhk: 8303cc45ef0f48c5
 
-! d5e3   d5f4   g1f3   g1h3   f1e2   f1d3  
-f1c4   f1a6   e1e2   e1d1   a1b1   d2d4  
-d2d3   c2c4   c2c3   f2f4   f2f3   h2h4  
-h2h3   b2b4   b2b3   g2g3   a2a4   a2a3  
-g4g3   g4g5   g4g6   g4g7   g4h4   g4f4  
-g4e4   g4d4   g4c4   g4b4   g4a4   g4f3  
-g4e2   g4d1   g4h3   g4h5   g4f5   g4e6  
-g4d7   g4c8   d5c3   e5e6   g4g8   d5b4  
-f1b5   g1e2   d5f6   d5c7   d5e7   d5b6  
-! bestmove d5f4
-? position fen 4k3/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1 moves e2e4 e8e7 d1g4 e7f6 b1c3 f6f7 c3d5 f7f8 e4e5 f8f7 d5f4 f7f8 f4d5 f8f7 d5f4 f7f8
-! e2e4
-? go wtime 51700 btime 51730
-! info depth 1 score cp -1 nps 46 pv g4e6 event id-loop-end
-! info depth 2 score cp 54 nps 49 pv f4d5 f8e8 event id-loop-end
-! info depth 3 score cp 0 nps 1134 pv g4d7 f8g8 f4g6 event id-loop-end
-! info depth 4 score cp 59 nps 121 pv f4d5 f8e8 f1b5 e8f8 event id-loop-end
-! info depth 5 score cp 0 nps 661 pv f4d5 f8e8 e5e6 e8f8 f1b5 event id-loop-end
-! . . . . . k . .    
+! e5e6   d5e4   c2f5   c2d3   c2e4   d5d4  
+c2g6   d5c5   d5c4   d5c6   c2a4   c2h7  
+c2d1   c2b1   c2b3  
+! bestmove e5e6
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6 d3d4 d6c6 e4e5 c6d7 d4d5 d7e7 e5e6 e7f6
+! e1d2
+? go wtime 83200 btime 106470
+! info depth 1 score cp 525 nps 0 pv c2e4 event id-loop-end
+! info depth 2 score cp 576 nps 0 pv c2e4 f6g5 event id-loop-end
+! info depth 3 score cp 596 nps 279 pv c2e4 f6g5 e6e7 event id-loop-end
+! info depth 4 score cp 576 nps 320 pv c2e4 f6g5 d5e5 g5g4 event id-loop-end
+! info depth 5 score cp 621 nps 712 pv d5d6 f6g7 e6e7 g7f7 c2e4 event id-loop-end
+! info depth 6 score cp 607 nps 338 pv c2e4 f6g7 d5e5 g7h6 e5f6 h6h5 event id-loop-end
+! info depth 7 score cp 1208 nps 787 pv d5d6 f6g5 e6e7 g5f4 e7e8q f4e3 e8c6 event id-loop-end
+! info depth 8 score cp 918 nps 156 pv d5d6 f6g7 e6e7 g7f7 c2f5 f7f6 e7e8q f6f5 event id-loop-end
+! . . . . . . . .    
+. . . . . . . .    
+. . . . P k . .    
+. . . K . . . .    
+. . . . . . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . B . . . . .    phk: 13f9ba9e5feb11d9
+. . . . . . . . <  mhk: 490d3121d8612944
+
+! c2e4   c2d3   c2f5   d5d4   d5e4   c2g6  
+c2b3   c2b1   c2d1   c2h7   c2a4   d5d6  
+d5c5   d5c4   d5c6   e6e7  
+! bestmove d5d6
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6 d3d4 d6c6 e4e5 c6d7 d4d5 d7e7 e5e6 e7f6 d5d6 f6g7
+! e1d2
+? go wtime 78130 btime 106350
+! info depth 1 score cp 610 nps 0 pv e6e7 event id-loop-end
+! info depth 2 score cp 606 nps 0 pv d6e5 g7f8 event id-loop-end
+! info depth 3 score cp 621 nps 0 pv e6e7 g7f7 c2e4 event id-loop-end
+! info depth 4 score cp 600 nps 0 pv d6e5 g7h6 e5f6 h6h5 event id-loop-end
+! info depth 5 score cp 895 nps 0 pv e6e7 g7f7 c2a4 f7g7 e7e8q event id-loop-end
+! info depth 6 score cp 940 nps 320 pv e6e7 g7f7 c2e4 f7g7 e7e8b g7h6 event id-loop-end
+! info depth 7 score cp 1294 nps 1037 pv e6e7 g7h6 d6e5 h6h5 e7e8q h5g4 e8e6 event id-loop-end
+! info depth 8 score cp 1289 nps 239 pv e6e7 g7f7 c2e4 f7f6 e7e8q f6g5 e8e5 g5g4 event id-loop-end
+! info depth 9 score cp 1302 nps 651 pv e6e7 g7h6 e7e8q h6g5 d6d5 g5f4 e8e4 f4g5 c2d3 event id-loop-end
+! . . . . . . . .    
+. . . . . . k .    
+. . . K P . . .    
 . . . . . . . .    
 . . . . . . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . B . . . . .    phk: 4b930c85ab5ecd78
+. . . . . . . . <  mhk: 7a1d27a6fe879012
+
+! e6e7   d6d5   d6e5   c2e4   c2d3   c2f5  
+c2g6   c2b3   c2b1   c2d1   c2h7   c2a4  
+d6c6   d6c5   d6d7   d6e7   d6c7  
+! bestmove e6e7
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6 d3d4 d6c6 e4e5 c6d7 d4d5 d7e7 e5e6 e7f6 d5d6 f6g7 e6e7 g7f7
+! e1d2
+? go wtime 73020 btime 106230
+! info depth 1 score cp 621 nps 0 pv c2e4 event id-loop-end
+! info depth 2 score cp 529 nps 0 pv c2e4 f7f6 event id-loop-end
+! info depth 3 score cp 1114 nps 50 pv d6d7 f7f6 e7e8q event id-loop-end
+! info depth 4 score cp 874 nps 0 pv c2e4 f7f6 e7e8q f6g5 event id-loop-end
+! info depth 5 score cp 1295 nps 1172 pv c2e4 f7f6 e7e8q f6g5 d6d5 event id-loop-end
+! info depth 6 score cp 1289 nps 247 pv c2e4 f7f6 e7e8q f6g5 e8e5 g5g4 event id-loop-end
+! info depth 7 score cp 1305 nps 1308 pv c2e4 f7f6 e7e8q f6g5 e8e5 g5g4 d6d5 event id-loop-end
+! info depth 8 score cp 1363 nps 136 pv c2e4 f7f6 e7e8q f6g5 d6e5 g5g4 e8g7 g4h4 event id-loop-end
+! . . . . . . . .    
+. . . . P k . .    
+. . . K . . . .    
+. . . . . . . .    
+. . . . . . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . B . . . . .    phk: 4ca22561f9382dac
+. . . . . . . . <  mhk: 9493c861c902954
+
+! c2e4   c2d3   c2b3   d6c6   e7e8q  e7e8b 
+d6e5   d6d5   e7e8n  c2f5   c2d1   c2b1  
+c2h7   c2g6   c2a4   d6c5   d6d7   d6c7  
+e7e8r 
+! bestmove c2e4
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6 d3d4 d6c6 e4e5 c6d7 d4d5 d7e7 e5e6 e7f6 d5d6 f6g7 e6e7 g7f7 c2e4 f7f6
+! e1d2
+? go wtime 68010 btime 103410
+! info depth 1 score cp 1228 nps 0 pv e7e8q event id-loop-end
+! info depth 2 score cp 1279 nps 0 pv e7e8q f6g5 event id-loop-end
+! info depth 3 score cp 1295 nps 0 pv e7e8q f6g5 d6e5 event id-loop-end
+! info depth 4 score cp 1295 nps 32 pv e7e8q f6g5 d6e5 g5g4 event id-loop-end
+! info depth 5 score cp 1305 nps 737 pv e7e8q f6g5 e8e5 g5g4 d6d5 event id-loop-end
+! info depth 6 score cp 1363 nps 36 pv e7e8q f6g5 d6e5 g5g4 e8g7 g4h4 event id-loop-end
+! info depth 7 score cp 1366 nps 1198 pv e7e8q f6g5 d6e5 g5g4 e8g7 g4h4 g7f6 event id-loop-end
+! info depth 8 score cp 1367 nps 134 pv e7e8q f6g5 e8e5 g5g4 d6d5 g4h4 e4f3 h4h3 event id-loop-end
+! . . . . . . . .    
 . . . . P . . .    
-. . . . . N Q .    
-. . . . . . . .    cw: 16  cb: 1  ph: 128
-P P P P . P P P    phk: 7b3c949d28ffd38b
-R . B . K B N R <  mhk: eca9182e9a80dc25
+. . . K . k . .    
+. . . . . . . .    
+. . . . B . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . . . . . . .    phk: 99fc5d18b9f7d06f
+. . . . . . . . <  mhk: f81bf40e73a66ec
 
-! f4e2   f4e6   f4g6   f4h3   f4h5   e5e6  
-g1e2   g1f3   g1h3   f1e2   f1d3   f1c4  
-f1b5   f1a6   e1e2   e1d1   a1b1   d2d4  
-d2d3   c2c4   c2c3   f2f3   h2h4   h2h3  
-b2b4   b2b3   g2g3   a2a4   a2a3   g4g3  
-g4g5   g4g7   g4g8   g4h4   g4f3   g4e2  
-g4d1   g4h3   g4h5   g4f5   g4d7   g4c8  
-g4e6   g4g6   f4d5   f4d3  
-! bestmove f4d5
+! e7e8q  e7e8n  e7e8b  e7e8r  e4d3   e4d5  
+e4a8   e4f3   d6d5   e4f5   e4c6   e4c2  
+e4g2   e4g6   e4b7   e4b1   e4h1   e4h7  
+d6c6   d6c5   d6d7   d6c7  
+! bestmove e7e8q
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6 d3d4 d6c6 e4e5 c6d7 d4d5 d7e7 e5e6 e7f6 d5d6 f6g7 e6e7 g7f7 c2e4 f7f6 e7e8q f6g5
+! e1d2
+? go wtime 63010 btime 103290
+! info depth 1 score cp 1295 nps 0 pv d6e5 event id-loop-end
+! info depth 2 score cp 1295 nps 0 pv d6e5 g5g4 event id-loop-end
+! info depth 3 score cp 1305 nps 0 pv e8e5 g5g4 d6d5 event id-loop-end
+! info depth 4 score cp 1363 nps 88 pv d6e5 g5g4 e8g7 g4h4 event id-loop-end
+! info depth 5 score cp 1366 nps 1392 pv d6e5 g5g4 e8g7 g4h4 g7f6 event id-loop-end
+! info depth 6 score cp 1367 nps 305 pv e8e5 g5g4 d6d5 g4h4 e4f3 h4h3 event id-loop-end
+! info depth 7 score cp 1371 nps 808 pv d6e5 g5g4 e8g7 g4h4 e5d5 h4h3 g7e5 event id-loop-end
+! . . . . Q . . .    
+. . . . . . . .    
+. . . K . . . .    
+. . . . . . k .    
+. . . . B . . .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . . . . . . .    phk: 85126bc8598302b4
+. . . . . . . . <  mhk: 9e9fd551b6f6d657
+
+! d6e5   e8d7   e8b5   e8f7   e8g6   d6e6  
+e8f8   e8g8   e8h8   e8d8   e8c8   e8b8  
+e8a8   e8a4   e8h5   e4d3   e4f5   e4g2  
+e4g6   e4b7   e4b1   e4h1   e4h7   e4a8  
+d6c6   e8e5   e8e6   e4c2   e4c6   e4f3  
+e4d5   d6c5   e8e7   d6d7   d6e7   d6c7  
+d6d5   e8c6  
+! bestmove d6e5
+? position fen 8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1 moves e1d2 e6d6 d2d3 d6d5 e2e4 d5e5 d1c2 e5d6 d3d4 d6c6 e4e5 c6d7 d4d5 d7e7 e5e6 e7f6 d5d6 f6g7 e6e7 g7f7 c2e4 f7f6 e7e8q f6g5 d6e5 g5g4
+! e1d2
+? go wtime 57770 btime 103160
+! info depth 1 score cp 1301 nps 0 pv e8d6 event id-loop-end
+! info depth 2 score cp 1363 nps 0 pv e8g7 g4h4 event id-loop-end
+! info depth 3 score cp 1366 nps 0 pv e8g7 g4h4 g7f6 event id-loop-end
+! info depth 4 score cp 1363 nps 0 pv e8g7 g4h4 e4d5 h4h3 event id-loop-end
+! info depth 5 score cp 1371 nps 1623 pv e8g7 g4h4 e5d5 h4h3 g7e5 event id-loop-end
+! info depth 6 score cp 49969 nps 315 pv e8g7 g4h4 e5f4 h4h3 g7g3 event id-loop-end
+! info depth 7 score cp 49969 nps 849 pv e8g7 g4h4 e5f4 h4h3 g7g3 event id-loop-end
+! . . . . Q . . .    
+. . . . . . . .    
+. . . . . . . .    
+. . . . K . . .    
+. . . . B . k .    
+. . . . . . . .    cw: 3  cb: 1  ph: 244
+. . . . . . . .    phk: d1e4ae66b0090595
+. . . . . . . . <  mhk: 1489b92292b5b728
+
+! e8d6   e8f6   e4c2   e4g2   e4g6   e4b7  
+e4b1   e4h1   e5d5   e8c7   e8g7   e4d5  
+e5d4   e4d3   e4f3   e4f5   e4c6   e4h7  
+e4a8   e5e6   e5d6   e5f6  
+! bestmove e8g7
 ? quit
 

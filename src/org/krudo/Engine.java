@@ -137,7 +137,7 @@ public final class Engine
         long time = NODE.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
         
         // call iterative deeping (wait here)
-        SEARCH.start(depth, 1000);
+        SEARCH.start(depth, 5000);
     }
     
     //
@@ -171,11 +171,13 @@ public final class Engine
     public final void sendbestmove(String move, int score) 
     {       
         //
+        /*
         if (lastscore - score > 500) {
             Krudo.CONSOLE.error("Engine score stop: "+(lastscore - score)+" "+lastscore+" "+score);
             Krudo.CONSOLE.close();
             exit();
         }
+        */
         
         //
         bestmove = move;
