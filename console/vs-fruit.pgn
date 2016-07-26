@@ -1661,3 +1661,236 @@ Kf6 {-99.84/24 0.1} 9. Kd6 {+9.18/8 5} Kg7 {-99.86/39 0.1} 10. e7
 {-99.94/48 0.1}
 {polyglot: resign (illegal engine move by white: e8g7) but bare king} 1/2-1/2
 
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.26"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "1-0"]
+[TimeControl "120"]
+[FEN "8/8/4k3/8/8/8/4P3/3BK3 w - - 0 1"]
+[SetUp "1"]
+
+{--------------
+. . . . . . . .
+. . . . . . . .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . . P . . .
+. . . B K . . .
+white to play
+--------------}
+1. Kd2 {+4.69/10} Kd6 {-13.63/18 4} 2. Kd3 {+4.86/9 5} Kd5 {-14.13/19 3} 3.
+e4+ {+5.33/10 2.7} Ke5 {-13.79/14 0.2} 4. Bc2 {+5.53/9 5} Kd6 {-14.59/17 3}
+5. Kd4 {+5.92/9 5} Kc6 {-14.59/16 0.1} 6. e5 {+6.09/9 5} Kd7
+{-99.80/19 0.1} 7. Kd5 {+6.17/9 5} Ke7 {-99.82/19 0.1} 8. e6 {+11.14/9 5}
+Kf6 {-99.84/22 0.1} 9. Kd6 {+7.09/8 5} Kg7 {-99.86/37 0.1} 10. e7
+{+13.02/9 5} Kf7 {-99.88/52 0.1} 11. Be4 {+13.63/8 5} Kf6 {-99.90/50 2.8}
+12. e8=Q {+13.63/8 5} Kg5 {-99.92/50 0.1} 13. Ke5 {+13.71/7 5} Kg4
+{-99.94/48 0.1} 14. Qg6+ {+499.69/7 5} Kh4 {-99.96/47 0.2} 15. Kf4
+{+499.69/7 5} Kh3 {-99.98/45 0.1} 16. Qg3# {+499.69/7 5}
+{Xboard adjudication: Checkmate} 1-0
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.26"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "*"]
+[TimeControl "120"]
+[FEN "r7/8/4k3/8/8/8/5PPP/6K1 w - - 0 1"]
+[SetUp "1"]
+
+{--------------
+r . . . . . . .
+. . . . . . . .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . P P P
+. . . . . . K .
+white to play
+--------------}
+1. Kf1 {-3.17/8} Ra1+ {+2.84/13 4} 2. Ke2 {-3.16/8 5} Kf5 {+2.83/14 0.1}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.26"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "*"]
+[TimeControl "120"]
+[FEN "r7/6P1/4k3/8/8/8/5PPP/6K1 w - - 0 1"]
+[SetUp "1"]
+
+{--------------
+r . . . . . . .
+. . . . . . P .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . P P P
+. . . . . . K .
+white to play
+--------------}
+1. Kf1 {-2.34/7} Rg8 {+2.01/13 3}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.26"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "*"]
+[TimeControl "120"]
+[FEN "r7/6P1/4k3/8/8/8/2n2PPP/6K1 w - - 0 1"]
+[SetUp "1"]
+
+{--------------
+r . . . . . . .
+. . . . . . P .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . n . . P P P
+. . . . . . K .
+white to play
+--------------}
+1. Kf1 {-5.38/7}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.26"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "*"]
+[TimeControl "120"]
+[FEN "r7/6P1/4k3/8/8/8/3n1PPP/6K1 w - - 0 1"]
+[SetUp "1"]
+
+{--------------
+r . . . . . . .
+. . . . . . P .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . n . P P P
+. . . . . . K .
+white to play
+--------------}
+1. g4 {-5.65/6} Ke5 {+6.91/12 7}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.26"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "*"]
+[TimeControl "120"]
+[FEN "br6/6P1/4k3/8/8/8/3n1PPP/6K1 w - - 0 1"]
+[SetUp "1"]
+
+{--------------
+b r . . . . . .
+. . . . . . P .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . n . P P P
+. . . . . . K .
+white to play
+--------------}
+1. h4 {-8.88/6}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.26"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "*"]
+[TimeControl "120"]
+[FEN "br6/2b3P1/4k3/8/8/8/3n1PPP/6K1 w - - 0 1"]
+[SetUp "1"]
+
+{--------------
+b r . . . . . .
+. . b . . . P .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . n . P P P
+. . . . . . K .
+white to play
+--------------}
+1. f3 {-11.85/6} Bb6+ {+99.89/9 3} 2. Kh1 {-12.73/7 5} Rg8 {+99.91/39 0.1}
+{xboard exit} *
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.26"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "0-1"]
+[TimeControl "120"]
+[FEN "br6/2b3P1/4k3/8/8/5P2/3n1PPP/6K1 w - - 0 1"]
+[SetUp "1"]
+
+{--------------
+b r . . . . . .
+. . b . . . P .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . P . .
+. . . n . P P P
+. . . . . . K .
+white to play
+--------------}
+1. g8=N {-11.86/6} Rb1# {+99.99/39 1.1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.07.26"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "0-1"]
+[TimeControl "120"]
+[FEN "br6/2b3P1/4k3/8/8/5P2/3n1PPP/6K1 w - - 0 1"]
+[SetUp "1"]
+
+{--------------
+b r . . . . . .
+. . b . . . P .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . P . .
+. . . n . P P P
+. . . . . . K .
+white to play
+--------------}
+1. g8=N {-11.86/6} Rb1# {+99.99/39 1.1}
+{Xboard adjudication: Checkmate} 0-1
+

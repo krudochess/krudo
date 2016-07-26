@@ -33,7 +33,8 @@ public final class Encode {
 	// king-of-move to integer
 	public static final int k2i(String m, int p, int s, int v, int x, int t) {		
 		if (m.length()>4) {
-			switch(m.charAt(4)) {
+			switch (m.charAt(4)) 
+            {
 				case 'q': return t==w ? wqpm : bqpm;
 				case 'r': return t==w ? wrpm : brpm;
 				case 'b': return t==w ? wbpm : bbpm;
