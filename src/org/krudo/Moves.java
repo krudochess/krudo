@@ -13,10 +13,10 @@ import static org.krudo.Tool.*;
 public class Moves 
 {
     //
-    public final static int MOVES_STACK_SIZE = 101000;
+    public final static int MOVES_STACK_SIZE = 51000;
     
     //
-    private static int count=0;
+    private static int count = 0;
     
     //
     private final static Move[] STACK = new Move[MOVES_STACK_SIZE];
@@ -54,6 +54,8 @@ public class Moves
     //
     public static void info()
     {
-        print("Moves free="+count);
+        int verified = count+Legals.size();
+        
+        print("Moves free="+count+" cache="+Legals.size()+" verified="+verified);
     }
 }

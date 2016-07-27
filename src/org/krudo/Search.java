@@ -175,8 +175,17 @@ public final class Search
             sendinfo("id-loop-run");
            
             // launch alfa-beta for searcing candidates 
-            score = abrun(alfa, beta, new_pv);       
+            score = abrun(alfa, beta, new_pv); 
+            
+            //
+            //Captures.info();
+            
+            //
+            //Moves.info();
                         
+            //
+            //Legals.info();
+            
             // if search stopped 
             if (stop == YES) { sendinfo("id-loop-break"); break; }
                 
@@ -325,7 +334,7 @@ public final class Search
             control();
             
             //
-            s = qsmax(a, b, pv);
+            s = qsmax(a, b);
             
             //
             TT.storemax(d, s); 
@@ -436,7 +445,7 @@ public final class Search
             control();
             
             //
-            s = qsmin(a, b, pv); 
+            s = qsmin(a, b); 
             
             //
             TT.storemin(d, s); 
@@ -521,11 +530,8 @@ public final class Search
     }
 
     // quiescence max routine
-    private int qsmax(int a, int b, final PV pv)
-    {     
-        // clear pv to return a best-valorized 
-        pv.clear();
-        
+    private int qsmax(int a, int b)
+    {             
         // eval position
         int s = Eval.node(n);
                                 
@@ -546,10 +552,7 @@ public final class Search
         
         //
         if (l == 0) { return a; }
-        
-        //
-        PV new_pv = PVs.pick();
-        
+               
         // 
         Capture c = n.captures.sort().duplicate();
                                 
@@ -560,7 +563,7 @@ public final class Search
             n.domove(c, i);
                         
             //
-            s = qsmin(a, b, new_pv);
+            s = qsmin(a, b);
             
             //
             n.unmove();
@@ -578,8 +581,7 @@ public final class Search
             // soft cut-off
             if (s > a) 
             { 
-                //
-                pv.cat(new_pv, c, i);
+            
                 
                 //
                 a = s; 
@@ -588,20 +590,14 @@ public final class Search
         
         //
         Captures.free(c);
-        
-        //
-        PVs.free(new_pv);
-                        
+                                     
         //
         return a;
     }
  
     // quiescence min search
-    private int qsmin(int a, int b, final PV pv) 
-    {        
-        //
-        pv.clear();
-                
+    private int qsmin(int a, int b) 
+    {                        
         // increase nodes count
         qs_nodes++;
                 
@@ -625,10 +621,7 @@ public final class Search
         
         //
         if (l == 0) { return b; }
-        
-        //
-        final PV new_pv = PVs.pick();
-                
+                                
         // quiescenze need sort moves
         Capture c = n.captures.sort().duplicate();
                        
@@ -639,7 +632,7 @@ public final class Search
             n.domove(c, i);
                         
             // iterate qsearch
-            s = qsmax(a, b, new_pv);
+            s = qsmax(a, b);
             
             // redo move
             n.unmove();
@@ -656,18 +649,15 @@ public final class Search
                 
             // soft cut-off
             if (s < b) 
-            { 
-                //
-                pv.cat(new_pv, c, i);
-                
+            {                                 
                 //
                 b = s; 
             }
         }
         
         //
-        PVs.free(new_pv);
-        
+        Captures.free(c);
+                                              
         // 
         return b;
     }

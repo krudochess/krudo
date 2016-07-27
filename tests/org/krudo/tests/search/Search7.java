@@ -37,22 +37,22 @@ public class Search7
         Search s = new Search(n);
      
         //
-        /*
         s.sendinfo = () -> 
         {
             //
-            if (s.info_event.equals("id-loop-run")) 
+            if (s.info_event.equals("id-loop-end")) 
             {
                 print(desc(s.best_pv));
             }        
-        };
-        */
+        };       
         
         //
         try 
         {
-            s.start(2, 50000);
+            s.start(8, 5000000);
         }
+        
+        //
         catch (Exception e)
         {
             dump(n);

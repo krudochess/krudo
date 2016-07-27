@@ -42,7 +42,7 @@ public class Perft1
         //
         try
         {
-            print(info());
+            //print(info());
                     
             /*_*/
             for (int i = 1; i <= 6; i++) 

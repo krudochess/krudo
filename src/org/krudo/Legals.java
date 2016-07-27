@@ -20,7 +20,7 @@ import static org.krudo.Describe.*;
 public class Legals 
 {    
     //
-    private static final int LEGALS_CACHE_SIZE = 120000;
+    private static final int LEGALS_CACHE_SIZE = 50000;
     
     //
     private static int queries = 0;
@@ -28,7 +28,7 @@ public class Legals
     
     //
     private final static LinkedHashMap<Long, Move> 
-    MOVES = new LinkedHashMap<Long, Move> (LEGALS_CACHE_SIZE, 0.95f, true) 
+    CACHE = new LinkedHashMap<Long, Move> (LEGALS_CACHE_SIZE, 0.95f, true) 
     {
         @Override
         protected boolean removeEldestEntry(Map.Entry<Long, Move> e) 
@@ -42,6 +42,7 @@ public class Legals
                 // return true than remove
                 return true;                                                    
             }
+            
             // return false not remove
             return false; 
         }
@@ -54,7 +55,7 @@ public class Legals
         if (CACHE_LEGALS) 
         { 
             //
-            MOVES.put(h, m);                
+            CACHE.put(h, m);                
         }        
     }
 
@@ -65,7 +66,7 @@ public class Legals
         queries++;
         
         //
-        if (CACHE_LEGALS && MOVES.containsKey(h)) 
+        if (CACHE_LEGALS && CACHE.containsKey(h)) 
         {
             success++;
         
@@ -82,7 +83,7 @@ public class Legals
         //
         if (CACHE_LEGALS) 
         {
-            return MOVES.get(h);
+            return CACHE.get(h);
         }
         
         //
@@ -93,10 +94,10 @@ public class Legals
     public final static void dump()
     {
         //
-        print("Legals (size:"+MOVES.size()+")");
+        print("Legals (size:"+CACHE.size()+")");
         
         //
-        MOVES.entrySet().stream().map((i) -> {
+        CACHE.entrySet().stream().map((i) -> {
             print(Long.toHexString(i.getKey()));
             return i;
         }).forEach((i) -> {    
@@ -108,6 +109,11 @@ public class Legals
     public final static void info()
     {
         //
-        print("Legals (size:"+MOVES.size()+" q:"+queries+" s:"+success+")");
-    }    
+        print("Legals (size:"+CACHE.size()+" q:"+queries+" s:"+success+")");
+    }   
+    
+    public final static int size()
+    {
+        return CACHE.size();
+    }
 }

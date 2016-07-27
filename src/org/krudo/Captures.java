@@ -15,10 +15,10 @@ import static org.krudo.Tool.*;
 public class Captures 
 {
     //
-    public final static int CAPTURES_STACK_SIZE = 150000;
+    public final static int CAPTURES_STACK_SIZE = 100100;
     
     //
-    public final static int CAPTURES_CACHE_SIZE = 150000;
+    public final static int CAPTURES_CACHE_SIZE = 100000;
     
     //
     private static int count = 0;
@@ -101,6 +101,7 @@ public class Captures
     //
     public static void info()
     {
-        print("Captures free="+count);
+        int verified = count + CACHE.size();
+        print("Captures free="+count+" cache="+CACHE.size()+" verified="+verified);
     }
 }
