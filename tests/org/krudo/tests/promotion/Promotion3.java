@@ -41,6 +41,6 @@ public class Promotion3
         n.legals();
         
         //
-        dump(n.m);
+        dump(n.legals);
     }    
 }

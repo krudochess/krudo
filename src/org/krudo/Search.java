@@ -7,13 +7,12 @@
 package org.krudo;
 
 // required static class
-import static org.krudo.Config.*;
-import static org.krudo.Constant.*;
-import static org.krudo.Decode.*;
-import static org.krudo.Describe.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
-import static org.krudo.Zobrist.hash;
+import static org.krudo.Config.*;
+import static org.krudo.Decode.*;
+import static org.krudo.Describe.*;
+import static org.krudo.Constant.*;
 
 // search main class
 public final class Search 
@@ -239,13 +238,13 @@ public final class Search
         n.legals();
                         
         // no legal moves check-mate or stale-mate
-        if (n.m.i == 0) { return n.incheck() ? -mate + n.L.i : 0; } 
+        if (n.legals.i == 0) { return n.incheck() ? -mate + n.L.i : 0; } 
         
         //
         PV new_pv = PVs.pick();
                 
         // 
-        Move m = n.m.sort().clone();
+        Move m = n.legals.sort().clone();
         
         //
         for (int i = 0; i < m.i; i++) 
@@ -269,7 +268,7 @@ public final class Search
                 sendinfo("ab-hard-cut-off");
                 
                 //
-                if (SEARCH_UPDATE) { n.m.w[i] = b; }
+                if (SEARCH_UPDATE) { n.legals.w[i] = b; }
                 
                 //
                 a = b;
@@ -284,7 +283,7 @@ public final class Search
                 print(s, a, m.w[i]);
                 
                 //
-                if (SEARCH_UPDATE) { n.m.w[i] = s; }
+                if (SEARCH_UPDATE) { n.legals.w[i] = s; }
                 
                 //
                 sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
@@ -348,13 +347,13 @@ public final class Search
         if (n.threefold()) { return 0; }
                 
         // no legal moves check-mate or stale-mate
-        if (n.m.i == 0) { return n.incheck() ? -mate + n.L.i : 0; }
+        if (n.legals.i == 0) { return n.incheck() ? -mate + n.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
                 
         // sort and clone       
-        Move m  = n.m.sort().clone();
+        Move m  = n.legals.sort().clone();
                 
         //
         for (int i = 0; i < m.i; i++) 
@@ -382,7 +381,7 @@ public final class Search
                 //t.store(d, a, t.BETA); 
                 //return b; 
                 //
-                if (SEARCH_UPDATE) { n.m.w[i] = b; }
+                if (SEARCH_UPDATE) { n.legals.w[i] = b; }
                 
                 //
                 a = b;
@@ -398,7 +397,7 @@ public final class Search
                 pv.cat(new_pv, m, i);
                 
                 //
-                if (SEARCH_UPDATE) { n.m.w[i] = s; }
+                if (SEARCH_UPDATE) { n.legals.w[i] = s; }
                 
                 //
                 //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
@@ -459,13 +458,13 @@ public final class Search
         if (n.threefold()) { return 0; }
         
         // no-legals-move exit checkmate
-        if (n.m.i == 0) { return n.incheck() ? +mate - n.L.i : 0; }
+        if (n.legals.i == 0) { return n.incheck() ? +mate - n.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
         
         // and sort
-        Move m = n.m.sort().clone();        
+        Move m = n.legals.sort().clone();        
             
         //
         for (int i = 0; i < m.i; i++)
@@ -501,7 +500,7 @@ public final class Search
                 pv.cat(new_pv, m, i);
                 
                 //
-                if (SEARCH_UPDATE) { n.m.w[i] = s; }
+                if (SEARCH_UPDATE) { n.legals.w[i] = s; }
                 
                 //
                 //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
@@ -526,7 +525,10 @@ public final class Search
 
     // quiescence max routine
     private int qmax(int a, int b, PV pv)
-    {                   
+    {     
+        // clear pv to return a best-valorized 
+        pv.clear();
+        
         // eval position
         int s = Eval.node(n);
                                 
@@ -539,14 +541,12 @@ public final class Search
         // soft cut-off
         if (s > a) { a = s; }
         
-        //
-        pv.clear();
-        
-        //
-        PV new_pv = PVs.pick();
-                
+                        
         // quiescence need sort moves
         Capture c = n.capture();
+                      
+        //
+        PV new_pv = PVs.pick();
         
         // 
         c.sort();
@@ -742,7 +742,7 @@ public final class Search
         n.legals();
         
         //
-        Move m = n.m.sort();
+        Move m = n.legals.sort();
     
         //
         int w = m.i > width ? width : m.i;

@@ -35,7 +35,7 @@ public class Search5
         
         n.legals();
         dump(n);
-        dump(n.m);
+        dump(n.legals);
         exit();
         
         // create a serach engine based-on the node
@@ -48,7 +48,7 @@ public class Search5
             dump(n);        
             dump(n.L);    
             n.legals(); 
-            dump(n.m);     
+            dump(n.legals);     
             e.printStackTrace();            
         }
     }    

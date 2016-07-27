@@ -181,10 +181,10 @@ public final class Debug
 		echo("-------------");
 		n.legals();
 		
-		for(int l=0; l<n.m.i; l++) {
+		for(int l=0; l<n.legals.i; l++) {
 			echo(
 				//pad(i2m(n.m.s[l],n.m.v[l],n.m.k[l],n.n.B[n.m.s[l]]),5),
-				pad(n.m.w[l],5)
+				pad(n.legals.w[l],5)
 			);
 		}
 	}
@@ -304,7 +304,7 @@ public final class Debug
         n.legals();
         
         //
-        Move m = n.m.sort().clone();
+        Move m = n.legals.sort().clone();
         
         /*
         //
@@ -411,7 +411,7 @@ public final class Debug
             n.unmove();
             Krudo.CONSOLE.print(desc(n));
             n.legals();
-            Krudo.CONSOLE.print(desc(n.m));
+            Krudo.CONSOLE.print(desc(n.legals));
             //print(Book.list(n.phk));
             java.lang.Thread.dumpStack();
             Krudo.CONSOLE.close();

@@ -13,7 +13,7 @@ import static org.krudo.Tool.*;
 public class Captures 
 {
     //
-    public final static int CAPTURES_STACK_SIZE = 50000;
+    public final static int CAPTURES_STACK_SIZE = 1000;
     
     //
     private static int count = 0;

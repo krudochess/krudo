@@ -26,7 +26,7 @@ public final class Engine
     public long btime = 60000;
     
     //
-    public int depth = 10;
+    public int depth = 20;
     
     //
     public boolean book = false;
@@ -137,7 +137,7 @@ public final class Engine
         long time = NODE.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
         
         // call iterative deeping (wait here)
-        SEARCH.start(depth, 5000);
+        SEARCH.start(depth, 7000);
     }
     
     //

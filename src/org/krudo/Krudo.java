@@ -46,7 +46,7 @@ public final class Krudo
             CONSOLE.error(e);    
             CONSOLE.print(desc(ENGINE.NODE));
             ENGINE.NODE.legals();
-            CONSOLE.print(desc(ENGINE.NODE.m));
+            CONSOLE.print(desc(ENGINE.NODE.legals));
             
         } 
                 

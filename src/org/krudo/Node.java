@@ -6,18 +6,15 @@
 // 
 package org.krudo;
  
-// required non-static classes
-
 // required static classes and methods
-
-import static org.krudo.Config.*;
-import static org.krudo.Constant.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
+import static org.krudo.Config.*;
 import static org.krudo.Decode.*;
 import static org.krudo.Encode.*;
 import static org.krudo.Zobrist.*;
 import static org.krudo.Describe.*;
+import static org.krudo.Constant.*;
 
 // Spizzy XBoard version of Krudo 
 public final class Node 
@@ -30,8 +27,8 @@ public final class Node
     
     // node status  
     public int t; // turn (side to move)
-    public int e; // en-passant
-    public int c; // castling status
+    public int e; // possible en-passant capture square
+    public int c; // castling status (negative logic)
     
     // moves history line
     public final Line L = new Line();
@@ -39,25 +36,22 @@ public final class Node
     // other node status
     public int cw;  // count white piece
     public int cb;  // count black piece
-    public int oe;  // game phases (opening to endig)
     public int wks; // white king square
     public int bks; // black king square
+    public int ote; // game phases (opening to endig)
     public int hm;  // half-move after pawn move or calpture
     public int n;   // count moves from the begin
-                
-    // legals moves-stack internal
-    public Move m;
-    
+                     
     // hash keys
     public long phk; // current zobrist position hash key
     public long mhk; // current matirial hash key (for draw matirial rule)
    
-    //
-    public final static int[] wph = new int[]
-    {
-        0, 0, 10, 10, 12, 12, 21, 21, 42, 42, 0, 0
-    };
+    // legals moves-stack internal
+    public Move legals;
     
+    // captures moves-stack internal
+    public Capture captures;
+        
     // white+black boardmap improve piece lookup on board
     public final int[] bm = new int[]
     {
@@ -66,8 +60,8 @@ public final class Node
         a8, b8, c8, d8, e8, f8, g8, h8, 
         c5, d5, e5, f5, b1, g1, c1, d1, 
         f1, e1, h1, a1, e2, d2, c2, f2,
-        h2, b2, g2, a2,  a3, b3, h3, g3, 
-        a4, b4, g4, h4,  a5, b5, g5, h5,
+        h2, b2, g2, a2, a3, b3, h3, g3, 
+        a4, b4, g4, h4, a5, b5, g5, h5,
         a6, b6, c6, f6, g6, h6, d6, e6
     };
     
@@ -126,7 +120,7 @@ public final class Node
     };
 
     // empty contructor
-    public void Node() {}
+    public void Node() { }
     
     // restore node to start position
     public final void startpos() 
@@ -194,10 +188,9 @@ public final class Node
         final int index
     ) {            
         // call direct s-v-k domove
-        domove(
-            m.s[index],
-            m.v[index],
-            m.k[index]
+        domove(legals.s[index],
+            legals.v[index],
+            legals.k[index]
         );
     }
     
@@ -276,7 +269,7 @@ public final class Node
             M[x & lo]--;
             
             //
-            oe += wph[x & lo];
+            ote += Eval.wph[x & lo];
             
             //
             if (t == w) { cb--; } else { cw--; }
@@ -420,7 +413,7 @@ public final class Node
             M[x & lo]++;
             
             //
-            oe -= wph[x & lo];
+            ote -= Eval.wph[x & lo];
             
             //
             if (t == w) { cb++; } else { cw++; }
@@ -496,14 +489,14 @@ public final class Node
         //
         if (Legals.has(phk)) 
         {
-            m = Legals.get(phk);
+            legals = Legals.get(phk);
         } 
         
         //
         else
         {
             // move-container get move from move-stack pre-created
-            m = Moves.pick();
+            legals = Moves.pick();
 
             // generate-fill "m" with white or black legal moves
             if (t == w) { white_legals(); } else { black_legals(); }
@@ -512,7 +505,7 @@ public final class Node
             if (EVAL_MOVE) { Eval.move(this); }
             
             //
-            Legals.add(phk, m);
+            Legals.add(phk, legals);
         }        
     }
     
@@ -529,16 +522,16 @@ public final class Node
         int l = 0;
         
         // loop coursor            
-        final int p = m.i;
+        final int p = legals.i;
                 
         // loop throut pseudo-legal
         for (int i = 0; i != p; i++) 
         {                            
             //
-            if (m.k[i] == cast) 
+            if (legals.k[i] == cast) 
             {
                 //
-                if (white_castling(m.v[i])) { m.copy(i, l); l++; }             
+                if (white_castling(legals.v[i])) { legals.copy(i, l); l++; }             
                 
                 //
                 continue;
@@ -548,14 +541,14 @@ public final class Node
             domove(i);
 
             //
-            if (!black_attack(wks)) { m.copy(i, l); l++; }
+            if (!black_attack(wks)) { legals.copy(i, l); l++; }
 
             //
             unmove();            
         }
         
         //
-        m.i = l;
+        legals.i = l;
     } 
             
     // generate moves-stack with legal-moves
@@ -571,16 +564,16 @@ public final class Node
         int l = 0;
         
         // prepare "j" loop cursor
-        final int p = m.i; 
+        final int p = legals.i; 
             
         // loop throut pseudo-legal moves
         for (int j = 0; j != p; j++) 
         {                                
             //
-            if (m.k[j] == cast) 
+            if (legals.k[j] == cast) 
             {
                 //
-                if (black_castling(m.v[j])) { m.copy(j, l); l++; }
+                if (black_castling(legals.v[j])) { legals.copy(j, l); l++; }
                 
                 //
                 continue;
@@ -590,14 +583,14 @@ public final class Node
             domove(j);
 
             //
-            if (!white_attack(bks)) { m.copy(j, l); l++; }
+            if (!white_attack(bks)) { legals.copy(j, l); l++; }
 
             //
             unmove();            
         }
         
         //
-        m.i = l;
+        legals.i = l;
     }                        
         
     //
@@ -665,16 +658,22 @@ public final class Node
             {
                 // white pawn
                 case wp: pawn(s); break;                                        
+                
                 // white rook
                 case wr: span(s, 0, 4, s == a1 || s == a8 ? rmov : move); break;                        
+                
                 // white knight    
                 case wn: hope(s); break;                        
+                
                 // white bishop    
                 case wb: span(s, 4, 8, move); break;                                                                
+                
                 // white queen
                 case wq: span(s, 0, 8, move); break;
+                
                 // white king    
                 case wk: king(s); break;
+                
                 // default exit
                 default: exit("default: white_pseudo()");                                            
             }            
@@ -741,24 +740,43 @@ public final class Node
         while (pi != 0);
     }
 
-    // return true if side-player can attack square "a"
-    public boolean white_attack(
-        final int s
-    ) {    
-        // attacked from white pawn
-        int v = span[s][se];
-                        
+    // return true if white can attack square "s"
+    public boolean white_attack(final int s)
+    {    
         //
-        if (v != xx && B[v] == wp) { return true; }
+        int v;
         
-        //
-        v = span[s][sw];
+        // attacked from white pawn         
+        if (M[wp & lo] != 0) 
+        {
+            //
+            v = span[s][se];
+
+            // test 
+            if (v != xx && B[v] == wp) { return true; }
+
+            //
+            v = span[s][sw];
+
+            //
+            if (v != xx && B[v] == wp) { return true; }
+        }
         
-        //
-        if (v != xx && B[v] == wp) { return true; }
-              
-        // attacked from queen or bishop
-        for (int i = 4; i < 8; i++) 
+        // if white have a knights test attacking
+        if (M[wn & lo] != 0) for (int i = 0; i < 8; i++) 
+        {            
+            // get versus square
+            v = hope[s][i];            
+            
+            // skip found out-of-board
+            if (v == xx) { break; }
+            
+            // add move to stack if found empty square
+            if (B[v] == wn) { return true; } 
+        }
+            
+        // if white have a bishop test attacking
+        if (M[wb & lo] != 0) for (int i = 4; i < 8; i++) 
         {        
             // versus square
             v = span[s][i];
@@ -773,7 +791,7 @@ public final class Node
                     case O: v = span[v][i]; continue;
                     
                     //
-                    case wb: case wq: return true;
+                    case wb: return true;
                 }
                 
                 //
@@ -781,8 +799,8 @@ public final class Node
             }
         }
          
-        // attacked from queen or rook
-        for (int i = 0; i < 4; i++) 
+        // attacked from rook
+        if (M[wr & lo] != 0) for (int i = 0; i < 4; i++) 
         {        
             // versus square
             v = span[s][i];
@@ -797,15 +815,39 @@ public final class Node
                     case O: v = span[v][i]; continue;
                     
                     //
-                    case wr: case wq: return true;              
+                    case wr: return true;              
                 }   
                 
                 //
                 break;
             }
         }
-                          
-        //
+        
+        // attacked from queen
+        if (M[wq & lo] != 0) for (int i = 0; i < 8; i++) 
+        {        
+            // versus square
+            v = span[s][i];
+        
+            //
+            while (v != xx) 
+            {     
+                //
+                switch (B[v]) 
+                {
+                    //
+                    case O: v = span[v][i]; continue;
+                    
+                    //
+                    case wq: return true;              
+                }   
+                
+                //
+                break;
+            }
+        }               
+        
+        // white king attack
         for (int i = 0; i < 8; i++) 
         {            
             // get versus square
@@ -817,41 +859,49 @@ public final class Node
             // add move to stack if found empty square
             if (B[v] == wk) { return true; } 
         }
-    
-        //
-        for (int i = 0; i < 8; i++) 
-        {            
-            // get versus square
-            v = hope[s][i];            
             
-            // skip found out-of-board
-            if (v == xx) { continue; }
-            
-            // add move to stack if found empty square
-            if (B[v] == wn) { return true; } 
-        }
-        
-        //
+        // no attaccants founds
         return false;
     }
 
     // return true if black-side-player can attack square "a"
     public boolean black_attack(int a) 
-    {        
+    {             
+        //
+        int v;
+        
         // attacked from white pawn
-        int v = span[a][ne];
-                        
-        //
-        if (v != xx && B[v] == bp) { return true; }
+        if (M[bp & lo] != 0) 
+        { 
+            //
+            v = span[a][ne];
+
+            //
+            if (v != xx && B[v] == bp) { return true; }
+
+            //
+            v = span[a][nw];
+
+            //
+            if (v != xx && B[v] == bp) { return true; }
+        }
         
         //
-        v = span[a][nw];
-        
-        //
-        if (v != xx && B[v] == bp) { return true; }
-        
+        if (M[bn & lo] != 0) for (int i = 0; i < 8; i++) 
+        {            
+            // get versus square
+            v = hope[a][i];            
+            
+            // skip found out-of-board
+            if (v == xx) { continue; }
+            
+            // add move to stack if found empty square
+            if (B[v] == bn) { return true; } 
+        }
+                
+                
         // attacked from queen or bishop
-        for (int i = 4; i < 8; i++) 
+        if (M[bb & lo] != 0) for (int i = 4; i < 8; i++) 
         {        
             // versus square
             v = span[a][i];
@@ -866,7 +916,7 @@ public final class Node
                     case O: v = span[v][i]; continue;
                     
                     //
-                    case bb: case bq: return true;                    
+                    case bb: return true;                    
                 }            
                 
                 //
@@ -875,7 +925,7 @@ public final class Node
         }
 
         // attacked from queen or rook
-        for (int i = 0; i < 4; i++) 
+        if (M[br & lo] != 0) for (int i = 0; i < 4; i++) 
         {        
             // versus square
             v = span[a][i];
@@ -890,7 +940,31 @@ public final class Node
                     case O: v = span[v][i]; continue;
                     
                     //
-                    case br: case bq: return true;
+                    case br: return true;
+                }   
+                
+                //
+                break;
+            }
+        }
+        
+        // attacked from queen 
+        if (M[bq & lo] != 0) for (int i = 0; i < 4; i++) 
+        {        
+            // versus square
+            v = span[a][i];
+        
+            //
+            while (v != xx) 
+            {    
+                //
+                switch (B[v]) 
+                {
+                    //
+                    case O: v = span[v][i]; continue;
+                    
+                    //
+                    case bq: return true;
                 }   
                 
                 //
@@ -911,19 +985,6 @@ public final class Node
             if (B[v] == bk) { return true; } 
         }
         
-        //
-        for (int i = 0; i < 8; i++) 
-        {            
-            // get versus square
-            v = hope[a][i];            
-            
-            // skip found out-of-board
-            if (v == xx) { continue; }
-            
-            // add move to stack if found empty square
-            if (B[v] == bn) { return true; } 
-        }
-                
         //
         return false;
     }
@@ -1250,10 +1311,10 @@ public final class Node
             while (v != xx)
             {    
                 // 
-                if (B[v] == O) { m.add(s, v, x2); } 
+                if (B[v] == O) { legals.add(s, v, x2); } 
                 
                 //
-                else if ((B[v] & T) != t) { m.add(s, v, x2); break; } 
+                else if ((B[v] & T) != t) { legals.add(s, v, x2); break; } 
                 
                 //
                 else { break; }                
@@ -1281,10 +1342,10 @@ public final class Node
             final int x = B[v];
             
             // if square is empty add to moves
-            if (x == 0) { m.add(s, v, move); } 
+            if (x == 0) { legals.add(s, v, move); } 
             
             // if empty is occupay by opponent piece add capture
-            else if ((x & T) != t) { m.add(s, v, move); }
+            else if ((x & T) != t) { legals.add(s, v, move); }
         }
     }
       
@@ -1309,11 +1370,11 @@ public final class Node
 
                 //
                 if (r == 1 && B[u] == O) {
-                    m.add(s, u, pdmo);
+                    legals.add(s, u, pdmo);
                 }
 
                 //
-                m.add(s, v, move);                
+                legals.add(s, v, move);                
             }    
             
             //
@@ -1323,10 +1384,10 @@ public final class Node
             if (v != xx)
             {
                 //
-                if ((B[v] & b) == b) { m.add(s, v, move); }
+                if ((B[v] & b) == b) { legals.add(s, v, move); }
 
                 //
-                if (r == 4 && v == e) { m.add(s, v, ecap); }                    
+                if (r == 4 && v == e) { legals.add(s, v, ecap); }                    
             }            
             
             //
@@ -1336,10 +1397,10 @@ public final class Node
             if (v != xx)  
             {
                 //
-                if ((B[v] & b) == b) { m.add(s, v, move); }
+                if ((B[v] & b) == b) { legals.add(s, v, move); }
                 
                 //
-                if (r == 4 && v == e) { m.add(s, v, ecap); }    
+                if (r == 4 && v == e) { legals.add(s, v, ecap); }    
             }                                    
         } 
         
@@ -1349,10 +1410,10 @@ public final class Node
             //
             if (B[v] == O)
             {
-                m.add(s, v, wqpm);
-                m.add(s, v, wrpm);
-                m.add(s, v, wbpm);
-                m.add(s, v, wnpm);
+                legals.add(s, v, wqpm);
+                legals.add(s, v, wrpm);
+                legals.add(s, v, wbpm);
+                legals.add(s, v, wnpm);
             }
                     
             //
@@ -1361,10 +1422,10 @@ public final class Node
             //
             if (v != xx && (B[v] & b) == b)
             {
-                m.add(s, v, wqpm);
-                m.add(s, v, wrpm);
-                m.add(s, v, wbpm);
-                m.add(s, v, wnpm);
+                legals.add(s, v, wqpm);
+                legals.add(s, v, wrpm);
+                legals.add(s, v, wbpm);
+                legals.add(s, v, wnpm);
             }
             
             //
@@ -1373,10 +1434,10 @@ public final class Node
             //
             if (v != xx && (B[v] & b) == b) 
             {
-                m.add(s, v, wqpm);
-                m.add(s, v, wrpm);
-                m.add(s, v, wbpm);
-                m.add(s, v, wnpm);
+                legals.add(s, v, wqpm);
+                legals.add(s, v, wrpm);
+                legals.add(s, v, wbpm);
+                legals.add(s, v, wnpm);
             }                            
         }    
     }
@@ -1402,11 +1463,11 @@ public final class Node
 
                 //
                 if (r == 6 && B[u] == 0) {                    
-                    m.add(s, u, pdmo);
+                    legals.add(s, u, pdmo);
                 }
 
                 //
-                m.add(s, v, move);                
+                legals.add(s, v, move);                
             }    
             
             //
@@ -1416,10 +1477,10 @@ public final class Node
             if (v != xx) 
             { 
                 //
-                if ((B[v] & w) == w) { m.add(s, v, move); }
+                if ((B[v] & w) == w) { legals.add(s, v, move); }
 
                 //
-                if (r == 3 && v == e) { m.add(s, v, ecap); }    
+                if (r == 3 && v == e) { legals.add(s, v, ecap); }    
             } 
                         
             //
@@ -1429,10 +1490,10 @@ public final class Node
             if (v != xx)
             {
                 //
-                if ((B[v] & w) == w) { m.add(s, v, move); }
+                if ((B[v] & w) == w) { legals.add(s, v, move); }
                 
                 //
-                if (r == 3 && v == e) { m.add(s, v, ecap); }    
+                if (r == 3 && v == e) { legals.add(s, v, ecap); }    
             }                    
         } 
         
@@ -1442,10 +1503,10 @@ public final class Node
             // if square is empty add 4 promotion moves
             if (B[v] == 0) 
             {
-                m.add(s, v, bqpm);
-                m.add(s, v, brpm);
-                m.add(s, v, bbpm);
-                m.add(s, v, bnpm);
+                legals.add(s, v, bqpm);
+                legals.add(s, v, brpm);
+                legals.add(s, v, bbpm);
+                legals.add(s, v, bnpm);
             }
             
             // promotion est-capture square
@@ -1454,10 +1515,10 @@ public final class Node
             //
             if (v != xx && (B[v] & w) == w)
             {
-                m.add(s, v, bqpm);
-                m.add(s, v, brpm);
-                m.add(s, v, bbpm);
-                m.add(s, v, bnpm);
+                legals.add(s, v, bqpm);
+                legals.add(s, v, brpm);
+                legals.add(s, v, bbpm);
+                legals.add(s, v, bnpm);
             }
             
             //
@@ -1466,10 +1527,10 @@ public final class Node
             //
             if (v != xx && (B[v] & w) == w) 
             {
-                m.add(s, v, bqpm);
-                m.add(s, v, brpm);
-                m.add(s, v, bbpm);
-                m.add(s, v, bnpm);
+                legals.add(s, v, bqpm);
+                legals.add(s, v, brpm);
+                legals.add(s, v, bbpm);
+                legals.add(s, v, bnpm);
             }                                        
         }    
     }
@@ -1491,10 +1552,10 @@ public final class Node
             final int x = B[v];
 
             // add if found empty square            
-            if (x == 0) { m.add(s, v, kmov); } 
+            if (x == 0) { legals.add(s, v, kmov); } 
             
             // add if captured is black piece            
-            else if ((x & b) == b) { m.add(s, v, kmov); }
+            else if ((x & b) == b) { legals.add(s, v, kmov); }
         }        
         
         //
@@ -1503,13 +1564,13 @@ public final class Node
             // king-side white castling
             if (wksc())
             { 
-                m.add(e1, g1, cast); 
+                legals.add(e1, g1, cast); 
             } 
         
             // queen-side white castling        
             if (wqsc()) 
             {            
-                m.add(e1, c1, cast);
+                legals.add(e1, c1, cast);
             }   
         }
     } 
@@ -1549,10 +1610,10 @@ public final class Node
             if (v == xx) { continue; }
             
             // add move to stack if found empty square
-            if (B[v] == O) { m.add(s, v, kmov); } 
+            if (B[v] == O) { legals.add(s, v, kmov); } 
             
             // or add capture move if found opponnet piece
-            else if ((B[v] & w) == w) { m.add(s, v, kmov); }
+            else if ((B[v] & w) == w) { legals.add(s, v, kmov); }
         }
         
         //
@@ -1561,12 +1622,12 @@ public final class Node
             // test for valid king-side castling and add to move stack
             if (bksc()) 
             {
-                m.add(e8, g8, cast);
+                legals.add(e8, g8, cast);
             } 
         
             // or queen-side castling and add to move stack
             if (bqsc()) {
-                m.add(e8, c8, cast);
+                legals.add(e8, c8, cast);
             }
         }
     }    

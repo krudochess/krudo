@@ -80,7 +80,7 @@ public final class UCI
         Krudo.ENGINE.NODE.legals();
         
         //
-        Krudo.CONSOLE.print(desc(Krudo.ENGINE.NODE.m));
+        Krudo.CONSOLE.print(desc(Krudo.ENGINE.NODE.legals));
         
         //
         Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bestmove);                                                

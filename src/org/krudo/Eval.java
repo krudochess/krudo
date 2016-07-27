@@ -30,6 +30,8 @@ public final class Eval
     
     //
     private final static POSITION_CACHE POSITION = new POSITION_CACHE();
+    //
+    public static final int[] wph = new int[]{0, 0, 10, 10, 12, 12, 21, 21, 42, 42, 0, 0};
       
     //
     static class POSITION_CACHE extends LinkedHashMap<Long, Integer>    
@@ -677,7 +679,7 @@ public final class Eval
             score += PW[i];
             
             //
-            score += OPW[i][s] + ((EPW[i][s] * n.oe) >> 8);    
+            score += OPW[i][s] + ((EPW[i][s] * n.ote) >> 8);    
         } 
         
         //
@@ -697,16 +699,16 @@ public final class Eval
         int b = node(n);
         
         //
-        for (int i = 0; i < n.m.i; i++)            
+        for (int i = 0; i < n.legals.i; i++)            
         {
             //
             int score = b;
             
             //            
-            final int s = n.m.s[i];         
+            final int s = n.legals.s[i];         
             
             // get versus square
-            final int v = n.m.v[i];
+            final int v = n.legals.v[i];
             
             // get moved piece
             final int p = n.B[s] & lo;
@@ -718,10 +720,10 @@ public final class Eval
             if (EVAL_POSITIONAL)
             {
                 //
-                score += OPW[p][v] + ((EPW[p][v] * n.oe) >> 8); 
+                score += OPW[p][v] + ((EPW[p][v] * n.ote) >> 8); 
                 
                 //
-                score -= OPW[p][s] + ((EPW[p][s] * n.oe) >> 8);
+                score -= OPW[p][s] + ((EPW[p][s] * n.ote) >> 8);
             }
             
             /*
@@ -749,7 +751,7 @@ public final class Eval
             //print(s2s(s)+s2s(v)+"="+OPW[p][v]);
             
             // assign tapered value
-            n.m.w[i] = n.t == w ? score : -score;
+            n.legals.w[i] = n.t == w ? score : -score;
         }   
     }
       
@@ -766,7 +768,7 @@ public final class Eval
         n.legals();
         
         //
-        Move m = n.m.sort().clone();
+        Move m = n.legals.sort().clone();
     
         //
         int w = m.i > width ? width : m.i;
