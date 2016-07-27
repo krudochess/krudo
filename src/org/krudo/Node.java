@@ -382,7 +382,7 @@ public final class Node
     public final void unmove() 
     {           
         // decrease half-move index
-        final int i = L.i--;
+        final int i = --L.i;
                         
         // get moved piece
         final int p = L.p[i];
