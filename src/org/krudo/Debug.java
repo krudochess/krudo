@@ -304,7 +304,7 @@ public final class Debug
         n.legals();
         
         //
-        Move m = n.legals.sort().clone();
+        Move m = n.legals.sort().duplicate();
         
         /*
         //

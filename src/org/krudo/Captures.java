@@ -15,10 +15,10 @@ import static org.krudo.Tool.*;
 public class Captures 
 {
     //
-    public final static int CAPTURES_STACK_SIZE = 50000;
+    public final static int CAPTURES_STACK_SIZE = 150000;
     
     //
-    public final static int CAPTURES_CACHE_SIZE = 50000;
+    public final static int CAPTURES_CACHE_SIZE = 150000;
     
     //
     private static int count = 0;
@@ -34,7 +34,7 @@ public class Captures
         protected boolean removeEldestEntry(Map.Entry<Long, Capture> e) 
         {
             // 
-            if (size() >= CAPTURES_CACHE_SIZE) 
+            if (size() > CAPTURES_CACHE_SIZE) 
             {
                 //
                 Captures.free(e.getValue());

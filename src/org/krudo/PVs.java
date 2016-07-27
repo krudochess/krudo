@@ -14,7 +14,7 @@ import static org.krudo.Debug.*;
 public class PVs
 {    
     //
-    private final static int PV_STACK_SIZE = 2000;
+    private final static int PV_STACK_SIZE = 1000;
     
     //
     private final static PV[] STACK = new PV[PV_STACK_SIZE];;

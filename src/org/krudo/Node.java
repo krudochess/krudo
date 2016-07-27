@@ -119,8 +119,12 @@ public final class Node
         d1, e1, h1, f1,                 
     };
 
-    // empty contructor
-    public void Node() { }
+    // contructor
+    public Node() 
+    { 
+        //
+        startpos();
+    }
     
     // restore node to start position
     public final void startpos() 
@@ -269,7 +273,7 @@ public final class Node
             M[x & lo]--;
             
             //
-            ote += Eval.wph[x & lo];
+            ote += Eval.OTEW[x & lo];
             
             //
             if (t == w) { cb--; } else { cw--; }
@@ -413,7 +417,7 @@ public final class Node
             M[x & lo]++;
             
             //
-            ote -= Eval.wph[x & lo];
+            ote -= Eval.OTEW[x & lo];
             
             //
             if (t == w) { cb++; } else { cw++; }

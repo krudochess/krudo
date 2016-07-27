@@ -57,4 +57,10 @@ public class Timer
     {
         return time() > limit; 
     }
+    
+    //
+    public final boolean polling()
+    {
+        return false && time() > limit; 
+    }
 }

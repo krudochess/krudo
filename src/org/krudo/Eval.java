@@ -23,7 +23,7 @@ import static org.krudo.Describe.*;
 public final class Eval 
 {    
     //
-    private static final int EVAL_POSITION_SIZE = 100000;
+    private static final int EVAL_POSITION_SIZE = 50000;
     
     //
     private static final int EVAL_MATERIAL_SIZE = 1000;
@@ -31,7 +31,7 @@ public final class Eval
     //
     private final static POSITION_CACHE POSITION = new POSITION_CACHE();
     //
-    public static final int[] wph = new int[]{0, 0, 10, 10, 12, 12, 21, 21, 42, 42, 0, 0};
+    public static final int[] OTEW = new int[] {0, 0, 10, 10, 12, 12, 21, 21, 42, 42, 0, 0};
       
     //
     static class POSITION_CACHE extends LinkedHashMap<Long, Integer>    
@@ -768,7 +768,7 @@ public final class Eval
         n.legals();
         
         //
-        Move m = n.legals.sort().clone();
+        Move m = n.legals.sort().duplicate();
     
         //
         int w = m.i > width ? width : m.i;

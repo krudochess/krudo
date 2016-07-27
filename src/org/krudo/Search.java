@@ -175,8 +175,8 @@ public final class Search
             sendinfo("id-loop-run");
            
             // launch alfa-beta for searcing candidates 
-            score = abrun(alfa, beta, new_pv);        
-
+            score = abrun(alfa, beta, new_pv);       
+                        
             // if search stopped 
             if (stop == YES) { sendinfo("id-loop-break"); break; }
                 
@@ -203,6 +203,9 @@ public final class Search
         PVs.free(new_pv);
         
         //
+        PVs.info();
+        
+        //
         id_timer.pause();
         
         //
@@ -213,7 +216,7 @@ public final class Search
     }
     
     // alfa-beta entry-point
-    private int abrun(int a, int b, PV pv) 
+    private int abrun(int a, int b, final PV pv) 
     {    
         //
         pv.clear();
@@ -234,7 +237,7 @@ public final class Search
         if (n.legals.i == 0) { return n.incheck() ? -mate + n.L.i : 0; } 
         
         //
-        PV new_pv = PVs.pick();
+        final PV new_pv = PVs.pick();
                 
         // 
         Move m = n.legals.sort().duplicate();
@@ -275,9 +278,7 @@ public final class Search
             
             // soft alfa-cut-off 
             if (s > a) 
-            {
-                print(s, a, m.w[i]);
-                
+            {                              
                 //
                 if (SEARCH_UPDATE) { n.legals.w[i] = s; }
                 
@@ -520,7 +521,7 @@ public final class Search
     }
 
     // quiescence max routine
-    private int qsmax(int a, int b, PV pv)
+    private int qsmax(int a, int b, final PV pv)
     {     
         // clear pv to return a best-valorized 
         pv.clear();
@@ -541,7 +542,10 @@ public final class Search
         n.captures();
         
         //
-        if (n.captures.i == 0) { return a; }
+        final int l = n.captures.i;
+        
+        //
+        if (l == 0) { return a; }
         
         //
         PV new_pv = PVs.pick();
@@ -550,7 +554,7 @@ public final class Search
         Capture c = n.captures.sort().duplicate();
                                 
         //
-        for (int i = 0; i < c.i; i++)  
+        for (int i = 0; i < l; i++)  
         {
             //
             n.domove(c, i);
@@ -583,14 +587,17 @@ public final class Search
         }
         
         //
-        PVs.free(new_pv);
+        Captures.free(c);
         
+        //
+        PVs.free(new_pv);
+                        
         //
         return a;
     }
  
     // quiescence min search
-    private int qsmin(int a, int b, PV pv) 
+    private int qsmin(int a, int b, final PV pv) 
     {        
         //
         pv.clear();
@@ -604,21 +611,29 @@ public final class Search
         // return alfa if wrost
         if (s <= a) { return a; }
 
-        //
-        if (!SEARCH_QUIESCENCE) { return s; }
-        
         // set new value for upper limit
         if (s < b) { b = s; }
-              
         
         //
-        PV new_pv = PVs.pick();
+        if (!SEARCH_QUIESCENCE) { return b; }
+                                    
+        //
+        n.captures();
         
+        //
+        final int l = n.captures.i;
+        
+        //
+        if (l == 0) { return b; }
+        
+        //
+        final PV new_pv = PVs.pick();
+                
         // quiescenze need sort moves
         Capture c = n.captures.sort().duplicate();
-                                
+                       
         // loop throut capturers
-        for (int i = 0; i < c.i; i++) 
+        for (int i = 0; i < l; i++) 
         {
             // make move 
             n.domove(c, i);
@@ -630,7 +645,7 @@ public final class Search
             n.unmove();
 
             // hard cut-off
-            if (s <= a  && !SEARCH_BRUTE_FORCE)
+            if (s <= a && !SEARCH_BRUTE_FORCE)
             { 
                 //
                 b = a;
@@ -667,10 +682,10 @@ public final class Search
         if (id_timer.expired()) { stop = YES; return; }
 
         //
-        if (time < id_nodes) { return; } 
+        if (!id_timer.polling()) { return; } 
                                   
         //
-        id_nodes = time + INFO_MILLISECONDS_POLLING;
+        //id_nodes = time + INFO_MILLISECONDS_POLLING;
         
         //
         nps = ab_nodes / ab_timer.delta();

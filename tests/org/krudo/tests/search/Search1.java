@@ -47,6 +47,9 @@ public class Search1
         //
         Moves.init();
         
+        //
+        Captures.init();
+        
         // create a node to service the search
         Node n = new Node();
         

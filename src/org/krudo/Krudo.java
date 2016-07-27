@@ -59,7 +59,7 @@ public final class Krudo
     }
     
     //
-    private static void init() 
+    public static void init() 
     {
         // prepare move-stacks
         PVs.init();
@@ -69,6 +69,9 @@ public final class Krudo
 
         // prepare move-stacks
         Moves.init();
+        
+        //
+        Captures.init();
     }
     
     //
