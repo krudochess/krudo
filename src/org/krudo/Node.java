@@ -244,7 +244,7 @@ public final class Node
     ) {  
         //
         //Debug.assertPieceCount(this);
-
+        
         // get moved piece
         final int p = B[s];
                 
@@ -252,13 +252,13 @@ public final class Node
         final int x = B[v];        
         
         // store status into history line
-        L.store(p, s, v, x, k, e, c, phk);
+        L.store(p, s, v, x, k, e, c, phk, mhk);
         
         //
         hash_step1(this);
         
         // set zero leaved square
-        B[s] = 0; 
+        B[s] = O; 
 
         // place moved piece into versus square
         B[v] = p;
@@ -274,7 +274,7 @@ public final class Node
             
             //
             ote += Eval.OTEW[x & lo];
-            
+                        
             //
             if (t == w) { cb--; } else { cw--; }
         }
@@ -312,10 +312,13 @@ public final class Node
         {                   
             // 
             case pdmo: e = s + 8; return;            
+            
             //
             case ecap: cb--; B[v - 8] = O; return;                  
+            
             // update white king square and castling    
             case kmov: wks = v; c |= wca; return;                    
+            
             // handle castling status and rook bonus movement    
             case cast: 
                 if (v == g1) {
@@ -324,8 +327,10 @@ public final class Node
                     B[d1] = wr; B[a1] = O; c |= wca; wks = c1;
                 }                  
                 return;                                         
+            
             // disable opportune castling ability    
             case rmov: c |= s == h1 ? wkc : wqc; return;                             
+            
             // by default promote piece
             default: B[v] = k & pi;    
         }                                    
@@ -342,10 +347,13 @@ public final class Node
         {      
             // set en-passant square
             case pdmo: e = s - 8; return;            
+            
             // performe en-passant capture
             case ecap: cw--; B[v + 8] = 0; return;          
+            
             // set new king square and lose castling ability
             case kmov: c |= bca; bks = v; return;                    
+            
             // performe king-side castling
             case cast: 
                 if (v == g8) {
@@ -354,8 +362,10 @@ public final class Node
                     B[d8] = br; B[a8] = O; c |= wca; bks = c8;
                 }                  
                 return;                     
+            
             // lose king-side castling ability    
             case rmov: c |= s == h8 ? bkc : bqc; return;                         
+            
             // by default promote piece
             default: B[v] = k & pi;
         }                                    
@@ -370,46 +380,46 @@ public final class Node
     
     // undo last move 
     public final void unmove() 
-    {      
-        //
-        //Debug.assertPieceCount(this);
-        
+    {           
         // decrease half-move index
-        L.i--;
+        final int i = L.i--;
+                        
+        // get moved piece
+        final int p = L.p[i];
+        
+        // get start square
+        final int s = L.s[i];
+        
+        // get versus square
+        final int v = L.v[i];
+        
+        // get captured piece
+        final int x = L.x[i]; 
+        
+        // get kind-of-move
+        final int k = L.k[i];
+        
+        //
+        phk = L.phk[i];
+        
+        //
+        mhk = L.mhk[i];
+        
+        // retrieve previsour en-passant square
+        e = L.e[i];
+        
+        // retrieve previsour castling status
+        c = L.c[i];
         
         // swap side-to-move
         t ^= T;
-                
-        // get moved piece
-        final int p = L.p[L.i];
-        
-        // get start square
-        final int s = L.s[L.i];
-        
-        // get versus square
-        final int v = L.v[L.i];
-        
-        // get captured piece
-        final int x = L.x[L.i]; 
-        
-        // get kind-of-move
-        final int k = L.k[L.i];
         
         // restore piece in start square
         B[s] = p; 
 
         // restore versus square with captured piece
         B[v] = x;
-                
-        // retrieve previsour en-passant square
-        e = L.e[L.i];
-        
-        // retrieve previsour castling status
-        c = L.c[L.i];
-        
-        //
-        phk = L.h[L.i];
-        
+                               
         // decrease piece counter
         if (x != O) 
         {
@@ -424,19 +434,13 @@ public final class Node
         }
         
         //
-        if (k != move && k != rmov) if (t == w) 
-        {
-            white_unmove(p, s, v, k);
-        } 
+        if (k == move) { return; }
         
         //
-        else 
-        {
-            black_unmove(p, s, v, k);        
-        }
+        if (t == w) { white_unmove(p, s, v, k); } 
         
         //
-        //Debug.assertPieceCount(this);
+        else { black_unmove(p, s, v, k); }
     }
     
     //
@@ -453,18 +457,13 @@ public final class Node
         if (k == ecap) { cb++; B[v - 8] = bp; }
         
         //
-        if (k == cast) if (v == g1)
-        {
-            B[h1] = wr; 
-            B[f1] = O;
-        } 
+        if (k != cast) { return; }
         
         //
-        else         
-        {
-            B[a1] = wr; 
-            B[d1] = O;        
-        }                
+        if (v == g1) { B[h1] = wr; B[f1] = O; } 
+        
+        //
+        else { B[a1] = wr; B[d1] = O; }                
     }
     
     //
@@ -489,7 +488,7 @@ public final class Node
             
     // generate moves-stack with legal-moves
     public void legals() 
-    {   
+    {                  
         //
         if (Legals.has(phk)) 
         {
@@ -1006,7 +1005,7 @@ public final class Node
         //
         for (int i = 0; i < L.i; i++) 
         {
-            if (phk == L.h[i]) 
+            if (phk == L.phk[i]) 
             {
             }
         }

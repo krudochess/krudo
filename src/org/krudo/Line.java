@@ -11,7 +11,7 @@ public final class Line
 {    
     // internal constants
     private final static int 
-    MAX = 500; // maximum number of half move into line
+    MAX = 250; // maximum number of half move into line
     
     // stack move fields 
     public final int[] 
@@ -25,7 +25,8 @@ public final class Line
     
     //
     public final long[]
-    h; //
+    phk, //
+    mhk; //
     
     //
     public int i;
@@ -40,8 +41,13 @@ public final class Line
         x = new int[MAX];
         k = new int[MAX];
         e = new int[MAX];    
-        c = new int[MAX];        
-        h = new long[MAX];
+        c = new int[MAX]; 
+        
+        //
+        phk = new long[MAX];
+        mhk = new long[MAX];
+        
+        //
         i = 0;
     }
     
@@ -54,7 +60,8 @@ public final class Line
         final int k0, 
         final int e0, 
         final int c0,
-        final long h0
+        final long phk0,
+        final long mhk0
     ) {
         // put and next record
         p[i] = p0;        
@@ -64,7 +71,12 @@ public final class Line
         k[i] = k0;
         e[i] = e0;
         c[i] = c0;   
-        h[i] = h0;   
+        
+        //
+        phk[i] = phk0;   
+        mhk[i] = mhk0;   
+        
+        //
         i++;
     }        
 }

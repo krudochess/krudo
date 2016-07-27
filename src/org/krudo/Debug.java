@@ -324,7 +324,10 @@ public final class Debug
         */
         
         //
-        for (int i = 0; i < m.i; i++) 
+        final int l = m.i;
+        
+        //
+        for (int i = 0; i < l; i++) 
         {	
             //
             n.domove(m, i);		

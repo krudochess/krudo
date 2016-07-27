@@ -35,17 +35,14 @@ public class Perft1
         
         //
         Node n = new Node();
-        
-        //
-        n.startpos();
-        
+                
         //
         try
         {
             //print(info());
                     
             /*_*/
-            for (int i = 1; i <= 6; i++) 
+            for (int i = 1; i <= 5; i++) 
             {
                 print(perft(n, i)) ;
             }
