@@ -60,7 +60,7 @@ public final class UCI
         
         //
         Krudo.CONSOLE.print(INFO, 
-            DEPTH,    s.deep_index, 
+            DEPTH,    s.depth_index, 
             SCORE_CP, s.best_score,
             //TIME,   Krudo.ENGINE.search.logTime,
             //NODES,  Krudo.ENGINE.search.logNodes,

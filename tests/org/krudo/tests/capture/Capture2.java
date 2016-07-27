@@ -31,6 +31,6 @@ public class Capture2
         dump(n);
         
         //
-        dump(n.capture());
+        dump(n.captures());
     }    
 }

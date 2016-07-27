@@ -128,7 +128,26 @@ public final class Capture
         t = w[i0]; 
         w[i0] = w[i1]; 
         w[i1] = t;
-    }    
+    }   
+    
+    // duplicate a capture-stack instance
+    public final Capture duplicate()
+    {
+        //
+        Capture c = Captures.pick();
+        
+        //
+        System.arraycopy(s, 0, c.s, 0, i);
+        System.arraycopy(v, 0, c.v, 0, i);
+        System.arraycopy(k, 0, c.k, 0, i);
+        System.arraycopy(w, 0, c.w, 0, i);
+          
+        //
+        c.i = i;
+        
+        //
+        return c;
+    }
 }
 
 

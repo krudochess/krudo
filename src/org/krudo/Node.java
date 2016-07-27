@@ -1012,10 +1012,13 @@ public final class Node
     }
     
     //
-    public final Capture capture()
+    public final void captures()
     {
+        // if have captures cached retrieve it else compute it
+        if (Captures.has(phk)) { captures = Captures.get(phk); return; }
+        
         // new empty capture-stack
-        final Capture c = new Capture();
+        captures = Captures.pick();
         
         // legal move index
         int l = 0;
@@ -1024,16 +1027,16 @@ public final class Node
         if (t == w) 
         {       
             //
-            white_capture(c); 
+            white_capture(); 
                             
             // loop throut pseudo-legal moves
-            for (int i = 0; i < c.i; i++) 
+            for (int i = 0; i < captures.i; i++) 
             {                                
                 //
-                domove(c, i);
+                domove(captures, i);
 
                 //
-                if (!black_attack(wks)) { c.copy(i, l); l++; }
+                if (!black_attack(wks)) { captures.copy(i, l); l++; }
 
                 //
                 unmove();            
@@ -1044,16 +1047,16 @@ public final class Node
         else 
         { 
             //
-            black_capture(c); 
+            black_capture(); 
         
             // loop throut pseudo-legal moves
-            for (int i = 0; i < c.i; i++) 
+            for (int i = 0; i < captures.i; i++) 
             {                                
                 //
-                domove(c, i);
+                domove(captures, i);
 
                 //
-                if (!white_attack(bks)) { c.copy(i, l); l++; }
+                if (!white_attack(bks)) { captures.copy(i, l); l++; }
 
                 //
                 unmove();            
@@ -1061,14 +1064,11 @@ public final class Node
         }
                 
         //
-        c.i = l;
-
-        //
-        return c; 
+        captures.i = l;       
     }
     
     //
-    private void white_capture(final Capture c)
+    private void white_capture()
     {
         // count squares
         int si = 0;
@@ -1105,11 +1105,11 @@ public final class Node
                     
                     //
                     v = span[s][ne]; 
-                    if (v != xx && (B[v] & b) == b) { c.add(s, v, move); }                    
+                    if (v != xx && (B[v] & b) == b) { captures.add(s, v, move); }                    
                     
                     //
                     v = span[s][nw]; 
-                    if (v != xx && (B[v] & b) == b) { c.add(s, v, move); }                    
+                    if (v != xx && (B[v] & b) == b) { captures.add(s, v, move); }                    
                     
                     //
                     if (r == 1) 
@@ -1120,7 +1120,7 @@ public final class Node
                         //
                         if (B[v] == O) 
                         { 
-                            c.add(s, v, move); 
+                            captures.add(s, v, move); 
                         }
                     }
                     
@@ -1128,20 +1128,20 @@ public final class Node
                     break;
                                         
                 // add sliding piece rook captures
-                case wr: spac(c, s, 0, 4); break;
+                case wr: spac(captures, s, 0, 4); break;
                 
                 // add sliding piece bishop captures             
-                case wb: spac(c, s, 4, 8); break;
+                case wb: spac(captures, s, 4, 8); break;
                 
                 // add sliding piece queen captures     
-                case wq: spac(c, s, 0, 8); break;
+                case wq: spac(captures, s, 0, 8); break;
                 
                 // add kngiht captures
                 case wn: 
                     for (int i = 0; i < 8; i++) 
                     {
                         v = hope[s][i];            
-                        if (v != xx && (B[v] & b) == b) { c.add(s, v, move); }
+                        if (v != xx && (B[v] & b) == b) { captures.add(s, v, move); }
                     }
                     break;
                 
@@ -1150,7 +1150,7 @@ public final class Node
                     for (int i = 0; i < 8; i++) 
                     {
                         v = span[s][i];            
-                        if (v != xx && (B[v] & b) == b) { c.add(s, v, kmov); }
+                        if (v != xx && (B[v] & b) == b) { captures.add(s, v, kmov); }
                     }
                     break;    
 
@@ -1167,7 +1167,7 @@ public final class Node
     }
     
     //
-    private void black_capture(final Capture c)
+    private void black_capture()
     {
         // count squares
         int si = 0;
@@ -1196,13 +1196,13 @@ public final class Node
             switch (p) 
             {
                 // add sliding piece rook moves
-                case br: spac(c, s, 0, 4); break;
+                case br: spac(captures, s, 0, 4); break;
                 
                 // add sliding piece bishop moves               
-                case bb: spac(c, s, 4, 8); break;
+                case bb: spac(captures, s, 4, 8); break;
                 
                 // add sliding piece queen moves                     
-                case bq: spac(c, s, 0, 8); break;
+                case bq: spac(captures, s, 0, 8); break;
 
                 // add black pawn capture
                 case bp:
@@ -1212,11 +1212,11 @@ public final class Node
                     
                     //
                     v = span[s][se]; 
-                    if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    if (v != xx && (B[v] & w) == w) { captures.add(s, v, move); }                    
                     
                     //
                     v = span[s][sw]; 
-                    if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }                    
+                    if (v != xx && (B[v] & w) == w) { captures.add(s, v, move); }                    
                     
                     //
                     break;
@@ -1227,7 +1227,7 @@ public final class Node
                     {
                         //
                         v = hope[s][i];            
-                        if (v != xx && (B[v] & w) == w) { c.add(s, v, move); }
+                        if (v != xx && (B[v] & w) == w) { captures.add(s, v, move); }
                     }
                     
                     //
@@ -1236,11 +1236,17 @@ public final class Node
                 // add kings moves and castling
                 case bk:
                     
+                    //
                     for (int i = 0; i < 8; i++) 
                     {
+                        //
                         v = span[s][i];            
-                        if (v != xx && (B[v] & w) == w) { c.add(s, v, kmov); }
+                        
+                        //
+                        if (v != xx && (B[v] & w) == w) { captures.add(s, v, kmov); }
                     }
+                    
+                    //
                     break;    
                 
                 // unrecognized piece fault stop
@@ -1256,11 +1262,8 @@ public final class Node
     }
     
     //
-    public void remaps(
-        final int si, 
-        final int pi,
-        final int s
-    ) {                              
+    public void remaps(final int si, final int pi, final int s)
+    {                              
         //
         bm[si] = bm[pi];
 

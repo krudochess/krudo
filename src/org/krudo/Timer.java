@@ -19,15 +19,42 @@ public class Timer
     public long start;
     
     //
+    public long limit;
+    
+    //
     public final void start()
     {
+        //
         delta = 0;
+        
+        //
         start = time();    
+    }
+    
+    //
+    public final long delta() 
+    {
+        //
+        return time() - start;
     }
     
     //
     public final void pause()
     {
-        delta = time() - start;
+        //
+        delta = delta();
     }   
+    
+    //
+    public final void limit(long time)
+    {
+        //
+        limit = start + time;
+    }
+    
+    //
+    public final boolean expired()
+    {
+        return time() > limit; 
+    }
 }

@@ -7,25 +7,20 @@
 package org.krudo;
 
 //
-import org.krudo.Move;
-
-//
 import java.util.Map;
-
 import java.util.LinkedHashMap;
 
 //
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
-import static org.krudo.Describe.*;
 import static org.krudo.Config.*;
-import static org.krudo.Constant.*;
+import static org.krudo.Describe.*;
 
 //    
 public class Legals 
 {    
     //
-    private static final int LEGALS_CACHE_SIZE = 100000;
+    private static final int LEGALS_CACHE_SIZE = 120000;
     
     //
     private static int queries = 0;
@@ -69,6 +64,7 @@ public class Legals
         //
         queries++;
         
+        //
         if (CACHE_LEGALS && MOVES.containsKey(h)) 
         {
             success++;
@@ -99,11 +95,13 @@ public class Legals
         //
         print("Legals (size:"+MOVES.size()+")");
         
-        for (Map.Entry<Long, Move> i: MOVES.entrySet())
-        {
+        //
+        MOVES.entrySet().stream().map((i) -> {
             print(Long.toHexString(i.getKey()));
-            print(desc(i.getValue()));            
-        }    
+            return i;
+        }).forEach((i) -> {    
+            print(desc(i.getValue()));
+        });
     }
     
     //

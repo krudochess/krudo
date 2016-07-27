@@ -30,7 +30,7 @@ public final class Search
     public int line_start = 0;
       
     // iterative deepiing deep cursor and limit
-    public int deep_index; // current depth in iterative dee 
+    public int depth_index; // current depth in iterative dee 
     public int deep_start; // start value of depth by default 1
     public int deep_limit; // depth limit stop iterative deeping
     
@@ -44,15 +44,14 @@ public final class Search
     private final Timer ab_timer = new Timer();
     
     // count nodes for ab search
-    public long ns;
-    public long nt;
-    public long node_bound;
-    
+    public long qs_nodes;
+    public long ab_nodes;
+    public long id_nodes;
+  
     //
     public long nps;
     
-    // count nodes for quiesce search
-    public int nq;
+   
             
     //
     private final static int NT_NODE = 0;
@@ -88,7 +87,7 @@ public final class Search
             
             //
             case "id-loop-run":
-                print("INFO: "+ rpad(info_event, pad) + " step " + deep_index + "/" + deep_limit);
+                print("INFO: "+ rpad(info_event, pad) + " step " + depth_index + "/" + deep_limit);
                 break;
             
             //
@@ -124,38 +123,35 @@ public final class Search
     }
         
     // public method to start search custom time-limit
-    public final void start(int deep, long time) 
+    public final void start(int depth, long time) 
     {            
         // reset stop flag
         stop = NOT;    
         
         // place offset for search variation
         line_start = n.L.i;
-                            
-        // set time start for required log or other
-        time_start = time();
-        
-        // set time limit for the searcing engine routine
-        time_limit = time_start + time;
 
         // start iterative deeping search
-        idrun(deep);
+        idrun(depth, time);
     }
          
     // iterative deeping entry-point
-    private void idrun(int deep) 
+    private void idrun(int depth, long time) 
     {                           
         //
         id_timer.start();
+                                
+        //
+        id_timer.limit(time);
         
-        // deep start value for iterative deeping
-        deep_start = 1;
-                
         // iterative deeping deep start value
-        deep_index = deep_start;
+        depth_index = 1;
                 
         // set deep limit for iterative deeping
-        deep_limit = deep;
+        deep_limit = depth;
+        
+        //
+        id_nodes = 0;
                     
         // iterative deeping alpha start value
         int alfa = -oo;
@@ -167,25 +163,25 @@ public final class Search
         int score = alfa;
         
         //
-        PV pv = PVs.pick();
+        PV new_pv = PVs.pick();
                         
         //
         sendinfo("id-run");
         
         // iterative deeping loop
-        while (deep_index <= deep_limit && stop == NOT)
+        while (depth_index <= deep_limit && stop == NOT)
         {                                        
             //
             sendinfo("id-loop-run");
            
             // launch alfa-beta for searcing candidates 
-            score = abrun(alfa, beta, pv);        
+            score = abrun(alfa, beta, new_pv);        
 
             // if search stopped 
             if (stop == YES) { sendinfo("id-loop-break"); break; }
                 
             //
-            best_pv.copy(pv);
+            best_pv.copy(new_pv);
             
             //
             best_move = desc(best_pv, 0);
@@ -194,17 +190,17 @@ public final class Search
             best_score = score;                    
                                         
             //
-            nps = ab_timer.delta > 0 ? ns / ab_timer.delta : 0;
+            nps = ab_timer.delta > 0 ? ab_nodes / ab_timer.delta : 0;
             
             //
-            sendinfo("id-loop-end", deep_index+"/"+deep_limit+" "+desc(pv)+" "+ab_timer.delta+"ms "+ns+"n "+nps+"knps");
+            sendinfo("id-loop-end", depth_index+"/"+deep_limit+" "+desc(new_pv)+" "+ab_timer.delta+"ms "+ab_nodes+"n "+nps+"knps");
               
             // increade depth of search
-            deep_index++;                        
+            depth_index++;                        
         }    
         
         //
-        PVs.free(pv);
+        PVs.free(new_pv);
         
         //
         id_timer.pause();
@@ -219,21 +215,18 @@ public final class Search
     // alfa-beta entry-point
     private int abrun(int a, int b, PV pv) 
     {    
-        // reset nodes search counter
-        ns = 0;
-
-        // reset nodes quiesce counter
-        nq = 0;
-            
-        //
-        nt = time() + 4000;
-        
-        //
-        ab_timer.start();
-                       
         //
         pv.clear();
-                
+
+        // reset nodes quiesce counter
+        qs_nodes = 0;
+
+        // reset nodes search counter
+        ab_nodes = 0;
+                         
+        //
+        ab_timer.start();
+                                       
         // generate legal-moves
         n.legals();
                         
@@ -244,10 +237,13 @@ public final class Search
         PV new_pv = PVs.pick();
                 
         // 
-        Move m = n.legals.sort().clone();
+        Move m = n.legals.sort().duplicate();
         
         //
-        for (int i = 0; i < m.i; i++) 
+        final int l = m.i;
+        
+        //
+        for (int i = 0; i < l; i++) 
         {   
             //
             //sendinfo("ab-loop-run", "move " + m2s(m, i));
@@ -256,7 +252,7 @@ public final class Search
             n.domove(m, i);
             
             // recursive evaluation search                    
-            int s = abmin(deep_index - 1, a, b, new_pv, NT_NODE);
+            int s = abmin(depth_index - 1, a, b, new_pv, NT_NODE);
 
             // undo
             n.unmove();            
@@ -322,13 +318,13 @@ public final class Search
         if (d == 0) 
         { 
             //
-            ns++;
+            ab_nodes++;
              
             //
             control();
             
             //
-            s = qmax(a, b, pv);
+            s = qsmax(a, b, pv);
             
             //
             TT.storemax(d, s); 
@@ -353,7 +349,7 @@ public final class Search
         PV new_pv = PVs.pick();
                 
         // sort and clone       
-        Move m  = n.legals.sort().clone();
+        Move m  = n.legals.sort().duplicate();
                 
         //
         for (int i = 0; i < m.i; i++) 
@@ -433,13 +429,13 @@ public final class Search
         if (d == 0) 
         {
             // increase nodes count
-            ns++;
+            ab_nodes++;
             
             //
             control();
             
             //
-            s = qmin(a, b, pv); 
+            s = qsmin(a, b, pv); 
             
             //
             TT.storemin(d, s); 
@@ -464,7 +460,7 @@ public final class Search
         PV new_pv = PVs.pick();
         
         // and sort
-        Move m = n.legals.sort().clone();        
+        Move m = n.legals.sort().duplicate();        
             
         //
         for (int i = 0; i < m.i; i++)
@@ -524,7 +520,7 @@ public final class Search
     }
 
     // quiescence max routine
-    private int qmax(int a, int b, PV pv)
+    private int qsmax(int a, int b, PV pv)
     {     
         // clear pv to return a best-valorized 
         pv.clear();
@@ -535,22 +531,24 @@ public final class Search
         // hard cut-off
         if (s >= b) { return b; }
         
-        // 
-        if (!SEARCH_QUIESCENCE) { return s; }
-        
         // soft cut-off
-        if (s > a) { a = s; }
+        if (s > a) { a = s; }        
         
-                        
+        // 
+        if (!SEARCH_QUIESCENCE) { return a; }
+                                       
         // quiescence need sort moves
-        Capture c = n.capture();
-                      
+        n.captures();
+        
+        //
+        if (n.captures.i == 0) { return a; }
+        
         //
         PV new_pv = PVs.pick();
         
         // 
-        c.sort();
-                               
+        Capture c = n.captures.sort().duplicate();
+                                
         //
         for (int i = 0; i < c.i; i++)  
         {
@@ -558,7 +556,7 @@ public final class Search
             n.domove(c, i);
                         
             //
-            s = qmin(a, b, new_pv);
+            s = qsmin(a, b, new_pv);
             
             //
             n.unmove();
@@ -592,10 +590,13 @@ public final class Search
     }
  
     // quiescence min search
-    private int qmin(int a, int b, PV pv) 
+    private int qsmin(int a, int b, PV pv) 
     {        
+        //
+        pv.clear();
+                
         // increase nodes count
-        nq++;
+        qs_nodes++;
                 
         // eval position 
         int s = -Eval.node(n);
@@ -609,18 +610,13 @@ public final class Search
         // set new value for upper limit
         if (s < b) { b = s; }
               
-        //
-        pv.clear();
         
         //
         PV new_pv = PVs.pick();
         
         // quiescenze need sort moves
-        Capture c = n.capture();
-        
-        //
-        c.sort();
-                        
+        Capture c = n.captures.sort().duplicate();
+                                
         // loop throut capturers
         for (int i = 0; i < c.i; i++) 
         {
@@ -628,7 +624,7 @@ public final class Search
             n.domove(c, i);
                         
             // iterate qsearch
-            s = qmax(a, b, new_pv);
+            s = qsmax(a, b, new_pv);
             
             // redo move
             n.unmove();
@@ -666,21 +662,18 @@ public final class Search
     {       
         //
         if (!SEARCH_CONTROL) { return; }
-        
-        //
-        long time = time();
-        
+                        
         // 
-        if (time > time_limit) { stop = YES; return; }
+        if (id_timer.expired()) { stop = YES; return; }
 
         //
-        if (time < nt) { return; } 
+        if (time < id_nodes) { return; } 
                                   
         //
-        nt = time + INFO_MILLISECONDS_POLLING;
+        id_nodes = time + INFO_MILLISECONDS_POLLING;
         
         //
-        nps = ns / (time - ab_timer.start);
+        nps = ab_nodes / ab_timer.delta();
         
         //        
         sendinfo("ab-speed", "nps "+nps);
