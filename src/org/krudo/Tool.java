@@ -126,6 +126,14 @@ public final class Tool
         return content;
     }
     
+    //
+    public static final String[] split(String t)
+    {
+        //
+        return t.split("\\s");
+    }
+    
+    
 	//
 	public static final void keys(Object... args) 
     {

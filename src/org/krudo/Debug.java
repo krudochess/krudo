@@ -306,6 +306,8 @@ public final class Debug
         //
         Move m = n.legals.sort().duplicate();
         
+        
+        
         /*
         //
         if (m.i == 0) {

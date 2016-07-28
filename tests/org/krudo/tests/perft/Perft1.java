@@ -13,6 +13,7 @@ import org.krudo.Legals;
 //
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
+import static org.krudo.Config.*;
 
 //
 public class Perft1 
@@ -29,13 +30,25 @@ public class Perft1
         4865609    1269 ms
         119060324  19034 ms
         \*/
-    
+        
+        //
+        CACHE_LEGALS = false;
+            
         //
         Moves.init();
         
         //
         Node n = new Node();
-                
+                       
+        //
+        n.legals();
+        
+        //
+        dump(n);
+        
+        //
+        dump(n.legals);
+        
         //
         try
         {

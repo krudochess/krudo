@@ -133,6 +133,9 @@ public final class Move
     public final Move duplicate()
     {
         //
+        if (!CACHE_LEGALS) { return this; }
+        
+        //
         Move m = Moves.pick();
         
         //

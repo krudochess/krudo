@@ -33,6 +33,9 @@ public class Legals
         @Override
         protected boolean removeEldestEntry(Map.Entry<Long, Move> e) 
         {
+            //
+            if (!CACHE_LEGALS) { return false; }
+            
             // 
             if (size() > LEGALS_CACHE_SIZE) 
             {
@@ -56,20 +59,25 @@ public class Legals
         { 
             //
             CACHE.put(h, m);                
-        }        
+        }                 
     }
 
     //
     public final static boolean has(long h) 
     {    
         //
+        if (!CACHE_LEGALS) { return false; }
+        
+        //
         queries++;
         
         //
-        if (CACHE_LEGALS && CACHE.containsKey(h)) 
+        if (CACHE.containsKey(h)) 
         {
+            //
             success++;
         
+            //
             return true;
         }
         

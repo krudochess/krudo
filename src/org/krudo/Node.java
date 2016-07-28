@@ -411,15 +411,15 @@ public final class Node
         // retrieve previsour castling status
         c = L.c[i];
         
-        // swap side-to-move
-        t ^= T;
-        
         // restore piece in start square
         B[s] = p; 
 
         // restore versus square with captured piece
         B[v] = x;
-                               
+                   
+        // swap side-to-move
+        t ^= T;
+        
         // decrease piece counter
         if (x != O) 
         {
