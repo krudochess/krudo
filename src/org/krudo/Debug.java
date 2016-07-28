@@ -32,6 +32,15 @@ public final class Debug
 	//
 	public static boolean DEBUG_SHOW_ALGEBRIC = false;
 	
+    //
+    public static int count_enpassant = 0;
+    
+    //
+    public static int count_captures = 0;
+
+    //
+    public static int count_incheck = 0;
+    
     /*
 	//
 	public final static void dump(int d, Move m)
@@ -332,7 +341,16 @@ public final class Debug
         for (int i = 0; i < l; i++) 
         {	
             //
+            if (m.k[i] == ecap) { count_enpassant++; }
+
+            //
+            if (n.B[m.v[i]] != O) { count_captures++; }                        
+                        
+            //
             n.domove(m, i);		
+            
+            //
+            if (n.incheck()) { count_incheck++; }
             
             //
             c += doing(n, d-1);

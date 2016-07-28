@@ -952,7 +952,7 @@ public final class Node
         }
         
         // attacked from queen 
-        if (M[bq & lo] != 0) for (int i = 0; i < 4; i++) 
+        if (M[bq & lo] != 0) for (int i = 0; i < 8; i++) 
         {        
             // versus square
             v = span[a][i];

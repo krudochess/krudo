@@ -35,10 +35,10 @@ public final class Fen
         n.L.i = 0;
         
         //
-        for (int s = 0; s < 64; s++)
-        {
-            n.B[s] = O;
-        }
+        for (int p = 0; p < 12; p++) { n.M[p] = 0; }
+		        
+        //
+        for (int s = 0; s < 64; s++) { n.B[s] = O; }
 					
 		//
 		String[] p = f.split("\\s");

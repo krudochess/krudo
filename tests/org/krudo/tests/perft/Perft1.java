@@ -32,34 +32,33 @@ public class Perft1
         \*/
         
         //
-        CACHE_LEGALS = false;
+        CACHE_LEGALS = true;
             
         //
         Moves.init();
         
         //
         Node n = new Node();
-                       
-        //
-        n.legals();
-        
-        //
-        dump(n);
-        
-        //
-        dump(n.legals);
-        
+                              
         //
         try
         {
             //print(info());
                     
             /*_*/
-            for (int i = 1; i <= 5; i++) 
+            for (int i = 1; i <= 6; i++) 
             {
-                print(perft(n, i)) ;
+                count_incheck = 0;
+                count_captures = 0;
+                count_enpassant = 0;
+                print(perft(n, i));
+                //print(count_captures, count_enpassant, count_incheck);
             }
            
+            //
+            dump(n);
+            
+            //
             Legals.info();
             //dump(n);
             /*/
