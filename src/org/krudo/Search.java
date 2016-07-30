@@ -535,7 +535,7 @@ public final class Search
         return b;    
     }
 
-    // quiescence max routine
+    // quiescence max search routine
     private int qsmax(int a, int b)
     {      
         //
@@ -566,7 +566,7 @@ public final class Search
         // soft cut-off
         if (s > a) { a = s; }        
                                                                
-        //
+        // term leaf quiescence search
         if (l == 0) { return a; }
           
         // 
@@ -587,7 +587,7 @@ public final class Search
             //
             n.unmove();
             
-            // hard cut-off
+            // hard cut-off disabled in bruteforce mode
             if (s >= b && !SEARCH_BRUTE_FORCE) { a = b; break; }
 
             // soft cut-off
@@ -601,7 +601,7 @@ public final class Search
         return a;
     }
  
-    // quiescence min search
+    // quiescence min search routine
     private int qsmin(int a, int b) 
     {                        
         // increase nodes count
@@ -653,7 +653,7 @@ public final class Search
             // redo move
             n.unmove();
 
-            // hard cut-off
+            // hard cut-off disabled in bruteforce mode
             if (s <= a && !SEARCH_BRUTE_FORCE) { b = a; break; }        
                 
             // soft cut-off
@@ -721,25 +721,12 @@ public final class Search
         //
         sendbestmove.run();
     }
-    
-    // launch alfabeta search to evaluate a position
-    public final int eval(int d)
-    {     
-        /*
-        // set time limit for the searcing engine
-        timeLimit = time() + TIME_5_MINUTES;
-    
-        // run alpha-beta routine to evaluate
-        return start(d); 
-        */
-        return 0;
-    }
-    
+   
     //
-    public final static void walk(final Node n, int deep, int width)
+    public final static void walk(final Node n, int depth, int width)
     {
         //
-        if (deep == 0) { return; }
+        if (depth == 0) { return; }
         
         //
         n.legals();
@@ -757,7 +744,7 @@ public final class Search
             n.domove(m, i);
             
             //
-            walk(n, deep - 1, width);
+            walk(n, depth - 1, width);
             
             //
             n.unmove();

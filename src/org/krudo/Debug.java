@@ -350,7 +350,7 @@ public final class Debug
             n.domove(m, i);		
             
             //
-            if (n.incheck()) { count_incheck++; }
+            //if () { count_incheck++; }
             
             //
             c += doing(n, d-1);

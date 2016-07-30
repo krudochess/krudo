@@ -140,7 +140,10 @@ public final class Move
         System.arraycopy(v, 0, m.v, 0, i);
         System.arraycopy(k, 0, m.k, 0, i);
         System.arraycopy(w, 0, m.w, 0, i);
-          
+        
+        //
+        m.c = c;
+        
         //
         m.i = i;
         
