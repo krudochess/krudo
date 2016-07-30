@@ -448,7 +448,7 @@ public final class Search
                                     
             //
             s = qsmin(a, b); 
-                                   
+                       
             //
             TT.storemin(d, s); 
             
@@ -537,24 +537,9 @@ public final class Search
         //
         qs_nodes++;
         
-        // generate legal-moves 
-        n.legals();
-
-        // no-legals-move exit checkmate
-        if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; }
-        
         // eval position
         int s = Eval.node(n);
-                                
-        // hard cut-off
-        if (s >= b) { return b; }
         
-        // soft cut-off
-        if (s > a) { a = s; }        
-        
-        // 
-        if (!SEARCH_QUIESCENCE) { return a; }
-                                       
         // quiescence need sort moves
         n.captures();
         
@@ -563,17 +548,26 @@ public final class Search
         
         //
         if (l == 0)
-        {     
-            //
+        {
+            // generate legal-moves 
             n.legals();
 
-            //
-            if (n.legals.i == 0) { return n.legals.c ? +mate - n.L.i : 0; }
-            
-            //
-            return a; 
+            // no-legals-move exit checkmate
+            if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; }
         }
-               
+                       
+        // hard cut-off
+        if (s >= b) { return b; }
+        
+        // soft cut-off
+        if (s > a) { a = s; }        
+                                                               
+        //
+        if (l == 0) { return a; }
+          
+        // 
+        if (!SEARCH_QUIESCENCE) { return a; }
+        
         // 
         Capture c = n.captures.sort().duplicate();
                                 
@@ -609,33 +603,37 @@ public final class Search
         // increase nodes count
         qs_nodes++;
           
-        // generate legal-moves 
-        n.legals();
-
-        // no-legals-move exit checkmate
-        if (n.legals.i == 0) { return n.legals.c ? +mate - n.L.i : 0; }
-        
         // eval position 
         int s = -Eval.node(n);
         
-        // return alfa if wrost
-        if (s <= a) { return a; }
-
-        // set new value for upper limit
-        if (s < b) { b = s; }
-                      
-        //
-        if (!SEARCH_QUIESCENCE) { return b; }
-                                    
         //
         n.captures();
         
         //
         final int l = n.captures.i;
-                     
+        
+        //
+        if (l == 0) 
+        {
+            // generate legal-moves 
+            n.legals();
+
+            // no-legals-move exit checkmate
+            if (n.legals.i == 0) { return n.legals.c ? +mate - n.L.i : 0; }                       
+        }
+                       
+        // return alfa if wrost
+        if (s <= a) { return a; }
+
+        // set new value for upper limit
+        if (s < b) { b = s; }
+                                                     
         //
         if (l == 0) { return b; }
-                                
+        
+        //
+        if (!SEARCH_QUIESCENCE) { return b; }
+                                        
         // quiescenze need sort moves
         Capture c = n.captures.sort().duplicate();
                        
