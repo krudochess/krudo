@@ -29,7 +29,10 @@ public final class Move
     v = new int[MAX], // versus square of a move
     k = new int[MAX], // kind of a move
     w = new int[MAX]; // weight/eval-value of a move
-                
+     
+    // incheck status
+    public boolean c;
+    
     // empty constructor
     public Move() {}
                         
@@ -66,10 +69,7 @@ public final class Move
     {    
         // 
         if (!MOVE_SORT) { return this; }
-        
-        // count all swap
-        int c = 0; 
-        
+                
         // swap count
         int z;            
 
@@ -87,10 +87,7 @@ public final class Move
 
                 // increase swap count
                 z++;    
-            }
-           
-            //
-            c += z;            
+            }                          
         }            
          
         // repeat if not have need to swap

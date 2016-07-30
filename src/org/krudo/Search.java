@@ -243,7 +243,7 @@ public final class Search
         n.legals();
                         
         // no legal moves check-mate or stale-mate
-        if (n.legals.i == 0) { return n.incheck() ? -mate + n.L.i : 0; } 
+        if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; } 
         
         //
         final PV new_pv = PVs.pick();
@@ -257,8 +257,6 @@ public final class Search
         //
         for (int i = 0; i < l; i++) 
         {   
-            //
-            //sendinfo("ab-loop-run", "move " + m2s(m, i));
             
             // make
             n.domove(m, i);
@@ -268,7 +266,10 @@ public final class Search
 
             // undo
             n.unmove();            
-                            
+            
+            //
+            sendinfo("ab-loop-run", "move " + m2s(m, i)+"="+s);
+            
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 
             {  
@@ -353,7 +354,7 @@ public final class Search
         if (n.threefold()) { return 0; }
                 
         // no legal moves check-mate or stale-mate
-        if (n.legals.i == 0) { return n.incheck() ? -mate + n.L.i : 0; }
+        if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
@@ -434,19 +435,20 @@ public final class Search
         
         // trasposition table probe
         if (TT.probemin(n.phk, d, a, b)) { return TT.score; }
-        
+                       
         // at-end quiescence search and 
         if (d == 0) 
         {
+            
             // increase nodes count
             ab_nodes++;
             
             //
             control();
-            
+                                    
             //
             s = qsmin(a, b); 
-            
+                                   
             //
             TT.storemin(d, s); 
             
@@ -464,7 +466,7 @@ public final class Search
         if (n.threefold()) { return 0; }
         
         // no-legals-move exit checkmate
-        if (n.legals.i == 0) { return n.incheck() ? +mate - n.L.i : 0; }
+        if (n.legals.i == 0) { return n.legals.c ? +mate - n.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
@@ -531,7 +533,16 @@ public final class Search
 
     // quiescence max routine
     private int qsmax(int a, int b)
-    {             
+    {      
+        //
+        qs_nodes++;
+        
+        // generate legal-moves 
+        n.legals();
+
+        // no-legals-move exit checkmate
+        if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; }
+        
         // eval position
         int s = Eval.node(n);
                                 
@@ -551,7 +562,17 @@ public final class Search
         final int l = n.captures.i;
         
         //
-        if (l == 0) { return a; }
+        if (l == 0)
+        {     
+            //
+            n.legals();
+
+            //
+            if (n.legals.i == 0) { return n.legals.c ? +mate - n.L.i : 0; }
+            
+            //
+            return a; 
+        }
                
         // 
         Capture c = n.captures.sort().duplicate();
@@ -569,23 +590,10 @@ public final class Search
             n.unmove();
             
             // hard cut-off
-            if (s >= b && !SEARCH_BRUTE_FORCE) 
-            { 
-                //
-                a = b;
-                
-                //
-                break; 
-            }
+            if (s >= b && !SEARCH_BRUTE_FORCE) { a = b; break; }
 
             // soft cut-off
-            if (s > a) 
-            { 
-            
-                
-                //
-                a = s; 
-            }
+            if (s > a) { a = s; }
         }
         
         //
@@ -600,7 +608,13 @@ public final class Search
     {                        
         // increase nodes count
         qs_nodes++;
-                
+          
+        // generate legal-moves 
+        n.legals();
+
+        // no-legals-move exit checkmate
+        if (n.legals.i == 0) { return n.legals.c ? +mate - n.L.i : 0; }
+        
         // eval position 
         int s = -Eval.node(n);
         
@@ -609,7 +623,7 @@ public final class Search
 
         // set new value for upper limit
         if (s < b) { b = s; }
-        
+                      
         //
         if (!SEARCH_QUIESCENCE) { return b; }
                                     
@@ -618,7 +632,7 @@ public final class Search
         
         //
         final int l = n.captures.i;
-        
+                     
         //
         if (l == 0) { return b; }
                                 
@@ -638,21 +652,10 @@ public final class Search
             n.unmove();
 
             // hard cut-off
-            if (s <= a && !SEARCH_BRUTE_FORCE)
-            { 
-                //
-                b = a;
-                
-                //
-                break;
-            }        
+            if (s <= a && !SEARCH_BRUTE_FORCE) { b = a; break; }        
                 
             // soft cut-off
-            if (s < b) 
-            {                                 
-                //
-                b = s; 
-            }
+            if (s < b) { b = s; }
         }
         
         //

@@ -480,7 +480,10 @@ public final class Node
         if (k == ecap) { cw++; B[v + 8] = wp; }
         
         //
-        if (k == cast) if (v == g8) { B[h8] = br; B[f8] = O; } 
+        if (k != cast) { return; }
+                    
+        //
+        if (v == g8) { B[h8] = br; B[f8] = O; } 
         
         //
         else { B[a8] = br; B[d8] = O; }                
@@ -516,25 +519,62 @@ public final class Node
     private void white_legals() 
     {        
         // generate white pseudo-moves
-        white_pseudo();         
+        white_pseudo();       
+        
+        //
+        legals.c = black_attack(wks);
         
         // skip legals test for moves 
         if (!MOVE_LEGALS) { return; }
          
         // legal move index
-        int l = 0;
+        int j = 0;
         
         // loop coursor            
-        final int p = legals.i;
-                
+        final int l = legals.i;
+                        
         // loop throut pseudo-legal
-        for (int i = 0; i != p; i++) 
-        {                            
+        for (int i = 0; i != l; i++) 
+        {   
+            /*
+            //
+            final int v = legals.v[i];
+            
+            //
+            if (legals.c && v != wks && STEP[v][wks] == 0) { continue; } 
+            
+            //
+            final int s = legals.s[i];
+                        
+            //
+            if (!legals.c && s != wks)
+            
+            {
+                if (STEP[legals.s[i]][wks] == 0) 
+                {
+                    //
+                    legals.copy(i, j); 
+
+                    //
+                    j++; 
+
+                    //
+                    continue;
+                }
+            }
+            
+            //
+            else                             
+            {
+                if () { continue; }                               
+            } 
+            */
+                                
             //
             if (legals.k[i] == cast) 
             {
                 //
-                if (white_castling(legals.v[i])) { legals.copy(i, l); l++; }             
+                if (white_castling(legals.v[i])) { legals.copy(i, j); j++; }             
                 
                 //
                 continue;
@@ -544,14 +584,14 @@ public final class Node
             domove(i);
 
             //
-            if (!black_attack(wks)) { legals.copy(i, l); l++; }
+            if (!black_attack(wks)) { legals.copy(i, j); j++; }
 
             //
-            unmove();            
+            unmove();
         }
         
         //
-        legals.i = l;
+        legals.i = j;
     } 
             
     // generate moves-stack with legal-moves
@@ -559,6 +599,9 @@ public final class Node
     {            
         // generate pseudo-moves into "m"
         black_pseudo();         
+        
+        //
+        legals.c = white_attack(bks);
         
         // skip legals test for moves 
         if (!MOVE_LEGALS) { return; }
@@ -570,23 +613,45 @@ public final class Node
         final int p = legals.i; 
             
         // loop throut pseudo-legal moves
-        for (int j = 0; j != p; j++) 
-        {                                
+        for (int i = 0; i != p; i++) 
+        {     
+            /*
             //
-            if (legals.k[j] == cast) 
+            if (STEP[legals.s[i]][bks] == 0) 
             {
                 //
-                if (black_castling(legals.v[j])) { legals.copy(j, l); l++; }
+                legals.copy(i, l); 
+                
+                //
+                l++; 
+            
+                //
+                continue;
+            }
+            */
+            
+            //
+            if (legals.k[i] == cast) 
+            {
+                //
+                if (black_castling(legals.v[i])) 
+                { 
+                    //
+                    legals.copy(i, l); 
+                    
+                    //
+                    l++;
+                }
                 
                 //
                 continue;
             }             
                         
             //
-            domove(j);
+            domove(i);
 
             //
-            if (!white_attack(bks)) { legals.copy(j, l); l++; }
+            if (!white_attack(bks)) { legals.copy(i, l); l++; }
 
             //
             unmove();            
@@ -613,9 +678,8 @@ public final class Node
     }
 
     //
-    private boolean black_castling(
-        final int v
-    ) {        
+    private boolean black_castling(final int v)
+    {        
         //
         boolean castling = v == g8
              ?! white_attack(e8)

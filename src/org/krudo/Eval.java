@@ -629,16 +629,18 @@ public final class Eval
         // if node eval is enabled pass-throu else return zero forever
         if (EVAL_MOBILITY) 
         { 
-            //
-            //n.legals();
-            
-            //
-            //return n.m.i; 
+           
         }
         
         // if node eval is enabled pass-throu else return zero forever
         if (!EVAL_NODE) { return 0; }
         
+        //
+        //n.legals();
+        
+        // eval checkmate or stalemate conditions
+        //if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; }
+                
         //
         int wps = 0;
         
