@@ -15,7 +15,7 @@ import static org.krudo.Debug.*;
 import static org.krudo.Constant.*;
 
 //
-public class Checkmate3 
+public class Checkmate4 
 {
     //
     public static void main(String[] args) 
@@ -26,7 +26,7 @@ public class Checkmate3
         
         Captures.init();
                 
-        String f = "b7/PP6/8/8/7K/6B1/6N1/4R1bk w";
+        String f = "8/8/8/8/7k/8/PPPPPPPP/RNBQKBNR w KQkq";
         
         Node n = new Node();
         

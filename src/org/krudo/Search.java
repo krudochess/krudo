@@ -320,7 +320,9 @@ public final class Search
     private int abmax(final int d, int a, int b, final PV pv, final int nt) 
     {   
         // score
-        int s;        
+        int s;  
+        
+       
                 
         // trasposition table probe
         if (TT.probemax(n.phk, d, a, b)) { return TT.score; }
@@ -376,6 +378,8 @@ public final class Search
             s = abmin(d-1, a, b, new_pv, NT_NODE);                
             //}
 
+            
+            
             //
             n.unmove();                
 
@@ -542,7 +546,7 @@ public final class Search
         
         // quiescence need sort moves
         n.captures();
-        
+                       
         //
         final int l = n.captures.i;
         

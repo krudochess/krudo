@@ -389,6 +389,16 @@ public final class Zobrist
         }
     }	
     
+    // hashing function 
+	public static final void hash_step3(final Node n, final int v, final int p, final int x)
+    {
+        //
+        n.phk ^= HASH[p & hi | v];
+    
+        //
+        n.phk ^= HASH[x & hi | v];    
+    }
+        
     //
     public static long hash_material(int[] material)
     {

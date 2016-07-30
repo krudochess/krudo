@@ -278,6 +278,9 @@ public final class Node
             //
             if (t == w) { cb--; } else { cw--; }
         }
+        
+        //
+        hash_step2(this, p, s, v, x, k);
                                         
         // for special moves handle move rules
         if (k != move) if (t == w) 
@@ -294,8 +297,7 @@ public final class Node
         // swap turn side
         t ^= T;
         
-        //
-        hash_step2(this, p, s, v, x, k);
+       
         
         //
         //Debug.assertPieceCount(this);
@@ -332,7 +334,12 @@ public final class Node
             case rmov: c |= s == h1 ? wkc : wqc; return;                             
             
             // by default promote piece
-            default: B[v] = k & pi;    
+            default:
+                B[v] = k & pi;
+                M[wp & lo]--;
+                M[k & pi & lo]++;
+                hash_step3(this, v, wp, k & pi);
+                    
         }                                    
     }
     
@@ -367,7 +374,11 @@ public final class Node
             case rmov: c |= s == h8 ? bkc : bqc; return;                         
             
             // by default promote piece
-            default: B[v] = k & pi;
+            default:
+                B[v] = k & pi;
+                M[bp & lo]--;
+                M[k & pi & lo]++;
+                hash_step3(this, v, bp, k & pi);                
         }                                    
     }
     
@@ -1055,14 +1066,7 @@ public final class Node
         //
         return false;
     }
-    
-    //
-    public final boolean incheck()
-    {
-        //
-        return t == w ? black_attack(wks) : white_attack(bks);        
-    }
-    
+        
     //
     public final boolean threefold()
     {     
@@ -1088,7 +1092,7 @@ public final class Node
         captures = Captures.pick();
         
         // legal move index
-        int l = 0;
+        int j = 0;
             
         //
         if (t == w) 
@@ -1096,14 +1100,17 @@ public final class Node
             //
             white_capture(); 
                             
+            //
+            final int l = captures.i;
+            
             // loop throut pseudo-legal moves
-            for (int i = 0; i < captures.i; i++) 
+            for (int i = 0; i < l; i++) 
             {                                
                 //
                 domove(captures, i);
 
                 //
-                if (!black_attack(wks)) { captures.copy(i, l); l++; }
+                if (!black_attack(wks)) { captures.copy(i, j); j++; }
 
                 //
                 unmove();            
@@ -1115,15 +1122,18 @@ public final class Node
         { 
             //
             black_capture(); 
-        
+            
+            //
+            final int l = captures.i;
+                    
             // loop throut pseudo-legal moves
-            for (int i = 0; i < captures.i; i++) 
+            for (int i = 0; i < l; i++) 
             {                                
                 //
                 domove(captures, i);
 
                 //
-                if (!white_attack(bks)) { captures.copy(i, l); l++; }
+                if (!white_attack(bks)) { captures.copy(i, j); j++; }
 
                 //
                 unmove();            
@@ -1131,7 +1141,7 @@ public final class Node
         }
                 
         //
-        captures.i = l;     
+        captures.i = j;     
         
         //
         Captures.add(phk, captures);
@@ -1172,26 +1182,53 @@ public final class Node
                     
                     //
                     int r = s >> 3;
-                    
+                                                                                      
                     //
-                    v = span[s][ne]; 
-                    if (v != xx && (B[v] & b) == b) { captures.add(s, v, move); }                    
-                    
-                    //
-                    v = span[s][nw]; 
-                    if (v != xx && (B[v] & b) == b) { captures.add(s, v, move); }                    
-                    
-                    //
-                    if (r == 1) 
+                    if (r != 6) 
                     {
                         //
-                        v = span[s][nn]; 
+                        v = span[s][ne]; 
                         
                         //
-                        if (B[v] == O) 
-                        { 
+                        if (v != xx && (B[v] & b) == b) { captures.add(s, v, move); }                    
+
+                        //
+                        v = span[s][nw]; 
+                        
+                        //
+                        if (v != xx && (B[v] & b) == b) 
+                        {
+                            //
                             captures.add(s, v, move); 
-                        }
+                        } 
+                    }
+                    
+                    //
+                    else
+                    {                    
+                        //
+                        v = span[s][ne]; 
+                        
+                        //
+                        if (v != xx && (B[v] & b) == b) 
+                        { 
+                            captures.add(s, v, wqpm); 
+                            captures.add(s, v, wrpm); 
+                            captures.add(s, v, wbpm); 
+                            captures.add(s, v, wnpm); 
+                        }                    
+
+                        //
+                        v = span[s][nw]; 
+                        
+                        //
+                        if (v != xx && (B[v] & b) == b) 
+                        { 
+                            captures.add(s, v, wqpm); 
+                            captures.add(s, v, wrpm); 
+                            captures.add(s, v, wbpm); 
+                            captures.add(s, v, wnpm);
+                        } 
                     }
                     
                     //
@@ -1281,12 +1318,56 @@ public final class Node
                     int r = s >> 3;
                     
                     //
-                    v = span[s][se]; 
-                    if (v != xx && (B[v] & w) == w) { captures.add(s, v, move); }                    
+                    if (r != 1) 
+                    {
+                        //
+                        v = span[s][se]; 
+                     
+                        //
+                        if (v != xx && (B[v] & w) == w)
+                        {
+                            //
+                            captures.add(s, v, move); 
+                        }                    
+
+                        //
+                        v = span[s][sw];
+                        
+                        //
+                        if (v != xx && (B[v] & w) == w) 
+                        { 
+                            //
+                            captures.add(s, v, move);
+                        }                                        
+                    }
                     
                     //
-                    v = span[s][sw]; 
-                    if (v != xx && (B[v] & w) == w) { captures.add(s, v, move); }                    
+                    else
+                    {
+                        //
+                        v = span[s][se]; 
+                        
+                        //
+                        if (v != xx && (B[v] & w) == w) 
+                        { 
+                            captures.add(s, v, bqpm); 
+                            captures.add(s, v, brpm); 
+                            captures.add(s, v, bbpm); 
+                            captures.add(s, v, bnpm); 
+                        }                    
+
+                        //
+                        v = span[s][sw]; 
+                        
+                        //
+                        if (v != xx && (B[v] & w) == w) 
+                        { 
+                            captures.add(s, v, bqpm); 
+                            captures.add(s, v, brpm); 
+                            captures.add(s, v, bbpm); 
+                            captures.add(s, v, bnpm);
+                        } 
+                    }
                     
                     //
                     break;
