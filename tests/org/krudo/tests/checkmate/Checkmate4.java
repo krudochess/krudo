@@ -33,12 +33,13 @@ public class Checkmate4
         n.startpos(f);
                       
         Search s = new Search(n);
-        
-        
-        
-        try {
+                      
+        try
+        {
             s.start(5);
-        } catch (Exception e)
+        } 
+        
+        catch (Exception e)
         {
             dump(n);
             dump(n.L);

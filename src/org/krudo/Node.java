@@ -484,7 +484,7 @@ public final class Node
         final int v,
         final int k
     ) {
-        //
+        // is king move restore black king square
         if (p == bk) { bks = s; }
         
         //
@@ -506,24 +506,24 @@ public final class Node
         //
         if (Legals.has(phk)) 
         {
+            //
             legals = Legals.get(phk);
+            
+            //
+            return;
         } 
-        
-        //
-        else
-        {
-            // move-container get move from move-stack pre-created
-            legals = Moves.pick();
+                
+        // move-container get move from move-stack pre-created
+        legals = Moves.pick();
 
-            // generate-fill "m" with white or black legal moves
-            if (t == w) { white_legals(); } else { black_legals(); }
-            
-            //
-            if (EVAL_MOVE) { Eval.move(this); }
-            
-            //
-            Legals.add(phk, legals);
-        }        
+        // generate-fill "m" with white or black legal moves
+        if (t == w) { white_legals(); } else { black_legals(); }
+
+        // assign move weight for ab search with sort
+        if (EVAL_MOVE) { Eval.move(this); }
+
+        // add move to legals cached
+        Legals.add(phk, legals);
     }
     
     // generate moves-stack with legal-moves
@@ -532,7 +532,7 @@ public final class Node
         // generate white pseudo-moves
         white_pseudo();       
         
-        //
+        // test if white current in check
         legals.c = black_attack(wks);
         
         // skip legals test for moves 
@@ -541,7 +541,7 @@ public final class Node
         // legal move index
         int j = 0;
         
-        // loop coursor            
+        // pseudo move count            
         final int l = legals.i;
                         
         // loop throut pseudo-legal
@@ -735,22 +735,22 @@ public final class Node
             switch (p) 
             {
                 // white pawn
-                case wp: pawn(s); break;                                        
+                case wp: white_pawn_pseudo(s); break;                                        
                 
                 // white rook
-                case wr: span(s, 0, 4, s == a1 || s == a8 ? rmov : move); break;                        
+                case wr: sliding_pseudo(s, 0, 4, s == a1 || s == a8 ? rmov : move); break;                        
                 
                 // white knight    
-                case wn: hope(s); break;                        
+                case wn: knight_pseudo(s); break;                        
                 
                 // white bishop    
-                case wb: span(s, 4, 8, move); break;                                                                
+                case wb: sliding_pseudo(s, 4, 8, move); break;                                                                
                 
                 // white queen
-                case wq: span(s, 0, 8, move); break;
+                case wq: sliding_pseudo(s, 0, 8, move); break;
                 
                 // white king    
-                case wk: king(s); break;
+                case wk: white_king_pseudo(s); break;
                 
                 // default exit
                 default: exit("default: white_pseudo()");                                            
@@ -789,22 +789,22 @@ public final class Node
             switch (p) 
             {
                 // add black pawn moves
-                case bp: down(s); break;                                             
+                case bp: black_pawn_pseudo(s); break;                                             
                 
                 // add sliding piece rook moves
-                case br: span(s, 0, 4, s == a8 || s == h8 ? rmov : move); break;
+                case br: sliding_pseudo(s, 0, 4, s == a8 || s == h8 ? rmov : move); break;
                 
                 // add kngiht moves
-                case bn: hope(s); break;                                
+                case bn: knight_pseudo(s); break;                                
                 
                 // add sliding piece bishop moves
-                case bb: span(s, 4, 8, move); break;
+                case bb: sliding_pseudo(s, 4, 8, move); break;
                 
                 // add sliding piece queen moves     
-                case bq: span(s, 0, 8, move); break;
+                case bq: sliding_pseudo(s, 0, 8, move); break;
                 
                 // add kings moves and castling
-                case bk: kong(s); break;    
+                case bk: black_king_pseudo(s); break;    
                 
                 // unrecognized piece fault stop
                 default: exit("default: black_pseudo()");                        
@@ -1449,7 +1449,7 @@ public final class Node
     }
         
     // handle queen/bishop/rook moves
-    private void span(
+    private void sliding_pseudo(
         final int s,
         final int x0,    // start direction
         final int x1,    // final direction
@@ -1480,7 +1480,7 @@ public final class Node
     }
 
     // handle knight normal move
-    private void hope(
+    private void knight_pseudo(
         final int s //
     ) {    
         //
@@ -1504,7 +1504,7 @@ public final class Node
     }
       
     // white pawn moves
-    private void pawn(
+    private void white_pawn_pseudo(
         final int s
     ) {                                        
         //
@@ -1597,7 +1597,7 @@ public final class Node
     }
     
     // untouched black pawn moves 
-    private void down(
+    private void black_pawn_pseudo(
         final int s
     ) {                    
         //
@@ -1690,7 +1690,7 @@ public final class Node
     }
    
     // handle white king pseudo-moves
-    private void king(
+    private void white_king_pseudo(
         final int s // start square
     ) {            
         //
@@ -1751,7 +1751,7 @@ public final class Node
     }
     
     // handle black king pseudo-moves
-    private void kong(
+    private void black_king_pseudo(
         final int s // start square
     ) {    
         //
