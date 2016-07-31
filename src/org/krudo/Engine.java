@@ -137,7 +137,7 @@ public final class Engine
         long time = NODE.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
         
         // call iterative deeping (wait here)
-        SEARCH.start(depth, 7000);
+        SEARCH.start(depth, 3000);
     }
     
     //

@@ -210,10 +210,7 @@ public final class Search
         
         //
         PVs.free(new_pv);
-        
-        //
-        PVs.info();
-        
+                
         //
         id_timer.pause();
         

@@ -470,3 +470,285 @@ d7c7   d7e8   d7c8
 ? stop
 ? quit
 
+$ Sat Jul 30 18:03:41 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+? position fen 8/7p/5k2/5p2/p1p2P2/Pr1pPK2/1P1R3P/8 b - - 0 1
+? go infinite
+! info depth 1 score cp 124 nps 1 pv f6e6 event id-loop-end
+! info depth 2 score cp 100 nps 1 pv f6e6 e3e4 event id-loop-end
+! info depth 3 score cp 100 nps 17 pv f6e6 e3e4 f5e4 event id-loop-end
+! info depth 4 score cp 100 nps 27 pv f6e6 e3e4 f5e4 f3e4 event id-loop-end
+! info depth 5 score cp 100 nps 109 pv f6e6 e3e4 f5e4 f3e4 e6d6 event id-loop-end
+! info depth 6 score cp 100 nps 72 pv f6e6 e3e4 f5e4 f3e4 b3b5 e4d4 event id-loop-end
+! info depth 7 score cp 104 nps 80 pv b3b5 e3e4 f5e4 f3e4 b5f5 h2h4 f6e6 event id-loop-end
+! . . . . . . . . <  
+. . . . . . . x    
+. . . . . k . .    
+. . . . . x . .    
+x . x . . P . .    M: -56509 -1003 12569 252 12571 252 12619 253 18756 252 1 1
+P r . x P K . .    cw: 7  cb: 7  ote: 214
+. P . R . . . P    phk: 94a23921900cbc58
+. . . . . . . .    mhk: db88925329501dbf
+
+! c4c3   f6e6   b3b2   b3c3   h7h5   h7h6  
+b3b4   b3b5   b3b6   b3b7   b3b8   b3a3  
+f6g6   f6g7   f6f7   f6e7  
+! bestmove b3b5
+? quit
+
+$ Sat Jul 30 18:12:00 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+? position fen 8/7p/5k2/5p2/p1p2P2/Pr1pPK2/1P1R3P/8 b - - 0 1
+? go infinite
+! info depth 1 score cp 124 nps 0 pv f6e6 event id-loop-end
+! info depth 2 score cp 100 nps 1 pv f6e6 e3e4 event id-loop-end
+! info depth 3 score cp 100 nps 15 pv f6e6 e3e4 f5e4 event id-loop-end
+! info depth 4 score cp 100 nps 25 pv f6e6 e3e4 f5e4 f3e4 event id-loop-end
+! info depth 5 score cp 100 nps 111 pv f6e6 e3e4 f5e4 f3e4 e6d6 event id-loop-end
+! info depth 6 score cp 100 nps 62 pv f6e6 e3e4 f5e4 f3e4 b3b5 e4d4 event id-loop-end
+! info depth 7 score cp 104 nps 58 pv b3b5 e3e4 f5e4 f3e4 b5f5 h2h4 f6e6 event id-loop-end
+! . . . . . . . . <  
+. . . . . . . x    
+. . . . . k . .    
+. . . . . x . .    
+x . x . . P . .    M: -38927 -1003 8410 252 8412 252 8460 253 13651 252 1 1
+P r . x P K . .    cw: 7  cb: 7  ote: 214
+. P . R . . . P    phk: 94a23921900cbc58
+. . . . . . . .    mhk: db88925329501dbf
+
+! c4c3   f6e6   b3b2   b3c3   h7h5   h7h6  
+b3b4   b3b5   b3b6   b3b7   b3b8   b3a3  
+f6g6   f6g7   f6f7   f6e7  
+! bestmove b3b5
+? quit
+
+$ Sat Jul 30 23:30:32 CEST 2016
+! Krudo 0.16a by Francesco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+? isready
+! readyok
+? ucinewgame
+? position startpos
+? go wtime 180000 btime 180000
+! info depth 1 score cp 36 nps 0 pv d2d4 event id-loop-end
+! info depth 2 score cp 0 nps 2 pv d2d4 d7d5 event id-loop-end
+! info depth 3 score cp 22 nps 37 pv d2d4 d7d5 g1f3 event id-loop-end
+! info depth 4 score cp -2 nps 30 pv d2d4 d7d5 c1g5 b8c6 event id-loop-end
+! info depth 5 score cp 21 nps 185 pv d2d4 d7d5 b1c3 e7e6 e2e4 event id-loop-end
+! info depth 6 score cp -2 nps 17 pv e2e4 b8c6 d2d4 d7d5 e4e5 e7e6 event id-loop-end
+! r n b q k b n r    
+x x x x x x x x    
+. . . . . . . .    
+. . . . . . . .    
+. . . . . . . .    M: -646 -1038 154 249 154 249 154 249 199 306 1 1
+. . . . . . . .    cw: 16  cb: 16  ote: 0
+P P P P P P P P    phk: 463b96181691fc9c
+R N B Q K B N R <  mhk: cd10447d77ea0867
+
+! d2d4   e2e4   d2d3   g1f3   b1c3   c2c4  
+e2e3   c2c3   b1a3   g1h3   h2h4   h2h3  
+b2b4   b2b3   g2g4   g2g3   a2a4   a2a3  
+f2f4   f2f3  
+! bestmove e2e4
+? position startpos moves e2e4 c7c6
+r n b q k b n r    
+x x . x x x x x    
+. . x . . . . .    
+. . . . . . . .    
+. . . . P . . .    M: 8 8 2 2 2 2 2 2 1 1 1 1
+. . . . . . . .    cw: 16  cb: 16  ote: 0
+P P P P . P P P    phk: 104676bf8ad1922d
+R N B Q K B N R <  mhk: cd10447d77ea0867
+? go wtime 171950 btime 176560
+! info depth 1 score cp 53 nps 0 pv d2d4 event id-loop-end
+! info depth 2 score cp 17 nps 0 pv d2d4 d7d5 event id-loop-end
+! info depth 3 score cp 38 nps 68 pv d2d4 d7d5 b1c3 event id-loop-end
+! info depth 4 score cp 11 nps 7 pv d2d4 d7d5 b1c3 e7e6 event id-loop-end
+! info depth 5 score cp 33 nps 49 pv d2d4 d7d5 b1c3 e7e6 g1f3 event id-loop-end
+! r n b q k b n r    
+x x . x x x x x    
+. . x . . . . .    
+. . . . . . . .    
+. . . . P . . .    M: -2881 -3297 659 737 659 737 659 737 919 1101 1 1
+. . . . . . . .    cw: 16  cb: 16  ote: 0
+P P P P . P P P    phk: 104676bf8ad1922d
+R N B Q K B N R <  mhk: cd10447d77ea0867
+
+! d2d4   d2d3   g1f3   b1c3   f1c4   e4e5  
+f1b5   c2c4   f1d3   d1f3   d1g4   g1e2  
+f1e2   f1a6   c2c3   d1h5   d1e2   b1a3  
+g1h3   h2h4   h2h3   b2b4   b2b3   g2g4  
+g2g3   a2a4   a2a3   f2f4   f2f3   e1e2  
+! bestmove d2d4
+? position startpos moves e2e4 c7c6 d2d4 d7d5
+r n b q k b n r    
+x x . . x x x x    
+. . x . . . . .    
+. . . x . . . .    
+. . . P P . . .    M: 8 8 2 2 2 2 2 2 1 1 1 1
+. . . . . . . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: 50197b0107ccf149
+R N B Q K B N R <  mhk: cd10447d77ea0867
+? go wtime 164510 btime 160220
+! info depth 1 score cp 38 nps 0 pv b1c3 event id-loop-end
+! info depth 2 score cp 11 nps 7 pv b1c3 e7e6 event id-loop-end
+! info depth 3 score cp 33 nps 35 pv b1c3 e7e6 g1f3 event id-loop-end
+! r n b q k b n r    
+x x . . x x x x    
+. . x . . . . .    
+. . . x . . . .    
+. . . P P . . .    M: -2882 -4080 644 897 644 897 644 897 965 1404 1 1
+. . . . . . . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: 50197b0107ccf149
+R N B Q K B N R <  mhk: cd10447d77ea0867
+
+! g1f3   b1c3   f1c4   e4e5   c1f4   c1g5  
+d1d3   f1b5   c2c4   e4d5   c1h6   c1e3  
+f1d3   d1f3   d1g4   b1d2   g1e2   c1d2  
+f1e2   f1a6   c2c3   d1h5   d1d2   d1e2  
+b1a3   g1h3   h2h4   h2h3   b2b4   b2b3  
+g2g4   g2g3   a2a4   a2a3   f2f4   f2f3  
+e1e2   e1d2  
+! bestmove b1c3
+? position startpos moves e2e4 c7c6 d2d4 d7d5 b1c3 f7f5
+r n b q k b n r    
+x x . . x . x x    
+. . x . . . . .    
+. . . x . x . .    
+. . . P P . . .    M: 8 8 2 2 2 2 2 2 1 1 1 1
+. . N . . . . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: 3fe1053a7ba65e4e
+R . B Q K B N R <  mhk: cd10447d77ea0867
+? go wtime 157400 btime 152690
+! info depth 1 score cp 68 nps 0 pv e4e5 event id-loop-end
+! info depth 2 score cp 55 nps 0 pv d1h5 g7g6 event id-loop-end
+! info depth 3 score cp 63 nps 19 pv e4e5 e7e6 g1f3 event id-loop-end
+! info depth 4 score cp 48 nps 7 pv e4e5 e7e6 d1h5 g7g6 event id-loop-end
+! r n b q k b n r    
+x x . . x . x x    
+. . x . . . . .    
+. . . x . x . .    
+. . . P P . . .    M: -23417 -991 5413 240 5413 240 5413 240 7193 286 1 1
+. . N . . . . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: 3fe1053a7ba65e4e
+R . B Q K B N R <  mhk: cd10447d77ea0867
+
+! g1f3   f1c4   e4e5   c1f4   c1g5   d1d3  
+f1b5   e4d5   c1h6   c1e3   f1d3   d1f3  
+d1g4   g1e2   c1d2   f1e2   f1a6   c3d5  
+d1h5   d1d2   d1e2   a1b1   g1h3   h2h4  
+h2h3   b2b4   b2b3   g2g4   g2g3   a2a4  
+a2a3   f2f4   f2f3   c3b5   c3e2   c3a4  
+c3b1   e4f5   e1e2   e1d2  
+! bestmove e4e5
+? position startpos moves e2e4 c7c6 d2d4 d7d5 b1c3 f7f5 e4e5 b8a6
+r . b q k b n r    
+x x . . x . x x    
+n . x . . . . .    
+. . . x P x . .    
+. . . P . . . .    M: 8 8 2 2 2 2 2 2 1 1 1 1
+. . N . . . . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: 1018b857f947e496
+R . B Q K B N R <  mhk: cd10447d77ea0867
+? go wtime 150380 btime 149970
+! info depth 1 score cp 90 nps 0 pv g1f3 event id-loop-end
+! info depth 2 score cp 75 nps 6 pv d1h5 g7g6 event id-loop-end
+! info depth 3 score cp 83 nps 21 pv g1f3 e7e6 c1f4 event id-loop-end
+! r . b q k b n r    
+x x . . x . x x    
+n . x . . . . .    
+. . . x P x . .    
+. . . P . . . .    M: -408 -3702 86 874 86 874 86 874 165 1095 1 1
+. . N . . . . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: 1018b857f947e496
+R . B Q K B N R <  mhk: cd10447d77ea0867
+
+! g1f3   f1c4   e5e6   c1f4   c1g5   d1d3  
+f1b5   c1h6   c1e3   f1d3   d1f3   d1g4  
+g1e2   c1d2   f1e2   f1a6   c3d5   d1h5  
+d1d2   d1e2   a1b1   g1h3   h2h4   h2h3  
+b2b4   b2b3   g2g4   g2g3   a2a4   a2a3  
+c3e4   f2f4   f2f3   c3b5   c3e2   c3a4  
+c3b1   e1e2   e1d2  
+! bestmove g1f3
+? position startpos moves e2e4 c7c6 d2d4 d7d5 b1c3 f7f5 e4e5 b8a6 g1f3 d8b6
+r . b . k b n r    
+x x . . x . x x    
+n q x . . . . .    
+. . . x P x . .    
+. . . P . . . .    M: 8 8 2 2 2 2 2 2 1 1 1 1
+. . N . . N . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: c83aaf65bea5371
+R . B Q K B . R <  mhk: cd10447d77ea0867
+? go wtime 143330 btime 144330
+! info depth 1 score cp 98 nps 0 pv d1d3 event id-loop-end
+! info depth 2 score cp 71 nps 6 pv d1d3 e7e6 event id-loop-end
+! info depth 3 score cp 83 nps 3 pv f1d3 a6b4 e1g1 event id-loop-end
+! r . b . k b n r    
+x x . . x . x x    
+n q x . . . . .    
+. . . x P x . .    
+. . . P . . . .    M: -393 -963 97 223 97 223 97 223 117 309 1 1
+. . N . . N . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: c83aaf65bea5371
+R . B Q K B . R <  mhk: cd10447d77ea0867
+
+! f1c4   e5e6   c1f4   c1g5   d1d3   f1b5  
+c1h6   c1e3   f1d3   c1d2   f1e2   f1a6  
+c3d5   d1d2   d1e2   a1b1   h1g1   h2h4  
+h2h3   b2b4   b2b3   g2g4   g2g3   a2a4  
+a2a3   c3e4   c3b5   c3e2   f3d2   f3g5  
+c3a4   c3b1   f3g1   f3h4   e1e2   e1d2  
+! bestmove f1d3
+? position startpos moves e2e4 c7c6 d2d4 d7d5 b1c3 f7f5 e4e5 b8a6 g1f3 d8b6 f1d3 c8d7
+r . . . k b n r    
+x x . b x . x x    
+n q x . . . . .    
+. . . x P x . .    
+. . . P . . . .    M: 8 8 2 2 2 2 2 2 1 1 1 1
+. . N B . N . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: bb4ff506b8304133
+R . B Q K . . R <  mhk: cd10447d77ea0867
+? go wtime 132770 btime 136410
+! info depth 1 score cp 102 nps 0 pv e1g1 event id-loop-end
+! info depth 2 score cp 73 nps 0 pv e1g1 e8c8 event id-loop-end
+! info depth 3 score cp 81 nps 1 pv e1g1 e8c8 f1e1 event id-loop-end
+! r . . . k b n r    
+x x . b x . x x    
+n q x . . . . .    
+. . . x P x . .    
+. . . P . . . .    M: -734 -2028 176 490 176 490 176 490 221 573 1 1
+. . N B . N . .    cw: 16  cb: 16  ote: 0
+P P P . . P P P    phk: bb4ff506b8304133
+R . B Q K . . R <  mhk: cd10447d77ea0867
+
+! e5e6   c1f4   c1g5   e1g1   c1h6   c1e3  
+c1d2   c3d5   d3c4   d3b5   d1d2   d1e2  
+a1b1   h1g1   h2h4   h2h3   b2b4   b2b3  
+g2g4   g2g3   a2a4   a2a3   c3e4   h1f1  
+d3e2   d3e4   d3f5   d3a6   e1f1   c3b5  
+c3e2   f3d2   f3g5   d3f1   c3a4   c3b1  
+f3g1   f3h4   e1e2   e1d2  
+! bestmove e1g1
+? quit
+

@@ -20,30 +20,37 @@ public class Search6
     public static void main(String[] args) 
     {
         //
-        Moves.init();
+        DEBUG_SHOW_MOVE_WEIGHT = true;
+        
+        //
+        Krudo.init();
         
         // create a node to service the search
         Node n = new Node();
         
         //
-        n.startpos();
-
-        //
-        n.domove("e2e4 g8f6 e4e5 f6g8 g1f3 b8c6 b1c3 d7d6 e5d6 c7d6 f1c4 c8e6 c4e2 d8d7 e1g1 e8c8 d2d4 e6g4 c1f4 g8f6 f1e1 d7f5 d1d2 e7e5".split("\\s"));
+        n.startpos("8/7p/5k2/5p2/p1p2P2/Pr1pPK2/1P1R3P/8 b");
         
+                
         //
         dump(n);
         
         // create a serach engine based-on the node
         Search s = new Search(n);
      
+        n.legals();
+               
+        
+        dump(n.legals.sort());
+        
         //
         try {
-            s.start(10, 5000);
+            s.start(14, 5000000);
         } catch (Exception e) {
             dump(n);        
-            dump(n.L);     
-            dump(n.legals());     
+            dump(n.L);   
+            n.legals();
+            dump(n.legals);     
             e.printStackTrace();            
         }
     }    

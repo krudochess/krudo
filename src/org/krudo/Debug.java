@@ -40,99 +40,27 @@ public final class Debug
 
     //
     public static int count_incheck = 0;
-    
-    /*
-	//
-	public final static void dump(int d, Move m)
-    {		
-		//
-		String l = d + " " + m.i + " ";
-		
-		//
-		for (int i = 0; i < m.i; i++)
-        {
-			l += " "+ m2s(m.s[i], m.v[i], m.k[i]);
-		}	
-		
-		//
-		echo(l);
-	}
-    */
-//
-	public final static void dump(PV pv) 
-    {		
-        //        
-        print(desc(pv));
-	}
-
+        
+    //
+	public final static void dump(final PV pv) { print(desc(pv)); }
     
 	//
-	public final static void dump(Line l) 
-    {		
-        //        
-        print(desc(l));
-	}
+	public final static void dump(final Line l) { print(desc(l)); }
 
 	// 
-	public final static void dump(Move m) 
-    {					
-		//
-		print(desc(m));
-	}
+	public final static void dump(final Move m) { print(desc(m)); }
 	
     // 
-	public final static void dump(Capture m) 
-    {					
-		//
-		print(desc(m));
-	}
+	public final static void dump(final Capture m) { print(desc(m)); }
+			
+	//
+	public final static void dump(final Node n) { print(desc(n)); }
 	
 	//
-	public final static void dump(Move[] pv) 
-    {		
-        //
-		for (int j=0; j<pv.length; j++) 
-        {
-			Move m = pv[j];
-			String d = "";
-			String s = "";
-			for(int i=0;i<m.i;i++) {
-				d += s + m2s(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")" ;
-				s = i%10==9 ? "\n" : " ";
-			}	
-			echo("("+j+")",d);
-		}
-	}
+	public final static void dump(final Node n, final Move m) {	print(desc(n, m)); }
 	
 	//
-	public final static void dump(Move m, int i) 
-    {		
-        //
-        echo(m2s(m.s[i],m.v[i],m.k[i])+" ("+k2s(m.k[i])+m.w[i]+")");		
-	}
-
-	//
-	public final static void dump(Node n) 
-    {
-        //
-        print(desc(n));
-	}
-	
-	//
-	public final static void dump(
-		final Node n,
-		final Move m	
-	) {						
-		print(desc(n, m));
-	}
-	
-	//
-	public final static void dump(
-		final Move m,	
-		final Node n
-	) {						
-		print(desc(m, n));
-	}
+	public final static void dump(final Move m,	final Node n) { print(desc(m, n)); }
 		
 	//
 	public final static void dump(

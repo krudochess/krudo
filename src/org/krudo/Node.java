@@ -547,50 +547,40 @@ public final class Node
         // loop throut pseudo-legal
         for (int i = 0; i != l; i++) 
         {   
-            /*
+            //
+            final int s = legals.s[i];
+            
             //
             final int v = legals.v[i];
             
-            //
-            if (legals.c && v != wks && STEP[v][wks] == 0) { continue; } 
-            
-            //
-            final int s = legals.s[i];
-                        
-            //
-            if (!legals.c && s != wks)
-            
+            // king under attack
+            if (legals.c)
             {
-                if (STEP[legals.s[i]][wks] == 0) 
+                // try to move a piece that non protect king
+                if (v != wks && LINK[v][wks] == 0) { continue; }                         
+            }
+            
+            // king safety           
+            else 
+            {
+                // move piece that not unsafe the king secure legal
+                if (s != wks && LINK[s][wks] == 0) 
                 {
                     //
-                    legals.copy(i, j); 
-
+                    legals.copy(i, j); j++; continue;
+                }
+                
+                // 
+                if (legals.k[i] == cast) 
+                {
                     //
-                    j++; 
+                    if (white_castling(v)) { legals.copy(i, j); j++; }             
 
                     //
                     continue;
                 }
             }
-            
-            //
-            else                             
-            {
-                if () { continue; }                               
-            } 
-            */
-                                
-            //
-            if (legals.k[i] == cast) 
-            {
-                //
-                if (white_castling(legals.v[i])) { legals.copy(i, j); j++; }             
-                
-                //
-                continue;
-            }
-            
+                                                        
             //
             domove(i);
 
@@ -618,58 +608,60 @@ public final class Node
         if (!MOVE_LEGALS) { return; }
     
         // legal move index
-        int l = 0;
+        int j = 0;
         
         // prepare "j" loop cursor
-        final int p = legals.i; 
+        final int l = legals.i; 
             
         // loop throut pseudo-legal moves
-        for (int i = 0; i != p; i++) 
+        for (int i = 0; i != l; i++) 
         {     
-            /*
             //
-            if (STEP[legals.s[i]][bks] == 0) 
-            {
-                //
-                legals.copy(i, l); 
-                
-                //
-                l++; 
+            final int s = legals.s[i];
             
-                //
-                continue;
+            //
+            final int v = legals.v[i];
+            
+            // king under attack
+            if (legals.c)
+            {
+                // try to move a piece that non protect king
+                if (s != bks && LINK[v][bks] == 0) { continue; }                         
             }
-            */
             
-            //
-            if (legals.k[i] == cast) 
+            // king safety           
+            else 
             {
-                //
-                if (black_castling(legals.v[i])) 
-                { 
-                    //
-                    legals.copy(i, l); 
-                    
-                    //
-                    l++;
+                // move piece that not unsafe the king secure legal
+                if (s != bks && LINK[s][bks] == 0) 
+                {
+                    // confirm and next
+                    legals.copy(i, j); j++; continue;
                 }
-                
+                            
                 //
-                continue;
-            }             
+                if (legals.k[i] == cast) 
+                {
+                    // 
+                    if (black_castling(v)) { legals.copy(i, j); j++; }
+
+                    //
+                    continue;
+                }
+            }
                         
             //
             domove(i);
 
             //
-            if (!white_attack(bks)) { legals.copy(i, l); l++; }
+            if (!white_attack(bks)) { legals.copy(i, j); j++; }
 
             //
             unmove();            
         }
         
         //
-        legals.i = l;
+        legals.i = j;
     }                        
         
     //
@@ -677,12 +669,10 @@ public final class Node
     {   
         //
         boolean castling = v == g1
-             ?! black_attack(e1)
+             ?! black_attack(g1)
             &&! black_attack(f1)
-            &&! black_attack(g1)                
-             :! black_attack(e1)
-            &&! black_attack(d1)
-            &&! black_attack(c1);    
+             :! black_attack(c1)
+            &&! black_attack(d1);    
                 
         //        
         return castling;
@@ -693,12 +683,10 @@ public final class Node
     {        
         //
         boolean castling = v == g8
-             ?! white_attack(e8)
+             ?! white_attack(g8)
             &&! white_attack(f8)
-            &&! white_attack(g8)                
-             :! white_attack(e8)
-            &&! white_attack(d8)
-            &&! white_attack(c8); 
+             :! white_attack(c8)
+            &&! white_attack(d8); 
         
         //        
         return castling;    

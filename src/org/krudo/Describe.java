@@ -22,6 +22,71 @@ import static org.krudo.Decode.*;
  */
 public class Describe
 {
+    //
+    public final static String algebric(Node n, String m)
+    {
+        //
+        String a = "";
+        
+        // parse move parts and retrieve s,v,k
+        int s = s2i(m.substring(0, 2));
+        int v = s2i(m.substring(2, 4));
+        int k = k2i(m, n.B[s], s, v, n.B[v], n.t);  
+        int x = n.B[s];  
+        
+        // castling move
+        if (k == cast)            
+        {
+            // fix book castling move
+            switch (v)
+            {
+                case a1: v = c1; break;  
+                case a8: v = c8; break;  
+                case h1: v = g1; break;  
+                case h8: v = g8; break;  
+            }
+            
+            //
+            if (v == c1 || v == c8) { a = "O-O-O"; }
+            
+            //
+            if (v == g1 || v == g8) { a = "O-O"; }            
+        }
+        
+        // figurine
+        else if (n.B[s] != wp && n.B[s] != bp)
+        {
+            a = f2s(n.B[s]);
+        }
+                 
+        //
+        if (n.B[v] != O) 
+        {
+            a += "x";
+        }
+        
+        //
+        a += s2s(v);
+        
+        //
+        n.domove(m);
+        
+        //
+        n.legals();
+        
+        //
+        if (n.legals.c) 
+        {
+            a += "+";        
+        }
+        
+        //
+        n.unmove();
+                
+        //
+        return a;
+    }
+        
 	//
 	public final static String desc(
 		final Move m, 		
