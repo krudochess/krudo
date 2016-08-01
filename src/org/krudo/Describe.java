@@ -16,10 +16,7 @@ import static org.krudo.Tool.*;
 import static org.krudo.Encode.*;
 import static org.krudo.Decode.*;
 
-/**
- *
- * @author cicciodarkast
- */
+//
 public class Describe
 {
     //
@@ -56,12 +53,21 @@ public class Describe
         // figurine
         else if (n.B[s] != wp && n.B[s] != bp)
         {
+            //
             a = f2s(n.B[s]);
         }
                  
         //
         if (n.B[v] != O) 
         {
+            //
+            if (n.B[s] == wp || n.B[s] == bp)
+            {
+                //
+                a += ""+(char)('a'+s%8);
+            }
+            
+            //
             a += "x";
         }
         

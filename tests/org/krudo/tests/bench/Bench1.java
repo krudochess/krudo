@@ -34,15 +34,16 @@ public class Bench1
             for (int n=0; n<300; n++)
             {
                 //
-                l.store(
-                    n, 
+                l.store(           
                     rand(),
                     rand(),
                     rand(),
                     rand(),
                     rand(),
                     rand(),
-                    rand() 
+                    rand(),
+                    rand(),
+                    rand()         
                 );
 
                 //
@@ -52,15 +53,16 @@ public class Bench1
                     for (int j=0; j<300; j++) 
                     {
                         //
-                        l.store(
-                            j, 
+                        l.store(                         
                             l.p[i],
                             l.s[i],
                             l.v[i],
                             l.x[i],
                             l.k[i],
                             l.e[i],
-                            l.c[i] 
+                            l.c[i],
+                            l.phk[i],
+                            l.mhk[i]
                         );
 
                         //
@@ -75,15 +77,16 @@ public class Bench1
                     for (int j=0; j<300; j++) 
                     {
                         //
-                        l.store(
-                            j, 
+                        l.store(                   
                             l.p[i],
                             l.s[i],
                             l.v[i],
                             l.x[i],
                             l.k[i],
                             l.e[i],
-                            l.c[i] 
+                            l.c[i],
+                            l.phk[i],
+                            l.mhk[i]
                         );
 
                         //

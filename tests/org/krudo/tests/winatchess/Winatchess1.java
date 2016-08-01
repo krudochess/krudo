@@ -51,7 +51,7 @@ public class Winatchess1
         int p = 0;
         
         //
-        int h = 4;
+        int h = 0;
         
         //
         int l = epd.length;
@@ -59,7 +59,7 @@ public class Winatchess1
         //l = 1;
         
         //
-        for (int i = 0; i < l; i++)
+        for (int i = 43; i < l; i++)
         {            
             //
             t.start();
@@ -85,25 +85,36 @@ public class Winatchess1
             //
             if (row[2].equals(bm)) 
             { 
-                p ++;
+                //
+                p++;
+                
+                //
                 print(row[0]+":", row[2], "==", bm, "  ("+(t.delta()/1000)+" sec.)");                                    
             }
             
             //
             else
             {
+                //
                 print(row[0]+":", row[2], "!=", bm); 
                 
+                //
                 h--;
                 
-                if (h < 0) {   
+                //
+                if (h < 0) 
+                {
+                    //
+                    DEBUG_SHOW_MOVE_WEIGHT = true;
                     dump(n);
+                    n.legals();
+                    dump(n.legals);
                     exit();
                 }
             }
         }        
         
-        print ("Result:", p+"/"+l);
-
+        //
+        print("Result:", p+"/"+l);
     }    
 }
