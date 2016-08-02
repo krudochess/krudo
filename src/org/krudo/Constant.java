@@ -37,7 +37,7 @@ public final class Constant
 
     // special constant for "k"
     public final static int
-    move = 0b0__000001__000000000000, // normal move    
+    MOVE = 0b0__000001__000000000000, // normal move    
     ksca = 0b0__000011__000000000000, // king side castling move
     qsca = 0b0__000101__000000000000, // queen side castling move
     pdmo = 0b0__001001__000000000000, // pawn double move
@@ -56,13 +56,21 @@ public final class Constant
     
     // castling flags "c values"
     public final static int 
-    wkc = 1, wqc = 2, wca = wkc | wqc,
-    bkc = 4, bqc = 8, bca = bkc | bqc;
+    WKCA = 0b0__0001, 
+    WQCA = 0b0__0010, 
+    WCKF = 0b0__00000110, 
+    WCLF = 0b0__00001000, 
+    WCRF = 0b0__00000001, 
+    BKCA = 0b0__00110000, 
+    BQCA = 0b0__11000000, 
+    BCKF = 0b0__01100000, 
+    BCLF = 0b0__10000000, 
+    BCRF = 0b0__00010000;
     
     // kind of moves
     public final static int 
-    kmov = move | K,
-    rmov = move | R,
+    kmov = MOVE | K,
+    rmov = MOVE | R,
     wqpm = prom | wq, 
     wrpm = prom | wr,
     wbpm = prom | wb,            
@@ -88,20 +96,20 @@ public final class Constant
 
     // cardinals for span smapims 
     public final static int 
-    nw = 7, nn = 1, ne = 6,
+    nw = 7, nn = 1, NE = 6,
     ww = 3,         ee = 2,
     sw = 4, ss = 0, se = 5;
                 
     // smapims for span
-    public final static int[][] span = { 
+    public final static int[][] SPAN = { 
         /*a1:*/{xx, a2, b1, xx, xx, xx, b2, xx}, 
         /*b1:*/{xx, b2, c1, a1, xx, xx, c2, a2}, 
         /*c1:*/{xx, c2, d1, b1, xx, xx, d2, b2}, 
         /*d1:*/{xx, d2, e1, c1, xx, xx, e2, c2}, 
         /*e1:*/{xx, e2, f1, d1, xx, xx, f2, d2}, 
         /*f1:*/{xx, f2, g1, e1, xx, xx, g2, e2}, 
-        /*g1:*/{xx, g2, h1,f1,xx,xx,h2,f2},
-        /*h1:*/{xx,h2,xx,g1,xx,xx,xx,g2},
+        /*g1:*/{xx, g2, h1, f1,xx,xx,h2,f2},
+        /*h1:*/{xx, h2, xx, g1,xx,xx,xx,g2},
         /*a2:*/{a1,a3,b2,xx,xx,b1,b3,xx},
         /*b2:*/{b1,b3,c2,a2,a1,c1,c3,a3},
         /*c2:*/{c1,c3,d2,b2,b1,d1,d3,b3},
@@ -161,7 +169,7 @@ public final class Constant
     };
 
     // smapims for hope
-    public final static int[][] hope = { 
+    public final static int[][] HOPE = { 
         /*a1:*/{b3,c2,xx,xx,xx,xx,xx,xx},
         /*b1:*/{a3,c3,d2,xx,xx,xx,xx,xx},
         /*c1:*/{a2,b3,d3,e2,xx,xx,xx,xx},
@@ -228,6 +236,7 @@ public final class Constant
         /*h8:*/{f7,g6,xx,xx,xx,xx,xx,xx},
     };
       
+    //
     public final static int[][] LINK = new int[][] {
         /*a1:*/{1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,},
         /*b1:*/{1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,},

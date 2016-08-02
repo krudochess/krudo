@@ -219,14 +219,14 @@ public final class Zobrist
 	
 	//
 	private static final long 
-	HASH_WKC  = 0x31D71DCE64B2C310L, 
-	hash_wqc  = 0xF165B587DF898190L,
-	hash_bkc  = 0xA57E6339DD2CF3A0L, 
-	hash_bqc  = 0x1EF6E6DBB1961EC9L, 
+	HASH_WKCA  = 0x31D71DCE64B2C310L, 
+	HASH_WQCA  = 0xF165B587DF898190L,
+	HASH_BKCA  = 0xA57E6339DD2CF3A0L, 
+	HASH_BQCA  = 0x1EF6E6DBB1961EC9L, 
 	HASH_TURN = 0xF8D626AAAF278509L; 
 	
 	// hashing function 
-	public static final void hash(final Node n) 
+	public static final void hash0(final Node n) 
     {			
 		//
 		long phk = 0;
@@ -240,19 +240,19 @@ public final class Zobrist
 		}     
 				
 		// hash white king-side castling
-		if ((n.c & wkc) == 0) { phk ^= HASH_WKC; }
+		if ((n.c & WKCA) == 0) { phk ^= HASH_WKCA; }
 		
 		// hash white queen-side castling
-		if ((n.c & wqc) == 0) { phk ^= hash_wqc; }
+		if ((n.c & WQCA) == 0) { phk ^= HASH_WQCA; }
 		
 		// hash black king-side castling
-		if ((n.c & bkc) == 0) { phk ^= hash_bkc; }
+		if ((n.c & BKCA) == 0) { phk ^= HASH_BKCA; }
 		
 		// hash black queen-side castling 			
-		if ((n.c & bqc) == 0) { phk ^= hash_bqc; }
+		if ((n.c & BQCA) == 0) { phk ^= HASH_BQCA; }
 						
 		// hash potential en-passnt 
-        if (enpassant(n)) { phk ^= HASH[ENPASSANT + n.e % 8]; }
+        if (enpassant(n)) { phk ^= HASH[ENPASSANT + n.es % 8]; }
                 
 		// apply hash for side-color to play (turn)
 		if (n.t == w) { phk ^= HASH_TURN; }
@@ -280,7 +280,7 @@ public final class Zobrist
     public static final boolean enpassant(Node n) 
     {
         //
-        if (n.e == xx) { return false; } 
+        if (n.es == xx) { return false; } 
         
         //
         int u;        
@@ -289,7 +289,7 @@ public final class Zobrist
         if (n.t == w) 
         {
             //
-			u = span[n.e][se];
+			u = SPAN[n.es][se];
             
             //
             if (u != xx && n.B[u] == wp) 
@@ -298,7 +298,7 @@ public final class Zobrist
             } 
             
             //
-            u = span[n.e][sw];
+            u = SPAN[n.es][sw];
             
             //
             if (u != xx && n.B[u] == wp) 
@@ -311,7 +311,7 @@ public final class Zobrist
         else 
         {
             //
-            u = span[n.e][ne];
+            u = SPAN[n.es][NE];
             
             //
 			if (u != xx && n.B[u] == bp) 
@@ -320,7 +320,7 @@ public final class Zobrist
 			} 
             
             //
-            u = span[n.e][nw];
+            u = SPAN[n.es][nw];
             
             //
             if (u != xx && n.B[u] == bp) 
@@ -334,53 +334,71 @@ public final class Zobrist
     }
     
     // hashing function 
-	public static final void hash_step1(Node n)  
-    {        
+	public static final void hash1(
+        final Node n, 
+        final int p, 
+        final int s,
+        final int v
+    ) {       
+        // remove piece from start square
+        n.phk ^= HASH[p & hi | s];
+        
+        // place piece in versus square
+        n.phk ^= HASH[p & hi | v];
+        
+        // swap side-to-move
+        n.phk ^= HASH_TURN;
+        
+        // if precedent possible enpassant remove it
+        if (n.ep != xx) { n.phk ^= HASH[ENPASSANT + n.es % 8]; }
+        
+        /* 
         // hash white king-side castling
-		if ((n.c & wkc) == 0) { n.phk ^= HASH_WKC; }
+		if ((n.c & WKCA) == 0) { n.phk ^= HASH_WKCA; }
 		
 		// hash white queen-side castling
-		if ((n.c & wqc) == 0) { n.phk ^= hash_wqc; }
+		if ((n.c & WQCA) == 0) { n.phk ^= HASH_WQCA; }
 		
 		// hash black king-side castling
-		if ((n.c & bkc) == 0) { n.phk ^= hash_bkc; }
+		if ((n.c & BKCA) == 0) { n.phk ^= HASH_BKCA; }
 		
 		// hash black queen-side castling 			
-		if ((n.c & bqc) == 0) { n.phk ^= hash_bqc; }
+		if ((n.c & BQCA) == 0) { n.phk ^= HASH_BQCA; }
 
         //
         if (enpassant(n)) { n.phk ^= HASH[ENPASSANT + n.e % 8]; }
+*/
     }	
     
     // hashing function 
-	public static final void hash_step2(Node n, int p, int s, int v, int x, int k)  
+	public static final void hash2(Node n, int v, int x)  
     {                
-        //
-        n.phk ^= HASH[p & hi | s];
+        
 
         //
-        if (x != O) { n.phk ^= HASH[x & hi | v]; }        
+         n.phk ^= HASH[x & hi | v]; }        
 
-        //
-        n.phk ^= HASH[p & hi | v];
+        
+        
+        
         
         //
-        n.phk ^= HASH_TURN;
+       
 
         // hash white king-side castling
-		if ((n.c & wkc) == 0) { n.phk ^= HASH_WKC; }
+		if ((n.c & WKCA) == 0) { n.phk ^= HASH_WKCA; }
 		
 		// hash white queen-side castling
-		if ((n.c & wqc) == 0) { n.phk ^= hash_wqc; }
+		if ((n.c & WQCA) == 0) { n.phk ^= HASH_WQCA; }
 		
 		// hash black king-side castling
-		if ((n.c & bkc) == 0) { n.phk ^= hash_bkc; }
+		if ((n.c & BKCA) == 0) { n.phk ^= HASH_BKCA; }
 		
 		// hash black queen-side castling 			
-		if ((n.c & bqc) == 0) { n.phk ^= hash_bqc; }
+		if ((n.c & BQCA) == 0) { n.phk ^= HASH_BQCA; }
 
         //
-        if (enpassant(n)) { n.phk ^= HASH[ENPASSANT + n.e % 8]; }
+        if (enpassant(n)) { n.phk ^= HASH[ENPASSANT + n.es % 8]; }
         
         //
         if (k == ecap) 

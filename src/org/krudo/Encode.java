@@ -39,7 +39,7 @@ public final class Encode {
 				case 'r': return t==w ? wrpm : brpm;
 				case 'b': return t==w ? wbpm : bbpm;
 				case 'n': return t==w ? wnpm : bnpm;
-				default: return move;
+				default: return MOVE;
 			}				
 		} else if (p == wk && s == e1 && (v == g1 || v == h1)) {
 			return cast;
@@ -64,7 +64,7 @@ public final class Encode {
 		} else if (p == bp && s/8==3 && x==0 && ((s-v)==9 || (s-v)==7)) {
 			return ecap;		
 		} else {
-			return move;
+			return MOVE;
 		}	
 	}
 }

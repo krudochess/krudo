@@ -12,7 +12,7 @@ import org.krudo.*;
 //
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
-import static org.krudo.Zobrist.hash;
+import static org.krudo.Zobrist.hash0;
 
 // 
 public class Zobrist1 
@@ -70,7 +70,7 @@ public class Zobrist1
             n.startpos(tests[i]);        
             
             //
-            hash(n);
+            hash0(n);
             
             //
             //dump(n);

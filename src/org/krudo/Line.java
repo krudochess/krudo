@@ -20,8 +20,12 @@ public final class Line
     v, // versus square
     x, // captured piece
     k, // kind-of-move
-    e, // en-passant square
     c; // castling status
+    
+    //
+    public final int[] 
+    es, // en-passant square
+    ep;
     
     //
     public final long[]
@@ -40,8 +44,11 @@ public final class Line
         v = new int[MAX];
         x = new int[MAX];
         k = new int[MAX];
-        e = new int[MAX];    
         c = new int[MAX]; 
+        
+        //
+        es = new int[MAX];    
+        ep = new int[MAX];    
         
         //
         phk = new long[MAX];
@@ -58,8 +65,9 @@ public final class Line
         final int v0, 
         final int x0, 
         final int k0, 
-        final int e0, 
         final int c0,
+        final int es0, 
+        final int ep0, 
         final long phk0,
         final long mhk0
     ) {
@@ -69,8 +77,11 @@ public final class Line
         v[i] = v0;
         x[i] = x0;
         k[i] = k0;
-        e[i] = e0;
         c[i] = c0;   
+        
+        //
+        es[i] = es0;
+        ep[i] = ep0;
         
         //
         phk[i] = phk0;   

@@ -27,8 +27,9 @@ public final class Node
     
     // node status  
     public int t; // turn (side to move)
-    public int e; // possible en-passant capture square
     public int c; // castling status (negative logic)
+    public int es; // possible en-passant capture square
+    public int ep; // possible en-passant start square for pawn that capture
     
     // moves history line
     public final Line L = new Line();
@@ -133,7 +134,7 @@ public final class Node
         Fen.parse(this, STARTPOS); 
         
         //
-        hash(this);
+        hash0(this);
     }
     
     // restore node to position passed in FEN
@@ -143,7 +144,7 @@ public final class Node
         Fen.parse(this, fen); 
         
         //
-        hash(this);
+        hash0(this);
     }
     
     // do-play a moves sequence passed by array
@@ -252,10 +253,10 @@ public final class Node
         final int x = B[v];        
         
         // store status into history line
-        L.store(p, s, v, x, k, e, c, phk, mhk);
+        L.store(p, s, v, x, k, c, es, ep, phk, mhk);
         
-        //
-        hash_step1(this);
+        // hash base movement and clear precent enpassant
+        hash1(this, p, s, v);
         
         // set zero leaved square
         B[s] = O; 
@@ -263,12 +264,21 @@ public final class Node
         // place moved piece into versus square
         B[v] = p;
                 
-        // set zero en-passant square
-        e = xx;
+        // clear en-passant square
+        es = xx;
+        
+        // claer en-passant square pawn
+        ep = xx;
+        
+        //
+        t ^= T;
         
         // decrease piece counter
         if (x != O) 
         {
+            // hash captured piece
+            hash2(this, v, x);
+            
             //
             M[x & lo]--;
             
@@ -278,27 +288,13 @@ public final class Node
             //
             if (t == w) { cb--; } else { cw--; }
         }
-        
-        //
-        hash_step2(this, p, s, v, x, k);
-                                        
+                                      
         // for special moves handle move rules
-        if (k != move) if (t == w) 
-        {  
-            white_domove(s, v, k); 
-        }
-        
-        //
-        else 
-        { 
-            black_domove(s, v, k); 
-        }        
-        
-        // swap turn side
-        t ^= T;
-        
-       
-        
+        if (k == MOVE) { return; }
+            
+        // turn already swapped inversion of color consider
+        if (t == b) { white_domove(s, v, k); } else { black_domove(s, v, k); }        
+         
         //
         //Debug.assertPieceCount(this);
     }
@@ -312,37 +308,28 @@ public final class Node
         // fix specific status
         switch (k) 
         {                   
-            // 
-            case pdmo: e = s + 8; return;            
+            // set enpassant square and possible pawn square that caputre if have one
+            case pdmo: 
+                
+                es = s + 8; ep = domove_enpassant(); return;            
             
-            //
+            // perform enpassant capture
             case ecap: cb--; B[v - 8] = O; M[bp & lo]--; return;                  
             
             // update white king square and castling    
-            case kmov: wks = v; c |= wca; return;                    
+            case kmov: wks = v; c |= WCKF; return;                    
             
             // handle castling status and rook bonus movement    
-            case cast: 
-                if (v == g1) 
-                {
-                    B[f1] = wr; B[h1] = O; c |= wca; wks = g1;
-                } 
+            case ksca: B[f1] = wr; B[h1] = O; c |= WCKF; wks = g1; break;
                 
-                else {
-                    B[d1] = wr; B[a1] = O; c |= wca; wks = c1;
-                }                  
-                return;                                         
-            
-            // disable opportune castling ability    
-            case rmov: c |= s == h1 ? wkc : wqc; return;                             
+            // perform queen side castling    
+            case qsca: B[d1] = wr; B[a1] = O; c |= WCKF; wks = c1; break;
+               
+            // disable opportunity of castling ability    
+            case rmov: c |= s == h1 ? WKCA : WQCA; return;                             
             
             // by default promote piece
-            default:
-                B[v] = k & pi;
-                M[wp & lo]--;
-                M[k & pi & lo]++;
-                hash_step3(this, v, wp, k & pi);
-                    
+            default: B[v] = k & pi; M[wp & lo]--; M[k & pi & lo]++; hash_step3(this, v, wp, k & pi);
         }                                    
     }
     
@@ -356,7 +343,7 @@ public final class Node
         switch (k) 
         {      
             // set en-passant square
-            case pdmo: e = s - 8; return;            
+            case pdmo: es = s - 8; return;            
             
             // performe en-passant capture
             case ecap: cw--; B[v + 8] = 0; M[wp & lo]--; return;          
@@ -417,7 +404,7 @@ public final class Node
         mhk = L.mhk[i];
         
         // retrieve previsour en-passant square
-        e = L.e[i];
+        es = L.e[i];
         
         // retrieve previsour castling status
         c = L.c[i];
@@ -445,7 +432,7 @@ public final class Node
         }
         
         //
-        if (k == move) { return; }
+        if (k == MOVE) { return; }
         
         //
         if (t == w) { white_unmove(s, v, k); } 
@@ -744,16 +731,16 @@ public final class Node
                 case wp: white_pawn_pseudo(s); break;                                        
                 
                 // white rook
-                case wr: sliding_pseudo(s, 0, 4, s == a1 || s == a8 ? rmov : move); break;                        
+                case wr: sliding_pseudo(s, 0, 4, s == a1 || s == a8 ? rmov : MOVE); break;                        
                 
                 // white knight    
                 case wn: knight_pseudo(s); break;                        
                 
                 // white bishop    
-                case wb: sliding_pseudo(s, 4, 8, move); break;                                                                
+                case wb: sliding_pseudo(s, 4, 8, MOVE); break;                                                                
                 
                 // white queen
-                case wq: sliding_pseudo(s, 0, 8, move); break;
+                case wq: sliding_pseudo(s, 0, 8, MOVE); break;
                 
                 // white king    
                 case wk: white_king_pseudo(s); break;
@@ -798,16 +785,16 @@ public final class Node
                 case bp: black_pawn_pseudo(s); break;                                             
                 
                 // add sliding piece rook moves
-                case br: sliding_pseudo(s, 0, 4, s == a8 || s == h8 ? rmov : move); break;
+                case br: sliding_pseudo(s, 0, 4, s == a8 || s == h8 ? rmov : MOVE); break;
                 
                 // add kngiht moves
                 case bn: knight_pseudo(s); break;                                
                 
                 // add sliding piece bishop moves
-                case bb: sliding_pseudo(s, 4, 8, move); break;
+                case bb: sliding_pseudo(s, 4, 8, MOVE); break;
                 
                 // add sliding piece queen moves     
-                case bq: sliding_pseudo(s, 0, 8, move); break;
+                case bq: sliding_pseudo(s, 0, 8, MOVE); break;
                 
                 // add kings moves and castling
                 case bk: black_king_pseudo(s); break;    
@@ -834,13 +821,13 @@ public final class Node
         if (M[wp & lo] != 0) 
         {
             //
-            v = span[s][se];
+            v = SPAN[s][se];
 
             // test 
             if (v != xx && B[v] == wp) { return true; }
 
             //
-            v = span[s][sw];
+            v = SPAN[s][sw];
 
             //
             if (v != xx && B[v] == wp) { return true; }
@@ -850,7 +837,7 @@ public final class Node
         if (M[wn & lo] != 0) for (int i = 0; i < 8; i++) 
         {            
             // get versus square
-            v = hope[s][i];            
+            v = HOPE[s][i];            
             
             // skip found out-of-board
             if (v == xx) { break; }
@@ -863,7 +850,7 @@ public final class Node
         if (M[wb & lo] != 0) for (int i = 4; i < 8; i++) 
         {        
             // versus square
-            v = span[s][i];
+            v = SPAN[s][i];
         
             //
             while (v != xx) 
@@ -872,7 +859,7 @@ public final class Node
                 switch (B[v]) 
                 {
                     //
-                    case O: v = span[v][i]; continue;
+                    case O: v = SPAN[v][i]; continue;
                     
                     //
                     case wb: return true;
@@ -887,7 +874,7 @@ public final class Node
         if (M[wr & lo] != 0) for (int i = 0; i < 4; i++) 
         {        
             // versus square
-            v = span[s][i];
+            v = SPAN[s][i];
         
             //
             while (v != xx) 
@@ -896,7 +883,7 @@ public final class Node
                 switch (B[v]) 
                 {
                     //
-                    case O: v = span[v][i]; continue;
+                    case O: v = SPAN[v][i]; continue;
                     
                     //
                     case wr: return true;              
@@ -911,7 +898,7 @@ public final class Node
         if (M[wq & lo] != 0) for (int i = 0; i < 8; i++) 
         {        
             // versus square
-            v = span[s][i];
+            v = SPAN[s][i];
         
             //
             while (v != xx) 
@@ -920,7 +907,7 @@ public final class Node
                 switch (B[v]) 
                 {
                     //
-                    case O: v = span[v][i]; continue;
+                    case O: v = SPAN[v][i]; continue;
                     
                     //
                     case wq: return true;              
@@ -935,7 +922,7 @@ public final class Node
         for (int i = 0; i < 8; i++) 
         {            
             // get versus square
-            v = span[s][i];            
+            v = SPAN[s][i];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -958,13 +945,13 @@ public final class Node
         if (M[bp & lo] != 0) 
         { 
             //
-            v = span[a][ne];
+            v = SPAN[a][NE];
 
             //
             if (v != xx && B[v] == bp) { return true; }
 
             //
-            v = span[a][nw];
+            v = SPAN[a][nw];
 
             //
             if (v != xx && B[v] == bp) { return true; }
@@ -974,7 +961,7 @@ public final class Node
         if (M[bn & lo] != 0) for (int i = 0; i < 8; i++) 
         {            
             // get versus square
-            v = hope[a][i];            
+            v = HOPE[a][i];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -988,7 +975,7 @@ public final class Node
         if (M[bb & lo] != 0) for (int i = 4; i < 8; i++) 
         {        
             // versus square
-            v = span[a][i];
+            v = SPAN[a][i];
         
             //
             while (v != xx) 
@@ -997,7 +984,7 @@ public final class Node
                 switch (B[v]) 
                 {
                     //
-                    case O: v = span[v][i]; continue;
+                    case O: v = SPAN[v][i]; continue;
                     
                     //
                     case bb: return true;                    
@@ -1012,7 +999,7 @@ public final class Node
         if (M[br & lo] != 0) for (int i = 0; i < 4; i++) 
         {        
             // versus square
-            v = span[a][i];
+            v = SPAN[a][i];
         
             //
             while (v != xx) 
@@ -1021,7 +1008,7 @@ public final class Node
                 switch (B[v]) 
                 {
                     //
-                    case O: v = span[v][i]; continue;
+                    case O: v = SPAN[v][i]; continue;
                     
                     //
                     case br: return true;
@@ -1036,7 +1023,7 @@ public final class Node
         if (M[bq & lo] != 0) for (int i = 0; i < 8; i++) 
         {        
             // versus square
-            v = span[a][i];
+            v = SPAN[a][i];
         
             //
             while (v != xx) 
@@ -1045,7 +1032,7 @@ public final class Node
                 switch (B[v]) 
                 {
                     //
-                    case O: v = span[v][i]; continue;
+                    case O: v = SPAN[v][i]; continue;
                     
                     //
                     case bq: return true;
@@ -1060,7 +1047,7 @@ public final class Node
         for (int i = 0; i < 8; i++) 
         {            
             // get versus square
-            v = span[a][i];            
+            v = SPAN[a][i];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -1193,19 +1180,19 @@ public final class Node
                     if (r != 6) 
                     {
                         //
-                        v = span[s][ne]; 
+                        v = SPAN[s][NE]; 
                         
                         //
-                        if (v != xx && (B[v] & b) == b) { captures.add(s, v, move); }                    
+                        if (v != xx && (B[v] & b) == b) { captures.add(s, v, MOVE); }                    
 
                         //
-                        v = span[s][nw]; 
+                        v = SPAN[s][nw]; 
                         
                         //
                         if (v != xx && (B[v] & b) == b) 
                         {
                             //
-                            captures.add(s, v, move); 
+                            captures.add(s, v, MOVE); 
                         } 
                     }
                     
@@ -1213,7 +1200,7 @@ public final class Node
                     else
                     {                    
                         //
-                        v = span[s][ne]; 
+                        v = SPAN[s][NE]; 
                         
                         //
                         if (v != xx && (B[v] & b) == b) 
@@ -1225,7 +1212,7 @@ public final class Node
                         }                    
 
                         //
-                        v = span[s][nw]; 
+                        v = SPAN[s][nw]; 
                         
                         //
                         if (v != xx && (B[v] & b) == b) 
@@ -1253,8 +1240,8 @@ public final class Node
                 case wn: 
                     for (int i = 0; i < 8; i++) 
                     {
-                        v = hope[s][i];            
-                        if (v != xx && (B[v] & b) == b) { captures.add(s, v, move); }
+                        v = HOPE[s][i];            
+                        if (v != xx && (B[v] & b) == b) { captures.add(s, v, MOVE); }
                     }
                     break;
                 
@@ -1262,7 +1249,7 @@ public final class Node
                 case wk: 
                     for (int i = 0; i < 8; i++) 
                     {
-                        v = span[s][i];            
+                        v = SPAN[s][i];            
                         if (v != xx && (B[v] & b) == b) { captures.add(s, v, kmov); }
                     }
                     break;    
@@ -1327,23 +1314,23 @@ public final class Node
                     if (r != 1) 
                     {
                         //
-                        v = span[s][se]; 
+                        v = SPAN[s][se]; 
                      
                         //
                         if (v != xx && (B[v] & w) == w)
                         {
                             //
-                            captures.add(s, v, move); 
+                            captures.add(s, v, MOVE); 
                         }                    
 
                         //
-                        v = span[s][sw];
+                        v = SPAN[s][sw];
                         
                         //
                         if (v != xx && (B[v] & w) == w) 
                         { 
                             //
-                            captures.add(s, v, move);
+                            captures.add(s, v, MOVE);
                         }                                        
                     }
                     
@@ -1351,7 +1338,7 @@ public final class Node
                     else
                     {
                         //
-                        v = span[s][se]; 
+                        v = SPAN[s][se]; 
                         
                         //
                         if (v != xx && (B[v] & w) == w) 
@@ -1363,7 +1350,7 @@ public final class Node
                         }                    
 
                         //
-                        v = span[s][sw]; 
+                        v = SPAN[s][sw]; 
                         
                         //
                         if (v != xx && (B[v] & w) == w) 
@@ -1383,8 +1370,8 @@ public final class Node
                     for (int i = 0; i < 8; i++) 
                     {
                         //
-                        v = hope[s][i];            
-                        if (v != xx && (B[v] & w) == w) { captures.add(s, v, move); }
+                        v = HOPE[s][i];            
+                        if (v != xx && (B[v] & w) == w) { captures.add(s, v, MOVE); }
                     }
                     
                     //
@@ -1397,7 +1384,7 @@ public final class Node
                     for (int i = 0; i < 8; i++) 
                     {
                         //
-                        v = span[s][i];            
+                        v = SPAN[s][i];            
                         
                         //
                         if (v != xx && (B[v] & w) == w) { captures.add(s, v, kmov); }
@@ -1465,7 +1452,7 @@ public final class Node
         for (int j = x0; j < x1; j++) 
         {        
             // versus square
-            int v = span[s][j];
+            int v = SPAN[s][j];
             
             // while not found out-of-board
             while (v != xx)
@@ -1480,7 +1467,7 @@ public final class Node
                 else { break; }                
                 
                 // next versus-square in same direction
-                v = span[v][j];
+                v = SPAN[v][j];
             }
         }
     }
@@ -1493,7 +1480,7 @@ public final class Node
         for (int j = 0; j < 8; j++) {
             
             // get versus square
-            final int v = hope[s][j];            
+            final int v = HOPE[s][j];            
             
             // skip found out-of-board
             if (v == xx) { return; }
@@ -1502,10 +1489,10 @@ public final class Node
             final int x = B[v];
             
             // if square is empty add to moves
-            if (x == 0) { legals.add(s, v, move); } 
+            if (x == 0) { legals.add(s, v, MOVE); } 
             
             // if empty is occupay by opponent piece add capture
-            else if ((x & T) != t) { legals.add(s, v, move); }
+            else if ((x & T) != t) { legals.add(s, v, MOVE); }
         }
     }
       
@@ -1514,7 +1501,7 @@ public final class Node
         final int s
     ) {                                        
         //
-        int v = span[s][nn];                 
+        int v = SPAN[s][nn];                 
             
         // rank of start square
         final int r = s >> 3;
@@ -1526,7 +1513,7 @@ public final class Node
             if (B[v] == O) 
             {
                 //
-                final int u = span[v][nn];                 
+                final int u = SPAN[v][nn];                 
 
                 //
                 if (r == 1 && B[u] == O) {
@@ -1534,33 +1521,33 @@ public final class Node
                 }
 
                 //
-                legals.add(s, v, move);                
+                legals.add(s, v, MOVE);                
             }    
             
             //
-            v = span[s][ne]; 
+            v = SPAN[s][NE]; 
             
             //
             if (v != xx)
             {
                 //
-                if ((B[v] & b) == b) { legals.add(s, v, move); }
+                if ((B[v] & b) == b) { legals.add(s, v, MOVE); }
 
                 //
-                if (r == 4 && v == e) { legals.add(s, v, ecap); }                    
+                if (r == 4 && v == es) { legals.add(s, v, ecap); }                    
             }            
             
             //
-            v = span[s][nw];
+            v = SPAN[s][nw];
             
             // 
             if (v != xx)  
             {
                 //
-                if ((B[v] & b) == b) { legals.add(s, v, move); }
+                if ((B[v] & b) == b) { legals.add(s, v, MOVE); }
                 
                 //
-                if (r == 4 && v == e) { legals.add(s, v, ecap); }    
+                if (r == 4 && v == es) { legals.add(s, v, ecap); }    
             }                                    
         } 
         
@@ -1577,7 +1564,7 @@ public final class Node
             }
                     
             //
-            v = span[s][ne];             
+            v = SPAN[s][NE];             
             
             //
             if (v != xx && (B[v] & b) == b)
@@ -1589,7 +1576,7 @@ public final class Node
             }
             
             //
-            v = span[s][nw];
+            v = SPAN[s][nw];
             
             //
             if (v != xx && (B[v] & b) == b) 
@@ -1607,7 +1594,7 @@ public final class Node
         final int s
     ) {                    
         //
-        int v = span[s][ss];                 
+        int v = SPAN[s][ss];                 
         
         // get start square rank 
         final int r = s >> 3;
@@ -1619,7 +1606,7 @@ public final class Node
             if (B[v] == 0) 
             {
                 //
-                final int u = span[v][ss];                 
+                final int u = SPAN[v][ss];                 
 
                 //
                 if (r == 6 && B[u] == 0) {                    
@@ -1627,33 +1614,33 @@ public final class Node
                 }
 
                 //
-                legals.add(s, v, move);                
+                legals.add(s, v, MOVE);                
             }    
             
             //
-            v = span[s][se]; 
+            v = SPAN[s][se]; 
             
             //
             if (v != xx) 
             { 
                 //
-                if ((B[v] & w) == w) { legals.add(s, v, move); }
+                if ((B[v] & w) == w) { legals.add(s, v, MOVE); }
 
                 //
-                if (r == 3 && v == e) { legals.add(s, v, ecap); }    
+                if (r == 3 && v == es) { legals.add(s, v, ecap); }    
             } 
                         
             //
-            v = span[s][sw];
+            v = SPAN[s][sw];
             
             //
             if (v != xx)
             {
                 //
-                if ((B[v] & w) == w) { legals.add(s, v, move); }
+                if ((B[v] & w) == w) { legals.add(s, v, MOVE); }
                 
                 //
-                if (r == 3 && v == e) { legals.add(s, v, ecap); }    
+                if (r == 3 && v == es) { legals.add(s, v, ecap); }    
             }                    
         } 
         
@@ -1670,7 +1657,7 @@ public final class Node
             }
             
             // promotion est-capture square
-            v = span[s][se];             
+            v = SPAN[s][se];             
             
             //
             if (v != xx && (B[v] & w) == w)
@@ -1682,7 +1669,7 @@ public final class Node
             }
             
             //
-            v = span[s][sw];
+            v = SPAN[s][sw];
             
             //
             if (v != xx && (B[v] & w) == w) 
@@ -1702,7 +1689,7 @@ public final class Node
         for (int i = 0; i < 8; i++)
         {   
             // get versus square
-            final int v = span[s][i];            
+            final int v = SPAN[s][i];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -1732,7 +1719,7 @@ public final class Node
     private boolean wksc() 
     {    
         //
-        return 0 == (c & wkc)
+        return 0 == (c & WKCA)
             && B[h1] == wr 
             && B[g1] == O 
             && B[f1] == O;
@@ -1742,7 +1729,7 @@ public final class Node
     private boolean wqsc() 
     {       
         //
-        return 0 == (c & wqc) 
+        return 0 == (c & WQCA) 
             && B[a1] == wr 
             && B[d1] == O 
             && B[c1] == O 
@@ -1757,7 +1744,7 @@ public final class Node
         for (int j = 0; j < 8; j++) 
         {
             // get versus square
-            final int v = span[s][j];            
+            final int v = SPAN[s][j];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -1811,16 +1798,16 @@ public final class Node
         for (int i = x0; i < x1; i++) 
         {        
             //
-            int v = span[s][i];
+            int v = SPAN[s][i];
             
             //
             while (v != xx)
             { 
                 //
-                if (B[v] == O) { v = span[v][i]; continue; } 
+                if (B[v] == O) { v = SPAN[v][i]; continue; } 
                 
                 //
-                if ((B[v] & T) != t) { captures.add(s, v, move); } 
+                if ((B[v] & T) != t) { captures.add(s, v, MOVE); } 
                 
                 //
                 break; 

@@ -23,31 +23,31 @@ public final class Fen
 	) {
 		// base status fields
 		n.t	= w; // color-side to play
-		n.c	= 0b1111; // castling status
-		n.e	= xx;
+		n.c	= 0b11111111; // castling status all castling disabled (negative logic)
+		n.es	= xx;
 		n.cw = 0;
 		n.cb = 0;
-        n.ote = 256;
-		n.wks = e1;
-		n.bks = e8;
+        n.ote = 256; // no piece on board ending game status is 256
+		n.wks = xx;
+		n.bks = xx;
 		n.hm = 0;
 		n.n	= 1;
         n.L.i = 0;
         
-        //
+        // clear board matirial 
         for (int p = 0; p < 12; p++) { n.M[p] = 0; }
 		        
-        //
+        // clear board position
         for (int s = 0; s < 64; s++) { n.B[s] = O; }
 					
 		//
 		String[] p = f.split("\\s");
 		
 		//
-		for(int i = 0; i < p.length; i++) 
+		for (int i = 0; i < p.length; i++) 
         {	
 			//
-			switch(i) 
+			switch (i) 
             {					
 				// position
 				case 0: 		
@@ -97,10 +97,10 @@ public final class Fen
                     {					
 						switch (p[i].charAt(i1)) 
                         {
-							case 'K': n.c ^= wkc; break;	
-							case 'Q': n.c ^= wqc; break;
-							case 'k': n.c ^= bkc; break;	
-							case 'q': n.c ^= bqc; break;
+							case 'K': n.c ^= WKCA; break;	
+							case 'Q': n.c ^= WQCA; break;
+							case 'k': n.c ^= BKCA; break;	
+							case 'q': n.c ^= BQCA; break;
 						}
 					}
 					break;					
@@ -109,7 +109,7 @@ public final class Fen
 				case 3:
 					if (p[i].charAt(0) != '-') 
                     {
-						n.e = s2i(""+p[i].charAt(0)+p[i].charAt(1));
+						n.es = s2i(""+p[i].charAt(0)+p[i].charAt(1));
 					}
 					break;					
 					
