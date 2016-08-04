@@ -38,9 +38,9 @@ public final class Constant
     // special constant for "k"
     public final static int
     MOVE = 0b0__000001__000000000000, // normal move    
-    ksca = 0b0__000011__000000000000, // king side castling move
-    qsca = 0b0__000101__000000000000, // queen side castling move
-    pdmo = 0b0__001001__000000000000, // pawn double move
+    KSCA = 0b0__000011__000000000000, // king side castling move
+    QSCA = 0b0__000101__000000000000, // queen side castling move
+    PDMO = 0b0__001001__000000000000, // pawn double move
     ecap = 0b0__010011__000000000000, // en-passant capture move        
     prom = 0b0__100001__000000000000; // promotion move    
             
@@ -69,13 +69,13 @@ public final class Constant
     
     // kind of moves
     public final static int 
-    kmov = MOVE | K,
+    KMOV = MOVE | K,
     rmov = MOVE | R,
-    wqpm = prom | wq, 
+    WQPM = prom | wq, 
     wrpm = prom | wr,
     wbpm = prom | wb,            
     wnpm = prom | wn,
-    bqpm = prom | bq, 
+    BQPM = prom | bq, 
     brpm = prom | br,
     bbpm = prom | bb,            
     bnpm = prom | bn;

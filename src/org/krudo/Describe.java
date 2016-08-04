@@ -26,9 +26,9 @@ public class Describe
         String a = "";
         
         // parse move parts and retrieve s,v,k
-        int s = s2i(m.substring(0, 2));
-        int v = s2i(m.substring(2, 4));
-        int k = k2i(m, n.B[s], s, v, n.B[v], n.t);  
+        int s = Parse.parse_square(m.substring(0, 2));
+        int v = Parse.parse_square(m.substring(2, 4));
+        int k = Parse.parse_kind_of_move(m, n.B[s], s, v, n.B[v], n.t);  
         int x = n.B[s];  
         
         // castling move

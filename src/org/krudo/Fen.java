@@ -109,7 +109,7 @@ public final class Fen
 				case 3:
 					if (p[i].charAt(0) != '-') 
                     {
-						n.es = s2i(""+p[i].charAt(0)+p[i].charAt(1));
+						n.es = Parse.parse_square(""+p[i].charAt(0)+p[i].charAt(1));
 					}
 					break;					
 					

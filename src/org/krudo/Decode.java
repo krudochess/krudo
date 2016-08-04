@@ -109,11 +109,6 @@ public final class Decode
 		}	
 	}
 	
-	//
-	public static final int s2i(String s) 
-    {
-		return cr2i(s.charAt(0), s.charAt(1));
-	}
 	
 	//
 	public static final String i2m(int s,int v) 
@@ -130,8 +125,8 @@ public final class Decode
         //
         switch (k) 
         {
-			case wqpm:
-            case bqpm: piece = "q"; break;
+			case WQPM:
+            case BQPM: piece = "q"; break;
             case wrpm:
             case brpm: piece = "r"; break;
             case wbpm: 
@@ -153,8 +148,8 @@ public final class Decode
         //
         switch (m.k[i]) 
         {
-			case wqpm:
-            case bqpm: piece = "q"; break;
+			case WQPM:
+            case BQPM: piece = "q"; break;
             case wrpm:
             case brpm: piece = "r"; break;
             case wbpm: 
