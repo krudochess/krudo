@@ -7,6 +7,7 @@
 package org.krudo;
  
 // required static classes and methods
+import static org.krudo.Fix.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Parse.*;
 import static org.krudo.Debug.*;
@@ -173,10 +174,10 @@ public final class Node
         // parse move parts and retrieve s,v,k
         int s = parse_square(move.substring(0, 2));
         int v = parse_square(move.substring(2, 4));
-        int k = Parse.parse_kind_of_move(move, B[s], s, v, B[v], t);  
+        int k = parse_kind_of_move(move, B[s], s, v, B[v], t);  
         
         //
-        v = fix_castling_versus_squate(s, k);
+        v = fix_castling_versus_square(s, v, k);
         
         // do-play move apply status changes
         domove(s, v, k);
@@ -292,12 +293,10 @@ public final class Node
         switch (k) 
         {                   
             // set enpassant square and possible pawn square that caputre if have one
-            case PDMO: 
-                
-                es = s + 8; ep = domove_enpassant(); return;            
+            case PDMO: es = s + 8; ep = white_domove_enpassant(); return;            
             
             // perform enpassant capture
-            case ecap: cb--; B[v - 8] = O; M[bp & lo]--; return;                  
+            case ECAP: cb--; B[v - 8] = O; M[bp & lo]--; return;                  
             
             // update white king square and castling    
             case KMOV: wks = v; c |= WCKF; return;                    
@@ -326,10 +325,10 @@ public final class Node
         switch (k) 
         {      
             // set en-passant square
-            case PDMO: es = s - 8; return;            
+            case PDMO: es = s - 8; ep = black_domove_enpassant(); return;            
             
             // performe en-passant capture
-            case ecap: cw--; B[v + 8] = 0; M[wp & lo]--; return;          
+            case ECAP: cw--; B[v + 8] = O; M[wp & lo]--; return;          
             
             // set new king square and lose castling ability
             case KMOV: c |= bca; bks = v; return;                    
@@ -350,6 +349,120 @@ public final class Node
                 M[k & pi & lo]++;
                 hash_step3(this, v, bp, k & pi);                
         }                                    
+    }
+    
+    //
+    private int white_domove_enpassant() 
+    {
+        //
+        if (n.es == xx) { return false; } 
+        
+        //
+        int u;        
+        
+        //
+        if (n.t == w) 
+        {
+            //
+			u = SPAN[n.es][se];
+            
+            //
+            if (u != xx && n.B[u] == wp) 
+            {
+                return true;
+            } 
+            
+            //
+            u = SPAN[n.es][sw];
+            
+            //
+            if (u != xx && n.B[u] == wp) 
+            {
+			    return true;
+            }
+		} 
+        
+        //
+        else 
+        {
+            //
+            u = SPAN[n.es][NE];
+            
+            //
+			if (u != xx && n.B[u] == bp) 
+            {
+				return true;				
+			} 
+            
+            //
+            u = SPAN[n.es][nw];
+            
+            //
+            if (u != xx && n.B[u] == bp) 
+            {
+				return true;
+			}
+		}					
+		        
+        //
+        return false;    
+    }
+    
+    //
+    private int white_domove_enpassant() 
+    {
+        //
+        if (n.es == xx) { return false; } 
+        
+        //
+        int u;        
+        
+        //
+        if (n.t == w) 
+        {
+            //
+			u = SPAN[n.es][se];
+            
+            //
+            if (u != xx && n.B[u] == wp) 
+            {
+                return true;
+            } 
+            
+            //
+            u = SPAN[n.es][sw];
+            
+            //
+            if (u != xx && n.B[u] == wp) 
+            {
+			    return true;
+            }
+		} 
+        
+        //
+        else 
+        {
+            //
+            u = SPAN[n.es][NE];
+            
+            //
+			if (u != xx && n.B[u] == bp) 
+            {
+				return true;				
+			} 
+            
+            //
+            u = SPAN[n.es][nw];
+            
+            //
+            if (u != xx && n.B[u] == bp) 
+            {
+				return true;
+			}
+		}					
+		        
+        //
+        return false;    
     }
     
     // undo move every times
@@ -443,7 +556,7 @@ public final class Node
             case KMOV: wks = s; break;
             
             //
-            case ecap: cb++; B[v - 8] = bp; break;
+            case ECAP: cb++; B[v - 8] = bp; break;
             
             //
             case KSCA: B[h1] = wr; B[f1] = O; break;
@@ -475,7 +588,7 @@ public final class Node
             case KMOV: bks = s; break;
        
             //
-            case ecap: cw++; B[v + 8] = wp; break;
+            case ECAP: cw++; B[v + 8] = wp; break;
         
             //
             case KSCA: B[h8] = br; B[f8] = O; bks = g8; break;
@@ -559,7 +672,7 @@ public final class Node
                 }
                 
                 // 
-                if (legals.k[i] == cast) 
+                if (legals.k[i] == KSCA || legals.k[i] == QSCA) 
                 {
                     //
                     if (white_castling(v)) { legals.copy(i, j); j++; }             
@@ -628,7 +741,7 @@ public final class Node
                 }
                             
                 //
-                if (legals.k[i] == cast) 
+                if (legals.k[i] == KSCA || legals.k[i] == QSCA) 
                 {
                     // 
                     if (black_castling(v)) { legals.copy(i, j); j++; }
@@ -1279,13 +1392,13 @@ public final class Node
             switch (p) 
             {
                 // add sliding piece rook moves
-                case br: spac(captures, s, 0, 4); break;
+                case br: spac(s, 0, 4); break;
                 
                 // add sliding piece bishop moves               
-                case bb: spac(captures, s, 4, 8); break;
+                case bb: spac(s, 4, 8); break;
                 
                 // add sliding piece queen moves                     
-                case bq: spac(captures, s, 0, 8); break;
+                case bq: spac(s, 0, 8); break;
 
                 // add black pawn capture
                 case bp:
@@ -1517,7 +1630,7 @@ public final class Node
                 if ((B[v] & b) == b) { legals.add(s, v, MOVE); }
 
                 //
-                if (r == 4 && v == es) { legals.add(s, v, ecap); }                    
+                if (r == 4 && v == es) { legals.add(s, v, ECAP); }                    
             }            
             
             //
@@ -1530,7 +1643,7 @@ public final class Node
                 if ((B[v] & b) == b) { legals.add(s, v, MOVE); }
                 
                 //
-                if (r == 4 && v == es) { legals.add(s, v, ecap); }    
+                if (r == 4 && v == es) { legals.add(s, v, ECAP); }    
             }                                    
         } 
         
@@ -1610,7 +1723,7 @@ public final class Node
                 if ((B[v] & w) == w) { legals.add(s, v, MOVE); }
 
                 //
-                if (r == 3 && v == es) { legals.add(s, v, ecap); }    
+                if (r == 3 && v == es) { legals.add(s, v, ECAP); }    
             } 
                         
             //
@@ -1623,7 +1736,7 @@ public final class Node
                 if ((B[v] & w) == w) { legals.add(s, v, MOVE); }
                 
                 //
-                if (r == 3 && v == es) { legals.add(s, v, ecap); }    
+                if (r == 3 && v == es) { legals.add(s, v, ECAP); }    
             }                    
         } 
         
@@ -1688,35 +1801,27 @@ public final class Node
         }        
         
         //
-        if (s == e1) 
-        {
-            // king-side white castling
-            if (wksc()) { legals.add(e1, g1, KSCA); } 
-        
-            // queen-side white castling        
-            if (wqsc()) { legals.add(e1, c1, QSCA); }   
-        }
+        if (s != e1) { return; }
+
+        // king-side white castling
+        if (wksc()) { legals.add(e1, g1, KSCA); } 
+
+        // queen-side white castling        
+        if (wqsc()) { legals.add(e1, c1, QSCA); }   
     } 
     
     // look there are condition for white king-side castling
     private boolean wksc() 
     {    
         //
-        return 0 == (c & WKCA)
-            && B[h1] == wr 
-            && B[g1] == O 
-            && B[f1] == O;
+        return 0 == (c & WKCA) && B[h1] == wr  && B[g1] == O && B[f1] == O;
     }
     
     // look there are condition for white queen-side castling
     private boolean wqsc() 
     {       
         //
-        return 0 == (c & WQCA) 
-            && B[a1] == wr 
-            && B[d1] == O 
-            && B[c1] == O 
-            && B[b1] == O;
+        return 0 == (c & WQCA) && B[a1] == wr && B[d1] == O && B[c1] == O && B[b1] == O;
     }
     
     // handle black king pseudo-moves
@@ -1724,10 +1829,10 @@ public final class Node
         final int s // start square
     ) {    
         //
-        for (int j = 0; j < 8; j++) 
+        for (int i = 0; i < 8; i++) 
         {
             // get versus square
-            final int v = SPAN[s][j];            
+            final int v = SPAN[s][i];            
             
             // skip found out-of-board
             if (v == xx) { continue; }
@@ -1739,22 +1844,21 @@ public final class Node
             else if ((B[v] & w) == w) { legals.add(s, v, KMOV); }
         }
         
-        //
-        if (s == e8) 
-        {
-            // test for valid king-side castling and add to move stack
-            if (bksc()) { legals.add(e8, g8, KSCA); } 
+        // no possible castling
+        if (s != e8) { return; }
         
-            // or queen-side castling and add to move stack
-            if (bqsc()) { legals.add(e8, c8, QSCA); }
-        }
+        // test for valid king-side castling and add to move stack
+        if (bksc()) { legals.add(e8, g8, KSCA); } 
+
+        // or queen-side castling and add to move stack
+        if (bqsc()) { legals.add(e8, c8, QSCA); }                    
     }    
     
     //
     private boolean bksc() 
     {    
         //
-        return (c & bkc) == 0
+        return (c & BKSC) == 0
             && B[h8] == br              
             && B[f8] == O 
             && B[g8] == O;
@@ -1764,29 +1868,29 @@ public final class Node
     private boolean bqsc() 
     {    
         //
-        return (c & bqc) == 0 
+        return (c & BQSC) == 0 
             && B[a8] == br 
             && B[d8] == O 
             && B[c8] == O 
             && B[b8] == O;
     }
     
-    //
+    // add captures for sliding pieces
     private void sliding_captures(
         final int s,
         final int x0, 
         final int x1
     ) {
-        //
+        // loop throu directions
         for (int i = x0; i < x1; i++) 
         {        
-            //
+            // first square for direction
             int v = SPAN[s][i];
             
-            //
+            // loop to next square on direction
             while (v != xx)
             { 
-                //
+                // 
                 if (B[v] == O) { v = SPAN[v][i]; continue; } 
                 
                 //

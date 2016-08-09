@@ -252,7 +252,7 @@ public final class Zobrist
 		if ((n.c & BQCA) == 0) { phk ^= HASH_BQCA; }
 						
 		// hash potential en-passnt 
-        if (enpassant(n)) { phk ^= HASH[ENPASSANT + n.es % 8]; }
+        //if (enpassant(n)) { phk ^= HASH[ENPASSANT + n.es % 8]; }
                 
 		// apply hash for side-color to play (turn)
 		if (n.t == w) { phk ^= HASH_TURN; }
@@ -275,64 +275,7 @@ public final class Zobrist
         //
         n.mhk = mhk;
 	}	
-    
-    //
-    public static final boolean enpassant(Node n) 
-    {
-        //
-        if (n.es == xx) { return false; } 
         
-        //
-        int u;        
-        
-        //
-        if (n.t == w) 
-        {
-            //
-			u = SPAN[n.es][se];
-            
-            //
-            if (u != xx && n.B[u] == wp) 
-            {
-                return true;
-            } 
-            
-            //
-            u = SPAN[n.es][sw];
-            
-            //
-            if (u != xx && n.B[u] == wp) 
-            {
-			    return true;
-            }
-		} 
-        
-        //
-        else 
-        {
-            //
-            u = SPAN[n.es][NE];
-            
-            //
-			if (u != xx && n.B[u] == bp) 
-            {
-				return true;				
-			} 
-            
-            //
-            u = SPAN[n.es][nw];
-            
-            //
-            if (u != xx && n.B[u] == bp) 
-            {
-				return true;
-			}
-		}					
-		        
-        //
-        return false;    
-    }
-    
     // hashing function 
 	public static final void hash1(
         final Node n, 

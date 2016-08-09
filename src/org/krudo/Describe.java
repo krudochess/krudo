@@ -32,30 +32,13 @@ public class Describe
         int x = n.B[s];  
         
         // castling move
-        if (k == cast)            
-        {
-            // fix book castling move
-            switch (v)
-            {
-                case a1: v = c1; break;  
-                case a8: v = c8; break;  
-                case h1: v = g1; break;  
-                case h8: v = g8; break;  
-            }
+        if (k == KSCA) { a = "O-O"; }
             
-            //
-            if (v == c1 || v == c8) { a = "O-O-O"; }
-            
-            //
-            if (v == g1 || v == g8) { a = "O-O"; }            
-        }
+        //
+        else if (k == QSCA) { a = "O-O-O"; }            
         
         // figurine
-        else if (n.B[s] != wp && n.B[s] != bp)
-        {
-            //
-            a = f2s(n.B[s]);
-        }
+        else if (n.B[s] != wp && n.B[s] != bp) { a = f2s(n.B[s]); }
                  
         //
         if (n.B[v] != O) 
@@ -109,7 +92,7 @@ public class Describe
 		final int x = n.B[m.v[i]];
 
 		//
-		if (m.k[i] != cast) {
+		if (m.k[i] != KSCA) {
 			
 			if (p != wp && p != bp) 
             {

@@ -41,7 +41,7 @@ public final class Constant
     KSCA = 0b0__000011__000000000000, // king side castling move
     QSCA = 0b0__000101__000000000000, // queen side castling move
     PDMO = 0b0__001001__000000000000, // pawn double move
-    ecap = 0b0__010011__000000000000, // en-passant capture move        
+    ECAP = 0b0__010011__000000000000, // en-passant capture move        
     prom = 0b0__100001__000000000000; // promotion move    
             
     // white piece

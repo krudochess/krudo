@@ -269,7 +269,7 @@ public final class Debug
         for (int i = 0; i < l; i++) 
         {	
             //
-            if (m.k[i] == ecap) { count_enpassant++; }
+            if (m.k[i] == ECAP) { count_enpassant++; }
 
             //
             if (n.B[m.v[i]] != O) { count_captures++; }                        

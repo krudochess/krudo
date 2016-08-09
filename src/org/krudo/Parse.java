@@ -116,7 +116,7 @@ public final class Parse
         //
         else if (p == wp && r == 4 && x == 0 && ((v - s) == 9 || (v - s) == 7))
         {
-            return ecap;
+            return ECAP;
         } 
         
         //
@@ -128,7 +128,7 @@ public final class Parse
         //
         else if (p == bp && r == 3 && x == 0 && ((s - v) == 9 || (s - v) == 7)) 
         {
-            return ecap;
+            return ECAP;
         } 
         
         //
