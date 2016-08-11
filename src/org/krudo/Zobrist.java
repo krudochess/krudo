@@ -293,24 +293,7 @@ public final class Zobrist
         n.phk ^= HASH_TURN;
         
         // if precedent possible enpassant remove it
-        if (n.ep != xx) { n.phk ^= HASH[ENPASSANT + n.es % 8]; }
-        
-        /* 
-        // hash white king-side castling
-		if ((n.c & WKCA) == 0) { n.phk ^= HASH_WKCA; }
-		
-		// hash white queen-side castling
-		if ((n.c & WQCA) == 0) { n.phk ^= HASH_WQCA; }
-		
-		// hash black king-side castling
-		if ((n.c & BKCA) == 0) { n.phk ^= HASH_BKCA; }
-		
-		// hash black queen-side castling 			
-		if ((n.c & BQCA) == 0) { n.phk ^= HASH_BQCA; }
-
-        //
-        if (enpassant(n)) { n.phk ^= HASH[ENPASSANT + n.e % 8]; }
-*/
+        if (n.e != xx) { n.phk ^= HASH[ENPASSANT + n.e % 8]; }
     }	
     
     // hashing function 

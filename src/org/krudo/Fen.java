@@ -24,7 +24,7 @@ public final class Fen
 		// base status fields
 		n.t	= w; // color-side to play
 		n.c	= 0b11111111; // castling status all castling disabled (negative logic)
-		n.es	= xx;
+		n.e	= xx;
 		n.cw = 0;
 		n.cb = 0;
         n.ote = 256; // no piece on board ending game status is 256
@@ -109,7 +109,7 @@ public final class Fen
 				case 3:
 					if (p[i].charAt(0) != '-') 
                     {
-						n.es = Parse.parse_square(""+p[i].charAt(0)+p[i].charAt(1));
+						n.e = Parse.parse_square(""+p[i].charAt(0)+p[i].charAt(1));
 					}
 					break;					
 					

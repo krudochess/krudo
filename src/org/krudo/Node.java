@@ -30,8 +30,7 @@ public final class Node
     // node status  
     public int t; // turn (side to move)
     public int c; // castling status (negative logic)
-    public int es; // en-passant capture square
-    public int ep; // possible en-passant start square for pawn that capture
+    public int e; // en-passant capture square
     
     // moves history line
     public final Line L = new Line();
@@ -222,14 +221,8 @@ public final class Node
     }
     
     // domove and change node internal status
-    public final void domove(
-        final int s,
-        final int v,
-        final int k
-    ) {  
-        //
-        //Debug.assertPieceCount(this);
-        
+    public final void domove(final int s, final int v, final int k)
+    {  
         // get moved piece
         final int p = B[s];
                 
@@ -237,7 +230,7 @@ public final class Node
         final int x = B[v];        
         
         // store status into history line
-        L.store(p, s, v, x, k, c, es, ep, phk, mhk);
+        L.store(p, s, v, x, k, c, e, phk, mhk);
         
         // hash base movement and clear precent enpassant
         hash1(this, p, s, v);
@@ -249,11 +242,8 @@ public final class Node
         B[v] = p;
                 
         // clear en-passant square
-        es = xx;
-        
-        // claer en-passant square pawn
-        ep = xx;
-        
+        e = xx;
+                
         //
         t ^= T;
         
@@ -263,13 +253,13 @@ public final class Node
             // hash captured piece
             hash2(this, v, x);
             
-            //
+            // decrease opponet material 
             M[x & lo]--;
             
-            //
+            // 
             ote += Eval.OTEW[x & lo];
                         
-            //
+            // 
             if (t == w) { cb--; } else { cw--; }
         }
                                       
@@ -278,22 +268,16 @@ public final class Node
             
         // turn already swapped inversion of color consider
         if (t == b) { white_domove(s, v, k); } else { black_domove(s, v, k); }        
-         
-        //
-        //Debug.assertPieceCount(this);
     }
     
     // domove and change node internal status
-    private void white_domove(
-        final int s,
-        final int v,
-        final int k
-    ) {                                           
+    private void white_domove(final int s, final int v, final int k)
+    {                                           
         // fix specific status
         switch (k) 
         {                   
             // set enpassant square and possible pawn square that caputre if have one
-            case PDMO: es = s + 8; ep = white_domove_enpassant(); return;            
+            case PDMO: white_domove_enpassant(); return;            
             
             // perform enpassant capture
             case ECAP: cb--; B[v - 8] = O; M[bp & lo]--; return;                  
@@ -325,7 +309,7 @@ public final class Node
         switch (k) 
         {      
             // set en-passant square
-            case PDMO: es = s - 8; ep = black_domove_enpassant(); return;            
+            case PDMO: if (black_domove_enpassant(s - 8)) { hash3(); } return;            
             
             // performe en-passant capture
             case ECAP: cw--; B[v + 8] = O; M[wp & lo]--; return;          
@@ -352,114 +336,38 @@ public final class Node
     }
     
     //
-    private int white_domove_enpassant() 
+    private boolean white_domove_enpassant(final int v) 
     {
         //
-        if (n.es == xx) { return false; } 
-        
+		int u = SPAN[v][NE];
+            
         //
-        int u;        
-        
+        if (u != xx && B[u] == bp) { e = v; return true; } 
+            
         //
-        if (n.t == w) 
-        {
-            //
-			u = SPAN[n.es][se];
+        u = SPAN[v][NW];
             
-            //
-            if (u != xx && n.B[u] == wp) 
-            {
-                return true;
-            } 
-            
-            //
-            u = SPAN[n.es][sw];
-            
-            //
-            if (u != xx && n.B[u] == wp) 
-            {
-			    return true;
-            }
-		} 
-        
         //
-        else 
-        {
-            //
-            u = SPAN[n.es][NE];
-            
-            //
-			if (u != xx && n.B[u] == bp) 
-            {
-				return true;				
-			} 
-            
-            //
-            u = SPAN[n.es][nw];
-            
-            //
-            if (u != xx && n.B[u] == bp) 
-            {
-				return true;
-			}
-		}					
-		        
+        if (u != xx && B[u] == bp) { e = v; return true; }
+		       
         //
         return false;    
     }
     
     //
-    private int white_domove_enpassant() 
+    private boolean black_domove_enpassant(final int v) 
     {
         //
-        if (n.es == xx) { return false; } 
-        
+		int	u = SPAN[v][SE];
+            
         //
-        int u;        
-        
+        if (u != xx && B[u] == wp) { e = v; return true; }
+            
         //
-        if (n.t == w) 
-        {
-            //
-			u = SPAN[n.es][se];
+        u = SPAN[v][SW];
             
-            //
-            if (u != xx && n.B[u] == wp) 
-            {
-                return true;
-            } 
-            
-            //
-            u = SPAN[n.es][sw];
-            
-            //
-            if (u != xx && n.B[u] == wp) 
-            {
-			    return true;
-            }
-		} 
-        
         //
-        else 
-        {
-            //
-            u = SPAN[n.es][NE];
-            
-            //
-			if (u != xx && n.B[u] == bp) 
-            {
-				return true;				
-			} 
-            
-            //
-            u = SPAN[n.es][nw];
-            
-            //
-            if (u != xx && n.B[u] == bp) 
-            {
-				return true;
-			}
-		}					
+        if (u != xx && B[u] == wp) { e = v; return true; }
 		        
         //
         return false;    
@@ -500,7 +408,7 @@ public final class Node
         mhk = L.mhk[i];
         
         // retrieve previsour en-passant square
-        es = L.e[i];
+        e = L.e[i];
         
         // retrieve previsour castling status
         c = L.c[i];
@@ -917,13 +825,13 @@ public final class Node
         if (M[wp & lo] != 0) 
         {
             //
-            v = SPAN[s][se];
+            v = SPAN[s][SE];
 
             // test 
             if (v != xx && B[v] == wp) { return true; }
 
             //
-            v = SPAN[s][sw];
+            v = SPAN[s][SW];
 
             //
             if (v != xx && B[v] == wp) { return true; }
@@ -1047,7 +955,7 @@ public final class Node
             if (v != xx && B[v] == bp) { return true; }
 
             //
-            v = SPAN[a][nw];
+            v = SPAN[a][NW];
 
             //
             if (v != xx && B[v] == bp) { return true; }
@@ -1282,7 +1190,7 @@ public final class Node
                         if (v != xx && (B[v] & b) == b) { captures.add(s, v, MOVE); }                    
 
                         //
-                        v = SPAN[s][nw]; 
+                        v = SPAN[s][NW]; 
                         
                         //
                         if (v != xx && (B[v] & b) == b) 
@@ -1308,7 +1216,7 @@ public final class Node
                         }                    
 
                         //
-                        v = SPAN[s][nw]; 
+                        v = SPAN[s][NW]; 
                         
                         //
                         if (v != xx && (B[v] & b) == b) 
@@ -1410,7 +1318,7 @@ public final class Node
                     if (r != 1) 
                     {
                         //
-                        v = SPAN[s][se]; 
+                        v = SPAN[s][SE]; 
                      
                         //
                         if (v != xx && (B[v] & w) == w)
@@ -1420,7 +1328,7 @@ public final class Node
                         }                    
 
                         //
-                        v = SPAN[s][sw];
+                        v = SPAN[s][SW];
                         
                         //
                         if (v != xx && (B[v] & w) == w) 
@@ -1434,7 +1342,7 @@ public final class Node
                     else
                     {
                         //
-                        v = SPAN[s][se]; 
+                        v = SPAN[s][SE]; 
                         
                         //
                         if (v != xx && (B[v] & w) == w) 
@@ -1446,7 +1354,7 @@ public final class Node
                         }                    
 
                         //
-                        v = SPAN[s][sw]; 
+                        v = SPAN[s][SW]; 
                         
                         //
                         if (v != xx && (B[v] & w) == w) 
@@ -1630,11 +1538,11 @@ public final class Node
                 if ((B[v] & b) == b) { legals.add(s, v, MOVE); }
 
                 //
-                if (r == 4 && v == es) { legals.add(s, v, ECAP); }                    
+                if (r == 4 && v == e) { legals.add(s, v, ECAP); }                    
             }            
             
             //
-            v = SPAN[s][nw];
+            v = SPAN[s][NW];
             
             // 
             if (v != xx)  
@@ -1643,7 +1551,7 @@ public final class Node
                 if ((B[v] & b) == b) { legals.add(s, v, MOVE); }
                 
                 //
-                if (r == 4 && v == es) { legals.add(s, v, ECAP); }    
+                if (r == 4 && v == e) { legals.add(s, v, ECAP); }    
             }                                    
         } 
         
@@ -1672,7 +1580,7 @@ public final class Node
             }
             
             //
-            v = SPAN[s][nw];
+            v = SPAN[s][NW];
             
             //
             if (v != xx && (B[v] & b) == b) 
@@ -1714,7 +1622,7 @@ public final class Node
             }    
             
             //
-            v = SPAN[s][se]; 
+            v = SPAN[s][SE]; 
             
             //
             if (v != xx) 
@@ -1723,11 +1631,11 @@ public final class Node
                 if ((B[v] & w) == w) { legals.add(s, v, MOVE); }
 
                 //
-                if (r == 3 && v == es) { legals.add(s, v, ECAP); }    
+                if (r == 3 && v == e) { legals.add(s, v, ECAP); }    
             } 
                         
             //
-            v = SPAN[s][sw];
+            v = SPAN[s][SW];
             
             //
             if (v != xx)
@@ -1736,7 +1644,7 @@ public final class Node
                 if ((B[v] & w) == w) { legals.add(s, v, MOVE); }
                 
                 //
-                if (r == 3 && v == es) { legals.add(s, v, ECAP); }    
+                if (r == 3 && v == e) { legals.add(s, v, ECAP); }    
             }                    
         } 
         
@@ -1753,7 +1661,7 @@ public final class Node
             }
             
             // promotion est-capture square
-            v = SPAN[s][se];             
+            v = SPAN[s][SE];             
             
             //
             if (v != xx && (B[v] & w) == w)
@@ -1765,7 +1673,7 @@ public final class Node
             }
             
             //
-            v = SPAN[s][sw];
+            v = SPAN[s][SW];
             
             //
             if (v != xx && (B[v] & w) == w) 
