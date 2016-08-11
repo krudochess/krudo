@@ -7,9 +7,9 @@
 package org.krudo;
 
 // required static class
-import static org.krudo.Config.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Encode.*;
+import static org.krudo.Config.*;
 import static org.krudo.Describe.*;
 
 // a stack of moves user for legal
@@ -67,10 +67,7 @@ public final class Capture
     {    
         // 
         if (!MOVE_SORT) { return this; }
-        
-        // count all swap
-        int c = 0; 
-        
+               
         // swap count
         int z;            
 
@@ -89,9 +86,6 @@ public final class Capture
                 // increase swap count
                 z++;    
             }
-           
-            //
-            c += z;            
         }            
          
         // repeat if not have need to swap
@@ -106,7 +100,7 @@ public final class Capture
         final int i0, 
         final int i1
     ) {            
-        // temp value for swat
+        // temp value for swap
         int t;
 
         //

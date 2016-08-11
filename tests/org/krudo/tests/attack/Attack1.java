@@ -7,13 +7,12 @@
 package org.krudo.tests.attack;
 
 //
-import org.krudo.Node;
-import org.krudo.Move;
+import org.krudo.*;
 
 //
-import static org.krudo.Constant.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
+import static org.krudo.Constant.*;
 
 //
 public class Attack1 
@@ -29,6 +28,9 @@ public class Attack1
 
         //
         n.startpos();
+
+        //
+        n.domove("d2d3");
         
         //
         print(n.white_attack(e4));

@@ -7,11 +7,10 @@
 package org.krudo.tests.book;
 
 //
-import static org.krudo.Tool.*;
+import org.krudo.*;
 
 //
-import org.krudo.Book;
-import org.krudo.Node;
+import static org.krudo.Tool.*;
 
 //
 public class Book1 
@@ -31,15 +30,13 @@ public class Book1
             // position after e2e4 d7d5
             0x0756b94461c50fb0L,
 
+            // position after e2e4 d7d5 e4e5
+            0x662fafb965db29d4L,
+
+            // position after e2e4 d7d5 e4e5 f7f5
+            0x22a48b5a8e47ff78L,
+
             /*
-            position after e2e4 d7d5 e4e5
-            FEN=rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
-            key=662fafb965db29d4
-
-            position after e2e4 d7d5 e4e5 f7f5
-            FEN=rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq f6 0 3
-            key=22a48b5a8e47ff78
-
             position after e2e4 d7d5 e4e5 f7f5 e1e2
             FEN=rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPPKPPP/RNBQ1BNR b kq - 0 3
             key=652a607ca3f242c1
@@ -57,12 +54,16 @@ public class Book1
             key=5c3f9b829b279560*/
         };
         
+        //
         Book.open();
     
-        for (int i = 0; i < nodes.length; i++) {
-            Book.list(nodes[i]);
+        //
+        for (int i = 0; i < nodes.length; i++) 
+        {
+            print(Book.list(nodes[i]));
         }
     
+        //
         Book.exit();
     }    
 }

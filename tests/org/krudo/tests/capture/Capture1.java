@@ -30,13 +30,19 @@ public class Capture1
             n.domove("e2e4 b8a6".split("\\s"));
 
             //
-            n.domove(n.legals(), 14);
+            n.legals();
+            
+            //
+            n.domove(n.legals, 14);
             
             // print out position
             dump(n);   
 
             //
-            dump(n.legals());  
+            n.legals();
+            
+            //
+            dump(n.legals);  
         } 
         
         catch (Exception e) 
