@@ -225,7 +225,7 @@ public final class Zobrist
 	HASH_BQCA  = 0x1EF6E6DBB1961EC9L, 
 	HASH_TURN = 0xF8D626AAAF278509L; 
 	
-	// hashing function 
+	// hash0 function 
 	public static final void hash0(final Node n) 
     {			
 		//
@@ -252,7 +252,7 @@ public final class Zobrist
 		if ((n.c & BQCA) == 0) { phk ^= HASH_BQCA; }
 						
 		// hash potential en-passnt 
-        //if (enpassant(n)) { phk ^= HASH[ENPASSANT + n.es % 8]; }
+        if (n.e != xx) { phk ^= HASH[ENPASSANT + n.e % 8]; }
                 
 		// apply hash for side-color to play (turn)
 		if (n.t == w) { phk ^= HASH_TURN; }
@@ -276,13 +276,9 @@ public final class Zobrist
         n.mhk = mhk;
 	}	
         
-    // hashing function 
-	public static final void hash1(
-        final Node n, 
-        final int p, 
-        final int s,
-        final int v
-    ) {       
+    // hash1: simple move 
+	public static final void hash1(final Node n, final int p, final int s, final int v)
+    {       
         // remove piece from start square
         n.phk ^= HASH[p & hi | s];
         
@@ -296,53 +292,28 @@ public final class Zobrist
         if (n.e != xx) { n.phk ^= HASH[ENPASSANT + n.e % 8]; }
     }	
     
-    // hashing function 
+    // hash2: consider captured piece 
 	public static final void hash2(Node n, int v, int x)  
     {                
-        
-
         //
-         n.phk ^= HASH[x & hi | v]; }        
-
-        
-        
-        
-        
-        //
-       
-
-        // hash white king-side castling
-		if ((n.c & WKCA) == 0) { n.phk ^= HASH_WKCA; }
-		
-		// hash white queen-side castling
-		if ((n.c & WQCA) == 0) { n.phk ^= HASH_WQCA; }
-		
-		// hash black king-side castling
-		if ((n.c & BKCA) == 0) { n.phk ^= HASH_BKCA; }
-		
-		// hash black queen-side castling 			
-		if ((n.c & BQCA) == 0) { n.phk ^= HASH_BQCA; }
-
-        //
-        if (enpassant(n)) { n.phk ^= HASH[ENPASSANT + n.es % 8]; }
-        
-        //
-        if (k == ecap) 
-        {
-            n.phk ^= HASH[n.t == w ? wp & hi | (v + 8) : v - 8];        
-        }
+        n.phk ^= HASH[x & hi | v];         
     }	
     
-    // hashing function 
-	public static final void hash_step3(final Node n, final int v, final int p, final int x)
+    // hash3: cosider enpassant column 
+	public static final void hash3(final Node n)
     {
         //
-        n.phk ^= HASH[p & hi | v];
-    
-        //
-        n.phk ^= HASH[x & hi | v];    
+        n.phk ^= HASH[ENPASSANT + n.e % 8]; 
     }
-        
+    
+    // hash3: cosider enpassant pawn captured 
+	public static final void hash4(final Node n, final int v, final int x)
+    {
+        //
+        n.phk ^= HASH[x & hi | v];
+    }
+    
+    /*    
     //
     public static long hash_material(int[] material)
     {
@@ -361,4 +332,5 @@ public final class Zobrist
         //
         return mhk;
     }
+    */
 }

@@ -173,7 +173,7 @@ public final class Node
         // parse move parts and retrieve s,v,k
         int s = parse_square(move.substring(0, 2));
         int v = parse_square(move.substring(2, 4));
-        int k = parse_kind_of_move(move, B[s], s, v, B[v], t);  
+        int k = parse_kind_of_move(move, B[s], s, v, B[v], c, e, t);  
         
         //
         v = fix_castling_versus_square(s, v, k);
@@ -277,10 +277,10 @@ public final class Node
         switch (k) 
         {                   
             // set enpassant square and possible pawn square that caputre if have one
-            case PDMO: white_domove_enpassant(); return;            
+            case PDMO: if (white_domove_enpassant(s + 8)) { hash3(this); } return;            
             
             // perform enpassant capture
-            case ECAP: cb--; B[v - 8] = O; M[bp & lo]--; return;                  
+            case ECAP: final int u = v - 8; cb--; B[u] = O; M[bp & lo]--; hash4(this, u, bp); return;                  
             
             // update white king square and castling    
             case KMOV: wks = v; c |= WCKF; return;                    
@@ -292,7 +292,7 @@ public final class Node
             case QSCA: B[d1] = wr; B[a1] = O; c |= WCKF; wks = c1; break;
                
             // disable opportunity of castling ability    
-            case rmov: c |= s == h1 ? WKCA : WQCA; return;                             
+            case RMOV: c |= s == h1 ? WKCA : WQCA; return;                             
             
             // by default promote piece
             default: B[v] = k & pi; M[wp & lo]--; M[k & pi & lo]++; hash_step3(this, v, wp, k & pi);
@@ -300,22 +300,19 @@ public final class Node
     }
     
     // domove and change node internal status
-    private void black_domove(
-        final int s,
-        final int v,   
-        final int k
-    ) {                                                        
+    private void black_domove(final int s, final int v, final int k)
+    {                                                        
         // fix specific status
         switch (k) 
         {      
             // set en-passant square
-            case PDMO: if (black_domove_enpassant(s - 8)) { hash3(); } return;            
+            case PDMO: if (black_domove_enpassant(s - 8)) { hash3(this); } return;            
             
             // performe en-passant capture
-            case ECAP: cw--; B[v + 8] = O; M[wp & lo]--; return;          
+            case ECAP: final int u = v + 8; cw--; B[u] = O; M[wp & lo]--; hash4(this, u, wp); return;          
             
             // set new king square and lose castling ability
-            case KMOV: c |= bca; bks = v; return;                    
+            case KMOV: bks = v; c |= bca; return;                    
             
             // performe king-side castling
             case KSCA: B[f8] = br; B[h8] = O; c |= bca; bks = g8; return;
@@ -324,7 +321,7 @@ public final class Node
             case QSCA: B[d8] = br; B[a8] = O; c |= wca; bks = c8; return;
                                           
             // lose king-side castling ability    
-            case rmov: c |= s == h8 ? bkc : bqc; return;                         
+            case RMOV: c |= s == h8 ? bkc : bqc; return;                         
             
             // by default promote piece
             default:
@@ -458,7 +455,7 @@ public final class Node
             case PDMO: return; 
             
             //
-            case rmov: return; 
+            case RMOV: return; 
             
             //
             case KMOV: wks = s; break;
@@ -490,7 +487,7 @@ public final class Node
             case PDMO: return; 
             
             //
-            case rmov: return; 
+            case RMOV: return; 
             
             //
             case KMOV: bks = s; break;
@@ -735,7 +732,7 @@ public final class Node
                 case wp: white_pawn_pseudo(s); break;                                        
                 
                 // white rook
-                case wr: sliding_pseudo(s, 0, 4, s == a1 || s == a8 ? rmov : MOVE); break;                        
+                case wr: sliding_pseudo(s, 0, 4, white_pseudo_rook_kind(s)); break;                        
                 
                 // white knight    
                 case wn: knight_pseudo(s); break;                        
@@ -789,7 +786,7 @@ public final class Node
                 case bp: black_pawn_pseudo(s); break;                                             
                 
                 // add sliding piece rook moves
-                case br: sliding_pseudo(s, 0, 4, s == a8 || s == h8 ? rmov : MOVE); break;
+                case br: sliding_pseudo(s, 0, 4, black_pseudo_rook_kind(s)); break;
                 
                 // add kngiht moves
                 case bn: knight_pseudo(s); break;                                
@@ -1476,6 +1473,28 @@ public final class Node
         }
     }
 
+    //
+    private int white_pseudo_rook_kind(final int s)
+    {
+        //
+        return ((c & K___) == 0 && s == h1) 
+            || ((c & _Q__) == 0 && s == a1) 
+             ? RMOV
+             : MOVE
+             ;    
+    }
+    
+    //
+    private int black_pseudo_rook_kind(final int s)
+    {
+        //
+        return ((c & __k_) == 0 && s == h8) 
+            || ((c & ___q) == 0 && s == a8) 
+             ? RMOV
+             : MOVE
+             ;    
+    }
+    
     // handle knight normal move
     private void knight_pseudo(
         final int s //

@@ -56,21 +56,18 @@ public final class Constant
     
     // castling flags "c values"
     public final static int 
-    WKCA = 0b0__0001, 
-    WQCA = 0b0__0010, 
-    WCKF = 0b0__00000110, 
-    WCLF = 0b0__00001000, 
-    WCRF = 0b0__00000001, 
-    BKCA = 0b0__00110000, 
-    BQCA = 0b0__11000000, 
-    BCKF = 0b0__01100000, 
-    BCLF = 0b0__10000000, 
-    BCRF = 0b0__00010000;
+    KQ__ = 0b0__0011, 
+    K___ = 0b0__0001, 
+    _Q__ = 0b0__0010, 
+    __kq = 0b0__1100, 
+    __k_ = 0b0__0100, 
+    ___q = 0b0__1000; 
+    
     
     // kind of moves
     public final static int 
     KMOV = MOVE | K,
-    rmov = MOVE | R,
+    RMOV = MOVE | R,
     WQPM = prom | wq, 
     wrpm = prom | wr,
     wbpm = prom | wb,            

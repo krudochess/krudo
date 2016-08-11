@@ -47,6 +47,8 @@ public final class Parse
         final int s, 
         final int v,
         final int x,
+        final int c,
+        final int e,
         final int t
     ) {
         //
@@ -96,15 +98,15 @@ public final class Parse
         } 
         
         //
-        else if (p == wr && (s == h1 || s == a1))
+        else if (p == wr && ((c & K___) == 0 && (s == h1) || (c & _Q__) == 0 && s == a1))
         {
-            return rmov;
+            return RMOV;
         }
         
         //
         else if (p == br && (s == h8 || s == a8)) 
         {
-            return rmov;
+            return RMOV;
         }
         
         //
@@ -114,7 +116,7 @@ public final class Parse
         } 
         
         //
-        else if (p == wp && r == 4 && x == 0 && ((v - s) == 9 || (v - s) == 7))
+        else if (p == wp && r == 4 && x == 0 && v == e)
         {
             return ECAP;
         } 
@@ -126,7 +128,7 @@ public final class Parse
         } 
         
         //
-        else if (p == bp && r == 3 && x == 0 && ((s - v) == 9 || (s - v) == 7)) 
+        else if (p == bp && r == 3 && x == 0 && v == e) 
         {
             return ECAP;
         } 
