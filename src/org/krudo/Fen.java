@@ -6,68 +6,66 @@
 // utility to parse fen string
 package org.krudo;
 
-// required non-static classes
-import org.krudo.Node;
-
 // required static classes and methods
 import static org.krudo.Constant.*;
-import static org.krudo.Decode.*;
 
 // fen class utility
 public final class Fen 
 {		
 	// parse fen and apply status into node passed
 	public static final void parse(
-		final Node n,  // node status position rappresentation apply to
-		final String f // fen string with position to parse
+		final Node node,  // node status position rappresentation apply to
+		final String fen  // fen string with position to parse
 	) {
 		// base status fields
-		n.t	= w; // color-side to play
-		n.c	= 0b1111; // castling status all castling disabled (negative logic)
-		n.e	= xx;
-		n.cw = 0;
-		n.cb = 0;
-        n.ote = 256; // no piece on board ending game status is 256
-		n.wks = xx;
-		n.bks = xx;
-		n.hm = 0;
-		n.n	= 1;
-        n.L.i = 0;
+		node.t = w;      // color-side to play
+		node.c = 0x1111; // castling status all castling disabled (negative logic)
+		node.e = xx;
+		node.cw = 0;
+		node.cb = 0;
+        node.ote = 256;  // no piece on board ending game status is 256
+		node.wks = xx;
+		node.bks = xx;
+		node.hm = 0;
+		node.n = 0;
+        
+        //
+        node.L.i = 0;
         
         // clear board matirial 
-        for (int p = 0; p < 12; p++) { n.M[p] = 0; }
+        for (int p = 0; p < 12; p++) { node.M[p] = 0; }
 		        
         // clear board position
-        for (int s = 0; s < 64; s++) { n.B[s] = O; }
+        for (int s = 0; s < 64; s++) { node.B[s] = O; }
 					
 		//
-		String[] p = f.split("\\s");
+		String[] portion = fen.split("\\s");
 		
 		//
-		for (int i = 0; i < p.length; i++) 
+		for (int section = 0; section < portion.length; section++) 
         {	
 			//
-			switch (i) 
+			switch (section) 
             {					
 				// position
 				case 0: 		
 					int s = a8;		
-					for (int j=0; j<p[i].length(); j++) 
+					for (int i=0; i<portion[section].length(); i++) 
                     {					
-						switch(p[i].charAt(j)) 
+						switch(portion[section].charAt(i)) 
                         {
-							case 'p': n.B[s] = bp; n.M[bp&lo]++; n.cb++; break;
-							case 'n': n.B[s] = bn; n.M[bn&lo]++; n.cb++; n.ote -= Eval.OTEW[bn & lo]; break;
-							case 'b': n.B[s] = bb; n.M[bb&lo]++; n.cb++; n.ote -= Eval.OTEW[bb & lo]; break;
-							case 'r': n.B[s] = br; n.M[br&lo]++; n.cb++; n.ote -= Eval.OTEW[br & lo]; break;
-							case 'q': n.B[s] = bq; n.M[bq&lo]++; n.cb++; n.ote -= Eval.OTEW[bq & lo]; break;
-							case 'k': n.B[s] = bk; n.M[bk&lo]++; n.bks = s; n.cb++; break;
-							case 'P': n.B[s] = wp; n.M[wp&lo]++; n.cw++; break;
-							case 'N': n.B[s] = wn; n.M[wn&lo]++; n.cw++; n.ote -= Eval.OTEW[wn & lo]; break;
-							case 'B': n.B[s] = wb; n.M[wb&lo]++; n.cw++; n.ote -= Eval.OTEW[wb & lo]; break;
-							case 'R': n.B[s] = wr; n.M[wr&lo]++; n.cw++; n.ote -= Eval.OTEW[wr & lo]; break;
-							case 'Q': n.B[s] = wq; n.M[wq&lo]++; n.cw++; n.ote -= Eval.OTEW[wq & lo]; break;
-							case 'K': n.B[s] = wk; n.M[wk&lo]++; n.wks = s; n.cw++; break;
+							case 'p': node.B[s] = bp; node.M[bp&lo]++; node.cb++; break;
+							case 'n': node.B[s] = bn; node.M[bn&lo]++; node.cb++; node.ote -= Eval.OTEW[bn & lo]; break;
+							case 'b': node.B[s] = bb; node.M[bb&lo]++; node.cb++; node.ote -= Eval.OTEW[bb & lo]; break;
+							case 'r': node.B[s] = br; node.M[br&lo]++; node.cb++; node.ote -= Eval.OTEW[br & lo]; break;
+							case 'q': node.B[s] = bq; node.M[bq&lo]++; node.cb++; node.ote -= Eval.OTEW[bq & lo]; break;
+							case 'k': node.B[s] = bk; node.M[bk&lo]++; node.bks = s; node.cb++; break;
+							case 'P': node.B[s] = wp; node.M[wp&lo]++; node.cw++; break;
+							case 'N': node.B[s] = wn; node.M[wn&lo]++; node.cw++; node.ote -= Eval.OTEW[wn & lo]; break;
+							case 'B': node.B[s] = wb; node.M[wb&lo]++; node.cw++; node.ote -= Eval.OTEW[wb & lo]; break;
+							case 'R': node.B[s] = wr; node.M[wr&lo]++; node.cw++; node.ote -= Eval.OTEW[wr & lo]; break;
+							case 'Q': node.B[s] = wq; node.M[wq&lo]++; node.cw++; node.ote -= Eval.OTEW[wq & lo]; break;
+							case 'K': node.B[s] = wk; node.M[wk&lo]++; node.wks = s; node.cw++; break;
 							case '/': s = s - 17; break;						
 							case '1': s = s + 0; break;
 							case '2': s = s + 1; break;
@@ -84,43 +82,43 @@ public final class Fen
 				
 				// turn
 				case 1:	
-					switch(p[i].charAt(0)) 
+					switch(portion[section].charAt(0)) 
                     {
-						case 'b': n.t = b; break;	
-						case 'w': n.t = w; break;
+						case 'b': node.t = b; break;	
+						case 'w': node.t = w; break;
 					}
 					break;
 				
 				// castling	
 				case 2:
-					for (int i1=0; i1<p[i].length(); i1++) 
+					for (int i=0; i<portion[section].length(); i++) 
                     {					
-						switch (p[i].charAt(i1)) 
+						switch (portion[section].charAt(i)) 
                         {
-							case 'K': n.c ^= K___; break;	
-							case 'Q': n.c ^= _Q__; break;
-							case 'k': n.c ^= __k_; break;	
-							case 'q': n.c ^= ___q; break;
+							case 'K': node.c ^= K___; break;	
+							case 'Q': node.c ^= _Q__; break;
+							case 'k': node.c ^= __k_; break;	
+							case 'q': node.c ^= ___q; break;
 						}
 					}
 					break;					
 
 				// en-passant	
 				case 3:
-					if (p[i].charAt(0) != '-') 
+					if (portion[section].charAt(0) != '-') 
                     {
-						n.e = Parse.parse_square(""+p[i].charAt(0)+p[i].charAt(1));
+						node.e = Parse.parse_square(""+portion[section].charAt(0)+portion[section].charAt(1));
 					}
 					break;					
 					
 				// half-moves after pawn move or capture	
 				case 4:
-					n.hm = Integer.parseInt(p[i]);
+					node.hm = Integer.parseInt(portion[section]);
 					break;					
 					
 				// from the beginning	
 				case 5:
-					n.n = Integer.parseInt(p[i]);
+					node.n = Integer.parseInt(portion[section]);
 					break;								
 			}			
 		}		
