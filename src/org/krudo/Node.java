@@ -283,19 +283,19 @@ public final class Node
             case ECAP: final int u = v - 8; cb--; B[u] = O; M[bp & lo]--; hash4(this, u, bp); return;                  
             
             // update white king square and castling    
-            case KMOV: wks = v; c |= WCKF; return;                    
+            case KMOV: wks = v; if ((c & KQ__) != KQ__) { hash5w(this); c |= KQ__; } return;                    
             
             // handle castling status and rook bonus movement    
-            case KSCA: B[f1] = wr; B[h1] = O; c |= WCKF; wks = g1; break;
+            case KSCA: B[f1] = wr; B[h1] = O; wks = g1; hash5w(this); c |= KQ__; break;
                 
             // perform queen side castling    
-            case QSCA: B[d1] = wr; B[a1] = O; c |= WCKF; wks = c1; break;
+            case QSCA: B[d1] = wr; B[a1] = O; wks = c1; hash5w(this); c |= KQ__; break;
                
             // disable opportunity of castling ability    
-            case RMOV: c |= s == h1 ? WKCA : WQCA; return;                             
+            case RMOV: hash5w(this); c |= s == h1 ? K___ : _Q__; return;                             
             
             // by default promote piece
-            default: B[v] = k & pi; M[wp & lo]--; M[k & pi & lo]++; hash_step3(this, v, wp, k & pi);
+            default: final int p = k & pi; B[v] = p; M[wp & lo]--; M[p & lo]++; hash6(this, v, wp, p);
         }                                    
     }
     
@@ -312,23 +312,19 @@ public final class Node
             case ECAP: final int u = v + 8; cw--; B[u] = O; M[wp & lo]--; hash4(this, u, wp); return;          
             
             // set new king square and lose castling ability
-            case KMOV: bks = v; c |= bca; return;                    
+            case KMOV: bks = v; if ((c & __kq) != __kq) { hash5b(this); c |= __kq; } return;                    
             
             // performe king-side castling
-            case KSCA: B[f8] = br; B[h8] = O; c |= bca; bks = g8; return;
+            case KSCA: B[f8] = br; B[h8] = O; bks = g8; hash5b(this); c |= __kq; return;
             
             //
-            case QSCA: B[d8] = br; B[a8] = O; c |= wca; bks = c8; return;
+            case QSCA: B[d8] = br; B[a8] = O; bks = c8; hash5b(this); c |= __kq; return;
                                           
             // lose king-side castling ability    
-            case RMOV: c |= s == h8 ? bkc : bqc; return;                         
+            case RMOV: hash5b(this); c |= s == h8 ? __k_ : ___q; return;                         
             
             // by default promote piece
-            default:
-                B[v] = k & pi;
-                M[bp & lo]--;
-                M[k & pi & lo]++;
-                hash_step3(this, v, bp, k & pi);                
+            default: final int p = k & pi; B[v] = p; M[bp & lo]--; M[p & lo]++; hash6(this, v, bp, p);                
         }                                    
     }
     
@@ -1297,13 +1293,13 @@ public final class Node
             switch (p) 
             {
                 // add sliding piece rook moves
-                case br: spac(s, 0, 4); break;
+                case br: sliding_captures(s, 0, 4); break;
                 
                 // add sliding piece bishop moves               
-                case bb: spac(s, 4, 8); break;
+                case bb: sliding_captures(s, 4, 8); break;
                 
                 // add sliding piece queen moves                     
-                case bq: spac(s, 0, 8); break;
+                case bq: sliding_captures(s, 0, 8); break;
 
                 // add black pawn capture
                 case bp:
@@ -1741,14 +1737,14 @@ public final class Node
     private boolean wksc() 
     {    
         //
-        return 0 == (c & WKCA) && B[h1] == wr  && B[g1] == O && B[f1] == O;
+        return 0 == (c & K___) && B[h1] == wr  && B[g1] == O && B[f1] == O;
     }
     
     // look there are condition for white queen-side castling
     private boolean wqsc() 
     {       
         //
-        return 0 == (c & WQCA) && B[a1] == wr && B[d1] == O && B[c1] == O && B[b1] == O;
+        return 0 == (c & _Q__) && B[a1] == wr && B[d1] == O && B[c1] == O && B[b1] == O;
     }
     
     // handle black king pseudo-moves
@@ -1785,21 +1781,14 @@ public final class Node
     private boolean bksc() 
     {    
         //
-        return (c & BKSC) == 0
-            && B[h8] == br              
-            && B[f8] == O 
-            && B[g8] == O;
+        return (c & __k_) == 0 && B[h8] == br && B[f8] == O && B[g8] == O;
     }
     
     //
     private boolean bqsc() 
     {    
         //
-        return (c & BQSC) == 0 
-            && B[a8] == br 
-            && B[d8] == O 
-            && B[c8] == O 
-            && B[b8] == O;
+        return (c & ___q) == 0 && B[a8] == br && B[d8] == O && B[c8] == O && B[b8] == O;
     }
     
     // add captures for sliding pieces

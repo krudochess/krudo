@@ -219,10 +219,10 @@ public final class Zobrist
 	
 	//
 	private static final long 
-	HASH_WKCA  = 0x31D71DCE64B2C310L, 
-	HASH_WQCA  = 0xF165B587DF898190L,
-	HASH_BKCA  = 0xA57E6339DD2CF3A0L, 
-	HASH_BQCA  = 0x1EF6E6DBB1961EC9L, 
+	HASH_WKCA = 0x31D71DCE64B2C310L, 
+	HASH_WQCA = 0xF165B587DF898190L,
+	HASH_BKCA = 0xA57E6339DD2CF3A0L, 
+	HASH_BQCA = 0x1EF6E6DBB1961EC9L, 
 	HASH_TURN = 0xF8D626AAAF278509L; 
 	
 	// hash0 function 
@@ -240,16 +240,16 @@ public final class Zobrist
 		}     
 				
 		// hash white king-side castling
-		if ((n.c & WKCA) == 0) { phk ^= HASH_WKCA; }
+		if ((n.c & K___) == 0) { phk ^= HASH_WKCA; }
 		
 		// hash white queen-side castling
-		if ((n.c & WQCA) == 0) { phk ^= HASH_WQCA; }
+		if ((n.c & _Q__) == 0) { phk ^= HASH_WQCA; }
 		
 		// hash black king-side castling
-		if ((n.c & BKCA) == 0) { phk ^= HASH_BKCA; }
+		if ((n.c & __k_) == 0) { phk ^= HASH_BKCA; }
 		
 		// hash black queen-side castling 			
-		if ((n.c & BQCA) == 0) { phk ^= HASH_BQCA; }
+		if ((n.c & ___q) == 0) { phk ^= HASH_BQCA; }
 						
 		// hash potential en-passnt 
         if (n.e != xx) { phk ^= HASH[ENPASSANT + n.e % 8]; }
@@ -306,14 +306,43 @@ public final class Zobrist
         n.phk ^= HASH[ENPASSANT + n.e % 8]; 
     }
     
-    // hash3: cosider enpassant pawn captured 
+    // hash4: cosider enpassant pawn captured 
 	public static final void hash4(final Node n, final int v, final int x)
     {
         //
         n.phk ^= HASH[x & hi | v];
     }
     
-    /*    
+    // hash5w: disable white castling
+    public static final void hash5w(final Node n)
+    {
+        //
+        if ((n.c & K___) == 0) { n.phk ^= HASH_WKCA; }
+        
+        //
+        if ((n.c & _Q__) == 0) { n.phk ^= HASH_WQCA; }        
+    }
+    
+    // hash5w: disable white castling
+    public static final void hash5b(final Node n)
+    {
+        //
+        if ((n.c & __k_) == 0) { n.phk ^= HASH_BKCA; }
+        
+        //
+        if ((n.c & ___q) == 0) { n.phk ^= HASH_BQCA; }        
+    }
+    
+    // hash6: consider piece promotion
+    public static final void hash6(final Node n, final int v, final int a, final int p)
+    {
+        // remove pAwn
+        n.phk ^= HASH[a & hi | v];
+        
+        // place promoted piece in versus square
+        n.phk ^= HASH[p & hi | v];    
+    }
+    
     //
     public static long hash_material(int[] material)
     {
@@ -331,6 +360,5 @@ public final class Zobrist
     
         //
         return mhk;
-    }
-    */
+    }    
 }

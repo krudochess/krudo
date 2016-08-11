@@ -98,13 +98,13 @@ public final class Parse
         } 
         
         //
-        else if (p == wr && ((c & K___) == 0 && (s == h1) || (c & _Q__) == 0 && s == a1))
+        else if (p == wr && (((c & K___) == 0 && (s == h1)) || ((c & _Q__) == 0 && s == a1)))
         {
             return RMOV;
         }
         
         //
-        else if (p == br && (s == h8 || s == a8)) 
+        else if (p == br && (((c & __k_) == 0 && (s == h8)) || ((c & ___q) == 0 && s == a8))) 
         {
             return RMOV;
         }

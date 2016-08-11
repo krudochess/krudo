@@ -7,12 +7,10 @@
 package org.krudo;
 
 //
-import org.krudo.*;
-
-//
 import static org.krudo.Constant.*;
 import static org.krudo.Debug.*;
 import static org.krudo.Tool.*;
+import static org.krudo.Parse.*;
 import static org.krudo.Encode.*;
 import static org.krudo.Decode.*;
 
@@ -26,11 +24,10 @@ public class Describe
         String a = "";
         
         // parse move parts and retrieve s,v,k
-        int s = Parse.parse_square(m.substring(0, 2));
-        int v = Parse.parse_square(m.substring(2, 4));
-        int k = Parse.parse_kind_of_move(m, n.B[s], s, v, n.B[v], n.t);  
-        int x = n.B[s];  
-        
+        int s = parse_square(m.substring(0, 2));
+        int v = parse_square(m.substring(2, 4));
+        int k = parse_kind_of_move(m, n.B[s], s, v, n.B[v], n.c, n.e, n.t);  
+                
         // castling move
         if (k == KSCA) { a = "O-O"; }
             

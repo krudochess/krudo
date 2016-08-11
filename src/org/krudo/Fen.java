@@ -23,7 +23,7 @@ public final class Fen
 	) {
 		// base status fields
 		n.t	= w; // color-side to play
-		n.c	= 0b11111111; // castling status all castling disabled (negative logic)
+		n.c	= 0b1111; // castling status all castling disabled (negative logic)
 		n.e	= xx;
 		n.cw = 0;
 		n.cb = 0;
@@ -97,10 +97,10 @@ public final class Fen
                     {					
 						switch (p[i].charAt(i1)) 
                         {
-							case 'K': n.c ^= WKCA; break;	
-							case 'Q': n.c ^= WQCA; break;
-							case 'k': n.c ^= BKCA; break;	
-							case 'q': n.c ^= BQCA; break;
+							case 'K': n.c ^= K___; break;	
+							case 'Q': n.c ^= _Q__; break;
+							case 'k': n.c ^= __k_; break;	
+							case 'q': n.c ^= ___q; break;
 						}
 					}
 					break;					
