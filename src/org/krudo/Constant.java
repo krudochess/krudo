@@ -57,9 +57,9 @@ public final class Constant
     // castling flags "c values"
     public final static int 
     KQ__ = 0b0__0011, 
+    __kq = 0b0__1100, 
     K___ = 0b0__0001, 
     _Q__ = 0b0__0010, 
-    __kq = 0b0__1100, 
     __k_ = 0b0__0100, 
     ___q = 0b0__1000; 
     
@@ -69,7 +69,7 @@ public final class Constant
     KMOV = MOVE | K,
     RMOV = MOVE | R,
     WQPM = prom | wq, 
-    wrpm = prom | wr,
+    WRPM = prom | wr,
     wbpm = prom | wb,            
     wnpm = prom | wn,
     BQPM = prom | bq, 

@@ -7,6 +7,7 @@
 package org.krudo;
 
 // required static classes and methods
+import static org.krudo.Tool.*;
 import static org.krudo.Constant.*;
 
 // fen class utility
@@ -19,7 +20,7 @@ public final class Fen
 	) {
 		// base status fields
 		node.t = w;      // color-side to play
-		node.c = 0x1111; // castling status all castling disabled (negative logic)
+		node.c = 0b1111; // castling status all castling disabled (negative logic)
 		node.e = xx;
 		node.cw = 0;
 		node.cb = 0;
@@ -27,7 +28,7 @@ public final class Fen
 		node.wks = xx;
 		node.bks = xx;
 		node.hm = 0;
-		node.n = 0;
+		node.n = 1;
         
         //
         node.L.i = 0;
@@ -40,7 +41,7 @@ public final class Fen
 					
 		//
 		String[] portion = fen.split("\\s");
-		
+		                
 		//
 		for (int section = 0; section < portion.length; section++) 
         {	
@@ -121,6 +122,6 @@ public final class Fen
 					node.n = Integer.parseInt(portion[section]);
 					break;								
 			}			
-		}		
-	}
+		}	
+	}    
 }

@@ -1203,7 +1203,7 @@ public final class Node
                         if (v != xx && (B[v] & b) == b) 
                         { 
                             captures.add(s, v, WQPM); 
-                            captures.add(s, v, wrpm); 
+                            captures.add(s, v, WRPM); 
                             captures.add(s, v, wbpm); 
                             captures.add(s, v, wnpm); 
                         }                    
@@ -1215,7 +1215,7 @@ public final class Node
                         if (v != xx && (B[v] & b) == b) 
                         { 
                             captures.add(s, v, WQPM); 
-                            captures.add(s, v, wrpm); 
+                            captures.add(s, v, WRPM); 
                             captures.add(s, v, wbpm); 
                             captures.add(s, v, wnpm);
                         } 
@@ -1577,7 +1577,7 @@ public final class Node
             if (B[v] == O)
             {
                 legals.add(s, v, WQPM);
-                legals.add(s, v, wrpm);
+                legals.add(s, v, WRPM);
                 legals.add(s, v, wbpm);
                 legals.add(s, v, wnpm);
             }
@@ -1589,7 +1589,7 @@ public final class Node
             if (v != xx && (B[v] & b) == b)
             {
                 legals.add(s, v, WQPM);
-                legals.add(s, v, wrpm);
+                legals.add(s, v, WRPM);
                 legals.add(s, v, wbpm);
                 legals.add(s, v, wnpm);
             }
@@ -1601,7 +1601,7 @@ public final class Node
             if (v != xx && (B[v] & b) == b) 
             {
                 legals.add(s, v, WQPM);
-                legals.add(s, v, wrpm);
+                legals.add(s, v, WRPM);
                 legals.add(s, v, wbpm);
                 legals.add(s, v, wnpm);
             }                            

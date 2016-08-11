@@ -60,7 +60,7 @@ public final class Parse
             switch (m.charAt(4))
             {
                 case 'q': return t == w ? WQPM : BQPM;
-                case 'r': return t == w ? wrpm : brpm;
+                case 'r': return t == w ? WRPM : brpm;
                 case 'b': return t == w ? wbpm : bbpm;
                 case 'n': return t == w ? wnpm : bnpm;
                 default: return MOVE;

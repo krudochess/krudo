@@ -127,7 +127,7 @@ public final class Decode
         {
 			case WQPM:
             case BQPM: piece = "q"; break;
-            case wrpm:
+            case WRPM:
             case brpm: piece = "r"; break;
             case wbpm: 
             case bbpm: piece = "b"; break;
@@ -150,7 +150,7 @@ public final class Decode
         {
 			case WQPM:
             case BQPM: piece = "q"; break;
-            case wrpm:
+            case WRPM:
             case brpm: piece = "r"; break;
             case wbpm: 
             case bbpm: piece = "b"; break;
