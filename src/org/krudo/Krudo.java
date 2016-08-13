@@ -8,7 +8,6 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Describe.*;
-import static org.krudo.Constant.*;
 import static org.krudo.Tool.*;
 
 // main class entry point for java application
@@ -46,8 +45,7 @@ public final class Krudo
             CONSOLE.error(e);    
             CONSOLE.print(desc(ENGINE.NODE));
             ENGINE.NODE.legals();
-            CONSOLE.print(desc(ENGINE.NODE.legals));
-            
+            CONSOLE.print(desc(ENGINE.NODE.legals));            
         } 
                 
         // exit and close console
