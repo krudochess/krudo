@@ -222,7 +222,9 @@ public final class Node
     
     // domove and change node internal status
     public final void domove(final int s, final int v, final int k)
-    {  
+    {   
+        Debug.assertPieceCount(this);
+        
         // get moved piece
         final int p = B[s];
                 
@@ -262,12 +264,12 @@ public final class Node
             // 
             if (t == b) { cb--; } else { cw--; }
         }
-                                      
-        // for special moves handle move rules
-        if (k == MOVE) { return; }
-            
+                                                  
         // turn already swapped inversion of color consider
-        if (t == b) { white_domove(s, v, k); } else { black_domove(s, v, k); }        
+        if (k != MOVE) if (t == b) { white_domove(s, v, k); } else { black_domove(s, v, k); }  
+        
+        //
+        Debug.assertPieceCount(this);        
     }
     
     // domove and change node internal status
@@ -375,7 +377,10 @@ public final class Node
     
     // undo last move 
     public final void unmove() 
-    {           
+    {          
+        Debug.assertPieceCount(this);
+        
+        
         // decrease half-move index
         final int i = --L.i;
                         
@@ -425,7 +430,7 @@ public final class Node
             ote -= Eval.OTE[x & lo];
             
             //
-            if (t == b) { cb++; } else { cw++; }
+            if (t == w) { cb++; } else { cw++; }
         }
         
         //

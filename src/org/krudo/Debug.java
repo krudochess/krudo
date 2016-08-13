@@ -359,10 +359,10 @@ public final class Debug
             Krudo.CONSOLE.print("assertPieceCount fails");
             Krudo.CONSOLE.print(desc(n));
             Krudo.CONSOLE.print(desc(n.L));
-            n.unmove();
-            Krudo.CONSOLE.print(desc(n));
-            n.legals();
-            Krudo.CONSOLE.print(desc(n.legals));
+            //n.unmove();
+            //Krudo.CONSOLE.print(desc(n));
+            //n.legals();
+            //Krudo.CONSOLE.print(desc(n.legals));
             //print(Book.list(n.phk));
             java.lang.Thread.dumpStack();
             Krudo.CONSOLE.close();
