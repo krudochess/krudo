@@ -32,7 +32,7 @@ public final class Search
     // iterative deepiing deep cursor and limit
     public int depth_index; // current depth in iterative dee 
     public int deep_start; // start value of depth by default 1
-    public int deep_limit; // depth limit stop iterative deeping
+    public int depth_limit; // depth limit stop iterative deeping
     
     // iterative deeping time values
     public long time_index;
@@ -50,9 +50,10 @@ public final class Search
   
     //
     public long nps;
+               
+    // aspiration window width
+    public int sw = 50;
     
-   
-            
     //
     private final static int NT_NODE = 0;
  
@@ -82,12 +83,12 @@ public final class Search
         {
             //
             case "id-run":
-                print("INFO: "+ rpad(info_event, pad) + " deep " + deep_limit);
+                print("INFO: "+ rpad(info_event, pad) + " deep " + depth_limit);
                 break;
             
             //
             case "id-loop-run":
-                print("INFO: "+ rpad(info_event, pad) + " step " + depth_index + "/" + deep_limit);
+                print("INFO: "+ rpad(info_event, pad) + " step " + depth_index + "/" + depth_limit);
                 break;
             
             //
@@ -139,6 +140,9 @@ public final class Search
     private void idrun(int depth, long time) 
     {                           
         //
+        id_nodes = 0;
+
+        //
         id_timer.start();
                                 
         //
@@ -148,19 +152,10 @@ public final class Search
         depth_index = 1;
                 
         // set deep limit for iterative deeping
-        deep_limit = depth;
-        
+        depth_limit = depth;
+                                    
         //
-        id_nodes = 0;
-                    
-        // iterative deeping alpha start value
-        int alfa = -oo;
-        
-        // iterative deeping beta start value
-        int beta = +oo;
-        
-        //
-        int score = alfa;
+        int score = Eval.node(n);
         
         //
         PV new_pv = PVs.pick();
@@ -169,13 +164,26 @@ public final class Search
         sendinfo("id-run");
         
         // iterative deeping loop
-        while (depth_index <= deep_limit && stop == NOT)
+        while (depth_index <= depth_limit && stop == NOT)
         {                                        
             //
             sendinfo("id-loop-run");
            
+            // iterative deeping alpha start value
+            final int alfa = score - sw;
+
+            // iterative deeping beta start value
+            final int beta = score + sw;
+            
             // launch alfa-beta for searcing candidates 
-            score = abrun(alfa, beta, new_pv); 
+            final int eval = abrun(alfa, beta, new_pv); 
+            
+            // consider aspiration window fails
+            if (eval <= alfa || eval >= beta) {
+                score = abrun(-oo, +oo, new_pv);             
+            } else {
+                score = eval;            
+            }
             
             //
             //Captures.info();
@@ -202,7 +210,7 @@ public final class Search
             nps = ab_timer.delta > 0 ? ab_nodes / ab_timer.delta : 0;
             
             //
-            sendinfo("id-loop-end", depth_index+"/"+deep_limit+" "+desc(new_pv)+" "+ab_timer.delta+"ms "+ab_nodes+"n "+nps+"knps");
+            sendinfo("id-loop-end", depth_index+"/"+depth_limit+" "+desc(new_pv)+" "+ab_timer.delta+"ms "+ab_nodes+"n "+nps+"knps");
               
             // increade depth of search
             depth_index++;                        
