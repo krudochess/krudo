@@ -56,16 +56,16 @@ public final class Fen
 						switch(portion[section].charAt(i)) 
                         {
 							case 'p': node.B[s] = bp; node.M[bp&lo]++; node.cb++; break;
-							case 'n': node.B[s] = bn; node.M[bn&lo]++; node.cb++; node.ote -= Eval.OTEW[bn & lo]; break;
-							case 'b': node.B[s] = bb; node.M[bb&lo]++; node.cb++; node.ote -= Eval.OTEW[bb & lo]; break;
-							case 'r': node.B[s] = br; node.M[br&lo]++; node.cb++; node.ote -= Eval.OTEW[br & lo]; break;
-							case 'q': node.B[s] = bq; node.M[bq&lo]++; node.cb++; node.ote -= Eval.OTEW[bq & lo]; break;
+							case 'n': node.B[s] = bn; node.M[bn&lo]++; node.cb++; node.ote -= Eval.OTE[bn & lo]; break;
+							case 'b': node.B[s] = bb; node.M[bb&lo]++; node.cb++; node.ote -= Eval.OTE[bb & lo]; break;
+							case 'r': node.B[s] = br; node.M[br&lo]++; node.cb++; node.ote -= Eval.OTE[br & lo]; break;
+							case 'q': node.B[s] = bq; node.M[bq&lo]++; node.cb++; node.ote -= Eval.OTE[bq & lo]; break;
 							case 'k': node.B[s] = bk; node.M[bk&lo]++; node.bks = s; node.cb++; break;
 							case 'P': node.B[s] = wp; node.M[wp&lo]++; node.cw++; break;
-							case 'N': node.B[s] = wn; node.M[wn&lo]++; node.cw++; node.ote -= Eval.OTEW[wn & lo]; break;
-							case 'B': node.B[s] = wb; node.M[wb&lo]++; node.cw++; node.ote -= Eval.OTEW[wb & lo]; break;
-							case 'R': node.B[s] = wr; node.M[wr&lo]++; node.cw++; node.ote -= Eval.OTEW[wr & lo]; break;
-							case 'Q': node.B[s] = wq; node.M[wq&lo]++; node.cw++; node.ote -= Eval.OTEW[wq & lo]; break;
+							case 'N': node.B[s] = wn; node.M[wn&lo]++; node.cw++; node.ote -= Eval.OTE[wn & lo]; break;
+							case 'B': node.B[s] = wb; node.M[wb&lo]++; node.cw++; node.ote -= Eval.OTE[wb & lo]; break;
+							case 'R': node.B[s] = wr; node.M[wr&lo]++; node.cw++; node.ote -= Eval.OTE[wr & lo]; break;
+							case 'Q': node.B[s] = wq; node.M[wq&lo]++; node.cw++; node.ote -= Eval.OTE[wq & lo]; break;
 							case 'K': node.B[s] = wk; node.M[wk&lo]++; node.wks = s; node.cw++; break;
 							case '/': s = s - 17; break;						
 							case '1': s = s + 0; break;

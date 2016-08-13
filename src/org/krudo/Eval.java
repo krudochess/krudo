@@ -31,7 +31,7 @@ public final class Eval
     //
     private final static POSITION_CACHE POSITION = new POSITION_CACHE();
     //
-    public static final int[] OTEW = new int[] {0, 0, 10, 10, 12, 12, 21, 21, 42, 42, 0, 0};
+    public static final int[] OTE = new int[] {0, 0, 10, 10, 12, 12, 21, 21, 42, 42, 0, 0};
       
     //
     static class POSITION_CACHE extends LinkedHashMap<Long, Integer>    

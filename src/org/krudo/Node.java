@@ -257,10 +257,10 @@ public final class Node
             M[x & lo]--;
             
             // 
-            ote += Eval.OTEW[x & lo];
+            ote += Eval.OTE[x & lo];
                         
             // 
-            if (t == w) { cb--; } else { cw--; }
+            if (t == b) { cb--; } else { cw--; }
         }
                                       
         // for special moves handle move rules
@@ -422,10 +422,10 @@ public final class Node
             M[x & lo]++;
             
             //
-            ote -= Eval.OTEW[x & lo];
+            ote -= Eval.OTE[x & lo];
             
             //
-            if (t == w) { cb++; } else { cw++; }
+            if (t == b) { cb++; } else { cw++; }
         }
         
         //
