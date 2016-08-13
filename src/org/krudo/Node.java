@@ -432,7 +432,7 @@ public final class Node
         if (k == MOVE) { return; }
         
         //
-        if (t == w) { white_unmove(s, v, k); } else { black_unmove(s, v, k); }
+        if (t == b) { white_unmove(s, v, k); } else { black_unmove(s, v, k); }
     }
     
     //

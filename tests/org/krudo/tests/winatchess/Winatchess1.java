@@ -77,8 +77,19 @@ public class Winatchess1
             //dump(n);
             
             //
-            s.start(d, a);
-                    
+            try 
+            {
+                s.start(d, a);
+            } 
+            
+            //
+            catch (Exception e)
+            {                
+                dump(n);
+                dump(n.L);                
+                e.printStackTrace();
+            }
+            
             //
             String bm = algebric(n, s.best_move);
             
