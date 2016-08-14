@@ -70,7 +70,7 @@ public class Zobrist1
             n.startpos(tests[i]);        
             
             //
-            dump(n);
+            //dump(n);
                         
             //
             hash0(n);
@@ -81,7 +81,8 @@ public class Zobrist1
             //
             echo(hex(n.phk),"==",tests[i+1],"->",tests[i+1].equals(hex(n.phk))+"\n");
             
-            exit();
+            //
+            //exit();
         }                        
     }    
 }

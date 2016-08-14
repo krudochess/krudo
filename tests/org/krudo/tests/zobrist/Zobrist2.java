@@ -11,6 +11,8 @@ import org.krudo.*;
 
 //
 import static org.krudo.Debug.*;
+import static org.krudo.Tool.echo;
+import static org.krudo.Tool.hex;
 
 // 
 public class Zobrist2 
@@ -24,37 +26,41 @@ public class Zobrist2
         
         Node n = new Node();
         
-        n.startpos();
+        String h;
         
-        dump(n); // 463b96181691fc9c
+        //
+        n.startpos();                
+        h = "463b96181691fc9c";      
+        echo(hex(n.phk),"==",h,"->",h.equals(hex(n.phk))+"\n");
+          
+        //
+        n.domove("e2e4");        
+        h = "823c9b50fd114196";        
+        echo(hex(n.phk),"==",h,"->",h.equals(hex(n.phk))+"\n");
         
-        n.domove("e2e4");
+        //
+        n.domove("d7d5");        
+        h = "0756b94461c50fb0";        
+        echo(hex(n.phk),"==",h,"->",h.equals(hex(n.phk))+"\n");
         
-        dump(n); // 823c9b50fd114196
+        //
+        n.domove("e4e5");        
+        h = "662fafb965db29d4";
+        echo(hex(n.phk),"==",h,"->",h.equals(hex(n.phk))+"\n");
+                
+        //        
+        n.domove("f7f5");        
+        h = "22a48b5a8e47ff78";
+        echo(hex(n.phk),"==",h,"->",h.equals(hex(n.phk))+"\n");
         
-        n.domove("d7d5");
+        //
+        n.domove("e1e2");        
+        h = "652a607ca3f242c1";
+        echo(hex(n.phk),"==",h,"->",h.equals(hex(n.phk))+"\n");
         
-        dump(n); // 0756b94461c50fb0
-        
-        n.domove("e4e5");
-        
-        dump(n); // 662fafb965db29d4
-        
-        n.domove("f7f5");
-        
-        dump(n); // 22a48b5a8e47ff78
-        
-        n.domove("e1e2");
-        
-        dump(n); // 652a607ca3f242c1
-        
-        n.domove("e8f7");
-        
-        dump(n); // 00fdd303c946bdd9
-        
-        for (int i = 0; i < 6; i++) {
-            n.unmove();
-            dump(n);
-        }
+        //
+        n.domove("e8f7");        
+        h = "00fdd303c946bdd9";
+        echo(hex(n.phk),"==",h,"->",h.equals(hex(n.phk))+"\n");
     }    
 }
