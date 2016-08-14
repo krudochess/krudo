@@ -39,7 +39,7 @@ public class Winatchess1
         s.sendbestmove = () -> {};
         
         //
-        int d = 4;
+        int d = 5;
         
         //
         long a = 3500;
@@ -48,7 +48,7 @@ public class Winatchess1
         int p = 0;
         
         //
-        int h = 0;
+        int h = 400;
         
         //
         int l = epd.length;
@@ -56,7 +56,7 @@ public class Winatchess1
         //l = 1;
         
         //
-        for (int i = 43; i < l; i++)
+        for (int i = 0; i < l; i++)
         {            
             //
             t.start();

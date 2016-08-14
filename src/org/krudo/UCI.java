@@ -173,13 +173,13 @@ public final class UCI
                     switch (args[j]) 
                     {
                         case "wtime":
-                            i.arg[GO - WTIME] = args[j+1];
+                            i.arg[WTIME] = args[j + 1];
                             break;
                         case "btime":
-                            i.arg[GO - BTIME] = args[j+1];
+                            i.arg[BTIME] = args[j + 1];
                             break;                
                         case "movestogo":
-                            i.arg[GO - MOVESTOGO] = args[j+1];
+                            i.arg[MOVESTOGO] = args[j + 1];
                             break;
                     }
                 }                    

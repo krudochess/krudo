@@ -548,47 +548,79 @@ public final class Node
         // loop throut pseudo-legal
         for (int i = 0; i != l; i++) 
         {   
-            //
+            // start square
             final int s = legals.s[i];
             
-            //
+            // versus square
             final int v = legals.v[i];
-            
-            // king under attack
-            if (legals.c)
-            {
-                // try to move a piece that non protect king
-                if (v != wks && LINK[v][wks] == 0) { continue; }                         
-            }
-            
-            // king safety           
-            else 
-            {
-                // move piece that not unsafe the king secure legal
-                if (s != wks && LINK[s][wks] == 0) 
-                {
-                    //
-                    legals.copy(i, j); j++; continue;
-                }
                 
-                // 
-                if (legals.k[i] == KSCA || legals.k[i] == QSCA) 
+            //
+            final int k = legals.k[i];
+            
+            // test king side castling possibility 
+            if (k == KSCA) 
+            {
+                //
+                if (!legals.c && !black_attack(f1) && !black_attack(g1)) 
                 {
                     //
-                    if (white_castling(v)) { legals.copy(i, j); j++; }             
+                    legals.copy(i, j); 
 
                     //
-                    continue;
-                }
+                    j++; 
+                }             
+
+                //
+                continue;
             }
-                                                        
-            //
+
+            // test queen castling possibility 
+            if (k == QSCA) 
+            {
+                //
+                if (!legals.c && !black_attack(d1) && !black_attack(c1)) 
+                { 
+                    //
+                    legals.copy(i, j); 
+
+                    //
+                    j++; 
+                }             
+
+                //
+                continue;
+            }
+            
+            // king is safe move piece that not unsafe the king secure legal
+            if (!legals.c &&s != wks && LINK[s][wks] == 0) 
+            {
+                //
+                legals.copy(i, j); 
+                
+                //
+                j++; 
+                
+                //
+                continue;
+            }                                
+            
+            // king under attack try to move a piece that non protect king
+            if (legals.c && v != wks && LINK[v][wks] == 0) { continue; }                         
+                                                                                
+            // make move
             domove(i);
 
-            //
-            if (!black_attack(wks)) { legals.copy(i, j); j++; }
+            // test attacked king
+            if (!black_attack(wks)) 
+            { 
+                //
+                legals.copy(i, j); 
+                
+                //
+                j++; 
+            }
 
-            //
+            // undo move
             unmove();
         }
         
@@ -623,39 +655,71 @@ public final class Node
             //
             final int v = legals.v[i];
             
-            // king under attack
-            if (legals.c)
+            //
+            final int k = legals.k[i];
+            
+            //
+            if (k == KSCA) 
             {
-                // try to move a piece that non protect king
-                if (s != bks && LINK[v][bks] == 0) { continue; }                         
+                // 
+                if (!legals.c && !white_attack(f8) && !white_attack(g8)) 
+                {
+                    //
+                    legals.copy(i, j); 
+                    
+                    //
+                    j++;
+                }
+
+                //
+                continue;
             }
             
-            // king safety           
-            else 
+            //
+            if (k == QSCA) 
             {
-                // move piece that not unsafe the king secure legal
-                if (s != bks && LINK[s][bks] == 0) 
-                {
-                    // confirm and next
-                    legals.copy(i, j); j++; continue;
-                }
-                            
-                //
-                if (legals.k[i] == KSCA || legals.k[i] == QSCA) 
-                {
-                    // 
-                    if (black_castling(v)) { legals.copy(i, j); j++; }
-
+                // 
+                if (!legals.c && !white_attack(d8) && !white_attack(c8)) 
+                { 
                     //
-                    continue;
+                    legals.copy(i, j); 
+                    
+                    //
+                    j++; 
                 }
+
+                //
+                continue;
             }
+                                              
+            // king safety move piece that not unsafe the king secure legal
+            if (!legals.c && s != bks && LINK[s][bks] == 0) 
+            {
+                // confirm and next
+                legals.copy(i, j); 
+                
+                //
+                j++; 
+                
+                //
+                continue;
+            }
+                         
+            // king under attack try to move a piece that non protect king
+            if (legals.c && s != bks && LINK[v][bks] == 0) { continue; }                         
                         
             //
             domove(i);
 
             //
-            if (!white_attack(bks)) { legals.copy(i, j); j++; }
+            if (!white_attack(bks)) 
+            { 
+                //
+                legals.copy(i, j); 
+                
+                //
+                j++; 
+            }
 
             //
             unmove();            
@@ -664,21 +728,7 @@ public final class Node
         //
         legals.i = j;
     }                        
-        
-    //
-    private boolean white_castling(final int v) 
-    {   
-        //
-        boolean castling = v == g1
-             ?! black_attack(g1)
-            &&! black_attack(f1)
-             :! black_attack(c1)
-            &&! black_attack(d1);    
-                
-        //        
-        return castling;
-    }
-
+            
     //
     private boolean black_castling(final int v)
     {        
