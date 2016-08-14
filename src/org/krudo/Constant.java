@@ -93,7 +93,7 @@ public final class Constant
 
     // cardinals for span smapims 
     public final static int 
-    NW = 7, nn = 1, NE = 6,
+    NW = 7, NN = 1, NE = 6,
     ww = 3,         ee = 2,
     SW = 4, ss = 0, SE = 5;
                 

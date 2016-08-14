@@ -1562,23 +1562,22 @@ public final class Node
     }
     
     // handle knight normal move
-    private void knight_pseudo(
-        final int s //
-    ) {    
+    private void knight_pseudo(final int s)
+    {    
         //
-        for (int j = 0; j < 8; j++) {
-            
+        for (int i = 0; i != 8; i++)
+        {            
             // get versus square
-            final int v = HOPE[s][j];            
+            final int v = HOPE[s][i];            
             
             // skip found out-of-board
             if (v == xx) { return; }
             
-            //
+            // captured piece
             final int x = B[v];
             
             // if square is empty add to moves
-            if (x == 0) { legals.add(s, v, MOVE); } 
+            if (x == O) { legals.add(s, v, MOVE); } 
             
             // if empty is occupay by opponent piece add capture
             else if ((x & T) != t) { legals.add(s, v, MOVE); }
@@ -1586,11 +1585,10 @@ public final class Node
     }
       
     // white pawn moves
-    private void white_pawn_pseudo(
-        final int s
-    ) {                                        
+    private void white_pawn_pseudo(final int s) 
+    {                                        
         //
-        int v = SPAN[s][nn];                 
+        int v = SPAN[s][NN];                 
             
         // rank of start square
         final int r = s >> 3;
@@ -1602,10 +1600,11 @@ public final class Node
             if (B[v] == O) 
             {
                 //
-                final int u = SPAN[v][nn];                 
+                final int u = SPAN[v][NN];                 
 
                 //
-                if (r == 1 && B[u] == O) {
+                if (r == 1 && B[u] == O)
+                {
                     legals.add(s, u, PDMO);
                 }
 
@@ -1679,9 +1678,8 @@ public final class Node
     }
     
     // untouched black pawn moves 
-    private void black_pawn_pseudo(
-        final int s
-    ) {                    
+    private void black_pawn_pseudo(final int s) 
+    {                    
         //
         int v = SPAN[s][ss];                 
         
