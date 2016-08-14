@@ -223,7 +223,7 @@ public final class Node
     // domove and change node internal status
     public final void domove(final int s, final int v, final int k)
     {   
-        Debug.assertPieceCount(this);
+        //Debug.assertPieceCount(this);
         
         // get moved piece
         final int p = B[s];
@@ -269,7 +269,7 @@ public final class Node
         if (k != MOVE) if (t == b) { white_domove(s, v, k); } else { black_domove(s, v, k); }  
         
         //
-        Debug.assertPieceCount(this);        
+        //Debug.assertPieceCount(this);        
     }
     
     // domove and change node internal status
@@ -333,13 +333,9 @@ public final class Node
     //
     public final boolean white_domove_enpassant(final int v) 
     {
-        print(square(v));
-
         //
 		int u = SPAN[v][NE];
         
-        print(square(u));
-
         //
         if (u != xx && B[u] == bp) { e = v; return true; } 
             
@@ -381,10 +377,10 @@ public final class Node
     
     // undo last move 
     public final void unmove() 
-    {          
-        Debug.assertPieceCount(this);
-        
-        
+    {   
+        //
+        //Debug.assertPieceCount(this);
+                
         // decrease half-move index
         final int i = --L.i;
                         
@@ -403,17 +399,17 @@ public final class Node
         // get kind-of-move
         final int k = L.k[i];
         
-        //
+        // restore position hash key
         phk = L.phk[i];
         
-        //
+        // restore matirial hash key
         mhk = L.mhk[i];
-        
-        // retrieve previsour en-passant square
-        e = L.e[i];
         
         // retrieve previsour castling status
         c = L.c[i];
+        
+        // retrieve previsour en-passant square
+        e = L.e[i];        
         
         // restore piece in start square
         B[s] = p; 
@@ -434,14 +430,11 @@ public final class Node
             ote -= Eval.OTE[x & lo];
             
             //
-            if (t == w) { cb++; } else { cw++; }
+            if (t == b) { cw++; } else { cb++; }
         }
         
         //
-        if (k == MOVE) { return; }
-        
-        //
-        if (t == b) { white_unmove(s, v, k); } else { black_unmove(s, v, k); }
+        if (k != MOVE) if (t == w) { white_unmove(s, v, k); } else { black_unmove(s, v, k); }
     }
     
     //
@@ -463,7 +456,7 @@ public final class Node
             case KMOV: wks = s; break;
             
             //
-            case ECAP: cb++; B[v - 8] = bp; break;
+            case ECAP: cb++; B[v - 8] = bp; M[bp & lo]++; break;
             
             //
             case KSCA: B[h1] = wr; B[f1] = O; break;
@@ -495,7 +488,7 @@ public final class Node
             case KMOV: bks = s; break;
        
             //
-            case ECAP: cw++; B[v + 8] = wp; break;
+            case ECAP: cw++; B[v + 8] = wp; M[wp & lo]++; break;
         
             //
             case KSCA: B[h8] = br; B[f8] = O; bks = g8; break;

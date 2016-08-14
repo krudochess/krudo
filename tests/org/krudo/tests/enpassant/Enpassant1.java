@@ -29,7 +29,14 @@ public class Enpassant1
         n.startpos("4k3/pppppppp/8/8/8/8/PPPPPPPP/4K3 w");
                 
         //
-        n.domove(split("e2e4 c7c5 e4e5 d7d5 e5d6 c5c4 b2b4 e7d6 a2a3"));
+        n.domove(split("e2e4 c7c5 e4e5 d7d5 e5d6 c5c4 b2b4"));
+        
+        //
+        //n.domove(split("e7d6 a2a3"));
+        
+        n.domove(split("c4b3"));        
+        
+        n.unmove();
         
         //
         //n.unmove();
