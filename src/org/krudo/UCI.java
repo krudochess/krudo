@@ -24,9 +24,9 @@ public final class UCI
     POSITION_STARTPOS       = 752,
     POSITION_STARTPOS_MOVES = 753,
     GO                      = 800,
-    WTIME                   = 800,
-    BTIME                   = 799,
-    MOVESTOGO               = 798,
+    WTIME                   =   0,
+    BTIME                   =   1,
+    MOVESTOGO               =   2,
     STOP                    = 710,
     PONDERHIT               = 711,
     QUIT                    = 910;
@@ -74,13 +74,13 @@ public final class UCI
     public final static Runnable SENDBESTMOVE = () -> 
     {                
         //
-        Krudo.CONSOLE.print(desc(Krudo.ENGINE.NODE));
+        Krudo.CONSOLE.print(desc(Krudo.ENGINE.search.node));
         
         //
-        Krudo.ENGINE.NODE.legals();
+        Krudo.ENGINE.search.node.legals();
         
         //
-        Krudo.CONSOLE.print(desc(Krudo.ENGINE.NODE.legals));
+        Krudo.CONSOLE.print(desc(Krudo.ENGINE.search.node.legals));
         
         //
         Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bestmove);                                                

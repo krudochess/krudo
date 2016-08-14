@@ -175,15 +175,15 @@ public final class Krudo
                 case UCI.GO:                        
 
                     // call go with black and white time attentions
-                    if (has(i.arg[UCI.GO - UCI.WTIME]))
+                    if (has(i.arg[UCI.WTIME]))
                     {
-                        ENGINE.wtime = toLong(i.arg[UCI.GO - UCI.WTIME]); 
+                        ENGINE.wtime = toLong(i.arg[UCI.WTIME]); 
                     }
                      
                     //
-                    if (has(i.arg[UCI.GO - UCI.BTIME])) 
+                    if (has(i.arg[UCI.BTIME])) 
                     {
-                        ENGINE.btime = toLong(i.arg[UCI.GO - UCI.BTIME]);
+                        ENGINE.btime = toLong(i.arg[UCI.BTIME]);
                     } 
 
                     //
