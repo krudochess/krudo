@@ -10,7 +10,7 @@ import org.krudo.Node;
 import org.krudo.Search;
 
 // 
-public class Fail1 {
+public class Winatchess2 {
 
     //
     public static void main(String[] args) {

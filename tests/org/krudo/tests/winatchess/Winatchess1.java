@@ -27,10 +27,7 @@ public class Winatchess1
         Krudo.init();
         
         //
-        Node n = new Node();
-
-        //
-        Search s = new Search(n);
+        Search s = new Search();
           
         //
         Timer t = new Timer();
@@ -71,7 +68,7 @@ public class Winatchess1
             //print(row[1]);
                                    
             //
-            n.startpos(row[1]);
+            s.node.startpos(row[1]);
             
             //
             //dump(n);
@@ -85,13 +82,13 @@ public class Winatchess1
             //
             catch (Exception e)
             {                
-                dump(n);
-                dump(n.L);                
+                dump(s.node);
+                dump(s.node.L);                
                 e.printStackTrace();
             }
             
             //
-            String bm = algebric(n, s.best_move);
+            String bm = algebric(s.node, s.best_move);
             
             //
             if (row[2].equals(bm)) 
@@ -100,7 +97,10 @@ public class Winatchess1
                 p++;
                 
                 //
-                print(row[0]+":", row[2], "==", bm, "  ("+(t.delta()/1000)+" sec.)");                                    
+                t.stamp();
+                
+                //
+                print(row[0]+":", row[2], "==", bm, "  ("+(t.stamp/1000)+" sec.)");                                    
             }
             
             //
@@ -117,9 +117,9 @@ public class Winatchess1
                 {
                     //
                     DEBUG_SHOW_MOVE_WEIGHT = true;
-                    dump(n);
-                    n.legals();
-                    dump(n.legals);
+                    dump(s.node);
+                    s.node.legals();
+                    dump(s.node.legals);
                     exit();
                 }
             }
