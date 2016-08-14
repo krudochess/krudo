@@ -7,8 +7,8 @@
 package org.krudo;
 
 // required static class
-import static org.krudo.Describe.*;
 import static org.krudo.Tool.*;
+import static org.krudo.Describe.*;
 
 // main class entry point for java application
 public final class Krudo 
@@ -25,16 +25,16 @@ public final class Krudo
         // prepare and start input loop of engine 
         try 
         {    
-            // initialize console
+            // initialize console with log file
             CONSOLE.start(path("Krudo.log"));
 
             // credits message
             CONSOLE.print("Krudo 0.16a by Francesco <bianco@javanile.org>");
                   
-            //
+            // init warmup memory and cache
             init();
             
-            //
+            // standard input loop
             loop();                    
         } 
         
@@ -43,15 +43,21 @@ public final class Krudo
         {            
             //
             CONSOLE.error(e);    
-            CONSOLE.print(desc(ENGINE.NODE));
-            ENGINE.NODE.legals();
-            CONSOLE.print(desc(ENGINE.NODE.legals));            
+            
+            //
+            CONSOLE.print(desc(ENGINE.search.node));
+            
+            //
+            ENGINE.search.node.legals();
+            
+            //
+            CONSOLE.print(desc(ENGINE.search.node.legals));            
         } 
                 
         // exit and close console
         finally 
         {            
-            //
+            // close and flush all
             CONSOLE.close();            
         }    
     }
@@ -68,7 +74,7 @@ public final class Krudo
         // prepare move-stacks
         Moves.init();
         
-        //
+        // 
         Captures.init();
     }
     
@@ -159,7 +165,8 @@ public final class Krudo
                     //
                     ENGINE.domove(i.arg);
 
-                    CONSOLE.log(desc(ENGINE.NODE));
+                    //
+                    CONSOLE.log(desc(ENGINE.search.node));
                     
                     // break switch
                     break;
