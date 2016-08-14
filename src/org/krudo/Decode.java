@@ -7,10 +7,6 @@
 package org.krudo;
 
 //
-import org.krudo.Line;
-import org.krudo.Move;
-
-//
 import static org.krudo.Constant.*;
 import static org.krudo.Debug.*;
 import static org.krudo.Encode.*;

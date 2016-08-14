@@ -70,8 +70,8 @@ public class Zobrist1
             n.startpos(tests[i]);        
             
             //
-            //dump(n);
-            
+            dump(n);
+                        
             //
             hash0(n);
             

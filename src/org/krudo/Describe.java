@@ -7,18 +7,25 @@
 package org.krudo;
 
 //
-import static org.krudo.Constant.*;
-import static org.krudo.Debug.*;
 import static org.krudo.Tool.*;
+import static org.krudo.Debug.*;
 import static org.krudo.Parse.*;
 import static org.krudo.Encode.*;
 import static org.krudo.Decode.*;
+import static org.krudo.Constant.*;
 
 //
 public class Describe
 {
+    // square to string
+	public static final String square(final int s)
+    {		
+		//
+		return s>=0 && s<64 ? ""+(char)('a'+s%8)+(char)('1'+s/8) : "xx";		
+	}  
+        
     //
-    public final static String algebric(Node n, String m)
+    public final static String algebric(final Node n, final String m)
     {
         //
         String a = "";
@@ -164,7 +171,7 @@ public class Describe
 				//case 2: keys("wks:",i2s(n.wks),"bks:",i2s(n.bks)); break;
 				//case 3: keys("wrs:",i2s(n.wks),"brs:",i2s(n.bks)); break;
 				//case 4: keys("ph:",n.cw,"ew:",n.wks); break;
-				case 4: desc += "c: "+bin(n.c, 4); break;
+				case 4: desc += "c: "+bin(n.c, 4)+" e: "+square(n.e); break;
 				case 3: desc += "M: "+n.M[0]+" "+n.M[1]+" "+n.M[2]+" "+n.M[3]
                                  +" "+n.M[4]+" "+n.M[5]+" "+n.M[6]+" "+n.M[7]
                                  +" "+n.M[8]+" "+n.M[9]+" "+n.M[10]+" "+n.M[11]; break;

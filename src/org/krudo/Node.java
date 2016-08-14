@@ -331,7 +331,7 @@ public final class Node
     }
     
     //
-    private boolean white_domove_enpassant(final int v) 
+    public final boolean white_domove_enpassant(final int v) 
     {
         //
 		int u = SPAN[v][NE];
@@ -350,7 +350,7 @@ public final class Node
     }
     
     //
-    private boolean black_domove_enpassant(final int v) 
+    public final boolean black_domove_enpassant(final int v) 
     {
         //
 		int	u = SPAN[v][SE];
