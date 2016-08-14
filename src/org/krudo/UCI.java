@@ -53,10 +53,10 @@ public final class UCI
     public final static Runnable SENDINFO = () -> 
     {                      
         //
-        final Search s = Krudo.ENGINE.SEARCH;
+        final Search s = Krudo.ENGINE.search;
         
         //
-        if (!s.info_event.equals("id-loop-end")) { return; }
+        if (!s.event.equals("id-loop-end")) { return; }
         
         //
         Krudo.CONSOLE.print(INFO, 
@@ -66,7 +66,7 @@ public final class UCI
             //NODES,  Krudo.ENGINE.search.logNodes,
             NPS,      s.nps,
             PV,       desc(s.best_pv),
-            "event",  s.info_event
+            "event",  s.event
         );        
     };
         

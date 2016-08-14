@@ -13,38 +13,14 @@ import static org.krudo.Tool.*;
 public class Timer 
 {
     //
-    public long delta;
+    public long stamp;
     
     //
     public long start;
     
     //
     public long limit;
-    
-    //
-    public final void start()
-    {
-        //
-        delta = 0;
-        
-        //
-        start = time();    
-    }
-    
-    //
-    public final long delta() 
-    {
-        //
-        return time() - start;
-    }
-    
-    //
-    public final void pause()
-    {
-        //
-        delta = delta();
-    }   
-    
+
     //
     public final void limit(long time)
     {
@@ -52,6 +28,30 @@ public class Timer
         limit = start + time;
     }
     
+    //
+    public final void start()
+    {
+        //
+        stamp = 0;
+        
+        //
+        start = time();    
+    }
+      
+    //
+    public final void stamp()
+    {
+        //
+        stamp = time() - start;
+    }   
+        
+    //
+    public final long ratio(long size)
+    {
+        //
+        return stamp > 0 ? size / stamp : 0;
+    }
+        
     //
     public final boolean expired()
     {

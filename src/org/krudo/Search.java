@@ -21,7 +21,7 @@ public final class Search
     private final static long INFO_MILLISECONDS_POLLING = 2000;
     
     // node-centric search
-    public Node n = null; 
+    public final Node node = new Node(); 
                     
     // searching controls and related         
     private int stop = 0;
@@ -30,15 +30,9 @@ public final class Search
     public int line_start = 0;
       
     // iterative deepiing deep cursor and limit
-    public int depth_index; // current depth in iterative dee 
-    public int deep_start; // start value of depth by default 1
-    public int depth_limit; // depth limit stop iterative deeping
-    
-    // iterative deeping time values
-    public long time_index;
-    public long time_start;
-    public long time_limit;
-        
+    public int depth_index; // current depth in iterative deeping 
+    public int depth_limit; // depth-limit stop iterative deeping
+            
     //
     private final Timer id_timer = new Timer();
     private final Timer ab_timer = new Timer();
@@ -67,11 +61,11 @@ public final class Search
     public PV best_pv = new PV(); 
       
     //
-    public String info_event;
+    public String event;
     
     //
-    public String info_message;
-    
+    public String message;
+        
     //
     public Runnable sendinfo = () -> 
     {        
@@ -79,26 +73,39 @@ public final class Search
         int pad = 18;
         
         //
-        switch (info_event)
+        String info = "INFO: "+ rpad(event, pad);
+        
+        //
+        switch (event)
         {
             //
             case "id-run":
-                print("INFO: "+ rpad(info_event, pad) + " deep " + depth_limit);
+                print(info + " depth " + depth_limit + " time limit ");
                 break;
             
             //
             case "id-loop-run":
-                print("INFO: "+ rpad(info_event, pad) + " step " + depth_index + "/" + depth_limit);
+                print(info + " step " + depth_index + "/" + depth_limit);
                 break;
             
             //
             case "id-loop-break":
-                print("INFO: "+ rpad(info_event, pad) + " event break");
+                print(info + " event break");
+                break;
+            
+            //    
+            case "id-loop-end":    
+                print(info + depth_index+"/"+depth_limit+" "+desc(best_pv)+" "+ab_timer.stamp+"ms "+ab_nodes+"n "+nps+"knps event break");                
+                break;
+              
+            //    
+            case "id-end":
+                print(info + id_timer.stamp+"ms "+best_score+" "+desc(best_pv)+"knps event break");                
                 break;
                 
             //    
             default:
-                print("INFO: "+ rpad(info_event, pad) + " " + info_message);
+                print(info + " " + message);
                 break;
         }
     };
@@ -108,14 +115,7 @@ public final class Search
     {
         print("BESTMOVE: " + best_move);
     };
-     
-    // constructor with node-centric search
-    public Search(Node node) 
-    {   
-        // fill internal node use in node-centric search
-        n = node;
-    }
-            
+                 
     // public method to start search with large time-limit
     public final void start(int deep) 
     {    
@@ -130,7 +130,7 @@ public final class Search
         stop = NOT;    
         
         // place offset for search variation
-        line_start = n.L.i;
+        line_start = node.L.i;
 
         // start iterative deeping search
         idrun(depth, time);
@@ -155,19 +155,19 @@ public final class Search
         depth_limit = depth;
                                     
         //
-        int score = Eval.node(n);
+        int score = Eval.node(node);
         
         //
         PV new_pv = PVs.pick();
                         
         //
-        sendinfo("id-run");
+        info("id-run");
         
         // iterative deeping loop
         while (depth_index <= depth_limit && stop == NOT)
         {                                        
             //
-            sendinfo("id-loop-run");
+            info("id-loop-run");
            
             // iterative deeping alpha start value
             final int alfa = score - sw;
@@ -178,24 +178,24 @@ public final class Search
             // launch alfa-beta for searcing candidates 
             final int eval = abrun(alfa, beta, new_pv); 
             
-            // consider aspiration window fails
-            if (eval <= alfa || eval >= beta) {
-                score = abrun(-oo, +oo, new_pv);             
-            } else {
-                score = eval;            
-            }
-            
             //
-            //Captures.info();
+            id_nodes += ab_nodes + qs_nodes;
             
-            //
-            //Moves.info();
+            // if consider aspiration window fails
+            if (eval <= alfa || eval >= beta || SEARCH_BRUTE_FORCE)             
+            {
+                //
+                score = abrun(-oo, +oo, new_pv); 
+                
+                //
+                id_nodes += ab_nodes + qs_nodes;            
+            } 
+            
+            // aspiration window not fails redial new score
+            else { score = eval; }
                         
-            //
-            //Legals.info();
-            
             // if search stopped 
-            if (stop == YES) { sendinfo("id-loop-break"); break; }
+            if (stop == YES) { info("id-loop-break"); break; }
                 
             //
             best_pv.copy(new_pv);
@@ -205,12 +205,15 @@ public final class Search
             
             //
             best_score = score;                    
-                                        
+                             
             //
-            nps = ab_timer.delta > 0 ? ab_nodes / ab_timer.delta : 0;
+            id_timer.stamp();
             
             //
-            sendinfo("id-loop-end", depth_index+"/"+depth_limit+" "+desc(new_pv)+" "+ab_timer.delta+"ms "+ab_nodes+"n "+nps+"knps");
+            nps = id_timer.ratio(id_nodes);
+            
+            //
+            info("id-loop-end");
               
             // increade depth of search
             depth_index++;                        
@@ -220,10 +223,13 @@ public final class Search
         PVs.free(new_pv);
                 
         //
-        id_timer.pause();
+        id_timer.stamp();
         
         //
-        sendinfo("id-end", id_timer.delta+"ms "+score+" "+desc(best_pv));
+        nps = id_timer.ratio(id_nodes);
+                    
+        //
+        info("id-end");
                 
         //
         sendbestmove();
@@ -245,16 +251,16 @@ public final class Search
         ab_timer.start();
                                        
         // generate legal-moves
-        n.legals();
+        node.legals();
                         
         // no legal moves check-mate or stale-mate
-        if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; } 
+        if (node.legals.i == 0) { return node.legals.c ? -mate + node.L.i : 0; } 
         
         //
         final PV new_pv = PVs.pick();
                 
         // 
-        Move m = n.legals.sort().duplicate();
+        Move m = node.legals.sort().duplicate();
         
         //
         final int l = m.i;
@@ -264,13 +270,13 @@ public final class Search
         {   
             
             // make
-            n.domove(m, i);
+            node.domove(m, i);
             
             // recursive evaluation search                    
             int s = abmin(depth_index - 1, a, b, new_pv, NT_NODE);
 
             // undo
-            n.unmove();            
+            node.unmove();            
             
             //
             sendinfo("ab-loop-run", "move " + m2s(m, i)+"="+s);
@@ -279,10 +285,10 @@ public final class Search
             if (s >= b && !SEARCH_BRUTE_FORCE) 
             {  
                 //
-                sendinfo("ab-hard-cut-off");
+                info("ab-hard-cut-off");
                 
                 //
-                if (SEARCH_UPDATE) { n.legals.w[i] = b; }
+                if (SEARCH_UPDATE) { node.legals.w[i] = b; }
                 
                 //
                 a = b;
@@ -295,7 +301,7 @@ public final class Search
             if (s > a) 
             {                              
                 //
-                if (SEARCH_UPDATE) { n.legals.w[i] = s; }
+                if (SEARCH_UPDATE) { node.legals.w[i] = s; }
                 
                 //
                 sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
@@ -315,7 +321,10 @@ public final class Search
         PVs.free(new_pv);
        
         //
-        ab_timer.pause();
+        ab_timer.stamp();
+
+        //
+        nps = ab_timer.ratio(ab_nodes);
         
         //
         return a; 
@@ -330,7 +339,7 @@ public final class Search
        
                 
         // trasposition table probe
-        if (TT.probemax(n.phk, d, a, b)) { return TT.score; }
+        if (TT.probemax(node.phk, d, a, b)) { return TT.score; }
         
         // return quiescence value-search, 
         if (d == 0) 
@@ -355,25 +364,25 @@ public final class Search
         pv.clear();
                 
         // get legal-moves  
-        n.legals();
+        node.legals();
         
         // threefold repetition
-        if (n.threefold()) { return 0; }
+        if (node.threefold()) { return 0; }
                 
         // no legal moves check-mate or stale-mate
-        if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; }
+        if (node.legals.i == 0) { return node.legals.c ? -mate + node.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
                 
         // sort and clone       
-        Move m  = n.legals.sort().duplicate();
+        Move m  = node.legals.sort().duplicate();
                 
         //
         for (int i = 0; i < m.i; i++) 
         {            
             // 
-            n.domove(m, i);
+            node.domove(m, i);
                                     
             //                 
             //w = abmin(d-1, a, p == 0 ? b : a+1);
@@ -386,7 +395,7 @@ public final class Search
             
             
             //
-            n.unmove();                
+            node.unmove();                
 
             //
             if (stop == YES) { break; }
@@ -397,7 +406,7 @@ public final class Search
                 //t.store(d, a, t.BETA); 
                 //return b; 
                 //
-                if (SEARCH_UPDATE) { n.legals.w[i] = b; }
+                if (SEARCH_UPDATE) { node.legals.w[i] = b; }
                 
                 //
                 a = b;
@@ -413,7 +422,7 @@ public final class Search
                 pv.cat(new_pv, m, i);
                 
                 //
-                if (SEARCH_UPDATE) { n.legals.w[i] = s; }
+                if (SEARCH_UPDATE) { node.legals.w[i] = s; }
                 
                 //
                 //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
@@ -443,12 +452,11 @@ public final class Search
         int s; 
         
         // trasposition table probe
-        if (TT.probemin(n.phk, d, a, b)) { return TT.score; }
+        if (TT.probemin(node.phk, d, a, b)) { return TT.score; }
                        
         // at-end quiescence search and 
         if (d == 0) 
-        {
-            
+        {            
             // increase nodes count
             ab_nodes++;
             
@@ -469,25 +477,25 @@ public final class Search
         pv.clear();
                 
         // generate legal-moves 
-        n.legals();
+        node.legals();
 
         // threefold repetition
-        if (n.threefold()) { return 0; }
+        if (node.threefold()) { return 0; }
         
         // no-legals-move exit checkmate
-        if (n.legals.i == 0) { return n.legals.c ? +mate - n.L.i : 0; }
+        if (node.legals.i == 0) { return node.legals.c ? +mate - node.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
         
         // and sort
-        Move m = n.legals.sort().duplicate();        
+        Move m = node.legals.sort().duplicate();        
             
         //
         for (int i = 0; i < m.i; i++)
         {                 
             // make move
-            n.domove(m, i);
+            node.domove(m, i);
                     
             // 
             //w = abmax(d-1, p==0 ? a : b-1, b);
@@ -498,7 +506,7 @@ public final class Search
             //}
 
             // unmake move
-            n.unmove();         
+            node.unmove();         
 
             // hard cut-off
             if (s <= a && !SEARCH_BRUTE_FORCE) 
@@ -517,7 +525,7 @@ public final class Search
                 pv.cat(new_pv, m, i);
                 
                 //
-                if (SEARCH_UPDATE) { n.legals.w[i] = s; }
+                if (SEARCH_UPDATE) { node.legals.w[i] = s; }
                 
                 //
                 //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
@@ -547,22 +555,22 @@ public final class Search
         qs_nodes++;
         
         // eval position
-        int s = Eval.node(n);
+        int s = Eval.node(node);
         
         // quiescence need sort moves
-        n.captures();
+        node.captures();
                        
         //
-        final int l = n.captures.i;
+        final int l = node.captures.i;
         
         //
         if (l == 0)
         {
             // generate legal-moves 
-            n.legals();
+            node.legals();
 
             // no-legals-move exit checkmate
-            if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; }
+            if (node.legals.i == 0) { return node.legals.c ? -mate + node.L.i : 0; }
         }
                        
         // hard cut-off
@@ -578,19 +586,19 @@ public final class Search
         if (!SEARCH_QUIESCENCE) { return a; }
         
         // 
-        Capture c = n.captures.sort().duplicate();
+        Capture c = node.captures.sort().duplicate();
                                 
         //
         for (int i = 0; i < l; i++)  
         {
             //
-            n.domove(c, i);
+            node.domove(c, i);
                         
             //
             s = qsmin(a, b);
             
             //
-            n.unmove();
+            node.unmove();
             
             // hard cut-off disabled in bruteforce mode
             if (s >= b && !SEARCH_BRUTE_FORCE) { a = b; break; }
@@ -613,22 +621,22 @@ public final class Search
         qs_nodes++;
           
         // eval position 
-        int s = -Eval.node(n);
+        int s = -Eval.node(node);
         
         //
-        n.captures();
+        node.captures();
         
         //
-        final int l = n.captures.i;
+        final int l = node.captures.i;
         
         //
         if (l == 0) 
         {
             // generate legal-moves 
-            n.legals();
+            node.legals();
 
             // no-legals-move exit checkmate
-            if (n.legals.i == 0) { return n.legals.c ? +mate - n.L.i : 0; }                       
+            if (node.legals.i == 0) { return node.legals.c ? +mate - node.L.i : 0; }                       
         }
                        
         // return alfa if wrost
@@ -644,19 +652,19 @@ public final class Search
         if (!SEARCH_QUIESCENCE) { return b; }
                                         
         // quiescenze need sort moves
-        Capture c = n.captures.sort().duplicate();
+        Capture c = node.captures.sort().duplicate();
                        
         // loop throut capturers
         for (int i = 0; i < l; i++) 
         {
             // make move 
-            n.domove(c, i);
+            node.domove(c, i);
                         
             // iterate qsearch
             s = qsmax(a, b);
             
             // redo move
-            n.unmove();
+            node.unmove();
 
             // hard cut-off disabled in bruteforce mode
             if (s <= a && !SEARCH_BRUTE_FORCE) { b = a; break; }        
@@ -682,26 +690,27 @@ public final class Search
         if (id_timer.expired()) { stop = YES; return; }
 
         //
-        if (!id_timer.polling()) { return; } 
-                                  
-        //
-        //id_nodes = time + INFO_MILLISECONDS_POLLING;
-        
-        //
-        nps = ab_nodes / ab_timer.delta();
-        
-        //        
-        sendinfo("ab-speed", "nps "+nps);
+        if (id_timer.polling()) 
+        {                                           
+            //
+            ab_timer.stamp();
+
+            //
+            nps = ab_timer.ratio(ab_nodes);
+
+            //        
+            sendinfo("ab-speed", "nps "+nps);
+        }
     } 
     
     //
-    private void sendinfo(String event)
+    private void info(String event)
     {
         //
-        info_event = event;
+        this.event = event;
         
         //
-        info_message = null;
+        message = null;
 
         //
         sendinfo.run();    
@@ -711,10 +720,10 @@ public final class Search
     private void sendinfo(String event, String message)
     {
         //
-        info_event = event;
+        this.event = event;
         
         //
-        info_message = message;
+        this.message = message;
 
         //
         sendinfo.run();

@@ -40,7 +40,7 @@ public class Search7
         s.sendinfo = () -> 
         {
             //
-            if (s.info_event.equals("id-loop-end")) 
+            if (s.event.equals("id-loop-end")) 
             {
                 print(desc(s.best_pv));
             }        

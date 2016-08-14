@@ -3,32 +3,29 @@
  * by Francesco Bianco <bianco@javanile.org>
  */
 
-//
+// krudo main package
 package org.krudo;
 
-//
+// required static class
 import static org.krudo.Tool.*;
 import static org.krudo.Constant.*;
 
-//
+// engine class aim brain-mentor
 public final class Engine
 {       
-    //
-    public final Node NODE = new Node();
-    
-    //
-    public final Search SEARCH = new Search(NODE);
+    // search processor-algorythm
+    public final Search search = new Search();
         
-    //
+    // white available time
     public long wtime = 60000;
     
-    //
+    // black available time
     public long btime = 60000;
     
-    //
+    // depth limit for search algotimh
     public int depth = 20;
     
-    //
+    // use opening book
     public boolean book = false;
     
     //
@@ -59,13 +56,13 @@ public final class Engine
     public Engine()
     {
         //
-        SEARCH.sendinfo = () -> {
-            sendinfo(SEARCH.best_move);
+        search.sendinfo = () -> {
+            sendinfo(search.best_move);
         };
         
         //
-        SEARCH.sendbestmove = () -> {
-            sendbestmove(SEARCH.best_move, SEARCH.best_score);
+        search.sendbestmove = () -> {
+            sendbestmove(search.best_move, search.best_score);
         };
     }
     
@@ -78,39 +75,38 @@ public final class Engine
     //
     public final void startpos() 
     {
-        NODE.startpos();
+        search.node.startpos();
     }
     
     //
     public final void startpos(String fen)
     {
-        NODE.startpos(fen);
+        search.node.startpos(fen);
     }
     
     //
     public final void domove(String move) 
     {
-        NODE.domove(move);
+        search.node.domove(move);
     }
     
     //
     public final void domove(String[] moves) 
     {
-        NODE.domove(moves);
+        search.node.domove(moves);
     }
     
     //
     public final void domove(String[] moves, int offset) 
     {
         //
-        NODE.domove(moves, offset);
+        search.node.domove(moves, offset);
     }
-    
     
     //
     public final void unmove() 
     {
-        NODE.unmove();
+        search.node.unmove();
     }
     
     // start thinking process
@@ -120,7 +116,7 @@ public final class Engine
         if (book) 
         {
             //
-            String m = Book.rand(NODE.phk);
+            String m = Book.rand(search.node.phk);
 
             //
             if (m != null)
@@ -134,10 +130,10 @@ public final class Engine
         } 
         
         //
-        long time = NODE.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
+        long time = search.node.t == w ? (wtime / 80) + 1000 : (btime / 80) + 1000; 
         
         // call iterative deeping (wait here)
-        SEARCH.start(depth, 3000);
+        search.start(depth, 3000);
     }
     
     //
@@ -151,7 +147,7 @@ public final class Engine
     public final boolean isReady()
     {
         //
-        NODE.legals();
+        search.node.legals();
         
         //
         return true;
