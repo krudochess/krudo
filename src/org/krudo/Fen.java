@@ -9,6 +9,7 @@ package org.krudo;
 // required static classes and methods
 import static org.krudo.Tool.*;
 import static org.krudo.Parse.*;
+import static org.krudo.Describe.*;
 import static org.krudo.Constant.*;
 
 // fen class utility
@@ -111,12 +112,17 @@ public final class Fen
                     {
                         //                        
                         int e = parse_square(""+portion[section].charAt(0)+portion[section].charAt(1));
-                        
+                                                                       
                         // set node enpassant square if is appliable
-                        if (node.t == w) {
-                            node.white_domove_enpassant(e);
-                        } else {
+                        if (node.t == w) 
+                        {
                             node.black_domove_enpassant(e);
+                        } 
+                        
+                        //
+                        else 
+                        {
+                            node.white_domove_enpassant(e);
                         } 
 					}
 					break;					

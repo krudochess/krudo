@@ -24,12 +24,12 @@ public class Zobrist1
         String[] tests = {        
             
             //
+            "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+            "823c9b50fd114196",            
+            
+            //
             "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
             "463b96181691fc9c",
-
-            //
-            "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
-            "823c9b50fd114196",
             
             // position after e2e4 d75
             "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2",
@@ -79,7 +79,9 @@ public class Zobrist1
             //dump(n);
             
             //
-            echo(hex(n.phk),"==",tests[i+1],"->",tests[i+1].equals(hex(n.phk))+"\n");        
+            echo(hex(n.phk),"==",tests[i+1],"->",tests[i+1].equals(hex(n.phk))+"\n");
+            
+            exit();
         }                        
     }    
 }

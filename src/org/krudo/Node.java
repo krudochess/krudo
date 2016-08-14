@@ -333,9 +333,13 @@ public final class Node
     //
     public final boolean white_domove_enpassant(final int v) 
     {
+        print(square(v));
+
         //
 		int u = SPAN[v][NE];
-            
+        
+        print(square(u));
+
         //
         if (u != xx && B[u] == bp) { e = v; return true; } 
             
