@@ -235,7 +235,7 @@ public final class Node
         L.store(p, s, v, x, k, c, e, phk, mhk);
         
         // hash base movement and clear precent enpassant
-        hash1(this, p, s, v);
+        hash_move(this, p, s, v);
         
         // set zero leaved square
         B[s] = O; 
@@ -253,7 +253,7 @@ public final class Node
         if (x != O) 
         {
             // hash captured piece
-            hash2(this, v, x);
+            hash_capt(this, v, x);
             
             // decrease opponet material 
             M[x & lo]--;
@@ -269,7 +269,15 @@ public final class Node
         if (k != MOVE) if (t == b) { white_domove(s, v, k); } else { black_domove(s, v, k); }  
         
         //
-        //Debug.assertPieceCount(this);        
+        Debug.assertPieceCount(this);
+
+        if (hex(phk).equals("2978b967ac2f9be4")) {
+            dump(this);
+            legals();
+            dump(legals);
+            exit("foud");
+        }
+        
     }
     
     // domove and change node internal status
@@ -279,25 +287,28 @@ public final class Node
         switch (k) 
         {                   
             // set enpassant square and possible pawn square that caputre if have one
-            case PDMO: if (white_domove_enpassant(s + 8)) { hash3(this); } return;            
+            case PDMO: if (white_domove_enpassant(s + 8)) { hash_pdmo(this); } return;            
             
             // perform enpassant capture
-            case ECAP: final int u = v - 8; cb--; B[u] = O; M[bp & lo]--; hash4(this, u, bp); return;                  
+            case ECAP: final int u = v - 8; cb--; B[u] = O; M[bp & lo]--; hash_ecap(this, u, bp); return;                  
             
             // update white king square and castling    
-            case KMOV: wks = v; if ((c & KQ__) != KQ__) { hash5w(this); c |= KQ__; } return;                    
+            case KMOV: wks = v; hash_kmov_w(this); c |= KQ__; return;                    
             
             // handle castling status and rook bonus movement    
-            case KSCA: B[f1] = wr; B[h1] = O; wks = g1; hash5w(this); c |= KQ__; break;
+            case KSCA: B[f1] = wr; B[h1] = O; wks = g1; hash_ksca_w(this); c |= KQ__; break;
                 
             // perform queen side castling    
-            case QSCA: B[d1] = wr; B[a1] = O; wks = c1; hash5w(this); c |= KQ__; break;
+            case QSCA: B[d1] = wr; B[a1] = O; wks = c1; hash_qsca_w(this); c |= KQ__; break;
                
             // disable opportunity of castling ability    
-            case RMOV: hash5w(this); c |= s == h1 ? K___ : _Q__; return;                             
+            case RKMO: hash_rkmo_w(this); c |= K___; return;                             
+            
+            // disable opportunity of castling ability    
+            case RQMO: hash_rqmo_w(this); c |= _Q__; return;                             
             
             // by default promote piece
-            default: final int p = k & pi; B[v] = p; M[wp & lo]--; M[p & lo]++; hash6(this, v, wp, p);
+            default: final int p = k & pi; B[v] = p; M[wp & lo]--; M[p & lo]++; hash_prom(this, v, wp, p);
         }                                    
     }
     
@@ -308,25 +319,28 @@ public final class Node
         switch (k) 
         {      
             // set en-passant square
-            case PDMO: if (black_domove_enpassant(s - 8)) { hash3(this); } return;            
+            case PDMO: if (black_domove_enpassant(s - 8)) { hash_pdmo(this); } return;            
             
             // performe en-passant capture
-            case ECAP: final int u = v + 8; cw--; B[u] = O; M[wp & lo]--; hash4(this, u, wp); return;          
+            case ECAP: final int u = v + 8; cw--; B[u] = O; M[wp & lo]--; hash_ecap(this, u, wp); return;          
             
             // set new king square and lose castling ability
-            case KMOV: bks = v; if ((c & __kq) != __kq) { hash5b(this); c |= __kq; } return;                    
+            case KMOV: bks = v; hash_kmov_b(this); c |= __kq; return;                    
             
             // performe king-side castling
-            case KSCA: B[f8] = br; B[h8] = O; bks = g8; hash5b(this); c |= __kq; return;
+            case KSCA: B[f8] = br; B[h8] = O; bks = g8; hash_ksca_b(this); c |= __kq; return;
             
             //
-            case QSCA: B[d8] = br; B[a8] = O; bks = c8; hash5b(this); c |= __kq; return;
+            case QSCA: B[d8] = br; B[a8] = O; bks = c8; hash_qsca_b(this); c |= __kq; return;
                                           
             // lose king-side castling ability    
-            case RMOV: hash5b(this); c |= s == h8 ? __k_ : ___q; return;                         
+            case RKMO: hash_rkmo_b(this); c |= __k_; return;                         
+            
+            // lose king-side castling ability    
+            case RQMO: hash_rqmo_b(this); c |= ___q; return;                         
             
             // by default promote piece
-            default: final int p = k & pi; B[v] = p; M[bp & lo]--; M[p & lo]++; hash6(this, v, bp, p);                
+            default: final int p = k & pi; B[v] = p; M[bp & lo]--; M[p & lo]++; hash_prom(this, v, bp, p);                
         }                                    
     }
     
@@ -377,10 +391,7 @@ public final class Node
     
     // undo last move 
     public final void unmove() 
-    {   
-        //
-        //Debug.assertPieceCount(this);
-                
+    {                   
         // decrease half-move index
         final int i = --L.i;
                         
@@ -450,7 +461,10 @@ public final class Node
             case PDMO: return; 
             
             //
-            case RMOV: return; 
+            case RKMO: return; 
+            
+            //
+            case RQMO: return; 
             
             //
             case KMOV: wks = s; break;
@@ -482,7 +496,10 @@ public final class Node
             case PDMO: return; 
             
             //
-            case RMOV: return; 
+            case RKMO: return; 
+            
+            //
+            case RQMO: return; 
             
             //
             case KMOV: bks = s; break;
@@ -777,7 +794,7 @@ public final class Node
                 case wp: white_pawn_pseudo(s); break;                                        
                 
                 // white rook
-                case wr: sliding_pseudo(s, 0, 4, white_pseudo_rook_kind(s)); break;                        
+                case wr: sliding_pseudo(s, 0, 4, white_pseudo_rook(s)); break;                        
                 
                 // white knight    
                 case wn: knight_pseudo(s); break;                        
@@ -831,7 +848,7 @@ public final class Node
                 case bp: black_pawn_pseudo(s); break;                                             
                 
                 // add sliding piece rook moves
-                case br: sliding_pseudo(s, 0, 4, black_pseudo_rook_kind(s)); break;
+                case br: sliding_pseudo(s, 0, 4, black_pseudo_rook(s)); break;
                 
                 // add kngiht moves
                 case bn: knight_pseudo(s); break;                                
@@ -1253,8 +1270,8 @@ public final class Node
                         { 
                             captures.add(s, v, WQPM); 
                             captures.add(s, v, WRPM); 
-                            captures.add(s, v, wbpm); 
-                            captures.add(s, v, wnpm); 
+                            captures.add(s, v, WBPM); 
+                            captures.add(s, v, WNPM); 
                         }                    
 
                         //
@@ -1265,8 +1282,8 @@ public final class Node
                         { 
                             captures.add(s, v, WQPM); 
                             captures.add(s, v, WRPM); 
-                            captures.add(s, v, wbpm); 
-                            captures.add(s, v, wnpm);
+                            captures.add(s, v, WBPM); 
+                            captures.add(s, v, WNPM);
                         } 
                     }
                     
@@ -1390,9 +1407,9 @@ public final class Node
                         if (v != xx && (B[v] & w) == w) 
                         { 
                             captures.add(s, v, BQPM); 
-                            captures.add(s, v, brpm); 
-                            captures.add(s, v, bbpm); 
-                            captures.add(s, v, bnpm); 
+                            captures.add(s, v, BRPM); 
+                            captures.add(s, v, BBPM); 
+                            captures.add(s, v, BNPM); 
                         }                    
 
                         //
@@ -1402,9 +1419,9 @@ public final class Node
                         if (v != xx && (B[v] & w) == w) 
                         { 
                             captures.add(s, v, BQPM); 
-                            captures.add(s, v, brpm); 
-                            captures.add(s, v, bbpm); 
-                            captures.add(s, v, bnpm);
+                            captures.add(s, v, BRPM); 
+                            captures.add(s, v, BBPM); 
+                            captures.add(s, v, BNPM);
                         } 
                     }
                     
@@ -1519,25 +1536,29 @@ public final class Node
     }
 
     //
-    private int white_pseudo_rook_kind(final int s)
+    private int white_pseudo_rook(final int s)
     {
         //
-        return ((c & K___) == 0 && s == h1) 
-            || ((c & _Q__) == 0 && s == a1) 
-             ? RMOV
-             : MOVE
-             ;    
+        if (((c & K___) == 0 && s == h1)) { return RKMO; }
+        
+        //
+        if (((c & _Q__) == 0 && s == a1)) { return RQMO; } 
+                    
+        //            
+        return MOVE;    
     }
     
     //
-    private int black_pseudo_rook_kind(final int s)
+    private int black_pseudo_rook(final int s)
     {
         //
-        return ((c & __k_) == 0 && s == h8) 
-            || ((c & ___q) == 0 && s == a8) 
-             ? RMOV
-             : MOVE
-             ;    
+        if (((c & __k_) == 0 && s == h8)) { return RKMO; } 
+        
+        //
+        if (((c & ___q) == 0 && s == a8)) { return RQMO; }
+        
+        //
+        return MOVE;    
     }
     
     // handle knight normal move
@@ -1627,8 +1648,8 @@ public final class Node
             {
                 legals.add(s, v, WQPM);
                 legals.add(s, v, WRPM);
-                legals.add(s, v, wbpm);
-                legals.add(s, v, wnpm);
+                legals.add(s, v, WBPM);
+                legals.add(s, v, WNPM);
             }
                     
             //
@@ -1639,8 +1660,8 @@ public final class Node
             {
                 legals.add(s, v, WQPM);
                 legals.add(s, v, WRPM);
-                legals.add(s, v, wbpm);
-                legals.add(s, v, wnpm);
+                legals.add(s, v, WBPM);
+                legals.add(s, v, WNPM);
             }
             
             //
@@ -1651,8 +1672,8 @@ public final class Node
             {
                 legals.add(s, v, WQPM);
                 legals.add(s, v, WRPM);
-                legals.add(s, v, wbpm);
-                legals.add(s, v, wnpm);
+                legals.add(s, v, WBPM);
+                legals.add(s, v, WNPM);
             }                            
         }    
     }
@@ -1719,9 +1740,9 @@ public final class Node
             if (B[v] == 0) 
             {
                 legals.add(s, v, BQPM);
-                legals.add(s, v, brpm);
-                legals.add(s, v, bbpm);
-                legals.add(s, v, bnpm);
+                legals.add(s, v, BRPM);
+                legals.add(s, v, BBPM);
+                legals.add(s, v, BNPM);
             }
             
             // promotion est-capture square
@@ -1731,9 +1752,9 @@ public final class Node
             if (v != xx && (B[v] & w) == w)
             {
                 legals.add(s, v, BQPM);
-                legals.add(s, v, brpm);
-                legals.add(s, v, bbpm);
-                legals.add(s, v, bnpm);
+                legals.add(s, v, BRPM);
+                legals.add(s, v, BBPM);
+                legals.add(s, v, BNPM);
             }
             
             //
@@ -1743,9 +1764,9 @@ public final class Node
             if (v != xx && (B[v] & w) == w) 
             {
                 legals.add(s, v, BQPM);
-                legals.add(s, v, brpm);
-                legals.add(s, v, bbpm);
-                legals.add(s, v, bnpm);
+                legals.add(s, v, BRPM);
+                legals.add(s, v, BBPM);
+                legals.add(s, v, BNPM);
             }                                        
         }    
     }

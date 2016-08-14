@@ -60,9 +60,9 @@ public final class Parse
             switch (m.charAt(4))
             {
                 case 'q': return t == w ? WQPM : BQPM;
-                case 'r': return t == w ? WRPM : brpm;
-                case 'b': return t == w ? wbpm : bbpm;
-                case 'n': return t == w ? wnpm : bnpm;
+                case 'r': return t == w ? WRPM : BRPM;
+                case 'b': return t == w ? WBPM : BBPM;
+                case 'n': return t == w ? WNPM : BNPM;
                 default: return MOVE;
             }
         } 

@@ -276,8 +276,8 @@ public final class Zobrist
         n.mhk = mhk;
 	}	
         
-    // hash1: simple move 
-	public static final void hash1(final Node n, final int p, final int s, final int v)
+    // hash_move: simple move 
+	public static final void hash_move(final Node n, final int p, final int s, final int v)
     {       
         // remove piece from start square
         n.phk ^= HASH[p & hi | s];
@@ -292,29 +292,29 @@ public final class Zobrist
         if (n.e != xx) { n.phk ^= HASH[ENPASSANT + n.e % 8]; }
     }	
     
-    // hash2: consider captured piece 
-	public static final void hash2(Node n, int v, int x)  
+    // hash_capt: consider captured piece 
+	public static final void hash_capt(Node n, int v, int x)  
     {                
         //
         n.phk ^= HASH[x & hi | v];         
     }	
     
-    // hash3: cosider enpassant column 
-	public static final void hash3(final Node n)
+    // hash_pdmo: cosider enpassant column 
+	public static final void hash_pdmo(final Node n)
     {
         //
         n.phk ^= HASH[ENPASSANT + n.e % 8]; 
     }
     
-    // hash4: cosider enpassant pawn captured 
-	public static final void hash4(final Node n, final int v, final int x)
+    // hash_ecap: cosider enpassant pawn captured 
+	public static final void hash_ecap(final Node n, final int v, final int x)
     {
         //
         n.phk ^= HASH[x & hi | v];
     }
     
-    // hash5w: disable white castling
-    public static final void hash5w(final Node n)
+    // hash_kmov_w: disable white castling
+    public static final void hash_kmov_w(final Node n)
     {
         //
         if ((n.c & K___) == 0) { n.phk ^= HASH_WKCA; }
@@ -323,8 +323,8 @@ public final class Zobrist
         if ((n.c & _Q__) == 0) { n.phk ^= HASH_WQCA; }        
     }
     
-    // hash5w: disable white castling
-    public static final void hash5b(final Node n)
+    // hash_kmov_b: disable white castling
+    public static final void hash_kmov_b(final Node n)
     {
         //
         if ((n.c & __k_) == 0) { n.phk ^= HASH_BKCA; }
@@ -332,9 +332,117 @@ public final class Zobrist
         //
         if ((n.c & ___q) == 0) { n.phk ^= HASH_BQCA; }        
     }
+   
+    // hash_ksca_w: disable white castling
+    public static final void hash_ksca_w(final Node n)
+    {
+        //
+        if ((n.c & K___) == 0) 
+        { 
+            //
+            n.phk ^= HASH_WKCA;
+            
+            // remove piece from start square
+            n.phk ^= HASH[wr & hi | h1];
+
+            // place piece in versus square
+            n.phk ^= HASH[wr & hi | f1];            
+        }
+        
+        //
+        if ((n.c & _Q__) == 0) { n.phk ^= HASH_WQCA; }        
+    } 
+
+    // hash_ksca_b: disable white castling
+    public static final void hash_ksca_b(final Node n)
+    {
+        //
+        if ((n.c & __k_) == 0) 
+        { 
+            //
+            n.phk ^= HASH_BKCA;
+            
+            // remove piece from start square
+            n.phk ^= HASH[br & hi | h8];
+
+            // place piece in versus square
+            n.phk ^= HASH[br & hi | f8];            
+        }
+        
+        //
+        if ((n.c & ___q) == 0) { n.phk ^= HASH_BQCA; }        
+    } 
+
+    // hash_qsca_w: disable white castling
+    public static final void hash_qsca_w(final Node n)
+    {
+        //
+        if ((n.c & _Q__) == 0) 
+        {
+            //
+            n.phk ^= HASH_WQCA;
+            
+            // remove rook from start square
+            n.phk ^= HASH[wr & hi | a1];
+
+            // place rokk in versus square
+            n.phk ^= HASH[wr & hi | d1];        
+        }
+
+        //
+        if ((n.c & K___) == 0) { n.phk ^= HASH_WKCA; }                 
+    }
     
+    // hash_qsca_b: disable white castling
+    public static final void hash_qsca_b(final Node n)
+    {
+        //
+        if ((n.c & ___q) == 0) 
+        {
+            //
+            n.phk ^= HASH_BQCA;
+            
+            // remove rook from start square
+            n.phk ^= HASH[br & hi | a8];
+
+            // place rokk in versus square
+            n.phk ^= HASH[br & hi | d8];        
+        }
+
+        //
+        if ((n.c & __k_) == 0) { n.phk ^= HASH_BKCA; }                 
+    }
+    
+    // hash_kmov_w: disable white castling
+    public static final void hash_rkmo_w(final Node n)
+    {
+        //
+        if ((n.c & K___) == 0) { n.phk ^= HASH_WKCA; }
+    }
+        
+    // hash_kmov_w: disable white castling
+    public static final void hash_rqmo_w(final Node n)
+    {
+        //
+        if ((n.c & _Q__) == 0) { n.phk ^= HASH_WQCA; }        
+    }
+    
+    // hash_rkmo_b: disable white castling
+    public static final void hash_rkmo_b(final Node n)
+    {
+        //
+        if ((n.c & __k_) == 0) { n.phk ^= HASH_BKCA; }
+    }
+    
+    // hash_rqmo_b: disable white castling
+    public static final void hash_rqmo_b(final Node n)
+    {        
+        //
+        if ((n.c & ___q) == 0) { n.phk ^= HASH_BQCA; }        
+    }
+       
     // hash6: consider piece promotion
-    public static final void hash6(final Node n, final int v, final int a, final int p)
+    public static final void hash_prom(final Node n, final int v, final int a, final int p)
     {
         // remove pAwn
         n.phk ^= HASH[a & hi | v];

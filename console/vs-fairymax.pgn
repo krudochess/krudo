@@ -919,3 +919,23 @@ Nxe4 {+79.94/10 1.8} 25. f5 {-26.48/6 3} Qxf2+ {+79.98/28 0.1} 26. Kh1
 {+0.02/4 5} Be4 {+3.67/7 4} 12. Qh3 {+0.02/4 5} Nxc2+ {+4.27/9 3}
 {polyglot: resign (illegal engine move by white: e1c1)} 0-1
 
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.08.14"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fairy-Max 4.8S"]
+[Result "0-1"]
+[TimeControl "180"]
+[Annotator "1. -0.02   1... +0.22"]
+
+1. e4 {-0.02/6} c5 {+0.22/7 3} 2. d4 {+0.22/5 5} cxd4 {+0.08/7 2.3} 3. Qxd4
+{+0.12/5 5} Nc6 {+0.35/7 2.2} 4. Qd3 {-0.14/4 5} Nf6 {+0.03/7 3} 5. Nf3
+{+0.06/5 5} d5 {+0.03/7 3} 6. e5 {+0.16/4 5} Ng4 {-0.05/7 2.2} 7. Bf4
+{-0.03/4 5} Qb6 {+0.95/8 5} 8. Qb5 {-1.17/3 5} Qxf2+ {+1.24/9 8} 9. Kd1
+{-1.43/4 5} d4 {+1.08/9 11} 10. Bd2 {-1.42/3 5} Ne3+ {+1.45/7 10} 11. Kc1
+{-1.64/4 5} Nxf1 {+1.31/7 4} 12. Rxf1 {-1.12/4 5} Qxg2 {+1.87/9 4} 13. Nxd4
+{-2.27/3 5} a6 {+1.93/9 3} 14. Qe2 {-2.27/4 5} Qxe2 {+1.95/10 2.1} 15. Nxe2
+{-2.24/6 5} Nxe5 {+1.97/9 4} 16. Nbc3 {-2.15/5 5} Bh3 {+2.11/8 2.0}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly} 0-1
+

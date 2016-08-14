@@ -20,6 +20,7 @@ import java.util.regex.*;
 import static org.krudo.Constant.*;
 import org.krudo.Moves;
 import static org.krudo.Tool.*;
+import static org.krudo.Config.*;
 import static org.krudo.Decode.*;
 import static org.krudo.Describe.*;
 
@@ -357,15 +358,18 @@ public final class Debug
         
         if (n.cw != cw || n.cb != cb) {
             Krudo.CONSOLE.print("assertPieceCount fails");
-            Krudo.CONSOLE.print(desc(n));
-            Krudo.CONSOLE.print(desc(n.L));
-            //n.unmove();
             //Krudo.CONSOLE.print(desc(n));
-            //n.legals();
-            //Krudo.CONSOLE.print(desc(n.legals));
+            //Krudo.CONSOLE.print(desc(n.L));
+            n.unmove();
+            Krudo.CONSOLE.print(desc(n));
+            //CACHE_LEGALS = false;
+            n.legals();
+            Krudo.CONSOLE.print(desc(n.legals));
             //print(Book.list(n.phk));
-            java.lang.Thread.dumpStack();
             Krudo.CONSOLE.close();
+            
+            //java.lang.Thread.dumpStack();
+            
             exit();
         }
     }

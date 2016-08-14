@@ -124,11 +124,11 @@ public final class Decode
 			case WQPM:
             case BQPM: piece = "q"; break;
             case WRPM:
-            case brpm: piece = "r"; break;
-            case wbpm: 
-            case bbpm: piece = "b"; break;
-            case wnpm:
-            case bnpm: piece = "n"; break;
+            case BRPM: piece = "r"; break;
+            case WBPM: 
+            case BBPM: piece = "b"; break;
+            case WNPM:
+            case BNPM: piece = "n"; break;
 		}		
         
         //
@@ -147,11 +147,11 @@ public final class Decode
 			case WQPM:
             case BQPM: piece = "q"; break;
             case WRPM:
-            case brpm: piece = "r"; break;
-            case wbpm: 
-            case bbpm: piece = "b"; break;
-            case wnpm:
-            case bnpm: piece = "n"; break;
+            case BRPM: piece = "r"; break;
+            case WBPM: 
+            case BBPM: piece = "b"; break;
+            case WNPM:
+            case BNPM: piece = "n"; break;
 		}		
         
         //
