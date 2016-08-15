@@ -458,14 +458,12 @@ public final class Search
             //if (w > a && p > 0) {
             s = abmin(d-1, a, b, new_pv, NT_NODE);                
             //}
-
-            
-            
+                       
             //
             node.unmove();                
 
             //
-            if (stop) { break; }
+            if (stop) { return a; }
                         
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 
