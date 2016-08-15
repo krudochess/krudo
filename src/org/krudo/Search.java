@@ -122,6 +122,7 @@ public final class Search
                     info, 
                     depth_index + "/" + depth_limit, 
                     rpad(ab_nodes, 10) + "n",
+                    rpad(qs_nodes, 5) + "n",
                     rpad(ab_timer.stamp / 1000, 6) + "s",
                     rpad(nps, 5) + "knps"
                 );                
@@ -197,7 +198,6 @@ public final class Search
             if (!SEARCH_BRUTE_FORCE) {
                 score = awrun(score, new_pv);
             } else {
-            // launch alfa-beta for searcing candidates 
                 score = abrun(-oo, +oo, new_pv);             
             }
                         
@@ -273,8 +273,7 @@ public final class Search
         // aspiration window not fails redial new score
         return eval;
     }
-    
-    
+        
     // alfa-beta entry-point
     private int abrun(int a, int b, final PV pv) 
     {    
@@ -322,7 +321,7 @@ public final class Search
             node.unmove();            
             
             //
-            sendinfo("ab-loop-run", "move " + m2s(m, i)+"="+s);
+            //sendinfo("ab-loop-run", "move " + m2s(m, i)+"="+s);
             
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 
@@ -381,9 +380,7 @@ public final class Search
     {   
         // score
         int s;  
-        
-       
-                
+                        
         // trasposition table probe
         if (TT.probemax(node.phk, d, a, b)) { return TT.score; }
         
@@ -597,9 +594,6 @@ public final class Search
     // quiescence max search routine
     private int qsmax(int a, int b)
     {      
-        //
-        qs_nodes++;
-        
         // eval position
         int s = Eval.node(node);
         
@@ -611,7 +605,7 @@ public final class Search
         
         //
         if (l == 0)
-        {
+        {                
             // generate legal-moves 
             node.legals();
 
@@ -631,6 +625,9 @@ public final class Search
         // 
         if (!SEARCH_QUIESCENCE) { return a; }
         
+        //
+        qs_nodes++;            
+        
         // 
         Capture c = node.captures.sort().duplicate();
                                 
@@ -647,7 +644,7 @@ public final class Search
             node.unmove();
             
             // hard cut-off disabled in bruteforce mode
-            if (s >= b && !SEARCH_BRUTE_FORCE) { a = b; break; }
+            if (s >= b) { a = b; break; }
 
             // soft cut-off
             if (s > a) { a = s; }
@@ -663,9 +660,6 @@ public final class Search
     // quiescence min search routine
     private int qsmin(int a, int b) 
     {                        
-        // increase nodes count
-        qs_nodes++;
-          
         // eval position 
         int s = -Eval.node(node);
         
@@ -696,7 +690,10 @@ public final class Search
         
         //
         if (!SEARCH_QUIESCENCE) { return b; }
-                                        
+        
+        // increase nodes count
+        qs_nodes++;
+                             
         // quiescenze need sort moves
         Capture c = node.captures.sort().duplicate();
                        
@@ -713,7 +710,7 @@ public final class Search
             node.unmove();
 
             // hard cut-off disabled in bruteforce mode
-            if (s <= a && !SEARCH_BRUTE_FORCE) { b = a; break; }        
+            if (s <= a) { b = a; break; }        
                 
             // soft cut-off
             if (s < b) { b = s; }

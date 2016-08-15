@@ -31,7 +31,7 @@ public class Search1
         SEARCH_QUIESCENCE = true;
         
         //
-        SEARCH_BRUTE_FORCE = false;
+        SEARCH_BRUTE_FORCE = true;
                 
         //
         Krudo.init();

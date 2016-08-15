@@ -2391,3 +2391,37 @@ white to play
 1. Ra4 {+5.21/9} Kd5 {-5.79/18 4}
 {Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly but bare king} 1/2-1/2
 
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.08.15"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "1-0"]
+[TimeControl "120"]
+[FEN "8/8/4k3/8/8/8/8/R3K3 w Q - 0 1"]
+[SetUp "1"]
+
+{--------------
+. . . . . . . .
+. . . . . . . .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+R . . . K . . .
+white to play
+--------------}
+1. Ra4 {+5.21/9} Kd5 {-5.79/18 4} 2. Ke2 {+5.23/8 5} Ke5 {-5.68/11 5} 3.
+Ke3 {+5.82/9 5} Kd5 {-5.90/16 5} 4. Ra5+ {+5.82/8 5} Kd6 {-5.95/12 3} 5.
+Kd4 {+6.10/8 5} Ke6 {-6.24/13 0.1} 6. Ke4 {+6.10/8 5} Kd6 {-6.22/12 4} 7.
+Ra1 {+6.14/8 5} Kc5 {-6.16/13 4} 8. Rd1 {+6.18/9 5} Kb4 {-6.15/12 4} 9. Kd4
+{+6.39/9 5} Kb5 {-6.25/12 0.1} 10. Kd5 {+6.31/9 5} Kb4 {-99.84/21 2.4} 11.
+Rd3 {+6.43/9 5} Kb5 {-99.86/36 0.1} 12. Rb3+ {+6.47/9 5} Ka4
+{-99.88/53 0.1} 13. Rb6 {+6.49/9 5} Ka5 {-99.88/48 2.2} 14. Kc5 {+6.49/9 5}
+Ka4 {-99.90/51 0.1} 15. Rb7 {+999.63/9 5} Ka3 {-99.92/48 3} 16. Kc4
+{+999.63/9 5} Ka2 {-99.94/47 0.1} 17. Kc3 {+999.63/9 5} Ka1 {-99.96/45 0.1}
+18. Kc2 {+999.63/9 5} Ka2 {-99.98/43 0.1} 19. Ra7# {+999.63/10 5}
+{Xboard adjudication: Checkmate} 1-0
+
