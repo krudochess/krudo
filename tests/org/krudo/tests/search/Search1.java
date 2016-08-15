@@ -8,6 +8,7 @@ package org.krudo.tests.search;
 
 //
 import org.krudo.*;
+import java.util.ArrayList;
 
 //
 import static org.krudo.Tool.*;
@@ -22,52 +23,26 @@ public class Search1
     {
         // dobbiamo migliorare il tempo di questo BRUTE_FORCE senza quiescenza
         // id-loop-end 5/5 e2e4 e7e6 f1c4 e6e5 c4f7 11185ms 4865609n 435knps
-        
-        //
-        SEARCH_TT = false;
-        
+                
         //
         SEARCH_CONTROL = false;
         
         //
-        SEARCH_QUIESCENCE = true;
+        SEARCH_QUIESCENCE = false;
         
         //
-        SEARCH_BRUTE_FORCE = false;
-        
+        SEARCH_BRUTE_FORCE = true;
+                
         //
-        SEARCH_UPDATE = true;
-       
-        //
-        TT.init();
-        
-        //
-        PVs.init();
-        
-        //
-        Moves.init();
-        
-        //
-        Captures.init();
-        
-        // create a node to service the search
-        Node n = new Node();
-        
-        //
-        n.startpos();
-        
+        Krudo.init();
+                
         // create a serach engine based-on the node
-        Search s = new Search(n);
-                               
-        //
-        s.start(7, 500000);
-                      
-        //
-        //s.start(5, 500000);
-        
-        TT.info();
+        Search s = new Search();
         
         //
-        PVs.info();
+        s.event_exclude.add("ab-loop-run");
+                
+        //
+        s.start(1, 500000);                              
     }    
 }

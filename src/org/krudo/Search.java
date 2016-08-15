@@ -7,6 +7,7 @@
 package org.krudo;
 
 // required static class
+import java.util.ArrayList;
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
 import static org.krudo.Config.*;
@@ -24,7 +25,7 @@ public final class Search
     public final Node node = new Node(); 
                     
     // searching controls and related         
-    private int stop = 0;
+    private boolean stop = false;
     
     //
     public int line_start = 0;
@@ -64,8 +65,11 @@ public final class Search
     public String event;
     
     //
-    public String message;
-        
+    public String event_message;
+
+    //
+    public ArrayList<String> event_exclude = new ArrayList<>();
+            
     //
     public Runnable sendinfo = () -> 
     {        
@@ -73,19 +77,22 @@ public final class Search
         int pad = 18;
         
         //
-        String info = "INFO: "+ rpad(event, pad);
+        if (event_exclude.contains(event)) { return; }
+         
+        //
+        String info = "INFO: "+ rpad(event, pad) + " ";
         
         //
         switch (event)
         {
             //
             case "id-run":
-                print(info + " depth " + depth_limit + " time limit ");
+                print(info + "d(" + depth_limit + ") t("+id_timer.limit+")");
                 break;
             
             //
             case "id-loop-run":
-                print(info + " step " + depth_index + "/" + depth_limit);
+                print(info + "d(" + depth_index + "/" + depth_limit+")");
                 break;
             
             //
@@ -102,10 +109,15 @@ public final class Search
             case "id-end":
                 print(info + id_timer.stamp+"ms "+best_score+" "+desc(best_pv)+"knps event break");                
                 break;
-                
+        
+            //    
+            case "ab-routine-end":
+                print(info + "as");                
+                break;
+                                        
             //    
             default:
-                print(info + " " + message);
+                print(info + " " + event_message);
                 break;
         }
     };
@@ -127,7 +139,7 @@ public final class Search
     public final void start(int depth, long time) 
     {            
         // reset stop flag
-        stop = NOT;    
+        stop = false;    
         
         // place offset for search variation
         line_start = node.L.i;
@@ -164,38 +176,21 @@ public final class Search
         info("id-run");
         
         // iterative deeping loop
-        while (depth_index <= depth_limit && stop == NOT)
+        while (depth_index <= depth_limit && !stop)
         {                                        
             //
             info("id-loop-run");
            
-            // iterative deeping alpha start value
-            final int alfa = score - sw;
-
-            // iterative deeping beta start value
-            final int beta = score + sw;
-            
+            // bydefault use aspiration window
+            if (!SEARCH_BRUTE_FORCE) {
+                score = awrun(score, new_pv);
+            } else {
             // launch alfa-beta for searcing candidates 
-            final int eval = abrun(alfa, beta, new_pv); 
-            
-            //
-            id_nodes += ab_nodes + qs_nodes;
-            
-            // if consider aspiration window fails
-            if (eval <= alfa || eval >= beta || SEARCH_BRUTE_FORCE)             
-            {
-                //
-                score = abrun(-oo, +oo, new_pv); 
-                
-                //
-                id_nodes += ab_nodes + qs_nodes;            
-            } 
-            
-            // aspiration window not fails redial new score
-            else { score = eval; }
+                score = abrun(-oo, +oo, new_pv);             
+            }
                         
             // if search stopped 
-            if (stop == YES) { info("id-loop-break"); break; }
+            if (stop) { info("id-loop-break"); break; }
                 
             //
             best_pv.copy(new_pv);
@@ -235,9 +230,45 @@ public final class Search
         sendbestmove();
     }
     
+    //
+    private int awrun(int score, final PV new_pv)
+    {
+        // iterative deeping alpha start value
+        final int alfa = score - sw;
+
+        // iterative deeping beta start value
+        final int beta = score + sw;
+
+        // launch alfa-beta for searcing candidates 
+        final int eval = abrun(alfa, beta, new_pv); 
+
+        //
+        id_nodes += ab_nodes + qs_nodes;
+
+        // if consider aspiration window fails
+        if (eval <= alfa || eval >= beta)             
+        {
+            //
+            score = abrun(-oo, +oo, new_pv); 
+
+            //
+            id_nodes += ab_nodes + qs_nodes;
+
+            //
+            return score;
+        } 
+            
+        // aspiration window not fails redial new score
+        return eval;
+    }
+    
+    
     // alfa-beta entry-point
     private int abrun(int a, int b, final PV pv) 
     {    
+        //
+        info("ab-routine-run");        
+
         //
         pv.clear();
 
@@ -327,6 +358,9 @@ public final class Search
         nps = ab_timer.ratio(ab_nodes);
         
         //
+        info("ab-routine-end");
+        
+        //
         return a; 
     }
     
@@ -398,7 +432,7 @@ public final class Search
             node.unmove();                
 
             //
-            if (stop == YES) { break; }
+            if (stop) { break; }
                         
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 
@@ -687,7 +721,7 @@ public final class Search
         if (!SEARCH_CONTROL) { return; }
                         
         // 
-        if (id_timer.expired()) { stop = YES; return; }
+        if (id_timer.expired()) { stop = true; return; }
 
         //
         if (id_timer.polling()) 
@@ -710,7 +744,7 @@ public final class Search
         this.event = event;
         
         //
-        message = null;
+        event_message = null;
 
         //
         sendinfo.run();    
@@ -723,7 +757,7 @@ public final class Search
         this.event = event;
         
         //
-        this.message = message;
+        this.event_message = message;
 
         //
         sendinfo.run();

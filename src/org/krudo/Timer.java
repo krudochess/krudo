@@ -13,11 +13,14 @@ import static org.krudo.Tool.*;
 public class Timer 
 {
     //
-    public long stamp;
+    private long start;
     
     //
-    public long start;
+    private long bound;
     
+    //
+    public long stamp;
+        
     //
     public long limit;
 
@@ -25,7 +28,10 @@ public class Timer
     public final void limit(long time)
     {
         //
-        limit = start + time;
+        limit = time;
+                
+        //
+        bound = start + limit;
     }
     
     //
@@ -55,12 +61,12 @@ public class Timer
     //
     public final boolean expired()
     {
-        return time() > limit; 
+        return time() > bound; 
     }
     
     //
     public final boolean polling()
     {
-        return false && time() > limit; 
+        return false && time() > bound; 
     }
 }
