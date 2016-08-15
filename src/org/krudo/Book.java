@@ -119,10 +119,10 @@ public final class Book
 	}
 	
 	// get list of moves into book based on node
-	public static final ArrayList<String> list(final long lookup) 
+	public static final Strings list(final long lookup) 
     {
 		// prepare a void move list
-		ArrayList<String> m = new ArrayList<>();
+		Strings m = new Strings();
 						
 		// open file
 		open();

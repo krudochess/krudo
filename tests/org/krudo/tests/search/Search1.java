@@ -8,7 +8,6 @@ package org.krudo.tests.search;
 
 //
 import org.krudo.*;
-import java.util.ArrayList;
 
 //
 import static org.krudo.Tool.*;
@@ -25,13 +24,13 @@ public class Search1
         // id-loop-end 5/5 e2e4 e7e6 f1c4 e6e5 c4f7 11185ms 4865609n 435knps
                 
         //
-        SEARCH_CONTROL = false;
+        SEARCH_CONTROL = true;
         
         //
-        SEARCH_QUIESCENCE = false;
+        SEARCH_QUIESCENCE = true;
         
         //
-        SEARCH_BRUTE_FORCE = true;
+        SEARCH_BRUTE_FORCE = false;
                 
         //
         Krudo.init();
@@ -40,9 +39,11 @@ public class Search1
         Search s = new Search();
         
         //
+        s.event_filter.add("ab-control-speed");
         s.event_filter.add("ab-routine-end");
+        s.event_filter.add("id-loop-break");
                 
         //
-        s.start(5, 500000);                              
+        s.start(10, 100000);                              
     }    
 }

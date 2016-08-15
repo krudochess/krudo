@@ -56,18 +56,19 @@ public final class UCI
         final Search s = Krudo.ENGINE.search;
         
         //
-        if (!s.event.equals("id-loop-end")) { return; }
-        
-        //
-        Krudo.CONSOLE.print(INFO, 
-            DEPTH,    s.depth_index, 
-            SCORE_CP, s.best_score,
-            //TIME,   Krudo.ENGINE.search.logTime,
-            //NODES,  Krudo.ENGINE.search.logNodes,
-            NPS,      s.nps,
-            PV,       desc(s.best_pv),
-            "event",  s.event
-        );        
+        if (s.event.equals("id-loop-end")) 
+        {
+            //
+            Krudo.CONSOLE.print(INFO, 
+                DEPTH,    s.depth_index, 
+                SCORE_CP, s.best_score,
+                TIME,     s.id_timer.stamp,
+                NODES,    s.id_nodes,
+                //NPS,    s.nps,
+                PV,       desc(s.best_pv),
+                "event",  s.event
+            );
+        }
     };
         
     //        

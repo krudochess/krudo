@@ -19,10 +19,16 @@ public class Timer
     private long bound;
     
     //
+    private long rerun;
+    
+    //
     public long stamp;
         
     //
     public long limit;
+
+    //
+    public long delay;
 
     //
     public final void limit(long time)
@@ -32,6 +38,16 @@ public class Timer
                 
         //
         bound = start + limit;
+    }
+    
+    //
+    public final void delay(long time)
+    {                
+        //
+        delay = time;
+        
+        //
+        rerun = start + delay;
     }
     
     //
@@ -67,6 +83,13 @@ public class Timer
     //
     public final boolean polling()
     {
-        return false && time() > bound; 
+        //
+        if (time() < rerun) { return false; }
+        
+        //
+        rerun += delay; 
+        
+        //
+        return true; 
     }
 }

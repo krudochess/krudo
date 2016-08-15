@@ -7,7 +7,6 @@
 package org.krudo;
 
 // required static class
-import java.util.ArrayList;
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
 import static org.krudo.Config.*;
@@ -17,10 +16,7 @@ import static org.krudo.Constant.*;
 
 // search main class
 public final class Search 
-{    
-    //
-    private final static long INFO_MILLISECONDS_POLLING = 2000;
-    
+{        
     // node-centric search
     public final Node node = new Node(); 
                     
@@ -35,8 +31,8 @@ public final class Search
     public int depth_limit; // depth-limit stop iterative deeping
             
     //
-    private final Timer id_timer = new Timer();
-    private final Timer ab_timer = new Timer();
+    public final Timer id_timer = new Timer();
+    public final Timer ab_timer = new Timer();
     
     // count nodes for ab search
     public long qs_nodes;
@@ -60,7 +56,7 @@ public final class Search
 
     //
     public PV best_pv = new PV(); 
-      
+           
     //
     public String event;
     
@@ -68,23 +64,23 @@ public final class Search
     public String event_message;
 
     //
-    public ArrayList<String> event_filter = new ArrayList<>();
+    public final Strings event_filter = new Strings();
     
     //
-    public ArrayList<String> event_exclude = new ArrayList<>();
+    public final Strings event_exclude = new Strings();
             
     //
     public Runnable sendinfo = () -> 
     {        
         //
         int pad = 18;
+
+        //
+        if (event_exclude.contains(event)) { return; }
         
         //
         if (event_filter.size() > 0 && !event_filter.contains(event)) { return; }
-        
-        //
-        if (event_exclude.contains(event)) { return; }
-         
+                 
         //
         String info = "INFO: "+ rpad(event, pad);
         
@@ -93,27 +89,46 @@ public final class Search
         {
             //
             case "id-run":
-                print(info + "d(" + depth_limit + ") t("+id_timer.limit+")");
+                print(
+                    info,
+                    "d(" + depth_limit + ")",
+                    "t("+id_timer.limit+")"
+                );
                 break;
             
             //
             case "id-loop-run":
-                print(info + "d(" + depth_index + "/" + depth_limit+")");
+                print(
+                    info,
+                    "d(" + depth_index + "/" + depth_limit+")"
+                );
                 break;
             
             //
             case "id-loop-break":
-                print(info + " event break");
+                print(info, "event break");
                 break;
             
             //    
             case "id-loop-end":    
-                print(info + depth_index+"/"+depth_limit+" "+desc(best_pv)+" "+ab_timer.stamp+"ms "+ab_nodes+"n "+nps+"knps event break");                
+                print(
+                    info,
+                    depth_index+"/"+depth_limit,
+                    desc(best_pv),
+                    ab_timer.stamp+"ms",
+                    ab_nodes+"n",
+                    nps+"knps"
+                );                
                 break;
               
             //    
             case "id-end":
-                print(info + id_timer.stamp+"ms "+best_score+" "+desc(best_pv)+"knps event break");                
+                print(
+                    info,
+                    id_timer.stamp+"ms",
+                    best_score,
+                    desc(best_pv)
+                );                
                 break;
         
             //    
@@ -127,11 +142,14 @@ public final class Search
                     rpad(nps, 5) + "knps"
                 );                
                 break;
-                                        
+
             //    
-            default:
-                print(info + " " + event_message);
+            case "ab-control-speed":
+                print(info, nps + "knps");                
                 break;
+
+            //    
+            default: print(info, event_message); break;
         }
     };
     
@@ -170,14 +188,17 @@ public final class Search
     // iterative deeping entry-point
     private void idrun(int depth, long time) 
     {                           
-        //
+        // reset nodes count
         id_nodes = 0;
 
-        //
+        // start timer
         id_timer.start();
                                 
-        //
+        // time limit stop search algorythm
         id_timer.limit(time);
+        
+        // time polling for print-out running-search-info
+        id_timer.delay(5000);
         
         // iterative deeping deep start value
         depth_index = 1;
@@ -260,17 +281,11 @@ public final class Search
         // launch alfa-beta for searcing candidates 
         final int eval = abrun(alfa, beta, new_pv); 
 
-        //
-        id_nodes += ab_nodes + qs_nodes;
-
         // if consider aspiration window fails
         if (eval <= alfa || eval >= beta)             
         {
             //
             score = abrun(-oo, +oo, new_pv); 
-
-            //
-            id_nodes += ab_nodes + qs_nodes;
 
             //
             return score;
@@ -352,7 +367,7 @@ public final class Search
                 if (SEARCH_UPDATE) { node.legals.w[i] = s; }
                 
                 //
-                sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
+                info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
                 
                 //
                 pv.cat(new_pv, m, i);
@@ -374,6 +389,9 @@ public final class Search
         //
         nps = ab_timer.ratio(ab_nodes);
         
+        //
+        id_nodes += ab_nodes + qs_nodes;
+                
         //
         info("ab-routine-end");
         
@@ -740,15 +758,15 @@ public final class Search
 
         //
         if (id_timer.polling()) 
-        {                                           
+        {                                                       
             //
-            ab_timer.stamp();
-
+            id_timer.stamp();
+            
             //
-            nps = ab_timer.ratio(ab_nodes);
+            nps = id_timer.ratio(id_nodes + ab_nodes + qs_nodes);
 
             //        
-            sendinfo("ab-speed", "nps "+nps);
+            info("ab-control-speed");
         }
     } 
     
@@ -766,7 +784,7 @@ public final class Search
     }
     
     //
-    private void sendinfo(String event, String message)
+    private void info(String event, String message)
     {
         //
         this.event = event;
