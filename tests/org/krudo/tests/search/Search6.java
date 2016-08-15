@@ -25,32 +25,26 @@ public class Search6
         //
         Krudo.init();
         
-        // create a node to service the search
-        Node n = new Node();
-        
         //
-        n.startpos("8/7p/5k2/5p2/p1p2P2/Pr1pPK2/1P1R3P/8 b");
-        
-                
-        //
-        dump(n);
+        //dump(n);
         
         // create a serach engine based-on the node
-        Search s = new Search(n);
+        Search s = new Search("8/7p/5k2/5p2/p1p2P2/Pr1pPK2/1P1R3P/8 b");
      
-        n.legals();
+        s.node.legals();
                
         
-        dump(n.legals.sort());
+        dump(s.node.legals.sort());
         
         //
         try {
             s.start(14, 5000000);
         } catch (Exception e) {
+            /*
             dump(n);        
             dump(n.L);   
             n.legals();
-            dump(n.legals);     
+            dump(n.legals);*/     
             e.printStackTrace();            
         }
     }    

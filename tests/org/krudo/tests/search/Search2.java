@@ -6,11 +6,12 @@
 //
 package org.krudo.tests.search;
 
-import org.krudo.Legals;
-import static org.krudo.Tool.*;
-
 //
 import org.krudo.*;
+
+//
+import static org.krudo.Tool.*;
+import static org.krudo.Config.*;
 
 // 
 public class Search2 
@@ -19,19 +20,13 @@ public class Search2
     public static void main(String[] args) 
     {
         //
-        PVs.init();
+        SEARCH_CONTROL = true;
         
         //
-        Moves.init();
-        
-        // create a node to service the search
-        Node n = new Node();
-        
-        //
-        n.startpos();
+        Krudo.init();
         
         // create a serach engine based-on the node
-        Search s = new Search(n);
+        Search s = new Search();
         
         //
         s.start(15, 1000);

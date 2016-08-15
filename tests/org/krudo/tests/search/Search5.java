@@ -20,35 +20,29 @@ public class Search5
     public static void main(String[] args) 
     {
         //
-        PVs.init();
-        
+        Krudo.init();
+                
+        // create a serach engine based-on the node
+        Search s = new Search("8/8/4k3/8/8/8/8/R3K3 w Q");
+                             
         //
-        Moves.init();
+        s.node.domove("e1d1 e6e5 d1d2 e5e4".split("\\s"));
         
-        // create a node to service the search
-        Node n = new Node();
+        s.node.legals();
         
-        //
-        n.startpos("8/8/4k3/8/8/8/8/R3K3 w Q");
-        
-        n.domove("e1d1 e6e5 d1d2 e5e4".split("\\s"));
-        
-        n.legals();
-        dump(n);
-        dump(n.legals);
+        dump(s.node);
+        dump(s.node.legals);
         exit();
         
-        // create a serach engine based-on the node
-        Search s = new Search(n);
-     
         //
         try {
             s.start(10, 50000);
         } catch (Exception e) {
+            /*
             dump(n);        
             dump(n.L);    
             n.legals(); 
-            dump(n.legals);     
+            dump(n.legals);*/     
             e.printStackTrace();            
         }
     }    

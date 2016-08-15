@@ -28,7 +28,7 @@ public class Search1
         SEARCH_CONTROL = false;
         
         //
-        SEARCH_QUIESCENCE = true;
+        SEARCH_QUIESCENCE = false;
         
         //
         SEARCH_BRUTE_FORCE = true;

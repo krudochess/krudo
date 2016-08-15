@@ -122,7 +122,7 @@ public final class Search
                     info, 
                     depth_index + "/" + depth_limit, 
                     rpad(ab_nodes, 10) + "n",
-                    rpad(qs_nodes, 5) + "n",
+                    rpad(qs_nodes, 8) + "n",
                     rpad(ab_timer.stamp / 1000, 6) + "s",
                     rpad(nps, 5) + "knps"
                 );                
@@ -141,6 +141,12 @@ public final class Search
         print("BESTMOVE: " + best_move);
     };
                  
+    //
+    public Search() { node.startpos(); }    
+    
+    //
+    public Search(String fen) { node.startpos(fen); }    
+    
     // public method to start search with large time-limit
     public final void start(int deep) 
     {    
