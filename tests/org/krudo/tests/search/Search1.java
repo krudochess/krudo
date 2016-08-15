@@ -40,9 +40,9 @@ public class Search1
         Search s = new Search();
         
         //
-        s.event_exclude.add("ab-loop-run");
+        s.event_filter.add("ab-routine-end");
                 
         //
-        s.start(1, 500000);                              
+        s.start(4, 500000);                              
     }    
 }

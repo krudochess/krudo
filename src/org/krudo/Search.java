@@ -68,6 +68,9 @@ public final class Search
     public String event_message;
 
     //
+    public ArrayList<String> event_filter = new ArrayList<>();
+    
+    //
     public ArrayList<String> event_exclude = new ArrayList<>();
             
     //
@@ -77,10 +80,13 @@ public final class Search
         int pad = 18;
         
         //
+        if (event_filter.size() > 0 && !event_filter.contains(event)) { return; }
+        
+        //
         if (event_exclude.contains(event)) { return; }
          
         //
-        String info = "INFO: "+ rpad(event, pad) + " ";
+        String info = "INFO: "+ rpad(event, pad);
         
         //
         switch (event)
@@ -112,7 +118,13 @@ public final class Search
         
             //    
             case "ab-routine-end":
-                print(info + "as");                
+                print(
+                    info, 
+                    depth_index + "/" + depth_limit, 
+                    rpad(ab_nodes, 10) + "n",
+                    rpad(ab_timer.stamp / 1000, 6) + "s",
+                    rpad(nps, 5) + "knps"
+                );                
                 break;
                                         
             //    
