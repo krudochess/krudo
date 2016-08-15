@@ -2366,3 +2366,28 @@ Kc5 {+6.42/9 3} Kb3 {-99.86/19 2.2} 12. Rc4 {+6.49/9 3} Ka3 {-99.88/48 0.1}
 18. Rc1# {+999.65/9 3}
 {Xboard adjudication: Checkmate} 1-0
 
+[Event "Training"]
+[Site "LENOVO-PC"]
+[Date "2016.08.15"]
+[Round "1"]
+[White "Krudo 0.15a"]
+[Black "Fruit 2.1"]
+[Result "1/2-1/2"]
+[TimeControl "120"]
+[FEN "8/8/4k3/8/8/8/8/R3K3 w Q - 0 1"]
+[SetUp "1"]
+
+{--------------
+. . . . . . . .
+. . . . . . . .
+. . . . k . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+R . . . K . . .
+white to play
+--------------}
+1. Ra4 {+5.21/9} Kd5 {-5.79/18 4}
+{Error: first chess program (polyglot C:/Users/cicciodarkast/Documents/NetBeansProjects/github/francescobianco/Krudo/trunk/console/\Krudo.ini) exited unexpectedly but bare king} 1/2-1/2
+

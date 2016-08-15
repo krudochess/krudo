@@ -28,10 +28,10 @@ public class Search1
         SEARCH_CONTROL = false;
         
         //
-        SEARCH_QUIESCENCE = false;
+        SEARCH_QUIESCENCE = true;
         
         //
-        SEARCH_BRUTE_FORCE = true;
+        SEARCH_BRUTE_FORCE = false;
                 
         //
         Krudo.init();
@@ -43,6 +43,6 @@ public class Search1
         s.event_filter.add("ab-routine-end");
                 
         //
-        s.start(4, 500000);                              
+        s.start(5, 500000);                              
     }    
 }

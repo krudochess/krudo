@@ -269,14 +269,14 @@ public final class Node
         if (k != MOVE) if (t == b) { white_domove(s, v, k); } else { black_domove(s, v, k); }  
         
         //
-        Debug.assertPieceCount(this);
+        //Debug.assertPieceCount(this);
 
-        if (hex(phk).equals("2978b967ac2f9be4")) {
-            dump(this);
-            legals();
-            dump(legals);
-            exit("foud");
-        }
+        //if (hex(phk).equals("2978b967ac2f9be4")) {
+        //    dump(this);
+        //    legals();
+        //    dump(legals);
+        //    exit("foud");
+        //}
         
     }
     
