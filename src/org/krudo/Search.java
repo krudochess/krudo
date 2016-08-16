@@ -382,7 +382,7 @@ public final class Search
         
         //
         PVs.free(new_pv);
-       
+                       
         //
         ab_timer.stamp();
 
@@ -463,7 +463,7 @@ public final class Search
             node.unmove();                
 
             //
-            if (stop) { return a; }
+            if (stop) { break; }
                         
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 

@@ -17,6 +17,28 @@ import static org.krudo.Constant.*;
 //
 public class Describe
 {
+    // piece to string
+	public static final String piece(final int p)
+    {		
+		//
+		switch(p) {
+			case O:  return ".";			
+			case wp: return "wp";	
+			case wn: return "wn";	
+			case wb: return "wb";	
+			case wr: return "wr";	
+			case wq: return "wq";	
+			case wk: return "wk";	
+			case bp: return "bp";	
+			case bn: return "bn";	
+			case bb: return "bb";	
+			case br: return "br";	
+			case bq: return "bq";	
+			case bk: return "bk";						
+			default: return "?";	
+		}	
+	} 
+	    
     // square to string
 	public static final String square(final int s)
     {		

@@ -94,8 +94,8 @@ public final class Constant
     // cardinals for span smapims 
     public final static int 
     NW = 7, NN = 1, NE = 6,
-    ww = 3,         ee = 2,
-    SW = 4, ss = 0, SE = 5;
+    WW = 3,         EE = 2,
+    SW = 4, SS = 0, SE = 5;
                 
     // smapims for span
     public final static int[][] SPAN = { 

@@ -1127,15 +1127,17 @@ public final class Node
     public final boolean threefold()
     {     
         //
+        int d = 0;
+        
+        //
         for (int i = 0; i < L.i; i++) 
         {
-            if (phk == L.phk[i]) 
-            {
-            }
+            //
+            if (phk == L.phk[i]) { d++; }
         }
         
         //
-        return false;
+        return d >= 2;
     }
     
     //
@@ -1681,7 +1683,7 @@ public final class Node
     private void black_pawn_pseudo(final int s) 
     {                    
         //
-        int v = SPAN[s][ss];                 
+        int v = SPAN[s][SS];                 
         
         // get start square rank 
         final int r = s >> 3;
@@ -1693,7 +1695,7 @@ public final class Node
             if (B[v] == 0) 
             {
                 //
-                final int u = SPAN[v][ss];                 
+                final int u = SPAN[v][SS];                 
 
                 //
                 if (r == 6 && B[u] == 0) {                    

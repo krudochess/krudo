@@ -11,12 +11,12 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 
 // required static class
-import static org.krudo.Config.*;
-import static org.krudo.Constant.*;
-import static org.krudo.Decode.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
+import static org.krudo.Decode.*;
+import static org.krudo.Config.*;
 import static org.krudo.Zobrist.*;
+import static org.krudo.Constant.*;
 import static org.krudo.Describe.*;
 
 //
@@ -45,7 +45,7 @@ public final class Eval
         //
         public POSITION_CACHE()
         {
-            super(EVAL_POSITION_SIZE, 0.95f, true);        
+            super(EVAL_POSITION_SIZE, 1.1f, true);        
         }
         
         //
@@ -118,10 +118,7 @@ public final class Eval
         public MATERIAL_CACHE() 
         {
             //
-            super(EVAL_MATERIAL_SIZE, 0.95f, true);
-            
-            //
-               
+            super(EVAL_MATERIAL_SIZE, 1.1f, true);
         }
         
         //
@@ -331,8 +328,8 @@ public final class Eval
             +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
             +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
             +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
-            +0,    +0,    +0,    +40,   +40,   +0,    +0,    +0,
-            +10,   +10,   +20,   +60,   +60,   +20,   +10,   +10,
+            +0,    +0,    +0,    +10,   +10,   +0,    +0,    +0,
+            +8,    +10,   +12,   +16,   +16,   +10,   +10,   +8,
             +30,   +40,   +50,   +80,   +80,   +50,   +40,   +30,
             +50,   +80,   +90,   +100,  +100,  +90,   +80,   +50,    
             +100,  +180,  +190,  +200,  +200,  +190,  +180,  +100,    
@@ -342,8 +339,8 @@ public final class Eval
         +100,  +180,  +190,  +200,  +200,  +190,  +180,  +100,    
         +50,   +80,   +90,   +100,  +100,  +90,   +80,   +50,    
         +30,   +40,   +50,   +80,   +80,   +50,   +40,   +30,
-        +10,   +10,   +20,   +60,   +60,   +20,   +10,   +10,
-        +0,    +0,    +0,    +40,   +40,   +0,    +0,    +0,    
+        +8,    +10,   +10,   +16,   +16,   +20,   +10,   +8,
+        +0,    +0,    +0,    +10,   +10,   +0,    +0,    +0,    
         +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,
         +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
         +0,    +0,    +0,    +0,    +0,    +0,    +0,    +0,    
@@ -460,7 +457,7 @@ public final class Eval
         }
     }; 
 
-    //
+    // apply constants align
     static 
     {
         for (int p = 0; p < 12; p++)
@@ -518,10 +515,10 @@ public final class Eval
         }
     }
 
-    //
-    private final static int[][] MAW = {
+    // matirial hashing stored for 
+    private final static int[][] MA = {
         //bp wp bn wn bb wb br wr bq wq bk wk score
-        { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1,  +0 }  
+        { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1,    +0 }  
     };
     
     // capture piece weight
@@ -596,10 +593,36 @@ public final class Eval
     };
     
     //
+    private final static int[][] WKS = {
+              /*bp  wp  bn  wn  bb  wb  br  wr  bq  wq  bk  wk*/
+        /*SS*/{ +0, +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*NN*/{ +0, +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*EE*/{ +0, +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*WW*/{ +0, +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*SW*/{ +0, +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*SE*/{ +0, +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*NE*/{ +0, +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*NW*/{ +0, +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },        
+    };
+    
+    //
+    private final static int[][] BKS = {
+              /*bp wp bn wn bb wb br wr bq wq bk wk */
+        /*SS*/{ +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*NN*/{ +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*EE*/{ +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*WW*/{ +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*SW*/{ +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*SE*/{ +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*NE*/{ +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },
+        /*NW*/{ +5, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0 },        
+    };
+    
+    // init
     public final static void init()
     {
-        //
-        for (int[] material : MAW) {
+        // apply cache matirial hash
+        for (int[] material : MA) {
             MATERIAL.add(hash_material(material), material[12]);
         }
     }
@@ -624,23 +647,14 @@ public final class Eval
     }
     
     // eval 
-    private static int cache_node(final Node n) 
+    private static int cache_node(final Node node) 
     {
         // if node eval is enabled pass-throu else return zero forever
-        if (EVAL_MOBILITY) 
-        { 
-           
-        }
+        if (EVAL_MOBILITY) { }
         
         // if node eval is enabled pass-throu else return zero forever
         if (!EVAL_NODE) { return 0; }
-        
-        //
-        //n.legals();
-        
-        // eval checkmate or stalemate conditions
-        //if (n.legals.i == 0) { return n.legals.c ? -mate + n.L.i : 0; }
-                
+                        
         //
         int wps = 0;
         
@@ -654,34 +668,43 @@ public final class Eval
         int si = 0;
         
         // index count pieces
-        int pi = n.cw + n.cb;
+        int pi = node.cw + node.cb;
         
         // looking for pieces
         do 
         {        
             // next observed square
-            final int s = n.bm[si++];          
+            final int s = node.bm[si++];          
 
             // get piece in start square
-            final int p = n.B[s];
+            final int p = node.B[s];
             
             // square not have a side to move piece skip
             if (p == O) { continue; }
             
-             //
+            switch (p) 
+            {
+                //
+                case wp: wps |= 1 << (s % 8); break;
+                
+                //
+                case bp: bps |= 1 << (s % 8); break;
+            }
+            
+            //
             final int i = p & lo;
                 
             // decrease piece count
             pi--;
             
             // remap square in wbm 
-            if (REMAPS_EVAL) { n.remaps(si, pi, s); }
+            if (REMAPS_EVAL) { node.remaps(si, pi, s); }
 
             // piece value
             score += PW[i];
             
             //
-            score += OPW[i][s] + ((EPW[i][s] * n.ote) >> 8);    
+            score += OPW[i][s] + ((EPW[i][s] * node.ote) >> 8);    
         } 
         
         //
@@ -691,8 +714,119 @@ public final class Eval
         score += pawn_structure(wps, bps);
         
         //
-        return n.t == w ? score : -score;
+        score += white_king_safety(node);
+        
+        //
+        score -= black_king_safety(node);
+                
+        //
+        return node.t == w ? score : -score;
     }        
+        
+    //
+    public final static int pawn_structure(int wps, int bps)
+    {
+        //
+        int wsw = QPSW[wps >> 3] + KPSW[wps & 0b11111];
+        
+        //
+        int bsw = QPSW[bps >> 3] + KPSW[bps & 0b11111];
+        
+        //
+        int wis = ~(bps|(bps>>1)|(bps<<1)) & wps;
+        
+        //
+        int bis = ~(wps|(wps>>1)|(wps<<1)) & bps;
+                
+        //
+        int wiw = QPPW[wis >> 3] + KPPW[wis & 0b11111];
+        
+        //
+        int biw = QPPW[bis >> 3] + KPPW[bis & 0b11111];
+        
+        // used for tuning
+        if (false) 
+        {
+            //
+            print("black struct:", bin(bps, 8), bsw);
+            print("white struct:", bin(wps, 8), wsw);
+            print(bin(bps >> 3, 5), bin(bps & 0b11111, 5));
+            print(bin(wps >> 3, 5), bin(wps & 0b11111, 5));
+            print("-");
+            print("black passed:", bin(bis, 8), biw);
+            print("white passed:", bin(wis, 8), wiw);
+            print(bin(bis >> 3, 5), bin(bis & 0b11111, 5));
+            print(bin(wis >> 3, 5), bin(wis & 0b11111, 5));
+            print("-");
+        }
+        
+        //
+        return wsw + wiw - bsw - biw;
+    }
+    
+    //
+    public final static int white_king_safety(final Node node) 
+    {
+        //
+        int score = 0;
+        
+        //
+        for (int i = 0; i != 8; i++) 
+        {        
+            //
+            int v = SPAN[node.wks][i];
+
+            //
+            if (v == xx) { continue; }
+            
+            //
+            int p = node.B[v];
+            
+            //
+            //print(square(v), piece(p), p != O ? WKS[i][p & lo] : 0);
+                        
+            //
+            if (p != O) { score += WKS[i][p & lo]; } 
+            
+            //
+            else if (node.black_attack(v)) { score -= 30; }
+        }
+
+        //
+        return score;
+    }
+    
+    //
+    public final static int black_king_safety(final Node node) 
+    {
+        //
+        int score = 0;
+        
+        //
+        for (int i = 0; i != 8; i++) 
+        {        
+            //
+            int v = SPAN[node.bks][i];
+
+            //
+            if (v == xx) { continue; }
+            
+            //
+            int p = node.B[v];
+            
+            //
+            //print(square(v), piece(p), p != O ? BKS[i][p & lo] : 0);
+            
+            //
+            if (p != O) { score += BKS[i][p & lo]; } 
+            
+            //
+            else if (node.white_attack(v)) { score -= 30; }
+        }
+
+        //
+        return score;
+    }
     
     // score move stack for first time use in search
     public final static void move(final Node n)
@@ -793,44 +927,4 @@ public final class Eval
         Moves.free(m);
     }
     
-    //
-    public final static int pawn_structure(int wps, int bps)
-    {
-        //
-        int wsw = QPSW[wps >> 3] + KPSW[wps & 0b11111];
-        
-        //
-        int bsw = QPSW[bps >> 3] + KPSW[bps & 0b11111];
-        
-        //
-        int wis = ~(bps|(bps>>1)|(bps<<1)) & wps;
-        
-        //
-        int bis = ~(wps|(wps>>1)|(wps<<1)) & bps;
-                
-        //
-        int wiw = QPPW[wis >> 3] + KPPW[wis & 0b11111];
-        
-        //
-        int biw = QPPW[bis >> 3] + KPPW[bis & 0b11111];
-        
-        // used for tuning
-        if (false) 
-        {
-            //
-            print("black struct:", bin(bps, 8), bsw);
-            print("white struct:", bin(wps, 8), wsw);
-            print(bin(bps >> 3, 5), bin(bps & 0b11111, 5));
-            print(bin(wps >> 3, 5), bin(wps & 0b11111, 5));
-            print("-");
-            print("black passed:", bin(bis, 8), biw);
-            print("white passed:", bin(wis, 8), wiw);
-            print(bin(bis >> 3, 5), bin(bis & 0b11111, 5));
-            print(bin(wis >> 3, 5), bin(wis & 0b11111, 5));
-            print("-");
-        }
-        
-        //
-        return wsw + wiw - bsw - biw;
-    }
 }

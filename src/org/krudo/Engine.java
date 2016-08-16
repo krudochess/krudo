@@ -130,10 +130,10 @@ public final class Engine
         } 
         
         //
-        long time = search.node.t == w ? (wtime / 40) + 1000 : (btime / 40) + 1000; 
+        long time = search.node.t == w ? (wtime / 50) + 500 : (btime / 50) + 500; 
         
         // call iterative deeping (wait here)
-        search.start(depth, time);
+        search.start(5, 6000);
     }
     
     //
