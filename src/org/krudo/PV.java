@@ -9,6 +9,7 @@ package org.krudo;
 //
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
+import static org.krudo.Config.*;
 
 //
 public class PV
@@ -58,19 +59,17 @@ public class PV
     
     //
     public final void cat(PV pv, Move m, int mi) 
-    {  
+    {
+        //
+        if (!PV_CAT) { return; }
+        
         //
         s[0] = m.s[mi];
         v[0] = m.v[mi];
         k[0] = m.k[mi];
-       
+    
+        //
         i = 1;
-        
-        //print("1:");
-        //dump(this);
-        
-        //print("2:");
-        //dump(pv);
         
         //
         System.arraycopy(pv.s, 0, s, 1, pv.i);
@@ -79,9 +78,6 @@ public class PV
         
         //
         i = pv.i + 1;
-        
-        //print("=:");
-        //dump(this);
     }  
    
     //

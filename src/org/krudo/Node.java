@@ -538,7 +538,7 @@ public final class Node
         if (t == w) { white_legals(); } else { black_legals(); }
 
         // assign move weight for ab search with sort
-        if (EVAL_MOVE) { Eval.move(this); }
+        if (EVAL_LEGALS) { Eval.legals(this); }
 
         // add move to legals cached
         Legals.add(phk, legals);

@@ -24,14 +24,32 @@ public class Search1
         // id-loop-end 5/5 e2e4 e7e6 f1c4 e6e5 c4f7 11185ms 4865609n 435knps
                 
         //
-        SEARCH_CONTROL = true;
+        SEARCH_CONTROL = false;
         
         //
-        SEARCH_QUIESCENCE = true;
+        SEARCH_QUIESCENCE = false;
         
         //
-        SEARCH_BRUTE_FORCE = false;
+        SEARCH_BRUTE_FORCE = true;
+        
+        //
+        SEARCH_UPDATE = false;
+        
+        //
+        EVAL_LEGALS = false;
                 
+        //
+        EVAL_NODE = false;
+                
+        //
+        MOVE_SORT = false;
+        
+        //
+        MOVE_TWIN = false;
+        
+        //
+        PV_CAT = false;
+        
         //
         Krudo.init();
                 
@@ -44,6 +62,11 @@ public class Search1
         s.event_filter.add("id-loop-break");
                 
         //
-        s.start(10, 100000);                              
+        s.start(5, 100000);    
+        
+        //
+        PVs.info();
+        Moves.info();
+        Captures.info();
     }    
 }

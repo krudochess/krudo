@@ -242,7 +242,7 @@ public final class Debug
         n.legals();
         
         //
-        Move m = n.legals.sort().duplicate();
+        Move m = n.legals.sort().twin();
         
         
         

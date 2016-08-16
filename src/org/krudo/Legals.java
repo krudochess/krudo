@@ -28,7 +28,7 @@ public class Legals
     
     //
     private final static LinkedHashMap<Long, Move> 
-    CACHE = new LinkedHashMap<Long, Move> (LEGALS_CACHE_SIZE, 0.95f, true) 
+    CACHE = new LinkedHashMap<Long, Move> (LEGALS_CACHE_SIZE, 1.1f, true) 
     {
         @Override
         protected boolean removeEldestEntry(Map.Entry<Long, Move> e) 

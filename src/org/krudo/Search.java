@@ -315,23 +315,22 @@ public final class Search
                                        
         // generate legal-moves
         node.legals();
-                        
+        
+        //
+        final int l = node.legals.i;
+        
         // no legal moves check-mate or stale-mate
-        if (node.legals.i == 0) { return node.legals.c ? -mate + node.L.i : 0; } 
+        if (l == 0) { return node.legals.c ? -mate + node.L.i : 0; } 
         
         //
         final PV new_pv = PVs.pick();
                 
         // 
-        Move m = node.legals.sort().duplicate();
-        
+        Move m = node.legals.sort().twin();
+                
         //
-        final int l = m.i;
-        
-        //
-        for (int i = 0; i < l; i++) 
-        {   
-            
+        for (int i = 0; i != l; i++) 
+        {               
             // make
             node.domove(m, i);
             
@@ -364,10 +363,10 @@ public final class Search
             if (s > a) 
             {                              
                 //
-                if (SEARCH_UPDATE) { node.legals.w[i] = s; }
-                
-                //
                 info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
+                                
+                //
+                if (SEARCH_UPDATE) { node.legals.w[i] = s; }                
                 
                 //
                 pv.cat(new_pv, m, i);
@@ -378,7 +377,7 @@ public final class Search
         } 
         
         //
-        Moves.free(m);
+        if (MOVE_TWIN) { Moves.free(m); }
         
         //
         PVs.free(new_pv);
@@ -406,7 +405,7 @@ public final class Search
         int s;  
                         
         // trasposition table probe
-        if (TT.probemax(node.phk, d, a, b)) { return TT.score; }
+        //if (TT.probemax(node.phk, d, a, b)) { return TT.score; }
         
         // return quiescence value-search, 
         if (d == 0) 
@@ -421,7 +420,7 @@ public final class Search
             s = qsmax(a, b);
             
             //
-            TT.storemax(d, s); 
+            //TT.storemax(d, s); 
             
             //
             return s; 
@@ -433,20 +432,23 @@ public final class Search
         // get legal-moves  
         node.legals();
         
+        //
+        final int l = node.legals.i;
+        
         // threefold repetition
         if (node.threefold()) { return 0; }
                 
         // no legal moves check-mate or stale-mate
-        if (node.legals.i == 0) { return node.legals.c ? -mate + node.L.i : 0; }
+        if (l == 0) { return node.legals.c ? -mate + node.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
                 
         // sort and clone       
-        Move m  = node.legals.sort().duplicate();
+        Move m  = node.legals.sort().twin();
                 
         //
-        for (int i = 0; i < m.i; i++) 
+        for (int i = 0; i != l; i++) 
         {            
             // 
             node.domove(m, i);
@@ -498,7 +500,7 @@ public final class Search
         }
         
         //
-        Moves.free(m);
+        if (MOVE_TWIN) { Moves.free(m); }
         
         //
         PVs.free(new_pv);
@@ -517,7 +519,7 @@ public final class Search
         int s; 
         
         // trasposition table probe
-        if (TT.probemin(node.phk, d, a, b)) { return TT.score; }
+        //if (TT.probemin(node.phk, d, a, b)) { return TT.score; }
                        
         // at-end quiescence search and 
         if (d == 0) 
@@ -532,7 +534,7 @@ public final class Search
             s = qsmin(a, b); 
                        
             //
-            TT.storemin(d, s); 
+            //TT.storemin(d, s); 
             
             // return quesence values
             return s;
@@ -544,20 +546,23 @@ public final class Search
         // generate legal-moves 
         node.legals();
 
+        //
+        final int l = node.legals.i;
+        
         // threefold repetition
         if (node.threefold()) { return 0; }
         
         // no-legals-move exit checkmate
-        if (node.legals.i == 0) { return node.legals.c ? +mate - node.L.i : 0; }
+        if (l == 0) { return node.legals.c ? +mate - node.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
         
         // and sort
-        Move m = node.legals.sort().duplicate();        
+        Move m = node.legals.sort().twin();        
             
         //
-        for (int i = 0; i < m.i; i++)
+        for (int i = 0; i != l; i++)
         {                 
             // make move
             node.domove(m, i);
@@ -601,13 +606,13 @@ public final class Search
         } 
         
         //
-        Moves.free(m);
+        if (MOVE_TWIN) { Moves.free(m); }
         
         //
         PVs.free(new_pv);
    
         //
-        TT.storemin(d, b); 
+        //TT.storemin(d, b); 
         
         //
         return b;    

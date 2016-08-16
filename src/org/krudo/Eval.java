@@ -630,6 +630,9 @@ public final class Eval
     //
     public final static int node(final Node n) 
     {
+        // if node eval is enabled pass-throu else return zero forever
+        if (!EVAL_NODE) { return 0; }
+        
         //
         if (MATERIAL.has(n.mhk)) { return MATERIAL.get(n.mhk); }
         
@@ -649,12 +652,6 @@ public final class Eval
     // eval 
     private static int cache_node(final Node node) 
     {
-        // if node eval is enabled pass-throu else return zero forever
-        if (EVAL_MOBILITY) { }
-        
-        // if node eval is enabled pass-throu else return zero forever
-        if (!EVAL_NODE) { return 0; }
-                        
         //
         int wps = 0;
         
@@ -829,8 +826,11 @@ public final class Eval
     }
     
     // score move stack for first time use in search
-    public final static void move(final Node n)
+    public final static void legals(final Node n)
     {  
+        //
+        if (!EVAL_LEGALS) { return; }
+        
         //
         int b = node(n);
         
@@ -904,7 +904,7 @@ public final class Eval
         n.legals();
         
         //
-        Move m = n.legals.sort().duplicate();
+        Move m = n.legals.sort().twin();
     
         //
         int w = m.i > width ? width : m.i;

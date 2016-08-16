@@ -34,7 +34,7 @@ public final class Config
     EVAL_NODE = true,
         
     // of legal moves generated    
-    EVAL_MOVE = true,
+    EVAL_LEGALS = true,
 
     // of legal moves generated        
     EVAL_MVV_LAA = false,
@@ -77,7 +77,16 @@ public final class Config
             
     //
     SEARCH_TT = false,
-
+            
+    /**
+     * PV STACK SETTINGS
+     * 
+     * asdads
+     */
+            
+    //
+    PV_CAT = true,
+                        
     /**
      * MOVE STACK SETTINGS
      * 
@@ -89,6 +98,9 @@ public final class Config
             
     // into move stack used for search        
     MOVE_SORT = true, 
+    
+    // into move stack used for search        
+    MOVE_TWIN = true, 
     
     /**
      * REMAPS SETTINGS

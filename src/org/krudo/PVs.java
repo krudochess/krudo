@@ -55,6 +55,11 @@ public class PVs
     //
     public static void info()
     {
-        print("PV free="+count);
+        //
+        print(
+            "PV free",
+            count, 
+            count == PV_STACK_SIZE ? "(PERFECT!!)" : "(PROBLEM??)"
+        );
     }
 }

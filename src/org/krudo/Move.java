@@ -7,8 +7,8 @@
 package org.krudo;
 
 // required static class
-import static org.krudo.Config.*;
 import static org.krudo.Tool.*;
+import static org.krudo.Config.*;
 import static org.krudo.Encode.*;
 import static org.krudo.Describe.*;
 
@@ -127,10 +127,10 @@ public final class Move
     }
     
     // duplicate a move-stack instance
-    public final Move duplicate()
+    public final Move twin()
     {
         //
-        if (!CACHE_LEGALS) { return this; }
+        if (!CACHE_LEGALS || !MOVE_TWIN) { return this; }
         
         //
         Move m = Moves.pick();
