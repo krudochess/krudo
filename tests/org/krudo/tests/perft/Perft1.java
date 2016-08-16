@@ -33,9 +33,12 @@ public class Perft1
         
         //
         CACHE_LEGALS = true;
-            
+        
         //
-        Moves.init();
+        REMAPS_PSEUDO = true;
+        
+        //
+        Krudo.init();
         
         //
         Node n = new Node();

@@ -449,11 +449,8 @@ public final class Node
     }
     
     //
-    private void white_unmove(
-        final int s,
-        final int v,
-        final int k
-    ) {
+    private void white_unmove(final int s, final int v, final int k) 
+    {
         //
         switch (k)
         {
@@ -484,11 +481,8 @@ public final class Node
     }
     
     //
-    private void black_unmove(    
-        final int s,
-        final int v,
-        final int k
-    ) {
+    private void black_unmove(final int s, final int v, final int k)
+    {
         //
         switch (k)
         {
@@ -581,10 +575,7 @@ public final class Node
                 if (!legals.c && !black_attack(f1) && !black_attack(g1)) 
                 {
                     //
-                    legals.copy(i, j); 
-
-                    //
-                    j++; 
+                    legals.copy(i, j++); 
                 }             
 
                 //
@@ -598,10 +589,7 @@ public final class Node
                 if (!legals.c && !black_attack(d1) && !black_attack(c1)) 
                 { 
                     //
-                    legals.copy(i, j); 
-
-                    //
-                    j++; 
+                    legals.copy(i, j++); 
                 }             
 
                 //
@@ -609,13 +597,10 @@ public final class Node
             }
             
             // king is safe move piece that not unsafe the king secure legal
-            if (!legals.c &&s != wks && LINK[s][wks] == 0) 
+            if (!legals.c && s != wks && LINK[s][wks] == 0) 
             {
                 //
-                legals.copy(i, j); 
-                
-                //
-                j++; 
+                legals.copy(i, j++); 
                 
                 //
                 continue;
@@ -628,14 +613,7 @@ public final class Node
             domove(i);
 
             // test attacked king
-            if (!black_attack(wks)) 
-            { 
-                //
-                legals.copy(i, j); 
-                
-                //
-                j++; 
-            }
+            if (!black_attack(wks)) { legals.copy(i, j++); }
 
             // undo move
             unmove();
@@ -682,10 +660,7 @@ public final class Node
                 if (!legals.c && !white_attack(f8) && !white_attack(g8)) 
                 {
                     //
-                    legals.copy(i, j); 
-                    
-                    //
-                    j++;
+                    legals.copy(i, j++); 
                 }
 
                 //
@@ -699,10 +674,7 @@ public final class Node
                 if (!legals.c && !white_attack(d8) && !white_attack(c8)) 
                 { 
                     //
-                    legals.copy(i, j); 
-                    
-                    //
-                    j++; 
+                    legals.copy(i, j++); 
                 }
 
                 //
@@ -713,10 +685,7 @@ public final class Node
             if (!legals.c && s != bks && LINK[s][bks] == 0) 
             {
                 // confirm and next
-                legals.copy(i, j); 
-                
-                //
-                j++; 
+                legals.copy(i, j++); 
                 
                 //
                 continue;
@@ -729,14 +698,7 @@ public final class Node
             domove(i);
 
             //
-            if (!white_attack(bks)) 
-            { 
-                //
-                legals.copy(i, j); 
-                
-                //
-                j++; 
-            }
+            if (!white_attack(bks)) { legals.copy(i, j++); }
 
             //
             unmove();            
@@ -746,20 +708,6 @@ public final class Node
         legals.i = j;
     }                        
             
-    //
-    private boolean black_castling(final int v)
-    {        
-        //
-        boolean castling = v == g8
-             ?! white_attack(g8)
-            &&! white_attack(f8)
-             :! white_attack(c8)
-            &&! white_attack(d8); 
-        
-        //        
-        return castling;    
-    }
-
     // populate move-stack with pseudo-legal moves
     private void white_pseudo()
     {
@@ -767,7 +715,7 @@ public final class Node
         int si = 0;
         
         // index count pieces
-        int pi = cw;
+        int pi = 0;
         
         // looking for white pieces
         do 
@@ -780,12 +728,9 @@ public final class Node
             
             // square not have a side to move piece skip
             if ((p & w) != w) { continue; }
-                
-            // decrease piece count
-            pi--;
-            
+                            
             // remap square in wbm 
-            if (REMAPS_PSEUDO) { white_remaps(si, pi, s); }
+            if (REMAPS_PSEUDO) { white_remaps(si - 1, pi, s); }
 
             // switch to specific piece 
             switch (p) 
@@ -810,11 +755,14 @@ public final class Node
                 
                 // default exit
                 default: exit("default: white_pseudo()");                                            
-            }            
+            }   
+            
+            // increase piece count
+            pi++;            
         } 
         
         //
-        while (pi != 0);
+        while (pi != cw);
     }
 
     // populate move-stack with pseudo-legal moves
@@ -824,7 +772,7 @@ public final class Node
         int si = 0;
 
         // count pieces
-        int pi = cb;
+        int pi = 0;
                 
         // loop throut black piece
         do 
@@ -839,7 +787,7 @@ public final class Node
             if ((p & b) != b) { continue; }    
                 
             // apply boars search square remaps
-            if (REMAPS_PSEUDO) { black_remaps(si, pi, s); }
+            if (REMAPS_PSEUDO) { black_remaps(si - 1, pi, s); }
             
             // switch by piece
             switch (p) 
@@ -867,11 +815,11 @@ public final class Node
             }
 
             // count founded piece
-            pi--;            
+            pi++;            
         }
         
         //
-        while (pi != 0);
+        while (pi != cb);
     }
 
     // return true if white can attack square "s"
@@ -1168,7 +1116,7 @@ public final class Node
                 domove(captures, i);
 
                 //
-                if (!black_attack(wks)) { captures.copy(i, j); j++; }
+                if (!black_attack(wks)) { captures.copy(i, j++); }
 
                 //
                 unmove();            
@@ -1191,7 +1139,7 @@ public final class Node
                 domove(captures, i);
 
                 //
-                if (!white_attack(bks)) { captures.copy(i, j); j++; }
+                if (!white_attack(bks)) { captures.copy(i, j++); }
 
                 //
                 unmove();            
