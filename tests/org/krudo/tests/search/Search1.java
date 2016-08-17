@@ -48,7 +48,7 @@ public class Search1
         MOVE_TWIN = false;
         
         //
-        NODE_CAPTURES = false;
+        NODE_CAPTURES = true;
         
         //
         CACHE_CAPTURES = true;

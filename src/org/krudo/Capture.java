@@ -29,7 +29,10 @@ public final class Capture
     v = new int[MAX], // versus square of a move
     k = new int[MAX], // kind of a move
     w = new int[MAX]; // weight/eval-value of a move
-                
+              
+    // incheck status
+    public boolean c;
+        
     // empty constructor
     public Capture() {}
                         

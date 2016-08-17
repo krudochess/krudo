@@ -980,8 +980,7 @@ public final class Node
             // add move to stack if found empty square
             if (B[v] == bn) { return true; } 
         }
-                
-                
+                                
         // attacked from queen or bishop
         if (M[bb & lo] != 0) for (int i = 4; i < 8; i++) 
         {        
@@ -1091,13 +1090,17 @@ public final class Node
     //
     public final void captures()
     {
+        //
         if (!NODE_CAPTURES)
         {
+            //
             if (captures == null) 
             {
+                //
                 captures = new Capture();
             }
             
+            //
             return;
         }
         
@@ -1114,6 +1117,9 @@ public final class Node
         if (t == w) 
         {       
             //
+            captures.c = black_attack(wks);
+            
+            //
             white_captures(); 
                             
             //
@@ -1121,7 +1127,26 @@ public final class Node
             
             // loop throut pseudo-legal moves
             for (int i = 0; i < l; i++) 
-            {                                
+            {   
+                //
+                final int s = captures.s[i];
+                
+                //
+                final int v = captures.v[i];
+                                
+                // king is safe move piece that not unsafe the king secure legal
+                if (!captures.c && s != wks && LINK[s][wks] == 0) 
+                {
+                    //
+                    captures.copy(i, j++); 
+
+                    //
+                    continue;
+                }                                
+            
+                // king under attack try to move a piece that non protect king
+                if (legals.c && v != wks && LINK[v][wks] == 0) { continue; }                         
+                            
                 //
                 domove(captures, i);
 
@@ -1137,14 +1162,36 @@ public final class Node
         else 
         { 
             //
-            black_captures(); 
+            captures.c = black_attack(bks);
+                        
+            //
+            black_captures();
             
             //
             final int l = captures.i;
                     
             // loop throut pseudo-legal moves
             for (int i = 0; i < l; i++) 
-            {                                
+            {
+                //
+                final int s = captures.s[i];
+                
+                //
+                final int v = captures.v[i];
+                                
+                // king safety move piece that not unsafe the king secure legal
+                if (!captures.c && s != bks && LINK[s][bks] == 0) 
+                {
+                    // confirm and next
+                    captures.copy(i, j++); 
+
+                    //
+                    continue;
+                }
+
+                // king under attack try to move a piece that non protect king
+                if (captures.c && s != bks && LINK[v][bks] == 0) { continue; }                         
+
                 //
                 domove(captures, i);
 
