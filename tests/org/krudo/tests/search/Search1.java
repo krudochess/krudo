@@ -48,8 +48,11 @@ public class Search1
         MOVE_TWIN = false;
         
         //
-        NODE_CAPTURES = true;
+        NODE_CAPTURES = false;
         
+        //
+        CACHE_CAPTURES = true;
+                
         //
         PV_CAT = false;
         
@@ -66,7 +69,7 @@ public class Search1
         /**/
         
         //
-        s.start(6, 100000);    
+        s.start(5, 100000);    
         
         //
         PVs.info();

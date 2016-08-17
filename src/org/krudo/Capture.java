@@ -125,7 +125,7 @@ public final class Capture
     }   
     
     // duplicate a capture-stack instance
-    public final Capture duplicate()
+    public final Capture twin()
     {
         //
         Capture c = Captures.pick();

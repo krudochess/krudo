@@ -206,19 +206,19 @@ public final class Search
         // set deep limit for iterative deeping
         depth_limit = depth;
                                     
-        //
+        // initial score
         int score = Eval.node(node);
         
-        //
+        // used to retrieve pv 
         PV new_pv = PVs.pick();
                         
-        //
+        // log 
         info("id-run");
         
         // iterative deeping loop
-        while (depth_index <= depth_limit && !stop)
+        while (depth_index != depth_limit && !stop)
         {                                        
-            //
+            // log
             info("id-loop-run");
            
             // bydefault use aspiration window
@@ -240,13 +240,13 @@ public final class Search
             //
             best_score = score;                    
                              
-            //
+            // 
             id_timer.stamp();
             
-            //
+            // calculate speed
             nps = id_timer.ratio(id_nodes);
             
-            //
+            // log
             info("id-loop-end");
               
             // increade depth of search
@@ -269,7 +269,7 @@ public final class Search
         sendbestmove();
     }
     
-    //
+    // aspiration window controls
     private int awrun(int score, final PV new_pv)
     {
         // iterative deeping alpha start value
@@ -279,20 +279,13 @@ public final class Search
         final int beta = score + sw;
 
         // launch alfa-beta for searcing candidates 
-        final int eval = abrun(alfa, beta, new_pv); 
+        score = abrun(alfa, beta, new_pv); 
 
         // if consider aspiration window fails
-        if (eval <= alfa || eval >= beta)             
-        {
-            //
-            score = abrun(-oo, +oo, new_pv); 
-
-            //
-            return score;
-        } 
+        if (score <= alfa || score >= beta) { return abrun(-oo, +oo, new_pv); } 
             
         // aspiration window not fails redial new score
-        return eval;
+        return score;
     }
         
     // alfa-beta entry-point
@@ -310,13 +303,13 @@ public final class Search
         // reset nodes search counter
         ab_nodes = 0;
                          
-        //
+        // start timer
         ab_timer.start();
                                        
         // generate legal-moves
         node.legals();
         
-        //
+        // get current number of legal moves
         final int l = node.legals.i;
         
         // no legal moves check-mate or stale-mate
@@ -432,7 +425,7 @@ public final class Search
         // get legal-moves  
         node.legals();
         
-        //
+        // get current number of legal moves
         final int l = node.legals.i;
         
         // threefold repetition
@@ -447,31 +440,24 @@ public final class Search
         // sort and clone       
         Move m  = node.legals.sort().twin();
                 
-        //
+        // loop throut legal moves
         for (int i = 0; i != l; i++) 
         {            
             // 
             node.domove(m, i);
-                                    
-            //                 
-            //w = abmin(d-1, a, p == 0 ? b : a+1);
-            
+
             //
-            //if (w > a && p > 0) {
             s = abmin(d-1, a, b, new_pv, NT_NODE);                
-            //}
                        
             //
             node.unmove();                
 
-            //
+            // 
             if (stop) { break; }
                         
             // hard cut-off
             if (s >= b && !SEARCH_BRUTE_FORCE) 
             {  
-                //t.store(d, a, t.BETA); 
-                //return b; 
                 //
                 if (SEARCH_UPDATE) { node.legals.w[i] = b; }
                 
@@ -486,10 +472,10 @@ public final class Search
             if (s > a) 
             {                         
                 //
-                pv.cat(new_pv, m, i);
-                
-                //
                 if (SEARCH_UPDATE) { node.legals.w[i] = s; }
+
+                //
+                pv.cat(new_pv, m, i);                
                 
                 //
                 //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
@@ -546,7 +532,7 @@ public final class Search
         // generate legal-moves 
         node.legals();
 
-        //
+        // get current number of legal moves
         final int l = node.legals.i;
         
         // threefold repetition
@@ -592,10 +578,10 @@ public final class Search
             if (s < b) 
             {                     
                 //
-                pv.cat(new_pv, m, i);
+                if (SEARCH_UPDATE) { node.legals.w[i] = s; }
                 
                 //
-                if (SEARCH_UPDATE) { node.legals.w[i] = s; }
+                pv.cat(new_pv, m, i);
                 
                 //
                 //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
@@ -656,7 +642,7 @@ public final class Search
         qs_nodes++;            
         
         // 
-        Capture c = node.captures.sort().duplicate();
+        Capture c = node.captures.sort().twin();
                                 
         //
         for (int i = 0; i < l; i++)  
@@ -722,10 +708,10 @@ public final class Search
         qs_nodes++;
                              
         // quiescenze need sort moves
-        Capture c = node.captures.sort().duplicate();
+        Capture c = node.captures.sort().twin();
                        
         // loop throut capturers
-        for (int i = 0; i < l; i++) 
+        for (int i = 0; i != l; i++) 
         {
             // make move 
             node.domove(c, i);

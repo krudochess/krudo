@@ -24,6 +24,8 @@ public class Legals
     
     //
     private static int queries = 0;
+
+    //
     private static int success = 0;
     
     //
@@ -55,11 +57,10 @@ public class Legals
     public final static void add(long h, Move m)
     {           
         //
-        if (CACHE_LEGALS) 
-        { 
-            //
-            CACHE.put(h, m);                
-        }                 
+        if (!CACHE_LEGALS) { return; } 
+
+        //
+        CACHE.put(h, m);                
     }
 
     //
@@ -89,13 +90,10 @@ public class Legals
     public final static Move get(long h)
     {
         //
-        if (CACHE_LEGALS) 
-        {
-            return CACHE.get(h);
-        }
+        if (!CACHE_LEGALS) { return null; } 
         
         //
-        return null;
+        return CACHE.get(h);        
     }
     
     //

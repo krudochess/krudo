@@ -24,6 +24,9 @@ public final class Config
     // cache legals moves
     CACHE_LEGALS = true,
 
+    // cache captures moves
+    CACHE_CAPTURES = true,
+
     /**
     * EVALUATION SETTINGS
     * 
