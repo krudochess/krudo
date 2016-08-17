@@ -634,10 +634,10 @@ public final class Search
         if (l == 0)
         {                
             // generate legal-moves 
-            node.legals();
+            //node.legals();
 
             // no-legals-move exit checkmate
-            if (node.legals.i == 0) { return node.legals.c ? -mate + node.L.i : 0; }
+            //if (node.legals.i == 0) { return node.legals.c ? -mate + node.L.i : 0; }
         }
                        
         // hard cut-off
@@ -700,10 +700,10 @@ public final class Search
         if (l == 0) 
         {
             // generate legal-moves 
-            node.legals();
+            //node.legals();
 
             // no-legals-move exit checkmate
-            if (node.legals.i == 0) { return node.legals.c ? +mate - node.L.i : 0; }                       
+            //if (node.legals.i == 0) { return node.legals.c ? +mate - node.L.i : 0; }                       
         }
                        
         // return alfa if wrost

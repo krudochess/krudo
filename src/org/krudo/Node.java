@@ -1091,6 +1091,16 @@ public final class Node
     //
     public final void captures()
     {
+        if (!NODE_CAPTURES)
+        {
+            if (captures == null) 
+            {
+                captures = new Capture();
+            }
+            
+            return;
+        }
+        
         // if have captures cached retrieve it else compute it
         if (Captures.has(phk)) { captures = Captures.get(phk); return; }
         
@@ -1153,14 +1163,17 @@ public final class Node
         Captures.add(phk, captures);
     }
     
-    //
+    // generate white captures moves
     private void white_captures()
     {
+        // used as temp versus square
+        int v;
+            
         // count squares
         int si = 0;
 
         // count pieces
-        int pi = cw;
+        int pi = 0;
                 
         // loop throut black piece
         do 
@@ -1175,70 +1188,13 @@ public final class Node
             if ((p & w) != w) { continue; }    
                 
             // apply boars search square remaps
-            //if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
-            
-            //
-            int v;
+            if (REMAPS_PSEUDO) { white_remaps(si, pi, s); }
             
             // switch by piece
             switch (p) 
             {
                 // add black pawn capture
-                case wp:
-                    
-                    //
-                    int r = s >> 3;
-                                                                                      
-                    //
-                    if (r != 6) 
-                    {
-                        //
-                        v = SPAN[s][NE]; 
-                        
-                        //
-                        if (v != xx && (B[v] & b) == b) { captures.add(s, v, MOVE); }                    
-
-                        //
-                        v = SPAN[s][NW]; 
-                        
-                        //
-                        if (v != xx && (B[v] & b) == b) 
-                        {
-                            //
-                            captures.add(s, v, MOVE); 
-                        } 
-                    }
-                    
-                    //
-                    else
-                    {                    
-                        //
-                        v = SPAN[s][NE]; 
-                        
-                        //
-                        if (v != xx && (B[v] & b) == b) 
-                        { 
-                            captures.add(s, v, WQPM); 
-                            captures.add(s, v, WRPM); 
-                            captures.add(s, v, WBPM); 
-                            captures.add(s, v, WNPM); 
-                        }                    
-
-                        //
-                        v = SPAN[s][NW]; 
-                        
-                        //
-                        if (v != xx && (B[v] & b) == b) 
-                        { 
-                            captures.add(s, v, WQPM); 
-                            captures.add(s, v, WRPM); 
-                            captures.add(s, v, WBPM); 
-                            captures.add(s, v, WNPM);
-                        } 
-                    }
-                    
-                    //
-                    break;
+                case wp: white_pawn_captures(s); break;
                                         
                 // add sliding piece rook captures
                 case wr: sliding_captures(s, 0, 4); break;
@@ -1272,21 +1228,24 @@ public final class Node
             }
 
             // count founded piece
-            pi--;            
+            pi++;            
         }
         
         //
-        while (pi != 0);        
+        while (pi != cw);        
     }
     
     //
     private void black_captures()
     {
+        // used as temp versus sqaure
+        int v;                        
+        
         // count squares
         int si = 0;
 
         // count pieces
-        int pi = cb;
+        int pi = 0;
                 
         // loop throut black piece
         do 
@@ -1301,13 +1260,14 @@ public final class Node
             if ((p & b) != b) { continue; }    
                 
             // apply boars search square remaps
-            //if (PSEUDO_REMAPS) { black_remaps(si, pi, s); }
-            
-            int v;
+            if (REMAPS_PSEUDO) { black_remaps(si, pi, s); }
             
             // switch by piece
             switch (p) 
             {
+                // add black pawn capture
+                case bp: black_pawn_captures(s); break;
+         
                 // add sliding piece rook moves
                 case br: sliding_captures(s, 0, 4); break;
                 
@@ -1317,73 +1277,17 @@ public final class Node
                 // add sliding piece queen moves                     
                 case bq: sliding_captures(s, 0, 8); break;
 
-                // add black pawn capture
-                case bp:
-                    
-                    //
-                    int r = s >> 3;
-                    
-                    //
-                    if (r != 1) 
-                    {
-                        //
-                        v = SPAN[s][SE]; 
-                     
-                        //
-                        if (v != xx && (B[v] & w) == w)
-                        {
-                            //
-                            captures.add(s, v, MOVE); 
-                        }                    
-
-                        //
-                        v = SPAN[s][SW];
-                        
-                        //
-                        if (v != xx && (B[v] & w) == w) 
-                        { 
-                            //
-                            captures.add(s, v, MOVE);
-                        }                                        
-                    }
-                    
-                    //
-                    else
-                    {
-                        //
-                        v = SPAN[s][SE]; 
-                        
-                        //
-                        if (v != xx && (B[v] & w) == w) 
-                        { 
-                            captures.add(s, v, BQPM); 
-                            captures.add(s, v, BRPM); 
-                            captures.add(s, v, BBPM); 
-                            captures.add(s, v, BNPM); 
-                        }                    
-
-                        //
-                        v = SPAN[s][SW]; 
-                        
-                        //
-                        if (v != xx && (B[v] & w) == w) 
-                        { 
-                            captures.add(s, v, BQPM); 
-                            captures.add(s, v, BRPM); 
-                            captures.add(s, v, BBPM); 
-                            captures.add(s, v, BNPM);
-                        } 
-                    }
-                    
-                    //
-                    break;
                 
                 // add kngiht moves
-                case bn: 
+                case bn:
+                    
+                    //
                     for (int i = 0; i < 8; i++) 
                     {
                         //
                         v = HOPE[s][i];            
+                        
+                        //
                         if (v != xx && (B[v] & w) == w) { captures.add(s, v, MOVE); }
                     }
                     
@@ -1411,11 +1315,11 @@ public final class Node
             }
 
             // count founded piece
-            pi--;            
+            pi++;            
         }
         
         //
-        while (pi != 0);    
+        while (pi != cb);    
     }
     
     //
@@ -1808,6 +1712,113 @@ public final class Node
         //
         return (c & ___q) == 0 && B[a8] == br && B[d8] == O && B[c8] == O && B[b8] == O;
     }
+    
+    //
+    private void white_pawn_captures(final int s) 
+    {
+        // calculate rank
+        final int r = s >> 3;
+        
+        // first observer versus square
+        int v = SPAN[s][NE]; 
+        
+        // not is promotion rank
+        if (r != 6) 
+        {
+            //
+            if (v != xx && (B[v] & b) == b) { captures.add(s, v, MOVE); }                    
+
+            //
+            v = SPAN[s][NW]; 
+
+            //
+            if (v != xx && (B[v] & b) == b) { captures.add(s, v, MOVE); } 
+        }
+
+        // is in promotion rank
+        else
+        {                    
+            //
+            if (v != xx && (B[v] & b) == b) 
+            { 
+                captures.add(s, v, WQPM); 
+                captures.add(s, v, WRPM); 
+                captures.add(s, v, WBPM); 
+                captures.add(s, v, WNPM); 
+            }                    
+
+            //
+            v = SPAN[s][NW]; 
+
+            //
+            if (v != xx && (B[v] & b) == b) 
+            { 
+                captures.add(s, v, WQPM); 
+                captures.add(s, v, WRPM); 
+                captures.add(s, v, WBPM); 
+                captures.add(s, v, WNPM);
+            } 
+        }
+    }
+    
+    //
+    private void black_pawn_captures(final int s)
+    {                   
+        //
+        final int r = s >> 3;
+
+        //
+        int v = SPAN[s][SE]; 
+
+        //
+        if (r != 1) 
+        {           
+            //
+            if (v != xx && (B[v] & w) == w)
+            {
+                //
+                captures.add(s, v, MOVE); 
+            }                    
+
+            //
+            v = SPAN[s][SW];
+
+            //
+            if (v != xx && (B[v] & w) == w) 
+            { 
+                //
+                captures.add(s, v, MOVE);
+            }                                        
+        }
+
+        //
+        else
+        {
+            //
+            if (v != xx && (B[v] & w) == w) 
+            { 
+                captures.add(s, v, BQPM); 
+                captures.add(s, v, BRPM); 
+                captures.add(s, v, BBPM); 
+                captures.add(s, v, BNPM); 
+            }                    
+
+            //
+            v = SPAN[s][SW]; 
+
+            //
+            if (v != xx && (B[v] & w) == w) 
+            { 
+                captures.add(s, v, BQPM); 
+                captures.add(s, v, BRPM); 
+                captures.add(s, v, BBPM); 
+                captures.add(s, v, BNPM);
+            } 
+        }
+
+
+    }
+    
     
     // add captures for sliding pieces
     private void sliding_captures(

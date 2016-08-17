@@ -48,6 +48,9 @@ public class Search1
         MOVE_TWIN = false;
         
         //
+        NODE_CAPTURES = true;
+        
+        //
         PV_CAT = false;
         
         //
@@ -56,13 +59,14 @@ public class Search1
         // create a serach engine based-on the node
         Search s = new Search();
         
-        //
+        /**/
         s.event_filter.add("ab-control-speed");
         s.event_filter.add("ab-routine-end");
         s.event_filter.add("id-loop-break");
-                
+        /**/
+        
         //
-        s.start(5, 100000);    
+        s.start(6, 100000);    
         
         //
         PVs.info();

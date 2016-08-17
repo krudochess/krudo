@@ -101,7 +101,16 @@ public final class Config
     
     // into move stack used for search        
     MOVE_TWIN = true, 
-    
+                
+    /**
+     * REMAPS SETTINGS
+     * 
+     * asdads
+     */
+      
+    //
+    NODE_CAPTURES = true,
+
     /**
      * REMAPS SETTINGS
      * 

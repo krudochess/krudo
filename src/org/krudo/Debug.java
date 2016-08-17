@@ -233,7 +233,10 @@ public final class Debug
 	public final static long doing(Node n, int d) 
     {		        
         //
-		if (d == 0) { return 1; }
+		if (d == 0) { 
+            n.captures();
+            return 1; 
+        }
                 
         //
         int c = 0;
