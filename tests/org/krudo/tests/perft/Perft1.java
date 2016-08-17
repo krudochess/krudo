@@ -35,6 +35,9 @@ public class Perft1
         CACHE_LEGALS = true;
         
         //
+        MOVE_LEGALS = true;
+        
+        //
         REMAPS_PSEUDO = true;
         
         //

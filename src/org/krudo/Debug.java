@@ -231,21 +231,19 @@ public final class Debug
 	
 	//
 	public final static long doing(Node n, int d) 
-    {		
+    {		        
         //
 		if (d == 0) { return 1; }
-        
+                
         //
         int c = 0;
         
         //
         n.legals();
-        
+                            
         //
         Move m = n.legals.sort().twin();
-        
-        
-        
+                
         /*
         //
         if (m.i == 0) {
@@ -267,7 +265,7 @@ public final class Debug
         final int l = m.i;
         
         //
-        for (int i = 0; i < l; i++) 
+        for (int i = 0; i != l; i++) 
         {	
             //
             if (m.k[i] == ECAP) { count_enpassant++; }
@@ -289,7 +287,7 @@ public final class Debug
         } 
 
         // 
-        Moves.free(m);
+        if (MOVE_TWIN) { Moves.free(m); }
         
         //
         return c;
