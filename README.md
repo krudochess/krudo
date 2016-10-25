@@ -1,10 +1,10 @@
 # Krudo 0.16a
 
-| Ability                        | Implemented |
+| Features                       | Points      |
 | ------------------------------ |:-----------:|
-| Tapered Evaluation             | 10%         |
-| Draw By Insufficient Material  | 10%         |
-| MVV / LVA Move Order           | 10%         |
+| Tapered Evaluation             | :star:      |
+| Draw By Insufficient Material  | :star:      |
+| MVV / LVA Move Order           | :star:      |
 | Aspiration Windows             |             |
 | Delay Move Generation          |             |
 | Time Management                |             |
@@ -13,7 +13,7 @@
 | Piece Mobility                 |             |
 | King Safety                    |             |
 | Quiescence Recaptures          |             |
-| Futility Pruning	             |             |
+| Futility Pruning	         |             |
 | Killer Moves                   |             |
 | Late Move Reductions           |             |
 | Late Move Pruning              |             |
