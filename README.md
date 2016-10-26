@@ -4,7 +4,7 @@
 | ------------------------------ |:-----------:|
 | Tapered Evaluation             | :star:      |
 | Draw By Insufficient Material  | :star:      |
-| MVV / LVA Move Order           | ☆      |
+| MVV / LVA Move Order           | :star:      |
 | Aspiration Windows             |             |
 | Delay Move Generation          |             |
 | Time Management                |             |
