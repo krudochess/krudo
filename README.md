@@ -4,7 +4,7 @@
 | ------------------------------ |:-----------:|
 | Tapered Evaluation             | :star:      |
 | Draw By Insufficient Material  | :star:      |
-| MVV / LVA Move Order           | :star:      |
+| MVV / LVA Move Order           | ☆      |
 | Aspiration Windows             |             |
 | Delay Move Generation          |             |
 | Time Management                |             |
@@ -21,8 +21,7 @@
 | Free Passed Pawns              |             |
 | Bishop Pair                    |             |
 | Relative History Heuristic     |             |
-
-
+DevScore: 0.16
 
 
 
