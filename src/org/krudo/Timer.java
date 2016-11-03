@@ -31,7 +31,7 @@ public class Timer
     public long delay;
 
     //
-    public final void limit(long time)
+    public final void setTimeout(long time)
     {
         //
         limit = time;
@@ -41,7 +41,7 @@ public class Timer
     }
     
     //
-    public final void delay(long time)
+    public final void setPolling(long time)
     {                
         //
         delay = time;

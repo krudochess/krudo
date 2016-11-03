@@ -3,7 +3,7 @@
  * by Francesco Bianco <bianco@javanile.org>
  */
 
-//
+// 
 package org.krudo;
 
 // required static class
@@ -14,34 +14,33 @@ import static org.krudo.Decode.*;
 import static org.krudo.Describe.*;
 import static org.krudo.Constant.*;
 
+//
+import java.util.function.Consumer;
+
 // search main class
 public final class Search 
 {        
     // node-centric search
     public final Node node = new Node(); 
-                    
-    // searching controls and related         
-    private boolean stop = false;
-    
-    //
-    public int line_start = 0;
       
     // iterative deepiing deep cursor and limit
-    public int depth_index; // current depth in iterative deeping 
-    public int depth_limit; // depth-limit stop iterative deeping
+    public int 
+    line_offset, // offset on move history when start search
+    depth_index, // current depth in iterative deeping 
+    depth_limit; // depth-limit stop iterative deeping
             
-    //
-    public final Timer id_timer = new Timer();
-    public final Timer ab_timer = new Timer();
+    // timer-cronometers
+    public final Timer 
+    id_timer = new Timer(), // for iterative deeping 
+    ab_timer = new Timer(); // for alfa-beta
     
     // count nodes for ab search
-    public long qs_nodes;
-    public long ab_nodes;
-    public long id_nodes;
-  
-    //
-    public long nps;
-               
+    public long 
+    qs_nodes, 
+    ab_nodes,
+    id_nodes,
+    nps;      // contain velocity in kNPS
+                  
     // aspiration window width
     public int sw = 50;
     
@@ -58,107 +57,18 @@ public final class Search
     public PV best_pv = new PV(); 
            
     //
-    public String event;
-    
-    //
-    public String event_message;
+    public String 
+    event,
+    event_message;
 
     //
-    public final Strings event_filter = new Strings();
-    
-    //
-    public final Strings event_exclude = new Strings();
-            
-    //
-    public Runnable sendinfo = () -> 
-    {        
-        //
-        int pad = 18;
-
-        //
-        if (event_exclude.contains(event)) { return; }
-        
-        //
-        if (event_filter.size() > 0 && !event_filter.contains(event)) { return; }
+    public Consumer<Search> 
+    send_text_info = SEARCH_SEND_TEXT_INFO, 
+    send_best_move = SEARCH_SEND_BEST_MOVE;
                  
-        //
-        String info = "INFO: "+ rpad(event, pad);
-        
-        //
-        switch (event)
-        {
-            //
-            case "id-run":
-                print(
-                    info,
-                    "d(" + depth_limit + ")",
-                    "t("+id_timer.limit+")"
-                );
-                break;
-            
-            //
-            case "id-loop-run":
-                print(
-                    info,
-                    "d(" + depth_index + "/" + depth_limit+")"
-                );
-                break;
-            
-            //
-            case "id-loop-break":
-                print(info, "event break");
-                break;
-            
-            //    
-            case "id-loop-end":    
-                print(
-                    info,
-                    depth_index+"/"+depth_limit,
-                    desc(best_pv),
-                    ab_timer.stamp+"ms",
-                    ab_nodes+"n",
-                    nps+"knps"
-                );                
-                break;
-              
-            //    
-            case "id-end":
-                print(
-                    info,
-                    id_timer.stamp+"ms",
-                    best_score,
-                    desc(best_pv)
-                );                
-                break;
-        
-            //    
-            case "ab-routine-end":
-                print(
-                    info, 
-                    depth_index + "/" + depth_limit, 
-                    rpad(ab_nodes, 10) + "n",
-                    rpad(qs_nodes, 8) + "n",
-                    rpad(ab_timer.stamp / 1000, 6) + "s",
-                    rpad(nps, 5) + "knps"
-                );                
-                break;
-
-            //    
-            case "ab-control-speed":
-                print(info, nps + "knps");                
-                break;
-
-            //    
-            default: print(info, event_message); break;
-        }
-    };
+    // searching controls and related         
+    private boolean stop = false;    
     
-    //
-    public Runnable sendbestmove = () -> 
-    {
-        print("BESTMOVE: " + best_move);
-    };
-                 
     //
     public Search() { node.startpos(); }    
     
@@ -179,7 +89,7 @@ public final class Search
         stop = false;    
         
         // place offset for search variation
-        line_start = node.L.i;
+        line_offset = node.L.i;
 
         // start iterative deeping search
         idrun(depth, time);
@@ -195,10 +105,10 @@ public final class Search
         id_timer.start();
                                 
         // time limit stop search algorythm
-        id_timer.limit(time);
+        id_timer.setTimeout(time);
         
         // time polling for print-out running-search-info
-        id_timer.delay(5000);
+        id_timer.setPolling(TIME_5_SECONDS);
         
         // iterative deeping deep start value
         depth_index = 1;
@@ -220,7 +130,10 @@ public final class Search
         {                                        
             // log
             info("id-loop-run");
-           
+
+            //
+            score = awrun(score, new_pv);
+
             // bydefault use aspiration window
             if (!SEARCH_BRUTE_FORCE) {
                 score = awrun(score, new_pv);

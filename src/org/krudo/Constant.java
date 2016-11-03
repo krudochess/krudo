@@ -7,6 +7,15 @@
 package org.krudo;
 
 // all constants
+
+import static org.krudo.Describe.desc;
+import static org.krudo.Tool.print;
+import static org.krudo.Tool.rpad;
+
+//
+import java.util.function.Consumer;
+
+//
 public final class Constant
 {    
     // start position in fen
@@ -307,9 +316,104 @@ public final class Constant
         
     // time constants
     public final static long
-    TIME_30_SECONDS = 30*1000,
-    TIME_5_MINUTES    = 5*60*1000;
+    TIME_5_SECONDS  = 5 * 1000,
+    TIME_30_SECONDS = 30 * 1000,
+    TIME_5_MINUTES  = 5 * 60 * 1000;
     
     // string constants
     public final static char NEWLINE = '\n';    
+    
+    //
+    public static final Strings SEARCH_EVENT_FILTER = new Strings();
+    
+    //
+    public static final Strings SEARCH_EVENT_EXCLUDE = new Strings();            
+    
+    //
+    public static final Consumer<Search> SEARCH_SEND_TEXT_INFO = (search) -> 
+    {        
+        //
+        int pad = 18;
+
+        //
+        if (SEARCH_EVENT_EXCLUDE.contains(search.event)) { return; }
+        
+        //
+        if (SEARCH_EVENT_FILTER.size() > 0 && !SEARCH_EVENT_FILTER.contains(event)) { return; }
+                 
+        //
+        String info = "INFO: "+ rpad(event, pad);
+        
+        //
+        switch (search.event)
+        {
+            //
+            case "id-run":
+                print(
+                    info,
+                    "d(" + depth_limit + ")",
+                    "t("+id_timer.limit+")"
+                );
+                break;
+            
+            //
+            case "id-loop-run":
+                print(
+                    info,
+                    "d(" + depth_index + "/" + depth_limit+")"
+                );
+                break;
+            
+            //
+            case "id-loop-break":
+                print(info, "event break");
+                break;
+            
+            //    
+            case "id-loop-end":    
+                print(info,
+                    depth_index+"/"+depth_limit,
+                    desc(best_pv),
+                    ab_timer.stamp+"ms",
+                    ab_nodes+"n",
+                    nps+"knps"
+                );                
+                break;
+              
+            //    
+            case "id-end":
+                print(
+                    info,
+                    id_timer.stamp+"ms",
+                    best_score,
+                    desc(best_pv)
+                );                
+                break;
+        
+            //    
+            case "ab-routine-end":
+                print(info, 
+                    depth_index + "/" + depth_limit, 
+                    rpad(ab_nodes, 10) + "n",
+                    rpad(qs_nodes, 8) + "n",
+                    rpad(ab_timer.stamp / 1000, 6) + "s",
+                    rpad(nps, 5) + "knps"
+                );                
+                break;
+
+            //    
+            case "ab-control-speed":
+                print(info, nps + "knps");                
+                break;
+
+            //    
+            default: print(info, event_message); break;
+        }
+    };
+    
+    //
+    public static final Consumer<Search> SEARCH_SEND_BEST_MOVE = (search) -> 
+    {
+        print("BESTMOVE: " + search.best_move);
+    };
 }
