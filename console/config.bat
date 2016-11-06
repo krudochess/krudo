@@ -12,6 +12,7 @@ set WINBOARD=c:\WinBoard-4.7.2\WinBoard\winboard.exe
 set POLYGLOT=%WINBOARD%\..\polyglot.exe
 set POSTGAME=%PYTHON% %ENGINEDIR%\tool\postgame.py
 set BUILDENV=%PYTHON% %ENGINEDIR%\tool\buildenv.py
+set FRUIT=polyglot _PG\fruit.ini
 
 rem check java exists
 where %JAVA% > nul 2> nul

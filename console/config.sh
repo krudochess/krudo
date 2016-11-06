@@ -11,6 +11,8 @@ export PYTHON=python
 export XBOARD=xboard
 export POLYGLOT=polyglot
 export POSTGAME="$PYTHON $KRUDO_DIR/../utils/postgame.py"
+export FAIRYMAX=fairymax
+export FRUIT=fruit
 export GIN=gin
 
 # engine vars

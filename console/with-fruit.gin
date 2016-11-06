@@ -8,7 +8,7 @@
 /cp
 /tc=1
 /pgnEventHeader="Training"
-/lpf="%ENGINEDIR%/analize.fen"
+/lpf="{{$KRUDO_DIR}}/analize.fen"
 
 ; first engine 
 /firstChessProgram="polyglot _PG\fruit.ini"
@@ -16,7 +16,7 @@
 /firstLogo="..\Fruit\logo.bmp"
 
 ; second engine
-/secondChessProgram="polyglot _PG\fruit.ini"
+/secondChessProgram="{{$FRUIT}}"
 /secondDirectory="."
 /secondLogo="..\Fruit\logo.bmp"
 

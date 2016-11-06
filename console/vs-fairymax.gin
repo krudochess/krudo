@@ -15,8 +15,8 @@
 /firstLogo="{{$KRUDO_IMG}}"
 
 ; second engine 
-/secondChessProgram="fmax"
-/secondDirectory="../Fairy-Max"
+/secondChessProgram="{{$FAIRYMAX}}"
+/secondDirectory="."
 
 ; opening book
 /polyglotBook="default_book.bin"
