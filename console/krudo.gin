@@ -4,11 +4,11 @@
 ;
 
 [Polyglot]
-EngineName = {{$ENGINETAG}}
+EngineName = {{$KRUDO_TAG}}
 EngineDir = .
-EngineCommand = %ENGINECMD%
+EngineCommand = {{$KRUDO_CMD}}
 Log = true
-LogFile = %ENGINEDIR%\polyglot.log
+LogFile = {{$KRUDO_DIR}}\polyglot.log
 Book = false
 BookFile = default_book.bin
 BookRandom = false

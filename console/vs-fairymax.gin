@@ -10,9 +10,9 @@
 /pgnEventHeader="Training"
 
 ; first engine 
-/firstChessProgram="polyglot %ENGINEDIR%\%ENGINEINI%"
-/firstDirectory="%ENGINEDIR%"
-/firstLogo="%ENGINEIMG%"
+/firstChessProgram="polyglot {{$KRUDO_DIR}}/{{$KRUDO_INI}}"
+/firstDirectory="{{$KRUDO_DIR}}"
+/firstLogo="{{$KRUDO_IMG}}"
 
 ; second engine 
 /secondChessProgram="fmax"
