@@ -1,52 +1,39 @@
 ;
-; Krudo 0.16a - a chess engine for cooks
-; by Francesco Bianco <bianco@javanile.org>
+;  Krudo 0.16a - a chess engine for cooks
+;  by Francesco Bianco <bianco@javanile.org>
 ;
 
-;
-; parameters for playing against an UCI engine
-;
+; match
 /mode=Analysis
 /cp
 /tc=1
 /pgnEventHeader="Training"
 /lpf="%ENGINEDIR%/analize.fen"
-;
-; Method 1: explicitly invoke Polyglot, and supply ini file with all UCI option settings
-; Directory is . (= same as WB), because that is where polyglot.exe is.
-; Note we use Polyglot 1.4.38x here. (You could change that to 1.4.46b by dropping the "38".)
-; This means WB will not be able to find logo file, so give it explicitly
-; 
+
+; first engine 
 /firstChessProgram="polyglot _PG\fruit.ini"
 /firstDirectory="."
 /firstLogo="..\Fruit\logo.bmp"
-;
-; Method 2: let WB invoke Polyglot by telling it the engine is UCI. 
-; In the install as it came this would use polyglot.exe, i.e. 1.4.46b.
-; PG/fruit.ini will not be used, so only the most basic options will be set.
-;
+
+; second engine
 /secondChessProgram="polyglot _PG\fruit.ini"
 /secondDirectory="."
 /secondLogo="..\Fruit\logo.bmp"
-;
-; Opening book
-;
+
+; opening book
 /polyglotBook="default_book.bin"
 /usePolyglotBook=false
 /firstXBook
 /secondXBook
-;
-;
-; define window layout
-;
+
+; windows layout
 /autoLogo=true
 /moveHistoryUp=false
 /evalGraphUp=false
 /engineOutputUp=true
 /hideThinkingFromHuman=false
-;
-; define window positions
-;
+
+; windows position
 /winWidth=426
 /winHeight=539
 /moveHistoryX=426
@@ -57,11 +44,9 @@
 /engineOutputY=0
 /engineOutputW=450
 /engineOutputH=539
-;
+
 ; save games
-;
-/saveGameFile="%ENGINEDIR%\vs-fairymax.pgn"
-;
-; prevent these settings from becoming default
-; 
+/saveGameFile="{{$KRUDO_DIR}}\with-fruit.pgn"
+
+; exit
 /saveSettingsOnExit=false
