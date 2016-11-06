@@ -1,5 +1,10 @@
+;
+; Krudo 0.16a - a chess engine for cooks
+; by Francesco Bianco <bianco@javanile.org>
+;
+
 [Polyglot]
-EngineName = %ENGINETAG%
+EngineName = {{$ENGINETAG}}
 EngineDir = .
 EngineCommand = %ENGINECMD%
 Log = true
