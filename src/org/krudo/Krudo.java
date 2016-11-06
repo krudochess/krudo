@@ -29,7 +29,7 @@ public final class Krudo
             CONSOLE.start(path("krudo.log"));
 
             // credits message
-            CONSOLE.print("Krudo 0.16a by Francesco <bianco@javanile.org>");
+            CONSOLE.print("Krudo 0.16a by Francesco Bianco <bianco@javanile.org>");
                   
             // init warmup memory and cache
             init();
@@ -65,16 +65,16 @@ public final class Krudo
     //
     public static void init() 
     {
-        // prepare move-stacks
+        // PV memory
         PVs.init();
         
-        // prepare move-stacks
+        // prepare eval memory
         Eval.init();
 
         // prepare move-stacks
         Moves.init();
         
-        // 
+        // prepare captures
         Captures.init();
     }
     
@@ -97,8 +97,8 @@ public final class Krudo
                     ENGINE.init();
 
                     // set search callback function in onDone-event search
-                    ENGINE.sendinfo = UCI.SENDINFO;                                    
-                    ENGINE.sendbestmove = UCI.SENDBESTMOVE;                                    
+                    ENGINE.search.send_text_info = UCI.SEND_TEXT_INFO;                                    
+                    ENGINE.search.send_best_move = UCI.SEND_BEST_MOVE;                                    
                    
                     // uci first message
                     CONSOLE.print(UCI.ID_NAME, "Krudo 0.16a");

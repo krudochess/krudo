@@ -3,24 +3,28 @@
  * by Francesco Bianco <bianco@javanile.org>
  */
 
-//
+// krudo package
 package org.krudo;
 
-//
-import static org.krudo.Constant.*;
+// required static class
 import static org.krudo.Tool.*;
+import static org.krudo.Constant.*;
 
 //
-public final class Clock {
-    
+public final class Clock 
+{
+    //
     private static Timeout t;
     private static Polling p;
     
-    public static final int diff(String wtime, String btime, int t) {
-        
+    //
+    public static final int diff(String wtime, String btime, int t) 
+    {
+        //
         int w = Integer.parseInt(wtime);
         int b = Integer.parseInt(btime);
         
+        //
         return t==Constant.w ? w-b : b-w;
     }
         

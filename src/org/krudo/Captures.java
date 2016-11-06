@@ -3,19 +3,19 @@
  * by Francesco Bianco <bianco@javanile.org>
  */
 
-//
+// krudo package
 package org.krudo;
 
-//
+// required static class
+import static org.krudo.Tool.*;
+import static org.krudo.Config.*;
+
+// 
 import java.util.Map;
 import java.util.LinkedHashMap;
 
 //
-import static org.krudo.Tool.*;
-import static org.krudo.Config.*;
-
-//
-public class Captures 
+public final class Captures 
 {
     //
     private static int count = 0;

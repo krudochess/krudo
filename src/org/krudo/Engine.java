@@ -39,34 +39,17 @@ public final class Engine
 
     //
     public int lastscore;
-    
-    //
-    public Runnable sendinfo = () -> 
-    {
-        print("INFO: "+info);
-    };
-    
-    //
-    public Runnable sendbestmove = () -> 
-    {
-        print("BESTMOVE: "+bestmove);
-    };
-    
-    //
-    public Engine()
-    {
-        /*
-        //
-        search.send_text_info = () -> {
-            sendinfo(search.best_move);
-        };
         
-        //
-        search.sendbestmove = () -> {
-            sendbestmove(search.best_move, search.best_score);
-        };*/
-    }
+    //
+    public Engine() { }
     
+    //
+    public Engine(String fen) 
+    {
+        //
+        search.node.startpos(fen);
+    }
+           
     //
     public final void init()
     {
@@ -76,24 +59,28 @@ public final class Engine
     //
     public final void startpos() 
     {
+        //
         search.node.startpos();
     }
     
     //
     public final void startpos(String fen)
     {
+        //
         search.node.startpos(fen);
     }
     
     //
     public final void domove(String move) 
     {
+        //
         search.node.domove(move);
     }
     
     //
     public final void domove(String[] moves) 
     {
+        //
         search.node.domove(moves);
     }
     
@@ -123,7 +110,7 @@ public final class Engine
             if (m != null)
             {    
                 //
-                sendbestmove(m, 0);
+                search.sendbestmove(m);
 
                 //
                 return;
@@ -152,40 +139,5 @@ public final class Engine
         
         //
         return true;
-    }
-    
-    //
-    public final void sendinfo(String i) 
-    {
-        //
-        info = i;
-        
-        //
-        sendinfo.run();
-    }
-    
-    //
-    public final void sendbestmove(String move, int score) 
-    {       
-        //
-        /*
-        if (lastscore - score > 500) {
-            Krudo.CONSOLE.error("Engine score stop: "+(lastscore - score)+" "+lastscore+" "+score);
-            Krudo.CONSOLE.close();
-            exit();
-        }
-        */
-        
-        //
-        bestmove = move;
-                    
-        //
-        lastscore = bestscore;
-         
-        //
-        bestscore = score;
-        
-        //
-        sendbestmove.run();
-    }
+    }        
 }

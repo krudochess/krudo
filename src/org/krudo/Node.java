@@ -122,10 +122,13 @@ public final class Node
     };
 
     // contructor
-    public Node() 
-    { 
+    public Node() { }
+    
+    //
+    public Node(String fen)
+    {
         //
-        startpos();
+        startpos(fen);
     }
     
     // restore node to start position

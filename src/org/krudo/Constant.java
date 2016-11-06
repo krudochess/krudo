@@ -373,7 +373,7 @@ public final class Constant
             case "id-loop-end":    
                 print(info,
                     search.depth_index+"/"+search.depth_limit,
-                    desc(search.best_pv),
+                    desc(search.id_best_pv),
                     search.ab_timer.stamp+"ms",
                     search.ab_nodes+"n",
                     search.nps+"knps"
@@ -382,11 +382,10 @@ public final class Constant
               
             //    
             case "id-end":
-                print(
-                    info,
+                print(info,
                     search.id_timer.stamp+"ms",
-                    search.best_score,
-                    desc(search.best_pv)
+                    search.id_best_score,
+                    desc(search.id_best_pv)
                 );                
                 break;
         
@@ -414,6 +413,7 @@ public final class Constant
     //
     public static final Consumer<Search> SEARCH_SEND_BEST_MOVE = (search) -> 
     {
+        //
         print("BESTMOVE: " + search.best_move);
     };
 }

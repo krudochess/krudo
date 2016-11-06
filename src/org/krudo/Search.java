@@ -48,14 +48,20 @@ public final class Search
     private final static int NT_NODE = 0;
  
     //
-    public String best_move;
+    public String 
+    id_best_move ;
        
     //
-    public int best_score;
+    public int 
+    id_best_score;
 
     //
-    public PV best_pv = new PV(); 
+    public PV 
+    id_best_pv = new PV(); 
            
+    //
+    public String best_move;
+    
     //
     public String 
     event,
@@ -70,10 +76,14 @@ public final class Search
     private boolean stop = false;    
     
     //
-    public Search() { node.startpos(); }    
+    public Search() { }    
     
     //
-    public Search(String fen) { node.startpos(fen); }    
+    public Search(String fen) 
+    {
+        //
+        node.startpos(fen); 
+    }    
     
     // public method to start search with large time-limit
     public final void start(int deep) 
@@ -145,13 +155,13 @@ public final class Search
             if (stop) { info("id-loop-break"); break; }
                 
             //
-            best_pv.copy(new_pv);
+            id_best_pv.copy(new_pv);
             
             //
-            best_move = desc(best_pv, 0);
+            id_best_move = desc(id_best_pv, 0);
             
             //
-            best_score = score;                    
+            id_best_score = score;                    
                                          
             // calculate speed
             nps = id_timer.ratio(id_nodes);
@@ -173,7 +183,7 @@ public final class Search
         info("id-end");
                 
         //
-        sendbestmove();
+        sendbestmove(id_best_move);
     }
     
     // aspiration window controls
@@ -684,8 +694,11 @@ public final class Search
     }
     
     // run send_bast_move callable
-    public void sendbestmove()
+    public void sendbestmove(String bm)
     {
+        //
+        best_move = bm;
+        
         //
         send_best_move.accept(this);
     }   

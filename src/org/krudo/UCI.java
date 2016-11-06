@@ -7,6 +7,7 @@
 package org.krudo;
 
 //
+import java.util.function.Consumer;
 import static org.krudo.Describe.*;
 
 // protocol definition class
@@ -49,30 +50,27 @@ public final class UCI
     PV             = "pv",
     OPTION         = "option";
 
-    // search log callback
-    public final static Runnable SENDINFO = () -> 
-    {                      
+    //
+    public static final Consumer<Search> SEND_TEXT_INFO = (search) ->
+    {                                      
         //
-        final Search s = Krudo.ENGINE.search;
-        
-        //
-        if (s.event.equals("id-loop-end")) 
+        if (search.event.equals("id-loop-end")) 
         {
             //
             Krudo.CONSOLE.print(INFO, 
-                DEPTH,    s.depth_index, 
-                SCORE_CP, s.best_score,
-                TIME,     s.id_timer.stamp,
-                NODES,    s.id_nodes,
+                DEPTH,    search.depth_index, 
+                SCORE_CP, search.id_best_score,
+                TIME,     search.id_timer.stamp,
+                NODES,    search.id_nodes,
                 //NPS,    s.nps,
-                PV,       desc(s.best_pv),
-                "event",  s.event
+                PV,       desc(search.id_best_pv),
+                "event",  search.event
             );
         }
     };
         
-    //        
-    public final static Runnable SENDBESTMOVE = () -> 
+    //
+    public static final Consumer<Search> SEND_BEST_MOVE = (search) ->
     {                
         //
         Krudo.CONSOLE.print(desc(Krudo.ENGINE.search.node));
