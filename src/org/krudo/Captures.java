@@ -83,7 +83,7 @@ public class Captures
     public static void free(final Capture capture) 
     {
         //
-        capture.i = 0;
+        capture.count = 0;
         
         //
         STACK[count++] = capture;

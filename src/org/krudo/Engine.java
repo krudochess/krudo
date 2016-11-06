@@ -55,15 +55,16 @@ public final class Engine
     //
     public Engine()
     {
+        /*
         //
-        search.sendinfo = () -> {
+        search.send_text_info = () -> {
             sendinfo(search.best_move);
         };
         
         //
         search.sendbestmove = () -> {
             sendbestmove(search.best_move, search.best_score);
-        };
+        };*/
     }
     
     //

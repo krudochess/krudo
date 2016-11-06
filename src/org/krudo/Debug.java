@@ -394,4 +394,37 @@ public final class Debug
        }
     
     }
+    
+        //
+    public final static void walk(final Node n, int depth, int width)
+    {
+        //
+        if (depth == 0) { return; }
+        
+        //
+        n.legals();
+        
+        //
+        Move m = n.legals.sort();
+    
+        //
+        int w = m.i > width ? width : m.i;
+        
+        //
+        for (int i = 0; i < w; i++) 
+        {
+            //
+            n.domove(m, i);
+            
+            //
+            walk(n, depth - 1, width);
+            
+            //
+            n.unmove();
+        }
+        
+        //
+        Moves.free(m);
+    }
+
 }

@@ -26,7 +26,7 @@ public final class Krudo
         try 
         {    
             // initialize console with log file
-            CONSOLE.start(path("Krudo.log"));
+            CONSOLE.start(path("krudo.log"));
 
             // credits message
             CONSOLE.print("Krudo 0.16a by Francesco <bianco@javanile.org>");

@@ -1117,13 +1117,13 @@ public final class Node
         if (t == w) 
         {       
             //
-            captures.c = black_attack(wks);
+            captures.check = black_attack(wks);
             
             //
             white_captures(); 
                             
             //
-            final int l = captures.i;
+            final int l = captures.count;
             
             // loop throut pseudo-legal moves
             for (int i = 0; i < l; i++) 
@@ -1135,7 +1135,7 @@ public final class Node
                 final int v = captures.v[i];
                                 
                 // king is safe move piece that not unsafe the king secure legal
-                if (!captures.c && s != wks && LINK[s][wks] == 0) 
+                if (!captures.check && s != wks && LINK[s][wks] == 0) 
                 {
                     //
                     captures.copy(i, j++); 
@@ -1162,13 +1162,13 @@ public final class Node
         else 
         { 
             //
-            captures.c = black_attack(bks);
+            captures.check = black_attack(bks);
                         
             //
             black_captures();
             
             //
-            final int l = captures.i;
+            final int l = captures.count;
                     
             // loop throut pseudo-legal moves
             for (int i = 0; i < l; i++) 
@@ -1180,7 +1180,7 @@ public final class Node
                 final int v = captures.v[i];
                                 
                 // king safety move piece that not unsafe the king secure legal
-                if (!captures.c && s != bks && LINK[s][bks] == 0) 
+                if (!captures.check && s != bks && LINK[s][bks] == 0) 
                 {
                     // confirm and next
                     captures.copy(i, j++); 
@@ -1190,7 +1190,7 @@ public final class Node
                 }
 
                 // king under attack try to move a piece that non protect king
-                if (captures.c && s != bks && LINK[v][bks] == 0) { continue; }                         
+                if (captures.check && s != bks && LINK[v][bks] == 0) { continue; }                         
 
                 //
                 domove(captures, i);
@@ -1204,7 +1204,7 @@ public final class Node
         }
                 
         //
-        captures.i = j;     
+        captures.count = j;     
         
         //
         Captures.add(phk, captures);

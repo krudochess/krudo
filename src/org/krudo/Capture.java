@@ -18,20 +18,19 @@ public final class Capture
     // constants
     public final static int
     MAX = 20; 
-    
-    // counters 
-    public int 
-    i = 0; // pseudo counter index
-    
+        
     // fields
     public final int[] 
     s = new int[MAX], // start square of a move
     v = new int[MAX], // versus square of a move
     k = new int[MAX], // kind of a move
     w = new int[MAX]; // weight/eval-value of a move
-              
+    
+    // have count of move in stack
+    public int count = 0; 
+
     // incheck status
-    public boolean c;
+    public boolean check;
         
     // empty constructor
     public Capture() {}
@@ -43,12 +42,12 @@ public final class Capture
         final int k0  // kind-of-move
     ) {        
         //
-        s[i] = s0;
-        v[i] = v0;
-        k[i] = k0;    
+        s[count] = s0;
+        v[count] = v0;
+        k[count] = k0;    
         
         //
-        i++;
+        count++;
     }
     
     // copy move by index i0 from to i1
@@ -81,7 +80,7 @@ public final class Capture
             z = 0;
             
             //
-            for (int j = 1; j < i; j++) if (w[j - 1] < w[j]) 
+            for (int j = 1; j < count; j++) if (w[j - 1] < w[j]) 
             {
                 // swap move by index
                 swap(j - 1, j);
@@ -134,13 +133,13 @@ public final class Capture
         Capture c = Captures.pick();
         
         //
-        System.arraycopy(s, 0, c.s, 0, i);
-        System.arraycopy(v, 0, c.v, 0, i);
-        System.arraycopy(k, 0, c.k, 0, i);
-        System.arraycopy(w, 0, c.w, 0, i);
+        System.arraycopy(s, 0, c.s, 0, count);
+        System.arraycopy(v, 0, c.v, 0, count);
+        System.arraycopy(k, 0, c.k, 0, count);
+        System.arraycopy(w, 0, c.w, 0, count);
           
         //
-        c.i = i;
+        c.count = count;
         
         //
         return c;

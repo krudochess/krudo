@@ -298,7 +298,7 @@ public class Describe
         int colm = DEBUG_SHOW_MOVE_WEIGHT ? 4 : 6;    
         
 		//
-		for (int i = 0; i < c.i; i++)
+		for (int i = 0; i < c.count; i++)
         {	
 			//
 			String move = desc(c, i);

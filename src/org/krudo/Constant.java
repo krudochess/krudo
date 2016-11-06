@@ -339,10 +339,10 @@ public final class Constant
         if (SEARCH_EVENT_EXCLUDE.contains(search.event)) { return; }
         
         //
-        if (SEARCH_EVENT_FILTER.size() > 0 && !SEARCH_EVENT_FILTER.contains(event)) { return; }
+        if (SEARCH_EVENT_FILTER.size() > 0 && !SEARCH_EVENT_FILTER.contains(search.event)) { return; }
                  
         //
-        String info = "INFO: "+ rpad(event, pad);
+        String info = "INFO: "+ rpad(search.event, pad);
         
         //
         switch (search.event)
@@ -351,8 +351,8 @@ public final class Constant
             case "id-run":
                 print(
                     info,
-                    "d(" + depth_limit + ")",
-                    "t("+id_timer.limit+")"
+                    "d(" + search.depth_limit + ")",
+                    "t(" + search.id_timer.limit + ")"
                 );
                 break;
             
@@ -360,7 +360,7 @@ public final class Constant
             case "id-loop-run":
                 print(
                     info,
-                    "d(" + depth_index + "/" + depth_limit+")"
+                    "d(" + search.depth_index + "/" + search.depth_limit+")"
                 );
                 break;
             
@@ -372,11 +372,11 @@ public final class Constant
             //    
             case "id-loop-end":    
                 print(info,
-                    depth_index+"/"+depth_limit,
-                    desc(best_pv),
-                    ab_timer.stamp+"ms",
-                    ab_nodes+"n",
-                    nps+"knps"
+                    search.depth_index+"/"+search.depth_limit,
+                    desc(search.best_pv),
+                    search.ab_timer.stamp+"ms",
+                    search.ab_nodes+"n",
+                    search.nps+"knps"
                 );                
                 break;
               
@@ -384,30 +384,30 @@ public final class Constant
             case "id-end":
                 print(
                     info,
-                    id_timer.stamp+"ms",
-                    best_score,
-                    desc(best_pv)
+                    search.id_timer.stamp+"ms",
+                    search.best_score,
+                    desc(search.best_pv)
                 );                
                 break;
         
             //    
             case "ab-routine-end":
                 print(info, 
-                    depth_index + "/" + depth_limit, 
-                    rpad(ab_nodes, 10) + "n",
-                    rpad(qs_nodes, 8) + "n",
-                    rpad(ab_timer.stamp / 1000, 6) + "s",
-                    rpad(nps, 5) + "knps"
+                    search.depth_index + "/" + search.depth_limit, 
+                    rpad(search.ab_nodes, 10) + "n",
+                    rpad(search.qs_nodes, 8) + "n",
+                    rpad(search.ab_timer.stamp / 1000, 6) + "s",
+                    rpad(search.nps, 5) + "knps"
                 );                
                 break;
 
             //    
             case "ab-control-speed":
-                print(info, nps + "knps");                
+                print(info, search.nps + "knps");                
                 break;
 
             //    
-            default: print(info, event_message); break;
+            default: print(info, search.event_message); break;
         }
     };
     

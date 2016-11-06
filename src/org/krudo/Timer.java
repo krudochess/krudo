@@ -71,6 +71,9 @@ public class Timer
     public final long ratio(long size)
     {
         //
+        stamp();
+        
+        //
         return stamp > 0 ? size / stamp : 0;
     }
         

@@ -152,10 +152,7 @@ public final class Search
             
             //
             best_score = score;                    
-                             
-            // 
-            id_timer.stamp();
-            
+                                         
             // calculate speed
             nps = id_timer.ratio(id_nodes);
             
@@ -169,9 +166,6 @@ public final class Search
         //
         PVs.free(new_pv);
                 
-        //
-        id_timer.stamp();
-        
         //
         nps = id_timer.ratio(id_nodes);
                     
@@ -287,10 +281,7 @@ public final class Search
         
         //
         PVs.free(new_pv);
-                       
-        //
-        ab_timer.stamp();
-
+                             
         //
         nps = ab_timer.ratio(ab_nodes);
         
@@ -527,7 +518,7 @@ public final class Search
         node.captures();
                        
         //
-        final int l = node.captures.i;
+        final int l = node.captures.count;
         
         //
         if (l == 0)
@@ -593,7 +584,7 @@ public final class Search
         node.captures();
         
         //
-        final int l = node.captures.i;
+        final int l = node.captures.count;
         
         //
         if (l == 0) 
@@ -662,13 +653,10 @@ public final class Search
         if (id_timer.polling()) 
         {                                                       
             //
-            id_timer.stamp();
-            
-            //
             nps = id_timer.ratio(id_nodes + ab_nodes + qs_nodes);
 
             //        
-            info("ab-control-speed");
+            info("speed");
         }
     } 
     
@@ -679,10 +667,7 @@ public final class Search
         this.event = event;
         
         //
-        event_message = null;
-
-        //
-        sendinfo.run();    
+        send_text_info.accept(this);    
     }
     
     //
@@ -695,45 +680,13 @@ public final class Search
         this.event_message = message;
 
         //
-        sendinfo.run();
+        send_text_info.accept(this);
     }
     
-    //
+    // run send_bast_move callable
     public void sendbestmove()
     {
         //
-        sendbestmove.run();
-    }
-   
-    //
-    public final static void walk(final Node n, int depth, int width)
-    {
-        //
-        if (depth == 0) { return; }
-        
-        //
-        n.legals();
-        
-        //
-        Move m = n.legals.sort();
-    
-        //
-        int w = m.i > width ? width : m.i;
-        
-        //
-        for (int i = 0; i < w; i++) 
-        {
-            //
-            n.domove(m, i);
-            
-            //
-            walk(n, depth - 1, width);
-            
-            //
-            n.unmove();
-        }
-        
-        //
-        Moves.free(m);
-    }
+        send_best_move.accept(this);
+    }   
 }
