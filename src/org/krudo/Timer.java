@@ -10,7 +10,7 @@ package org.krudo;
 import static org.krudo.Tool.*;
 
 //
-public class Timer 
+public final class Timer 
 {
     //
     private long start;

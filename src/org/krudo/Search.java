@@ -230,7 +230,7 @@ public final class Search
         final int l = node.legals.i;
         
         // no legal moves check-mate or stale-mate
-        if (l == 0) { return node.legals.c ? -mate + node.L.i : 0; } 
+        if (l == 0) { return node.legals.c ? -checkmate + node.L.i : 0; } 
         
         //
         final PV new_pv = PVs.pick();
@@ -346,7 +346,7 @@ public final class Search
         if (node.threefold()) { return 0; }
                 
         // no legal moves check-mate or stale-mate
-        if (l == 0) { return node.legals.c ? -mate + node.L.i : 0; }
+        if (l == 0) { return node.legals.c ? -checkmate + node.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();
@@ -453,7 +453,7 @@ public final class Search
         if (node.threefold()) { return 0; }
         
         // no-legals-move exit checkmate
-        if (l == 0) { return node.legals.c ? +mate - node.L.i : 0; }
+        if (l == 0) { return node.legals.c ? +checkmate - node.L.i : 0; }
         
         //
         PV new_pv = PVs.pick();

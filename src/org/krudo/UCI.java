@@ -6,9 +6,11 @@
 // root package
 package org.krudo;
 
-//
-import java.util.function.Consumer;
+// required static functions
 import static org.krudo.Describe.*;
+
+// required non-static class
+import java.util.function.Consumer;
 
 // protocol definition class
 public final class UCI 

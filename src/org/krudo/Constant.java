@@ -310,9 +310,10 @@ public final class Constant
         /*h8:*/{1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,},
     };
         
-    // even
+    // magic constants
     public final static int oo = 300000;
-    public final static int mate = 100000;
+    public final static int checkmate = 100000;
+    public final static int stalemate = 0;
         
     // time constants
     public final static long
