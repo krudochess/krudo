@@ -121,7 +121,7 @@ public final class Engine
         long time = search.node.t == w ? (wtime / 50) + 500 : (btime / 50) + 500; 
         
         // call iterative deeping (wait here)
-        search.start(5, 6000);
+        search.start(8, 6000);
     }
     
     //

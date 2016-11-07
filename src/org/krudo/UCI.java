@@ -75,16 +75,16 @@ public final class UCI
     public static final Consumer<Search> SEND_BEST_MOVE = (search) ->
     {                
         //
-        Krudo.CONSOLE.print(desc(Krudo.ENGINE.search.node));
+        Krudo.CONSOLE.print(desc(search.node));
         
         //
-        Krudo.ENGINE.search.node.legals();
+        search.node.legals();
         
         //
-        Krudo.CONSOLE.print(desc(Krudo.ENGINE.search.node.legals));
+        Krudo.CONSOLE.print(desc(search.node.legals));
         
         //
-        Krudo.CONSOLE.print(BESTMOVE, Krudo.ENGINE.bestmove);                                                
+        Krudo.CONSOLE.print(BESTMOVE, search.best_move);                                                
     };            
         
     // 

@@ -260,7 +260,7 @@ public final class Search
                 info("ab-hard-cut-off");
                 
                 //
-                if (SEARCH_UPDATE) { node.legals.w[i] = b; }
+                //if (SEARCH_UPDATE) { node.legals.w[i] = b; }
                 
                 //
                 a = b;
@@ -276,7 +276,7 @@ public final class Search
                 info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
                                 
                 //
-                if (SEARCH_UPDATE) { node.legals.w[i] = s; }                
+                //if (SEARCH_UPDATE) { node.legals.w[i] = s; }                
                 
                 //
                 pv.cat(new_pv, m, i);
@@ -373,7 +373,7 @@ public final class Search
             if (s >= b && !SEARCH_BRUTE_FORCE) 
             {  
                 //
-                if (SEARCH_UPDATE) { node.legals.w[i] = b; }
+                //if (SEARCH_UPDATE) { node.legals.w[i] = b; }
                 
                 //
                 a = b;
@@ -386,7 +386,7 @@ public final class Search
             if (s > a) 
             {                         
                 //
-                if (SEARCH_UPDATE) { node.legals.w[i] = s; }
+                //if (SEARCH_UPDATE) { node.legals.w[i] = s; }
 
                 //
                 pv.cat(new_pv, m, i);                
@@ -492,7 +492,7 @@ public final class Search
             if (s < b) 
             {                     
                 //
-                if (SEARCH_UPDATE) { node.legals.w[i] = s; }
+                //if (SEARCH_UPDATE) { node.legals.w[i] = s; }
                 
                 //
                 pv.cat(new_pv, m, i);
@@ -537,7 +537,7 @@ public final class Search
             //node.legals();
 
             // no-legals-move exit checkmate
-            //if (node.legals.i == 0) { return node.legals.c ? -mate + node.L.i : 0; }
+            //if (node.legals.i == 0) { return node.legals.c ? -checkmate + node.L.i : 0; }
         }
                        
         // hard cut-off
@@ -603,7 +603,7 @@ public final class Search
             //node.legals();
 
             // no-legals-move exit checkmate
-            //if (node.legals.i == 0) { return node.legals.c ? +mate - node.L.i : 0; }                       
+            //if (node.legals.i == 0) { return node.legals.c ? +checkmate - node.L.i : 0; }                       
         }
                        
         // return alfa if wrost
