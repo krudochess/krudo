@@ -7,15 +7,15 @@
 /cp
 /mg=2
 /tc=1
-/pgnEventHeader="Training"
+/pgnEventHeader="Krudo vs Fruit"
 
 ; first engine 
-/firstChessProgram="polyglot %ENGINEDIR%\%ENGINEINI%"
-/firstDirectory="%ENGINEDIR%"
-/firstLogo="%ENGINEIMG%"
+/firstChessProgram="{{$POLYGLOT}} {{$KRUDO_DIR}}/{{$KRUDO_INI}}"
+/firstDirectory="{{$KRUDO_DIR}}"
+/firstLogo="{{$KRUDO_IMG}}"
 
 ; second engine
-/secondChessProgram="polyglot _PG\fruit.ini"
+/secondChessProgram="{{$POLYGLOT}} {{$KRUDO_DIR}}/fruit.ini"
 /secondDirectory="."
 /secondLogo="..\Fruit\logo.bmp"
 
