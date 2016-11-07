@@ -10,7 +10,6 @@
 package org.krudo;
 
 //
-import java.util.ArrayList;
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,15 +40,21 @@ public final class Book
     {                    
         //
         try 
-        {            
+        {         
+            //
             eof = 0;
+           
+            //
             fis = new FileInputStream(BOOKFILE);                    
         } 
         
         //
         catch (FileNotFoundException ex) 
-        {            
+        {     
+            //
             Krudo.CONSOLE.error(ex);    
+            
+            //
             Tool.exit();
         }         
     }
@@ -60,12 +65,14 @@ public final class Book
         //
         try 
         {
+            //
             fis.close();                    
         } 
         
         //
         catch (IOException ex)
         {
+            //
             Krudo.CONSOLE.error(ex);    
         }
     }
@@ -76,14 +83,20 @@ public final class Book
         //
         try 
         {
+            //
             eof = fis.read(RECORD);
+            
+            //
             key = byte2long(RECORD, 0, 8);            
         } 
         
         //
         catch (IOException ex)
         {
+            //
             Krudo.CONSOLE.error(ex);
+            
+            //
             exit();
         }
         
@@ -133,6 +146,7 @@ public final class Book
             // if found position hash put move into stack
             if (key == lookup) 
             {                
+                //
                 m.add(move());
             }
         }
@@ -148,7 +162,7 @@ public final class Book
     public static final String rand(final long lookup) 
     {
         // get moves stored in book
-        ArrayList<String> m = Book.list(lookup);
+        Strings m = Book.list(lookup);
     
         //
         return m.size() > 0 ? m.get(Tool.rand(0, m.size()-1)) : null;    
@@ -158,7 +172,7 @@ public final class Book
     public static final String move() 
     {
         // convert byte-array to integer
-        int move = byte2int(RECORD,8,2);
+        int move = byte2int(RECORD, 8, 2);
         
         // return convert integer to move
         return "" + 
@@ -179,7 +193,7 @@ public final class Book
     public static final void walk(final Node n, final int u)
     {
         //
-        ArrayList<String> m = list(n.phk);
+        Strings m = list(n.phk);
         
         //
         if (m.isEmpty()) { return; }
