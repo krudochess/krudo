@@ -52,7 +52,7 @@ public class Search7
             //
             if (s.event.equals("id-loop-end")) 
             {
-                print(desc(s.best_pv));
+                print(desc(s.id_best_pv));
             }        
         };       
         

@@ -33,10 +33,10 @@ public class Winatchess1
         Timer t = new Timer();
         
         //
-        s.sendinfo = () -> {};
+        s.send_text_info = (search) -> {};
         
         //
-        s.sendbestmove = () -> {};
+        s.send_best_move = (search) -> {};
         
         //
         int d = 5;
@@ -48,6 +48,12 @@ public class Winatchess1
         int p = 0;
         
         //
+        int o = 0;
+        
+        //
+        int r = 0;
+        
+        //
         int h = 400;
         
         //
@@ -56,13 +62,13 @@ public class Winatchess1
         //l = 1;
         
         //
-        for (int i = 0; i < l; i++)
+        for (int i = 0; i < (l-o); i++)
         {            
             //
             t.start();
                         
             //
-            String[] row = epd[i];
+            String[] row = epd[i + o];
             
             //                        
             //print(row[1]);
@@ -88,7 +94,7 @@ public class Winatchess1
             }
             
             //
-            String bm = algebric(s.node, s.best_move);
+            String bm = algebric(s.node, s.id_best_move);
             
             //
             if (row[2].equals(bm)) 
@@ -97,17 +103,23 @@ public class Winatchess1
                 p++;
                 
                 //
+                r = 100 * p / (i+1);
+                
+                //
                 t.stamp();
                 
                 //
-                print(row[0]+":", row[2], "==", bm, "  ("+(t.stamp/1000)+" sec.)");                                    
+                print(row[0]+" ("+r+"%):", row[2], "==", bm, "  ("+(t.stamp/1000)+" sec.)");                                    
             }
             
             //
             else
             {
                 //
-                print(row[0]+":", row[2], "!=", bm); 
+                r = 100 * p / (i+1);
+                
+                //
+                print(row[0]+" ("+r+"%):", row[2], "!=", bm); 
                 
                 //
                 h--;
