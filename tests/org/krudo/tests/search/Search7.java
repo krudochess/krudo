@@ -46,6 +46,7 @@ public class Search7
         
         exit();
         
+        /*
         //
         s.sendinfo = () -> 
         {
@@ -73,6 +74,6 @@ public class Search7
             
             //
             e.printStackTrace();
-        }
+        }*/
     }    
 }

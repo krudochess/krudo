@@ -35,9 +35,9 @@ public class Legals1 {
         n.domove("e2e4");
         
         //
-        Move m = n.legals();
+        //Move m = n.legals();
         
         //
-        dump(m, n);            
+        //dump(m, n);            
     }    
 }

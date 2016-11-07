@@ -26,18 +26,21 @@ public class Legals3
 
         //
         n.startpos();
+             
+        //
+        n.legals();
                         
         //
-        dump(n.legals());
-
-        //
-        dump(n.legals());
+        dump(n.legals);
         
         //
         n.domove("b1a3");
 
         //
-        dump(n.legals());
+        n.legals();
+        
+        //
+        dump(n.legals);
         
         //
         Legals.dump();

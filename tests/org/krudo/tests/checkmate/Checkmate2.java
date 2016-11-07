@@ -19,23 +19,25 @@ public class Checkmate2
     //
     public static void main(String[] args) 
     {
+        //
         PVs.init();
         
+        //
         Moves.init();
         
+        //
         Captures.init();
-                
-        String f = "5nrk/5qpp/3N2pp/8/8/8/8/7K w";
+          
+        //
+        String fen = "5nrk/5qpp/3N2pp/8/8/8/8/7K w";
+          
+        //
+        Search search = new Search(fen);
         
-        Node n = new Node();
+        //
+        dump(search);
         
-        n.startpos(f);
-                      
-        Search s = new Search(n);
-        
-        dump(n);
-        
-        s.start(1);
-        
+        //
+        search.start(1);        
     }    
 }

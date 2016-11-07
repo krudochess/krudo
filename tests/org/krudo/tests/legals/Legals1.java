@@ -41,6 +41,9 @@ public class Legals1
         dump(n);
         
         //
-        dump(n.legals());
+        n.legals();
+        
+        //
+        dump(n.legals);
     }
 }

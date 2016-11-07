@@ -27,21 +27,15 @@ public class Checkmate5
         Captures.init();
                 
         String f = "K1k5/P1Pp4/1p1P4/8/p7/P2P4/8/8 w";
-        
-        Node n = new Node();
-        
-        n.startpos(f);
-                      
-        Search s = new Search(n);
-        
-        
-        
+                              
+        Search s = new Search(f);
+                       
         try {
             s.start(11);
         } catch (Exception e)
         {
-            dump(n);
-            dump(n.L);
+            dump(s.node);
+            dump(s.node.L);
             e.printStackTrace();
         }
     }    

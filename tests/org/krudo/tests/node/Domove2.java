@@ -34,6 +34,6 @@ public class Domove2
         dump(n);
         
         //
-        dump(n.legals());        
+        //dump(n.legals());        
     }    
 }

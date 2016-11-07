@@ -18,7 +18,8 @@ public class Node2 {
 
     // entry-point of test
     public static void main(String[] args) {
-                
+             
+        /*
         // get start position 
         Node p = new Node();
         
@@ -39,6 +40,6 @@ public class Node2 {
         Move a = p.legals();
         
         dump(a);
-        
+        */
     }    
 }

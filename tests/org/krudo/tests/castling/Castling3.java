@@ -42,6 +42,9 @@ public class Castling3
         dump(n);
         
         //
-        dump(n.legals());        
+        n.legals();
+        
+        //
+        dump(n.legals);        
     }    
 }

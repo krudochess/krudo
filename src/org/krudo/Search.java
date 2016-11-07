@@ -25,6 +25,7 @@ public final class Search
       
     // iterative deepiing deep cursor and limit
     public int 
+    ab_depth,
     line_offset, // offset on move history when start search
     depth_index, // current depth in iterative deeping 
     depth_limit; // depth-limit stop iterative deeping
@@ -213,10 +214,13 @@ public final class Search
 
         //
         pv.clear();
-
+               
         // reset nodes quiesce counter
         qs_nodes = 0;
 
+        //
+        ab_depth = 0;
+        
         // reset nodes search counter
         ab_nodes = 0;
                          
@@ -310,7 +314,10 @@ public final class Search
     {   
         // score
         int s;  
-                        
+                
+        //
+        ab_depth++;
+        
         // trasposition table probe
         //if (TT.probemax(node.phk, d, a, b)) { return TT.score; }
         
@@ -407,6 +414,9 @@ public final class Search
           
         //
         TT.storemax(d, a); 
+
+        //
+        ab_depth--;
         
         //
         return a;        
@@ -417,6 +427,9 @@ public final class Search
     {                        
         //
         int s; 
+        
+        //
+        ab_depth++;
         
         // trasposition table probe
         //if (TT.probemin(node.phk, d, a, b)) { return TT.score; }
@@ -514,6 +527,9 @@ public final class Search
         //
         //TT.storemin(d, b); 
         
+        //
+        ab_depth--;
+
         //
         return b;    
     }

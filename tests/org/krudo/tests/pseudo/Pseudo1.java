@@ -37,6 +37,6 @@ public class Pseudo1
         dump(n);
         
         //
-        dump(n.legals());
+        //dump(n.legals());
     }
 }

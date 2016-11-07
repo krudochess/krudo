@@ -28,11 +28,8 @@ public class Checkmate4
                 
         String f = "8/8/8/8/7k/8/PPPPPPPP/RNBQKBNR w KQkq";
         
-        Node n = new Node();
-        
-        n.startpos(f);
                       
-        Search s = new Search(n);
+        Search s = new Search(f);
                       
         try
         {
@@ -41,8 +38,8 @@ public class Checkmate4
         
         catch (Exception e)
         {
-            dump(n);
-            dump(n.L);
+            dump(s.node);
+            dump(s.node.L);
             e.printStackTrace();
         }
     }    

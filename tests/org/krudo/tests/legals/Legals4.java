@@ -37,9 +37,12 @@ public class Legals4
         dump(n);
         
         //
-        dump(n.legals());
+        n.legals();
         
         //
-        dump(n.legals().sort());
+        dump(n.legals);
+        
+        //
+        //dump(n.legals().sort());
     }
 }

@@ -35,8 +35,10 @@ public class Eval3
         //
         dump(n);
         
+        n.legals();
+                
         //
-        dump(n.legals().sort());
+        dump(n.legals.sort());
         
         //
         n.domove("b1a3");
@@ -48,7 +50,10 @@ public class Eval3
         dump(n);
 
         //
-        dump(n.legals().sort());
+        n.legals();
+                
+        //
+        dump(n.legals.sort());
         
         //
         print("");

@@ -1,13 +1,9 @@
 package org.krudo.tests.capture;
 
 //
-import org.krudo.Book;
-import org.krudo.Moves;
+import org.krudo.*;
 import static org.krudo.Debug.*;
 import static org.krudo.Tool.*;
-
-// 
-import org.krudo.Node;
 
 // 
 public class Capture2 
@@ -16,7 +12,7 @@ public class Capture2
     public static void main(String[] args)
     {
         //
-        Moves.init();
+        //Krudo.init();
 
         // 
         Node n = new Node();
@@ -31,6 +27,9 @@ public class Capture2
         dump(n);
         
         //
-        dump(n.captures());
+        n.captures();
+        
+        //
+        dump(n.captures);
     }    
 }

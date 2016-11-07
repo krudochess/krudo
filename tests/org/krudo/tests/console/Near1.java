@@ -16,6 +16,6 @@ public class Near1 {
     //
     public static void main(String[] args) {
                 
-        echo(bin(lookup[c4][e2],12));
+        //echo(bin(lookup[c4][e2],12));
     }    
 }

@@ -26,22 +26,16 @@ public class Checkmate3
         
         Captures.init();
                 
-        String f = "b7/PP6/8/8/7K/6B1/6N1/4R1bk w";
-        
-        Node n = new Node();
-        
-        n.startpos(f);
-                      
-        Search s = new Search(n);
-        
-        
-        
+        String fen = "b7/PP6/8/8/7K/6B1/6N1/4R1bk w";
+                                      
+        Search search = new Search(fen);
+                       
         try {
-            s.start(5);
+            search.start(5);
         } catch (Exception e)
         {
-            dump(n);
-            dump(n.L);
+            dump(search.node);
+            dump(search.node.L);
             e.printStackTrace();
         }
     }    

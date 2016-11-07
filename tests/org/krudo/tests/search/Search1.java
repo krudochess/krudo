@@ -23,7 +23,12 @@ public class Search1
         // dobbiamo migliorare il tempo di questo BRUTE_FORCE senza quiescenza
         // id-loop-end 5/5 e2e4 e7e6 f1c4 e6e5 c4f7 11185ms 4865609n 435knps
                 
+        //// create a node to service the search
+        Node n = new Node();
+        
         //
+        n.startpos();
+        
         SEARCH_CONTROL = false;
         
         //
@@ -62,7 +67,7 @@ public class Search1
         // create a serach engine based-on the node
         Search s = new Search();
         
-        /**/
+        /** /
         s.event_filter.add("ab-control-speed");
         s.event_filter.add("ab-routine-end");
         s.event_filter.add("id-loop-break");

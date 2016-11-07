@@ -53,7 +53,7 @@ public final class Debug
 	
     // 
 	public final static void dump(final Capture m) { print(desc(m)); }
-			
+	   
 	//
 	public final static void dump(final Node n) { print(desc(n)); }
 	
@@ -62,7 +62,14 @@ public final class Debug
 	
 	//
 	public final static void dump(final Move m,	final Node n) { print(desc(m, n)); }
-		
+	
+    // 
+	public final static void dump(final Search s) 
+    { 
+        //
+        print(desc(s.node)); 
+    }
+	
 	//
 	public final static void dump(
 		final Exception e

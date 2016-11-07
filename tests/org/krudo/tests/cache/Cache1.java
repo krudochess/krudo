@@ -12,6 +12,7 @@ import org.krudo.*;
 //
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
+import static org.krudo.Constant.*;
 
 // 
 public class Cache1 
@@ -20,11 +21,14 @@ public class Cache1
     public static void main(String[] args) 
     {
         //
-        Node n = new Node();
+        Krudo.init();
         
         //
-        Search s = new Search(n);
+        Search s = new Search(STARTPOS);
         
+        //
+        dump(s);
+                
         //
         s.start(1);
         

@@ -30,7 +30,7 @@ public class MoveSort1
         
         //
         n.domove("e2e4");
-        
+        /*
         //
         Move m = n.legals();
         
@@ -45,5 +45,6 @@ public class MoveSort1
         
         //
         print();
+        */
     }    
 }

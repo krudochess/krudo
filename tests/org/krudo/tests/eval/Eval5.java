@@ -40,8 +40,10 @@ public class Eval5
         //
         print("Eval: "+Eval.node(n));
         
+        n.legals();
+                
         //
-        dump(n.legals().sort());
+        dump(n.legals.sort());
         
         //
         dump(n.L);
