@@ -5,7 +5,7 @@
 
 [Polyglot]
 EngineName=Fruit
-EngineDir=..\Fruit
+EngineDir=.
 EngineCommand={{$FRUIT}}
 Book=true
 BookFile=default.bin

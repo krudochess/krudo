@@ -10,6 +10,7 @@ source config.sh
 
 # generate ini file
 $GIN $KRUDO_DIR/$KRUDO_GIN
+$GIN $KRUDO_DIR/fruit.gin
 $GIN $KRUDO_DIR/with-fruit.gin
 $GIN $KRUDO_DIR/with-krudo.gin
 

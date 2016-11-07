@@ -7,16 +7,16 @@
 /mode=Analysis
 /cp
 /tc=1
-/pgnEventHeader="Analize with fruit"
+/pgnEventHeader="Analize with Fruit"
 /lpf="{{$KRUDO_DIR}}/analize.fen"
 
 ; first engine 
-/firstChessProgram="{{$FRUIT}}"
+/firstChessProgram="{{$POLYGLOT}} {{$KRUDO_DIR}}/fruit.ini"
 /firstDirectory="."
 /firstLogo="..\Fruit\logo.bmp"
 
 ; second engine
-/secondChessProgram="{{$FRUIT}}"
+/secondChessProgram="{{$POLYGLOT}} {{$KRUDO_DIR}}/fruit.ini"
 /secondDirectory="."
 /secondLogo="..\Fruit\logo.bmp"
 
