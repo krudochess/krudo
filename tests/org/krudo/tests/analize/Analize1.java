@@ -6,16 +6,14 @@
 //
 package org.krudo.tests.analize;
 
-import org.krudo.Legals;
+//
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
 import static org.krudo.Constant.*;
 
 //
 import org.krudo.*;
-import org.krudo.Move;
-import org.krudo.Moves;
-import org.krudo.Search;
+import org.krudo.Legals;
 
 // 
 public class Analize1 
@@ -41,10 +39,13 @@ public class Analize1
         //s.node.domove("h6g6");
         //s.node.domove("h7g6");
         
+        //
         print("Eval:", Eval.node(s.node));
         
+        //
         s.node.legals();
-        
+  
+        //
         dump(s.node.legals.sort());
         
         //

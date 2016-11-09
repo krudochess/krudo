@@ -244,7 +244,10 @@ public final class Search
                 
         //
         for (int i = 0; i != l; i++) 
-        {               
+        {            
+            //
+            if (i != 3) { continue; }
+            
             // make
             node.domove(m, i);
             
