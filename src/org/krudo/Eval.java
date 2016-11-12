@@ -651,7 +651,7 @@ public final class Eval
     
     // eval 
     private static int cache_node(final Node node) 
-    {
+    {   
         //
         int wps = 0;
         

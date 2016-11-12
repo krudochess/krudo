@@ -63,3 +63,36 @@ c1d1   c3d1   c1d2
 ! bestmove c3b1
 ? quit
 
+$ Sat Nov 12 20:11:25 CET 2016
+! Krudo 0.16a by Francesco Bianco <bianco@javanile.org>
+? uci
+! id name Krudo 0.16a
+! id author Francesco Bianco
+! uciok
+? isready
+! readyok
+? ucinewgame
+? position fen 6k1/2pb1r1p/3p1PpQ/p1nPp3/1q2P3/2N2P2/PrB5/2K3RR w - - 0 1
+? go infinite
+! info depth 1 score cp -198 time 266 nodes 13755 pv c3b1 event id-loop-end
+! info depth 2 score cp -198 time 454 nodes 15893 pv c3b1 b2a2 event id-loop-end
+! info depth 3 score cp -188 time 3938 nodes 298368 pv c3b1 b2a2 b1d2 event id-loop-end
+! . . . . . . k .    
+. . x b . r . x    
+. . . x . P x Q    
+x . n P x . . .    c: 1111 e: xx
+. q . . P . . .    M: 6 5 1 1 1 1 2 2 1 1 1 1
+. . N . . P . .    cw: 11  cb: 12  ote: 44
+P r B . . . . .    phk: c5752c738be46d64
+. . K . . . R R <  mhk: b4e61bddebcafeb4
+
+! h6g7   h6h7   h6g6   g1e1   g1d1   c2d3  
+g1g2   g1g3   g1g4   g1g5   g1g6   f3f4  
+h1h2   h1h3   h1h4   h1h5   c2b3   a2a4  
+a2a3   h6f8   g1f1   c2b1   c2d1   c2a4  
+h6f4   h6g5   c3b5   c3e2   h6e3   h6h5  
+h6h4   h6d2   h6h3   h6h2   c3a4   c3b1  
+c1d1   c3d1   c1d2  
+! bestmove c3b1
+? quit
+

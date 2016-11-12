@@ -38,19 +38,24 @@ public class Analize1
           
         SEARCH_EVENT_FILTER.add("id-loop-end");
         
-        s.node.domove("h6g6");
-        s.node.domove("h7g6");
+        //s.node.domove("h6g6");
+        //s.node.domove("h7g6");
+        //s.node.domove("g1g6"); // f7g7 g6g7 g8f8 h1h8
+        //s.node.domove("f7g7");
         
         //
         print("Eval:", Eval.node(s.node));
         
         //
-        //s.node.legals();
+        s.node.legals();
   
         //
-        //dump(s.node.legals.sort());
+        dump(s.node);
         
         //
-        s.start(20, 20000);                
+        dump(s.node.legals.sort());
+        
+        //
+        s.start(20, 120000);                
     }    
 }

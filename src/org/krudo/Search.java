@@ -212,6 +212,10 @@ public final class Search
         //
         info("ab-routine-run");        
 
+        
+        
+        
+        
         //
         pv.clear();
                
@@ -229,7 +233,7 @@ public final class Search
                                        
         // generate legal-moves
         node.legals();
-        
+                
         // get current number of legal moves
         final int l = node.legals.i;
         
@@ -238,6 +242,9 @@ public final class Search
         
         //
         final PV new_pv = PVs.pick();
+        
+        // assign move weight for ab search with sort
+        Eval.legals(node); 
                 
         // 
         Move m = node.legals.sort().twin();
@@ -261,7 +268,7 @@ public final class Search
             //sendinfo("ab-loop-run", "move " + m2s(m, i)+"="+s);
             
             // hard cut-off
-            if (s >= b && !SEARCH_BRUTE_FORCE) 
+            if (s >= b) 
             {  
                 //
                 info("ab-hard-cut-off");
@@ -305,6 +312,13 @@ public final class Search
         //
         info("ab-routine-end");
         
+        
+        if (node.phk == -4218416601182737052L) {
+            dump(node);
+            print("Yeah!:", a, desc(pv));
+        }
+        
+        
         //
         return a; 
     }
@@ -312,15 +326,27 @@ public final class Search
     //
     private int abmax(final int d, int a, int b, final PV pv, final int nt) 
     {   
+        // get legal-moves  
+        node.legals();
+        
+        // get current number of legal moves
+        final int l = node.legals.i;
+                
         // return quiescence value-search, 
         if (d == 0) 
         { 
             //
-            ab_nodes++;
-             
-            //
             control();
 
+            //
+            ab_nodes++;
+                    
+            // threefold repetition
+            if (node.threefold()) { return stalemate; }
+                
+            // no legal moves check-mate or stale-mate
+            if (l == 0) { return node.legals.c ? -checkmate + node.L.i : stalemate; }
+        
             //
             return qsmax(a, b); 
         }
@@ -331,20 +357,11 @@ public final class Search
         //
         pv.clear();
                 
-        // get legal-moves  
-        node.legals();
-        
-        // get current number of legal moves
-        final int l = node.legals.i;
-        
-        // threefold repetition
-        if (node.threefold()) { return 0; }
-                
-        // no legal moves check-mate or stale-mate
-        if (l == 0) { return node.legals.c ? -checkmate + node.L.i : 0; }
-        
         //
         PV new_pv = PVs.pick();
+        
+        // assign move weight for ab search with sort
+        Eval.legals(node); 
                 
         // sort and clone       
         Move m  = node.legals.sort().twin();
@@ -406,40 +423,43 @@ public final class Search
 
     // alfa-beta min routine
     private int abmin(final int d, int a, int b, final PV pv, final int nt)
-    {                        
+    {   
+        // generate legal-moves 
+        node.legals();
+       
+        // get current number of legal moves
+        final int l = node.legals.i;
+        
         // at-end quiescence search and 
         if (d == 0) 
         {            
-            // increase nodes count
-            ab_nodes++;
-            
             //
             control();
-                                    
+                        
+            // increase nodes count
+            ab_nodes++;
+                               
+            // threefold repetition
+            if (node.threefold()) { return 0; }
+
+            // no-legals-move exit checkmate
+            if (l == 0) { return node.legals.c ? +checkmate - node.L.i : stalemate; }
+            
             //
-            return qsmin(a, b);                        
+            return qsmin(a, b);
         }
-        
+
         //
         int s; 
         
         //
         pv.clear();
-                
-        // generate legal-moves 
-        node.legals();
-
-        // get current number of legal moves
-        final int l = node.legals.i;
-        
-        // threefold repetition
-        if (node.threefold()) { return 0; }
-        
-        // no-legals-move exit checkmate
-        if (l == 0) { return node.legals.c ? +checkmate - node.L.i : 0; }
-        
+                                
         //
         PV new_pv = PVs.pick();
+        
+        // assign move weight for ab search with sort
+        Eval.legals(node); 
         
         // and sort
         Move m = node.legals.sort().twin();        
