@@ -11,7 +11,7 @@ set PYTHON=C:\Python27\python.exe
 set WINBOARD=c:\WinBoard-4.7.2\WinBoard\winboard.exe
 set POLYGLOT=%WINBOARD%\..\polyglot.exe
 set POSTGAME=%PYTHON% %ENGINEDIR%\tool\postgame.py
-set BUILDENV=%PYTHON% %ENGINEDIR%\tool\buildenv.py
+set GIN=gin.exe
 set FRUIT=polyglot _PG\fruit.ini
 
 rem check java exists
@@ -27,11 +27,11 @@ where %WINBOARD% > nul 2> nul
 if %ERRORLEVEL% NEQ 0 if not exist %WINBOARD% echo [ERROR] Please install WinBoard
 
 rem engine settings
-set ENGINEDIR=%~dp0
-set ENGINESRC=Krudo.src
-set ENGINEINI=Krudo.ini
-set ENGINEVER=0.15a
-set ENGINEIMG=%ENGINEDIR%logo.bmp
-set ENGINELOG=Krudo.log
-set ENGINETAG=Krudo %ENGINEVER%
-set ENGINECMD=%JAVA% -cp %ENGINEDIR%..\build\classes org.krudo.Krudo 
+set KRUDO_DIR=%~dp0
+set KRUDO_GIN=Krudo.gin
+set KRUDO_INI=Krudo.ini
+set KRUDO_VER=0.16a
+set KRUDO_IMG=%KRUDO_DIR%logo.bmp
+set KRUDO_LOG=Krudo.log
+set KRUDO_TAG=Krudo %KRUDO_VER%
+set KRUDO_CMD=%JAVA% -cp %ENGINEDIR%..\build\classes org.krudo.Krudo 

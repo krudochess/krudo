@@ -36,19 +36,21 @@ public class Analize1
         // create a serach engine based-on the node
         Search s = new Search(fen);
           
-        //s.node.domove("h6g6");
-        //s.node.domove("h7g6");
+        SEARCH_EVENT_FILTER.add("id-loop-end");
+        
+        s.node.domove("h6g6");
+        s.node.domove("h7g6");
         
         //
         print("Eval:", Eval.node(s.node));
         
         //
-        s.node.legals();
+        //s.node.legals();
   
         //
-        dump(s.node.legals.sort());
+        //dump(s.node.legals.sort());
         
         //
-        s.start(20, 200000);                
+        s.start(20, 20000);                
     }    
 }

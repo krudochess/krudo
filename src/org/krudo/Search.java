@@ -241,12 +241,12 @@ public final class Search
                 
         // 
         Move m = node.legals.sort().twin();
-                
+          
         //
         for (int i = 0; i != l; i++) 
         {            
             //
-            if (i != 3) { continue; }
+            //if (i != 2) { continue; }
             
             // make
             node.domove(m, i);

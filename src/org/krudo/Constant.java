@@ -374,6 +374,7 @@ public final class Constant
             case "id-loop-end":    
                 print(info,
                     search.depth_index+"/"+search.depth_limit,
+                    search.id_best_score,
                     desc(search.id_best_pv),
                     search.ab_timer.stamp+"ms",
                     search.ab_nodes+"n",
