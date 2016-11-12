@@ -9,12 +9,13 @@ rem load config
 call config.bat
 
 rem prepare file
-%BUILDENV% %ENGINEDIR%\%ENGINESRC% %ENGINEDIR%\%ENGINEINI%
-%BUILDENV% %ENGINEDIR%\with-fruit.src %ENGINEDIR%\with-fruit.ini
-%BUILDENV% %ENGINEDIR%\with-krudo.src %ENGINEDIR%\with-krudo.ini
+%GIN% %KRUDO_DIR%%KRUDO_GIN%
+%GIN% %KRUDO_DIR%fruit.gin
+%GIN% %KRUDO_DIR%with-fruit.gin
+%GIN% %KRUDO_DIR%with-krudo.gin
 
 rem analize with Fruit 
-start %WINBOARD% @%ENGINEDIR%\with-fruit.ini
+start %WINBOARD% @%KRUDO_DIR%\with-fruit.ini
 
 rem analize with Krudo 
-start %WINBOARD% @%ENGINEDIR%\with-krudo.ini
+start %WINBOARD% @%KRUDO_DIR%\with-krudo.ini

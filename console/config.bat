@@ -11,8 +11,8 @@ set PYTHON=C:\Python27\python.exe
 set WINBOARD=c:\WinBoard-4.7.2\WinBoard\winboard.exe
 set POLYGLOT=%WINBOARD%\..\polyglot.exe
 set POSTGAME=%PYTHON% %ENGINEDIR%\tool\postgame.py
-set GIN=gin.exe
-set FRUIT=polyglot _PG\fruit.ini
+set GIN=%PYTHON%\..\Scripts\gin.exe
+set FRUIT=%WINBOARD$\..\..\Fruit\fruit_21.exe
 
 rem check java exists
 where %JAVA% > nul 2> nul
