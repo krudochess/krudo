@@ -281,9 +281,6 @@ public final class Search
             {                              
                 //
                 info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
-                                
-                //
-                //if (SEARCH_UPDATE) { node.legals.w[i] = s; }                
                 
                 //
                 pv.cat(new_pv, m, i);
@@ -315,15 +312,6 @@ public final class Search
     //
     private int abmax(final int d, int a, int b, final PV pv, final int nt) 
     {   
-        // score
-        int s;  
-                
-        //
-        ab_depth++;
-        
-        // trasposition table probe
-        //if (TT.probemax(node.phk, d, a, b)) { return TT.score; }
-        
         // return quiescence value-search, 
         if (d == 0) 
         { 
@@ -332,16 +320,13 @@ public final class Search
              
             //
             control();
-            
+
             //
-            s = qsmax(a, b);
-            
-            //
-            //TT.storemax(d, s); 
-            
-            //
-            return s; 
+            return qsmax(a, b); 
         }
+        
+        // score
+        int s;  
         
         //
         pv.clear();
@@ -414,12 +399,6 @@ public final class Search
         
         //
         PVs.free(new_pv);
-          
-        //
-        TT.storemax(d, a); 
-
-        //
-        ab_depth--;
         
         //
         return a;        
@@ -428,15 +407,6 @@ public final class Search
     // alfa-beta min routine
     private int abmin(final int d, int a, int b, final PV pv, final int nt)
     {                        
-        //
-        int s; 
-        
-        //
-        ab_depth++;
-        
-        // trasposition table probe
-        //if (TT.probemin(node.phk, d, a, b)) { return TT.score; }
-                       
         // at-end quiescence search and 
         if (d == 0) 
         {            
@@ -447,14 +417,11 @@ public final class Search
             control();
                                     
             //
-            s = qsmin(a, b); 
-                       
-            //
-            //TT.storemin(d, s); 
-            
-            // return quesence values
-            return s;
+            return qsmin(a, b);                        
         }
+        
+        //
+        int s; 
         
         //
         pv.clear();
@@ -526,13 +493,7 @@ public final class Search
         
         //
         PVs.free(new_pv);
-   
-        //
-        //TT.storemin(d, b); 
-        
-        //
-        ab_depth--;
-
+          
         //
         return b;    
     }

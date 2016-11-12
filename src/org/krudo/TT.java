@@ -1,15 +1,26 @@
+/**
+ * Krudo 0.16a - a chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+// 
 package org.krudo;
 
 //
-import java.util.LinkedHashMap;
-import java.util.Map;
-import static org.krudo.Config.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
+import static org.krudo.Config.*;
+
+//
+import java.util.Map;
+import java.util.LinkedHashMap;
 
 //
 public final class TT 
 {        
+    //
+    public final static int EXAC = 1;
+    
     //
     public final static int MAX_EMPTY = -99999;
     
@@ -140,40 +151,9 @@ public final class TT
         //
         count = TT_SIZE + 10;    
     }
-    
+            
     //
-    public final static boolean probemax(long h, int d, int a, int b) 
-    {
-        //
-        if (!SEARCH_TT) { return false; }
-        
-        //
-        queries++;
-        
-        //
-        if (probeset(h) && probe.max[d] != MAX_EMPTY) 
-        {            
-            if (probe.max[d] >= b) {
-                score = b;
-            } else {            
-                score = probe.max[d];
-            }
-            
-            success++;
-            
-            return true;
-            //print("probemax", hex(h), "load", probe.max[d]);
-            
-            //exit();
-            
-        }
-        
-        //
-        return false;
-    }
-    
-    //
-    public final static boolean probemin(long h, int d, int a, int b) 
+    public final static boolean probe(long h, int d, int a, int b) 
     {
         //
         if (!SEARCH_TT) { return false; }
@@ -243,9 +223,8 @@ public final class TT
         return false;        
     }
     
-    
     //
-	public final static void storemax(int d, int s) 
+	public final static void store(long h, int f, int d, int s) 
     {	
         //
         if (!SEARCH_TT) { return; }
@@ -256,29 +235,11 @@ public final class TT
         //
         //print("storemax:", d, hex(index), s);        
 	}
-	
-    //
-    public final static void storemin(int d, int s) 
-    {
-        //
-        if (!SEARCH_TT) { return; }
-        
-        //
-        probe.min[d] = s;
-       
-        
-        //
-        //print("storemin:", d, hex(index), s);        
-    }
-    
+	        
     //
     public final static void info()
     {
-    
-        
-        print("TT info: (free:"+count+" q:"+queries+" s:"+success+")");
-    
-    
-    
+        //        
+        print("TT info: (free:"+count+" q:"+queries+" s:"+success+")");            
     }
 }
