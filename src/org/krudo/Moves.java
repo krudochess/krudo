@@ -45,7 +45,7 @@ public class Moves
     public static void free(final Move move) 
     {
         //
-        move.i = 0;
+        move.count = 0;
         
         //
         STACK[count++] = move;

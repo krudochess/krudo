@@ -114,7 +114,7 @@ public final class Debug
 	
 	//
 	public final static void table(Move moves) {
-		for(int l=0; l<moves.i; l++) {
+		for(int l=0; l<moves.count; l++) {
 			echo(i2m(moves,l),moves.w[l]);		
 		}	
 	}
@@ -126,7 +126,7 @@ public final class Debug
 		echo("-------------");
 		n.legals();
 		
-		for(int l=0; l<n.legals.i; l++) {
+		for(int l=0; l<n.legals.count; l++) {
 			echo(
 				//pad(i2m(n.m.s[l],n.m.v[l],n.m.k[l],n.n.B[n.m.s[l]]),5),
 				pad(n.legals.w[l],5)
@@ -272,7 +272,7 @@ public final class Debug
         */
         
         //
-        final int l = m.i;
+        final int l = m.count;
         
         //
         for (int i = 0; i != l; i++) 
@@ -415,7 +415,7 @@ public final class Debug
         Move m = n.legals.sort();
     
         //
-        int w = m.i > width ? width : m.i;
+        int w = m.count > width ? width : m.count;
         
         //
         for (int i = 0; i < w; i++) 

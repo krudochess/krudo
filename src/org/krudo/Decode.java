@@ -200,7 +200,7 @@ public final class Decode
 	public static final String i2m(Move m) {
 		String o = "";
 		String s = "";		
-		for(int i=0; i<m.i; i++) {
+		for(int i=0; i<m.count; i++) {
 			o+= s + m2s(m.s[i],m.v[i],m.k[i]); 
 			s = " ";
 		}

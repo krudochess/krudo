@@ -545,7 +545,7 @@ public final class Node
         white_pseudo();       
         
         // test if white current in check
-        legals.c = black_attack(wks);
+        legals.check = black_attack(wks);
         
         // skip legals test for moves 
         if (!MOVE_LEGALS) { return; }
@@ -554,7 +554,7 @@ public final class Node
         int j = 0;
         
         // pseudo move count            
-        final int l = legals.i;
+        final int l = legals.count;
                         
         // loop throut pseudo-legal
         for (int i = 0; i != l; i++) 
@@ -572,7 +572,7 @@ public final class Node
             if (k == KSCA) 
             {
                 //
-                if (!legals.c && !black_attack(f1) && !black_attack(g1)) 
+                if (!legals.check && !black_attack(f1) && !black_attack(g1)) 
                 {
                     //
                     legals.copy(i, j++); 
@@ -586,7 +586,7 @@ public final class Node
             if (k == QSCA) 
             {
                 //
-                if (!legals.c && !black_attack(d1) && !black_attack(c1)) 
+                if (!legals.check && !black_attack(d1) && !black_attack(c1)) 
                 { 
                     //
                     legals.copy(i, j++); 
@@ -597,7 +597,7 @@ public final class Node
             }
             
             // king is safe move piece that not unsafe the king secure legal
-            if (!legals.c && s != wks && LINK[s][wks] == 0) 
+            if (!legals.check && s != wks && LINK[s][wks] == 0) 
             {
                 //
                 legals.copy(i, j++); 
@@ -607,7 +607,7 @@ public final class Node
             }                                
             
             // king under attack try to move a piece that non protect king
-            if (legals.c && v != wks && LINK[v][wks] == 0) { continue; }                         
+            if (legals.check && v != wks && LINK[v][wks] == 0) { continue; }                         
                                                                                 
             // make move
             domove(i);
@@ -620,7 +620,7 @@ public final class Node
         }
         
         //
-        legals.i = j;
+        legals.count = j;
     } 
             
     // generate moves-stack with legal-moves
@@ -630,7 +630,7 @@ public final class Node
         black_pseudo();         
         
         //
-        legals.c = white_attack(bks);
+        legals.check = white_attack(bks);
         
         // skip legals test for moves 
         if (!MOVE_LEGALS) { return; }
@@ -639,7 +639,7 @@ public final class Node
         int j = 0;
         
         // prepare "j" loop cursor
-        final int l = legals.i; 
+        final int l = legals.count; 
             
         // loop throut pseudo-legal moves
         for (int i = 0; i != l; i++) 
@@ -657,7 +657,7 @@ public final class Node
             if (k == KSCA) 
             {
                 // 
-                if (!legals.c && !white_attack(f8) && !white_attack(g8)) 
+                if (!legals.check && !white_attack(f8) && !white_attack(g8)) 
                 {
                     //
                     legals.copy(i, j++); 
@@ -671,7 +671,7 @@ public final class Node
             if (k == QSCA) 
             {
                 // 
-                if (!legals.c && !white_attack(d8) && !white_attack(c8)) 
+                if (!legals.check && !white_attack(d8) && !white_attack(c8)) 
                 { 
                     //
                     legals.copy(i, j++); 
@@ -682,7 +682,7 @@ public final class Node
             }
                                               
             // king safety move piece that not unsafe the king secure legal
-            if (!legals.c && s != bks && LINK[s][bks] == 0) 
+            if (!legals.check && s != bks && LINK[s][bks] == 0) 
             {
                 // confirm and next
                 legals.copy(i, j++); 
@@ -692,7 +692,7 @@ public final class Node
             }
                          
             // king under attack try to move a piece that non protect king
-            if (legals.c && s != bks && LINK[v][bks] == 0) { continue; }                         
+            if (legals.check && s != bks && LINK[v][bks] == 0) { continue; }                         
                         
             //
             domove(i);
@@ -705,7 +705,7 @@ public final class Node
         }
         
         //
-        legals.i = j;
+        legals.count = j;
     }                        
             
     // populate move-stack with pseudo-legal moves
@@ -730,7 +730,7 @@ public final class Node
             if ((p & w) != w) { continue; }
                             
             // remap square in wbm 
-            if (REMAPS_PSEUDO) { white_remaps(si - 1, pi, s); }
+            //if (REMAPS_PSEUDO) { white_remaps(si - 1, pi, s); }
 
             // switch to specific piece 
             switch (p) 
@@ -787,7 +787,7 @@ public final class Node
             if ((p & b) != b) { continue; }    
                 
             // apply boars search square remaps
-            if (REMAPS_PSEUDO) { black_remaps(si - 1, pi, s); }
+            //if (REMAPS_PSEUDO) { black_remaps(si - 1, pi, s); }
             
             // switch by piece
             switch (p) 
@@ -1145,7 +1145,7 @@ public final class Node
                 }                                
             
                 // king under attack try to move a piece that non protect king
-                if (legals.c && v != wks && LINK[v][wks] == 0) { continue; }                         
+                if (legals.check && v != wks && LINK[v][wks] == 0) { continue; }                         
                             
                 //
                 domove(captures, i);
@@ -1235,7 +1235,7 @@ public final class Node
             if ((p & w) != w) { continue; }    
                 
             // apply boars search square remaps
-            if (REMAPS_PSEUDO) { white_remaps(si, pi, s); }
+            //if (REMAPS_PSEUDO) { white_remaps(si, pi, s); }
             
             // switch by piece
             switch (p) 
@@ -1307,7 +1307,7 @@ public final class Node
             if ((p & b) != b) { continue; }    
                 
             // apply boars search square remaps
-            if (REMAPS_PSEUDO) { black_remaps(si, pi, s); }
+            //if (REMAPS_PSEUDO) { black_remaps(si, pi, s); }
             
             // switch by piece
             switch (p) 

@@ -47,13 +47,13 @@ public class Analize1
         print("Eval:", Eval.node(s.node));
         
         //
-        s.node.legals();
+        //s.node.legals();
   
         //
-        dump(s.node);
+        //dump(s.node);
         
         //
-        dump(s.node.legals.sort());
+        //dump(s.node.legals.sort());
         
         //
         s.start(20, 120000);                

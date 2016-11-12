@@ -90,7 +90,7 @@ public class Describe
         n.legals();
         
         //
-        if (n.legals.c) 
+        if (n.legals.check) 
         {
             a += "+";        
         }
@@ -266,7 +266,7 @@ public class Describe
         int colm = DEBUG_SHOW_MOVE_WEIGHT ? 4 : 6;    
         
 		//
-		for (int i = 0; i < m.i; i++)
+		for (int i = 0; i < m.count; i++)
         {	
 			//
 			String move = desc(m, i);
@@ -324,7 +324,7 @@ public class Describe
 		String sepa = "";
 		
 		//
-		for (int j = 0; j < m.i; j++) {
+		for (int j = 0; j < m.count; j++) {
 			
 			//
 			String move = desc(m, j);
@@ -362,7 +362,7 @@ public class Describe
 			
 			//
 			for(int i = r * 4; i < r * 4 + 4; i++) {
-				if (i < m.i) {
+				if (i < m.count) {
 					desc += lpad(desc(m, i), 11);
 				}
 			}

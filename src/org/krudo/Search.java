@@ -144,13 +144,6 @@ public final class Search
 
             //
             score = awrun(score, new_pv);
-
-            // bydefault use aspiration window
-            if (!SEARCH_BRUTE_FORCE) {
-                score = awrun(score, new_pv);
-            } else {
-                score = abrun(-oo, +oo, new_pv);             
-            }
                         
             // if search stopped 
             if (stop) { info("id-loop-break"); break; }
@@ -188,34 +181,37 @@ public final class Search
     }
     
     // aspiration window controls
-    private int awrun(int score, final PV new_pv)
+    private int awrun(int s, final PV new_pv)
     {
+        // by-pass aspiration window
+        if (SEARCH_BRUTE_FORCE || !SEARCH_ASPIRATION) 
+        {
+            // 
+            return abrun(-oo, +oo, new_pv);
+        }
+        
         // iterative deeping alpha start value
-        final int alfa = score - sw;
+        final int a = s - sw;
 
         // iterative deeping beta start value
-        final int beta = score + sw;
+        final int b = s + sw;
 
         // launch alfa-beta for searcing candidates 
-        score = abrun(alfa, beta, new_pv); 
+        s = abrun(a, b, new_pv); 
 
         // if consider aspiration window fails
-        if (score <= alfa || score >= beta) { return abrun(-oo, +oo, new_pv); } 
+        if (s <= a || s >= b) { return abrun(-oo, +oo, new_pv); } 
             
         // aspiration window not fails redial new score
-        return score;
+        return s;
     }
         
-    // alfa-beta entry-point
+    // alfa-beta entry-point root search
     private int abrun(int a, int b, final PV pv) 
     {    
         //
         info("ab-routine-run");        
-
-        
-        
-        
-        
+                               
         //
         pv.clear();
                
@@ -235,10 +231,10 @@ public final class Search
         node.legals();
                 
         // get current number of legal moves
-        final int l = node.legals.i;
+        final int count = node.legals.count;
         
         // no legal moves check-mate or stale-mate
-        if (l == 0) { return node.legals.c ? -checkmate + node.L.i : 0; } 
+        if (count == 0) { return node.legals.check ? -checkmate + node.L.i : 0; } 
         
         //
         final PV new_pv = PVs.pick();
@@ -248,13 +244,13 @@ public final class Search
                 
         // 
         Move m = node.legals.sort().twin();
-          
+                
+        // tansposition tables flag
+        int f = TT.E;
+        
         //
-        for (int i = 0; i != l; i++) 
+        for (int i = 0; i != count; i++) 
         {            
-            //
-            //if (i != 2) { continue; }
-            
             // make
             node.domove(m, i);
             
@@ -263,31 +259,15 @@ public final class Search
 
             // undo
             node.unmove();            
-            
-            //
-            //sendinfo("ab-loop-run", "move " + m2s(m, i)+"="+s);
-            
+                       
             // hard cut-off
-            if (s >= b) 
-            {  
-                //
-                info("ab-hard-cut-off");
-                
-                //
-                //if (SEARCH_UPDATE) { node.legals.w[i] = b; }
-                
-                //
-                a = b;
-                
-                //
-                break;
-            }
+            if (s >= b) { f = TT.B; a = b; break; }
             
             // soft alfa-cut-off 
             if (s > a) 
             {                              
                 //
-                info("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
+                TT.store(node.phk, TT.A, depth_index, s, m, i);
                 
                 //
                 pv.cat(new_pv, m, i);
@@ -298,11 +278,14 @@ public final class Search
         } 
         
         //
-        if (MOVE_TWIN) { Moves.free(m); }
+        TT.store(node.phk, f, );
         
         //
         PVs.free(new_pv);
-                             
+                
+        //
+        Moves.free(m);
+                                     
         //
         nps = ab_timer.ratio(ab_nodes);
         
@@ -311,13 +294,6 @@ public final class Search
                 
         //
         info("ab-routine-end");
-        
-        
-        if (node.phk == -4218416601182737052L) {
-            dump(node);
-            print("Yeah!:", a, desc(pv));
-        }
-        
         
         //
         return a; 
@@ -330,7 +306,7 @@ public final class Search
         node.legals();
         
         // get current number of legal moves
-        final int l = node.legals.i;
+        final int l = node.legals.count;
                 
         // return quiescence value-search, 
         if (d == 0) 
@@ -345,7 +321,7 @@ public final class Search
             if (node.threefold()) { return stalemate; }
                 
             // no legal moves check-mate or stale-mate
-            if (l == 0) { return node.legals.c ? -checkmate + node.L.i : stalemate; }
+            if (l == 0) { return node.legals.check ? -checkmate + node.L.i : stalemate; }
         
             //
             return qsmax(a, b); 
@@ -428,7 +404,7 @@ public final class Search
         node.legals();
        
         // get current number of legal moves
-        final int l = node.legals.i;
+        final int l = node.legals.count;
         
         // at-end quiescence search and 
         if (d == 0) 
@@ -443,7 +419,7 @@ public final class Search
             if (node.threefold()) { return 0; }
 
             // no-legals-move exit checkmate
-            if (l == 0) { return node.legals.c ? +checkmate - node.L.i : stalemate; }
+            if (l == 0) { return node.legals.check ? +checkmate - node.L.i : stalemate; }
             
             //
             return qsmin(a, b);

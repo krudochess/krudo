@@ -45,7 +45,10 @@ public class Perft1
         
         //
         Node n = new Node();
-                              
+                     
+        //
+        n.startpos();
+        
         //
         try
         {

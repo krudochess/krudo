@@ -695,7 +695,7 @@ public final class Eval
             pi--;
             
             // remap square in wbm 
-            if (REMAPS_EVAL) { node.remaps(si, pi, s); }
+            //if (REMAPS_EVAL) { node.remaps(si, pi, s); }
 
             // piece value
             score += PW[i];
@@ -835,7 +835,7 @@ public final class Eval
         int b = node(n);
         
         //
-        for (int i = 0; i < n.legals.i; i++)            
+        for (int i = 0; i < n.legals.count; i++)            
         {
             //
             int score = b;
@@ -907,7 +907,7 @@ public final class Eval
         Move m = n.legals.sort().twin();
     
         //
-        int w = m.i > width ? width : m.i;
+        int w = m.count > width ? width : m.count;
         
         //
         for (int i = 0; i < w; i++) 

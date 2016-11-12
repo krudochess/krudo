@@ -70,6 +70,9 @@ public final class Config
     SEARCH_QUIESCENCE = true,
     
     //
+    SEARCH_ASPIRATION = true,
+    
+    //
     SEARCH_CONTROL = true,        
             
     //

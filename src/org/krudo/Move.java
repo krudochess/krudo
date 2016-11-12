@@ -21,7 +21,7 @@ public final class Move
     
     // counters 
     public int 
-    i = 0; // pseudo counter index
+    count = 0; // pseudo counter index
     
     // fields
     public final int[] 
@@ -31,7 +31,7 @@ public final class Move
     w = new int[MAX]; // weight/eval-value of a move
      
     // incheck status
-    public boolean c;
+    public boolean check;
     
     // empty constructor
     public Move() {}
@@ -44,10 +44,10 @@ public final class Move
         final int k0
     ) {        
         //
-        s[i] = s0;
-        v[i] = v0;
-        k[i] = k0;    
-        i++;
+        s[count] = s0;
+        v[count] = v0;
+        k[count] = k0;    
+        count++;
     }
     
     // copy move by index i0 from to i1
@@ -80,7 +80,7 @@ public final class Move
             z = 0;
             
             //
-            for (int j = 1; j < i; j++) if (w[j-1] < w[j]) 
+            for (int j = 1; j < count; j++) if (w[j-1] < w[j]) 
             {
                 // swap move by index
                 swap(j - 1, j);
@@ -136,16 +136,16 @@ public final class Move
         Move m = Moves.pick();
         
         //
-        System.arraycopy(s, 0, m.s, 0, i);
-        System.arraycopy(v, 0, m.v, 0, i);
-        System.arraycopy(k, 0, m.k, 0, i);
-        System.arraycopy(w, 0, m.w, 0, i);
+        System.arraycopy(s, 0, m.s, 0, count);
+        System.arraycopy(v, 0, m.v, 0, count);
+        System.arraycopy(k, 0, m.k, 0, count);
+        System.arraycopy(w, 0, m.w, 0, count);
         
         //
-        m.c = c;
+        m.check = check;
         
         //
-        m.i = i;
+        m.count = count;
         
         //
         return m;
