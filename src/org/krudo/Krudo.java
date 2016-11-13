@@ -65,6 +65,9 @@ public final class Krudo
     //
     public static void init() 
     {
+        //
+        TT.init();
+        
         // PV memory
         PVs.init();
         

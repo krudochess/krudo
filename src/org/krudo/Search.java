@@ -245,10 +245,10 @@ public final class Search
         // 
         Move m = node.legals.sort().twin();
                 
-        // tansposition tables flag
-        int f = TT.E;
-        
-        //
+        // tansposition tables flag and values
+        int f = TT.E, bm_s = xx, bm_v = xx;
+                
+        // loop thru the moves
         for (int i = 0; i != count; i++) 
         {            
             // make
@@ -265,10 +265,16 @@ public final class Search
             
             // soft alfa-cut-off 
             if (s > a) 
-            {                              
+            {   
                 //
-                TT.store(node.phk, TT.A, depth_index, s, m, i);
+                bm_s = m.s[i];
                 
+                //
+                bm_v = m.v[i];
+                
+                //
+                TT.store(node.phk, TT.A, depth_index, s, bm_s, bm_v);
+                                                
                 //
                 pv.cat(new_pv, m, i);
                 
@@ -277,8 +283,8 @@ public final class Search
             }   
         } 
         
-        //
-        TT.store(node.phk, f, );
+        // trasposition store EXACT or BETA cut-off
+        TT.store(node.phk, f, depth_index, a, bm_s, bm_v);
         
         //
         PVs.free(new_pv);

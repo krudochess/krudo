@@ -40,10 +40,10 @@ public final class TT
         public int flag;
         
         //
-        public int s;
+        public int bm_s;
 
         //
-        public int v;
+        public int bm_v;
     }
     
     //
@@ -64,7 +64,7 @@ public final class TT
     }
         
     //
-	public final static void store(long h, int f, int d, int s) 
+	public final static void store(long h, int f, int d, int s, int bm_s, int bm_v) 
     {	
         //
         final ROW r = TABLE[(int)(h & SIZE)];
@@ -85,6 +85,9 @@ public final class TT
         r.score = s;
                 
         //
-        //phashe->bestmove = best;
+        r.bm_s = bm_s;
+
+        //
+        r.bm_v = bm_v;
 	}
 }
