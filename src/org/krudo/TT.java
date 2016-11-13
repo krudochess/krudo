@@ -16,13 +16,13 @@ public final class TT
 {       
     //
     public final static int 
-    SIZE = 500000,
+    SIZE = (int) Math.pow(2, 19) - 1,
     A = 1,
     B = 2,
     E = 3;
         
     //
-    private final static ROW[] TABLE = new ROW[SIZE]; 
+    private final static ROW[] TABLE = new ROW[SIZE + 1]; 
                    
     //
     private static class ROW 
@@ -50,19 +50,42 @@ public final class TT
     public final static void init()
     {        
         //
-        for (int i = 0; i < SIZE; i++)
+        for (int i = 0; i <= SIZE; i++)
         {
             TABLE[i] = new ROW();        
         }
     }
             
     //
-    public final static boolean probe(long h, int d, int a, int b) 
+    public final static boolean probemax(long h) 
     {
+        //
+        final ROW r = TABLE[(int)(h & SIZE)];
+        
+        //
+        if (r.hash == h) {
+           // print("probemax found");            
+        }
+        
         //
         return false;
     }
+                
+    //
+    public final static boolean probemin(long h) 
+    {
+        //
+        final ROW r = TABLE[(int)(h & SIZE)];
         
+        if (r.hash == h) {
+            //print("probemin found");
+            
+        }
+        
+        //
+        return false;
+    }
+    
     //
 	public final static void store(long h, int f, int d, int s, int bm_s, int bm_v) 
     {	

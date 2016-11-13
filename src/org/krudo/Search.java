@@ -308,6 +308,9 @@ public final class Search
     //
     private int abmax(final int d, int a, int b, final PV pv, final int nt) 
     {   
+        //
+        TT.probemax(node.phk);
+        
         // get legal-moves  
         node.legals();
         
@@ -406,6 +409,9 @@ public final class Search
     // alfa-beta min routine
     private int abmin(final int d, int a, int b, final PV pv, final int nt)
     {   
+        //
+        TT.probemax(node.phk);
+
         // generate legal-moves 
         node.legals();
        

@@ -56,6 +56,6 @@ public class Analize1
         //dump(s.node.legals.sort());
         
         //
-        s.start(20, 10000);                
+        s.start(20, 30000);                
     }    
 }
