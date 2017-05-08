@@ -27,13 +27,10 @@ public class Legals
 
     //
     private static int success = 0;
-    
-    
-    
-    
+               
     //
     private final static LinkedHashMap<Long, Move> 
-    CACHE = new LinkedHashMap<Long, Move> (LEGALS_CACHE_SIZE, 1.1f, true) 
+    CACHE = new LinkedHashMap<Long, Move> (LEGALS_CACHE_SIZE, 1, true) 
     {
         @Override
         protected boolean removeEldestEntry(Map.Entry<Long, Move> e) 

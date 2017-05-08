@@ -40,7 +40,7 @@ public final class Node
     public int cb;  // count black piece
     public int wks; // white king square
     public int bks; // black king square
-    public int ote; // game phases (opening to endig)
+    public int ote; // game phases (opening=0 to endig=255)
     public int hm;  // half-move after pawn move or calpture
     public int n;   // count moves from the begin
                      
@@ -224,7 +224,7 @@ public final class Node
     }
     
     // domove and change node internal status
-    public final void domove(final int s, final int v, final int k)
+    private void domove(final int s, final int v, final int k)
     {   
         //Debug.assertPieceCount(this);
         

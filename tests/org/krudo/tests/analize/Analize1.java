@@ -7,6 +7,10 @@
 package org.krudo.tests.analize;
 
 //
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+//
 import static org.krudo.Tool.*;
 import static org.krudo.Debug.*;
 import static org.krudo.Constant.*;
@@ -18,8 +22,8 @@ import org.krudo.Legals;
 // 
 public class Analize1 
 {
-    //
-    public static void main(String[] args) 
+    @Test
+    public void main() 
     {
         //
         DEBUG_SHOW_ALGEBRIC = true;
