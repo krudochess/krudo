@@ -27,18 +27,28 @@ public final class Captures
     private static int success = 0;
 
     //
-    private final static int CAPTURES_CACHE_SIZE = 150000;
+    private final static int CACHE_SIZE = 131071;
             
     //
-    private final static int CAPTURES_STACK_SIZE = 150100;
+    private final static int STACK_SIZE = 131172;
     
     //
-    private final static Capture[] STACK = new Capture[CAPTURES_STACK_SIZE];
+    private final static Capture[] STACK = new Capture[STACK_SIZE];
     
     //
-    private final static LinkedHashMap<Long, Capture> 
-    CACHE = new LinkedHashMap<Long, Capture> (CAPTURES_CACHE_SIZE, 1.1f, false) 
+    private final static Cache CACHE = new Cache();
+    
+    //
+    private final static class Cache extends LinkedHashMap<Long, Capture> 
     {
+        //
+        public Cache()
+        {
+            //
+            super(CACHE_SIZE + 1, 1, false);
+        }
+        
+        //
         @Override
         protected boolean removeEldestEntry(Map.Entry<Long, Capture> e) 
         {
@@ -46,7 +56,7 @@ public final class Captures
             if (!CACHE_CAPTURES) { return false; }
 
             // 
-            if (size() > CAPTURES_CACHE_SIZE) 
+            if (size() > CACHE_SIZE) 
             {
                 //
                 Captures.free(e.getValue());
@@ -63,13 +73,19 @@ public final class Captures
     public static void init()
     {
         //
-        for (int i = 0; i < CAPTURES_STACK_SIZE; i++)
+        if (CACHE_CAPTURES) {
+            CACHE.put(0L, new Capture());
+            CACHE.remove(0L);
+        }
+        
+        //
+        for (int i = 0; i < STACK_SIZE; i++)
         {
             STACK[i] = new Capture(); 
         }
         
         //
-        count = CAPTURES_STACK_SIZE;
+        count = STACK_SIZE;
     }
     
     //
@@ -130,5 +146,24 @@ public final class Captures
 
         //
         CACHE.put(h, c);
-    }       
+    }
+    
+    //
+    public static void del(long h)
+    {
+        //
+        if (!CACHE_CAPTURES) { return; } 
+
+        //
+        if (!CACHE.containsKey(h)) { return; }
+        
+        //
+        Capture c = CACHE.get(h);
+        
+        //
+        CACHE.remove(h);
+        
+        //
+        free(c);
+    }
 }

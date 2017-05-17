@@ -10,10 +10,10 @@ package org.krudo;
 public class Moves 
 {
     //
-    private final static int MOVES_STACK_SIZE = 270000;
+    private final static int STACK_SIZE = 130000;
 
     //
-    private final static Move[] STACK = new Move[MOVES_STACK_SIZE];
+    private final static Move[] STACK = new Move[STACK_SIZE];
     
     //
     private static int count = 0;
@@ -22,13 +22,13 @@ public class Moves
     public static void init()
     {
         //
-        for (int i = 0; i < MOVES_STACK_SIZE; i++) 
+        for (int i = 0; i < STACK_SIZE; i++) 
         {
             STACK[i] = new Move(); 
         }
         
         //
-        count = MOVES_STACK_SIZE;
+        count = STACK_SIZE;
     }
     
     //

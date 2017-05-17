@@ -16,12 +16,6 @@ import static org.krudo.tests.debug.Debug.*;
 //
 public class Perft4 
 {
-    static {{
-        debug_set_config("MOVE_LEGALS",   false);
-        debug_set_config("CACHE_LEGALS",  false);
-        debug_set_config("REMAPS_PSEUDO", false);
-    }}
-    
     //
     public static void main(String[] args) 
     {    
@@ -30,7 +24,11 @@ public class Perft4
         // 4865609     4404 ms   1104 kNPS
         // 4865609     5421 ms    897 kNPS
         // 4865609     6547 ms    743 kNPS
-                
+
+        debug_set_config("MOVE_LEGALS",   false);
+        debug_set_config("CACHE_LEGALS",  false);
+        debug_set_config("REMAPS_PSEUDO", false);
+                        
         Krudo.init();
         
         Node n = new Node();

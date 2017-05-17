@@ -10,7 +10,7 @@ package org.krudo;
 public final class Config 
 {    
     // config flags
-    public static final boolean 
+    public static /*final*/ boolean 
 
     /**
      * CACHING SETTINGS

@@ -16,15 +16,15 @@ import static org.krudo.Describe.*;
 public final class Capture 
 {            
     // constants
-    public final static int
-    MAX = 20; 
+    private final static int
+    SIZE = 20; 
         
     // fields
     public final int[] 
-    s = new int[MAX], // start square of a move
-    v = new int[MAX], // versus square of a move
-    k = new int[MAX], // kind of a move
-    w = new int[MAX]; // weight/eval-value of a move
+    s = new int[SIZE], // start square of a move
+    v = new int[SIZE], // versus square of a move
+    k = new int[SIZE], // kind of a move
+    w = new int[SIZE]; // weight/eval-value of a move
     
     // have count of move in stack
     public int count = 0; 

@@ -6,12 +6,13 @@
 //
 package org.krudo.tests.moves;
 
-//
-import static org.krudo.tests.debug.Info.*;
-
 // 
 import org.krudo.Move;
 import org.krudo.Moves;
+
+//
+import static org.krudo.tests.debug.Info.*;
+import static org.krudo.tests.debug.Reflect.*;
 
 // 
 public class Moves1 
@@ -23,7 +24,7 @@ public class Moves1
         Moves.init();
         
         //
-        int l = 270000;
+        int l = get_field_value_as_int(Moves.class, "STACK_SIZE");
         Move[] temp = new Move[l];
         
         //

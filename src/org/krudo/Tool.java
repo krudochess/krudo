@@ -29,7 +29,14 @@ public final class Tool
 		//
 		return new Random().nextInt();
 	}
-	
+
+    // random long between min and max with min and max included
+	public static final long uuid() 
+    {		
+		//
+		return new Random().nextLong();
+	}
+
 	//	
 	public static final boolean mask(int v, int m) 
     {		

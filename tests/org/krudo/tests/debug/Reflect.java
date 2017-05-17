@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.lang.reflect.Field;
+import org.krudo.Capture;
 import org.krudo.Moves;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -68,6 +69,21 @@ public final class Reflect
         return value;
     }
     
+    public static Capture[] get_field_value_as_capture_array(Class c, String f, Object o) 
+    {    
+        Capture[] value = null;
+         
+        try {
+            Field field = c.getDeclaredField(f);            
+            field.setAccessible(true);
+            value = (Capture[]) field.get(o);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+        return value;
+    }
+    
     //
     public final static void set_field_value_as_boolean(
         final Class c, 
@@ -81,10 +97,7 @@ public final class Reflect
             Field modifiersField = Field.class.getDeclaredField("modifiers");
             modifiersField.setAccessible(true);
             modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
-              
-            print("sad");
-            print(v);
-            
+                          
             field.set(null, false);
             
         } catch (Exception e) {
