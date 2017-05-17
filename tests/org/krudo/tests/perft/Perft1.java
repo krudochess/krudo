@@ -12,7 +12,10 @@ import org.krudo.Legals;
 
 //
 import static org.krudo.Tool.*;
+import static org.krudo.tests.debug.Info.*;
+import static org.krudo.tests.debug.Dump.*;
 import static org.krudo.tests.debug.Debug.*;
+import static org.krudo.tests.debug.Perft.*;
 import static org.krudo.Config.*;
 
 //
@@ -68,7 +71,7 @@ public class Perft1
             dump(n);
             
             //
-            Legals.info();
+            info_legals();
             //dump(n);
             /*/
             Perft.table(n,5);

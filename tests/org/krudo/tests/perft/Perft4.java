@@ -12,6 +12,7 @@ import org.krudo.*;
 //
 import static org.krudo.Tool.*;
 import static org.krudo.tests.debug.Debug.*;
+import static org.krudo.tests.debug.Perft.*;
 
 //
 public class Perft4 

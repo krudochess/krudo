@@ -6,17 +6,20 @@
 //
 package org.krudo.tests.benchmark;
 
-import static org.krudo.tests.debug.Debug.*;
-import static org.krudo.Tool.*;
-
+//
 import org.krudo.Node;
 
 //
-public class Perft3 {
+import static org.krudo.Tool.*;
+import static org.krudo.tests.debug.Perft.*;
+import static org.krudo.tests.debug.Debug.*;
 
+//
+public class Perft3 
+{
     //
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) 
+    {        
         /*\
         FEN: 8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - -
         14            0 ms
@@ -26,22 +29,23 @@ public class Perft3 {
         193690690    0 ms        
         \*/
                 
-        Node n = new Node();
-                
-        n.startpos("8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - -");
+        //
+        Node n = new Node("8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - -");
+
+        //
+        int d = 2;
         
+        //
         try {
-            /*_*/
-            for(int i=1; i<=1; i++) {
-                echo(perft(n,i));
+            for (int i = 1; i <= d; i++) 
+            {
+                print(perft(n, i));
             }
-            /*/
-            Perft.table(n,5);
-            /*_*/
+            //print(perft_table(n, d));
         } catch (Exception e) {
-            dump(n);
-            dump(n.L);
-            dump(e);
+            //dump(n);
+            //dump(n.L);
+            //dump(e);
         }            
     }    
 }

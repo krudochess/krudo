@@ -19,25 +19,19 @@ public class Perft2
     //
     public static void main(String[] args) 
     {    
-        /*\
+        /*/
         FEN: r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq -
         48         0 ms
         2039       0 ms
         97862      0 ms
         4085603    0 ms
         193690690  0 ms        
-        \*/
+        /*/
+              
+        Krudo.init();
         
-        Moves.init();
-        
-        Node n = new Node();
-        
-        n.startpos("r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq -");
-             
-        //dump(n);
-        
-        //dump(n.legals());
-        
+        Node n = new Node("r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq -");
+                             
         try 
         {
             /*_*/
