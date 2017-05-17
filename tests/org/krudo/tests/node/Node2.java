@@ -13,7 +13,7 @@ import org.krudo.*;
 import static org.krudo.debug.Debug.*;
 
 //
-public class Domove2
+public class Node2
 {
     //
     public static void main(String[] args)

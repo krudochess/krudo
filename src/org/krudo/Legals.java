@@ -12,7 +12,6 @@ import java.util.LinkedHashMap;
 
 //
 import static org.krudo.Tool.*;
-import static org.krudo.debug.Debug.*;
 import static org.krudo.Config.*;
 import static org.krudo.Describe.*;
 

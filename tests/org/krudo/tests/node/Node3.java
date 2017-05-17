@@ -7,23 +7,20 @@
 package org.krudo.tests.node;
 
 //
-import org.krudo.Node;
-import org.krudo.Move;
+import org.krudo.*;
 
 //
+import static org.krudo.Tool.*;
 import static org.krudo.debug.Debug.*;
 
 //
-public class Legals1 {
-
+public class Node3 
+{
     //
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) 
+    {    
         //
         DEBUG_SHOW_MOVE_WEIGHT = true;
-        
-        //
-        DEBUG_SHOW_ALGEBRIC = true;
         
         //
         Node n = new Node();
@@ -33,11 +30,21 @@ public class Legals1 {
         
         //
         n.domove("e2e4");
+        /*
+        //
+        Move m = n.legals();
         
         //
-        //Move m = n.legals();
+        dump(n, m);
         
         //
-        //dump(m, n);            
+        m.sort();
+        
+        //
+        dump(n, m);
+        
+        //
+        print();
+        */
     }    
 }

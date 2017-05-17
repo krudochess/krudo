@@ -5,6 +5,10 @@
  */
 package org.krudo.debug;
 
+//
+import java.util.Map;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.lang.reflect.Field;
 import org.krudo.Moves;
 import java.lang.reflect.Field;
@@ -22,7 +26,38 @@ public final class Reflect
         try {
             Field field = c.getDeclaredField(f);
             field.setAccessible(true);
-            value = (Integer) field.get(f);
+            value = (Integer) field.get(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+        return value;
+    }
+    
+    public static LinkedHashMap get_field_value_as_linked_hash_map(Class c, String f) 
+    {    
+        LinkedHashMap value = null;
+         
+        try {
+            Field field = c.getDeclaredField(f);
+            field.setAccessible(true);
+            value = (LinkedHashMap) field.get(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+        return value;
+    }
+    
+    public static Map.Entry[] get_field_value_as_map_entry_array(Class c, String f, Object o) 
+    {    
+        Map.Entry[] value = null;
+         
+        try {
+            Field field = c.getDeclaredField(f);
+            
+            field.setAccessible(true);
+            value = (Map.Entry[]) field.get(o);
         } catch (Exception e) {
             e.printStackTrace();
         }

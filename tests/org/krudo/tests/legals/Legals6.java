@@ -4,23 +4,32 @@
  */
 
 //
-package org.krudo.tests.node;
+package org.krudo.tests.legals;
+
+//
+import static org.krudo.Config.*;
+import static org.krudo.Tool.*;
+import static org.krudo.debug.Debug.*;
 
 //
 import org.krudo.*;
 
 //
-import static org.krudo.Tool.*;
-import static org.krudo.debug.Debug.*;
-
-//
-public class MoveSort1 
+public class Legals6 
 {
     //
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {    
         //
+        if (!MOVE_LEGALS) {
+            exit("set MOVE_LEGALS = true and retry");
+        }
+        
+        //
         DEBUG_SHOW_MOVE_WEIGHT = true;
+        
+        //
+        Moves.init();
         
         //
         Node n = new Node();
@@ -29,22 +38,12 @@ public class MoveSort1
         n.startpos();
         
         //
-        n.domove("e2e4");
-        /*
-        //
-        Move m = n.legals();
+        dump(n);
         
         //
-        dump(n, m);
+        n.legals();
         
         //
-        m.sort();
-        
-        //
-        dump(n, m);
-        
-        //
-        print();
-        */
-    }    
+        dump(n.legals);
+    }
 }
