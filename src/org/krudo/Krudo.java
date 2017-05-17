@@ -78,7 +78,7 @@ public final class Krudo
         Moves.init();
         
         // prepare captures
-        //Captures.init();
+        Captures.init();
     }
     
     //

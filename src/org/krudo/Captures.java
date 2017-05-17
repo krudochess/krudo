@@ -6,13 +6,12 @@
 // krudo package
 package org.krudo;
 
-// required static class
-import static org.krudo.Tool.*;
-import static org.krudo.Config.*;
-
 // 
 import java.util.Map;
 import java.util.LinkedHashMap;
+
+// required static class
+import static org.krudo.Config.*;
 
 //
 public final class Captures 
@@ -41,29 +40,30 @@ public final class Captures
     //
     private final static class Cache extends LinkedHashMap<Long, Capture> 
     {
-        //
+        // construct cache
         public Cache()
         {
-            //
+            // call super of LinkedHashMap
             super(CACHE_SIZE + 1, 1, false);
         }
         
-        //
-        @Override
+        // check if cache is full and flush oldest item
+        @Override 
         protected boolean removeEldestEntry(Map.Entry<Long, Capture> e) 
         {
-            //
+            // disable captures cache
             if (!CACHE_CAPTURES) { return false; }
 
-            // 
+            // cache is full
             if (size() > CACHE_SIZE) 
             {
-                //
+                // return entry to stack
                 Captures.free(e.getValue());
 
                 // return true than remove
                 return true;                                                    
             }
+            
             // return false not remove
             return false; 
         }
@@ -73,7 +73,8 @@ public final class Captures
     public static void init()
     {
         //
-        if (CACHE_CAPTURES) {
+        if (CACHE_CAPTURES) 
+        {
             CACHE.put(0L, new Capture());
             CACHE.remove(0L);
         }
@@ -128,9 +129,10 @@ public final class Captures
         return false;
     }
     
-    //
-    public static Capture get(long h)
-    {
+    // get item from cache by hash
+    public final static Capture get(
+        final long h
+    ) {
         //
         if (!CACHE_CAPTURES) { return null; } 
 
@@ -138,7 +140,7 @@ public final class Captures
         return CACHE.get(h);
     }
     
-    //
+    // add item into cache by hash
     public static void add(long h, Capture c)
     {
         //
