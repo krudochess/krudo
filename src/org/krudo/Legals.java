@@ -1,5 +1,5 @@
 /**
- * Krudo 0.16a - a chess engine for cooks
+ * Krudo 0.18a - Java chess engine for cooks
  * by Francesco Bianco <bianco@javanile.org>
  */
 
@@ -11,15 +11,13 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 
 //
-import static org.krudo.Tool.*;
 import static org.krudo.Config.*;
-import static org.krudo.Describe.*;
 
 //    
 public class Legals 
 {    
     //
-    private static final int LEGALS_CACHE_SIZE = 250000;
+    private static final int CACHE_SIZE = 250000;
     
     //
     private static int queries = 0;
@@ -28,9 +26,19 @@ public class Legals
     private static int success = 0;
                
     //
-    private final static LinkedHashMap<Long, Move> 
-    CACHE = new LinkedHashMap<Long, Move> (LEGALS_CACHE_SIZE, 1, true) 
+    private final static Cache CACHE = new Cache();
+    
+    //
+    private final static class Cache extends LinkedHashMap<Long, Move> 
     {
+        //
+        public Cache() 
+        {
+            //
+            super(CACHE_SIZE, 1, true);
+        }
+        
+        //
         @Override
         protected boolean removeEldestEntry(Map.Entry<Long, Move> e) 
         {
@@ -38,7 +46,7 @@ public class Legals
             if (!CACHE_LEGALS) { return false; }
             
             // 
-            if (size() > LEGALS_CACHE_SIZE) 
+            if (size() > CACHE_SIZE) 
             {
                 //
                 Moves.free(e.getValue());
@@ -50,11 +58,13 @@ public class Legals
             // return false not remove
             return false; 
         }
-    };
+    }
        
     //
-    public final static void add(long h, Move m)
-    {           
+    public final static void add(
+        final long h, 
+        final Move m
+    ) {           
         //
         if (!CACHE_LEGALS) { return; } 
 
@@ -63,8 +73,9 @@ public class Legals
     }
 
     //
-    public final static boolean has(long h) 
-    {    
+    public final static boolean has(
+        final long h
+    ) {    
         //
         if (!CACHE_LEGALS) { return false; }
         
@@ -86,39 +97,13 @@ public class Legals
     }
     
     //
-    public final static Move get(long h)
-    {
+    public final static Move get(
+        final long h
+    ) {
         //
         if (!CACHE_LEGALS) { return null; } 
         
         //
         return CACHE.get(h);        
-    }
-    
-    //
-    public final static void dump()
-    {
-        //
-        print("Legals (size:"+CACHE.size()+")");
-        
-        //
-        CACHE.entrySet().stream().map((i) -> {
-            print(Long.toHexString(i.getKey()));
-            return i;
-        }).forEach((i) -> {    
-            print(desc(i.getValue()));
-        });
-    }
-    
-    //
-    public final static void info()
-    {
-        //
-        print("Legals (size:"+CACHE.size()+" q:"+queries+" s:"+success+")");
-    }   
-    
-    public final static int size()
-    {
-        return CACHE.size();
-    }
+    }    
 }

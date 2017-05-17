@@ -2,7 +2,7 @@ package org.krudo.tests.capture;
 
 //
 import org.krudo.Moves;
-import static org.krudo.debug.Debug.*;
+import static org.krudo.tests.debug.Debug.*;
 import static org.krudo.Tool.*;
 
 // 

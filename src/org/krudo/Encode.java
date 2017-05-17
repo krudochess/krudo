@@ -7,7 +7,7 @@
 package org.krudo;
 
 //
-import static org.krudo.Constant.*;
+import static org.krudo.Constants.*;
 
 //
 public final class Encode {

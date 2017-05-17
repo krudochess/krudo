@@ -1,9 +1,9 @@
 package org.krudo.tests.console;
 
 //
-import static org.krudo.debug.Debug.*;
+import static org.krudo.tests.debug.Debug.*;
 import static org.krudo.Tool.*;
-import static org.krudo.Constant.*;
+import static org.krudo.Constants.*;
 
 //
 import org.krudo.Book;

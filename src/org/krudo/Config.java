@@ -1,5 +1,5 @@
 /**
- * Krudo 0.16a - a chess engine for cooks
+ * Krudo 0.18a - Java chess engine for cooks
  * by Francesco Bianco <bianco@javanile.org>
  */
 
@@ -10,7 +10,7 @@ package org.krudo;
 public final class Config 
 {    
     // config flags
-    public static boolean 
+    public static final boolean 
 
     /**
      * CACHING SETTINGS

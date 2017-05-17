@@ -10,7 +10,7 @@ package org.krudo;
 import static org.krudo.Tool.*;
 import static org.krudo.Parse.*;
 import static org.krudo.Describe.*;
-import static org.krudo.Constant.*;
+import static org.krudo.Constants.*;
 
 // fen class utility
 public final class Fen 

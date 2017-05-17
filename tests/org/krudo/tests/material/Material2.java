@@ -11,7 +11,7 @@ import org.krudo.*;
     
 //
 import static org.krudo.Tool.*;
-import static org.krudo.debug.Debug.*;
+import static org.krudo.tests.debug.Debug.*;
     
 //
 public class Material2 

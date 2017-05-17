@@ -4,7 +4,7 @@
  */
 
 //
-package org.krudo.debug;
+package org.krudo.tests.debug;
 
 //
 import org.krudo.*;
@@ -23,7 +23,7 @@ import org.krudo.Line;
 import org.krudo.Move;
 
 //
-import static org.krudo.Constant.*;
+import static org.krudo.Constants.*;
 import org.krudo.Moves;
 import org.krudo.Moves;
 import org.krudo.Node;

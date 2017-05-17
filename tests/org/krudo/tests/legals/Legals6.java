@@ -9,7 +9,7 @@ package org.krudo.tests.legals;
 //
 import static org.krudo.Config.*;
 import static org.krudo.Tool.*;
-import static org.krudo.debug.Debug.*;
+import static org.krudo.tests.debug.Debug.*;
 
 //
 import org.krudo.*;

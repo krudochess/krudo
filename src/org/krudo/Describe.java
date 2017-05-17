@@ -8,20 +8,21 @@ package org.krudo;
 
 //
 import static org.krudo.Tool.*;
-import static org.krudo.debug.Debug.*;
 import static org.krudo.Parse.*;
 import static org.krudo.Encode.*;
 import static org.krudo.Decode.*;
-import static org.krudo.Constant.*;
+import static org.krudo.Constants.*;
 
 //
 public class Describe
 {
     // piece to string
-	public static final String piece(final int p)
-    {		
+	public static final String piece(
+        final int p
+    ) {		
 		//
-		switch(p) {
+		switch (p) 
+        {
 			case O:  return ".";			
 			case wp: return "wp";	
 			case wn: return "wn";	
@@ -40,15 +41,18 @@ public class Describe
 	} 
 	    
     // square to string
-	public static final String square(final int s)
-    {		
+	public static final String square(
+        final int s
+    ) {		
 		//
 		return s>=0 && s<64 ? ""+(char)('a'+s%8)+(char)('1'+s/8) : "xx";		
 	}  
         
     //
-    public final static String algebric(final Node n, final String m)
-    {
+    public final static String algebric(
+        final Node n, 
+        final String m
+    ) {
         //
         String a = "";
         
@@ -159,10 +163,10 @@ public class Describe
 		//n.unmove();
 		
 		//
-		if (DEBUG_SHOW_MOVE_WEIGHT) 
-        {
-			move += String.format("(%+d)", m.w[i]);
-		}
+		//if (DEBUG_SHOW_MOVE_WEIGHT) 
+        //{
+		//	move += String.format("(%+d)", m.w[i]);
+		//}
 		
 		//
 		return move;	
@@ -260,10 +264,12 @@ public class Describe
 		String sepa = "";
 		
         //
-        int cell = DEBUG_SHOW_MOVE_WEIGHT ? 10 : 6;
+        int cell = //DEBUG_SHOW_MOVE_WEIGHT ? 10 : 
+                    6;
 			
         //
-        int colm = DEBUG_SHOW_MOVE_WEIGHT ? 4 : 6;    
+        int colm = //DEBUG_SHOW_MOVE_WEIGHT ? 4 : 
+                    6;    
         
 		//
 		for (int i = 0; i < m.count; i++)
@@ -292,10 +298,12 @@ public class Describe
 		String sepa = "";
 		
         //
-        int cell = DEBUG_SHOW_MOVE_WEIGHT ? 10 : 6;
+        int cell = //DEBUG_SHOW_MOVE_WEIGHT ? 10 : 
+                    6;
 			
         //
-        int colm = DEBUG_SHOW_MOVE_WEIGHT ? 4 : 6;    
+        int colm = //DEBUG_SHOW_MOVE_WEIGHT ? 4 : 
+                    6;    
         
 		//
 		for (int i = 0; i < c.count; i++)
@@ -330,7 +338,8 @@ public class Describe
 			String move = desc(m, j);
 										
 			//
-			int cell = DEBUG_SHOW_MOVE_WEIGHT ? 10 : 6;
+			int cell = //DEBUG_SHOW_MOVE_WEIGHT ? 10 : 
+                        6;
 			
 			//
 			desc += sepa + lpad(move, cell);
@@ -344,8 +353,10 @@ public class Describe
 	}
 	
 	//
-	public final static String desc(Node n, Move m) {
-	
+	public final static String desc(
+        final Node n, 
+        final Move m
+    ) {	
 		//
 		String desc = "";
 		

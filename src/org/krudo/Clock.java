@@ -8,7 +8,7 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Tool.*;
-import static org.krudo.Constant.*;
+import static org.krudo.Constants.*;
 
 //
 public final class Clock 
@@ -25,7 +25,7 @@ public final class Clock
         int b = Integer.parseInt(btime);
         
         //
-        return t==Constant.w ? w-b : b-w;
+        return t==Constants.w ? w-b : b-w;
     }
         
     //

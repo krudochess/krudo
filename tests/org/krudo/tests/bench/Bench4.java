@@ -6,8 +6,8 @@
 //
 package org.krudo.tests.bench;
 
-import static org.krudo.debug.Debug.*;
-import static org.krudo.Constant.*;
+import static org.krudo.tests.debug.Debug.*;
+import static org.krudo.Constants.*;
 
 import org.krudo.Node;
 import org.krudo.Engine;

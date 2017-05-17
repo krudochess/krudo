@@ -13,7 +13,7 @@ import org.krudo.Search;
 
 //
 import static org.krudo.Tool.*;
-import static org.krudo.debug.Debug.*;
+import static org.krudo.tests.debug.Debug.*;
 
 // 
 public class Castling2 

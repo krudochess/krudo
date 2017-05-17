@@ -7,9 +7,7 @@
 package org.krudo;
 
 //
-import static org.krudo.Constant.*;
-import static org.krudo.debug.Debug.*;
-import static org.krudo.Encode.*;
+import static org.krudo.Constants.*;
 
 //
 public final class Decode 
@@ -104,8 +102,7 @@ public final class Decode
 			default: return "?";	
 		}	
 	}
-	
-	
+		
 	//
 	public static final String i2m(int s,int v) 
     {
@@ -165,17 +162,21 @@ public final class Decode
 		String move = m2s(s, v, k);
 
 		//
-		if (DEBUG_SHOW_MOVE_WEIGHT) {
-			move += String.format("=%+d", w);
-		}
+		//if (DEBUG_SHOW_MOVE_WEIGHT) {
+		//	move += String.format("=%+d", w);
+		//}
 				
 		//
 		return move;
 	}
 	
 	//
-	public static final String i2m(int p, int s, int v, int k) {
-		
+	public static final String i2m(
+        int p, 
+        int s, 
+        int v, 
+        int k
+    ) {		
 		//
 		String m = "";
 		
@@ -197,7 +198,9 @@ public final class Decode
 	}
 	
 	//
-	public static final String i2m(Move m) {
+	public static final String i2m(
+        final Move m
+    ) {
 		String o = "";
 		String s = "";		
 		for(int i=0; i<m.count; i++) {
@@ -208,7 +211,10 @@ public final class Decode
 	}
 	
 	//
-	public static final String i2m(Move m, int i) {
+	public static final String i2m(
+        final Move m, 
+        final int i
+    ) {
 		return m2s(m.s[i],m.v[i],m.k[i]);
 	}
 	

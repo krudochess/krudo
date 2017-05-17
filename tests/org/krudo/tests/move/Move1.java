@@ -10,7 +10,7 @@ package org.krudo.tests.move;
 import org.krudo.*;
 
 //
-import static org.krudo.debug.Info.*;
+import static org.krudo.tests.debug.Info.*;
 
 // 
 public class Move1 

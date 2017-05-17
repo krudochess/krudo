@@ -8,7 +8,7 @@ package org.krudo;
 
 // required static class
 import static org.krudo.Tool.*;
-import static org.krudo.Constant.*;
+import static org.krudo.Constants.*;
 
 // engine class aim brain-mentor
 public final class Engine

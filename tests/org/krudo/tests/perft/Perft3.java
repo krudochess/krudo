@@ -6,7 +6,7 @@
 //
 package org.krudo.tests.benchmark;
 
-import static org.krudo.debug.Debug.*;
+import static org.krudo.tests.debug.Debug.*;
 import static org.krudo.Tool.*;
 
 import org.krudo.Node;

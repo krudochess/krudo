@@ -7,7 +7,6 @@
 package org.krudo;
 
 // all constants
-
 import static org.krudo.Describe.desc;
 import static org.krudo.Tool.print;
 import static org.krudo.Tool.rpad;
@@ -16,7 +15,7 @@ import static org.krudo.Tool.rpad;
 import java.util.function.Consumer;
 
 //
-public final class Constant
+public final class Constants
 {    
     // start position in fen
     public final static String

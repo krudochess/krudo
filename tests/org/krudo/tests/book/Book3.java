@@ -9,7 +9,7 @@ package org.krudo.tests.book;
 import java.util.ArrayList;
 
 //
-import static org.krudo.debug.Debug.*;
+import static org.krudo.tests.debug.Debug.*;
 import static org.krudo.Tool.*;
 
 //
