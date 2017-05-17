@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 
 // required static class
 import static org.krudo.Tool.*;
-import static org.krudo.Debug.*;
+import static org.krudo.debug.Debug.*;
 import static org.krudo.Decode.*;
 import static org.krudo.Config.*;
 import static org.krudo.Zobrist.*;
@@ -825,9 +825,10 @@ public final class Eval
         return score;
     }
     
-    // score move stack for first time use in search
-    public final static void legals(final Node n)
-    {  
+    // score move without play it used in search
+    public final static void legals(
+        final Node n
+    ) {  
         //
         if (!EVAL_LEGALS) { return; }
         
@@ -896,7 +897,7 @@ public final class Eval
     {
         //
         if (deep == 0) {
-            dump(n);
+            //dump(n);
             return;
         }
        
@@ -919,7 +920,7 @@ public final class Eval
             n.unmove();
             
             if (deep == 1) {
-                dump(m);
+                //dump(m);
                 print("\n");
             }
         }

@@ -8,7 +8,7 @@ package org.krudo.tests.eval;
 
 //
 import static org.krudo.Constant.*;
-import static org.krudo.Debug.*;
+import static org.krudo.debug.Debug.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Decode.*;
 

@@ -6,7 +6,7 @@
 // 
 package org.krudo.tests.checkmate;
 
-import static org.krudo.Debug.*;
+import static org.krudo.debug.Debug.*;
 import static org.krudo.Constant.*;
 
 import org.krudo.Node;

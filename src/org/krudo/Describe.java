@@ -8,7 +8,7 @@ package org.krudo;
 
 //
 import static org.krudo.Tool.*;
-import static org.krudo.Debug.*;
+import static org.krudo.debug.Debug.*;
 import static org.krudo.Parse.*;
 import static org.krudo.Encode.*;
 import static org.krudo.Decode.*;

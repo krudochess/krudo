@@ -24,24 +24,24 @@ public final class Tool
 	}
 	
 	// random int between min and max with min and max included
-	public static final int rand() {
-		
+	public static final int rand() 
+    {		
 		//
 		return new Random().nextInt();
 	}
 	
 	//	
-	public static final boolean mask(int v, int m) {
-		
+	public static final boolean mask(int v, int m) 
+    {		
 		//
 		return (v & m) == m;
 	}
 
 	//
-	public static final boolean mask(int v, int m, int e) {
-		
+	public static final boolean mask(int v, int m, int e) 
+    {		
 		//
-		return (v&m)==e;
+		return (v & m) == e;
 	}
 	
 	//

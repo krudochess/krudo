@@ -130,19 +130,5 @@ public final class Captures
 
         //
         CACHE.put(h, c);
-    }
-    
-    //
-    public static void info()
-    {
-        int verified = count + CACHE.size();
-        print(
-            "Captures",
-            "free="+count,
-            "cache="+CACHE.size(),
-            "verified="+verified,
-            "q="+queries,
-            "s="+success
-        );
-    }
+    }       
 }

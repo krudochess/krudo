@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 //
-import static org.krudo.Debug.*;
+import static org.krudo.debug.Debug.*;
 
 //
 import org.krudo.Book;

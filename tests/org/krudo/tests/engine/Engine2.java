@@ -7,7 +7,7 @@
 package org.krudo.tests.engine;
 
 //
-import static org.krudo.Debug.*;
+import static org.krudo.debug.Debug.*;
 
 //
 import org.krudo.Engine;

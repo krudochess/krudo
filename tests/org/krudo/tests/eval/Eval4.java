@@ -10,7 +10,7 @@ package org.krudo.tests.eval;
 import org.krudo.*;
 
 //
-import static org.krudo.Debug.*;
+import static org.krudo.debug.Debug.*;
     
 //
 public class Eval4 

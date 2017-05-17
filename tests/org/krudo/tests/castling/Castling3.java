@@ -14,7 +14,7 @@ import org.krudo.Search;
 //
 import static org.krudo.Constant.*;
 import static org.krudo.Tool.*;
-import static org.krudo.Debug.*;
+import static org.krudo.debug.Debug.*;
 import org.krudo.Moves;
 
 // 

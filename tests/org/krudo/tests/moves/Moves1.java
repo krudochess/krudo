@@ -1,24 +1,41 @@
+/**
+ * Krudo 0.18a - Java chess engine for cooks
+ * by Francesco Bianco <bianco@javanile.org>
+ */
+
+//
 package org.krudo.tests.moves;
 
 //
-import static org.krudo.Debug.*;
-import static org.krudo.Tool.*;
+import static org.krudo.debug.Info.*;
 
 // 
-import org.krudo.Node;
 import org.krudo.Move;
 import org.krudo.Moves;
 
 // 
 public class Moves1 
 {
-
     //
     public static void main(String[] args)
-    {
+    {        
+        //
         Moves.init();
-        for(int i=0;i<200;i++){
-        Move m = Moves.pick();
-        print(m.s[0]);}
+        
+        //
+        int l = 270000;
+        Move[] temp = new Move[l];
+        
+        //
+        for (int i = 0; i < l; i++) {
+            temp[i] = Moves.pick();
+        }   
+        info_moves();
+        
+        //
+        for (int i = 0; i < l; i++) {
+            Moves.free(temp[i]);
+        }        
+        info_moves();
     }    
 }

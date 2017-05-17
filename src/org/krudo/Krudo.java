@@ -66,19 +66,19 @@ public final class Krudo
     public static void init() 
     {
         //
-        TT.init();
+        //TT.init();
         
         // PV memory
-        PVs.init();
+        //PVs.init();
         
         // prepare eval memory
-        Eval.init();
+        //Eval.init();
 
         // prepare move-stacks
         Moves.init();
         
         // prepare captures
-        Captures.init();
+        //Captures.init();
     }
     
     //

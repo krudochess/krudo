@@ -2,7 +2,7 @@ package org.krudo.tests.castling;
 
 //
 import org.krudo.Moves;
-import static org.krudo.Debug.*;
+import static org.krudo.debug.Debug.*;
 import static org.krudo.Tool.*;
 
 // 
