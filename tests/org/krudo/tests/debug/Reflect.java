@@ -5,6 +5,8 @@
  */
 package org.krudo.tests.debug;
 
+import static org.krudo.Tool.*;
+
 //
 import java.util.Map;
 import java.util.HashMap;
@@ -12,6 +14,7 @@ import java.util.LinkedHashMap;
 import java.lang.reflect.Field;
 import org.krudo.Moves;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 /**
  *
@@ -64,4 +67,28 @@ public final class Reflect
     
         return value;
     }
+    
+    //
+    public final static void set_field_value_as_boolean(
+        final Class c, 
+        final String f, 
+        final boolean v
+    ) {
+        try {
+            Field field = c.getDeclaredField(f);            
+            field.setAccessible(true);
+          
+            Field modifiersField = Field.class.getDeclaredField("modifiers");
+            modifiersField.setAccessible(true);
+            modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+              
+            print("sad");
+            print(v);
+            
+            field.set(null, false);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }      
+    } 
 }

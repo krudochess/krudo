@@ -33,6 +33,7 @@ import static org.krudo.Tool.*;
 import static org.krudo.Config.*;
 import static org.krudo.Decode.*;
 import static org.krudo.Describe.*;
+import static org.krudo.tests.debug.Reflect.*;
 
 //
 public final class Debug 
@@ -52,6 +53,11 @@ public final class Debug
     //
     public static int count_incheck = 0;
         
+    
+    public static final void debug_set_config(String config, boolean value)
+    {
+        set_field_value_as_boolean(Config.class, config, value);        
+    }
    
     
 	//
@@ -66,7 +72,7 @@ public final class Debug
 	//
 	public final static void tune(Node n) 
     {	
-		dump(n);
+		//dump(n);
 		echo("-------------");
 		n.legals();
 		

@@ -103,8 +103,8 @@ public class Dump {
             Field f = moves.getClass().getDeclaredField("count");
             f.setAccessible(true);
             int count = (Integer) f.get(moves);
-            int verified = count + Legals.size();
-            print("Moves free="+count+" cache="+Legals.size()+" verified="+verified);
+            //int verified = count + Legals.size();
+            //print("Moves free="+count+" cache="+Legals.size()+" verified="+verified);
         } catch (Exception e) {
             e.printStackTrace();
         }
