@@ -16,6 +16,9 @@ import java.util.Random;
 //
 public final class Tool 
 {
+    //
+    private static String PATH_PREFIX = File.separator;
+    
 	// random int between min and max with min and max included
 	public static final int rand(int min, int max) 
     {		
@@ -177,9 +180,9 @@ public final class Tool
 	public static final String path(String f) 
     {
         //
-		return (System.getenv().containsKey("ENGINEDIR") 
-             ?  System.getenv().get("ENGINEDIR") 
-             :  System.getProperty("user.dir")) + File.separator + f;	
+		return (System.getenv().containsKey("KRUDO_PATH") 
+             ?  System.getenv().get("KRUDO_PATH") 
+             :  System.getProperty("user.dir")) + f;	
 	}
 	
 	//

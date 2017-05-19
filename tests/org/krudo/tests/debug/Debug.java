@@ -53,6 +53,14 @@ public final class Debug
     //
     public static int count_incheck = 0;
         
+    //
+    public final static void debug_set_book() {
+    }
+    
+    //
+    public final static void debug_get_book() {
+    }
+    
     
     public static final void debug_set_config(String config, boolean value)
     {

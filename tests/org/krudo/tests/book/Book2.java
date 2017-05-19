@@ -7,20 +7,24 @@
 package org.krudo.tests.book;
 
 // required non-static class
-import org.krudo.Node;
 import org.krudo.Book;
+import org.krudo.Node;
+import org.krudo.Moves;
 
 // required static class
-import static org.krudo.Tool.*;
-import static org.krudo.tests.debug.Debug.*;
-import org.krudo.Moves;
+import static org.krudo.tests.debug.Dump.*;
 
 // 
 public class Book2 
 {
     //
     public static void main(String[] args) 
-    {       
+    {     
+        //
+        debug_set_book("bin/krudo.bin");
+        
+        print(debug_get_book());
+        
         //
         Moves.init();
         

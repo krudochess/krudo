@@ -23,6 +23,11 @@ public class Book3
     //
     public static void main(String[] args) 
     {
+        //
+        debug_set_book("bin/krudo.bin");
+        
+        print(debug_get_book());
+                
         // 
         Node n = new Node();
         

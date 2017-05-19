@@ -79,4 +79,17 @@ public class Info
         return CACHE.size();
     }
     */
+    
+    
+    /*
+      //INFO EVAL
+    public final static void info()
+    {
+        //
+        print("Eval position (size:"+POSITION.size()+" q:"+POSITION.queries+" s:"+POSITION.success+")");
+        
+        //
+        print("Eval material (size:"+MATERIAL.size()+" q:"+MATERIAL.queries+" s:"+MATERIAL.success+")");
+    }    
+    */
 }
