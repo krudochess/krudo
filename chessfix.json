@@ -1,0 +1,9 @@
+{
+    "name": "krudo suite",
+    "epd": "positions",
+    "scripts": {
+        "perft": {
+            "exec": "java -cp build/classes:build/test/classes org.tests.perft.Perft1" 
+        }
+    }
+}
