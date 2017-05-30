@@ -284,59 +284,40 @@ public final class Eval
     // init
     public final static void init()
     {
-     for (int p = 0; p < 12; p++)
-        {
-            for (int r = 0; r < 4; r++)
-            {
-                for (int c = 0; c < 8; c++)
-                {
-                    //
-                    int s0 = r * 8 + c;
-                    
-                    //
-                    int s1 = (7 - r) * 8 + c;
-                    
-                    //
-                    int t0 = OPW[p][s0];
-                    
-                    //
-                    OPW[p][s0] = OPW[p][s1];
-                    
-                    //
-                    OPW[p][s1] = t0;
-                    
-                    //
-                    int t1 = EPW[p][s0];
-                    
-                    //
-                    EPW[p][s0] = EPW[p][s1];
-                    
-                    //
-                    EPW[p][s1] = t1;
-                }   
-            }
-        }    
+        int p, r, c, s;        
         
-        //
-        for (int p = 0; p < 12; p++)
+        // fill black weights by white specular
+        for (p=0; p<12; p+=2) for (r=0; r<8; r++) for (c=0; c<8; c++)
+        {          
+            int s0 = r * 8 + c;
+            int s1 = (7 - r) * 8 + c;          
+            OPW[p][s0] = -OPW[p+1][s1];
+            EPW[p][s0] = -EPW[p+1][s1];
+        }
+          
+        // revert from a8..h1 into 0..63 board square
+        for (p=0; p<12; p++) for (r=0; r<4; r++) for (c=0; c<8; c++)
         {
             //
-            for (int s = 0; s < 64; s++)
-            {
-                //
-                if (p % 2 == 0) 
-                {
-                    //
-                    OPW[p][s] = -OPW[p][s];
+            int s0 = r * 8 + c;
+            int s1 = (7 - r) * 8 + c;
 
-                    //
-                    EPW[p][s] = -EPW[p][s];
-                }
+            //
+            int t0 = OPW[p][s0];
+            OPW[p][s0] = OPW[p][s1];
+            OPW[p][s1] = t0;
 
-                //
-                EPW[p][s] -= OPW[p][s];
-            }
-        }  
+            //
+            int t1 = EPW[p][s0];
+            EPW[p][s0] = EPW[p][s1];
+            EPW[p][s1] = t1;
+        }    
+        
+        // subtract opening to ending
+        for (p=0; p<12; p++) for (s=0; s<64; s++) 
+        {
+            EPW[p][s] -= OPW[p][s];
+        }
     }
     
     //
@@ -346,16 +327,16 @@ public final class Eval
         if (!EVAL_NODE) { return 0; }
         
         //
-        if (MATERIAL.has(n.mhk)) { return MATERIAL.get(n.mhk); }
+ //       if (MATERIAL.has(n.mhk)) { return MATERIAL.get(n.mhk); }
         
         //
-        if (POSITION.has(n.phk)) { return POSITION.get(n.phk); } 
+ //       if (POSITION.has(n.phk)) { return POSITION.get(n.phk); } 
         
         //
         int w = cache_node(n);
 
         //
-        POSITION.add(n.phk, w);
+ //       POSITION.add(n.phk, w);
 
         //
         return w;
@@ -410,7 +391,7 @@ public final class Eval
             //if (REMAPS_EVAL) { node.remaps(si, pi, s); }
 
             // piece value
-            score += PW[i];
+            score += CPW[i];
             
             //
             score += OPW[i][s] + ((EPW[i][s] * node.ote) >> 8);    
