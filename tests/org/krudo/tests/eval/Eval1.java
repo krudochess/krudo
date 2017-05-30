@@ -11,46 +11,47 @@ import static org.krudo.Constants.*;
 import static org.krudo.tests.debug.Debug.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Decode.*;
+import static org.krudo.Describe.*;
 
 //
 import org.krudo.*;
 
 //
 public class Eval1 
-{
-    public final static int[] a = new int[] {1,2,3}; 
-    
-    public final static int[] b = new int[] {5,5,5}; 
-    
-    static {
-        b[0] = b[0] - a[0];
-    }
-    
-    public final static int evalpiece(int p, int s, int ph)
+{   
+    //
+    public final static void assert_opw(int p0, int s0, int p1, int s1)
     {
-        return Eval.OPW[p&lo][s] + ((Eval.EPW[p&lo][s] * ph) >> 8);
-    }    
+        int w0 = Eval.OPW[p0&lo][s0];
+        int w1 = Eval.OPW[p1&lo][s1];
+        
+        print(piece(p0), square(s0), ":", w0, 
+        "<=>",piece(p1), square(s1), ":", w1);
+    }
+
+    //
+    public final static void assert_epw(int p0, int s0, int p1, int s1)
+    {
+        int w0 = Eval.EPW[p0&lo][s0];
+        int w1 = Eval.EPW[p1&lo][s1];
+        
+        print();
+    }        
     
 	//
 	public static void main(String[] args) 
     {
-/*
-        int o = -100;
-        int f = 200 - o;
+        Eval.init();
         
-        int p = 250;
-        
-        //print(o + (p * f >> 8));
-        print(b[0]);
-        int m = 0b11;
-        
-        print(bin(wq));
-        print(bin(bq));
-        print(bin(wr));
-        print(bin(wb));
-        print(bin(wn));
-        print(wn & m);*/
-        print(evalpiece(bp, e5, 128));
+        assert_opw(wp, e4, bp, e5);
+        assert_opw(wp, f2, bp, f7);
+        assert_epw(wk, e4, bk, e4);
+        assert_epw(wk, a1, bk, a8);
 	}
 }
+
+
+
+
+
 

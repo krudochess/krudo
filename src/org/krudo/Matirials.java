@@ -46,7 +46,7 @@ public class Matirials
         public MATERIAL_CACHE() 
         {
             //
-            super(EVAL_MATERIAL_SIZE, 1.1f, true);
+     //       super(EVAL_MATERIAL_SIZE, 1.1f, true);
         }
         
         //
@@ -54,7 +54,8 @@ public class Matirials
         protected boolean removeEldestEntry(Map.Entry<Long, Integer> e) 
         {
             //
-            return size() > EVAL_POSITION_SIZE; 
+      //      return size() > EVAL_POSITION_SIZE; 
+        return true;
         }
         
         //
