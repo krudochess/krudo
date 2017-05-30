@@ -3,7 +3,7 @@
     "epd": "positions",
     "scripts": {
         "perft": {
-            "exec": "java -cp build/classes:build/test/classes org.tests.perft.Perft1" 
+            "exec": "java -cp build/classes:build/test/classes org.krudo.tests.perft.PerftScript" 
         }
     }
 }
