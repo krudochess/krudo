@@ -35,7 +35,8 @@ public class Eval1
         int w0 = Eval.EPW[p0&lo][s0];
         int w1 = Eval.EPW[p1&lo][s1];
         
-        print();
+        print(piece(p0), square(s0), ":", w0, 
+        "<=>",piece(p1), square(s1), ":", w1);
     }        
     
 	//
