@@ -1,7 +1,11 @@
+/.idea/
 /build.xml
 /krudo.log
 /manifest.mf
 /nbproject/
+/node_modules/
+/ndev_modules/
 /nbproject/private/
 /bin/krudo.log
 /build/
+/dist/

@@ -226,7 +226,7 @@ public final class Zobrist
 	HASH_TURN = 0xF8D626AAAF278509L; 
 	
 	// hash0 function 
-	public static final void hash0(final Node n) 
+	public static final void hash_node(final Node n) 
     {			
 		//
 		long phk = 0;

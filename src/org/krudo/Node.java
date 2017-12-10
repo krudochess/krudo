@@ -137,7 +137,7 @@ public final class Node
         Fen.parse(this, STARTPOS); 
         
         //
-        hash0(this);
+        hash_node(this);
     }
     
     // restore node to position passed in FEN
@@ -147,7 +147,7 @@ public final class Node
         Fen.parse(this, fen); 
         
         //
-        hash0(this);
+        hash_node(this);
     }
     
     // do-play a moves sequence passed by array
