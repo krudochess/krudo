@@ -5,7 +5,7 @@
 ; but if you add other options, the next Save Settings will not save them.
 ; Use a shortcut, an @indirection file, or a .bat file instead.
 ;
--saveDate 1513020899
+-saveDate 1513022614
 -whitePieceColor #fffbe6
 -blackPieceColor #000000
 -lightSquareColor #f2eadf
@@ -40,7 +40,7 @@
 -autoSaveGames false
 -onlyOwnGames false
 -monoMode false
--showCoords false
+-showCoords true
 -showThinking false
 -ponderNextMove true
 -periodicUpdates true
