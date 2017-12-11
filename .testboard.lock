@@ -5,13 +5,13 @@
 ; but if you add other options, the next Save Settings will not save them.
 ; Use a shortcut, an @indirection file, or a .bat file instead.
 ;
--saveDate 1513017485
--whitePieceColor #ffffff
+-saveDate 1513020899
+-whitePieceColor #fffbe6
 -blackPieceColor #000000
--lightSquareColor #ffffff
--darkSquareColor #77a26d
--highlightSquareColor #808080
--premoveHighlightColor #808080
+-lightSquareColor #f2eadf
+-darkSquareColor #568e69
+-highlightSquareColor #FFFF00
+-premoveHighlightColor #FF0000
 -movesPerSession 40
 -variations true
 -appendPV true
@@ -47,21 +47,13 @@
 -popupExitMessage true
 -popupMoveErrors false
 -clockFont "size45:Sans Bold 13"
--clockFont "size58:Sans Bold 13"
 -messageFont "size45:Sans Normal 10"
--messageFont "size58:Sans Normal 10"
 -coordFont "size45:Sans Bold 10"
--coordFont "size58:Sans Bold 10"
 -tagsFont "size45:Sans Normal 10"
--tagsFont "size58:Sans Normal 10"
 -commentFont "size45:Sans Normal 10"
--commentFont "size58:Sans Normal 10"
 -icsFont "size45:Monospace Normal 10"
--icsFont "size58:Monospace Normal 10"
 -moveHistoryFont "size45:Sans Normal 10"
--moveHistoryFont "size58:Sans Normal 10"
 -gameListFont "size45:Sans Normal 10"
--gameListFont "size58:Sans Normal 10"
 -boardSize Mediocre
 -alwaysOnTop false
 -autoCallFlag false
@@ -173,14 +165,14 @@ shamax
 -showButtonBar true
 -pgnExtendedInfo true
 -hideThinkingFromHuman false
--liteBackTextureFile ""
--darkBackTextureFile "/usr/share/games/xboard/themes/textures/hatch.png"
+-liteBackTextureFile "/usr/share/games/xboard/themes/textures/wood_l.png"
+-darkBackTextureFile "/usr/share/games/xboard/themes/textures/wood_d.png"
 -liteBackTextureMode 1
 -darkBackTextureMode 1
 -renderPiecesWithFont ""
 -fontPieceToCharTable ""
 -fontPieceSize 80
--overrideLineGap -1
+-overrideLineGap 1
 -adjudicateLossThreshold 0
 -delayBeforeQuit 0
 -delayAfterQuit 0
@@ -192,7 +184,7 @@ shamax
 -evalHistColorWhite #FFFFB0
 -evalHistColorBlack #AD5D3D
 -highlightMoveWithArrow true
--stickyWindows true
+-stickyWindows false
 -adjudicateDrawMoves 0
 -autoDisplayComment true
 -autoDisplayTags true
@@ -250,41 +242,41 @@ shamax
 -memoHeaders true
 -timeOddsMode 0
 -keepLineBreaksICS false
--winWidth 486
--winHeight 563
--x 317
--y 68
+-winWidth 373
+-winHeight 450
+-x 4
+-y 31
 -icsUp false
--icsX 2147483331
--icsY 2147483580
+-icsX 2147483644
+-icsY 2147483617
 -icsW -2147483648
 -icsH -2147483648
--commentX 2147483331
--commentY 2147483580
+-commentX 2147483644
+-commentY 2147483617
 -commentW -2147483648
 -commentH -2147483648
--tagsX 2147483331
--tagsY 2147483580
+-tagsX 2147483644
+-tagsY 2147483617
 -tagsW -2147483648
 -tagsH -2147483648
--gameListX 2147483331
--gameListY 2147483580
+-gameListX 2147483644
+-gameListY 2147483617
 -gameListW 500
 -gameListH 300
--slaveX 2147483331
--slaveY 2147483580
--moveHistoryUp false
--moveHistoryX 115
--moveHistoryY -41
--moveHistoryW 250
--moveHistoryH 539
--evalGraphUp false
--evalGraphX 2147483331
--evalGraphY 2147483580
--evalGraphW 300
--evalGraphH 150
+-slaveX 2147483644
+-slaveY 2147483617
+-moveHistoryUp true
+-moveHistoryX 377
+-moveHistoryY 0
+-moveHistoryW 550
+-moveHistoryH 166
+-evalGraphUp true
+-evalGraphX 0
+-evalGraphY 491
+-evalGraphW 373
+-evalGraphH 109
 -engineOutputUp true
--engineOutputX 115
--engineOutputY -41
--engineOutputW 504
--engineOutputH 539
+-engineOutputX 377
+-engineOutputY 200
+-engineOutputW 550
+-engineOutputH 400
