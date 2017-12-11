@@ -5,13 +5,13 @@
 ; but if you add other options, the next Save Settings will not save them.
 ; Use a shortcut, an @indirection file, or a .bat file instead.
 ;
--saveDate 1512949370
--whitePieceColor #FFFFCC
--blackPieceColor #202020
--lightSquareColor #C8C365
--darkSquareColor #77A26D
--highlightSquareColor #FFFF00
--premoveHighlightColor #FF0000
+-saveDate 1513017485
+-whitePieceColor #ffffff
+-blackPieceColor #000000
+-lightSquareColor #ffffff
+-darkSquareColor #77a26d
+-highlightSquareColor #808080
+-premoveHighlightColor #808080
 -movesPerSession 40
 -variations true
 -appendPV true
@@ -47,13 +47,21 @@
 -popupExitMessage true
 -popupMoveErrors false
 -clockFont "size45:Sans Bold 13"
+-clockFont "size58:Sans Bold 13"
 -messageFont "size45:Sans Normal 10"
+-messageFont "size58:Sans Normal 10"
 -coordFont "size45:Sans Bold 10"
+-coordFont "size58:Sans Bold 10"
 -tagsFont "size45:Sans Normal 10"
+-tagsFont "size58:Sans Normal 10"
 -commentFont "size45:Sans Normal 10"
+-commentFont "size58:Sans Normal 10"
 -icsFont "size45:Monospace Normal 10"
+-icsFont "size58:Monospace Normal 10"
 -moveHistoryFont "size45:Sans Normal 10"
+-moveHistoryFont "size58:Sans Normal 10"
 -gameListFont "size45:Sans Normal 10"
+-gameListFont "size58:Sans Normal 10"
 -boardSize Mediocre
 -alwaysOnTop false
 -autoCallFlag false
@@ -141,7 +149,8 @@ Open Chat Box (name);$chat;
 "kc" -icshost alanimus.com -icshelper timeseal
 }
 -recentEngines 4
--recentEngineList {fairymax
+-recentEngineList {polyglot
+fairymax
 }
 -firstChessProgramNames {fairymax
 "Fruit 2.1" -fcp fruit -fUCI
@@ -164,18 +173,18 @@ shamax
 -showButtonBar true
 -pgnExtendedInfo true
 -hideThinkingFromHuman false
--liteBackTextureFile "/usr/share/games/xboard/themes/textures/wood_l.png"
--darkBackTextureFile "/usr/share/games/xboard/themes/textures/wood_d.png"
+-liteBackTextureFile ""
+-darkBackTextureFile "/usr/share/games/xboard/themes/textures/hatch.png"
 -liteBackTextureMode 1
 -darkBackTextureMode 1
 -renderPiecesWithFont ""
 -fontPieceToCharTable ""
 -fontPieceSize 80
--overrideLineGap 1
+-overrideLineGap -1
 -adjudicateLossThreshold 0
 -delayBeforeQuit 0
 -delayAfterQuit 0
--pgnEventHeader "TestBoard"
+-pgnEventHeader "Krudo vs FairyMax"
 -defaultFrcPosition -1
 -gameListTags "eprd"
 -saveOutOfBookInfo true
@@ -200,7 +209,7 @@ shamax
 -defaultPathEGTB "/egtb"
 -language ""
 -usePieceFont false
--useBoardTexture true
+-useBoardTexture false
 -useBorder false
 -border ""
 -inscriptions ""
@@ -241,41 +250,41 @@ shamax
 -memoHeaders true
 -timeOddsMode 0
 -keepLineBreaksICS false
--winWidth 373
--winHeight 450
--x 6
--y 27
+-winWidth 486
+-winHeight 563
+-x 317
+-y 68
 -icsUp false
--icsX 2147483642
--icsY 2147483621
+-icsX 2147483331
+-icsY 2147483580
 -icsW -2147483648
 -icsH -2147483648
--commentX 2147483642
--commentY 2147483621
+-commentX 2147483331
+-commentY 2147483580
 -commentW -2147483648
 -commentH -2147483648
--tagsX 2147483642
--tagsY 2147483621
+-tagsX 2147483331
+-tagsY 2147483580
 -tagsW -2147483648
 -tagsH -2147483648
--gameListX 2147483642
--gameListY 2147483621
+-gameListX 2147483331
+-gameListY 2147483580
 -gameListW 500
 -gameListH 300
--slaveX 2147483642
--slaveY 2147483621
+-slaveX 2147483331
+-slaveY 2147483580
 -moveHistoryUp false
--moveHistoryX 426
--moveHistoryY 0
+-moveHistoryX 115
+-moveHistoryY -41
 -moveHistoryW 250
 -moveHistoryH 539
 -evalGraphUp false
--evalGraphX 2147483642
--evalGraphY 2147483621
+-evalGraphX 2147483331
+-evalGraphY 2147483580
 -evalGraphW 300
 -evalGraphH 150
 -engineOutputUp true
--engineOutputX 426
--engineOutputY 0
+-engineOutputX 115
+-engineOutputY -41
 -engineOutputW 504
 -engineOutputH 539

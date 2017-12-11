@@ -1,5 +1,6 @@
 /.idea/
 /.testboard/
+/.testboard.log
 /build.xml
 /krudo.log
 /manifest.mf
@@ -7,6 +8,7 @@
 /node_modules/
 /ndev_modules/
 /nbproject/private/
+/test/*.log
 /bin/krudo.log
 /build/
 /dist/
