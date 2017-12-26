@@ -7,27 +7,23 @@
 package org.krudo;
 
 //
-import static org.krudo.Constants.*;
-
-//
-public final class Encode {
-
-	// row and column to integer
-	public static final int cr2i(
+final class Encode
+{
+    // row and column to integer
+	public static int cr2i(
 		final int c, // col integer
 		final int r  // row integer
-	) {		
+	) {
 		//
 		return r * 8 + c;
 	}
 	
 	// row and column to integer
-	public static final int cr2i(
+	public static int cr2i(
 		final char c, // col letter
 		final char r  // row number  
 	) {
 		//
 		return (int) (r - '1') * 8 + c - 'a';
 	}
-	
 }

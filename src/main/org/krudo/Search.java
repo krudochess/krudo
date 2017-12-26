@@ -1,15 +1,14 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
+
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
 
 // 
 package org.krudo;
 
 // required static class
-import static org.krudo.Tool.*;
 import static org.krudo.Config.*;
-import static org.krudo.Decode.*;
 import static org.krudo.Describe.*;
 import static org.krudo.Constants.*;
 
@@ -69,8 +68,8 @@ public final class Search
 
     //
     public Consumer<Search> 
-    send_text_info = SEARCH_SEND_TEXT_INFO, 
-    send_best_move = SEARCH_SEND_BEST_MOVE;
+    send_text_info = Inspect.SEARCH_SEND_INFO,
+    send_best_move = Inspect.SEARCH_BEST_MOVE;
                  
     // searching controls and related         
     private boolean stop = false;    
@@ -644,7 +643,7 @@ public final class Search
         if (!SEARCH_CONTROL) { return; }
                         
         // 
-        if (id_timer.expired()) { stop = true; return; }
+        if (id_timer.timeout()) { stop = true; return; }
 
         //
         if (id_timer.polling()) 

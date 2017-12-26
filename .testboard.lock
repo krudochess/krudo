@@ -5,7 +5,7 @@
 ; but if you add other options, the next Save Settings will not save them.
 ; Use a shortcut, an @indirection file, or a .bat file instead.
 ;
--saveDate 1513022614
+-saveDate 1513994939
 -whitePieceColor #fffbe6
 -blackPieceColor #000000
 -lightSquareColor #f2eadf
@@ -36,7 +36,7 @@
 -seekGraph true
 -autoRefresh false
 -autoBox true
--saveGameFile ""
+-saveGameFile "tm1.pgn"
 -autoSaveGames false
 -onlyOwnGames false
 -monoMode false
@@ -141,8 +141,7 @@ Open Chat Box (name);$chat;
 "kc" -icshost alanimus.com -icshelper timeseal
 }
 -recentEngines 4
--recentEngineList {polyglot
-fairymax
+-recentEngineList {fairymax
 }
 -firstChessProgramNames {fairymax
 "Fruit 2.1" -fcp fruit -fUCI
@@ -176,7 +175,7 @@ shamax
 -adjudicateLossThreshold 0
 -delayBeforeQuit 0
 -delayAfterQuit 0
--pgnEventHeader "Krudo vs FairyMax"
+-pgnEventHeader "TestBoard"
 -defaultFrcPosition -1
 -gameListTags "eprd"
 -saveOutOfBookInfo true
@@ -209,7 +208,7 @@ shamax
 -fixedSize false
 -pgnNumberTag false
 -oneClickMove false
--defaultMatchGames 10
+-defaultMatchGames 2
 -matchPause 10000
 -testClaims true
 -checkMates true
@@ -255,10 +254,10 @@ shamax
 -commentY 2147483617
 -commentW -2147483648
 -commentH -2147483648
--tagsX 2147483644
--tagsY 2147483617
--tagsW -2147483648
--tagsH -2147483648
+-tagsX 46
+-tagsY 46
+-tagsW 204
+-tagsH 115
 -gameListX 2147483644
 -gameListY 2147483617
 -gameListW 500

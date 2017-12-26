@@ -1,7 +1,8 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
+
+  /*\
+ / + \ Krudo 0.20a - the blasphemy chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
 
 //
 package org.krudo;
@@ -14,20 +15,20 @@ import java.nio.file.Paths;
 import java.util.Random;
 
 //
-public final class Tool 
+public final class Tool
 {
     //
     private static String PATH_PREFIX = File.separator;
     
 	// random int between min and max with min and max included
-	public static final int rand(int min, int max) 
-    {		
+	public static int rand(int min, int max)
+    {
 		//
 		return new Random().nextInt((max - min) + 1) + min;
 	}
 	
 	// random int between min and max with min and max included
-	public static final int rand() 
+	public static int rand()
     {		
 		//
 		return new Random().nextInt();
@@ -177,12 +178,12 @@ public final class Tool
 	}
 	
 	//
-	public static final String path(String f) 
+	public static final String path(String file)
     {
         //
 		return (System.getenv().containsKey("KRUDO_PATH") 
              ?  System.getenv().get("KRUDO_PATH") 
-             :  System.getProperty("user.dir")) + f;	
+             :  System.getProperty("user.dir")) + file;
 	}
 	
 	//

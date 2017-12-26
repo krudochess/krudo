@@ -11,7 +11,7 @@ public final class Line
 {    
     // internal constants
     private final static int 
-    MAX = 250; // maximum number of half move into line
+    SIZE = 250; // maximum number of half move into line
     
     // stack move fields 
     public final int[] 
@@ -25,27 +25,27 @@ public final class Line
                 
     //
     public final long[]
-    phk, //
-    mhk; //
+    phk, // position hash
+    mhk; // matirial hash
     
-    //
+    // last element index
     public int i;
     
     // constuctor
     public Line() 
     {    
         // initialization of memory 
-        p = new int[MAX];
-        s = new int[MAX];
-        v = new int[MAX];
-        x = new int[MAX];
-        k = new int[MAX];
-        c = new int[MAX]; 
-        e = new int[MAX];    
+        p = new int[SIZE];
+        s = new int[SIZE];
+        v = new int[SIZE];
+        x = new int[SIZE];
+        k = new int[SIZE];
+        c = new int[SIZE]; 
+        e = new int[SIZE];    
                 
         //
-        phk = new long[MAX];
-        mhk = new long[MAX];
+        phk = new long[SIZE];
+        mhk = new long[SIZE];
         
         //
         i = 0;
@@ -72,11 +72,11 @@ public final class Line
         c[i] = c0;           
         e[i] = e0;
         
-        //
+        // put hash
         phk[i] = phk0;   
         mhk[i] = mhk0;   
         
-        //
+        // next index
         i++;
     }        
 }

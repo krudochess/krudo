@@ -1,7 +1,8 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
+
+  /*\
+ / + \ Krudo 0.20a - the blasphemy chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
 
 // root package
 package org.krudo;
@@ -26,10 +27,10 @@ public final class Krudo
         try 
         {    
             // initialize console with log file
-            CONSOLE.start(path("krudo.log"));
+            CONSOLE.start(path("krudo.txt"));
 
             // credits message
-            CONSOLE.print("Krudo 0.16a by Francesco Bianco <bianco@javanile.org>");
+            CONSOLE.print("Krudo 0.20a by Francesco Bianco <bianco@javanile.org>");
                   
             // init warmup memory and cache
             init();
