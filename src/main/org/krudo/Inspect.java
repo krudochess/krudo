@@ -18,35 +18,35 @@ import static org.krudo.Tool.rpad;
 public final class Inspect
 {
     //
-    public static final Strings SEARCH_SHOW_INFO = new Strings();
+    public static final Strings
+    SEARCH_INFO_SHOW = new Strings(),
+    SEARCH_INFO_HIDE = new Strings();
 
     //
-    public static final Strings SEARCH_HIDE_INFO = new Strings();
-
-    //
-    public static final Consumer<Search> SEARCH_SEND_INFO = (search) ->
+    public static final
+    Consumer<Search> SEARCH_INFO = (search) ->
     {
         //
         int pad = 18;
 
         // skip hidden info
-        if (SEARCH_HIDE_INFO.contains(search.event)) { return; }
+        if (SEARCH_INFO_HIDE.contains(search.info)) { return; }
 
         // skip not selected info
-        if (SEARCH_SHOW_INFO.size() > 0 && !SEARCH_SHOW_INFO.contains(search.event)) { return; }
+        if (SEARCH_INFO_SHOW.size() > 0 && !SEARCH_INFO_SHOW.contains(search.info)) { return; }
 
         //
-        String info = "INFO: "+ rpad(search.event, pad);
+        String info = "INFO: "+ rpad(search.info, pad);
 
         //
-        switch (search.event)
+        switch (search.info)
         {
             //
             case "id-run":
                 print(
                         info,
                         "d(" + search.depth_limit + ")",
-                        "t(" + search.id_timer.limit + ")"
+                        "t(" + search.timer.limit + ")"
                 );
                 break;
 
@@ -69,8 +69,8 @@ public final class Inspect
                         search.depth_index+"/"+search.depth_limit,
                         search.id_best_score,
                         desc(search.id_best_pv),
-                        search.ab_timer.stamp+"ms",
-                        search.ab_nodes+"n",
+                        search.timer.stamp+"ms",
+                        search.nodes+"n",
                         search.nps+"knps"
                 );
                 break;
@@ -78,7 +78,7 @@ public final class Inspect
             //
             case "id-end":
                 print(info,
-                        search.id_timer.stamp+"ms",
+                        search.timer.stamp+"ms",
                         search.id_best_score,
                         desc(search.id_best_pv)
                 );
@@ -88,9 +88,9 @@ public final class Inspect
             case "ab-routine-end":
                 print(info,
                         search.depth_index + "/" + search.depth_limit,
-                        rpad(search.ab_nodes, 10) + "n",
-                        rpad(search.qs_nodes, 8) + "n",
-                        rpad(search.ab_timer.stamp / 1000, 6) + "s",
+                        rpad(search.nodes, 10) + "n",
+                        rpad(search.nodes, 8) + "n",
+                        rpad(search.timer.stamp / 1000, 6) + "s",
                         rpad(search.nps, 5) + "knps"
                 );
                 break;
@@ -102,15 +102,16 @@ public final class Inspect
 
             //
             default:
-                print(info, search.event_message);
+                print(info);
                 break;
         }
     };
 
     //
-    public static final Consumer<Search> SEARCH_BEST_MOVE = (search) ->
+    public static final
+    Consumer<Search> SEARCH_MOVE = (search) ->
     {
         //
-        print("bestmove:", search.best_move);
+        print("bestmove:", search.move);
     };
 }
