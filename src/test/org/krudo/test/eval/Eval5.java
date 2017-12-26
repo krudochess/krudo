@@ -11,7 +11,7 @@ import org.krudo.*;
     
 //
 import static org.krudo.Tool.*;
-import static org.krudo.test.debug.Debug.*;
+import static org.krudo.test.debug.Walk.*;
     
 //
 public class Eval5 
@@ -20,7 +20,7 @@ public class Eval5
     public static void main(String[] args) 
     {    
         //
-        DEBUG_SHOW_MOVE_WEIGHT = true;
+        //DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
         Moves.init();
@@ -32,7 +32,7 @@ public class Eval5
         n.startpos();
         
         //
-        Book.walk(n, 20);
+        debug_walk_book(n, 20);
         
         //
         //dump(n);

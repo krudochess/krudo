@@ -26,7 +26,7 @@ public class Search4 {
         n.startpos();
         
         //
-        walk(n, 10, 1);
+        //walk(n, 10, 1);
         
         //
         //Legals.info();

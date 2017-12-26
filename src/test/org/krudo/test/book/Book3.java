@@ -1,42 +1,36 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
 
-//
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
+
 package org.krudo.test.book;
 
-import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
+import org.krudo.*;
 
-//
+import java.io.IOException;
+
 import static org.krudo.test.debug.Debug.*;
-import static org.krudo.Tool.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-//
-import org.krudo.Book;
-import org.krudo.Node;
-
-// 
-public class Book3 
+public class Book3
 {
-    //
-    public static void main(String[] args) 
+    @Test
+    void main()
     {
-        //
-        //debug_set_book("bin/krudo.bin");
-        
-        //print(debug_get_book());
-                
-        // 
-        Node n = new Node();
-        
-        //
-        ArrayList<String> m = Book.list(n.phk);
+        debug_book_set("bin/krudo.bin");
 
-        //
-        //dump(n);
-        
-        // print out position
-        print(m);
-    }    
+        Node n = new Node();
+
+        Strings m0 = Book.list(n.phk);
+
+        assertTrue(m0.size() == 0);
+
+        n.startpos();
+
+        Strings m1 = Book.list(n.phk);
+
+        assertTrue(m1.size() > 0);
+    }
 }

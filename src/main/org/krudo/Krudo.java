@@ -8,6 +8,8 @@
 package org.krudo;
 
 // required static class
+import java.io.IOException;
+
 import static org.krudo.Tool.*;
 import static org.krudo.Describe.*;
 
@@ -83,7 +85,7 @@ public final class Krudo
     }
     
     //
-    private static void loop() 
+    private static void loop() throws IOException
     {                
         // do input wait loop
         for (;;) 

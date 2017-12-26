@@ -1,7 +1,8 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
+
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
 
 // krudo package
 package org.krudo;
@@ -10,50 +11,31 @@ package org.krudo;
 import java.util.Map;
 import java.util.LinkedHashMap;
 
-// required static class
-import static org.krudo.Config.*;
-
 //
 public final class Captures 
 {
     //
-    private static int count = 0;
+    private static int
+    count = 0,
+    queries = 0,
+    success = 0;
 
     //
-    private static int queries = 0;
-
-    //
-    private static int success = 0;
-
-    //
-    private final static int CACHE_SIZE = 131071;
-            
-    //
-    private final static int STACK_SIZE = 131172;
+    private final static int
+    STACK_SIZE = 131072,
+    CACHE_SIZE = STACK_SIZE - 1;
     
     //
     private final static Capture[] STACK = new Capture[STACK_SIZE];
     
     //
-    private final static Cache CACHE = new Cache();
-    
-    //
-    private final static class Cache extends LinkedHashMap<Long, Capture> 
+    private final static LinkedHashMap<Long, Capture>
+    CACHE = new LinkedHashMap<Long, Capture>(CACHE_SIZE + 1, 1, false)
     {
-        // construct cache
-        public Cache()
-        {
-            // call super of LinkedHashMap
-            super(CACHE_SIZE + 1, 1, false);
-        }
-        
         // check if cache is full and flush oldest item
         @Override 
         protected boolean removeEldestEntry(Map.Entry<Long, Capture> e) 
         {
-            // disable captures cache
-            if (!CACHE_CAPTURES) { return false; }
-
             // cache is full
             if (size() > CACHE_SIZE) 
             {
@@ -63,7 +45,7 @@ public final class Captures
                 // return true than remove
                 return true;                                                    
             }
-            
+
             // return false not remove
             return false; 
         }
@@ -73,16 +55,13 @@ public final class Captures
     public static void init()
     {
         //
-        if (CACHE_CAPTURES) 
-        {
-            CACHE.put(0L, new Capture());
-            CACHE.remove(0L);
-        }
-        
-        //
         for (int i = 0; i < STACK_SIZE; i++)
         {
-            STACK[i] = new Capture(); 
+            STACK[i] = new Capture();
+            if (i == 0) {
+                CACHE.put(0L, STACK[i]);
+                CACHE.remove(0L);
+            }
         }
         
         //
@@ -110,9 +89,6 @@ public final class Captures
     public static boolean has(long h)
     {
         //
-        if (!CACHE_CAPTURES) { return false; }
-        
-        //
         queries++;
         
         //
@@ -134,9 +110,6 @@ public final class Captures
         final long h
     ) {
         //
-        if (!CACHE_CAPTURES) { return null; } 
-
-        //
         return CACHE.get(h);
     }
     
@@ -144,18 +117,12 @@ public final class Captures
     public static void add(long h, Capture c)
     {
         //
-        if (!CACHE_CAPTURES) { return; } 
-
-        //
         CACHE.put(h, c);
     }
     
     //
     public static void del(long h)
     {
-        //
-        if (!CACHE_CAPTURES) { return; } 
-
         //
         if (!CACHE.containsKey(h)) { return; }
         

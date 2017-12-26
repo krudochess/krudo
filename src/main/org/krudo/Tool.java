@@ -14,24 +14,23 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Random;
 
+import static org.krudo.Describe.*;
+
 //
 public final class Tool
 {
-    //
-    private static String PATH_PREFIX = File.separator;
-    
+	// random int between min and max with min and max included
+	public static int rand()
+	{
+		//
+		return new Random().nextInt();
+	}
+
 	// random int between min and max with min and max included
 	public static int rand(int min, int max)
     {
 		//
 		return new Random().nextInt((max - min) + 1) + min;
-	}
-	
-	// random int between min and max with min and max included
-	public static int rand()
-    {		
-		//
-		return new Random().nextInt();
 	}
 
     // random long between min and max with min and max included
@@ -176,14 +175,27 @@ public final class Tool
         //
 		System.out.print("\n");
 	}
-	
+
 	//
+	public static final boolean contains(Move m, String m0)
+	{
+		for (int i = 0; i != m.count; i++)
+		{
+			if ((square(m.s[i]) + square(m.v[i])) == m0) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	// get complete path of krudo file
 	public static final String path(String file)
     {
         //
 		return (System.getenv().containsKey("KRUDO_PATH") 
-             ?  System.getenv().get("KRUDO_PATH") 
-             :  System.getProperty("user.dir")) + file;
+             ?  System.getenv().get("KRUDO_PATH")
+             :  System.getProperty("user.dir")) + File.separator + file;
 	}
 	
 	//

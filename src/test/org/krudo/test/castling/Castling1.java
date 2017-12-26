@@ -1,49 +1,35 @@
+
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
+
 package org.krudo.test.castling;
 
-//
-import org.krudo.Moves;
+import org.krudo.*;
+import org.junit.jupiter.api.Test;
 
-// 
-import org.krudo.Node;
+import static org.krudo.Tool.*;
+import static org.krudo.test.debug.Dump.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-// 
-public class Castling1 {
-
-    //
-    public static void main(String[] args)
+class Castling1
+{
+    @Test
+    void testCastling()
     {
-        //
         Moves.init();
 
-        // 
         Node n = new Node();
 
-        //
         n.startpos();
 
-        //
-        try
-        {
-            // do move e2e4
-            n.domove("b1a3 g8f6 g1f3".split("\\s"));
+        n.domove(split("e2e4 g8f6 g1f3 e7e6 f1c4 f8c4"));
 
-            //n.domove(n.legals(), 14);
-            
-            // print out position
-            //dump(n);
-            
-            //
-            n.legals();
+        n.legals();
 
-            //
-            //dump(n.legals);
-        } 
-        
-        //
-        catch (Exception e) 
-        {
-            //dump(n);
-            e.printStackTrace();
-        }
+        dump(n, n.legals);
+
+        //assertTrue(contains(n.legals, "e1g1"));
     }    
 }

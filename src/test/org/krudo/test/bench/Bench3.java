@@ -1,20 +1,26 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
 
-//
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
+
 package org.krudo.test.bench;
 
-//
+import org.junit.jupiter.api.*;
 
-//
-public class Bench3 {
+import static org.krudo.Tool.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.krudo.test.debug.Debug.*;
 
-    //
-    public static void main(String[] args) {
+class Bench3
+{
+    @Test
+    void testSlower()
+    {
+        long t = time();
         
-        
-        System.out.println(16 >> 4);
-    }    
+        slower(100);
+
+        assertEquals(true, time() - t > 100);
+    }
 }

@@ -7,6 +7,8 @@
 package org.krudo;
 
 // required static class
+import java.io.IOException;
+
 import static org.krudo.Tool.*;
 import static org.krudo.Constants.*;
 
@@ -98,7 +100,7 @@ public final class Engine
     }
     
     // start thinking process
-    public final void go() 
+    public final void go()
     {   
         //
         if (book) 

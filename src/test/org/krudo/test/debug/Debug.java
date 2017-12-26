@@ -46,17 +46,22 @@ public final class Debug
     public static int count_incheck = 0;
         
     //
-    public final static void debug_set_book() {
-    }
+    public final static void debug_book_set(String book)
+	{
+		String file = System.getProperty("user.dir") + File.separator + book;
+		debug_set_field_value_as_string(Book.class, "BOOKFILE", file);
+	}
     
     //
-    public final static void debug_get_book() {
-    }
+    public final static String debug_book_get()
+	{
+    	return debug_get_declared_field_as_string(Book.class, "BOOKFILE");
+	}
     
-    
+    //
     public static final void debug_set_config(String config, boolean value)
     {
-        set_field_value_as_boolean(Config.class, config, value);        
+        debug_set_field_value_as_boolean(Config.class, config, value);
     }
    
     
@@ -241,57 +246,28 @@ public final class Debug
             exit();
         }
     }
-    
-    public static void slower(int weight) {
-    
+
+    // apply a slow down
+    public static void slower(int weight)
+	{
        int[] m = new int[weight];
-       
-       for(int j=0;j<weight; j++) {
-       
 
-            for(int i=0;i<weight; i++) {
+       for (int k = 0; k < 100; k++)
+       {
+		   for (int j=0;j<weight; j++)
+		   {
+			   for (int i=0;i<weight; i++)
+			   {
+				   m[i] = rand(0, weight);
+			   }
 
-                m[i] = rand(0, weight);
-            }
-            
-            for(int i=0;i<weight; i++) {
-
-                m[j] = m[i];
-            }
-       }
-    
+			   for (int i=0;i<weight; i++)
+			   {
+				   m[j] = m[i];
+			   }
+		   }
+	   }
     }
     
-        //
-    public final static void walk(final Node n, int depth, int width)
-    {
-        //
-        if (depth == 0) { return; }
-        
-        //
-        n.legals();
-        
-        //
-        Move m = n.legals.sort();
-    
-        //
-        int w = m.count > width ? width : m.count;
-        
-        //
-        for (int i = 0; i < w; i++) 
-        {
-            //
-            n.domove(m, i);
-            
-            //
-            walk(n, depth - 1, width);
-            
-            //
-            n.unmove();
-        }
-        
-        //
-        Moves.free(m);
-    }
 
 }

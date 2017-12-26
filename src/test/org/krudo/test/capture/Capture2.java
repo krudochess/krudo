@@ -1,16 +1,19 @@
 package org.krudo.test.capture;
 
 //
-import org.krudo.*;
+import org.krudo.Moves;
 
 // 
-public class Capture2 
+import org.krudo.Node;
+
+// 
+public class Capture2
 {
     //
     public static void main(String[] args)
     {
         //
-        //Krudo.init();
+        Moves.init();
 
         // 
         Node n = new Node();
@@ -19,15 +22,36 @@ public class Capture2
         n.startpos();
 
         //
-        Book.walk(n, 0);
+        try
+        {
+            // do move e2e4
+            n.domove("d2d4 e7e5 d4e5".split("\\s"));
+
+            //
+            n.legals();
+            
+            //
+            //n.domove(n.legals, 14);
+            
+            n.unmove();
+            
+            // print out position
+            //dump(n);
+
+            //
+            //n.legals();
+            
+            //
+            //dump(n.legals);  
+        } 
         
-        //
-        //dump(n);
-        
-        //
-        n.captures();
-        
-        //
-        //dump(n.captures);
+        catch (Exception e) 
+        {
+            //
+            //dump(n);
+            
+            //
+            e.printStackTrace();
+        }
     }    
 }

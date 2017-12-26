@@ -6,13 +6,12 @@
 
 package org.krudo.test.moves;
 
-import static org.krudo.Tool.*;
+import org.krudo.*;
+import org.junit.jupiter.api.*;
+
 import static org.krudo.test.debug.Info.*;
 import static org.krudo.test.debug.Reflect.*;
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.krudo.*;
-import org.junit.jupiter.api.*;
 
 class Moves1
 {

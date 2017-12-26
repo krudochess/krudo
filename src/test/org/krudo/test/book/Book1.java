@@ -1,24 +1,23 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
 
-//
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
+
 package org.krudo.test.book;
 
-//
 import org.krudo.*;
+import org.junit.jupiter.api.Test;
 
-//
 import static org.krudo.Tool.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.krudo.test.debug.Debug.*;
 
-//
-public class Book1 
+class Book1
 {
-    //
-    public static void main(String[] args) 
+    @Test
+    void testBook()
     {
-        //
         long[] nodes = new long[] 
         {
             // starting position
@@ -35,35 +34,25 @@ public class Book1
 
             // position after e2e4 d7d5 e4e5 f7f5
             0x22a48b5a8e47ff78L,
-
-            /*
-            position after e2e4 d7d5 e4e5 f7f5 e1e2
-            FEN=rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPPKPPP/RNBQ1BNR b kq - 0 3
-            key=652a607ca3f242c1
-
-            position after e2e4 d7d5 e4e5 f7f5 e1e2 e8f7
-            FEN=rnbq1bnr/ppp1pkpp/8/3pPp2/8/8/PPPPKPPP/RNBQ1BNR w - - 0 4
-            key=00fdd303c946bdd9
-
-            position after a2a4 b7b5 h2h4 b5b4 c2c4
-            FEN=rnbqkbnr/p1pppppp/8/8/PpP4P/8/1P1PPPP1/RNBQKBNR b KQkq c3 0 3
-            key=3c8123ea7b067637
-
-            position after a2a4 b7b5 h2h4 b5b4 c2c4 b4c3 a1a3
-            FEN=rnbqkbnr/p1pppppp/8/8/P6P/R1p5/1P1PPPP1/1NBQKBNR b Kkq - 0 4
-            key=5c3f9b829b279560*/
         };
-        
-        //
+
+        debug_book_set("bin/krudo.bin");
+
+        print(debug_book_get());
+
         Book.open();
-    
-        //
-        for (int i = 0; i < nodes.length; i++) 
+
+        for (int i = 0; i < nodes.length; i++)
         {
-            print(Book.list(nodes[i]));
+            long node = nodes[i];
+
+            if (i < 3) {
+                assertTrue(Book.list(node).size() > 0);
+            } else {
+                assertTrue(Book.list(node).size() == 0);
+            }
         }
-    
-        //
+
         Book.exit();
-    }    
+    }
 }

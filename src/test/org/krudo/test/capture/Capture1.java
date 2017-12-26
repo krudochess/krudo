@@ -1,6 +1,12 @@
+
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
+
 package org.krudo.test.capture;
 
-//
+import org.junit.jupiter.api.Test;
 import org.krudo.Capture;
 import org.krudo.Captures;
 
@@ -8,18 +14,14 @@ import static org.krudo.test.debug.Info.*;
 import static org.krudo.test.debug.Reflect.*;
 import static org.krudo.Tool.*;
 
-//
-
-
-// 
-public class Capture1 
+class Capture1
 {
-    //
-    public static void main(String[] args)
+    @Test
+    void testCaptures()
     {
         //
-        Captures.init();   
-        info_captures();
+        Captures.init();
+        debug_captures_info();
         
         //
         int l = 2 * debug_get_declared_field_as_int(Captures.class, "STACK_SIZE");
@@ -29,12 +31,12 @@ public class Capture1
             h[i] = uuid();
             Captures.add(h[i], c);
         }
-        info_captures();       
+        debug_captures_info();
         
         //
         for (int i = 0; i < l; i++) {
             Captures.del(h[i]);
-        }        
-        info_captures();       
+        }
+        debug_captures_info();
     }
 }

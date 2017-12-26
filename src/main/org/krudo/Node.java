@@ -1,9 +1,10 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
 
-// 
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
+
+// krudo package
 package org.krudo;
  
 // required static classes and methods
@@ -11,10 +12,7 @@ import static org.krudo.Fix.*;
 import static org.krudo.Tool.*;
 import static org.krudo.Parse.*;
 import static org.krudo.Config.*;
-import static org.krudo.Decode.*;
-import static org.krudo.Encode.*;
 import static org.krudo.Zobrist.*;
-import static org.krudo.Describe.*;
 import static org.krudo.Constants.*;
 
 // Spizzy XBoard version of Krudo 
@@ -52,20 +50,7 @@ public final class Node
     
     // captures moves-stack internal
     public Capture captures;
-        
-    // white+black boardmap improve piece lookup on board
-    public final int[] bm = new int[]
-    {
-        c3, f3, d3, e3, c4, d4, e4, f4, 
-        a7, b7, c7, d7, e7, f7, g7, h7, 
-        a8, b8, c8, d8, e8, f8, g8, h8, 
-        c5, d5, e5, f5, b1, g1, c1, d1, 
-        f1, e1, h1, a1, e2, d2, c2, f2,
-        h2, b2, g2, a2, a3, b3, h3, g3, 
-        a4, b4, g4, h4, a5, b5, g5, h5,
-        a6, b6, c6, f6, g6, h6, d6, e6
-    };
-    
+
     // white boardmap improve white piece lookup on board
     public final int[] wbm = new int[]
     {
@@ -545,10 +530,7 @@ public final class Node
         
         // test if white current in check
         legals.check = black_attack(wks);
-        
-        // skip legals test for moves 
-        if (!MOVE_LEGALS) { return; }
-         
+
         // legal move index
         int j = 0;
         
@@ -570,14 +552,11 @@ public final class Node
             // test king side castling possibility 
             if (k == KSCA) 
             {
-                //
-                if (!legals.check && !black_attack(f1) && !black_attack(g1)) 
+                if (!legals.check && !black_attack(f1, g1))
                 {
-                    //
-                    legals.copy(i, j++); 
+                    legals.copy(i, j++);
                 }             
 
-                //
                 continue;
             }
 
@@ -585,7 +564,7 @@ public final class Node
             if (k == QSCA) 
             {
                 //
-                if (!legals.check && !black_attack(d1) && !black_attack(c1)) 
+                if (!legals.check && !black_attack(d1, c1))
                 { 
                     //
                     legals.copy(i, j++); 
@@ -655,28 +634,22 @@ public final class Node
             //
             if (k == KSCA) 
             {
-                // 
-                if (!legals.check && !white_attack(f8) && !white_attack(g8)) 
+                if (!legals.check && !white_attack(f8, g8))
                 {
-                    //
-                    legals.copy(i, j++); 
+                    legals.copy(i, j++);
                 }
 
-                //
                 continue;
             }
             
             //
             if (k == QSCA) 
             {
-                // 
-                if (!legals.check && !white_attack(d8) && !white_attack(c8)) 
+                if (!legals.check && !white_attack(d8, c8))
                 { 
-                    //
-                    legals.copy(i, j++); 
+                    legals.copy(i, j++);
                 }
 
-                //
                 continue;
             }
                                               
@@ -945,6 +918,15 @@ public final class Node
         return false;
     }
 
+    //
+    public final boolean white_attack(
+            final int s1,
+            final int s2
+    ) {
+        //
+        return white_attack(s1) || white_attack(s2);
+    }
+
     // return true if black-side-player can attack square "a"
     public boolean black_attack(int a) 
     {             
@@ -1068,7 +1050,16 @@ public final class Node
         //
         return false;
     }
-        
+
+    //
+    public final boolean black_attack(
+        final int s1,
+        final int s2
+    ) {
+        //
+        return black_attack(s1) || black_attack(s2);
+    }
+
     //
     public final boolean threefold()
     {     
@@ -1367,17 +1358,7 @@ public final class Node
         //
         while (pi != cb);    
     }
-    
-    //
-    public void remaps(final int si, final int pi, final int s)
-    {                              
-        //
-        bm[si] = bm[pi];
 
-        //
-        bm[pi] = s;
-    }
-    
     //
     private void white_remaps(
         final int si, 

@@ -1,13 +1,11 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
+
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
 
 //
 package org.krudo;
-
-// required static class
-import static org.krudo.Config.*;
 
 // a stack of moves user for legal
 public final class Capture 
@@ -64,14 +62,11 @@ public final class Capture
     //
     public final Capture sort() 
     {    
-        // 
-        if (!MOVE_SORT) { return this; }
-               
         // swap count
         int z;            
 
-        // 
-        do 
+        // repeat even sort
+        do
         {                                 
             // set swap count to zero
             z = 0;
@@ -142,9 +137,3 @@ public final class Capture
         return c;
     }
 }
-
-
-
-
-
-

@@ -37,22 +37,36 @@ public class Info
     //
     public static void info_legals() 
     {       
-        LinkedHashMap<Long, Move> cache = get_field_value_as_linked_hash_map(Legals.class, "CACHE");       
-        Map.Entry[] table = get_field_value_as_map_entry_array(
-            HashMap.class, "table", cache);        
-        //print(cache.getClass().getSuperclass().getSuperclass().getName());                       
+        LinkedHashMap<Long, Move> cache = debug_get_declared_field_as_linked_hash_map(Legals.class, "CACHE");
+        Map.Entry[] table = debug_get_field_value_as_map_entry_array(HashMap.class, "table", cache);
+
         print("@Legals: table="+table.length);
     }
 
     //
-    public static void info_captures() 
+    public static int[] debug_captures_get_info()
     {
         int count = debug_get_declared_field_as_int(Captures.class, "count");
-        Capture[] stack = get_field_value_as_capture_array(Captures.class, "STACK", null);
-        LinkedHashMap<Long, Move> cache = get_field_value_as_linked_hash_map(Captures.class, "CACHE");       
-        Map.Entry[] table = get_field_value_as_map_entry_array(HashMap.class, "table", cache);        
-        //print(cache.getClass().getSuperclass().getSuperclass().getName());                       
-        print("@Captures: stack="+count+"/"+stack.length+" cache="+cache.size()+"/"+table.length);
+        Capture[] stack = debug_get_declared_field_as_capture_array(Captures.class, "STACK");
+        LinkedHashMap<Long, Move> cache = debug_get_declared_field_as_linked_hash_map(Captures.class, "CACHE");
+        Map.Entry[] table = debug_get_field_value_as_map_entry_array(HashMap.class, "table", cache);
+
+        return new int[] {
+            count,
+            stack.length,
+            cache.size(),
+            table.length
+        };
+    }
+
+    //
+    public static void debug_captures_info()
+    {
+        //
+        int[] info = debug_captures_get_info();
+
+        //
+        print("@Captures: stack=" + info[0] + "/" + info[1] + " cache=" + info[2] + "/" + info[3]);
     }
     
     /*
