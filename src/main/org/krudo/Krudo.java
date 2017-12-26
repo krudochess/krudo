@@ -72,7 +72,7 @@ public final class Krudo
         //TT.init();
         
         // PV memory
-        //PVs.init();
+        PVs.init();
         
         // prepare eval memory
         //Eval.init();
@@ -103,8 +103,8 @@ public final class Krudo
                     ENGINE.init();
 
                     // set search callback function in onDone-event search
-                    ENGINE.search.send_text_info = UCI.SEND_TEXT_INFO;                                    
-                    ENGINE.search.send_best_move = UCI.SEND_BEST_MOVE;                                    
+                    ENGINE.search.send_info = UCI.SEND_INFO;
+                    ENGINE.search.send_move = UCI.SEND_MOVE;
                    
                     // uci first message
                     CONSOLE.print(UCI.ID_NAME, "Krudo 0.16a");

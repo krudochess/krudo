@@ -197,7 +197,17 @@ public final class Tool
              ?  System.getenv().get("KRUDO_PATH")
              :  System.getProperty("user.dir")) + File.separator + file;
 	}
-	
+
+    // check if file exists
+    public static final boolean exists(String file)
+    {
+        //
+        File f = new File(file);
+
+        //
+        return f.exists() && !f.isDirectory();
+    }
+
 	//
 	public static final long byte2long(byte[] b, int o, int l) 
     {

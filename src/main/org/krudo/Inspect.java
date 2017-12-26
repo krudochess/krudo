@@ -1,20 +1,20 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
+
+  /*\
+ / + \ Krudo 0.20a - the messianic chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
 
 // krudo package
 package org.krudo;
 
-// required static class
-
+// require non-static class
 import java.util.function.Consumer;
 
-import static org.krudo.Describe.desc;
-import static org.krudo.Tool.print;
-import static org.krudo.Tool.rpad;
+// require static class methods
+import static org.krudo.Tool.*;
+import static org.krudo.Describe.*;
 
-//
+// inspect interl value for debug and development
 public final class Inspect
 {
     //
@@ -24,85 +24,106 @@ public final class Inspect
 
     //
     public static final
-    Consumer<Search> SEARCH_INFO = (search) ->
+    Consumer<Search> SEARCH_INFO = (s) ->
     {
-        //
-        int pad = 18;
-
         // skip hidden info
-        if (SEARCH_INFO_HIDE.contains(search.info)) { return; }
+        if (SEARCH_INFO_HIDE.contains(s.info)) { return; }
 
         // skip not selected info
-        if (SEARCH_INFO_SHOW.size() > 0 && !SEARCH_INFO_SHOW.contains(search.info)) { return; }
+        if (SEARCH_INFO_SHOW.size() > 0 && !SEARCH_INFO_SHOW.contains(s.info)) { return; }
 
         //
-        String info = "INFO: "+ rpad(search.info, pad);
-
-        //
-        switch (search.info)
+        switch (s.info)
         {
             //
-            case "id-run":
+            case "+go":
                 print(
-                        info,
-                        "d(" + search.depth_limit + ")",
-                        "t(" + search.timer.limit + ")"
+                    "info:",
+                    lpad(s.info, 8),
+                    "d=" + s.depth_limit,
+                    "t=" + s.timer.limit
                 );
                 break;
 
             //
-            case "id-loop-run":
+            case "-go":
                 print(
-                        info,
-                        "d(" + search.depth_index + "/" + search.depth_limit+")"
+                    "info:",
+                    lpad(s.info, 8),
+                    "s=" + s.id_score,
+                    "t=" + s.timer.stamp,
+                    desc(s.id_pv)
                 );
                 break;
 
             //
-            case "id-loop-break":
-                print(info, "event break");
-                break;
-
-            //
-            case "id-loop-end":
-                print(info,
-                        search.depth_index+"/"+search.depth_limit,
-                        search.id_best_score,
-                        desc(search.id_best_pv),
-                        search.timer.stamp+"ms",
-                        search.nodes+"n",
-                        search.nps+"knps"
+            case "+id":
+                print(
+                    "info:",
+                    lpad("  " + s.info, 18),
+                    "d(" + s.depth_index + "/" + s.depth_limit+")"
                 );
                 break;
 
             //
-            case "id-end":
-                print(info,
-                        search.timer.stamp+"ms",
-                        search.id_best_score,
-                        desc(search.id_best_pv)
+            case "#id":
+                print(
+                    "info:",
+                    lpad("  " + s.info, 18),
+                    "event break"
                 );
                 break;
 
             //
-            case "ab-routine-end":
-                print(info,
-                        search.depth_index + "/" + search.depth_limit,
-                        rpad(search.nodes, 10) + "n",
-                        rpad(search.nodes, 8) + "n",
-                        rpad(search.timer.stamp / 1000, 6) + "s",
-                        rpad(search.nps, 5) + "knps"
+            case "-id":
+                print(
+                    "info:",
+                    lpad("  " + s.info, 18),
+                    s.depth_index+"/"+s.depth_limit,
+                    s.id_score,
+                    desc(s.id_pv),
+                    s.timer.stamp+"ms",
+                    s.nodes+"n",
+                    s.nps+"knps"
                 );
                 break;
 
             //
-            case "ab-control-speed":
-                print(info, search.nps + "knps");
+            case "+ab":
+                print(
+                    "info:",
+                    lpad("    " + s.info, 18)
+                );
+                break;
+
+            //
+            case "-ab":
+                print(
+                    "info:",
+                    lpad("    " + s.info, 18),
+                    s.depth_index + "/" + s.depth_limit,
+                    rpad(s.nodes, 10) + "n",
+                    rpad(s.nodes, 8) + "n",
+                    rpad(s.timer.stamp / 1000, 6) + "s",
+                    rpad(s.nps, 5) + "knps"
+                );
+                break;
+
+            //
+            case "!ct":
+                print(
+                    "info:",
+                    lpad("    " + s.info, 18),
+                    s.nps + "knps"
+                );
                 break;
 
             //
             default:
-                print(info);
+                print(
+                    "info:",
+                    lpad(s.info, 18)
+                );
                 break;
         }
     };
@@ -112,6 +133,6 @@ public final class Inspect
     Consumer<Search> SEARCH_MOVE = (search) ->
     {
         //
-        print("bestmove:", search.move);
+        print("move:", search.move);
     };
 }

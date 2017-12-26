@@ -11,7 +11,6 @@ package org.krudo;
 import java.util.function.Consumer;
 
 // require static class methods
-import static org.krudo.Config.*;
 import static org.krudo.Describe.*;
 import static org.krudo.Constants.*;
 
@@ -67,8 +66,29 @@ public final class Search
     {
         // set node to startpos
         node.startpos(fen); 
-    }    
-    
+    }
+
+    // set internal node to startpos
+    public final void startpos()
+    {
+        // set node to startpos
+        startpos(STARTPOS);
+    }
+
+    // set initernal node to custom startpos
+    public final void startpos(String fen)
+    {
+        // set node to startpos
+        node.startpos(fen);
+    }
+
+    // public method to start search with large time-limit
+    public final void start()
+    {
+        // start search time limit 5minutes
+        start(10);
+    }
+
     // public method to start search with large time-limit
     public final void start(int depth) 
     {    
@@ -117,13 +137,13 @@ public final class Search
         PV new_pv = PVs.pick();
                         
         // log 
-        info("id-run");
+        info("+go");
         
         // iterative deeping loop
         while (start && depth_index != depth_limit)
         {                                        
             // log
-            info("id-loop-run");
+            info("+id");
 
             // get score of aspiration window
             score = awrun(score, new_pv);
@@ -144,7 +164,7 @@ public final class Search
             nps = timer.ratio(nodes);
             
             // log
-            info("id-loop-end");
+            info("-id");
               
             // increade depth of search
             depth_index++;                        
@@ -157,7 +177,7 @@ public final class Search
         nps = timer.ratio(nodes);
                     
         // log
-        info("id-end");
+        info("-go");
                 
         // send best move
         move(id_move);
@@ -184,10 +204,7 @@ public final class Search
         
     // alfa-beta entry-point root search
     private int abrun(int a, int b, final PV pv) 
-    {    
-        //
-        info("ab-routine-run");        
-                               
+    {
         //
         pv.clear();
                
@@ -217,6 +234,9 @@ public final class Search
                 
         // tansposition tables flag and values
         int f = TT.E, bm_s = xx, bm_v = xx;
+
+        //
+        info("+ab");
 
         // loop thru the moves
         for (int i = 0; i != count; i++) 
@@ -266,7 +286,7 @@ public final class Search
         nps = timer.ratio(nodes);
 
         //
-        info("ab-routine-end");
+        info("-ab");
         
         //
         return a; 

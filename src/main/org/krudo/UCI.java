@@ -53,26 +53,26 @@ public final class UCI
     OPTION         = "option";
 
     //
-    public static final Consumer<Search> SEND_TEXT_INFO = (search) ->
+    public static final Consumer<Search> SEND_INFO = (search) ->
     {                                      
         //
-        if (search.event.equals("id-loop-end")) 
+        if (search.info.equals("id-loop-end"))
         {
             //
             Krudo.CONSOLE.print(INFO, 
                 DEPTH,    search.depth_index, 
-                SCORE_CP, search.id_best_score,
-                TIME,     search.id_timer.stamp,
-                NODES,    search.id_nodes,
+                SCORE_CP, search.id_score,
+                TIME,     search.timer.stamp,
+                NODES,    search.nodes,
                 //NPS,    s.nps,
-                PV,       desc(search.id_best_pv),
-                "event",  search.event
+                PV,       desc(search.id_pv),
+                "info",   search.info
             );
         }
     };
         
     //
-    public static final Consumer<Search> SEND_BEST_MOVE = (search) ->
+    public static final Consumer<Search> SEND_MOVE = (search) ->
     {                
         //
         Krudo.CONSOLE.print(desc(search.node));
@@ -84,7 +84,7 @@ public final class UCI
         Krudo.CONSOLE.print(desc(search.node.legals));
         
         //
-        Krudo.CONSOLE.print(BESTMOVE, search.best_move);                                                
+        Krudo.CONSOLE.print(BESTMOVE, search.move);
     };            
         
     // 

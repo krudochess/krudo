@@ -38,7 +38,8 @@ public final class Book {
     private static final String BOOKFILE = path("krudo.bin");
 
     // open binary file
-    public static void open() {
+    public static void open()
+    {
         //
         try {
             //
@@ -56,6 +57,13 @@ public final class Book {
             //
             Tool.exit();
         }
+    }
+
+    //
+    public static final boolean have()
+    {
+        //
+        return exists(BOOKFILE);
     }
 
     // close binary file

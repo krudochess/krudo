@@ -1,47 +1,48 @@
-/**
- * Krudo 0.16a - a chess engine for cooks
- * by Francesco Bianco <bianco@javanile.org>
- */
 
-// 
+  /*\
+ / + \ Krudo 0.20a - the blasphemy chess engine.
+ \IHS/ by Francesco Bianco <bianco@javanile.org>
+  \*/
+
+// krudo package
 package org.krudo;
 
-//
-import static org.krudo.Tool.*;
-
-//
+// bucket of pre-created PV stacks
 public class PVs
 {    
     //
-    private final static int PV_STACK_SIZE = 1000;
+    private final static int
+    SIZE = 1000;
     
     //
-    private final static PV[] STACK = new PV[PV_STACK_SIZE];;
+    private final static
+    PV[] STACK = new PV[SIZE];
     
     //
-    private static int count;
+    private static int
+    count;
     
     //
     public final static void init()
     {          
         //
-        for(int i = 0; i < PV_STACK_SIZE; i++)
+        for(int i = 0; i < SIZE; i++)
         {
             STACK[i] = new PV();        
         }
         
         //
-        count = PV_STACK_SIZE;
+        count = SIZE;
     }
     
-    //
+    // get one stack from bucket
     public static final PV pick()
     {
         //
         return STACK[--count];    
     }
     
-    //
+    // free one stack and move to bucket
     public static void free(final PV pv) 
     {
         //
@@ -49,16 +50,5 @@ public class PVs
         
         //
         STACK[count++] = pv;
-    }
-    
-    //
-    public static void info()
-    {
-        //
-        print(
-            "PV free",
-            count, 
-            count == PV_STACK_SIZE ? "(PERFECT!!)" : "(PROBLEM??)"
-        );
     }
 }

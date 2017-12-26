@@ -50,6 +50,9 @@ public final class Engine
     {
         //
         search.node.startpos(fen);
+
+        //
+        book = Book.have();
     }
            
     //
@@ -112,7 +115,7 @@ public final class Engine
             if (m != null)
             {    
                 //
-                search.sendbestmove(m);
+                search.move(m);
 
                 //
                 return;

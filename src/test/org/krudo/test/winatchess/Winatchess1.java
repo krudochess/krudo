@@ -24,8 +24,8 @@ public class Winatchess1
         Timer t = new Timer();
         
         Search s = new Search();        
-        s.send_text_info = (search) -> {};
-        s.send_best_move = (search) -> {};
+        s.send_info = (search) -> {};
+        s.send_move = (search) -> {};
                         
         int depth = 5;
         int time = 3500;             
@@ -50,7 +50,7 @@ public class Winatchess1
                 e.printStackTrace();
             }
             
-            String bm = algebric(s.node, s.id_best_move);
+            String bm = algebric(s.node, s.id_move);
             
             if (row[2].equals(bm)) { 
                 count_success++;

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.krudo.*;
 import org.junit.jupiter.api.*;
 
-public class Analize1 
+class Analize1
 {
     @Test
     void testAnalysis()
@@ -28,8 +28,7 @@ public class Analize1
                         
         Search s = new Search(fen);
 
-        Inspect.SEARCH_SHOW_INFO.add("id-loop-end");
-
+        Inspect.SEARCH_INFO_SHOW.add("id-loop-end");
 
         //s.node.domove("h6g6");
         //s.node.domove("h7g6");

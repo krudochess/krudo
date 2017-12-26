@@ -112,4 +112,18 @@ public class Info
         print("Eval material (size:"+MATERIAL.size()+" q:"+MATERIAL.queries+" s:"+MATERIAL.success+")");
     }    
     */
+
+
+
+    //
+    public static void debug_pvs_info()
+    {
+        /*
+        print(
+                "PV free",
+                count,
+                count == PV_STACK_SIZE ? "(PERFECT!!)" : "(PROBLEM??)"
+        );*/
+    }
+
 }
