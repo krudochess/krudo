@@ -1,0 +1,15 @@
+
+name: krudo suite
+
+utilities:
+  eval:
+    command: java -cp build/classes:build/test/classes org.krudo.test.eval.EvalScript {{FEN}}
+
+  perft:
+    command: java -cp build/classes:build/test/classes org.krudo.tests.perft.PerftScript {{FEN}}
+
+databases:
+  simple:
+    format: epd
+    source: res/epd/Silent-but-deadly.epd
+
