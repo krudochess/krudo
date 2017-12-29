@@ -11,6 +11,7 @@ package org.krudo;
 import java.util.function.Consumer;
 
 // require static class methods
+import static org.krudo.Tool.*;
 import static org.krudo.Describe.*;
 import static org.krudo.Constants.*;
 
@@ -99,7 +100,7 @@ public final class Search
     // public method to start search custom time-limit
     public final void start(int depth, long time) 
     {            
-        // reset stop flag
+        // reset stop flags
         start = true;
         
         // place offset for search variation
@@ -140,7 +141,7 @@ public final class Search
         info("+go");
         
         // iterative deeping loop
-        while (start && depth_index != depth_limit)
+        while (start && depth_index <= depth_limit)
         {                                        
             // log
             info("+id");
@@ -193,17 +194,17 @@ public final class Search
         final int b = s + sw;
 
         // launch alfa-beta for searcing candidates 
-        s = abrun(a, b, new_pv); 
+        s = abrun(depth_index, a, b, new_pv);
 
         // if consider aspiration window fails
-        if (s <= a || s >= b) { return abrun(-oo, +oo, new_pv); } 
+        if (s <= a || s >= b) { return abrun(depth_index, -oo, +oo, new_pv); }
             
         // aspiration window not fails redial new score
         return s;
     }
         
     // alfa-beta entry-point root search
-    private int abrun(int a, int b, final PV pv) 
+    private int abrun(int d, int a, int b, final PV pv)
     {
         //
         pv.clear();
@@ -221,7 +222,7 @@ public final class Search
         final int count = node.legals.count;
         
         // no legal moves check-mate or stale-mate
-        if (count == 0) { return -end(); }
+        if (count == 0) { return -mate(); }
 
         //
         final PV new_pv = PVs.pick();
@@ -231,12 +232,12 @@ public final class Search
                 
         // 
         Move m = node.legals.sort().twin();
-                
-        // tansposition tables flag and values
-        int f = TT.E, bm_s = xx, bm_v = xx;
 
         //
         info("+ab");
+
+        //
+        int f = TT.E;
 
         // loop thru the moves
         for (int i = 0; i != count; i++) 
@@ -245,37 +246,21 @@ public final class Search
             node.domove(m, i);
             
             // recursive evaluation search                    
-            int s = abmin(depth_index - 1, a, b, new_pv, NT_NODE);
+            int s = abmin(d - 1, a, b, new_pv, NT_NODE);
 
             // undo
             node.unmove();            
                        
             // hard cut-off
-            if (s >= b) { f = TT.B; a = b; break; }
+            if (s >= b) { a = b; f = TT.B; break; }
             
             // soft alfa-cut-off 
-            if (s > a) 
-            {   
-                //
-                bm_s = m.s[i];
-                
-                //
-                bm_v = m.v[i];
-                
-                //
-                TT.store(node.phk, TT.A, depth_index, s, bm_s, bm_v);
-                                                
-                //
-                pv.cat(new_pv, m, i);
-                
-                //
-                a = s;                
-            }   
+            if (s > a) { pv.cat(new_pv, m, i); a = s; TT.add(node.phk, d, TT.A, a); }
         } 
-        
-        // trasposition store EXACT or BETA cut-off
-        TT.store(node.phk, f, depth_index, a, bm_s, bm_v);
-        
+
+        //
+        TT.add(node.phk, d, f, a);
+
         //
         PVs.free(new_pv);
                 
@@ -294,10 +279,7 @@ public final class Search
     
     //
     private int abmax(final int d, int a, int b, final PV pv, final int nt) 
-    {   
-        //
-        TT.probemax(node.phk);
-        
+    {
         // get legal-moves  
         node.legals();
         
@@ -317,15 +299,17 @@ public final class Search
             if (node.threefold()) { return stalemate; }
                 
             // no legal moves check-mate or stale-mate
-            if (l == 0) { return -end(); }
+            if (l == 0) { return -mate(); }
 
             //
             return qsmax(a, b, pv);
         }
-        
-        // score
-        int s;  
-        
+
+        //
+        if (TT.has(node.phk, d)) {
+            return TT.max(node.phk, a, b);
+        }
+
         //
         pv.clear();
                 
@@ -337,7 +321,10 @@ public final class Search
                 
         // sort and clone       
         Move m  = node.legals.sort().twin();
-                
+
+        // tt exit flags
+        int f = TT.E;
+
         // loop throut legal moves
         for (int i = 0; i != l; i++) 
         {            
@@ -345,7 +332,7 @@ public final class Search
             node.domove(m, i);
 
             //
-            s = abmin(d - 1, a, b, new_pv, NT_NODE);
+            int s = abmin(d - 1, a, b, new_pv, NT_NODE);
                        
             // undo move
             node.unmove();                
@@ -354,35 +341,15 @@ public final class Search
             if (!start) { break; }
                         
             // hard cut-off
-            if (s >= b)
-            {  
-                //
-                //if (SEARCH_UPDATE) { node.legals.w[i] = b; }
-                
-                //
-                a = b;
-                
-                //
-                break;
-            }
+            if (s >= b) { a = b; f = TT.B; break; }
         
             // soft cut-off
-            if (s > a) 
-            {                         
-                //
-                //if (SEARCH_UPDATE) { node.legals.w[i] = s; }
-
-                //
-                pv.cat(new_pv, m, i);                
-                
-                //
-                //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
-                     
-                //
-                a = s;             
-            }
+            if (s > a) { pv.cat(new_pv, m, i); a = s; TT.add(node.phk, d, TT.A, a); }
         }
-        
+
+        //
+        TT.add(node.phk, d, f, a);
+
         //
         Moves.free(m);
         
@@ -396,16 +363,13 @@ public final class Search
     // alfa-beta min routine
     private int abmin(final int d, int a, int b, final PV pv, final int nt)
     {   
-        //
-        TT.probemax(node.phk);
-
-        // generate legal-moves 
+        // generate legal-moves
         node.legals();
        
         // get current number of legal moves
         final int l = node.legals.count;
         
-        // at-end quiescence search and 
+        // at-mate quiescence search and
         if (d == 0) 
         {            
             //
@@ -418,15 +382,17 @@ public final class Search
             if (node.threefold()) { return 0; }
 
             // no-legals-move exit checkmate
-            if (l == 0) { return end(); }
+            if (l == 0) { return mate(); }
 
             //
             return qsmin(a, b, pv);
         }
 
         //
-        int s; 
-        
+        if (TT.has(node.phk, d)) {
+            return TT.min(node.phk, a, b);
+        }
+
         //
         pv.clear();
                                 
@@ -437,58 +403,38 @@ public final class Search
         Eval.legals(node); 
         
         // and sort
-        Move m = node.legals.sort().twin();        
-            
+        Move m = node.legals.sort().twin();
+
+        // tt exit flags
+        int f = TT.E;
+
         //
         for (int i = 0; i != l; i++)
         {                 
             // make move
             node.domove(m, i);
                     
-            // 
-            //w = abmax(d-1, p==0 ? a : b-1, b);
-            
-            //
-            //if (w < b && p > 0) {
-            s = abmax(d - 1, a, b, new_pv, NT_NODE);                
-            //}
+            int s = abmax(d - 1, a, b, new_pv, NT_NODE);
 
             // unmake move
             node.unmove();         
 
             // hard cut-off
-            if (s <= a)
-            { 
-                //
-                b = a;
-                
-                //
-                break;
-            }
+            if (s <= a) { b = a; f = TT.A; break; }
                                                 
             // soft cut-off
-            if (s < b) 
-            {                     
-                //
-                //if (SEARCH_UPDATE) { node.legals.w[i] = s; }
-                
-                //
-                pv.cat(new_pv, m, i);
-                
-                //
-                //sendinfo("ab-soft-cut-off", m2s(m, i)+"="+s+" ["+a+";"+b+"]");
-                
-                //
-                b = s;                       
-            }                    
+            if (s < b) { pv.cat(new_pv, m, i); b = s; TT.add(node.phk, d, TT.B, b); }
         } 
-        
+
+        //
+        TT.add(node.phk, d, f, b);
+
         //
         Moves.free(m);
         
         //
         PVs.free(new_pv);
-          
+
         //
         return b;    
     }
@@ -618,7 +564,7 @@ public final class Search
     }
 
     // get score for checkmate or stalemate node
-    private int end()
+    private int mate()
     {
         // in check is mate otherwise stalemate
         return node.legals.check ? checkmate + line_offset - node.L.i : stalemate;

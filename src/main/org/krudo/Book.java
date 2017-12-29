@@ -22,7 +22,7 @@ import static org.krudo.Tool.*;
 
 // book access tool
 public final class Book {
-    // end of file flag handler
+    // end of file flags handler
     private static int eof = 0;
 
     // key-hash of current move after a .read() method

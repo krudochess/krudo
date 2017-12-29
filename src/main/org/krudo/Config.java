@@ -8,7 +8,12 @@ package org.krudo;
 
 //
 public final class Config 
-{    
+{
+    public static int MEMORY_BUFFER = 65536;
+    public static int MEMORY_FACTOR = 0;
+
+
+
     // config flags
     public static /*final*/ boolean 
 

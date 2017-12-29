@@ -31,7 +31,10 @@ public class Dump {
 	//
 	public final static void dump(final Line l) { print(desc(l)); }
 
-	// 
+    //
+    public final static void dump(final Node n, final Line l) { print(desc(n)); print(desc(l)); }
+
+    //
 	public final static void dump(final Move m) { print(desc(m)); }
 	
     // 

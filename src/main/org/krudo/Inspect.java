@@ -39,7 +39,7 @@ public final class Inspect
             case "+go":
                 print(
                     "info:",
-                    lpad(s.info, 8),
+                    lpad(s.info, 10),
                     "d=" + s.depth_limit,
                     "t=" + s.timer.limit
                 );
@@ -49,7 +49,7 @@ public final class Inspect
             case "-go":
                 print(
                     "info:",
-                    lpad(s.info, 8),
+                    lpad(s.info, 10),
                     "s=" + s.id_score,
                     "t=" + s.timer.stamp,
                     desc(s.id_pv)
@@ -60,8 +60,8 @@ public final class Inspect
             case "+id":
                 print(
                     "info:",
-                    lpad("  " + s.info, 18),
-                    "d(" + s.depth_index + "/" + s.depth_limit+")"
+                    lpad("  " + s.info, 10),
+                    "d=" + s.depth_index + "/" + s.depth_limit
                 );
                 break;
 
@@ -69,7 +69,7 @@ public final class Inspect
             case "#id":
                 print(
                     "info:",
-                    lpad("  " + s.info, 18),
+                    lpad("  " + s.info, 10),
                     "event break"
                 );
                 break;
@@ -78,8 +78,8 @@ public final class Inspect
             case "-id":
                 print(
                     "info:",
-                    lpad("  " + s.info, 18),
-                    s.depth_index+"/"+s.depth_limit,
+                    lpad("  " + s.info, 10),
+                    "d="+s.depth_index+"/"+s.depth_limit,
                     s.id_score,
                     desc(s.id_pv),
                     s.timer.stamp+"ms",
@@ -92,7 +92,7 @@ public final class Inspect
             case "+ab":
                 print(
                     "info:",
-                    lpad("    " + s.info, 18)
+                    lpad("    " + s.info, 10)
                 );
                 break;
 
@@ -100,12 +100,11 @@ public final class Inspect
             case "-ab":
                 print(
                     "info:",
-                    lpad("    " + s.info, 18),
-                    s.depth_index + "/" + s.depth_limit,
-                    rpad(s.nodes, 10) + "n",
-                    rpad(s.nodes, 8) + "n",
-                    rpad(s.timer.stamp / 1000, 6) + "s",
-                    rpad(s.nps, 5) + "knps"
+                    lpad("    " + s.info, 10),
+                    "d=" + s.depth_index + "/" + s.depth_limit,
+                    "n=" + s.nodes,
+                    "t=" + s.timer.stamp,
+                    "knps=" + s.nps
                 );
                 break;
 
@@ -113,7 +112,7 @@ public final class Inspect
             case "!ct":
                 print(
                     "info:",
-                    lpad("    " + s.info, 18),
+                    lpad("    " + s.info, 10),
                     s.nps + "knps"
                 );
                 break;
@@ -122,7 +121,7 @@ public final class Inspect
             default:
                 print(
                     "info:",
-                    lpad(s.info, 18)
+                    lpad(s.info, 10)
                 );
                 break;
         }

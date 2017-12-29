@@ -70,7 +70,7 @@ public class Perft1
             dump(n);
             
             //
-            info_legals();
+            debug_legals_info();
             //dump(n);
             /*/
             Perft.table(n,5);

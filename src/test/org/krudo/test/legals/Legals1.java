@@ -18,6 +18,6 @@ public class Legals1
     //
     public static void main(String[] args)
     {    
-        info_legals();
+        debug_legals_info();
     }
 }

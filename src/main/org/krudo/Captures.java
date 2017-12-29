@@ -12,6 +12,9 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 
 //
+import static org.krudo.Config.*;
+
+//
 public final class Captures 
 {
     //
@@ -22,15 +25,15 @@ public final class Captures
 
     //
     private final static int
-    STACK_SIZE = 131072,
-    CACHE_SIZE = STACK_SIZE - 1;
+    CACHE_SIZE = (MEMORY_BUFFER << MEMORY_FACTOR >> 1) - 1,
+    STACK_SIZE = CACHE_SIZE + 20;
     
     //
     private final static Capture[] STACK = new Capture[STACK_SIZE];
     
     //
     private final static LinkedHashMap<Long, Capture>
-    CACHE = new LinkedHashMap<Long, Capture>(CACHE_SIZE + 1, 1, false)
+    CACHE = new LinkedHashMap<Long, Capture>(CACHE_SIZE, 1, false)
     {
         // check if cache is full and flush oldest item
         @Override 

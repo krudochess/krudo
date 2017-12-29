@@ -8,15 +8,18 @@
 package org.krudo;
 
 //
+import static org.krudo.Config.*;
+
+//
 public class Moves 
 {
     //
     private final static int
-    STACK_SIZE = 130000;
+    SIZE = (MEMORY_BUFFER << MEMORY_FACTOR);
 
     //
     private final static Move[]
-    STACK = new Move[STACK_SIZE];
+    STACK = new Move[SIZE];
     
     //
     private static int count = 0;
@@ -25,13 +28,13 @@ public class Moves
     public static void init()
     {
         //
-        for (int i = 0; i < STACK_SIZE; i++) 
+        for (int i = 0; i < SIZE; i++)
         {
-            STACK[i] = new Move(); 
+            STACK[i] = new Move();
         }
         
         //
-        count = STACK_SIZE;
+        count = SIZE;
     }
     
     //

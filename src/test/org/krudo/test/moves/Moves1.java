@@ -26,14 +26,14 @@ class Moves1
         for (int i = 0; i < STACK_SIZE; i++) {
             temp[i] = Moves.pick();
         }   
-        debug_print_moves_info();
-        assertEquals(0, debug_get_moves_count());
+        debug_moves_info();
+        assertEquals(0, debug_moves_get_info()[0]);
 
         for (int i = 0; i < STACK_SIZE; i++) {
             Moves.free(temp[i]);
         }        
-        debug_print_moves_info();
-        assertEquals(STACK_SIZE, debug_get_moves_count());
+        debug_moves_info();
+        assertEquals(STACK_SIZE, debug_moves_get_info()[0]);
 
         try {
             for (int i = 0; i < STACK_SIZE + 1; i++) {

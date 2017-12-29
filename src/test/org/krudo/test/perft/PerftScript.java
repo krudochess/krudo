@@ -50,7 +50,7 @@ public class PerftScript
             dump(n);
             
             //
-            info_legals();
+            debug_legals_info();
             //dump(n);
             /*/
             Perft.table(n,5);

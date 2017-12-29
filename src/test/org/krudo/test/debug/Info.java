@@ -19,28 +19,50 @@ import static org.krudo.test.debug.Reflect.*;
 //
 public class Info 
 {
-    //
-    public static int debug_get_moves_count()
+    // get info about moves stacks
+    public static int[] debug_moves_get_info()
     {
-        return debug_get_declared_field_as_int(Moves.class, "count");
+        //
+        int count = debug_get_declared_field_as_int(Moves.class, "count");
+        int stack = debug_get_declared_field_as_int(Moves.class, "SIZE");
+
+        //
+        return new int[] {
+            count,
+            stack
+        };
+    }
+
+    // print moves info
+    public static void debug_moves_info()
+    {
+        int[] info = debug_moves_get_info();
+
+        print("@Moves: count="+info[0]+"/"+info[1]);
     }
 
     //
-    public static void debug_print_moves_info()
+    public static int[] debug_legals_get_info()
     {
-        int count = debug_get_moves_count();
-        int stack = debug_get_declared_field_as_int(Moves.class, "STACK_SIZE");
-                     
-        print("@Moves: count="+count+"/"+stack);
-    }
-    
-    //
-    public static void info_legals() 
-    {       
+        //
+        int size = debug_get_declared_field_as_int(Legals.class, "SIZE");
         LinkedHashMap<Long, Move> cache = debug_get_declared_field_as_linked_hash_map(Legals.class, "CACHE");
         Map.Entry[] table = debug_get_field_value_as_map_entry_array(HashMap.class, "table", cache);
 
-        print("@Legals: table="+table.length);
+        //
+        return new int[] {
+            cache.size(),
+            size,
+            table.length
+        };
+    }
+
+    //
+    public static void debug_legals_info()
+    {
+        int[] info = debug_legals_get_info();
+
+        print("@Legals:", "cache="+info[0]+"/"+info[1]  , "table="+info[2]);
     }
 
     //
