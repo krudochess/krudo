@@ -1,6 +1,10 @@
 
 name: krudo suite
 
+analysis:
+  command: fruit
+  protocol: uci
+
 utilities:
   eval:
     command: java -cp build/classes:build/test/classes org.krudo.test.eval.EvalScript {{FEN}}
@@ -12,4 +16,3 @@ databases:
   simple:
     format: epd
     source: res/epd/Silent-but-deadly.epd
-
