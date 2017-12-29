@@ -15,7 +15,7 @@ public class Moves
 {
     //
     private final static int
-    SIZE = (MEMORY_BUFFER << MEMORY_FACTOR);
+    SIZE = (MEMORY_BUFFER << MEMORY_FACTOR) + 100;
 
     //
     private final static Move[]

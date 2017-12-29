@@ -79,7 +79,10 @@ public final class Krudo
 
         // prepare move-stacks
         Moves.init();
-        
+
+        // prepare legals cache
+        Legals.init();
+
         // prepare captures
         Captures.init();
     }

@@ -91,14 +91,14 @@ public final class Search
     }
 
     // public method to start search with large time-limit
-    public final void start(int depth) 
+    public final void start(int depth)
     {    
         // start search time limit 5minutes
         start(depth, TIME_5_MINUTES);
     }
         
     // public method to start search custom time-limit
-    public final void start(int depth, long time) 
+    public final void start(int depth, long time)
     {            
         // reset stop flags
         start = true;

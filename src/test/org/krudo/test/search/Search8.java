@@ -4,14 +4,14 @@
  \IHS/ by Francesco Bianco <bianco@javanile.org>
   \*/
 
-package org.krudo.test.transpos;
+package org.krudo.test.search;
 
 import org.krudo.*;
 import org.junit.jupiter.api.Test;
 
 import static org.krudo.Tool.*;
 
-class Transpos1
+class Search8
 {
     @Test
     void testTranspos()
@@ -23,5 +23,7 @@ class Transpos1
         s.startpos();
 
         s.start(6);
+
+        print(s.id_score);
     }
 }
