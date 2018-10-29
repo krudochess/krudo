@@ -8,11 +8,13 @@
 
     <modelVersion>4.0.0</modelVersion>
     <name>Krudo</name>
+    <groupId>org.krudo</groupId>
     <artifactId>krudo</artifactId>
+    <version>0.20a</version>
 
     <repositories>
         <repository>
-            <id>krudo</id>
+            <id>ork.krudo</id>
             <name>Krudo</name>
             <layout>default</layout>
             <url>http://github.com/krudochess/krudo</url>
@@ -24,26 +26,42 @@
 
     <build>
         <directory>target</directory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
         <outputDirectory>target/classes</outputDirectory>
         <finalName>${artifactId}-${version}</finalName>
         <testOutputDirectory>target/test-classes</testOutputDirectory>
         <sourceDirectory>src/java</sourceDirectory>
         <scriptSourceDirectory>src/java/scripts</scriptSourceDirectory>
         <testSourceDirectory>src/test</testSourceDirectory>
-        <resources>
-            <resource>
-                <directory>src/java/resources</directory>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-        </testResources>
     </build>
 
     <reporting>
         <outputDirectory>target/site</outputDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.0.0</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>checkstyle</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+
     </reporting>
 
     <profiles>
