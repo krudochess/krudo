@@ -27,12 +27,12 @@
         <outputDirectory>target/classes</outputDirectory>
         <finalName>${artifactId}-${version}</finalName>
         <testOutputDirectory>target/test-classes</testOutputDirectory>
-        <sourceDirectory>src/main</sourceDirectory>
-        <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+        <sourceDirectory>src/java</sourceDirectory>
+        <scriptSourceDirectory>src/java/scripts</scriptSourceDirectory>
         <testSourceDirectory>src/test</testSourceDirectory>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>src/java/resources</directory>
             </resource>
         </resources>
         <testResources>
