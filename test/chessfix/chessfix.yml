@@ -1,0 +1,22 @@
+
+name: krudo suite
+
+analysis:
+  command: fruit
+  protocol: uci
+
+utilities:
+  eval:
+    command: java -cp build/production/Krudo:build/test/Krudo org.krudo.test.utilities.EvalUtility {{FEN}}
+
+  perft:
+    command: java -cp build/production/Krudo:build/test/Krudo org.krudo.test.utilities.PerftUtility {{FEN}}
+
+databases:
+  startpos:
+      format: epd
+      source: res/epd/Startpos.epd
+
+  simple:
+    format: epd
+    source: res/epd/Silent-but-deadly.epd

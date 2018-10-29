@@ -1,4 +1,4 @@
-# Krudo 0.16a
+# Krudo 0.20a
 
 | Features                       | Points      |
 | ------------------------------ |:-----------:|
@@ -13,7 +13,7 @@
 | Piece Mobility                 |             |
 | King Safety                    |             |
 | Quiescence Recaptures          |             |
-| Futility Pruning	         |             |
+| Futility Pruning	             |             |
 | Killer Moves                   |             |
 | Late Move Reductions           |             |
 | Late Move Pruning              |             |
@@ -21,6 +21,7 @@
 | Free Passed Pawns              |             |
 | Bishop Pair                    |             |
 | Relative History Heuristic     |             |
+
 DevScore: 0.16
 
 
