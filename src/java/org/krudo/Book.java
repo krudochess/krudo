@@ -21,7 +21,8 @@ import java.io.FileNotFoundException;
 import static org.krudo.Tool.*;
 
 // book access tool
-public final class Book {
+public final class Book
+{
     // end of file flags handler
     private static int eof = 0;
 
@@ -40,12 +41,9 @@ public final class Book {
     // open binary file
     public static void open()
     {
-        //
         try {
-            //
             eof = 0;
 
-            //
             fis = new FileInputStream(BOOKFILE);
         }
 
