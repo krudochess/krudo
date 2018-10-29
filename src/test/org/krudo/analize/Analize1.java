@@ -10,12 +10,14 @@ import static org.krudo.Tool.*;
 
 import org.krudo.*;
 import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Analize1
 {
     @Test
     void testAnalysis()
     {
+        assertEquals(true, true);
         /*
         DEBUG_SHOW_ALGEBRIC = true;
         DEBUG_SHOW_MOVE_WEIGHT = true;

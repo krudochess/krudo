@@ -1,6 +1,7 @@
 /.idea/
-/.testboard/
+/.tb/
 /.testboard.log
+/.testboard.lock
 /build.xml
 /krudo.log
 /manifest.mf
