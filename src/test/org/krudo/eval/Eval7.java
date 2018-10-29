@@ -16,7 +16,7 @@ import org.krudo.*;
 //
 public class Eval7
 {
-    public final static int[] a = new int[] {1,2,3}; 
+   /* public final static int[] a = new int[] {1,2,3};
     
     public final static int[] b = new int[] {5,5,5}; 
     
@@ -32,7 +32,7 @@ public class Eval7
 	//
 	public static void main(String[] args) 
     {
-/*
+*//*
         int o = -100;
         int f = 200 - o;
         
@@ -47,8 +47,8 @@ public class Eval7
         print(bin(wr));
         print(bin(wb));
         print(bin(wn));
-        print(wn & m);*/
+        print(wn & m);*//*
         print(evalpiece(bp, e5, 128));
-	}
+	}*/
 }
 

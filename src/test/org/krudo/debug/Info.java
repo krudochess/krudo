@@ -19,6 +19,7 @@ import static org.krudo.debug.Reflect.*;
 //
 public class Info 
 {
+    /*
     // get info about moves stacks
     public static int[] debug_moves_get_info()
     {
@@ -91,7 +92,7 @@ public class Info
         print("@Captures: stack=" + info[0] + "/" + info[1] + " cache=" + info[2] + "/" + info[3]);
     }
     
-    /*
+    *//*
     
     **** FUNZIONI PER Legals 
         //
@@ -120,10 +121,10 @@ public class Info
     {
         return CACHE.size();
     }
-    */
+    *//*
     
     
-    /*
+    *//*
       //INFO EVAL
     public final static void info()
     {
@@ -133,19 +134,19 @@ public class Info
         //
         print("EvalUtility material (size:"+MATERIAL.size()+" q:"+MATERIAL.queries+" s:"+MATERIAL.success+")");
     }    
-    */
+    *//*
 
 
 
     //
     public static void debug_pvs_info()
     {
-        /*
+        *//*
         print(
                 "PV free",
                 count,
                 count == PV_STACK_SIZE ? "(PERFECT!!)" : "(PROBLEM??)"
-        );*/
+        );*//*
     }
-
+*/
 }

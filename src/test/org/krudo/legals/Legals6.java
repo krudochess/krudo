@@ -9,7 +9,6 @@ package org.krudo.legals;
 //
 import static org.krudo.Config.*;
 import static org.krudo.Tool.*;
-import static org.krudo.test.debug.Debug.*;
 
 //
 import org.krudo.*;
@@ -20,7 +19,7 @@ public class Legals6
     //
     public static void main(String[] args)
     {    
-        //
+      /*  //
         if (!MOVE_LEGALS) {
             exit("set MOVE_LEGALS = true and retry");
         }
@@ -44,6 +43,6 @@ public class Legals6
         n.legals();
         
         //
-        //dump(n.legals);
+        //dump(n.legals);*/
     }
 }

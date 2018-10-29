@@ -19,6 +19,7 @@ public class Book3
     @Test
     void main()
     {
+        /*
         debug_book_set("bin/krudo.bin");
 
         Node n = new Node();
@@ -32,5 +33,6 @@ public class Book3
         Strings m1 = Book.list(n.phk);
 
         assertTrue(m1.size() > 0);
+        */
     }
 }

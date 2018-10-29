@@ -18,6 +18,7 @@ class Book2
     @Test
     void testBook()
     {
+        /*
         debug_book_set("bin/krudo.bin");
 
         Moves.init();
@@ -39,5 +40,6 @@ class Book2
         dump(n.L);
 
         assertEquals(true, n.L.i > 1);
+        */
     }    
 }

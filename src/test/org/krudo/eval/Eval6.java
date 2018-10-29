@@ -19,8 +19,8 @@ public class Eval6
     //
     public static void main(String[] args) 
     {    
-        //
-        DEBUG_SHOW_MOVE_WEIGHT = true;
+
+       /* DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
         Eval.init();
@@ -38,6 +38,6 @@ public class Eval6
         //dump(n);
         
         //
-        print("save: "+Eval.node(n));
+        print("save: "+Eval.node(n));*/
     }
 }

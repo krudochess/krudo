@@ -16,6 +16,7 @@ public class Bench2
     @Test
     void testMoveSplittedArray()
     {
+        /*
         int[] a = new int[100];
         int[] b = new int[100];
         int[] c = new int[100];
@@ -59,5 +60,6 @@ public class Bench2
         print(splitting_array, collected_array);
 
         assertEquals(true, splitting_array < collected_array);
+        */
     }
 }

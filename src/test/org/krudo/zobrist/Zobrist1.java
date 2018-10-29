@@ -14,6 +14,7 @@ public class Zobrist1
 {
     public static void main(String[] args)
     {
+        /*
         String[] tests = {        
             
             //
@@ -69,6 +70,7 @@ public class Zobrist1
                 tests[i+1].equals(hex(n.phk))
             );
             //exit();
-        }                        
+        }
+        */
     }    
 }

@@ -15,6 +15,7 @@ public class Checkmate1 {
     //
     public static void main(String[] args) {
 
+        /*
         Krudo.init();
 
         // link per altri fen:
@@ -51,6 +52,7 @@ public class Checkmate1 {
                 
         t.startpos(fen);
     
-        t.go();        
+        t.go();
+        */
     }    
 }

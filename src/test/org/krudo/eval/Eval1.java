@@ -17,7 +17,7 @@ import org.krudo.*;
 //
 public class Eval1 
 {   
-    //
+   /* //
     public final static void assert_opw(int p0, int s0, int p1, int s1)
     {
         int w0 = Eval.OPW[p0&lo][s0];
@@ -46,7 +46,7 @@ public class Eval1
         assert_opw(wp, f2, bp, f7);
         assert_epw(wk, e4, bk, e4);
         assert_epw(wk, a1, bk, a8);
-	}
+	}*/
 }
 
 

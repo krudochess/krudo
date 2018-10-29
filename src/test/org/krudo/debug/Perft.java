@@ -15,12 +15,10 @@ import org.krudo.Move;
 import org.krudo.Moves;
 import org.krudo.Node;
 import static org.krudo.Tool.rpad;
-import static org.krudo.test.debug.Debug.count_captures;
-import static org.krudo.test.debug.Debug.count_enpassant;
 
 public class Perft 
 {
-    //
+   /* //
 	public final static String perft(
         final Node n,
         final int d
@@ -105,7 +103,7 @@ public class Perft
         //
         Move m = n.legals.sort().twin();
                 
-        /*
+        *//*
         //
         if (m.i == 0) {
             print("mate: "+desc(n.L));   
@@ -120,7 +118,7 @@ public class Perft
                 exit();
             }
         }
-        */
+        *//*
         
         //
         final int l = m.count;
@@ -152,5 +150,5 @@ public class Perft
         
         //
         return c;
-	}  
+	}  */
 }

@@ -13,7 +13,7 @@ public class Search3 {
 
     //
     public static void main(String[] args) {
-        
+        /*
         //
         final Engine e = new Engine();
             
@@ -50,16 +50,16 @@ public class Search3 {
         /*_* /
         dump(e.n.legals());
         /*/        
-        try {
-            //e.start();
-        } catch (Exception ex) {
-            //dump(e.p);
-            //dump(e.p.L);    
-            ex.printStackTrace();
-        }
+//        try {
+//            //e.start();
+//        } catch (Exception ex) {
+//            //dump(e.p);
+//            //dump(e.p.L);
+//            ex.printStackTrace();
+//        }
         /*_*/
         
-            
+
     }
     
 }

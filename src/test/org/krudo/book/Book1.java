@@ -18,6 +18,7 @@ class Book1
     @Test
     void testBook()
     {
+        /*
         long[] nodes = new long[] 
         {
             // starting position
@@ -54,5 +55,6 @@ class Book1
         }
 
         Book.exit();
+        */
     }
 }

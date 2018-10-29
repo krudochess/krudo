@@ -11,10 +11,7 @@ import org.krudo.*;
 
 //
 import static org.krudo.Tool.*;
-import static org.krudo.test.debug.Info.*;
-import static org.krudo.test.debug.Dump.*;
-import static org.krudo.test.debug.Debug.*;
-import static org.krudo.test.debug.Perft.*;
+
 
 //
 public class PerftScript 
@@ -22,7 +19,7 @@ public class PerftScript
     //
     public static void main(String[] args) 
     {           
-        //
+/*        //
         Krudo.init();
         
         //
@@ -36,7 +33,7 @@ public class PerftScript
         {
             //print(info());
                     
-            /*_*/
+            *//*_*//*
             for (int i = 1; i <= 2; i++) 
             {
                 count_incheck = 0;
@@ -52,9 +49,9 @@ public class PerftScript
             //
             debug_legals_info();
             //dump(n);
-            /*/
+            *//*//*
             Perft.table(n,5);
-            /*_*/
+            /*_*//*
         } 
         
         //
@@ -63,6 +60,6 @@ public class PerftScript
             dump(n);
             dump(n.L);
             dump(e);
-        }            
+        }        */
     }    
 }

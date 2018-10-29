@@ -30,6 +30,7 @@ import static org.krudo.debug.Reflect.*;
 //
 public final class Debug 
 {
+	/*
 	//
 	public static boolean DEBUG_SHOW_MOVE_WEIGHT = false;
 	
@@ -141,6 +142,7 @@ public final class Debug
 				//}
 				//n.T ^= t;			
 			}*/
+	/*
 		}
 
 		//
@@ -268,6 +270,6 @@ public final class Debug
 		   }
 	   }
     }
-    
 
+*/
 }

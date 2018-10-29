@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Walk
 {
-    //
+ /*   //
     public static final void debug_walk_book(final Node n, final int u)
     {
         //
@@ -30,7 +30,7 @@ public class Walk
         debug_walk_book(n, u / m.size());
     }
 
-    /*
+    *//*
     // WALK EVAL
     public final static void walk(final Node n, int deep, int width)
     {
@@ -66,7 +66,7 @@ public class Walk
         
         Moves.free(m);
     }
-     */
+     *//*
 
     //
     public final static void walk(final Node n, int depth, int width)
@@ -99,5 +99,5 @@ public class Walk
         //
         Moves.free(m);
     }
-
+*/
 }

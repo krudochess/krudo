@@ -10,7 +10,6 @@ package org.krudo.search;
 import org.krudo.*;
 
 //
-import static org.krudo.test.debug.Debug.*;
 
 // 
 public class Search6 
@@ -18,6 +17,7 @@ public class Search6
     //
     public static void main(String[] args) 
     {
+        /*
         //
         DEBUG_SHOW_MOVE_WEIGHT = true;
         
@@ -39,12 +39,13 @@ public class Search6
         try {
             s.start(14, 5000000);
         } catch (Exception e) {
-            /*
+
             dump(n);        
             dump(n.L);   
             n.legals();
-            dump(n.legals);*/     
+            dump(n.legals);
             e.printStackTrace();            
         }
+        */
     }    
 }

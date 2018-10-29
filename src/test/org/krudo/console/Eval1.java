@@ -19,7 +19,8 @@ public class Eval1
 {
     //
     public static void main(String[] args) 
-    {    
+    {
+        /*
         echo(a1);
         
         //
@@ -44,5 +45,6 @@ public class Eval1
         
         //
         Eval.node(n);
+        */
     }    
 }

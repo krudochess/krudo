@@ -10,7 +10,8 @@ public class Sort1 {
 
     //
     public static void main(String[] args) {
-                
+
+        /*
         // create a node to service the search
         Node n = new Node();
         
@@ -26,7 +27,7 @@ public class Sort1 {
         
         //
        // desc(n, n.legals().sort());
-        
+        */
         
     }    
 }

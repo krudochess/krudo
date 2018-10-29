@@ -18,7 +18,7 @@ public class Legals3
     //
     public static void main(String[] args) 
     {    
-        //
+        /*//
         Moves.init();
 
         //
@@ -43,6 +43,6 @@ public class Legals3
         //dump(n.legals);
         
         //
-        //Legals.dump();
+        //Legals.dump();*/
     }
 }

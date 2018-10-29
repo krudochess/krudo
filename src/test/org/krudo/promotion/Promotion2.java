@@ -17,7 +17,8 @@ public class Promotion2
 {
     //
     public static void main(String[] args) 
-    {              
+    {
+        /*
         //
         Moves.init();
 
@@ -32,5 +33,6 @@ public class Promotion2
         
         //
         //dump(n.legals());
+        */
     }    
 }

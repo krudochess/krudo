@@ -17,7 +17,8 @@ public class Console1
 {
     //
     public static void main(String[] args) 
-    {     
+    {
+        /*
         //
         Console c = new Console();
 
@@ -41,5 +42,6 @@ public class Console1
     
         echo ("----");    
         //echo (c.log());
+        */
     }    
 }

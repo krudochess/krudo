@@ -18,7 +18,7 @@ public class Node1
     //
     public static void main(String[] args) 
     {
-        //
+       /* //
         Node n = new Node();
         
         //
@@ -34,6 +34,6 @@ public class Node1
         n.unmove();
         
         //
-        //dump(n);
+        //dump(n);*/
     }    
 }

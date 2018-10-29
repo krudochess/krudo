@@ -6,7 +6,6 @@
 //
 package org.krudo.search;
 
-import static org.krudo.test.debug.Debug.*;
 
 import org.krudo.*;
 
@@ -16,6 +15,7 @@ public class Search4 {
     //
     public static void main(String[] args) 
     {
+        /*
         //
         Moves.init();
         
@@ -36,5 +36,6 @@ public class Search4 {
           
         //
         //print(perft(n,5));
+        */
     }
 }

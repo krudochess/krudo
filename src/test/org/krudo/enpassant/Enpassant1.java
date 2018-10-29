@@ -18,7 +18,7 @@ public class Enpassant1
     //
     public static void main(String[] args) 
     {              
-        //
+       /* //
         Moves.init();
 
         // create a node to service the search
@@ -47,6 +47,6 @@ public class Enpassant1
         n.legals();
         
         //
-        //dump(n.legals);
+        //dump(n.legals);*/
     }    
 }

@@ -18,7 +18,7 @@ public class Engine3
     //
     public static void main(String[] args) 
     {
-        //
+       /* //
         Moves.init();
         
         // 
@@ -31,6 +31,6 @@ public class Engine3
         e.depth = 4;
     
         //
-        e.go();
+        e.go();*/
     }    
 }

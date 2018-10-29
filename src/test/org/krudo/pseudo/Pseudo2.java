@@ -19,6 +19,7 @@ public class Pseudo2
     //
     public static void main(String[] args)
     {
+        /*
         //
         if (MOVE_LEGALS) {
             exit("set int Config class MOVE_LEGALS = false and retry");
@@ -35,5 +36,6 @@ public class Pseudo2
         
         //
         //dump(n.legals());
+        */
     }    
 }

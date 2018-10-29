@@ -18,6 +18,7 @@ public class Search5
     //
     public static void main(String[] args) 
     {
+        /*
         //
         Krudo.init();
                 
@@ -37,12 +38,13 @@ public class Search5
         try {
             s.start(10, 50000);
         } catch (Exception e) {
-            /*
+
             dump(n);        
             dump(n.L);    
             n.legals(); 
-            dump(n.legals);*/     
+            dump(n.legals);
             e.printStackTrace();            
         }
+        */
     }    
 }

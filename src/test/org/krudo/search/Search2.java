@@ -18,6 +18,7 @@ public class Search2
     //
     public static void main(String[] args) 
     {
+        /*
         //
         SEARCH_CONTROL = true;
         
@@ -38,5 +39,6 @@ public class Search2
         
         //
         // echo(Move.b.size(),Cache.legals.size());
+        */
     }    
 }

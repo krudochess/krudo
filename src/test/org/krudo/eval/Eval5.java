@@ -18,7 +18,7 @@ public class Eval5
 {
     //
     public static void main(String[] args) 
-    {    
+    {  /*
         //
         //DEBUG_SHOW_MOVE_WEIGHT = true;
         
@@ -46,6 +46,6 @@ public class Eval5
         //dump(n.legals.sort());
         
         //
-        //dump(n.L);
+        //dump(n.L);*/
     }
 }

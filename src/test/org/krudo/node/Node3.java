@@ -18,7 +18,7 @@ public class Node3
     //
     public static void main(String[] args) 
     {    
-        //
+       /* //
         DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
@@ -29,7 +29,7 @@ public class Node3
         
         //
         n.domove("e2e4");
-        /*
+        *//*
         //
         Move m = n.legals();
         

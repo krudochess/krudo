@@ -7,7 +7,7 @@
 package org.krudo.legals;
 
 //
-import static org.krudo.test.debug.Info.*;
+
 
 //
 
@@ -16,8 +16,8 @@ import static org.krudo.test.debug.Info.*;
 public class Legals1 
 {
     //
-    public static void main(String[] args)
-    {    
-        debug_legals_info();
-    }
+//    public static void main(String[] args)
+  //  {
+  //      debug_legals_info();
+   // }
 }

@@ -12,6 +12,7 @@ public class Check1 {
     //
     public static void main(String[] args)
     {
+        /*
         //
         Moves.init();
 
@@ -40,5 +41,6 @@ public class Check1 {
             //dump(n);
             e.printStackTrace();
         }
+        */
     }    
 }

@@ -24,7 +24,7 @@ import static org.krudo.Tool.print;
  *
  * @author francescobianco
  */
-public class Dump {
+public class Dump {/*
      //
 	public final static void dump(final PV pv) { print(desc(pv)); }
     
@@ -111,5 +111,5 @@ public class Dump {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    } 
+    } */
 }

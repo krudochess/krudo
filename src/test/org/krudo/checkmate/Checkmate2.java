@@ -18,6 +18,7 @@ public class Checkmate2
     //
     public static void main(String[] args) 
     {
+        /*
         //
         PVs.init();
         
@@ -37,6 +38,7 @@ public class Checkmate2
         //dump(search);
         
         //
-        search.start(1);        
+        search.start(1);
+        */
     }    
 }

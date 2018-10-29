@@ -19,7 +19,8 @@ public class Remaps1
 {
     //
     public static void main(String[] args) 
-    {            
+    {
+        /*
         try {
             Long l = new Long(1000);
             
@@ -43,5 +44,6 @@ public class Remaps1
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
     }    
 }

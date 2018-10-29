@@ -10,7 +10,7 @@ package org.krudo.legals;
 import org.krudo.*;
 
 //
-import static org.krudo.test.debug.Debug.*;
+
 
 //
 public class Legals4 
@@ -18,7 +18,7 @@ public class Legals4
     //
     public static void main(String[] args) 
     {    
-        //
+       /* //
         DEBUG_SHOW_MOVE_WEIGHT = false;
         
         //
@@ -40,6 +40,6 @@ public class Legals4
         //dump(n.legals);
         
         //
-        //dump(n.legals().sort());
+        //dump(n.legals().sort());*/
     }
 }

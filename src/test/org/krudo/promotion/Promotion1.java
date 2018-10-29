@@ -17,11 +17,13 @@ public class Promotion1
 {
     //
     public static void main(String[] args) 
-    {                      
+    {
+        /*
         // create a serach engine based-on the node
         Search s = new Search("k7/8/8/8/8/8/p6P/7K b");
             
         //
         s.start(4);
+        */
     }    
 }

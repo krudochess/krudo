@@ -11,7 +11,8 @@ public class UCI1 {
 
     //
     public static void main(String[] args) {
-        
+
+        /*
         //
         String[] inputs = new String[] {
             "go",
@@ -22,6 +23,7 @@ public class UCI1 {
             
             //
             print(input, "=>", UCI.parse(input));
-        }                
+        }
+        */
     }    
 }

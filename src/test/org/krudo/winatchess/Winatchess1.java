@@ -9,12 +9,12 @@ import org.krudo.*;
 
 import static org.krudo.Tool.*;
 import static org.krudo.Describe.*;
-import static org.krudo.test.debug.Debug.*;
 
 public class Winatchess1 
 {
     public static void main(String[] args) 
-    {        
+    {
+        /*
         DEBUG_SHOW_MOVE_WEIGHT = true;
 
         String[][] epd = EPDReader("./positions/Win-at-Chess.epd");
@@ -79,5 +79,6 @@ public class Winatchess1
         }        
                 
         print("Result:", count_success+"/"+epd.length);
+        */
     }    
 }

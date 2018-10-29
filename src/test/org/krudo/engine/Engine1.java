@@ -16,7 +16,7 @@ public class Engine1 {
     public static void main(String[] args) {
                 
         // 
-        Engine engine = new Engine();
+        //Engine engine = new Engine();
         
         /*\
         +----+
@@ -65,12 +65,12 @@ public class Engine1 {
         \*/
                 
         //
-        long wtime = 1000;
+        //long wtime = 1000;
         
         //
-        long btime = 1000;
+        //long btime = 1000;
         
         //
-        engine.go();
+        //engine.go();
     }    
 }

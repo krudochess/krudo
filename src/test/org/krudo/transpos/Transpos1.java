@@ -16,6 +16,7 @@ class Transpos1
     @Test
     void testTranspos()
     {
+        /*
         Krudo.init();
 
         Search s = new Search();
@@ -23,5 +24,6 @@ class Transpos1
         s.startpos();
 
         s.start(6);
+        */
     }
 }

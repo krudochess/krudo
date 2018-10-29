@@ -18,6 +18,7 @@ class Bench1
     @Test
     void testBench()
     {
+        /*
         int LINE_SIZE = debug_get_declared_field_as_int(Line.class, "SIZE");
 
         long c = 0;
@@ -74,14 +75,17 @@ class Bench1
         long r = t.ratio(c);
 
         print(t.stamp, "ms", c, "loops", r, "kNPS");
+        */
 
         /*
         1818 ms 156250000 loops 85946 kNPS
         1737 ms 156250000 loops 89953 kNPS
         */
 
+        /*
         assertEquals(156250000,  c);
         assertEquals(true,  t.stamp < 2000);
         assertEquals(true,  r > 85000);
+        */
     }
 }

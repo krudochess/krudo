@@ -13,6 +13,7 @@ public class Capture3
     //
     public static void main(String[] args)
     {
+        /*
         //
         Moves.init();
 
@@ -52,5 +53,6 @@ public class Capture3
             //
             e.printStackTrace();
         }
+        */
     }    
 }

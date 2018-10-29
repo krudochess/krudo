@@ -20,6 +20,7 @@ public class Castling4
     //
     public static void main(String[] args) 
     {
+        /*
         //
         Moves.init();
  
@@ -40,5 +41,6 @@ public class Castling4
         
         //
         //dump(n.legals);
+        */
     }    
 }

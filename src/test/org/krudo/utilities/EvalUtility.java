@@ -9,12 +9,12 @@ package org.krudo.utilities;
 import org.krudo.*;
 
 import static org.krudo.Tool.*;
-import static org.krudo.test.debug.Dump.*;
 
 public class EvalUtility
 {
     public static void main(String[] args)
     {
+        /*
         if (args.length > 0) {
             print("Fen:", args[0]);
 
@@ -26,6 +26,7 @@ public class EvalUtility
             dump(n);
             Eval.node(n);
         }
+        */
     }
 }
 

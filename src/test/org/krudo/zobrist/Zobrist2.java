@@ -13,6 +13,7 @@ public class Zobrist2
 {
     public static void main(String[] args) 
     {
+        /*
         Node n = new Node();
         
         String h;
@@ -51,5 +52,6 @@ public class Zobrist2
         n.domove("e8f7");        
         h = "00fdd303c946bdd9";
         print(hex(n.phk), "==", h, "->", h.equals(hex(n.phk)));
+        */
     }    
 }

@@ -18,7 +18,7 @@ public class Eval4
     //
     public static void main(String[] args) 
     {    
-        //
+        /*//
         DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
@@ -31,6 +31,6 @@ public class Eval4
         n.startpos();
         
         //
-        //EvalUtility.walk(n, 27, 1);
+        //EvalUtility.walk(n, 27, 1);*/
     }
 }

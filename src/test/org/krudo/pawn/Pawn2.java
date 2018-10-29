@@ -18,7 +18,7 @@ public class Pawn2 {
     //
     public static void main(String[] args)
     {
-        int wnp = 2;
+       /* int wnp = 2;
         int bnp = 2;
         int wps = 0;
         int bps = 0;
@@ -32,7 +32,7 @@ public class Pawn2 {
         }
        
         
-        print(Eval.pawn_structure(wps,bps));
+        print(Eval.pawn_structure(wps,bps));*/
           
     }    
 }

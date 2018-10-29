@@ -13,7 +13,7 @@ public class Eval1 {
     public static void main(String[] args) {
                 
         // create a node to service the search
-        Node n = new Node();
+        //Node n = new Node();
     
         //
         //dump(n);

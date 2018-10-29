@@ -7,8 +7,8 @@
 package org.krudo.search;
 
 
-  import static org.krudo.Tool.*;
-  import static org.krudo.test.debug.Dump.*;
+import static org.krudo.Tool.*;
+
 
 import org.krudo.*;
 import org.junit.jupiter.api.Test;
@@ -18,6 +18,7 @@ class Search1
     @Test
     void testSearch()
     {
+        /*
         Krudo.init();
                 
         Search s = new Search();
@@ -45,5 +46,6 @@ class Search1
         //PVs.info();
         //Moves.info();
         //Captures.info();
+        */
     }    
 }

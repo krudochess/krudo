@@ -18,6 +18,7 @@ public class Checkmate3
     //
     public static void main(String[] args) 
     {
+        /*
         PVs.init();
         
         Moves.init();
@@ -36,5 +37,6 @@ public class Checkmate3
             //dump(search.node.L);
             e.printStackTrace();
         }
+        */
     }    
 }

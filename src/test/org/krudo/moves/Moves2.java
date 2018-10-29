@@ -9,11 +9,10 @@ package org.krudo.moves;
 import org.krudo.*;
 import org.junit.jupiter.api.Test;
 
-import static org.krudo.test.debug.Info.*;
 
 class Moves2
 {
-    @Test
+   /* @Test
     void testMemoryFactor0()
     {
         Config.MEMORY_FACTOR = 1;
@@ -25,5 +24,5 @@ class Moves2
         debug_moves_info();
         debug_legals_info();
         debug_captures_info();
-    }
+    }*/
 }

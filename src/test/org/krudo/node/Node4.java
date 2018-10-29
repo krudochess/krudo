@@ -18,7 +18,7 @@ public class Node4 {
     //
     public static void main(String[] args) {
         
-        //
+        /*//
         DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
@@ -37,6 +37,6 @@ public class Node4 {
         //Move m = n.legals();
         
         //
-        //dump(m, n);            
+        //dump(m, n);            */
     }    
 }

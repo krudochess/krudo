@@ -10,7 +10,6 @@ import org.krudo.*;
 import org.junit.jupiter.api.Test;
 
 import static org.krudo.Tool.*;
-import static org.krudo.test.debug.Dump.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Castling1
@@ -18,6 +17,7 @@ class Castling1
     @Test
     void testCastling()
     {
+        /*
         Moves.init();
 
         Node n = new Node();
@@ -31,5 +31,6 @@ class Castling1
         dump(n, n.legals);
 
         //assertTrue(contains(n.legals, "e1g1"));
+        */
     }    
 }

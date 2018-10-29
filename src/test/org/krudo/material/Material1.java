@@ -11,15 +11,14 @@ import org.krudo.*;
     
 //
 import static org.krudo.Tool.*;
-import static org.krudo.test.debug.Debug.*;
-    
+
 //
 public class Material1 
 {
     //
     public static void main(String[] args) 
     {    
-        //
+        /*//
         DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
@@ -94,6 +93,6 @@ public class Material1
         //dump(n.M);
         
         //
-        print("save: "+Eval.node(n));
+        print("save: "+Eval.node(n));*/
     }
 }

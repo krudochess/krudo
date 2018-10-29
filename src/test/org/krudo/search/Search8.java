@@ -10,13 +10,13 @@ import org.krudo.*;
 import org.junit.jupiter.api.Test;
 
 import static org.krudo.Tool.*;
-import static org.krudo.test.debug.Dump.*;
 
 class Search8
 {
     @Test
     void testTranspos()
     {
+        /*
         Krudo.init();
 
         Search s = new Search();
@@ -71,7 +71,7 @@ class Search8
 
         */
 
-        print(TT.success,TT.queries);
+        //print(TT.success,TT.queries);
 
     }
 }

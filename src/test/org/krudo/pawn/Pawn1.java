@@ -18,13 +18,13 @@ public class Pawn1 {
     //
     public static void main(String[] args) {
 
-        //
+      /*  //
         Node n = new Node();
         
         //
         n.startpos();
          
         //
-        
+        */
     }    
 }

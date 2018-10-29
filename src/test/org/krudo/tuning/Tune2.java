@@ -10,7 +10,8 @@ public class Tune2
 {
     //
     public static void main(String[] args) 
-    {                
+    {
+        /*
         // create a node to service the search
         Search s = new Search();
         
@@ -22,6 +23,7 @@ public class Tune2
         
         //
         //dump(s);
-        //dump(n.legals());                
+        //dump(n.legals());
+        */
     }    
 }

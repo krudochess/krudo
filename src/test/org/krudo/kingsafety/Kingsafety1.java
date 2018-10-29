@@ -18,7 +18,7 @@ public class Kingsafety1
     //
     public static void main(String[] args) 
     {              
-        //
+       /* //
         Moves.init();
 
         // create a node to service the search
@@ -34,6 +34,6 @@ public class Kingsafety1
         print("white king safety:", Eval.white_king_safety(n));
 
         //
-        print("black king safety:", Eval.black_king_safety(n));
+        print("black king safety:", Eval.black_king_safety(n));*/
     }    
 }

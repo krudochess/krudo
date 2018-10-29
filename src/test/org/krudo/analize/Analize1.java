@@ -7,9 +7,6 @@
 package org.krudo.analize;
 
 import static org.krudo.Tool.*;
-import static org.krudo.test.debug.Debug.*;
-import static org.krudo.test.debug.Reflect.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.krudo.*;
 import org.junit.jupiter.api.*;
@@ -19,6 +16,7 @@ class Analize1
     @Test
     void testAnalysis()
     {
+        /*
         DEBUG_SHOW_ALGEBRIC = true;
         DEBUG_SHOW_MOVE_WEIGHT = true;
               
@@ -41,6 +39,7 @@ class Analize1
         //dump(s.node);
         //dump(s.node.legals.sort());
         
-        s.start(20, 30000);                
+        s.start(20, 30000);
+        */
     }    
 }

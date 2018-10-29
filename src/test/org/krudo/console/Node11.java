@@ -10,7 +10,7 @@ public class Node11 {
 
     //
     public static void main(String[] args) {
-        
+        /*
         // 
         Node n = new Node();
         
@@ -19,5 +19,6 @@ public class Node11 {
             
         // print out position
         //dump(n);
+        */
     }    
 }

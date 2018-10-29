@@ -17,7 +17,7 @@ public class Link1 {
     public static void main(String[] args) {
 
         
-        print(LINK[e2][d5]);
+      //  print(LINK[e2][d5]);
         
         
     }    

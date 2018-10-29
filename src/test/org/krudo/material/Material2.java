@@ -10,15 +10,14 @@ package org.krudo.material;
 import org.krudo.*;
     
 //
-import static org.krudo.test.debug.Debug.*;
-    
+
 //
 public class Material2 
 {
     //
     public static void main(String[] args) 
     {    
-        //
+       /* //
         DEBUG_SHOW_MOVE_WEIGHT = true;
         
         //
@@ -43,6 +42,6 @@ public class Material2
         n.unmove();
         
         //
-        //dump(n);
+        //dump(n);*/
     }
 }

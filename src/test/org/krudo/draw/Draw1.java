@@ -46,12 +46,12 @@ public class Draw1
         // 3r2k1/b1p3p1/p2p2np/4p3/1PP5/P4PPq/2RB1P2/4QRK1 b
         // 8/2Q1p1kp/6p1/p3Pp1n/1r1B2P1/1p2PP1P/7K/8 w
                 
-        String fen = "8/4r2k/pp1p2r1/8/1PP2pqp/3Q4/P1N2Kb1/6RR b";
+      /*  String fen = "8/4r2k/pp1p2r1/8/1PP2pqp/3Q4/P1N2Kb1/6RR b";
         
         final Engine t = new Engine();
                 
         t.startpos(fen);
     
-        t.go();        
+        t.go();        */
     }    
 }

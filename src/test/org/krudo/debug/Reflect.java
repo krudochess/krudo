@@ -18,7 +18,7 @@ import static org.krudo.Tool.*;
 
 //
 public final class Reflect
-{    
+{    /*
     public static int debug_get_declared_field_as_int(Class c, String field)
     {    
         int v = 0;
@@ -132,5 +132,5 @@ public final class Reflect
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
