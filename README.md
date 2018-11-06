@@ -1,4 +1,7 @@
 # Krudo 0.20a
+[![Build Status](https://travis-ci.org/krudochess/krudo.svg?branch=master)](https://travis-ci.org/krudochess/krudo)
+[![codecov](https://codecov.io/gh/krudochess/krudo/branch/master/graph/badge.svg)](https://codecov.io/gh/krudochess/krudo)
+[![codebeat badge](https://codebeat.co/badges/32628939-3439-4309-959b-09c81bbae3b4)](https://codebeat.co/projects/github-com-krudochess-krudo-master)
 
 ## TODO
 - add coverage https://github.com/howtoprogram/junit5-examples/tree/master/junit5-maven-jacoco-example
