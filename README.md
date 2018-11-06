@@ -1,5 +1,8 @@
 # Krudo 0.20a
 
+## TODO
+- add coverage https://github.com/howtoprogram/junit5-examples/tree/master/junit5-maven-jacoco-example
+
 | Features                       | Points      |
 | ------------------------------ |:-----------:|
 | Tapered Evaluation             | :star:      |
