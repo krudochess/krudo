@@ -11,13 +11,16 @@ import static org.krudo.Tool.*;
 import org.krudo.*;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.krudo.Parse.*;
 
-class Analize1
+class AnalizeTest
 {
     @Test
     void testAnalysis()
     {
-        assertEquals(true, true);
+
+
+        assertEquals(parse_square("e4"), 28);
         /*
         DEBUG_SHOW_ALGEBRIC = true;
         DEBUG_SHOW_MOVE_WEIGHT = true;
